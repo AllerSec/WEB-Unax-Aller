@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Torso -->
+    <path d="M68 32 Q58 40 58 58 L58 140 Q58 160 72 172 L100 180 L128 172 Q142 160 142 140 L142 58 Q142 40 132 32 Q116 28 100 28 Q84 28 68 32 Z" fill="#faf9f4"/>
+    <!-- Rib hint -->
+    <path d="M72 50 Q100 44 128 50" opacity="0.4"/>
+    <!-- Center line -->
+    <path d="M100 58 L100 160" opacity="0.4"/>
+    <!-- Abs 6-pack -->
+    <rect x="82" y="62" width="16" height="20" rx="3" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <rect x="102" y="62" width="16" height="20" rx="3" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <rect x="82" y="86" width="16" height="20" rx="3" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <rect x="102" y="86" width="16" height="20" rx="3" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <rect x="82" y="110" width="16" height="20" rx="3" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <rect x="102" y="110" width="16" height="20" rx="3" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <!-- Obliques -->
+    <path d="M66 70 Q62 100 68 140" opacity="0.5"/>
+    <path d="M134 70 Q138 100 132 140" opacity="0.5"/>
+    <path d="M70 90 L80 96 M70 114 L80 118 M130 90 L120 96 M130 114 L120 118" opacity="0.4"/>
+  </g>
+  <text x="100" y="194" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">CORE</text>
+</svg>

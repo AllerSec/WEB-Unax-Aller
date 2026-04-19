@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Head (back view) -->
+    <circle cx="100" cy="46" r="18" fill="#faf9f4"/>
+    <path d="M94 52 L94 58 M106 52 L106 58" opacity="0.4"/>
+    <!-- Neck -->
+    <path d="M88 62 L86 76 M112 62 L114 76"/>
+    <!-- Upper trapezius (large diamond shape) -->
+    <path d="M86 76 Q100 70 114 76 L146 104 Q142 118 130 116 Q100 112 70 116 Q58 118 54 104 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.92"/>
+    <!-- Mid/lower trap suggestion -->
+    <path d="M70 116 Q90 130 100 140 Q110 130 130 116" opacity="0.55"/>
+    <path d="M100 76 L100 156" opacity="0.45" stroke-dasharray="2 3"/>
+    <!-- Shoulders -->
+    <circle cx="54" cy="104" r="10" fill="#faf9f4"/>
+    <circle cx="146" cy="104" r="10" fill="#faf9f4"/>
+    <!-- Torso -->
+    <path d="M70 116 L70 170 L130 170 L130 116" fill="#faf9f4"/>
+    <!-- Spine -->
+    <path d="M100 116 L100 170" opacity="0.4"/>
+  </g>
+  <text x="100" y="188" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">TRAPECIO</text>
+</svg>

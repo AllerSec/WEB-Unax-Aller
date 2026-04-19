@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Shoulder (back view) -->
+    <circle cx="70" cy="58" r="16" fill="#faf9f4"/>
+    <!-- Upper arm extending down -->
+    <path d="M62 70 L54 130 Q56 138 70 138 Q84 138 84 130 L80 70 Z" fill="#faf9f4"/>
+    <!-- Triceps three heads -->
+    <path d="M62 80 Q56 104 62 126" fill="#b4cdb8" stroke="#4d6453" opacity="0.85"/>
+    <path d="M70 80 L70 126" stroke="#4d6453" opacity="0.55"/>
+    <path d="M80 80 Q84 104 80 126" fill="#b4cdb8" stroke="#4d6453" opacity="0.85"/>
+    <!-- Horseshoe hint -->
+    <path d="M60 126 Q70 132 82 126" opacity="0.5"/>
+    <!-- Forearm (hanging) -->
+    <path d="M58 138 L48 180 Q52 184 60 182 L72 142" fill="#faf9f4"/>
+    <path d="M84 138 L94 180 Q98 184 104 178 L90 142" fill="#faf9f4"/>
+  </g>
+  <text x="100" y="194" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">TRÍCEPS</text>
+</svg>

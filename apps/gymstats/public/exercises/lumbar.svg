@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Back outline -->
+    <path d="M68 32 L68 170 L132 170 L132 32 Z" fill="#faf9f4"/>
+    <!-- Spine -->
+    <path d="M100 32 L100 170" opacity="0.4"/>
+    <!-- Upper back hint -->
+    <path d="M70 50 Q100 46 130 50" opacity="0.3"/>
+    <path d="M70 70 Q100 66 130 70" opacity="0.3"/>
+    <!-- Erector spinae (lumbar columns) -->
+    <path d="M84 82 Q78 120 84 158 Q90 162 96 158 Q98 120 94 82 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.95"/>
+    <path d="M116 82 Q122 120 116 158 Q110 162 104 158 Q102 120 106 82 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.95"/>
+    <!-- Lumbar lines -->
+    <path d="M76 120 L124 120" opacity="0.3"/>
+    <path d="M76 140 L124 140" opacity="0.3"/>
+    <!-- Glute tops -->
+    <path d="M68 170 Q82 176 98 172 Q100 172 102 172 Q118 176 132 170"/>
+  </g>
+  <text x="100" y="188" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">LUMBAR</text>
+</svg>

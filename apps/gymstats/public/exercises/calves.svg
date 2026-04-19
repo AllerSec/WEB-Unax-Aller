@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Knees -->
+    <circle cx="74" cy="40" r="10" fill="#faf9f4"/>
+    <circle cx="126" cy="40" r="10" fill="#faf9f4"/>
+    <!-- Left calf -->
+    <path d="M66 48 Q56 90 62 140 Q70 148 82 148 Q90 140 90 110 L84 48 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.92"/>
+    <!-- Right calf -->
+    <path d="M116 48 L110 110 Q110 140 118 148 Q130 148 138 140 Q144 90 134 48 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.92"/>
+    <!-- Gastrocnemius separation -->
+    <path d="M74 56 Q66 100 74 134" opacity="0.5"/>
+    <path d="M126 56 Q134 100 126 134" opacity="0.5"/>
+    <!-- Achilles hint -->
+    <path d="M76 148 L72 168 M124 148 L128 168"/>
+    <!-- Feet -->
+    <path d="M58 174 L84 174 L88 184 L56 184 Z" fill="#faf9f4"/>
+    <path d="M112 174 L138 174 L144 184 L116 184 Z" fill="#faf9f4"/>
+  </g>
+  <text x="100" y="196" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">GEMELOS</text>
+</svg>

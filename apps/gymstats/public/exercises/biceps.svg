@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Shoulder -->
+    <circle cx="62" cy="62" r="18" fill="#faf9f4"/>
+    <!-- Upper arm (flexed) -->
+    <path d="M60 76 Q58 108 80 128" fill="#faf9f4"/>
+    <path d="M74 82 Q92 102 96 128" fill="#faf9f4"/>
+    <!-- Biceps peak -->
+    <path d="M62 88 Q55 102 64 118 Q76 122 88 118 Q92 102 82 88 Q72 82 62 88 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <!-- Forearm (bent up) -->
+    <path d="M80 128 Q88 130 96 128 L130 92 Q135 86 132 80 Q126 76 120 80 L88 112" fill="#faf9f4"/>
+    <!-- Fist -->
+    <circle cx="128" cy="82" r="12" fill="#faf9f4"/>
+    <path d="M121 78 L123 74 M128 76 L130 72 M135 78 L137 74" opacity="0.5"/>
+    <!-- Muscle lines -->
+    <path d="M72 94 Q72 106 72 114" opacity="0.35"/>
+    <path d="M80 92 Q80 106 80 116" opacity="0.35"/>
+  </g>
+  <text x="100" y="190" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">BÍCEPS</text>
+</svg>

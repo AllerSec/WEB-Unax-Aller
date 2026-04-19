@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Bike wheels -->
+    <circle cx="58" cy="128" r="26" fill="#faf9f4"/>
+    <circle cx="58" cy="128" r="20" opacity="0.3"/>
+    <circle cx="58" cy="128" r="3" fill="#4d6453"/>
+    <path d="M58 108 L58 148 M38 128 L78 128 M44 114 L72 142 M72 114 L44 142" opacity="0.5"/>
+    <circle cx="142" cy="128" r="26" fill="#faf9f4"/>
+    <circle cx="142" cy="128" r="20" opacity="0.3"/>
+    <circle cx="142" cy="128" r="3" fill="#4d6453"/>
+    <path d="M142 108 L142 148 M122 128 L162 128 M128 114 L156 142 M156 114 L128 142" opacity="0.5"/>
+    <!-- Frame -->
+    <path d="M58 128 L100 80 L142 128" fill="#b4cdb8" opacity="0.7"/>
+    <path d="M100 80 L100 50" stroke-width="2"/>
+    <path d="M90 50 L114 50" stroke-width="2" stroke-linecap="round"/>
+    <!-- Seat -->
+    <path d="M78 72 L98 68 L100 78" stroke-width="2" fill="#4d6453" opacity="0.85"/>
+    <!-- Pedal crank -->
+    <circle cx="100" cy="128" r="4" fill="#4d6453"/>
+    <path d="M100 128 L88 136" stroke-width="2"/>
+    <path d="M100 128 L112 120" stroke-width="2"/>
+    <!-- Heart beats line -->
+    <path d="M30 40 L50 40 L56 28 L64 52 L72 40 L170 40" opacity="0.6" stroke-width="1.5"/>
+  </g>
+  <text x="100" y="180" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">CARDIO</text>
+</svg>

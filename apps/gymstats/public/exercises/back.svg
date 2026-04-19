@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Back torso outline -->
+    <path d="M65 52 Q55 58 54 72 L52 112 Q52 132 60 150 L72 168 Q85 174 100 174 Q115 174 128 168 L140 150 Q148 132 148 112 L146 72 Q145 58 135 52 Q118 48 100 48 Q82 48 65 52 Z" fill="#faf9f4"/>
+    <!-- Neck -->
+    <path d="M90 50 L90 42 Q90 35 100 35 Q110 35 110 42 L110 50"/>
+    <!-- Spine -->
+    <path d="M100 56 L100 168" stroke-dasharray="2 3" opacity="0.5"/>
+    <!-- Trapezius -->
+    <path d="M72 52 Q86 58 100 60 Q114 58 128 52 L128 80 Q114 76 100 76 Q86 76 72 80 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.7"/>
+    <!-- Lats (left) -->
+    <path d="M62 90 Q72 100 78 120 L80 148 Q72 144 64 132 Q56 118 58 100 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.85"/>
+    <!-- Lats (right) -->
+    <path d="M138 90 Q128 100 122 120 L120 148 Q128 144 136 132 Q144 118 142 100 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.85"/>
+    <!-- Lower back hint -->
+    <path d="M78 148 Q100 156 122 148" opacity="0.4"/>
+  </g>
+  <text x="100" y="190" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">ESPALDA</text>
+</svg>

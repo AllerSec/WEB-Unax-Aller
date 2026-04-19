@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+  <rect width="200" height="200" fill="#efeee9"/>
+  <g stroke="#4d6453" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Hip line -->
+    <path d="M60 34 L140 34 L138 54 L62 54 Z" fill="#faf9f4"/>
+    <!-- Left quad -->
+    <path d="M64 56 Q56 100 66 150 Q74 156 86 156 Q94 150 96 110 L92 56 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <!-- Right quad -->
+    <path d="M108 56 L104 110 Q106 150 114 156 Q126 156 134 150 Q144 100 136 56 Z" fill="#b4cdb8" stroke="#4d6453" opacity="0.9"/>
+    <!-- Muscle separations (quadriceps heads) -->
+    <path d="M76 64 Q70 100 76 140" opacity="0.45"/>
+    <path d="M84 64 L84 140" stroke-dasharray="2 3" opacity="0.4"/>
+    <path d="M116 64 L116 140" stroke-dasharray="2 3" opacity="0.4"/>
+    <path d="M124 64 Q130 100 124 140" opacity="0.45"/>
+    <!-- Knee hints -->
+    <circle cx="80" cy="160" r="6" fill="#faf9f4"/>
+    <circle cx="120" cy="160" r="6" fill="#faf9f4"/>
+    <!-- Lower legs -->
+    <path d="M74 164 L70 184 M86 164 L90 184 M114 164 L110 184 M126 164 L130 184"/>
+  </g>
+  <text x="100" y="196" text-anchor="middle" font-family="Manrope, sans-serif" font-size="8" fill="#737973" letter-spacing="2">CUÁDRICEPS</text>
+</svg>
