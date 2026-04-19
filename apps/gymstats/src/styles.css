@@ -66,8 +66,29 @@ html, body, #root {
 body {
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   overscroll-behavior-y: contain;
   overflow-x: hidden;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Avoid iOS auto-zoom on focus: inputs must be >=16px */
+@media (hover: none) and (pointer: coarse) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+button, [role="button"], a {
+  touch-action: manipulation;
+}
+
+/* Minimum tap target on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  button, [role="button"], a {
+    min-height: 44px;
+  }
 }
 
 /* Hide default cursor when custom cursor is active (desktop only) */
@@ -338,6 +359,10 @@ input[type='number'] { -moz-appearance: textfield; }
   .safe-top { padding-top: max(16px, var(--safe-top)); }
   .safe-bottom { padding-bottom: max(20px, var(--safe-bottom)); }
 }
+
+/* Dynamic viewport for mobile browser chrome */
+.min-h-dvh { min-height: 100vh; min-height: 100dvh; }
+.h-dvh { height: 100vh; height: 100dvh; }
 
 /* Dot separator */
 .dot-sep::before {

@@ -33,7 +33,6 @@ export default function ContactForm({ locale }: Props) {
     t("budgetOptions.1"),
     t("budgetOptions.2"),
     t("budgetOptions.3"),
-    t("budgetOptions.4"),
   ];
 
   const validate = () => {

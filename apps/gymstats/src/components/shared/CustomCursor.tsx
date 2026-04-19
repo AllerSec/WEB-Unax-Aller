@@ -1,13 +1,27 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
+function isFinePointer(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+}
+
 export function CustomCursor() {
+  const [enabled, setEnabled] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const hoveringRef = useRef(false);
 
   useEffect(() => {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+    setEnabled(isFinePointer());
+    const mql = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const onChange = () => setEnabled(mql.matches);
+    mql.addEventListener?.('change', onChange);
+    return () => mql.removeEventListener?.('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
@@ -92,7 +106,9 @@ export function CustomCursor() {
       document.removeEventListener('mouseover', deEnter);
       document.removeEventListener('mouseout', deLeave);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <>

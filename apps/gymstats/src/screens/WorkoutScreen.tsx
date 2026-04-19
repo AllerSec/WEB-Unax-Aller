@@ -263,8 +263,9 @@ export function WorkoutScreen({ dayType, history, onFinish, onExit }: Props) {
                 <button
                   key={e.exerciseId}
                   onClick={() => { setExIdx(i); setSetIdx(0); hapticTick(); }}
-                  className="snap-start shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium uppercase tracking-wider transition border"
+                  className="snap-start shrink-0 px-4 py-2.5 rounded-full text-[12px] font-medium uppercase tracking-wider transition border"
                   style={{
+                    touchAction: 'manipulation',
                     background: active
                       ? 'var(--primary)'
                       : e.skipped
@@ -287,6 +288,7 @@ export function WorkoutScreen({ dayType, history, onFinish, onExit }: Props) {
                         ? `${routine.color}45`
                         : 'var(--outline-variant)',
                     textDecoration: e.skipped ? 'line-through' : undefined,
+                    minHeight: 40,
                   }}
                 >
                   {i + 1}. {e.exerciseName}
@@ -374,17 +376,19 @@ export function WorkoutScreen({ dayType, history, onFinish, onExit }: Props) {
             <div className="mt-6 grid grid-cols-2 gap-3">
               <button
                 onClick={failSet}
-                className="btn-danger inline-flex items-center justify-center gap-2"
+                className="btn-danger inline-flex items-center justify-center gap-2 text-base"
+                style={{ minHeight: 56, padding: '16px 20px', touchAction: 'manipulation' }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 Fallada
               </button>
               <button
                 onClick={completeSet}
                 disabled={currentSet.weight == null || currentSet.reps == null}
-                className="btn-primary inline-flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="btn-primary inline-flex items-center justify-center gap-2 text-base disabled:opacity-40 disabled:cursor-not-allowed"
+                style={{ minHeight: 56, padding: '16px 20px', touchAction: 'manipulation' }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 Completada
               </button>
             </div>
@@ -395,7 +399,7 @@ export function WorkoutScreen({ dayType, history, onFinish, onExit }: Props) {
                 <button
                   key={i}
                   onClick={() => setSetIdx(i)}
-                  className="flex-1 h-10 rounded-xl2 text-xs font-mono font-bold transition border"
+                  className="flex-1 rounded-xl2 text-sm font-mono font-bold transition border"
                   style={{
                     background: i === setIdx
                       ? 'var(--primary)'
@@ -419,6 +423,8 @@ export function WorkoutScreen({ dayType, history, onFinish, onExit }: Props) {
                           ? 'rgba(186, 26, 26, 0.25)'
                           : 'var(--outline-variant)',
                     borderRadius: 10,
+                    minHeight: 48,
+                    touchAction: 'manipulation',
                   }}
                 >
                   {s.completed ? (s.failed ? '✗' : '✓') : i + 1}

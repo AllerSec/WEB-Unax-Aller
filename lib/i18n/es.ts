@@ -10,7 +10,7 @@ const es = {
   hero: {
     title: "Diseño y desarrollo web premium que eleva tu negocio.",
     subtitle:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.200€.",
+      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.300€, IVA incluido.",
     cta: "Agenda una consulta gratuita",
     cta2: "Ver Planes",
     badge: "Basque Country · España",
@@ -83,85 +83,31 @@ const es = {
   pricing: {
     title: "Inversión en Excelencia",
     subtitle:
-      "Planes claros, resultados medibles. Sin sorpresas, sin letras pequeñas.",
+      "Un único plan, todo incluido. Sin sorpresas, sin letras pequeñas.",
     from: "Desde",
     month: "/mes",
-    popular: "Más popular",
-    cta: "Empezar con este plan",
+    popular: "Recomendado",
+    cta: "Empezar ahora",
     ctaContact: "Contactar",
+    notePrice:
+      "Precio orientativo: con ese presupuesto se cubre prácticamente todo. Para proyectos con más alcance ajustamos al alza.",
     plans: [
       {
-        name: "Plan Essential",
-        subtitle: "Web Local",
-        price: "1.200€",
+        name: "Plan Completo",
+        subtitle: "Web a medida",
+        price: "1.300€",
         description:
-          "La base perfecta para negocios locales que quieren destacar online.",
+          "Todo lo que necesitas para lanzar una web profesional, rápida y que convierta. IVA incluido.",
         features: [
-          "Diseño a medida adaptado a móvil",
-          "Hasta 4 páginas",
-          "Formulario de contacto",
-          "Posicionamiento en Google Maps",
-          "SEO básico incluido",
-          "Entrega en 2 semanas",
-        ],
-      },
-      {
-        name: "Plan Visionary",
-        subtitle: "Web Profesional",
-        price: "1.800€",
-        description:
-          "Para empresas que quieren diferenciarse con diseño y tecnología premium.",
-        features: [
-          "Diseño premium con animaciones",
-          "Hasta 8 páginas",
-          "SEO técnico completo",
-          "Galería o carrusel de servicios",
-          "Entrega en 3 semanas",
-          "Google Analytics integrado",
-        ],
-        popular: true,
-      },
-      {
-        name: "Plan Excellence",
-        subtitle: "Web Premium",
-        price: "2.800€",
-        description:
-          "La experiencia más completa para marcas que no aceptan compromisos.",
-        features: [
-          "Diseño exclusivo con animaciones avanzadas",
-          "Páginas ilimitadas",
-          "Multi-idioma (hasta 3 idiomas)",
-          "SEO completo + GMB optimizado",
-          "Identidad visual incluida",
-          "Soporte prioritario 3 meses",
+          "Diseño premium a medida con animaciones",
+          "Páginas necesarias para tu proyecto",
+          "SEO técnico completo + Google Analytics",
+          "Multi-idioma si lo necesitas",
+          "Adaptada a móvil desde el primer pixel",
+          "Dominio, hosting y SSL el primer año",
         ],
       },
     ],
-    maintenance: {
-      title: "Mantenimiento Web",
-      subtitle: "Tranquilidad total, mes a mes.",
-      basic: {
-        name: "Básico",
-        price: "49€",
-        features: [
-          "Actualizaciones de seguridad",
-          "Copias de seguridad semanales",
-          "Monitorización de uptime",
-          "Soporte por email",
-        ],
-      },
-      complete: {
-        name: "Completo",
-        price: "79€",
-        features: [
-          "Todo lo del plan Básico",
-          "Actualizaciones de contenido",
-          "Informes mensuales SEO",
-          "Soporte prioritario",
-          "Cambios menores incluidos",
-        ],
-      },
-    },
   },
   about: {
     title: "Sobre Unax Aller",
@@ -238,10 +184,9 @@ const es = {
         "¡Mensaje enviado! Te contactaremos en menos de 24 horas.",
       error: "Error al enviar. Por favor, intenta de nuevo.",
       budgetOptions: [
-        "Menos de 1.200€",
-        "1.200€ – 1.800€",
-        "1.800€ – 2.800€",
-        "Más de 2.800€",
+        "1.300€ (plan estándar)",
+        "1.500€ – 2.500€",
+        "Más de 2.500€",
         "No lo tengo claro",
       ],
     },

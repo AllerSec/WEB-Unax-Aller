@@ -30,18 +30,19 @@ export function WeightInput({ value, onChange, onBlurSyncForward, accent }: Prop
   }
 
   return (
-    <div className="flex items-stretch gap-2">
+    <div className="flex items-stretch gap-2" style={{ minHeight: 56 }}>
       <button
         type="button"
         onClick={() => step(-2.5)}
-        className="w-12 rounded-xl2 bg-surface-container border border-ink-line text-xl text-primary-tint hover:border-primary-tint hover:bg-surface-container-high active:scale-95 transition"
-        style={{ borderRadius: 14 }}
+        className="w-14 sm:w-12 rounded-xl2 bg-surface-container border border-ink-line text-2xl text-primary-tint hover:border-primary-tint hover:bg-surface-container-high active:scale-95 transition select-none"
+        style={{ borderRadius: 14, minHeight: 56, touchAction: 'manipulation' }}
         aria-label="Bajar peso"
       >−</button>
       <div className="flex-1 relative">
         <input
           inputMode="decimal"
           type="text"
+          enterKeyHint="done"
           value={text}
           onChange={(e) => {
             const cleaned = e.target.value.replace(/[^0-9.,]/g, '');
@@ -52,15 +53,15 @@ export function WeightInput({ value, onChange, onBlurSyncForward, accent }: Prop
           onBlur={() => { if (value != null && onBlurSyncForward) onBlurSyncForward(value); }}
           placeholder="0"
           className="input-base w-full h-full font-serif text-3xl font-light text-center"
-          style={{ caretColor: accent }}
+          style={{ caretColor: accent, minHeight: 56 }}
         />
-        <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] text-ink-outline font-semibold uppercase tracking-[0.2em] pointer-events-none">kg</span>
+        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-ink-outline font-semibold uppercase tracking-[0.2em] pointer-events-none">kg</span>
       </div>
       <button
         type="button"
         onClick={() => step(2.5)}
-        className="w-12 rounded-xl2 bg-surface-container border border-ink-line text-xl text-primary-tint hover:border-primary-tint hover:bg-surface-container-high active:scale-95 transition"
-        style={{ borderRadius: 14 }}
+        className="w-14 sm:w-12 rounded-xl2 bg-surface-container border border-ink-line text-2xl text-primary-tint hover:border-primary-tint hover:bg-surface-container-high active:scale-95 transition select-none"
+        style={{ borderRadius: 14, minHeight: 56, touchAction: 'manipulation' }}
         aria-label="Subir peso"
       >+</button>
     </div>

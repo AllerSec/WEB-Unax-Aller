@@ -10,7 +10,7 @@ const eu = {
   hero: {
     title: "Web diseinu eta garapen premium-ak zure negozioa altxatzen du.",
     subtitle:
-      "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. 1.200€-tik.",
+      "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. 1.300€-tik, BEZ barne.",
     cta: "Doako kontsulta antolatu",
     cta2: "Planak ikusi",
     badge: "Euskal Herria · Espainia",
@@ -83,85 +83,31 @@ const eu = {
   pricing: {
     title: "Bikaintasunean Inbertsioa",
     subtitle:
-      "Plan argiak, emaitza neurgarriak. Sorpresarik gabe, letra txikirik gabe.",
+      "Plan bakarra, dena barne. Sorpresarik gabe, letra txikirik gabe.",
     from: "Honetatik",
     month: "/hil",
-    popular: "Ezagunena",
-    cta: "Plan honekin hasi",
+    popular: "Gomendatua",
+    cta: "Hasi orain",
     ctaContact: "Kontaktatu",
+    notePrice:
+      "Erreferentziazko prezioa: aurrekontu horrekin ia guztia estaltzen da. Proiektu handiagoetarako gora egokitzen dugu.",
     plans: [
       {
-        name: "Essential Plana",
-        subtitle: "Web Lokala",
-        price: "1.200€",
+        name: "Plan Osoa",
+        subtitle: "Neurrira egindako Weba",
+        price: "1.300€",
         description:
-          "Online nabarmendu nahi duten tokiko negozioetarako oinarri ezin hobea.",
+          "Web profesional, azkar eta bihurtzaile bat abiarazteko behar duzun guztia. BEZ barne.",
         features: [
-          "Mugikorrara egokitutako diseinu pertsonalizatua",
-          "4 orri arte",
-          "Kontaktu formularioa",
-          "Google Maps-en kokapena",
-          "Oinarrizko SEO barne",
-          "2 astetan entregatu",
-        ],
-      },
-      {
-        name: "Visionary Plana",
-        subtitle: "Web Profesionala",
-        price: "1.800€",
-        description:
-          "Premium diseinu eta teknologiarekin nabarmendu nahi duten enpresetarako.",
-        features: [
-          "Animazioekin diseinu premium-a",
-          "8 orri arte",
-          "SEO tekniko osoa",
-          "Galeria edo zerbitzu karrusela",
-          "3 astetan entregatu",
-          "Google Analytics integratua",
-        ],
-        popular: true,
-      },
-      {
-        name: "Excellence Plana",
-        subtitle: "Web Premium",
-        price: "2.800€",
-        description:
-          "Konpromezurik onartzen ez duten markentzako esperientziarik osatuena.",
-        features: [
-          "Animazio aurreratuekin diseinu esklusiboak",
-          "Mugagabeko orriak",
-          "Hizkuntza anitz (3 hizkuntzara arte)",
-          "SEO osoa + GMB optimizatua",
-          "Ikusizko identitatea barne",
-          "Lehentasunezko laguntza 3 hilabetez",
+          "Neurrira egindako diseinu premium-a animazioekin",
+          "Zure proiektuak behar adina orri",
+          "SEO tekniko osoa + Google Analytics",
+          "Hizkuntza anitz behar izanez gero",
+          "Mugikorrera egokitua lehen pixeletik",
+          "Domeinua, hostinga eta SSL lehen urtean",
         ],
       },
     ],
-    maintenance: {
-      title: "Web Mantentze-lanak",
-      subtitle: "Lasaitasun osoa, hilez hil.",
-      basic: {
-        name: "Oinarrizkoa",
-        price: "49€",
-        features: [
-          "Segurtasun eguneraketak",
-          "Asteko segurtasun kopiak",
-          "Uptime monitorizazioa",
-          "Posta elektronikoaren bidezko laguntza",
-        ],
-      },
-      complete: {
-        name: "Osoa",
-        price: "79€",
-        features: [
-          "Oinarrizko planeko guztia",
-          "Eduki eguneraketak",
-          "Hileko SEO txostenak",
-          "Lehentasunezko laguntza",
-          "Aldaketa txikiak barne",
-        ],
-      },
-    },
   },
   about: {
     title: "Unax Aller buruz",
@@ -238,10 +184,9 @@ const eu = {
         "Mezua bidalia! 24 ordutan baino gutxiagotan jarriko gara zurekin harremanetan.",
       error: "Bidaltzeko errorea. Mesedez, saiatu berriro.",
       budgetOptions: [
-        "1.200€ baino gutxiago",
-        "1.200€ – 1.800€",
-        "1.800€ – 2.800€",
-        "2.800€ baino gehiago",
+        "1.300€ (plan estandarra)",
+        "1.500€ – 2.500€",
+        "2.500€ baino gehiago",
         "Ez daukat argi",
       ],
     },

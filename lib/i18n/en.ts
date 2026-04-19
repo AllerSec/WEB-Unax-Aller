@@ -10,7 +10,7 @@ const en = {
   hero: {
     title: "Premium web design and development that elevates your business.",
     subtitle:
-      "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From €1,200.",
+      "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From €1,300, VAT included.",
     cta: "Schedule a free consultation",
     cta2: "View Plans",
     badge: "Basque Country · Spain",
@@ -83,85 +83,31 @@ const en = {
   pricing: {
     title: "Investment in Excellence",
     subtitle:
-      "Clear plans, measurable results. No surprises, no fine print.",
+      "One plan, everything included. No surprises, no fine print.",
     from: "From",
     month: "/mo",
-    popular: "Most popular",
-    cta: "Start with this plan",
+    popular: "Recommended",
+    cta: "Get started",
     ctaContact: "Contact us",
+    notePrice:
+      "Reference price: this budget covers virtually everything. For larger projects we scale up.",
     plans: [
       {
-        name: "Essential Plan",
-        subtitle: "Local Web",
-        price: "€1,200",
+        name: "Complete Plan",
+        subtitle: "Bespoke Web",
+        price: "€1,300",
         description:
-          "The perfect foundation for local businesses that want to stand out online.",
+          "Everything you need to launch a professional, fast, converting site. VAT included.",
         features: [
-          "Custom mobile-responsive design",
-          "Up to 4 pages",
-          "Contact form",
-          "Google Maps positioning",
-          "Basic SEO included",
-          "Delivered in 2 weeks",
-        ],
-      },
-      {
-        name: "Visionary Plan",
-        subtitle: "Professional Web",
-        price: "€1,800",
-        description:
-          "For businesses that want to stand out with premium design and technology.",
-        features: [
-          "Premium design with animations",
-          "Up to 8 pages",
-          "Full technical SEO",
-          "Gallery or service carousel",
-          "Delivered in 3 weeks",
-          "Google Analytics integrated",
-        ],
-        popular: true,
-      },
-      {
-        name: "Excellence Plan",
-        subtitle: "Premium Web",
-        price: "€2,800",
-        description:
-          "The most complete experience for brands that accept no compromises.",
-        features: [
-          "Exclusive design with advanced animations",
-          "Unlimited pages",
-          "Multi-language (up to 3 languages)",
-          "Full SEO + GMB optimised",
-          "Visual identity included",
-          "Priority support 3 months",
+          "Premium bespoke design with animations",
+          "As many pages as your project needs",
+          "Full technical SEO + Google Analytics",
+          "Multi-language if needed",
+          "Mobile-first from the first pixel",
+          "Domain, hosting and SSL for the first year",
         ],
       },
     ],
-    maintenance: {
-      title: "Web Maintenance",
-      subtitle: "Complete peace of mind, month by month.",
-      basic: {
-        name: "Basic",
-        price: "€49",
-        features: [
-          "Security updates",
-          "Weekly backups",
-          "Uptime monitoring",
-          "Email support",
-        ],
-      },
-      complete: {
-        name: "Complete",
-        price: "€79",
-        features: [
-          "Everything in Basic",
-          "Content updates",
-          "Monthly SEO reports",
-          "Priority support",
-          "Minor changes included",
-        ],
-      },
-    },
   },
   about: {
     title: "About Unax Aller",
@@ -238,10 +184,9 @@ const en = {
         "Message sent! We will contact you within 24 hours.",
       error: "Error sending. Please try again.",
       budgetOptions: [
-        "Less than €1,200",
-        "€1,200 – €1,800",
-        "€1,800 – €2,800",
-        "More than €2,800",
+        "€1,300 (standard plan)",
+        "€1,500 – €2,500",
+        "More than €2,500",
         "Not sure yet",
       ],
     },
