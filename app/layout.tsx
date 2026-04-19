@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Newsreader, Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Unax Aller",
   },
   description:
-    "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.200€.",
+    "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.300€ IVA incluido.",
   keywords: [
     "diseño web",
     "desarrollo web",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Unax Aller",
     title: "Unax Aller — Diseño y Desarrollo Web Premium",
     description:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.200€.",
+      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.300€ IVA incluido.",
   },
   twitter: {
     card: "summary_large_image",
@@ -70,7 +70,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#061b0e",
 };
 
 export default function RootLayout({

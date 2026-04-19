@@ -55,7 +55,7 @@ export default async function Image() {
           marginBottom: 48,
           fontFamily: 'sans-serif',
         }}>
-          Desde 1.200€ · País Vasco · unaxaller.com
+          Desde 1.300€ IVA inc. · País Vasco · unaxaller.com
         </div>
 
         {/* Bottom bar */}

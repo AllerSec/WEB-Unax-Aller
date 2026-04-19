@@ -29,9 +29,9 @@ export default function Footer({ locale }: Props) {
   ];
 
   const legalLinks = [
-    { href: `/${locale}`, label: t("privacyPolicy") },
-    { href: `/${locale}`, label: t("cookiePolicy") },
-    { href: `/${locale}`, label: t("legalNotice") },
+    { href: `/${locale}/privacidad`, label: t("privacyPolicy") },
+    { href: `/${locale}/cookies`, label: t("cookiePolicy") },
+    { href: `/${locale}/aviso-legal`, label: t("legalNotice") },
   ];
 
   return (
@@ -80,7 +80,7 @@ export default function Footer({ locale }: Props) {
             {/* Social links */}
             <div className="flex gap-3">
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/unaxaller"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
@@ -99,7 +99,7 @@ export default function Footer({ locale }: Props) {
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/unaxaller"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"

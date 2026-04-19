@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -9,6 +10,17 @@ gsap.registerPlugin(useGSAP);
 
 export default function NotFound() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const locale = (pathname?.split("/")[1] as "es" | "en" | "eu") || "es";
+  const validLocales = ["es", "en", "eu"];
+  const activeLocale = validLocales.includes(locale) ? locale : "es";
+
+  const labels = {
+    es: { title: "Página no encontrada", sub: "La página que buscas no existe o ha sido movida.", back: "Volver al inicio", contact: "Contactar" },
+    en: { title: "Page not found", sub: "The page you are looking for does not exist or has been moved.", back: "Back to home", contact: "Contact" },
+    eu: { title: "Orria ez da aurkitu", sub: "Bilatzen ari zaren orria ez da existitzen edo mugitu egin da.", back: "Hasierara itzuli", contact: "Kontaktua" },
+  };
+  const l = labels[activeLocale as keyof typeof labels];
 
   useGSAP(
     () => {
@@ -98,7 +110,7 @@ export default function NotFound() {
           opacity: 0,
         }}
       >
-        Página no encontrada
+        {l.title}
       </h1>
 
       <p
@@ -109,12 +121,12 @@ export default function NotFound() {
           opacity: 0,
         }}
       >
-        La página que buscas no existe o ha sido movida. Vuelve al inicio para encontrar lo que necesitas.
+        {l.sub}
       </p>
 
       <div className="nf-cta flex flex-col sm:flex-row items-center gap-4" style={{ opacity: 0 }}>
         <Link
-          href="/es"
+          href={`/${activeLocale}`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
           style={{
             backgroundColor: "#061b0e",
@@ -125,10 +137,10 @@ export default function NotFound() {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          Volver al inicio
+          {l.back}
         </Link>
         <Link
-          href="/es/contacto"
+          href={`/${activeLocale}/contacto`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
           style={{
             border: "1.5px solid #c3c8c1",
@@ -136,7 +148,7 @@ export default function NotFound() {
             fontFamily: "Manrope, sans-serif",
           }}
         >
-          Contactar
+          {l.contact}
         </Link>
       </div>
     </div>

@@ -32,12 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 
   const descriptions: Record<string, string> = {
-    es: "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.200€.",
-    en: "We craft bespoke digital experiences — sophisticated, results-driven. Premium web design and development in the Basque Country. From €1,200.",
-    eu: "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. Web diseinu eta garapen premium-a Euskal Herrian. 1.200€-tik.",
+    es: "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.300€ IVA incluido.",
+    en: "We craft bespoke digital experiences — sophisticated, results-driven. Premium web design and development in the Basque Country. From €1,300 VAT included.",
+    eu: "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. Web diseinu eta garapen premium-a Euskal Herrian. 1.300€-tik BEZ barne.",
   };
 
-  const _ = t;
+  void t;
 
   return {
     title: titles[locale] || titles.es,
@@ -76,10 +76,24 @@ export default async function LangLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      {/* Sync html[lang] with the active locale without hydration mismatch */}
+      <script
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang="${locale}"`,
+        }}
+      />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold"
+        style={{ backgroundColor: "#061b0e", color: "#ffffff", fontFamily: "Manrope, sans-serif" }}
+      >
+        {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : "Edukira joan"}
+      </a>
       <PageLoader />
       <CustomCursor />
       <Navbar locale={locale} />
-      <main className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1">{children}</main>
       <Footer locale={locale} />
     </NextIntlClientProvider>
   );

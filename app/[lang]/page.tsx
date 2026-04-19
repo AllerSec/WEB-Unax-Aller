@@ -75,21 +75,15 @@ export default async function HomePage({ params }: Props) {
           itemListElement: [
             {
               "@type": "Offer",
-              name: "Plan Essential",
-              price: "1200",
+              name: "Plan Completo",
+              price: "1300",
               priceCurrency: "EUR",
-            },
-            {
-              "@type": "Offer",
-              name: "Plan Visionary",
-              price: "1800",
-              priceCurrency: "EUR",
-            },
-            {
-              "@type": "Offer",
-              name: "Plan Excellence",
-              price: "2800",
-              priceCurrency: "EUR",
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                price: "1300",
+                priceCurrency: "EUR",
+                description: "IVA incluido",
+              },
             },
           ],
         },

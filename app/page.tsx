@@ -9,7 +9,7 @@ export default async function RootPage() {
   redirect(`/${preferredLocale}`);
 }
 
-function parseAcceptLanguage(acceptLanguage: string): "es" | "en" {
+function parseAcceptLanguage(acceptLanguage: string): "es" | "en" | "eu" {
   if (!acceptLanguage) return "es";
 
   const languages = acceptLanguage
@@ -21,7 +21,7 @@ function parseAcceptLanguage(acceptLanguage: string): "es" | "en" {
     .sort((a, b) => b.q - a.q);
 
   for (const { tag } of languages) {
-    if (tag === "eu" || tag.startsWith("eu-")) continue;
+    if (tag === "eu" || tag.startsWith("eu-")) return "eu";
     if (tag === "en" || tag.startsWith("en-")) return "en";
     if (tag === "es" || tag.startsWith("es-")) return "es";
   }

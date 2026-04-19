@@ -58,14 +58,20 @@ export default function ContactForm({ locale }: Props) {
 
     setStatus("sending");
 
-    // Simulate form submission (replace with real API call)
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // In production: POST to /api/contact or a form service
-    // const res = await fetch("/api/contact", { method: "POST", body: JSON.stringify(form) });
-    // if (res.ok) setStatus("success"); else setStatus("error");
-
-    setStatus("success");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputBase: React.CSSProperties = {
