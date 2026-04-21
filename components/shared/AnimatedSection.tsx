@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 type Props = {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   delay?: number;
   stagger?: boolean;
   once?: boolean;
@@ -18,6 +19,7 @@ type Props = {
 export default function AnimatedSection({
   children,
   className = "",
+  style,
   delay = 0,
   stagger = false,
   once = true,
@@ -72,7 +74,7 @@ export default function AnimatedSection({
   );
 
   return (
-    <div ref={sectionRef} className={className}>
+    <div ref={sectionRef} className={className} style={style}>
       {children}
     </div>
   );
