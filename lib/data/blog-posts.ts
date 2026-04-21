@@ -1,19 +1,212 @@
 // lib/data/blog-posts.ts
+export interface BlogPostFaq {
+  q: string;
+  a: string;
+}
+
 export interface BlogPost {
   slug: string;
   publishedAt: string;
+  updatedAt?: string;
   readingTime: number;
   titles: Record<"es" | "en" | "eu", string>;
   descriptions: Record<"es" | "en" | "eu", string>;
   content: Record<"es" | "en" | "eu", string>;
   tags: string[];
   keywords: Record<"es" | "en" | "eu", string[]>;
+  faq?: Partial<Record<"es" | "en" | "eu", BlogPostFaq[]>>;
 }
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "wordpress-no-es-gratis-lo-que-no-te-cuentan",
+    publishedAt: "2026-04-21",
+    updatedAt: "2026-04-21",
+    readingTime: 4,
+    titles: {
+      es: "WordPress gratis: el mito que te va a costar caro",
+      en: "WordPress is free: the myth that will cost you dear",
+      eu: "WordPress doan: garesti aterako zaizun mitoa",
+    },
+    descriptions: {
+      es: "WordPress gratis suena bonito hasta que falta el aviso legal, la cookie policy y el texto se lee fatal. Lo que no te cuentan del DIY.",
+      en: "Free WordPress sounds great until there's no legal notice, no cookie policy and the text is unreadable. The DIY truth no one tells you.",
+      eu: "WordPress doan polita dirudi lege-oharra eta cookie politika falta direnera arte. DIY-ari buruz esaten ez dizutena.",
+    },
+    content: {
+      es: `Estoy ahora mismo desarrollándole una web a un cliente que venía de un WordPress hecho fatal. Muy, muy mal hecho. Y en el momento que le miré la web por encima, ya tenía la conversación ganada. No por vender humo, sino porque lo que había no se sostenía.
+
+![Pantalla con código y un portátil sobre una mesa de trabajo](https://images.pexels.com/photos/4792287/pexels-photo-4792287.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Lo que me encontré en esa web
+
+Sin aviso legal. Eso, en España, no es una chapuza: es ilegal. La LSSI obliga a tenerlo y las multas pueden ir de 150€ a 600.000€ según el caso. Y no tenía política de cookies, ni política de privacidad. Con el RGPD encima, esto es jugar a la ruleta rusa con tu propio negocio.
+
+Y ya si hablamos de lo visual: una tipografía imposible de leer, contrastes flojos, y una sensación de web anticuada de hace diez años. El cliente llegaba a su propia web y no se reconocía.
+
+## El mito del "WordPress es gratis"
+
+Claro que es gratis. Como es gratis bajarte un coche de segunda mano en piezas. Luego toca montarlo, y ahí se va el verano.
+
+Con WordPress pagas en otro sitio:
+- **Hosting decente:** los 2€/mes no valen, se cae cada dos por tres
+- **Plugins premium:** formulario serio, SEO, seguridad, caché... suma fácil 200-400€/año
+- **Plantilla decente:** 60-80€ si quieres algo que no sea 2015
+- **Tu tiempo:** horas peleándote con actualizaciones que te rompen la web
+- **El día que algo falle:** pagar a alguien a toque de urgencia, que sale caro
+
+## Lo que no vas a tener con un WordPress tú mismo
+
+Esto es lo que le repito a todo el que me pregunta. Un WordPress montado por ti, por muy bien que sigas un tutorial de YouTube, no te da lo que te da alguien que está detrás de tu proyecto.
+
+Cuando yo te entrego una web, tú me escribes y me dices "oye, cámbiame esta imagen, este texto, esta fuente, este color". Y se hace. Hoy, si puede ser. Sin plugins que se pelean, sin el editor visual que te rompe el diseño, sin buscar qué child theme tocar.
+
+Ese acompañamiento no viene en el zip de WordPress. Nunca.
+
+## A largo plazo sale muchísimo peor
+
+WordPress se actualiza cada pocas semanas. El core, los plugins, el tema. Y cada actualización es una mini-lotería: a veces todo bien, a veces una página se rompe, a veces se te mete un plugin que ralentiza todo y no sabes cuál.
+
+Al año o dos años de abandonarlo, entras al panel y ya no sabes ni qué tocar. He visto clientes llamándome con el WordPress caído y ni siquiera podíamos entrar al wp-admin porque la contraseña estaba en un post-it que nadie guardó.
+
+Una web hecha a medida con código limpio no tiene 40 piezas móviles. Tiene las que necesitas, nada más.
+
+## ¿Cuándo sí tiene sentido WordPress?
+
+Para no ser injusto: si vas a publicar un blog con 3 artículos por semana y necesitas mil autores con permisos, o si montas una tienda muy compleja con variantes infinitas, WordPress o WooCommerce encajan. Tienen su sitio.
+
+Pero para la mayoría — autónomo, pyme, comercio local, profesional con una landing decente y formulario de contacto — es matar moscas a cañonazos. Y al cañonazo se le cae el mantenimiento encima.`,
+      en: `Right now I'm building a website for a client who came from a badly done WordPress. Very, very badly done. The moment I took a look, the conversation was won. Not because I was selling smoke, but because what was there didn't hold up.
+
+![Laptop with code on a workbench](https://images.pexels.com/photos/4792287/pexels-photo-4792287.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## What I found on that site
+
+No legal notice. In Spain that's not sloppy work: it's illegal. The LSSI requires it and fines can range from €150 to €600,000. No cookie policy, no privacy policy either. With GDPR on top, that's Russian roulette with your own business.
+
+And visually: a typeface you couldn't read, weak contrast, and that ten-year-old website feel. The client would land on their own site and not recognise themselves.
+
+## The "WordPress is free" myth
+
+Sure it's free. Like a second-hand car delivered in pieces is free. Then you assemble it, and there goes your summer.
+
+With WordPress you pay somewhere else:
+- **Decent hosting:** the €2/month plans crash constantly
+- **Premium plugins:** forms, SEO, security, caching — €200-400/year easily
+- **A decent theme:** €60-80 if you want something not stuck in 2015
+- **Your time:** hours fighting updates that break the site
+- **The day something fails:** paying someone urgently, which costs a lot
+
+## What a DIY WordPress won't give you
+
+This is what I tell anyone who asks. A WordPress you set up yourself, no matter how well you followed a YouTube tutorial, will never give you what a developer behind your project will.
+
+When I deliver a site, you message me saying "swap this image, this text, this font, this colour". And it gets done. Today, if possible. No fighting plugins, no visual editor breaking the layout, no hunting which child theme to edit.
+
+That follow-up doesn't come in the WordPress zip file. Ever.
+
+## Long term it's much worse
+
+WordPress updates every few weeks. The core, the plugins, the theme. Each update is a mini-lottery: sometimes fine, sometimes a page breaks, sometimes a plugin sneaks in and slows everything down.
+
+A year or two after leaving it alone, you open the dashboard and no idea what to touch. I've seen clients call me with their WordPress down, unable even to get into wp-admin because the password was on a Post-it nobody kept.
+
+A custom-built site with clean code doesn't have 40 moving parts. It has the ones you need, nothing more.
+
+## When does WordPress make sense?
+
+To be fair: if you're publishing a blog with three articles a week and need a thousand authors with permissions, or running a very complex shop with endless variants, WordPress or WooCommerce fit. They have their place.
+
+But for most cases — freelancer, SME, local shop, professional with a decent landing and a contact form — it's using a cannon to kill a fly. And the cannon comes with maintenance on top.`,
+      eu: `Orain bertan bezero bati weba garatzen ari natzaio, oso gaizki egindako WordPress batetik zetorrena. Oso-oso gaizki eginda. Webari gainbegiratu bat eman nionean, elkarrizketa irabazita nuen. Ez ketarik saltzen nengoelako, baizik eta bertan zegoenak ez zuelako zutik eusten.
+
+![Pantaila kodearekin eta ordenagailu eramangarri bat lan-mahaian](https://images.pexels.com/photos/4792287/pexels-photo-4792287.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Zer aurkitu nuen web horretan
+
+Lege-oharrik ez. Hori, Espainian, ez da zabarkeria: ilegala da. LSSI legeak derrigortzen du eta isunak 150€-tik 600.000€-tara iritsi daitezke. Cookie politikarik ere ez, ezta pribatutasun politikarik ere. DBEOarekin gainean, errusiar erruletan jokatzea da zure negozioarekin.
+
+Eta bisualki: ezin irakurrizko tipografia, kontraste ahula, eta duela hamar urteko webaren sentsazioa. Bezeroa bere webera sartu eta ez zuen bere burua ezagutzen.
+
+## "WordPress doan" mitoa
+
+Doan da, bai. Auto zahar bat piezetan doan jasotzea bezala. Gero muntatu behar duzu, eta han doa uda osoa.
+
+WordPress-ekin beste nonbaitean ordaintzen duzu:
+- **Ostalaritza duina:** 2€/hilabeteko planak etengabe erortzen dira
+- **Plugin premium-ak:** formularioa, SEOa, segurtasuna, cachea — 200-400€/urteko erraz
+- **Gai duina:** 60-80€ 2015ekoa ez den zerbait nahi baduzu
+- **Zure denbora:** eguneraketak weba hausten dituztenekin borrokan
+- **Zerbait huts egiten duen eguna:** norbaiti premiaz ordaintzea, garestia da
+
+## Zeuk muntatutako WordPress batek ez dizu emango
+
+Galdetzen didan edonori errepikatzen diodana da hau. Zeuk muntatutako WordPress batek, YouTubeko tutorial bati ondo jarraitu arren, ez dizu emango zure proiektuaren atzean dagoen norbaitek ematen dizuna.
+
+Nik weba entregatzen dizudanean, idazten didazu eta diozu "aldatu niri irudi hau, testu hau, letra-tipo hau, kolore hau". Eta egiten da. Gaur, ahal bada. Pluginen arteko borrokarik gabe, diseinua hausten duen editore bisualik gabe.
+
+Laguntza hori ez dator WordPress-eko zip-ean. Inoiz.
+
+## Epe luzera askoz okerragoa
+
+WordPress aste gutxitik behin eguneratzen da. Core-a, plugin-ak, gaia. Eguneraketa bakoitza mini-loteria da: batzuetan ondo, batzuetan orrialde bat hausten da.
+
+Urte bat edo bi utzita, panelera sartzen zara eta ez dakizu zer ukitu. Bezeroak ikusi ditut WordPress eroritakoan deika, wp-admin-era ere ezin sartzen zirela pasahitza inor gorde ez zuen post-it batean zegoelako.
+
+Kode garbiz egindako web batek ez ditu 40 pieza mugikor. Behar dituzunak ditu, besterik ez.
+
+## Noiz du zentzua WordPress-ek?
+
+Bidezkoa izateko: astean hiru artikuluko bloga argitaratzen baduzu eta mila egile behar badituzu baimenekin, edo denda oso konplexua muntatzen baduzu aldaera infinituekin, WordPress edo WooCommerce egokitzen dira.
+
+Baina kasu gehienetan — autonomoa, ETEa, tokiko denda, lege-sarbidea eta kontaktu-formulario duin bat nahi duen profesionala — eulia kanoiekin hiltzea da. Eta kanoiak mantentze-lana dakar gainera.`,
+    },
+    tags: ["WordPress", "diseño web", "DIY", "mantenimiento web"],
+    keywords: {
+      es: [
+        "WordPress gratis mito",
+        "WordPress vs web a medida",
+        "problemas WordPress",
+        "web sin aviso legal multa",
+        "mantenimiento WordPress",
+      ],
+      en: [
+        "WordPress free myth",
+        "WordPress vs custom website",
+        "WordPress problems",
+        "WordPress maintenance cost",
+      ],
+      eu: [
+        "WordPress doan mitoa",
+        "WordPress vs neurrira egindako weba",
+        "WordPress arazoak",
+      ],
+    },
+    faq: {
+      es: [
+        {
+          q: "¿WordPress es realmente gratis?",
+          a: "El software lo es. Todo lo demás no: hosting decente (8-20€/mes), plugins premium para formulario, SEO y seguridad (200-400€/año), una plantilla digna (60-80€) y tu tiempo peleándote con actualizaciones. Al año sales pagando más que por una web a medida bien hecha.",
+        },
+        {
+          q: "¿Es ilegal tener una web sin aviso legal en España?",
+          a: "Sí. La LSSI obliga a toda web con actividad económica a tener aviso legal visible. Sumando RGPD, también necesitas política de privacidad y política de cookies si usas cookies no esenciales. Las multas van de 150€ a más de 600.000€ en casos graves. No es un detalle menor.",
+        },
+        {
+          q: "¿Puedo pedirle cambios a mi diseñador después de entregar la web?",
+          a: "Conmigo sí. Me escribes por WhatsApp o email y te cambio imagen, texto, color, tipografía en el día si es rápido. Incluyo un mes de soporte post-lanzamiento y después hay plan de mantenimiento opcional. Con un WordPress tuyo, tú eres el soporte.",
+        },
+        {
+          q: "¿Qué pasa a largo plazo con un WordPress sin mantener?",
+          a: "Las actualizaciones se acumulan, los plugins quedan obsoletos, aparecen avisos de seguridad. En uno o dos años tocar algo se vuelve arriesgado porque no sabes qué vas a romper. He recibido webs caídas sin acceso al panel porque nadie guardó la contraseña del administrador.",
+        },
+      ],
+    },
+  },
+  {
     slug: "cuanto-cuesta-una-pagina-web-en-espana",
     publishedAt: "2026-04-21",
+    updatedAt: "2026-04-21",
     readingTime: 6,
     titles: {
       es: "¿Cuánto cuesta una página web en España en 2026?",
@@ -26,36 +219,42 @@ export const blogPosts: BlogPost[] = [
       eu: "Webguneen prezioei buruzko gida osoa Espainian 2026an: oinarrizko webguneetatik neurrizko proiektuetara.",
     },
     content: {
-      es: `En 2026, el precio de una página web en España varía enormemente según el tipo de proyecto y quién lo hace. Esta guía te explica exactamente qué esperar.
+      es: `Pregunta a diez diseñadores cuánto cuesta una web y te darán diez respuestas distintas. No es casualidad: en 2026, en España, el rango real va desde los 0€ de un Wix hasta los 10.000€ de un desarrollo a medida. Debajo te cuento qué pagas en cada tramo y por qué el precio solo es una parte de la decisión.
 
 ## Tipos de web y sus precios
 
-**Plantillas o constructores (Wix, Squarespace):** 0 - 500€/año. Rápidas de montar pero con limitaciones de diseño, SEO y rendimiento.
+**Plantillas o constructores (Wix, Squarespace):** 0 - 500€/año. Rápidas de montar, pero te quedas con sus limitaciones de diseño, SEO y velocidad.
 
-**Agencia con plantilla WordPress:** 1.500 - 5.000€. El resultado depende mucho de la agencia.
+**Agencia con plantilla WordPress:** 1.500 - 5.000€. El resultado depende muchísimo de la agencia y de quién toca el código dentro de ella.
 
-**Diseño a medida con freelance:** 800 - 3.000€. La mejor relación calidad-precio para negocios pequeños y medianos.
+**Diseño a medida con freelance:** 800 - 3.000€. Es donde mejor encaja la mayoría de negocios pequeños y medianos.
 
-**Desarrollo a medida enterprise:** 10.000€+. Para proyectos complejos con integraciones, e-commerce avanzado, etc.
+**Desarrollo a medida enterprise:** 10.000€ en adelante. Proyectos con integraciones serias, e-commerce complejo o flujos personalizados.
 
 ## ¿Qué incluye una web a medida?
 
-Cuando contratas a un diseñador web freelance, un precio razonable incluye:
-- Diseño UI/UX personalizado
+Cuando contratas a un freelance, un presupuesto razonable suele cubrir:
+- Diseño UI/UX propio, no una plantilla maquillada
 - Desarrollo responsive (móvil, tablet, escritorio)
-- SEO técnico básico (velocidad, meta tags, Schema.org)
-- Formulario de contacto funcional
-- Dominio y hosting el primer año (en algunos casos)
+- SEO técnico básico: velocidad, meta tags, Schema.org
+- Formulario de contacto funcional conectado a tu email
+- Dominio y hosting el primer año, dependiendo del acuerdo
+
+Lo que no entra ahí suele ser la trampa de muchos presupuestos "completos".
 
 ## Mi experiencia real
 
-En mi caso, el plan único cuesta 1.300€ IVA incluido. He visto clientes llegar desde webs que pagaron 2.000€ a una agencia y que tardaban 8 segundos en cargar. El precio no garantiza calidad — la transparencia sí.
+En mi caso el plan es uno solo: 1.300€ IVA incluido. Un único precio, una única web.
+
+He tenido clientes que llegaron huyendo de webs por las que pagaron 2.000€ a una agencia y que tardaban ocho segundos en cargar. El precio no garantiza calidad. La transparencia sí.
 
 ## ¿Qué no debería incluirse en el precio?
 
-- Contenido (fotos, textos): tú los aportas o se contratan aparte
-- Posicionamiento SEO orgánico a largo plazo: es un trabajo continuo
-- Mantenimiento mensual: suele ser un servicio adicional`,
+- Contenido: las fotos y los textos los pones tú, o los contratas aparte a un copy o fotógrafo.
+- Posicionamiento SEO a largo plazo: es un trabajo continuo, no algo que se entrega con la web.
+- Mantenimiento mensual: cambios regulares, copias, actualizaciones. Suele ser un servicio aparte.
+
+Si un presupuesto lo mete todo en el mismo saco por un precio sospechosamente bajo, desconfía: algo se está recortando.`,
       en: `In 2026, the price of a website in Spain varies enormously depending on the type of project and who builds it. This guide tells you exactly what to expect.
 
 ## Types of websites and their prices
@@ -79,7 +278,7 @@ When you hire a freelance web designer, a reasonable price includes:
 
 ## My real experience
 
-In my case, the single plan costs €1,300 VAT included. I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality — transparency does.`,
+In my case, the single plan costs €1,300 VAT included. I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality. Transparency does.`,
       eu: `2026an, Espainian webgune baten prezioa izugarri aldatzen da proiektu motaren eta nork egiten duen arabera.
 
 ## Webgune motak eta haien prezioak
@@ -107,6 +306,34 @@ Nire kasuan, plan bakarrak 1.300€ balio du BEZ barne.`,
         "freelance web design price",
       ],
       eu: ["webgune baten prezioa Espainian", "web prezioa 2026"],
+    },
+    faq: {
+      es: [
+        {
+          q: "¿Cuánto cuesta de verdad una página web en España?",
+          a: "El rango normal va de 0€ (Wix o Squarespace) a 10.000€ o más en desarrollo a medida. Para un negocio pequeño o mediano, lo razonable con un freelance está entre 800€ y 3.000€. Por debajo de 800€ lo más probable es una plantilla sin trabajo real; por encima de 5.000€ ya estás pagando estructura de agencia.",
+        },
+        {
+          q: "¿Por qué tu plan es único en 1.300€?",
+          a: "Para que no dependas de un comercial, de paquetes con letra pequeña o de sorpresas al final. Un precio cerrado, IVA incluido, con todo lo que una web necesita para funcionar: diseño a medida, desarrollo responsive, SEO técnico básico y formulario de contacto.",
+        },
+        {
+          q: "¿Qué pasa con el dominio y el hosting?",
+          a: "Depende del proyecto. En muchos casos incluyo dominio y hosting el primer año para que arranques sin pagar nada aparte. A partir del segundo año tú decides: te quedas con los servicios que uses, o te lo llevas a tu propio proveedor. No hay atadura.",
+        },
+        {
+          q: "¿El SEO está incluido en el precio?",
+          a: "El SEO técnico sí: velocidad, meta tags, Schema.org, URLs limpias, hreflang entre idiomas. El SEO orgánico a largo plazo (contenidos, backlinks, enlaces locales) es otro trabajo aparte, porque requiere meses de seguimiento y no se entrega con la web.",
+        },
+        {
+          q: "¿Qué diferencia hay entre una web de 500€ y una de 1.300€?",
+          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. A 1.300€ la web es tuya: diseño pensado para tu negocio, optimizada para móvil y Google, con detalles que marcan diferencia en la percepción de la marca y en la conversión.",
+        },
+        {
+          q: "¿Cuánto tarda el proyecto?",
+          a: "Entre 2 y 4 semanas de media, dependiendo de lo rápido que llegue el contenido (textos y fotos). Empezamos con una llamada para entender el negocio, yo preparo el diseño, lo revisas y, cuando te convence, paso a desarrollo. Al final hacemos una revisión juntos antes de publicar.",
+        },
+      ],
     },
   },
   {

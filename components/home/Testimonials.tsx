@@ -27,9 +27,13 @@ export default function Testimonials() {
 
   useGSAP(
     () => {
-      const cards = sectionRef.current?.querySelectorAll(".testimonial-card");
-      if (!cards) return;
+      const section = sectionRef.current;
+      if (!section) return;
+      const cards = section.querySelectorAll<HTMLElement>(".testimonial-card");
+      const quotes = section.querySelectorAll<HTMLElement>(".testimonial-quote-mark");
+      if (!cards.length) return;
 
+      // Card entrance
       gsap.fromTo(
         cards,
         { y: 40, opacity: 0 },
@@ -40,12 +44,41 @@ export default function Testimonials() {
           stagger: 0.15,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: section,
             start: "top 80%",
             once: true,
           },
         }
       );
+
+      // Scrub: big quote marks drift down + fade in as section scrolls through viewport
+      // prefers-reduced-motion respected — skip scrub, leave at final state
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced || !quotes.length) return;
+
+      const scrubTween = gsap.fromTo(
+        quotes,
+        { y: -24, opacity: 0.3 },
+        {
+          y: 12,
+          opacity: 1,
+          ease: "none",
+          stagger: 0.08,
+        }
+      );
+
+      const st = ScrollTrigger.create({
+        trigger: section,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 0.6,
+        animation: scrubTween,
+      });
+
+      return () => {
+        st.kill();
+        scrubTween.kill();
+      };
     },
     { scope: sectionRef }
   );
@@ -53,62 +86,32 @@ export default function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 md:py-28"
-      style={{ backgroundColor: "#efeee9" }}
+      className="testimonials-section"
       aria-labelledby="testimonials-title"
     >
       <div className="container-xl">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <h2
-            id="testimonials-title"
-            className="text-3xl md:text-4xl font-light mb-4"
-            style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-          >
+        <div className="testimonials-header">
+          <h2 id="testimonials-title" className="testimonials-title">
             {t("title")}
           </h2>
-          <p
-            className="text-base md:text-lg"
-            style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-          >
-            {t("subtitle")}
-          </p>
+          <p className="testimonials-subtitle">{t("subtitle")}</p>
         </div>
 
-        {/* Testimonial cards — always symmetric 2-column */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="testimonials-grid">
           {items.map((item, i) => (
-            <div
-              key={i}
-              className="testimonial-card relative p-8 rounded-2xl"
-              style={{
-                backgroundColor: "#faf9f4",
-                border: "1px solid #e3e3de",
-                opacity: 0,
-              }}
-            >
-              {/* Quote mark */}
-              <div
-                className="absolute top-6 right-8 text-6xl leading-none select-none"
-                style={{
-                  fontFamily: "Georgia, serif",
-                  color: "#e3e3de",
-                  lineHeight: 1,
-                }}
-                aria-hidden="true"
-              >
+            <div key={i} className="testimonial-card">
+              <div className="testimonial-quote-mark" aria-hidden="true">
                 &ldquo;
               </div>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-5" aria-label="5 estrellas">
+              <div className="testimonial-stars" aria-label="5 estrellas">
                 {[...Array(5)].map((_, s) => (
                   <svg
                     key={s}
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
-                    fill="#4d6453"
+                    fill="currentColor"
                     aria-hidden="true"
                   >
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -116,44 +119,17 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              {/* Quote */}
-              <blockquote
-                className="text-base md:text-lg leading-relaxed mb-6 italic"
-                style={{
-                  fontFamily: "Newsreader, Georgia, serif",
-                  color: "#1b1c19",
-                }}
-              >
+              <blockquote className="testimonial-quote">
                 &ldquo;{item.quote}&rdquo;
               </blockquote>
 
-              {/* Author */}
-              <div className="flex items-center gap-3">
-                {/* Avatar placeholder */}
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold"
-                  style={{
-                    backgroundColor: "#1b3022",
-                    color: "#b4cdb8",
-                    fontFamily: "Manrope, sans-serif",
-                  }}
-                  aria-hidden="true"
-                >
+              <div className="testimonial-author">
+                <div className="testimonial-avatar" aria-hidden="true">
                   {item.author.charAt(0)}
                 </div>
                 <div>
-                  <p
-                    className="text-sm font-semibold"
-                    style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-                  >
-                    {item.author}
-                  </p>
-                  <p
-                    className="text-xs"
-                    style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
-                  >
-                    {item.role}
-                  </p>
+                  <p className="testimonial-author-name">{item.author}</p>
+                  <p className="testimonial-author-role">{item.role}</p>
                 </div>
               </div>
             </div>

@@ -11,7 +11,7 @@ const es = {
     title: "Diseño y desarrollo web premium que eleva tu negocio.",
     subtitle:
       "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.300€, IVA incluido.",
-    cta: "Agenda una consulta gratuita",
+    cta: "Demo gratis de tu web en 24h",
     cta2: "Ver Planes",
     badge: "Irun · País Vasco · España",
     scrollHint: "Desplázate para explorar",

@@ -65,6 +65,14 @@ export default async function CasosPage({ params }: Props) {
     ],
   };
 
+  const pageTitle = locale === "es" ? "Casos de Estudio" : locale === "en" ? "Case Studies" : "Kasu Azterketak";
+  const subtitle =
+    locale === "es"
+      ? "Proyectos reales con resultados reales. Sin humo, solo métricas."
+      : locale === "en"
+      ? "Real projects with real results. No fluff, just metrics."
+      : "Benetako proiektuak benetako emaitzeekin. Metrikak baino ez.";
+
   return (
     <>
       <script
@@ -72,69 +80,38 @@ export default async function CasosPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="pt-32 pb-20 md:pt-44 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
+      <section className="page-hero" aria-label="Case studies hero">
         <div className="container-xl">
           <Breadcrumbs
             items={[
               { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
-              { name: locale === "es" ? "Casos de Estudio" : locale === "en" ? "Case Studies" : "Kasu Azterketak" },
+              { name: pageTitle },
             ]}
           />
 
-          <div className="max-w-3xl">
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-            >
-              {locale === "es" ? "Casos de Estudio" : locale === "en" ? "Case Studies" : "Kasu Azterketak"}
-            </h1>
-            <p
-              className="text-lg md:text-xl leading-relaxed"
-              style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-            >
-              {locale === "es"
-                ? "Proyectos reales con resultados reales. Sin humo, solo métricas."
-                : locale === "en"
-                ? "Real projects with real results. No fluff, just metrics."
-                : "Benetako proiektuak benetako emaitzeekin. Metrikak baino ez."}
-            </p>
+          <div className="page-hero-inner">
+            <span className="page-hero-eyebrow">
+              {locale === "es" ? "Trabajo" : locale === "en" ? "Work" : "Lana"}
+            </span>
+            <h1 className="page-hero-title">{pageTitle}</h1>
+            <p className="page-hero-subtitle">{subtitle}</p>
           </div>
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
+      <section className="post-list-section" aria-label="Case studies">
         <div className="container-xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="case-grid">
             {caseStudies.map((cs, i) => (
               <AnimatedSection key={cs.slug} delay={i * 0.05}>
-                <Link
-                  href={`/${locale}/casos/${cs.slug}`}
-                  className="block h-full group p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-                  style={{ backgroundColor: "#f5f4ef", border: "1px solid #e3e3de" }}
-                >
-                  <div
-                    className="text-xs font-semibold uppercase tracking-widest mb-4"
-                    style={{ color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
-                  >
+                <Link href={`/${locale}/casos/${cs.slug}`} className="case-card focusable">
+                  <div className="case-card-eyebrow">
                     {cs.sector} · {cs.year}
                   </div>
-                  <h2
-                    className="text-xl font-medium mb-3"
-                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-                  >
-                    {cs.client}
-                  </h2>
-                  <p
-                    className="text-sm leading-relaxed mb-6"
-                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                  >
-                    {cs.solution[locale]}
-                  </p>
+                  <h2 className="case-card-title">{cs.client}</h2>
+                  <p className="case-card-desc">{cs.solution[locale]}</p>
                   {cs.metrics.lighthouse && (
-                    <div
-                      className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold"
-                      style={{ backgroundColor: "#efeee9", color: "#4d6453" }}
-                    >
+                    <div className="case-card-metric">
                       Lighthouse {cs.metrics.lighthouse}/100
                     </div>
                   )}

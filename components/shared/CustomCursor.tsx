@@ -1,16 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
+
+const DOT_SIZE = 8;
+const RING_SIZE = 36;
+const RING_LERP = 0.18;
 
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const isHoveringRef = useRef(false);
 
   useEffect(() => {
-    // Only show custom cursor on non-touch devices
+    if (typeof window === "undefined") return;
     if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const dot = dotRef.current;
     const ring = ringRef.current;
@@ -22,106 +25,116 @@ export default function CustomCursor() {
     let mouseY = window.innerHeight / 2;
     let ringX = mouseX;
     let ringY = mouseY;
+    let dotScale = 1;
+    let ringScale = 1;
+    let dotScaleCurrent = 1;
+    let ringScaleCurrent = 1;
+    let visible = false;
+    let hoverActive = false;
+    let pressed = false;
+    let ringBorderAlpha = 0.5;
 
-    // Show cursors
-    gsap.set([dot, ring], { autoAlpha: 1 });
+    // Initial placement
+    dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) scale(1)`;
+    ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) scale(1)`;
+
+    const showCursors = () => {
+      if (visible) return;
+      visible = true;
+      dot.style.opacity = "1";
+      ring.style.opacity = "1";
+    };
+
+    const hideCursors = () => {
+      if (!visible) return;
+      visible = false;
+      dot.style.opacity = "0";
+      ring.style.opacity = "0";
+    };
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-
-      // Dot follows immediately
-      gsap.to(dot, {
-        x: mouseX,
-        y: mouseY,
-        duration: 0.05,
-        ease: "none",
-      });
+      if (!visible) showCursors();
     };
 
-    // Ring follows with lag (RAF loop)
-    let rafId: number;
-    const animateRing = () => {
-      ringX += (mouseX - ringX) * 0.12;
-      ringY += (mouseY - ringY) * 0.12;
+    // Single RAF — writes to style.transform directly, no GSAP in hot path
+    let rafId = 0;
+    const tick = () => {
+      // Ring follows with lerp
+      ringX += (mouseX - ringX) * RING_LERP;
+      ringY += (mouseY - ringY) * RING_LERP;
 
-      gsap.set(ring, { x: ringX, y: ringY });
-      rafId = requestAnimationFrame(animateRing);
+      // Smooth scale interpolation
+      dotScaleCurrent += (dotScale - dotScaleCurrent) * 0.22;
+      ringScaleCurrent += (ringScale - ringScaleCurrent) * 0.22;
+
+      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) scale(${dotScaleCurrent.toFixed(3)})`;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) scale(${ringScaleCurrent.toFixed(3)})`;
+      ring.style.borderColor = `rgba(77, 100, 83, ${ringBorderAlpha})`;
+
+      rafId = requestAnimationFrame(tick);
     };
-    rafId = requestAnimationFrame(animateRing);
+    rafId = requestAnimationFrame(tick);
 
-    const onMouseEnterHoverable = () => {
-      if (isHoveringRef.current) return;
-      isHoveringRef.current = true;
-      gsap.to(dot, { scale: 0.5, duration: 0.3, ease: "power2.out" });
-      gsap.to(ring, {
-        scale: 2.2,
-        borderColor: "rgba(77, 100, 83, 0.6)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    };
-
-    const onMouseLeaveHoverable = () => {
-      if (!isHoveringRef.current) return;
-      isHoveringRef.current = false;
-      gsap.to(dot, { scale: 1, duration: 0.3, ease: "power2.out" });
-      gsap.to(ring, {
-        scale: 1,
-        borderColor: "rgba(77, 100, 83, 0.5)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
+    const applyState = () => {
+      if (pressed) {
+        dotScale = hoverActive ? 0.35 : 0.7;
+        ringScale = hoverActive ? 1.9 : 0.85;
+      } else {
+        dotScale = hoverActive ? 0.5 : 1;
+        ringScale = hoverActive ? 2.2 : 1;
+      }
+      ringBorderAlpha = hoverActive ? 0.6 : 0.5;
     };
 
     const onMouseDown = () => {
-      gsap.to(dot, { scale: 0.7, duration: 0.1 });
-      gsap.to(ring, { scale: 0.85, duration: 0.1 });
+      pressed = true;
+      applyState();
     };
-
     const onMouseUp = () => {
-      gsap.to(dot, { scale: isHoveringRef.current ? 0.5 : 1, duration: 0.2, ease: "spring(1, 100, 20, 0)" });
-      gsap.to(ring, { scale: isHoveringRef.current ? 2.2 : 1, duration: 0.2, ease: "spring(1, 100, 20, 0)" });
+      pressed = false;
+      applyState();
     };
 
-    const onMouseLeaveWindow = () => {
-      gsap.to([dot, ring], { autoAlpha: 0, duration: 0.2 });
-    };
+    const onWindowEnter = () => showCursors();
+    const onWindowLeave = () => hideCursors();
 
-    const onMouseEnterWindow = () => {
-      gsap.to([dot, ring], { autoAlpha: 1, duration: 0.2 });
-    };
+    document.addEventListener("mousemove", onMouseMove, { passive: true });
+    document.addEventListener("mousedown", onMouseDown, { passive: true });
+    document.addEventListener("mouseup", onMouseUp, { passive: true });
+    document.documentElement.addEventListener("mouseleave", onWindowLeave);
+    document.documentElement.addEventListener("mouseenter", onWindowEnter);
 
-    // Attach event listeners
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mousedown", onMouseDown);
-    document.addEventListener("mouseup", onMouseUp);
-    document.documentElement.addEventListener("mouseleave", onMouseLeaveWindow);
-    document.documentElement.addEventListener("mouseenter", onMouseEnterWindow);
-
-    // Delegate hover events for interactive elements
     const hoverableSelector =
       'a, button, [role="button"], input, select, textarea, label, [data-hoverable]';
 
-    const delegateEnter = (e: MouseEvent) => {
-      const target = e.target as Element;
-      if (target.closest(hoverableSelector)) {
-        onMouseEnterHoverable();
+    const onOver = (e: MouseEvent) => {
+      const target = e.target as Element | null;
+      if (target && target.closest(hoverableSelector)) {
+        if (!hoverActive) {
+          hoverActive = true;
+          applyState();
+        }
       }
     };
-    const delegateLeave = (e: MouseEvent) => {
-      const relatedTarget = e.relatedTarget as Element | null;
-      const target = e.target as Element;
+    const onOut = (e: MouseEvent) => {
+      const target = e.target as Element | null;
+      const related = e.relatedTarget as Element | null;
       if (
+        target &&
         target.closest(hoverableSelector) &&
-        (!relatedTarget || !relatedTarget.closest(hoverableSelector))
+        (!related || !related.closest(hoverableSelector))
       ) {
-        onMouseLeaveHoverable();
+        if (hoverActive) {
+          hoverActive = false;
+          applyState();
+        }
       }
     };
 
-    document.addEventListener("mouseover", delegateEnter);
-    document.addEventListener("mouseout", delegateLeave);
+    document.addEventListener("mouseover", onOver, { passive: true });
+    document.addEventListener("mouseout", onOut, { passive: true });
 
     return () => {
       cancelAnimationFrame(rafId);
@@ -129,42 +142,46 @@ export default function CustomCursor() {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mousedown", onMouseDown);
       document.removeEventListener("mouseup", onMouseUp);
-      document.documentElement.removeEventListener("mouseleave", onMouseLeaveWindow);
-      document.documentElement.removeEventListener("mouseenter", onMouseEnterWindow);
-      document.removeEventListener("mouseover", delegateEnter);
-      document.removeEventListener("mouseout", delegateLeave);
+      document.documentElement.removeEventListener("mouseleave", onWindowLeave);
+      document.documentElement.removeEventListener("mouseenter", onWindowEnter);
+      document.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseout", onOut);
     };
   }, []);
 
   return (
     <>
-      {/* Dot */}
       <div
         ref={dotRef}
         className="pointer-events-none fixed top-0 left-0 z-[9998]"
         style={{
-          width: "8px",
-          height: "8px",
+          width: `${DOT_SIZE}px`,
+          height: `${DOT_SIZE}px`,
+          marginLeft: `-${DOT_SIZE / 2}px`,
+          marginTop: `-${DOT_SIZE / 2}px`,
           borderRadius: "50%",
           backgroundColor: "#4d6453",
-          transform: "translate(-50%, -50%)",
-          visibility: "hidden",
+          opacity: 0,
           willChange: "transform",
+          contain: "layout style paint",
+          transition: "opacity 180ms ease",
         }}
         aria-hidden="true"
       />
-      {/* Ring */}
       <div
         ref={ringRef}
         className="pointer-events-none fixed top-0 left-0 z-[9997]"
         style={{
-          width: "36px",
-          height: "36px",
+          width: `${RING_SIZE}px`,
+          height: `${RING_SIZE}px`,
+          marginLeft: `-${RING_SIZE / 2}px`,
+          marginTop: `-${RING_SIZE / 2}px`,
           borderRadius: "50%",
           border: "1.5px solid rgba(77, 100, 83, 0.5)",
-          transform: "translate(-50%, -50%)",
-          visibility: "hidden",
+          opacity: 0,
           willChange: "transform",
+          contain: "layout style paint",
+          transition: "opacity 180ms ease",
         }}
         aria-hidden="true"
       />

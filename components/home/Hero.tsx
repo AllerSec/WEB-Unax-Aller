@@ -1,15 +1,17 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroBackground from "./HeroBackground";
+import { useLiquidGlassHover } from "@/hooks/useLiquidGlassHover";
 import type { Locale } from "@/lib/i18n/config";
 
-gsap.registerPlugin(useGSAP, SplitText);
+gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
 type Props = {
   locale: Locale;
@@ -25,6 +27,8 @@ export default function Hero({ locale }: Props) {
   const scrollHintRef = useRef<HTMLDivElement>(null);
   const decorLineLeftRef = useRef<HTMLDivElement>(null);
   const decorLineRightRef = useRef<HTMLDivElement>(null);
+  const ctaPrimaryRef = useLiquidGlassHover<HTMLAnchorElement>();
+  const ctaSecondaryRef = useLiquidGlassHover<HTMLAnchorElement>();
 
   // GSAP entrance + SplitText animation
   useGSAP(
@@ -39,28 +43,43 @@ export default function Hero({ locale }: Props) {
 
       if (!title) return;
 
-      // Split title into chars for staggered reveal
+      // Respect reduced motion — reveal everything instantly, no split, no timeline, no sweep
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set([badge, subtitle, ctas, scrollHint], { opacity: 1, y: 0 });
+        gsap.set([decorLeft, decorRight], { scaleX: 1 });
+        title.classList.add("sweep-done");
+        window.dispatchEvent(new CustomEvent("hero-entrance-done"));
+        return;
+      }
+
+      // Split title into words only (chars 3D rotation causes jank — words are enough for the reveal feel)
       const splitTitle = SplitText.create(title, {
-        type: "chars,words",
-        charsClass: "hero-char",
+        type: "words",
         wordsClass: "hero-word",
       });
 
-      // Set initial states
-      gsap.set(splitTitle.chars, {
-        y: 60,
+      // Set initial states — no rotateX (3D per-element rasterization is the #1 hero jank source)
+      // will-change applied pre-entrance, removed onComplete
+      gsap.set(splitTitle.words, {
+        y: 40,
         opacity: 0,
-        rotateX: -40,
-        transformOrigin: "bottom center",
+        force3D: true,
+        willChange: "transform, opacity",
       });
 
-      const tl = gsap.timeline({ delay: 0.4 });
+      const tl = gsap.timeline({
+        delay: 0.3,
+        onComplete: () => {
+          // Signal to HeroBackground that it can start its RAF loop
+          window.dispatchEvent(new CustomEvent("hero-entrance-done"));
+        },
+      });
 
       // Badge fade in
       tl.fromTo(
         badge,
-        { y: 15, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.45, ease: "power3.out", force3D: true }
       )
         // Decorative lines expand
         .fromTo(
@@ -68,35 +87,49 @@ export default function Hero({ locale }: Props) {
           { scaleX: 0 },
           {
             scaleX: 1,
-            duration: 0.8,
+            duration: 0.7,
             ease: "power3.inOut",
             stagger: 0.05,
           },
           "-=0.2"
         )
-        // Title chars stagger in
+        // Title words stagger in (much lighter than chars with rotateX)
         .to(
-          splitTitle.chars,
+          splitTitle.words,
           {
             y: 0,
             opacity: 1,
-            rotateX: 0,
-            duration: 0.7,
+            duration: 0.6,
             ease: "power3.out",
-            stagger: { amount: 0.6, from: "start" },
+            stagger: 0.06,
+            force3D: true,
+            onComplete: () => {
+              // Drop will-change after entrance to free GPU memory
+              splitTitle.words.forEach((w) => {
+                (w as HTMLElement).style.willChange = "auto";
+              });
+              // Trigger the one-shot light sweep on the title
+              title.classList.add("is-sweeping");
+              const onSweepEnd = () => {
+                title.classList.remove("is-sweeping");
+                title.classList.add("sweep-done");
+                title.removeEventListener("animationend", onSweepEnd);
+              };
+              title.addEventListener("animationend", onSweepEnd);
+            },
           },
-          "-=0.5"
+          "-=0.4"
         )
-        // Subtitle
+        // Subtitle — no blur filter (blur animation repaints every frame)
         .fromTo(
           subtitle,
-          { y: 25, opacity: 0, filter: "blur(4px)" },
+          { y: 20, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            filter: "blur(0px)",
-            duration: 0.7,
+            duration: 0.6,
             ease: "power3.out",
+            force3D: true,
           },
           "-=0.3"
         )
@@ -127,193 +160,176 @@ export default function Hero({ locale }: Props) {
         });
       }
 
-      // Cleanup SplitText on unmount
+      // Reactive sweep — re-triggers the title sweep when user scrolls back up to the hero
+      const reactiveSweepST = ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top 40%",
+        end: "bottom top",
+        onEnterBack: () => {
+          if (!title.classList.contains("sweep-done")) return;
+          title.classList.remove("sweep-done");
+          // Force reflow so the animation restarts clean
+          void title.offsetWidth;
+          title.classList.add("is-sweeping");
+          const onEnd = () => {
+            title.classList.remove("is-sweeping");
+            title.classList.add("sweep-done");
+            title.removeEventListener("animationend", onEnd);
+          };
+          title.addEventListener("animationend", onEnd);
+        },
+      });
+
+      // Parallax scroll on decorative lines — subtle scale with scrub
+      let decorLinesST: ScrollTrigger | null = null;
+      if (decorLeft && decorRight) {
+        decorLinesST = ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6,
+          animation: gsap.to([decorLeft, decorRight], {
+            scaleX: 0.3,
+            opacity: 0.4,
+            ease: "none",
+          }),
+        });
+      }
+
+      // Cleanup SplitText + ScrollTriggers on unmount
       return () => {
         splitTitle.revert();
+        reactiveSweepST.kill();
+        decorLinesST?.kill();
       };
     },
     { scope: containerRef }
   );
 
-  // Parallax on mouse move
+  // Parallax on mouse move — pre-created quickTo setters, no per-event tween allocation
+  const parallaxRef = useRef<{
+    titleX: (v: number) => void;
+    titleY: (v: number) => void;
+    subX: (v: number) => void;
+    subY: (v: number) => void;
+    badgeX: (v: number) => void;
+    badgeY: (v: number) => void;
+  } | null>(null);
+
+  const parallaxEnabledRef = useRef(false);
+
+  useEffect(() => {
+    // Skip parallax on touch devices and when user prefers reduced motion
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const title = titleRef.current;
+    const sub = subtitleRef.current;
+    const badge = badgeRef.current;
+    if (!title || !sub || !badge) return;
+    parallaxRef.current = {
+      titleX: gsap.quickTo(title, "x", { duration: 0.8, ease: "power2.out" }),
+      titleY: gsap.quickTo(title, "y", { duration: 0.8, ease: "power2.out" }),
+      subX: gsap.quickTo(sub, "x", { duration: 0.8, ease: "power2.out" }),
+      subY: gsap.quickTo(sub, "y", { duration: 0.8, ease: "power2.out" }),
+      badgeX: gsap.quickTo(badge, "x", { duration: 0.8, ease: "power2.out" }),
+      badgeY: gsap.quickTo(badge, "y", { duration: 0.8, ease: "power2.out" }),
+    };
+    parallaxEnabledRef.current = true;
+  }, []);
+
+  // rAF-throttled mousemove — at 60Hz, mousemove fires ~120+ times/sec on high-refresh mice
+  const rafPendingRef = useRef(false);
+  const latestMouseRef = useRef<{ x: number; y: number } | null>(null);
+
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!parallaxEnabledRef.current) return;
       const rect = e.currentTarget.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-
-      gsap.to(titleRef.current, {
-        x: x * 10,
-        y: y * 5,
-        duration: 1,
-        ease: "power2.out",
-      });
-      gsap.to(subtitleRef.current, {
-        x: x * 5,
-        y: y * 3,
-        duration: 1,
-        ease: "power2.out",
-      });
-      gsap.to(badgeRef.current, {
-        x: x * -3,
-        y: y * -2,
-        duration: 1,
-        ease: "power2.out",
+      latestMouseRef.current = {
+        x: ((e.clientX - rect.left) / rect.width - 0.5) * 2,
+        y: ((e.clientY - rect.top) / rect.height - 0.5) * 2,
+      };
+      if (rafPendingRef.current) return;
+      rafPendingRef.current = true;
+      requestAnimationFrame(() => {
+        rafPendingRef.current = false;
+        const p = parallaxRef.current;
+        const m = latestMouseRef.current;
+        if (!p || !m) return;
+        p.titleX(m.x * 10);
+        p.titleY(m.y * 5);
+        p.subX(m.x * 5);
+        p.subY(m.y * 3);
+        p.badgeX(m.x * -3);
+        p.badgeY(m.y * -2);
       });
     },
     []
   );
 
   const handleMouseLeave = useCallback(() => {
-    gsap.to([titleRef.current, subtitleRef.current, badgeRef.current], {
-      x: 0,
-      y: 0,
-      duration: 1,
-      ease: "power2.out",
-    });
+    const p = parallaxRef.current;
+    if (!p) return;
+    p.titleX(0);
+    p.titleY(0);
+    p.subX(0);
+    p.subY(0);
+    p.badgeX(0);
+    p.badgeY(0);
   }, []);
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ backgroundColor: "#faf9f4" }}
+      className="hero-section"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      aria-label="Hero section"
+      aria-label="Hero"
     >
-      {/* Interactive canvas background */}
       <HeroBackground />
 
-      {/* Radial gradient vignette */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 50% 48%, transparent 30%, rgba(250, 249, 244, 0.55) 100%)",
-          zIndex: 1,
-        }}
-        aria-hidden="true"
-      />
+      <div className="hero-vignette" aria-hidden="true" />
+      <div className="hero-noise" aria-hidden="true" />
 
-      {/* Subtle noise texture overlay for premium feel */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          backgroundSize: "128px 128px",
-          zIndex: 1,
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Content */}
-      <div
-        className="container-xl relative w-full pt-28 pb-20 md:pt-36 md:pb-28"
-        style={{ zIndex: 2 }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
+      <div className="container-xl hero-content">
+        <div className="hero-content-inner">
           <div
             ref={badgeRef}
-            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full mb-10 text-[11px] font-semibold tracking-[0.2em] uppercase"
-            style={{
-              backgroundColor: "rgba(239, 238, 233, 0.7)",
-              color: "#4d6453",
-              border: "1px solid rgba(195, 200, 193, 0.5)",
-              fontFamily: "Manrope, sans-serif",
-              opacity: 0,
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              willChange: "transform",
-            }}
+            className="hero-badge liquid-glass"
           >
-            <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{ backgroundColor: "#4d6453" }}
-            />
+            <span className="hero-badge-dot" aria-hidden="true" />
             {t("badge")}
           </div>
 
-          {/* Decorative lines around title */}
-          <div className="flex items-center justify-center gap-6 mb-6">
+          <div className="hero-title-row">
             <div
               ref={decorLineLeftRef}
-              className="hidden md:block h-px flex-1 max-w-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to left, rgba(77, 100, 83, 0.3), transparent)",
-                transformOrigin: "right center",
-              }}
+              className="hero-decor-line hero-decor-line--left"
               aria-hidden="true"
             />
 
-            {/* Headline */}
-            <h1
-              ref={titleRef}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.2rem] font-light leading-[1.08] tracking-tight"
-              style={{
-                fontFamily: "Newsreader, Georgia, serif",
-                color: "#061b0e",
-                opacity: 1,
-                willChange: "transform",
-                perspective: "600px",
-              }}
-            >
+            <h1 ref={titleRef} className="hero-title hero-title-sweep">
               {t("title")}
             </h1>
 
             <div
               ref={decorLineRightRef}
-              className="hidden md:block h-px flex-1 max-w-[120px]"
-              style={{
-                background:
-                  "linear-gradient(to right, rgba(77, 100, 83, 0.3), transparent)",
-                transformOrigin: "left center",
-              }}
+              className="hero-decor-line hero-decor-line--right"
               aria-hidden="true"
             />
           </div>
 
-          {/* Subtitle */}
-          <p
-            ref={subtitleRef}
-            className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-12"
-            style={{
-              color: "#434843",
-              fontFamily: "Manrope, sans-serif",
-              opacity: 0,
-              willChange: "transform",
-            }}
-          >
+          <p ref={subtitleRef} className="hero-subtitle">
             {t("subtitle")}
           </p>
 
-          {/* CTAs */}
-          <div
-            ref={ctasRef}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            style={{ opacity: 0 }}
-          >
-            {/* Primary CTA */}
+          <div ref={ctasRef} className="hero-ctas">
             <Link
+              ref={ctaPrimaryRef}
               href={`/${locale}/contacto`}
-              className="group relative inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-500 hover:-translate-y-1"
-              style={{
-                backgroundColor: "#061b0e",
-                color: "#ffffff",
-                fontFamily: "Manrope, sans-serif",
-                boxShadow:
-                  "0 4px 30px rgba(6, 27, 14, 0.25), 0 0 0 0 rgba(180, 205, 184, 0)",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow =
-                  "0 8px 40px rgba(6, 27, 14, 0.35), 0 0 0 3px rgba(180, 205, 184, 0.2)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow =
-                  "0 4px 30px rgba(6, 27, 14, 0.25), 0 0 0 0 rgba(180, 205, 184, 0)";
-              }}
+              className="liquid-glass-dark hero-cta-primary focusable"
             >
               {t("cta")}
               <svg
@@ -323,79 +339,34 @@ export default function Hero({ locale }: Props) {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                className="hero-cta-arrow"
                 aria-hidden="true"
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
 
-            {/* Secondary CTA */}
             <Link
+              ref={ctaSecondaryRef}
               href={`/${locale}/precios`}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-500 hover:-translate-y-1"
-              style={{
-                backgroundColor: "transparent",
-                color: "#061b0e",
-                border: "1.5px solid rgba(195, 200, 193, 0.6)",
-                fontFamily: "Manrope, sans-serif",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.borderColor = "#4d6453";
-                el.style.backgroundColor = "rgba(239, 238, 233, 0.5)";
-                el.style.boxShadow = "0 4px 20px rgba(77, 100, 83, 0.1)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.borderColor = "rgba(195, 200, 193, 0.6)";
-                el.style.backgroundColor = "transparent";
-                el.style.boxShadow = "none";
-              }}
+              className="liquid-glass hero-cta-secondary focusable"
             >
               {t("cta2")}
             </Link>
           </div>
         </div>
 
-        {/* Scroll hint */}
         <div
           ref={scrollHintRef}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          style={{ opacity: 0 }}
+          className="hero-scroll-hint"
           aria-hidden="true"
         >
-          <span
-            className="text-[10px] tracking-[0.25em] uppercase"
-            style={{
-              color: "#737973",
-              fontFamily: "Manrope, sans-serif",
-            }}
-          >
-            {t("scrollHint")}
-          </span>
-          <div
-            className="w-px h-12 rounded-full"
-            style={{
-              background:
-                "linear-gradient(to bottom, #4d6453, transparent)",
-            }}
-          />
+          <span className="hero-scroll-hint-text">{t("scrollHint")}</span>
+          <div className="hero-scroll-hint-line" />
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, rgba(250, 249, 244, 0.9))",
-          zIndex: 2,
-        }}
-        aria-hidden="true"
-      />
+      <div className="hero-bottom-fade" aria-hidden="true" />
     </section>
   );
 }

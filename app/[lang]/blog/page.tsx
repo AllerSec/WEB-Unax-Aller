@@ -68,6 +68,18 @@ export default async function BlogPage({ params }: Props) {
     ],
   };
 
+  const subtitle =
+    locale === "es"
+      ? "Diseño web, SEO y rendimiento. Sin relleno."
+      : locale === "en"
+      ? "Web design, SEO and performance. No filler."
+      : "Web diseinua, SEO eta errendimendua. Betegarririk gabe.";
+
+  const readingLabel =
+    locale === "es" ? "min de lectura" : locale === "en" ? "min read" : "min irakurketa";
+
+  const dateLocale = locale === "es" ? "es-ES" : locale === "en" ? "en-GB" : "eu-ES";
+
   return (
     <>
       <script
@@ -75,7 +87,7 @@ export default async function BlogPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="pt-32 pb-20 md:pt-44 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
+      <section className="page-hero" aria-label="Blog hero">
         <div className="container-xl">
           <Breadcrumbs
             items={[
@@ -84,68 +96,38 @@ export default async function BlogPage({ params }: Props) {
             ]}
           />
 
-          <div className="max-w-3xl">
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-            >
-              Blog
-            </h1>
-            <p
-              className="text-lg md:text-xl leading-relaxed"
-              style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-            >
-              {locale === "es"
-                ? "Diseño web, SEO y rendimiento. Sin relleno."
-                : locale === "en"
-                ? "Web design, SEO and performance. No filler."
-                : "Web diseinua, SEO eta errendimendua. Betegarririk gabe."}
-            </p>
+          <div className="page-hero-inner">
+            <span className="page-hero-eyebrow">Blog</span>
+            <h1 className="page-hero-title">Blog</h1>
+            <p className="page-hero-subtitle">{subtitle}</p>
           </div>
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
+      <section className="post-list-section" aria-label="Blog posts">
         <div className="container-xl">
-          <div className="flex flex-col divide-y" style={{ borderColor: "#e3e3de" }}>
+          <div className="post-list">
             {blogPosts.map((post, i) => (
               <AnimatedSection key={post.slug} delay={i * 0.05}>
-                <Link
-                  href={`/${locale}/blog/${post.slug}`}
-                  className="block group py-8 transition-all duration-200 hover:pl-2"
-                >
-                  <div
-                    className="flex items-center gap-3 text-xs mb-3"
-                    style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
-                  >
+                <Link href={`/${locale}/blog/${post.slug}`} className="post-list-item focusable">
+                  <div className="post-meta">
                     <time dateTime={post.publishedAt}>
-                      {new Date(post.publishedAt).toLocaleDateString(
-                        locale === "es" ? "es-ES" : locale === "en" ? "en-GB" : "eu-ES",
-                        { year: "numeric", month: "long", day: "numeric" }
-                      )}
+                      {new Date(post.publishedAt).toLocaleDateString(dateLocale, {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
                     </time>
-                    <span aria-hidden="true">·</span>
-                    <span>{post.readingTime} {locale === "es" ? "min de lectura" : locale === "en" ? "min read" : "min irakurketa"}</span>
+                    <span className="post-meta-dot" aria-hidden="true">·</span>
+                    <span>
+                      {post.readingTime} {readingLabel}
+                    </span>
                   </div>
-                  <h2
-                    className="text-xl md:text-2xl font-light mb-3 group-hover:underline underline-offset-4"
-                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-                  >
-                    {post.titles[locale]}
-                  </h2>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                  >
-                    {post.descriptions[locale]}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4">
+                  <h2 className="post-list-title">{post.titles[locale]}</h2>
+                  <p className="post-list-excerpt">{post.descriptions[locale]}</p>
+                  <div className="tag-chip-row">
                     {post.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 rounded-full text-xs"
-                        style={{ backgroundColor: "#efeee9", color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
-                      >
+                      <span key={tag} className="tag-chip">
                         {tag}
                       </span>
                     ))}

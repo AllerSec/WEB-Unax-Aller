@@ -1,11 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { useEffect, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
@@ -26,55 +21,36 @@ export default function AnimatedSection({
 }: Props) {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      const el = sectionRef.current;
-      if (!el) return;
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
 
-      if (stagger) {
-        // Batch animate direct children
-        const children = el.querySelectorAll(":scope > *");
-        gsap.fromTo(
-          children,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            ease: "power3.out",
-            stagger: 0.12,
-            delay,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              once,
-            },
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            if (once) io.unobserve(entry.target);
+          } else if (!once) {
+            entry.target.classList.remove("is-visible");
           }
-        );
-      } else {
-        gsap.fromTo(
-          el,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            ease: "power3.out",
-            delay,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              once,
-            },
-          }
-        );
-      }
-    },
-    { scope: sectionRef }
-  );
+        }
+      },
+      { rootMargin: "0px 0px -15% 0px", threshold: 0 }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, [once]);
+
+  const baseClass = stagger ? "anim-stagger" : "anim-section";
+  const mergedStyle: React.CSSProperties = {
+    ...style,
+    ...(delay ? { ["--anim-delay" as string]: `${delay}s` } : {}),
+  };
 
   return (
-    <div ref={sectionRef} className={className} style={style}>
+    <div ref={sectionRef} className={`${baseClass} ${className}`.trim()} style={mergedStyle}>
       {children}
     </div>
   );

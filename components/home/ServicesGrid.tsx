@@ -65,35 +65,12 @@ interface ServiceCardProps {
   iconType: string;
   title: string;
   description: string;
-  index: number;
   locale: Locale;
   learnMore: string;
 }
 
-function ServiceCard({ iconType, title, description, index, locale, learnMore }: ServiceCardProps) {
+function ServiceCard({ iconType, title, description, locale, learnMore }: ServiceCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      gsap.fromTo(
-        cardRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.65,
-          ease: "power3.out",
-          delay: (index % 3) * 0.1,
-          scrollTrigger: {
-            trigger: cardRef.current,
-            start: "top 88%",
-            once: true,
-          },
-        }
-      );
-    },
-    { scope: cardRef }
-  );
 
   const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
@@ -123,47 +100,21 @@ function ServiceCard({ iconType, title, description, index, locale, learnMore }:
   return (
     <div
       ref={cardRef}
-      className="group relative p-7 rounded-2xl transition-shadow duration-300 hover:shadow-xl"
-      style={{
-        backgroundColor: "#f5f4ef",
-        border: "1px solid #e3e3de",
-        opacity: 0,
-        transformStyle: "preserve-3d",
-        willChange: "transform",
-      }}
+      data-service-card
+      className="service-card"
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
-      {/* Icon */}
-      <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300"
-        style={{
-          backgroundColor: "#efeee9",
-          color: "#4d6453",
-        }}
-      >
+      <div className="service-card-icon">
         <ServiceIcon type={iconType} />
       </div>
 
-      {/* Content */}
-      <h3
-        className="text-lg font-medium mb-3"
-        style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-      >
-        {title}
-      </h3>
-      <p
-        className="text-sm leading-relaxed mb-5"
-        style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-      >
-        {description}
-      </p>
+      <h3 className="service-card-title">{title}</h3>
+      <p className="service-card-desc">{description}</p>
 
-      {/* Learn more link */}
       <Link
         href={`/${locale}/servicios`}
-        className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5"
-        style={{ color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
+        className="service-card-link focusable"
       >
         {learnMore}
         <svg
@@ -179,12 +130,7 @@ function ServiceCard({ iconType, title, description, index, locale, learnMore }:
         </svg>
       </Link>
 
-      {/* Hover accent border */}
-      <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{ border: "1px solid rgba(77, 100, 83, 0.3)" }}
-        aria-hidden="true"
-      />
+      <div className="service-card-accent" aria-hidden="true" />
     </div>
   );
 }
@@ -211,6 +157,28 @@ export default function ServicesGrid({ locale }: Props) {
           },
         }
       );
+
+      // Batch entrance for all service cards — one ScrollTrigger per card with grouped callbacks
+      const batchTriggers = ScrollTrigger.batch("[data-service-card]", {
+        interval: 0.1,
+        batchMax: 3,
+        start: "top 88%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.to(batch, {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            ease: "power3.out",
+            stagger: 0.1,
+            overwrite: true,
+          });
+        },
+      });
+
+      return () => {
+        batchTriggers.forEach((t) => t.kill());
+      };
     },
     { scope: sectionRef }
   );
@@ -227,62 +195,34 @@ export default function ServicesGrid({ locale }: Props) {
   return (
     <section
       ref={sectionRef}
-      className="py-20 md:py-28"
-      style={{ backgroundColor: "#faf9f4" }}
+      className="services-section"
       aria-labelledby="services-title"
     >
       <div className="container-xl">
-        {/* Header */}
-        <div ref={headerRef} className="max-w-2xl mb-14" style={{ opacity: 0 }}>
-          <h2
-            id="services-title"
-            className="text-3xl md:text-4xl lg:text-5xl font-light mb-5"
-            style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-          >
+        <div ref={headerRef} className="services-header">
+          <h2 id="services-title" className="services-title">
             {t("title")}
           </h2>
-          <p
-            className="text-base md:text-lg leading-relaxed"
-            style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-          >
-            {t("subtitle")}
-          </p>
+          <p className="services-subtitle">{t("subtitle")}</p>
         </div>
 
-        {/* Services grid — 3×2, always even */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service, i) => (
+        <div className="services-grid">
+          {services.map((service) => (
             <ServiceCard
               key={service.key}
               iconType={service.iconType}
               title={service.title}
               description={service.description}
-              index={i}
               locale={locale}
               learnMore={t("learnMore")}
             />
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="flex justify-center mt-12">
+        <div className="services-cta-row">
           <Link
             href={`/${locale}/servicios`}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-            style={{
-              border: "1.5px solid #c3c8c1",
-              color: "#061b0e",
-              fontFamily: "Manrope, sans-serif",
-              backgroundColor: "transparent",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#4d6453";
-              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#efeee9";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#c3c8c1";
-              (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
-            }}
+            className="btn btn-secondary"
           >
             {t("cta")}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">

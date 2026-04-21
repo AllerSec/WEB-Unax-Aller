@@ -11,7 +11,7 @@ const eu = {
     title: "Web diseinu eta garapen premium-ak zure negozioa altxatzen du.",
     subtitle:
       "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. 1.300€-tik, BEZ barne.",
-    cta: "Doako kontsulta antolatu",
+    cta: "Zure weba doan 24 ordutan",
     cta2: "Planak ikusi",
     badge: "Irun · Euskal Herria · Espainia",
     scrollHint: "Mugitu esploratzeko",

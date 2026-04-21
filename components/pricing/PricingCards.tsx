@@ -65,7 +65,7 @@ function PlanCard({
   );
 
   const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (popular) return; // Don't tilt the featured card
+    if (popular) return;
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
@@ -93,150 +93,64 @@ function PlanCard({
   return (
     <div
       ref={cardRef}
-      className="relative flex flex-col rounded-2xl overflow-hidden"
-      style={{
-        backgroundColor: popular ? "#061b0e" : "#f5f4ef",
-        border: popular ? "none" : "1px solid #e3e3de",
-        opacity: 0,
-        transformStyle: "preserve-3d",
-        willChange: "transform",
-        boxShadow: popular
-          ? "0 24px 64px rgba(6, 27, 14, 0.35)"
-          : "none",
-        transform: popular ? "scale(1.02)" : "none",
-      }}
+      className="plan-card"
+      data-popular={popular ? "true" : "false"}
+      style={{ opacity: 0 }}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
-      {/* Popular badge */}
       {popular && (
-        <div
-          className="absolute top-5 right-5 px-3 py-1 rounded-full text-xs font-semibold"
-          style={{
-            backgroundColor: "#b4cdb8",
-            color: "#061b0e",
-            fontFamily: "Manrope, sans-serif",
-          }}
-        >
-          {popularLabel}
-        </div>
+        <div className="plan-card-popular-badge">{popularLabel}</div>
       )}
 
-      <div className="p-8 flex flex-col flex-1">
-        {/* Plan name */}
-        <div className="mb-6">
-          <h3
-            className="text-sm font-semibold uppercase tracking-widest mb-1"
-            style={{
-              color: popular ? "#4d6453" : "#4d6453",
-              fontFamily: "Manrope, sans-serif",
-            }}
-          >
-            {subtitle}
-          </h3>
-          <p
-            className="text-xl font-medium"
-            style={{
-              fontFamily: "Newsreader, Georgia, serif",
-              color: popular ? "#b4cdb8" : "#061b0e",
-            }}
-          >
-            {name}
-          </p>
+      <div className="plan-card-body">
+        <div className="plan-card-header">
+          <p className="plan-card-subtitle">{subtitle}</p>
+          <p className="plan-card-name">{name}</p>
         </div>
 
-        {/* Price */}
-        <div className="mb-5">
-          <div className="flex items-baseline gap-1">
-            <span
-              className="text-sm font-medium"
-              style={{ color: popular ? "#737973" : "#737973", fontFamily: "Manrope, sans-serif" }}
-            >
-              {fromLabel}
-            </span>
-            <span
-              className="text-4xl font-light ml-1"
-              style={{
-                fontFamily: "Newsreader, Georgia, serif",
-                color: popular ? "#ffffff" : "#061b0e",
-              }}
-            >
-              {price}
-            </span>
-          </div>
+        <div className="plan-card-price-row">
+          <span className="plan-card-price-from">{fromLabel}</span>
+          <span className="plan-card-price">{price}</span>
         </div>
 
-        {/* Description */}
-        <p
-          className="text-sm leading-relaxed mb-7"
-          style={{
-            color: popular ? "#737973" : "#434843",
-            fontFamily: "Manrope, sans-serif",
-          }}
-        >
-          {description}
-        </p>
+        <p className="plan-card-description">{description}</p>
 
-        {/* Features */}
-        <ul className="flex flex-col gap-3 mb-8 flex-1">
+        <ul className="plan-card-features">
           {features.map((feature, i) => (
-            <li key={i} className="flex items-start gap-3">
+            <li key={i} className="plan-card-feature">
               <svg
-                className="flex-shrink-0 mt-0.5"
+                className="plan-card-feature-check"
                 width="16"
                 height="16"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke={popular ? "#4d6453" : "#4d6453"}
+                stroke="currentColor"
                 strokeWidth="2.5"
                 aria-hidden="true"
               >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <span
-                className="text-sm"
-                style={{
-                  color: popular ? "#b4cdb8" : "#434843",
-                  fontFamily: "Manrope, sans-serif",
-                }}
-              >
-                {feature}
-              </span>
+              <span>{feature}</span>
             </li>
           ))}
         </ul>
 
-        {/* CTA */}
         <button
           onClick={onDetail}
-          className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 w-full cursor-pointer"
-          style={{
-            backgroundColor: popular ? "#b4cdb8" : "transparent",
-            color: "#061b0e",
-            border: popular ? "none" : "1.5px solid #c3c8c1",
-            fontFamily: "Manrope, sans-serif",
-          }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget as HTMLButtonElement;
-            if (popular) {
-              el.style.backgroundColor = "#d0e9d4";
-            } else {
-              el.style.borderColor = "#4d6453";
-              el.style.backgroundColor = "#efeee9";
-            }
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget as HTMLButtonElement;
-            if (popular) {
-              el.style.backgroundColor = "#b4cdb8";
-            } else {
-              el.style.borderColor = "#c3c8c1";
-              el.style.backgroundColor = "transparent";
-            }
-          }}
+          className="plan-card-cta focusable"
+          type="button"
         >
           {ctaLabel}
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            aria-hidden="true"
+          >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </button>
@@ -288,60 +202,42 @@ export default function PricingCards({ locale, headingLevel = "h1" }: Props) {
 
   return (
     <>
-    <section
-      ref={sectionRef}
-      className="py-20 md:py-28"
-      style={{ backgroundColor: "#faf9f4" }}
-      aria-labelledby="pricing-title"
-    >
-      <div className="container-xl">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <HeadingTag
-            id="pricing-title"
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-5"
-            style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-          >
-            {t("title")}
-          </HeadingTag>
-          <p
-            className="text-base md:text-lg max-w-xl mx-auto"
-            style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-          >
-            {t("subtitle")}
-          </p>
-        </div>
+      <section
+        ref={sectionRef}
+        className="pricing-section"
+        aria-labelledby="pricing-title"
+      >
+        <div className="container-xl">
+          <div className="pricing-section-header">
+            <HeadingTag id="pricing-title" className="pricing-section-title">
+              {t("title")}
+            </HeadingTag>
+            <p className="pricing-section-subtitle">{t("subtitle")}</p>
+          </div>
 
-        {/* Single plan — centered */}
-        <div className="max-w-md mx-auto">
-          {planDetails.map((plan, i) => (
-            <PlanCard
-              key={plan.name}
-              {...plan}
-              index={i}
-              ctaLabel={t("cta")}
-              fromLabel={t("from")}
-              popularLabel={t("popular")}
-              locale={locale}
-              onDetail={() => setActivePlan(plan)}
-            />
-          ))}
-          <p
-            className="text-center text-sm mt-6"
-            style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
-          >
-            {t("notePrice")}
-          </p>
+          <div className="pricing-wrap">
+            {planDetails.map((plan, i) => (
+              <PlanCard
+                key={plan.name}
+                {...plan}
+                index={i}
+                ctaLabel={t("cta")}
+                fromLabel={t("from")}
+                popularLabel={t("popular")}
+                locale={locale}
+                onDetail={() => setActivePlan(plan)}
+              />
+            ))}
+            <p className="pricing-note">{t("notePrice")}</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Plan detail modal */}
-    <PlanModal
-      plan={activePlan}
-      onClose={() => setActivePlan(null)}
-      locale={locale}
-    />
+      <PlanModal
+        plan={activePlan}
+        onClose={() => setActivePlan(null)}
+        locale={locale}
+      />
     </>
   );
 }

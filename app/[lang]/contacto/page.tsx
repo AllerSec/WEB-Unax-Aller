@@ -142,10 +142,8 @@ export default async function ContactoPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero */}
       <section
-        className="pt-32 pb-16 md:pt-44 md:pb-20"
-        style={{ backgroundColor: "#faf9f4" }}
+        className="page-hero"
         aria-label={locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua"}
       >
         <div className="container-xl">
@@ -156,97 +154,46 @@ export default async function ContactoPage({ params }: Props) {
             ]}
           />
 
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold tracking-widest uppercase"
-            style={{
-              backgroundColor: "#efeee9",
-              color: "#4d6453",
-              border: "1px solid #c3c8c1",
-              fontFamily: "Manrope, sans-serif",
-            }}
-          >
-            {tNav("contacto")}
+          <div className="page-hero-inner">
+            <span className="page-hero-eyebrow">{tNav("contacto")}</span>
+            <h1 className="page-hero-title">{t("title")}</h1>
+            <p className="page-hero-subtitle">{t("subtitle")}</p>
           </div>
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-5 max-w-2xl"
-            style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-          >
-            {t("title")}
-          </h1>
-          <p
-            className="text-lg md:text-xl leading-relaxed max-w-xl"
-            style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-          >
-            {t("subtitle")}
-          </p>
         </div>
       </section>
 
-      {/* Form + Info */}
-      <section
-        className="pb-20 md:pb-28"
-        style={{ backgroundColor: "#faf9f4" }}
-        aria-label="Contact form"
-      >
+      <section aria-label="Contact form">
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            {/* Form */}
-            <div>
-              <ContactForm locale={locale} />
-            </div>
+          <div className="contact-grid">
+            <ContactForm locale={locale} />
 
-            {/* Info */}
-            <div className="flex flex-col gap-8">
-              {/* Info cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <aside className="contact-aside">
+              <div className="contact-info-grid">
                 {infoItems.map((item, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 p-5 rounded-xl"
-                    style={{ backgroundColor: "#f5f4ef", border: "1px solid #e3e3de" }}
-                  >
-                    <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: "#efeee9", color: "#4d6453" }}
-                    >
+                  <div key={i} className="contact-info-card">
+                    <div className="contact-info-icon" aria-hidden="true">
                       {item.icon}
                     </div>
                     {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-sm mt-1 transition-colors duration-200"
-                        style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                      >
+                      <a href={item.href} className="contact-info-label">
                         {item.label}
                       </a>
                     ) : (
-                      <span
-                        className="text-sm mt-1"
-                        style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                      >
-                        {item.label}
-                      </span>
+                      <span className="contact-info-label">{item.label}</span>
                     )}
                   </div>
                 ))}
               </div>
 
-              {/* Trust badges */}
-              <div
-                className="p-7 rounded-2xl"
-                style={{ backgroundColor: "#061b0e" }}
-              >
-                <h3
-                  className="text-lg font-light mb-5"
-                  style={{ fontFamily: "Newsreader, Georgia, serif", color: "#b4cdb8" }}
-                >
+              <div className="contact-trust">
+                <h2 className="contact-trust-heading">
                   {locale === "es"
                     ? "¿Por qué elegirnos?"
                     : locale === "en"
                     ? "Why choose us?"
                     : "Zergatik aukeratu?"}
-                </h3>
-                <ul className="flex flex-col gap-3">
+                </h2>
+                <ul className="contact-trust-list">
                   {(locale === "es"
                     ? [
                         "Presupuesto gratuito en 24h",
@@ -268,12 +215,13 @@ export default async function ContactoPage({ params }: Props) {
                         "Abiarazte osteko laguntza barne",
                       ]
                   ).map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-3 text-sm"
-                      style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4d6453" strokeWidth="2.5" aria-hidden="true">
+                    <li key={i} className="contact-trust-item">
+                      <svg
+                        className="contact-trust-check"
+                        width="14" height="14" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" strokeWidth="2.5"
+                        aria-hidden="true"
+                      >
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                       {item}
@@ -281,7 +229,7 @@ export default async function ContactoPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>

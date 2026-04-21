@@ -11,96 +11,23 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 interface StatProps {
   value: string;
   label: string;
-  index: number;
 }
 
-function StatCard({ value, label, index }: StatProps) {
+function StatCard({ value, label }: StatProps) {
   const ref = useRef<HTMLDivElement>(null);
   const numRef = useRef<HTMLSpanElement>(null);
-
-  useGSAP(
-    () => {
-      const el = ref.current;
-      if (!el) return;
-
-      // Entrance animation
-      gsap.fromTo(
-        el,
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power3.out",
-          delay: index * 0.1,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-
-      // Count-up for numeric values
-      const numEl = numRef.current;
-      if (!numEl) return;
-
-      const raw = value.replace(/[^0-9.]/g, "");
-      const num = parseFloat(raw);
-      if (isNaN(num)) return;
-
-      const suffix = value.replace(/[0-9.]/g, "");
-      const isDecimal = raw.includes(".");
-
-      const counter = { val: 0 };
-      gsap.fromTo(
-        counter,
-        { val: 0 },
-        {
-          val: num,
-          duration: 2,
-          ease: "power2.out",
-          delay: index * 0.12,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            once: true,
-          },
-          onUpdate: () => {
-            if (!numEl) return;
-            numEl.textContent = isDecimal
-              ? counter.val.toFixed(1) + suffix
-              : Math.round(counter.val) + suffix;
-          },
-        }
-      );
-    },
-    { scope: ref }
-  );
 
   return (
     <div
       ref={ref}
-      className="flex flex-col items-center text-center p-6 rounded-2xl"
-      style={{
-        backgroundColor: "#f5f4ef",
-        border: "1px solid #e3e3de",
-        opacity: 0,
-      }}
+      data-stat-card
+      data-stat-value={value}
+      className="stat-card"
     >
-      <span
-        ref={numRef}
-        className="text-4xl md:text-5xl font-light mb-2 tabular-nums"
-        style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-      >
+      <span ref={numRef} data-stat-number className="stat-card-value">
         {value}
       </span>
-      <span
-        className="text-sm font-medium"
-        style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
-      >
-        {label}
-      </span>
+      <span className="stat-card-label">{label}</span>
     </div>
   );
 }
@@ -127,6 +54,75 @@ export default function SocialProof() {
           },
         }
       );
+
+      // Count-up helper: animate the number inside a card from 0 → target
+      const countUp = (card: Element) => {
+        const numEl = card.querySelector<HTMLSpanElement>("[data-stat-number]");
+        const rawValue = card.getAttribute("data-stat-value") || "";
+        if (!numEl || !rawValue) return;
+        const raw = rawValue.replace(/[^0-9.]/g, "");
+        const num = parseFloat(raw);
+        if (isNaN(num)) return;
+        const suffix = rawValue.replace(/[0-9.]/g, "");
+        const isDecimal = raw.includes(".");
+        const counter = { val: 0 };
+        gsap.fromTo(
+          counter,
+          { val: 0 },
+          {
+            val: num,
+            duration: 1.8,
+            ease: "power2.out",
+            onUpdate: () => {
+              numEl.textContent = isDecimal
+                ? counter.val.toFixed(1) + suffix
+                : Math.round(counter.val) + suffix;
+            },
+          }
+        );
+      };
+
+      // Batch entrance + count-up (fires once)
+      const enterTriggers = ScrollTrigger.batch("[data-stat-card]", {
+        interval: 0.08,
+        start: "top 85%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.to(batch, {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.1,
+            overwrite: "auto",
+          });
+          batch.forEach(countUp);
+        },
+      });
+
+      // Pulse on re-entry — scroll up then back down gives a subtle re-focus
+      const pulseTriggers = ScrollTrigger.batch("[data-stat-card]", {
+        interval: 0.08,
+        start: "top 85%",
+        onEnterBack: (batch) => {
+          gsap.fromTo(
+            batch,
+            { scale: 0.98 },
+            {
+              scale: 1,
+              duration: 0.5,
+              ease: "power2.out",
+              stagger: 0.05,
+              overwrite: "auto",
+            }
+          );
+        },
+      });
+
+      return () => {
+        enterTriggers.forEach((trigger) => trigger.kill());
+        pulseTriggers.forEach((trigger) => trigger.kill());
+      };
     },
     { scope: sectionRef }
   );
@@ -141,36 +137,23 @@ export default function SocialProof() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 md:py-28"
-      style={{ backgroundColor: "#faf9f4" }}
+      className="social-proof-section"
       aria-labelledby="social-proof-title"
     >
       <div className="container-xl">
-        {/* Header */}
-        <div ref={headerRef} className="text-center mb-14" style={{ opacity: 0 }}>
-          <h2
-            id="social-proof-title"
-            className="text-3xl md:text-4xl font-light mb-4"
-            style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-          >
+        <div ref={headerRef} className="social-proof-header">
+          <h2 id="social-proof-title" className="social-proof-title">
             {t("title")}
           </h2>
-          <p
-            className="text-base md:text-lg max-w-xl mx-auto"
-            style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-          >
-            {t("subtitle")}
-          </p>
+          <p className="social-proof-subtitle">{t("subtitle")}</p>
         </div>
 
-        {/* Stats grid — always 2×2, symmetric */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((stat, i) => (
+        <div className="stats-grid">
+          {stats.map((stat) => (
             <StatCard
               key={stat.key}
               value={stat.value}
               label={stat.label}
-              index={i}
             />
           ))}
         </div>

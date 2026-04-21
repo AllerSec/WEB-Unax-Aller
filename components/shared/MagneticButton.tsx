@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect } from "react";
 import gsap from "gsap";
 
 type Props = {
@@ -23,29 +23,42 @@ export default function MagneticButton({
   ...rest
 }: Props) {
   const ref = useRef<HTMLElement>(null);
+  const xSetterRef = useRef<((v: number) => void) | null>(null);
+  const ySetterRef = useRef<((v: number) => void) | null>(null);
+  const reducedMotionRef = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    reducedMotionRef.current = mq.matches;
+    const onChange = (e: MediaQueryListEvent) => {
+      reducedMotionRef.current = e.matches;
+    };
+    mq.addEventListener("change", onChange);
+    xSetterRef.current = gsap.quickTo(el, "x", { duration: 0.4, ease: "power2.out" });
+    ySetterRef.current = gsap.quickTo(el, "y", { duration: 0.4, ease: "power2.out" });
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   const onMouseMove = useCallback(
     (e: React.MouseEvent) => {
+      if (reducedMotionRef.current) return;
       const el = ref.current;
-      if (!el) return;
+      if (!el || !xSetterRef.current || !ySetterRef.current) return;
 
       const rect = el.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const dx = (e.clientX - centerX) * strength;
-      const dy = (e.clientY - centerY) * strength;
+      const dx = (e.clientX - (rect.left + rect.width / 2)) * strength;
+      const dy = (e.clientY - (rect.top + rect.height / 2)) * strength;
 
-      gsap.to(el, {
-        x: dx,
-        y: dy,
-        duration: 0.4,
-        ease: "power2.out",
-      });
+      xSetterRef.current(dx);
+      ySetterRef.current(dy);
     },
     [strength]
   );
 
   const onMouseLeave = useCallback(() => {
+    if (reducedMotionRef.current) return;
     const el = ref.current;
     if (!el) return;
     gsap.to(el, {

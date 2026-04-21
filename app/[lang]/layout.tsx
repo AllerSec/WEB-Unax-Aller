@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageLoader from "@/components/layout/PageLoader";
 import CustomCursor from "@/components/shared/CustomCursor";
+import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 import type { Metadata } from "next";
 
 type Props = {
@@ -83,11 +84,7 @@ export default async function LangLayout({ children, params }: Props) {
           __html: `document.documentElement.lang="${locale}"`,
         }}
       />
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold"
-        style={{ backgroundColor: "#061b0e", color: "#ffffff", fontFamily: "Manrope, sans-serif" }}
-      >
+      <a href="#main-content" className="skip-link focusable">
         {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : "Edukira joan"}
       </a>
       <PageLoader />
@@ -95,6 +92,7 @@ export default async function LangLayout({ children, params }: Props) {
       <Navbar locale={locale} />
       <main id="main-content" className="flex-1">{children}</main>
       <Footer locale={locale} />
+      <WhatsAppFloat locale={locale} />
     </NextIntlClientProvider>
   );
 }

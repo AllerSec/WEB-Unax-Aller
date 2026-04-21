@@ -30,7 +30,6 @@ export default function Navbar({ locale }: Props) {
     { href: `/${locale}/contacto`, label: t("contacto") },
   ];
 
-  // Navbar scroll behavior
   useGSAP(
     () => {
       const nav = navRef.current;
@@ -39,26 +38,13 @@ export default function Navbar({ locale }: Props) {
       ScrollTrigger.create({
         start: "top-=80 top",
         onEnter: () => {
-          gsap.to(nav, {
-            backgroundColor: "rgba(250, 249, 244, 0.95)",
-            backdropFilter: "blur(12px)",
-            boxShadow: "0 1px 0 rgba(195, 200, 193, 0.5)",
-            duration: 0.3,
-            ease: "power2.out",
-          });
+          nav.setAttribute("data-scrolled", "true");
         },
         onLeaveBack: () => {
-          gsap.to(nav, {
-            backgroundColor: "rgba(250, 249, 244, 0)",
-            backdropFilter: "blur(0px)",
-            boxShadow: "none",
-            duration: 0.3,
-            ease: "power2.out",
-          });
+          nav.setAttribute("data-scrolled", "false");
         },
       });
 
-      // Initial entrance
       gsap.fromTo(
         nav,
         { y: -20, opacity: 0 },
@@ -68,7 +54,6 @@ export default function Navbar({ locale }: Props) {
     { scope: navRef }
   );
 
-  // Close menus on outside click
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -76,11 +61,20 @@ export default function Navbar({ locale }: Props) {
         setMenuOpen(false);
       }
     };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setLangOpen(false);
+        setMenuOpen(false);
+      }
+    };
     document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("click", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMenuOpen(false);
     setLangOpen(false);
@@ -91,7 +85,6 @@ export default function Navbar({ locale }: Props) {
     return pathname.startsWith(href);
   };
 
-  // Build alternate locale links preserving the current page's path
   const getLocaleLink = (targetLocale: Locale) => {
     const segments = pathname.split("/").filter(Boolean);
     if (segments.length > 0 && ["es", "en", "eu"].includes(segments[0])) {
@@ -101,98 +94,49 @@ export default function Navbar({ locale }: Props) {
   };
 
   return (
-    <header
-      ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50"
-      style={{ backgroundColor: "rgba(250, 249, 244, 0)" }}
-    >
+    <header ref={navRef} className="nav-root" data-scrolled="false">
       <div className="container-xl">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+        <div className="nav-bar">
           <Link
             href={`/${locale}`}
-            className="flex items-center gap-2.5 group"
+            className="nav-logo focusable"
             aria-label="Unax Aller — Inicio"
           >
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
-              style={{ backgroundColor: "#061b0e" }}
-            >
-              <span
-                style={{
-                  fontFamily: "Georgia, serif",
-                  color: "#b4cdb8",
-                  fontSize: "0.75rem",
-                  fontWeight: 400,
-                  letterSpacing: "0.05em",
-                }}
-              >
-                UA
-              </span>
-            </div>
-            <span
-              className="hidden sm:block text-sm font-medium tracking-wide"
-              style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-            >
-              Unax Aller
-            </span>
+            <span className="nav-logo-mark" aria-hidden="true">UA</span>
+            <span className="nav-logo-text">Unax Aller</span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Navegación principal">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="relative px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg"
-                style={{
-                  color: isActive(link.href)
-                    ? "#061b0e"
-                    : "#434843",
-                  fontFamily: "Manrope, sans-serif",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive(link.href)) {
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#061b0e";
-                    (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(6, 27, 14, 0.05)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive(link.href)) {
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#434843";
-                    (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
-                  }
-                }}
-              >
-                {link.label}
-                {isActive(link.href) && (
-                  <span
-                    className="absolute bottom-0.5 left-3 right-3 h-px rounded-full"
-                    style={{ backgroundColor: "#4d6453" }}
-                  />
-                )}
-              </Link>
-            ))}
+          <nav className="nav-links" aria-label="Navegación principal">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="nav-link focusable"
+                  data-active={active ? "true" : "false"}
+                  aria-current={active ? "page" : undefined}
+                >
+                  {link.label}
+                  {active && <span className="nav-link-indicator" aria-hidden="true" />}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Right side: lang switcher + CTA */}
-          <div className="flex items-center gap-2">
-            {/* Language switcher */}
-            <div className="relative">
+          <div className="nav-actions">
+            <div className="nav-lang">
               <button
+                type="button"
+                className="nav-lang-btn focusable"
                 onClick={(e) => {
                   e.stopPropagation();
                   setLangOpen((v) => !v);
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200"
-                style={{
-                  color: "#434843",
-                  backgroundColor: langOpen ? "rgba(6, 27, 14, 0.06)" : "transparent",
-                  fontFamily: "Manrope, sans-serif",
-                }}
                 aria-expanded={langOpen}
                 aria-haspopup="listbox"
                 aria-label="Cambiar idioma"
+                data-open={langOpen ? "true" : "false"}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <circle cx="12" cy="12" r="10" />
@@ -206,10 +150,7 @@ export default function Navbar({ locale }: Props) {
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
-                  style={{
-                    transform: langOpen ? "rotate(180deg)" : "none",
-                    transition: "transform 0.2s",
-                  }}
+                  className="nav-lang-caret"
                   aria-hidden="true"
                 >
                   <polyline points="6 9 12 15 18 9" />
@@ -218,12 +159,7 @@ export default function Navbar({ locale }: Props) {
 
               {langOpen && (
                 <div
-                  className="absolute right-0 mt-1 py-1 rounded-xl border shadow-lg min-w-[130px]"
-                  style={{
-                    backgroundColor: "#faf9f4",
-                    borderColor: "#c3c8c1",
-                    boxShadow: "0 8px 24px rgba(6, 27, 14, 0.12)",
-                  }}
+                  className="nav-lang-menu"
                   role="listbox"
                   aria-label="Seleccionar idioma"
                 >
@@ -233,24 +169,8 @@ export default function Navbar({ locale }: Props) {
                       href={getLocaleLink(loc)}
                       role="option"
                       aria-selected={loc === locale}
-                      className="flex items-center justify-between px-4 py-2 text-sm transition-colors duration-150"
-                      style={{
-                        color: loc === locale ? "#061b0e" : "#434843",
-                        backgroundColor:
-                          loc === locale ? "rgba(6, 27, 14, 0.06)" : "transparent",
-                        fontFamily: "Manrope, sans-serif",
-                        fontWeight: loc === locale ? 600 : 400,
-                      }}
-                      onMouseEnter={(e) => {
-                        if (loc !== locale) {
-                          (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "rgba(6, 27, 14, 0.04)";
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (loc !== locale) {
-                          (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
-                        }
-                      }}
+                      className="nav-lang-option focusable"
+                      data-active={loc === locale ? "true" : "false"}
                       onClick={() => setLangOpen(false)}
                     >
                       {localeNames[loc]}
@@ -265,113 +185,63 @@ export default function Navbar({ locale }: Props) {
               )}
             </div>
 
-            {/* CTA Button (desktop) */}
             <Link
               href={`/${locale}/contacto`}
-              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200"
-              style={{
-                backgroundColor: "#061b0e",
-                color: "#ffffff",
-                fontFamily: "Manrope, sans-serif",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#1b3022";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#061b0e";
-              }}
+              className="btn btn-primary btn-sm nav-cta"
             >
               {t("consultaGratuita")}
             </Link>
 
-            {/* Hamburger (mobile) */}
             <button
-              className="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg transition-colors duration-200"
+              type="button"
+              className="nav-burger focusable"
               onClick={(e) => {
                 e.stopPropagation();
                 setMenuOpen((v) => !v);
               }}
               aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
               aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-              style={{
-                backgroundColor: menuOpen ? "rgba(6, 27, 14, 0.06)" : "transparent",
-              }}
+              data-open={menuOpen ? "true" : "false"}
             >
-              <span
-                className="block h-px w-6 transition-all duration-300"
-                style={{
-                  backgroundColor: "#061b0e",
-                  transform: menuOpen ? "translateY(5px) rotate(45deg)" : "none",
-                }}
-              />
-              <span
-                className="block h-px w-6 transition-all duration-300"
-                style={{
-                  backgroundColor: "#061b0e",
-                  opacity: menuOpen ? 0 : 1,
-                  transform: menuOpen ? "scaleX(0)" : "none",
-                }}
-              />
-              <span
-                className="block h-px w-6 transition-all duration-300"
-                style={{
-                  backgroundColor: "#061b0e",
-                  transform: menuOpen ? "translateY(-5px) rotate(-45deg)" : "none",
-                }}
-              />
+              <span className="nav-burger-line" />
+              <span className="nav-burger-line" />
+              <span className="nav-burger-line" />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
-        className="lg:hidden overflow-hidden transition-all duration-300 ease-in-out"
-        style={{
-          maxHeight: menuOpen ? "400px" : "0",
-          opacity: menuOpen ? 1 : 0,
-        }}
+        id="mobile-menu"
+        className="nav-mobile"
+        data-open={menuOpen ? "true" : "false"}
         aria-hidden={!menuOpen}
       >
-        <div
-          className="border-t"
-          style={{
-            backgroundColor: "rgba(250, 249, 244, 0.98)",
-            borderColor: "#c3c8c1",
-            backdropFilter: "blur(12px)",
-          }}
-        >
-          <nav className="container-xl py-4 flex flex-col gap-1" aria-label="Menú móvil">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200"
-                style={{
-                  color: isActive(link.href) ? "#061b0e" : "#434843",
-                  backgroundColor: isActive(link.href)
-                    ? "rgba(6, 27, 14, 0.06)"
-                    : "transparent",
-                  fontFamily: "Manrope, sans-serif",
-                  fontWeight: isActive(link.href) ? 600 : 400,
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="pt-3 mt-1 border-t" style={{ borderColor: "#c3c8c1" }}>
-              <Link
-                href={`/${locale}/contacto`}
-                className="flex items-center justify-center px-4 py-3 text-sm font-semibold rounded-lg"
-                style={{
-                  backgroundColor: "#061b0e",
-                  color: "#ffffff",
-                  fontFamily: "Manrope, sans-serif",
-                }}
-              >
-                {t("consultaGratuita")}
-              </Link>
-            </div>
+        <div className="nav-mobile-inner">
+          <nav className="container-xl nav-mobile-list" aria-label="Menú móvil">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="nav-mobile-link focusable"
+                  data-active={active ? "true" : "false"}
+                  aria-current={active ? "page" : undefined}
+                  tabIndex={menuOpen ? 0 : -1}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href={`/${locale}/contacto`}
+              className="btn btn-primary btn-block nav-mobile-cta"
+              tabIndex={menuOpen ? 0 : -1}
+            >
+              {t("consultaGratuita")}
+            </Link>
           </nav>
         </div>
       </div>

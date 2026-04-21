@@ -285,11 +285,7 @@ export default async function ServiciosPage({ params }: Props) {
       />
 
       {/* Hero */}
-      <section
-        className="pt-32 pb-20 md:pt-44 md:pb-28"
-        style={{ backgroundColor: "#faf9f4" }}
-        aria-label="Services hero"
-      >
+      <section className="page-hero" aria-label="Services hero">
         <div className="container-xl">
           <Breadcrumbs
             items={[
@@ -298,84 +294,30 @@ export default async function ServiciosPage({ params }: Props) {
             ]}
           />
 
-          <div className="max-w-3xl">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold tracking-widest uppercase"
-              style={{
-                backgroundColor: "#efeee9",
-                color: "#4d6453",
-                border: "1px solid #c3c8c1",
-                fontFamily: "Manrope, sans-serif",
-              }}
-            >
-              {tNav("servicios")}
-            </div>
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-            >
-              {t("title")}
-            </h1>
-            <p
-              className="text-lg md:text-xl leading-relaxed max-w-2xl"
-              style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-            >
-              {t("subtitle")}
-            </p>
+          <div className="page-hero-inner">
+            <span className="page-hero-eyebrow">{tNav("servicios")}</span>
+            <h1 className="page-hero-title">{t("title")}</h1>
+            <p className="page-hero-subtitle">{t("subtitle")}</p>
           </div>
         </div>
       </section>
 
-      {/* Services detail grid — 2 columns on desktop, always even */}
-      <section
-        className="pb-20 md:pb-28"
-        style={{ backgroundColor: "#faf9f4" }}
-        aria-label="Services list"
-      >
+      {/* Services detail grid */}
+      <section className="services-detail" aria-label="Services list">
         <div className="container-xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="services-detail-grid">
             {services.map((service, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
-                <div
-                  className="group p-8 rounded-2xl h-full"
-                  style={{
-                    backgroundColor: "#f5f4ef",
-                    border: "1px solid #e3e3de",
-                  }}
-                >
-                  {/* Icon */}
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
-                    style={{ backgroundColor: "#efeee9", color: "#4d6453" }}
-                  >
-                    {service.icon}
-                  </div>
+                <div className="service-detail-card">
+                  <div className="service-detail-icon">{service.icon}</div>
 
-                  <h2
-                    className="text-xl font-medium mb-3"
-                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-                  >
-                    {service.title}
-                  </h2>
-                  <p
-                    className="text-sm leading-relaxed mb-6"
-                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                  >
-                    {service.description}
-                  </p>
+                  <h2 className="service-detail-title">{service.title}</h2>
+                  <p className="service-detail-desc">{service.description}</p>
 
-                  <ul className="flex flex-col gap-2.5">
+                  <ul className="service-detail-bullets">
                     {service.bullets.map((bullet, j) => (
-                      <li
-                        key={j}
-                        className="flex items-center gap-3 text-sm"
-                        style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                      >
-                        <span
-                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                          style={{ backgroundColor: "#4d6453" }}
-                          aria-hidden="true"
-                        />
+                      <li key={j} className="service-detail-bullet">
+                        <span className="service-detail-bullet-dot" aria-hidden="true" />
                         {bullet}
                       </li>
                     ))}
@@ -386,77 +328,46 @@ export default async function ServiciosPage({ params }: Props) {
           </div>
 
           {/* FAQ */}
-          <AnimatedSection className="mt-20">
-            <h2
-              className="text-2xl md:text-3xl font-light mb-10"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-            >
+          <AnimatedSection className="faq-wrap">
+            <h2 className="section-heading">
               {locale === "es" ? "Preguntas frecuentes" : locale === "en" ? "Frequently asked questions" : "Galdera ohikoak"}
             </h2>
-            <div className="flex flex-col divide-y" style={{ borderColor: "#e3e3de" }}>
+            <div className="faq-list">
               {faqItems.map((item, i) => (
-                <details key={i} className="group py-5">
-                  <summary
-                    className="flex justify-between items-center cursor-pointer text-base font-medium list-none"
-                    style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-                  >
+                <details key={i} className="faq-item">
+                  <summary className="faq-summary">
                     {item.q}
                     <svg
-                      className="ml-4 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+                      className="faq-caret"
                       width="18" height="18" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" strokeWidth="2" aria-hidden="true"
                     >
                       <polyline points="6 9 12 15 18 9" />
                     </svg>
                   </summary>
-                  <p
-                    className="mt-3 text-sm leading-relaxed"
-                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                  >
-                    {item.a}
-                  </p>
+                  <p className="faq-answer">{item.a}</p>
                 </details>
               ))}
             </div>
           </AnimatedSection>
 
           {/* CTA */}
-          <AnimatedSection className="text-center mt-16">
-            <h2
-              className="text-2xl md:text-3xl font-light mb-5"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-            >
+          <AnimatedSection className="page-cta">
+            <h2 className="section-heading page-cta-heading">
               {locale === "es"
                 ? "¿Listo para empezar?"
                 : locale === "en"
                 ? "Ready to get started?"
                 : "Prest hasteko?"}
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`/${locale}/contacto`}
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  backgroundColor: "#061b0e",
-                  color: "#ffffff",
-                  fontFamily: "Manrope, sans-serif",
-                  boxShadow: "0 4px 24px rgba(6, 27, 14, 0.2)",
-                }}
-              >
+            <div className="page-cta-actions">
+              <Link href={`/${locale}/contacto`} className="btn btn-primary btn-lg">
                 {tHero("cta")}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
-              <Link
-                href={`/${locale}/precios`}
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  border: "1.5px solid #c3c8c1",
-                  color: "#061b0e",
-                  fontFamily: "Manrope, sans-serif",
-                }}
-              >
+              <Link href={`/${locale}/precios`} className="btn btn-secondary btn-lg">
                 {tHero("cta2")}
               </Link>
             </div>

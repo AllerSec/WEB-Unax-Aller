@@ -6,6 +6,7 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
 import PricingCards from "@/components/pricing/PricingCards";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import SectionDivider from "@/components/shared/SectionDivider";
 import Link from "next/link";
 import { siteConfig } from "@/lib/utils";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -101,7 +102,7 @@ export default async function HomePage({ params }: Props) {
         },
         priceRange: "€1300-€3000",
         email: "hola@unaxaller.com",
-        telephone: "",
+        telephone: "+34620909916",
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
@@ -302,12 +303,16 @@ export default async function HomePage({ params }: Props) {
       <Hero locale={locale} />
 
       {/* Pricing preview */}
-      <div style={{ backgroundColor: "#f5f4ef" }}>
+      <div className="surface-alt">
         <PricingCards locale={locale} headingLevel="h2" />
       </div>
 
+      <SectionDivider background="var(--color-bg)" />
+
       {/* Social Proof */}
       <SocialProof />
+
+      <SectionDivider background="var(--color-bg)" />
 
       {/* Services Grid */}
       <ServicesGrid locale={locale} />
@@ -317,49 +322,18 @@ export default async function HomePage({ params }: Props) {
 
       {/* Bottom CTA strip */}
       <AnimatedSection>
-        <section
-          className="py-20 md:py-28"
-          style={{ backgroundColor: "#061b0e" }}
-          aria-label="Call to action"
-        >
-          <div className="container-xl text-center">
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-light mb-5"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#b4cdb8" }}
-            >
-              {t("contact.title")}
-            </h2>
-            <p
-              className="text-base md:text-lg max-w-xl mx-auto mb-10"
-              style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
-            >
-              {t("contact.subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href={`/${locale}/contacto`}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  backgroundColor: "#b4cdb8",
-                  color: "#061b0e",
-                  fontFamily: "Manrope, sans-serif",
-                }}
-              >
+        <section className="cta-strip" aria-label="Call to action">
+          <div className="container-xl cta-strip-inner">
+            <h2 className="cta-strip-title">{t("contact.title")}</h2>
+            <p className="cta-strip-subtitle">{t("contact.subtitle")}</p>
+            <div className="cta-strip-actions">
+              <Link href={`/${locale}/contacto`} className="cta-strip-btn-primary focusable">
                 {t("hero.cta")}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
-              <Link
-                href={`/${locale}/precios`}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  border: "1.5px solid #364c3c",
-                  color: "#b4cdb8",
-                  fontFamily: "Manrope, sans-serif",
-                  backgroundColor: "transparent",
-                }}
-              >
+              <Link href={`/${locale}/precios`} className="cta-strip-btn-secondary focusable">
                 {t("hero.cta2")}
               </Link>
             </div>

@@ -148,7 +148,8 @@ export default async function PreciosPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="pt-28 md:pt-36" style={{ backgroundColor: "#faf9f4" }}>
+
+      <section className="page-hero" aria-label="Pricing hero">
         <div className="container-xl">
           <Breadcrumbs
             items={[
@@ -157,42 +158,33 @@ export default async function PreciosPage({ params }: Props) {
             ]}
           />
         </div>
-      </div>
-      <div style={{ backgroundColor: "#faf9f4" }}>
-        <PricingCards locale={locale} />
-      </div>
-      <section className="pb-20 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
-        <div className="container-xl max-w-3xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-light mb-10"
-            style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-          >
-            {locale === "es" ? "Preguntas sobre el precio" : locale === "en" ? "Pricing questions" : "Prezioari buruzko galderak"}
-          </h2>
-          <div className="flex flex-col divide-y" style={{ borderColor: "#e3e3de" }}>
-            {faqItems.map((item, i) => (
-              <details key={i} className="group py-5">
-                <summary
-                  className="flex justify-between items-center cursor-pointer text-base font-medium list-none"
-                  style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-                >
-                  {item.q}
-                  <svg
-                    className="ml-4 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                    width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="2" aria-hidden="true"
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </summary>
-                <p
-                  className="mt-3 text-sm leading-relaxed"
-                  style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
-                >
-                  {item.a}
-                </p>
-              </details>
-            ))}
+      </section>
+
+      <PricingCards locale={locale} />
+
+      <section aria-label="Pricing FAQ">
+        <div className="container-xl">
+          <div className="faq-wrap">
+            <h2 className="section-heading">
+              {locale === "es" ? "Preguntas sobre el precio" : locale === "en" ? "Pricing questions" : "Prezioari buruzko galderak"}
+            </h2>
+            <div className="faq-list">
+              {faqItems.map((item, i) => (
+                <details key={i} className="faq-item">
+                  <summary className="faq-summary">
+                    {item.q}
+                    <svg
+                      className="faq-caret"
+                      width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" strokeWidth="2" aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </summary>
+                  <p className="faq-answer">{item.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </section>

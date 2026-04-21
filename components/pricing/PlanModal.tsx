@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -69,12 +69,18 @@ const labels: Record<Locale, {
   },
 };
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export default function PlanModal({ plan, onClose, locale }: Props) {
   const backdropRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
   const l = labels[locale];
+  const titleId = "plan-modal-title";
+  const descId = "plan-modal-description";
 
-  // GSAP entrance / exit
   useGSAP(() => {
     if (!plan) return;
     const tl = gsap.timeline();
@@ -87,192 +93,190 @@ export default function PlanModal({ plan, onClose, locale }: Props) {
       );
   }, { dependencies: [plan] });
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     const tl = gsap.timeline({ onComplete: onClose });
     tl.to(panelRef.current, { y: 20, opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" })
       .to(backdropRef.current, { opacity: 0, duration: 0.2, ease: "none" }, "-=0.15");
-  };
+  }, [onClose]);
 
-  // Escape key
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") handleClose(); };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, []);
+    if (!plan) return;
 
-  // Lock scroll
-  useEffect(() => {
-    if (plan) document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
-  }, [plan]);
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+
+    const focusTimer = window.setTimeout(() => {
+      closeBtnRef.current?.focus();
+    }, 50);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        handleClose();
+        return;
+      }
+
+      if (e.key === "Tab" && panelRef.current) {
+        const focusables = panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR);
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement as HTMLElement | null;
+
+        if (e.shiftKey) {
+          if (active === first || !panelRef.current.contains(active)) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (active === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+      window.clearTimeout(focusTimer);
+      previouslyFocusedRef.current?.focus?.();
+    };
+  }, [plan, handleClose]);
 
   if (!plan) return null;
 
   return (
     <div
       ref={backdropRef}
-      className="fixed inset-0 z-[200] flex items-end md:items-center justify-center p-0 md:p-6"
-      style={{ backgroundColor: "rgba(6,27,14,0.6)", backdropFilter: "blur(4px)" }}
+      className="plan-modal-backdrop"
       onClick={(e) => { if (e.target === backdropRef.current) handleClose(); }}
       role="dialog"
       aria-modal="true"
-      aria-label={plan.name}
+      aria-labelledby={titleId}
+      aria-describedby={descId}
     >
-      <div
-        ref={panelRef}
-        className="relative w-full md:max-w-2xl max-h-[92vh] md:max-h-[88vh] overflow-y-auto rounded-t-3xl md:rounded-2xl"
-        style={{ backgroundColor: "#faf9f4" }}
-      >
-        {/* Header */}
-        <div
-          className="sticky top-0 z-10 flex items-start justify-between px-7 pt-6 pb-5"
-          style={{ backgroundColor: "#faf9f4", borderBottom: "1px solid #e3e3de" }}
-        >
+      <div ref={panelRef} className="plan-modal-panel">
+        <div className="plan-modal-header">
           <div>
-            <p
-              className="text-xs font-semibold uppercase tracking-widest mb-1"
-              style={{ color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
-            >
-              {plan.subtitle}
-            </p>
-            <h2
-              className="text-2xl font-light"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
-            >
-              {plan.name}
-            </h2>
-            <p className="text-sm mt-1" style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}>
-              <span className="font-medium" style={{ color: "#061b0e" }}>{l.from} {plan.price}</span>
+            <p className="plan-modal-header-subtitle">{plan.subtitle}</p>
+            <h2 id={titleId} className="plan-modal-header-title">{plan.name}</h2>
+            <p id={descId} className="plan-modal-header-meta">
+              <span className="plan-modal-header-meta-price">{l.from} {plan.price}</span>
               {" · "}{plan.description}
             </p>
           </div>
           <button
+            ref={closeBtnRef}
             onClick={handleClose}
-            className="ml-4 flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
-            style={{ backgroundColor: "#efeee9", color: "#434843" }}
+            className="plan-modal-close focusable"
+            type="button"
             aria-label={l.close}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         </div>
 
-        <div className="px-7 py-6 space-y-8">
-          {/* Features */}
-          <div>
-            <h3
-              className="text-base font-semibold mb-4"
-              style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-            >
+        <div className="plan-modal-body">
+          <section aria-labelledby="plan-modal-includes-heading">
+            <h3 id="plan-modal-includes-heading" className="plan-modal-section-title">
               {l.includes}
             </h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <ul className="plan-modal-feature-list">
               {[...plan.features, ...plan.deliverables].map((f, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-sm" style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}>
-                  <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4d6453" strokeWidth="2.5">
+                <li key={i} className="plan-modal-feature">
+                  <svg
+                    className="plan-modal-feature-check"
+                    width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5" aria-hidden="true"
+                  >
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  {f}
+                  <span>{f}</span>
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
 
-          {/* Process */}
-          <div>
-            <h3
-              className="text-base font-semibold mb-4"
-              style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-            >
+          <section aria-labelledby="plan-modal-process-heading">
+            <h3 id="plan-modal-process-heading" className="plan-modal-section-title">
               {l.process}
             </h3>
-            <ol className="space-y-3">
+            <ol className="plan-modal-process-list">
               {plan.process.map((p, i) => (
-                <li key={i} className="flex gap-3 items-start">
-                  <span
-                    className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                    style={{ backgroundColor: "#1b3022", color: "#b4cdb8", fontFamily: "Manrope, sans-serif" }}
-                  >
-                    {i + 1}
-                  </span>
+                <li key={i} className="plan-modal-process-item">
+                  <span className="plan-modal-process-number" aria-hidden="true">{i + 1}</span>
                   <div>
-                    <p className="text-sm font-semibold" style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}>{p.step}</p>
-                    <p className="text-xs mt-0.5" style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}>{p.desc}</p>
+                    <p className="plan-modal-process-step">{p.step}</p>
+                    <p className="plan-modal-process-desc">{p.desc}</p>
                   </div>
                 </li>
               ))}
             </ol>
-          </div>
+          </section>
 
-          {/* Client examples */}
           {plan.clients.length > 0 && (
-            <div>
-              <h3
-                className="text-base font-semibold mb-4"
-                style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-              >
+            <section aria-labelledby="plan-modal-clients-heading">
+              <h3 id="plan-modal-clients-heading" className="plan-modal-section-title">
                 {l.clients}
               </h3>
-              <div className={`grid gap-4 ${plan.clients.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"}`}>
+              <div
+                className="plan-modal-clients-grid"
+                data-cols={plan.clients.length === 1 ? "1" : "2"}
+              >
                 {plan.clients.map((client) => (
                   <a
                     key={client.domain}
                     href={`https://${client.domain}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block rounded-xl overflow-hidden group transition-shadow duration-300 hover:shadow-lg"
-                    style={{ border: "1px solid #e3e3de" }}
+                    className="plan-modal-client focusable"
+                    aria-label={`${l.visitSite} — ${client.name}`}
                   >
-                    {/* Screenshot via microlink */}
-                    <div className="relative overflow-hidden" style={{ aspectRatio: "16/9", backgroundColor: "#e9e8e3" }}>
+                    <div className="plan-modal-client-screenshot-wrap">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={`https://api.microlink.io?url=https://${client.domain}&screenshot=true&meta=false&embed=screenshot.url`}
                         alt={`Captura de pantalla de ${client.name}`}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        className="plan-modal-client-screenshot"
                         loading="lazy"
                       />
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                        style={{ backgroundColor: "rgba(6,27,14,0.5)" }}
-                      >
-                        <span
-                          className="flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full"
-                          style={{ backgroundColor: "#b4cdb8", color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
-                        >
+                      <div className="plan-modal-client-overlay" aria-hidden="true">
+                        <span className="plan-modal-client-visit-pill">
                           {l.visitSite}
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
                           </svg>
                         </span>
                       </div>
                     </div>
-                    <div className="px-4 py-3" style={{ backgroundColor: "#f5f4ef" }}>
-                      <p className="text-sm font-semibold" style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}>{client.name}</p>
-                      <p className="text-xs mt-0.5" style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}>{client.type} · {client.domain}</p>
+                    <div className="plan-modal-client-info">
+                      <p className="plan-modal-client-name">{client.name}</p>
+                      <p className="plan-modal-client-meta">{client.type} · {client.domain}</p>
                     </div>
                   </a>
                 ))}
               </div>
-            </div>
+            </section>
           )}
         </div>
 
-        {/* Sticky CTA */}
-        <div
-          className="sticky bottom-0 px-7 py-5"
-          style={{ backgroundColor: "#faf9f4", borderTop: "1px solid #e3e3de" }}
-        >
+        <div className="plan-modal-footer">
           <Link
             href={`/${locale}/contacto`}
             onClick={handleClose}
-            className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-            style={{ backgroundColor: "#061b0e", color: "#ffffff", fontFamily: "Manrope, sans-serif" }}
+            className="plan-modal-cta focusable"
           >
             {l.cta} — {plan.name}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>

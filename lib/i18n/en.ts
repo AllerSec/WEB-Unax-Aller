@@ -11,7 +11,7 @@ const en = {
     title: "Premium web design and development that elevates your business.",
     subtitle:
       "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From €1,300, VAT included.",
-    cta: "Schedule a free consultation",
+    cta: "Free 24h demo of your website",
     cta2: "View Plans",
     badge: "Irun · Basque Country · Spain",
     scrollHint: "Scroll to explore",
