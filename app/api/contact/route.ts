@@ -60,6 +60,28 @@ export async function POST(req: NextRequest) {
     const mailtoBody = encodeURIComponent(text);
     const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
 
+    // Send via Google Apps Script if configured
+    const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
+    const scriptToken = process.env.GOOGLE_SCRIPT_TOKEN;
+    if (scriptUrl) {
+      const scriptRes = await fetch(scriptUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: scriptToken ?? "", name, email, company, budget, message }),
+      });
+      let scriptData: { ok?: boolean } = {};
+      try {
+        scriptData = await scriptRes.json();
+      } catch {
+        // non-JSON response
+      }
+      if (!scriptRes.ok || !scriptData.ok) {
+        console.error("Google Script error:", scriptRes.status, scriptData);
+        return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+      }
+      return NextResponse.json({ ok: true });
+    }
+
     // Send via Resend if RESEND_API_KEY is configured
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
