@@ -112,20 +112,63 @@ export default async function ServiciosPage({ params }: Props) {
     },
   ];
 
+  const faqItems = locale === "es"
+    ? [
+        { q: "¿Cuánto tiempo tarda en hacerse una web?", a: "El proceso completo desde el primer contacto hasta la entrega dura entre 3 y 6 semanas, dependiendo de la complejidad del proyecto y la velocidad de feedback." },
+        { q: "¿Qué necesito aportar yo para empezar?", a: "Solo necesito que me cuentes tu negocio, tus objetivos y, si los tienes, logotipo y fotos. Del resto me encargo yo." },
+        { q: "¿Incluye el mantenimiento después de la entrega?", a: "El precio incluye 1 mes de soporte post-lanzamiento. A partir de ahí, ofrezco planes de mantenimiento opcionales." },
+        { q: "¿Puedo pedir cambios durante el proyecto?", a: "Sí, incluye hasta 2 rondas de revisión sin coste adicional." },
+        { q: "¿Trabajas solo con empresas del País Vasco?", a: "No, trabajo con clientes de toda España y también internacionales." },
+      ]
+    : locale === "en"
+    ? [
+        { q: "How long does it take to build a website?", a: "The complete process takes between 3 and 6 weeks, depending on project complexity and feedback speed." },
+        { q: "What do I need to provide to get started?", a: "I just need you to tell me about your business and goals, and if you have them, your logo and photos." },
+        { q: "Does it include maintenance after delivery?", a: "The price includes 1 month of post-launch support. After that, I offer optional maintenance plans." },
+        { q: "Can I request changes during the project?", a: "Yes, it includes up to 2 revision rounds at no additional cost." },
+        { q: "Do you only work with Basque Country businesses?", a: "No, I work with clients from all over Spain and internationally too." },
+      ]
+    : [
+        { q: "Zenbat denbora behar da web bat egiteko?", a: "Osoko prozesuak 3 eta 6 aste artean irauten du, proiektuaren konplexutasunaren arabera." },
+        { q: "Zer eman behar dut hasteko?", a: "Zure negozioa eta helburuak kontatzea besterik ez." },
+        { q: "Mantentze-lana entregatutakoan sartzen al da?", a: "Prezioak abian jarri ondoren 1 hilabeteko laguntza barne hartzen du." },
+        { q: "Prozesu bitartean aldaketak eskatu al ditzaket?", a: "Bai, gehigarrizko kosturik gabe 2 berrikuspen txanda barne hartzen du." },
+        { q: "Euskal Herriko enpresekin bakarrik lan egiten al duzu?", a: "Ez, Espainiatik eta nazioarteetik ere bezeroekin lan egiten dut." },
+      ];
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    provider: { "@id": "https://unaxaller.com/#business" },
-    serviceType: "Diseño y Desarrollo Web",
-    areaServed: [
-      { "@type": "City", name: "Irun" },
-      { "@type": "AdministrativeArea", name: "Gipuzkoa" },
-      { "@type": "AdministrativeArea", name: "País Vasco" },
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        provider: { "@id": "https://unaxaller.com/#business" },
+        serviceType: "Diseño y Desarrollo Web",
+        areaServed: [
+          { "@type": "City", name: "Irun" },
+          { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+          { "@type": "AdministrativeArea", name: "País Vasco" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: locale === "es" ? "Servicios de Diseño Web" : locale === "en" ? "Web Design Services" : "Web Diseinu Zerbitzuak",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? "Servicios" : locale === "en" ? "Services" : "Zerbitzuak", item: `https://unaxaller.com/${locale}/servicios` },
+        ],
+      },
     ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Servicios de Diseño Web",
-    },
   };
 
   return (
@@ -228,6 +271,41 @@ export default async function ServiciosPage({ params }: Props) {
               </AnimatedSection>
             ))}
           </div>
+
+          {/* FAQ */}
+          <AnimatedSection className="mt-20">
+            <h2
+              className="text-2xl md:text-3xl font-light mb-10"
+              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+            >
+              {locale === "es" ? "Preguntas frecuentes" : locale === "en" ? "Frequently asked questions" : "Galdera ohikoak"}
+            </h2>
+            <div className="flex flex-col divide-y" style={{ borderColor: "#e3e3de" }}>
+              {faqItems.map((item, i) => (
+                <details key={i} className="group py-5">
+                  <summary
+                    className="flex justify-between items-center cursor-pointer text-base font-medium list-none"
+                    style={{ color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
+                  >
+                    {item.q}
+                    <svg
+                      className="ml-4 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+                      width="18" height="18" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" strokeWidth="2" aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </summary>
+                  <p
+                    className="mt-3 text-sm leading-relaxed"
+                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
+                  >
+                    {item.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </AnimatedSection>
 
           {/* CTA */}
           <AnimatedSection className="text-center mt-16">
