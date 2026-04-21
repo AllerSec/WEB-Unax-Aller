@@ -68,6 +68,7 @@ export async function POST(req: NextRequest) {
         console.error("GOOGLE_SCRIPT_TOKEN not configured");
         return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
       }
+      const scriptBody = JSON.stringify({ token: scriptToken, name, email, company, budget, message });
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
       let scriptRes!: Response;
@@ -75,8 +76,12 @@ export async function POST(req: NextRequest) {
         scriptRes = await fetch(scriptUrl, {
           signal: controller.signal,
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token: scriptToken, name, email, company, budget, message }),
+          headers: {
+            "Content-Type": "application/json",
+            "Content-Length": Buffer.byteLength(scriptBody).toString(),
+          },
+          body: scriptBody,
+          redirect: "follow",
         });
       } finally {
         clearTimeout(timeoutId);
