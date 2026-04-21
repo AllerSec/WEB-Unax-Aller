@@ -13,7 +13,7 @@ const en = {
       "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From €1,300, VAT included.",
     cta: "Schedule a free consultation",
     cta2: "View Plans",
-    badge: "Basque Country · Spain",
+    badge: "Irun · Basque Country · Spain",
     scrollHint: "Scroll to explore",
   },
   socialProof: {
@@ -111,9 +111,18 @@ const en = {
   },
   about: {
     title: "About Unax Aller",
-    subtitle: "Design with purpose, technology with soul.",
+    subtitle: "Web designer in Irun, creating websites that convert.",
     intro:
-      "We are a web design and development studio based in the Basque Country, Spain. We create digital experiences that not only look great, but convert visitors into clients.",
+      "I'm Unax Aller, freelance web designer and developer in Irun, Basque Country. I create custom digital experiences for Basque businesses that not only look great, but convert visitors into clients.",
+    profile: {
+      name: "Unax Aller Fernández",
+      location: "Irun, Gipuzkoa · Basque Country",
+      role: "Freelance Web Designer & Developer",
+      education: "BSc Computer Engineering — Universidad Alfonso X el Sabio",
+      linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
+      languages: "Spanish (native) · French (professional) · English (professional) · Basque (basic)",
+      bio: "Computer Engineering student with a passion for web design. I combine solid technical knowledge with an eye for design to create websites that stand out in the Basque Country market.",
+    },
     values: {
       title: "Our Values",
       craft: {
@@ -191,7 +200,7 @@ const en = {
       ],
     },
     info: {
-      location: "Basque Country, Spain",
+      location: "Irun, Gipuzkoa · Basque Country",
       email: "hola@unaxaller.com",
       response: "Response in < 24h",
       availability: "Mon – Fri · 9:00 – 18:00",
@@ -204,7 +213,7 @@ const en = {
       services: "Services",
       legal: "Legal",
     },
-    copyright: "© 2024 Unax Aller · unaxaller.com",
+    copyright: "© 2026 Unax Aller · unaxaller.com",
     privacyPolicy: "Privacy Policy",
     cookiePolicy: "Cookie Policy",
     legalNotice: "Legal Notice",

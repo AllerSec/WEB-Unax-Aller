@@ -10,14 +10,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Servicios — Diseño y Desarrollo Web Premium | Unax Aller",
-    en: "Services — Premium Web Design & Development | Unax Aller",
-    eu: "Zerbitzuak — Web Diseinu eta Garapen Premium | Unax Aller",
+    es: "Servicios de Diseño Web en Irun, País Vasco | Unax Aller",
+    en: "Web Design Services in Irun, Basque Country | Unax Aller",
+    eu: "Web Diseinu Zerbitzuak Irunen, Euskal Herrian | Unax Aller",
   };
   const descriptions: Record<string, string> = {
-    es: "Descubre todos nuestros servicios: UI/UX design, performance web, SEO técnico, animaciones GSAP, desarrollo multi-idioma y más.",
-    en: "Discover all our services: UI/UX design, web performance, technical SEO, GSAP animations, multi-language development and more.",
-    eu: "Gure zerbitzu guztiak aurkitu: UI/UX diseinua, web performancea, SEO teknikoa, GSAP animazioak, hizkuntza anitzeko garapena eta gehiago.",
+    es: "Servicios de diseño web en Irun, Gipuzkoa: UI/UX a medida, SEO técnico, animaciones GSAP, rendimiento web, multi-idioma y más para negocios del País Vasco.",
+    en: "Web design services in Irun, Basque Country: custom UI/UX, technical SEO, GSAP animations, web performance, multi-language and more for Basque businesses.",
+    eu: "Web diseinu zerbitzuak Irunen, Gipuzkoan: neurrira egindako UI/UX, SEO teknikoa, GSAP animazioak, web errendimendua, hizkuntza anitza eta gehiago.",
   };
 
   return {
@@ -114,17 +114,17 @@ export default async function ServiciosPage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Unax Aller",
-      url: "https://unaxaller.com",
-    },
-    serviceType: "Web Design and Development",
-    areaServed: "Spain",
+    "@type": "ProfessionalService",
+    provider: { "@id": "https://unaxaller.com/#business" },
+    serviceType: "Diseño y Desarrollo Web",
+    areaServed: [
+      { "@type": "City", name: "Irun" },
+      { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+      { "@type": "AdministrativeArea", name: "País Vasco" },
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Web Design Services",
+      name: "Servicios de Diseño Web",
     },
   };
 

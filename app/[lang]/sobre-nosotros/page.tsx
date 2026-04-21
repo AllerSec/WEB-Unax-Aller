@@ -10,14 +10,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Sobre Nosotros — Estudio Web Premium | Unax Aller",
-    en: "About — Premium Web Studio | Unax Aller",
-    eu: "Gu buruz — Web Estudio Premium | Unax Aller",
+    es: "Sobre Mí — Diseñador Web en Irun, Gipuzkoa | Unax Aller",
+    en: "About Me — Web Designer in Irun, Basque Country | Unax Aller",
+    eu: "Ni buruz — Web Diseinatzailea Irunen, Gipuzkoan | Unax Aller",
   };
   const descriptions: Record<string, string> = {
-    es: "Conoce a Unax Aller, el estudio de diseño y desarrollo web premium del País Vasco. Nuestros valores, proceso y filosofía.",
-    en: "Meet Unax Aller, the premium web design and development studio from the Basque Country. Our values, process and philosophy.",
-    eu: "Ezagutu Unax Aller, Euskal Herriko web diseinu eta garapen estudio premium-a. Gure balioak, prozesua eta filosofia.",
+    es: "Soy Unax Aller, diseñador web freelance en Irun, Gipuzkoa. Ingeniería informática en la UAX, 4 idiomas y webs a medida para negocios del País Vasco.",
+    en: "I'm Unax Aller, freelance web designer in Irun, Basque Country. Computer engineering at UAX, 4 languages and custom websites for Basque businesses.",
+    eu: "Unax Aller naiz, web diseinatzaile freelance Irunen, Gipuzkoan. Informatika ingeniaritza UAX-en, 4 hizkuntza eta Euskal Herriko negozioetarako webguneak.",
   };
 
   return {
@@ -33,6 +33,16 @@ export default async function SobreNosotrosPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "about" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
   const tHero = await getTranslations({ locale, namespace: "hero" });
+
+  const profile = {
+    name: t("profile.name"),
+    location: t("profile.location"),
+    role: t("profile.role"),
+    education: t("profile.education"),
+    linkedin: t("profile.linkedin"),
+    languages: t("profile.languages"),
+    bio: t("profile.bio"),
+  };
 
   const values = [
     {
@@ -105,14 +115,30 @@ export default async function SobreNosotrosPage({ params }: Props) {
     name: "Sobre Unax Aller",
     url: `https://unaxaller.com/${locale}/sobre-nosotros`,
     mainEntity: {
-      "@type": "Organization",
-      name: "Unax Aller",
+      "@type": "Person",
+      "@id": "https://unaxaller.com/#person",
+      name: "Unax Aller Fernández",
+      jobTitle: "Diseñador y Desarrollador Web Freelance",
       url: "https://unaxaller.com",
-      description: t("intro"),
-      foundingLocation: {
-        "@type": "Place",
-        name: "País Vasco, España",
+      email: "hola@unaxaller.com",
+      sameAs: [
+        "https://linkedin.com/in/unax-aller-8479b428b",
+        "https://instagram.com/unaxaller",
+      ],
+      knowsLanguage: ["es", "fr", "en", "eu"],
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Universidad Alfonso X el Sabio",
+        sameAs: "https://www.uax.es",
       },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Irun",
+        addressRegion: "Gipuzkoa",
+        postalCode: "20300",
+        addressCountry: "ES",
+      },
+      description: t("intro"),
     },
   };
 
@@ -155,6 +181,107 @@ export default async function SobreNosotrosPage({ params }: Props) {
               {t("intro")}
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Profile card */}
+      <section
+        className="py-16 md:py-20"
+        style={{ backgroundColor: "#faf9f4" }}
+        aria-label="Perfil personal"
+      >
+        <div className="container-xl">
+          <AnimatedSection>
+            <div
+              className="flex flex-col md:flex-row gap-8 p-8 md:p-10 rounded-2xl"
+              style={{ backgroundColor: "#f5f4ef", border: "1px solid #e3e3de" }}
+            >
+              {/* Avatar */}
+              <div className="flex-shrink-0 flex items-start">
+                <div
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-2xl flex items-center justify-center text-4xl font-light select-none"
+                  style={{ backgroundColor: "#1b3022", color: "#b4cdb8", fontFamily: "Newsreader, Georgia, serif" }}
+                  aria-hidden="true"
+                >
+                  UA
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="flex flex-col gap-4 flex-1">
+                <div>
+                  <h2
+                    className="text-2xl md:text-3xl font-light mb-1"
+                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+                  >
+                    {profile.name}
+                  </h2>
+                  <p
+                    className="text-sm font-semibold mb-1"
+                    style={{ color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
+                  >
+                    {profile.role}
+                  </p>
+                  <p
+                    className="text-xs flex items-center gap-1.5"
+                    style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
+                  >
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {profile.location}
+                  </p>
+                </div>
+
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
+                >
+                  {profile.bio}
+                </p>
+
+                {/* Education + Languages */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div
+                    className="flex items-start gap-2.5 flex-1 p-4 rounded-xl"
+                    style={{ backgroundColor: "#efeee9" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d6453" strokeWidth="2" className="mt-0.5 flex-shrink-0" aria-hidden="true">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                    <p className="text-xs leading-relaxed" style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}>
+                      {profile.education}
+                    </p>
+                  </div>
+                  <div
+                    className="flex items-start gap-2.5 flex-1 p-4 rounded-xl"
+                    style={{ backgroundColor: "#efeee9" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4d6453" strokeWidth="2" className="mt-0.5 flex-shrink-0" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <p className="text-xs leading-relaxed" style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}>
+                      {profile.languages}
+                    </p>
+                  </div>
+                </div>
+
+                {/* LinkedIn link */}
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 self-start text-sm font-semibold transition-opacity hover:opacity-70"
+                  style={{ color: "#0a66c2", fontFamily: "Manrope, sans-serif" }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                  </svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

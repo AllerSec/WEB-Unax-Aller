@@ -13,7 +13,7 @@ const eu = {
       "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. 1.300€-tik, BEZ barne.",
     cta: "Doako kontsulta antolatu",
     cta2: "Planak ikusi",
-    badge: "Euskal Herria · Espainia",
+    badge: "Irun · Euskal Herria · Espainia",
     scrollHint: "Mugitu esploratzeko",
   },
   socialProof: {
@@ -111,9 +111,18 @@ const eu = {
   },
   about: {
     title: "Unax Aller buruz",
-    subtitle: "Helburuarekin diseinua, arimarekin teknologia.",
+    subtitle: "Web diseinatzailea Irunen, bihurtzen duten webak sortuz.",
     intro:
-      "Euskal Herrian kokatutako web diseinu eta garapen estudioa gara. Itxura ona ez ezik, bisitariak bezero bihurtzen dituzten esperientzia digitalak sortzen ditugu.",
+      "Unax Aller naiz, web diseinatzaile eta garatzaile freelance Irunen, Gipuzkoan. Euskal Herriko negozioetarako neurrira egindako esperientzia digitalak sortzen ditut, itxura ona ez ezik, bisitariak bezero bihurtzen dituztenak.",
+    profile: {
+      name: "Unax Aller Fernández",
+      location: "Irun, Gipuzkoa · Euskal Herria",
+      role: "Web Diseinatzaile eta Garatzaile Freelance",
+      education: "Informatika Ingeniaritzako Gradua — Universidad Alfonso X el Sabio",
+      linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
+      languages: "Gaztelania (natibo) · Frantsesa (profesional) · Ingelesa (profesional) · Euskara (oinarrizkoa)",
+      bio: "Informatika Ingeniaritzako ikaslea web diseinuarekiko grinarekin. Ezagutza tekniko sendoak eta diseinu begiak uztartzen ditut Euskal Herriko merkatuan nabarmentzen diren webak sortzeko.",
+    },
     values: {
       title: "Gure Balioak",
       craft: {
@@ -191,7 +200,7 @@ const eu = {
       ],
     },
     info: {
-      location: "Euskal Herria, Espainia",
+      location: "Irun, Gipuzkoa · Euskal Herria",
       email: "hola@unaxaller.com",
       response: "Erantzuna < 24h",
       availability: "Al – Or · 9:00 – 18:00",
@@ -204,7 +213,7 @@ const eu = {
       services: "Zerbitzuak",
       legal: "Legala",
     },
-    copyright: "© 2024 Unax Aller · unaxaller.com",
+    copyright: "© 2026 Unax Aller · unaxaller.com",
     privacyPolicy: "Pribatutasun Politika",
     cookiePolicy: "Cookie Politika",
     legalNotice: "Lege Oharra",

@@ -80,10 +80,29 @@ export default async function ContactoPage({ params }: Props) {
     name: "Contacto — Unax Aller",
     url: `https://unaxaller.com/${locale}/contacto`,
     mainEntity: {
-      "@type": "LocalBusiness",
-      name: "Unax Aller",
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": "https://unaxaller.com/#business",
+      name: "Unax Aller — Diseñador Web",
       email: "hola@unaxaller.com",
       url: "https://unaxaller.com",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Irun",
+        addressRegion: "Gipuzkoa",
+        postalCode: "20300",
+        addressCountry: "ES",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 43.339,
+        longitude: -1.7892,
+      },
+      openingHours: "Mo-Fr 09:00-18:00",
+      areaServed: [
+        { "@type": "City", name: "Irun" },
+        { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+        { "@type": "AdministrativeArea", name: "País Vasco" },
+      ],
     },
   };
 

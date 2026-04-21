@@ -8,11 +8,11 @@ const routes = [
   { path: "/servicios", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/precios", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/sobre-nosotros", priority: 0.7, changeFrequency: "monthly" as const },
-  { path: "/contacto", priority: 0.8, changeFrequency: "yearly" as const },
+  { path: "/contacto", priority: 0.8, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = new Date("2026-04-21");
 
   const entries: MetadataRoute.Sitemap = [];
 

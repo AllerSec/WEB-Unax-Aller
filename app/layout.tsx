@@ -26,15 +26,16 @@ export const metadata: Metadata = {
   description:
     "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.300€ IVA incluido.",
   keywords: [
-    "diseño web",
+    "diseño web Irun",
+    "diseñador web Irun",
+    "diseño web País Vasco",
+    "diseñador web País Vasco",
+    "páginas web Gipuzkoa",
     "desarrollo web",
-    "web design",
-    "País Vasco",
+    "freelance web",
     "Basque Country",
-    "premium",
     "SEO",
     "Next.js",
-    "agencia web",
   ],
   authors: [{ name: "Unax Aller", url: "https://unaxaller.com" }],
   creator: "Unax Aller",
@@ -92,9 +93,9 @@ export default function RootLayout({
     >
       <head>
         <meta name="geo.region" content="ES-PV" />
-        <meta name="geo.placename" content="País Vasco" />
-        <meta name="geo.position" content="43.2630;-2.9350" />
-        <meta name="ICBM" content="43.2630, -2.9350" />
+        <meta name="geo.placename" content="Irun, Gipuzkoa" />
+        <meta name="geo.position" content="43.3390;-1.7892" />
+        <meta name="ICBM" content="43.3390, -1.7892" />
       </head>
       <body className="min-h-screen antialiased">{children}</body>
     </html>

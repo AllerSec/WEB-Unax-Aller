@@ -9,14 +9,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Precios — Planes Web desde 1.200€ | Unax Aller",
-    en: "Pricing — Web Plans from €1,200 | Unax Aller",
-    eu: "Prezioak — Web Planak 1.200€-tik | Unax Aller",
+    es: "Precios — Web a Medida desde 1.300€ en Irun | Unax Aller",
+    en: "Pricing — Custom Website from €1,300 in Irun | Unax Aller",
+    eu: "Prezioak — Neurrira egindako weba 1.300€-tik Irunen | Unax Aller",
   };
   const descriptions: Record<string, string> = {
-    es: "Planes claros y sin sorpresas. Essential desde 1.200€, Visionary desde 1.800€ y Excellence desde 2.800€. Mantenimiento desde 49€/mes.",
-    en: "Clear plans with no surprises. Essential from €1,200, Visionary from €1,800 and Excellence from €2,800. Maintenance from €49/month.",
-    eu: "Plan argiak sorpresarik gabe. Essential 1.200€-tik, Visionary 1.800€-tik eta Excellence 2.800€-tik. Mantentze-lanak 49€/hiletik.",
+    es: "Un único plan claro: web a medida completa desde 1.300€ IVA incluido. Diseño premium, SEO técnico, multi-idioma y hosting el primer año. Sin sorpresas.",
+    en: "One clear plan: complete custom website from €1,300 VAT included. Premium design, technical SEO, multi-language and hosting for the first year. No surprises.",
+    eu: "Plan argi bakarra: neurrira egindako web osoa 1.300€-tik BEZ barne. Diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean.",
   };
 
   return {
@@ -36,29 +36,16 @@ export default async function PreciosPage({ params }: Props) {
     name: "Precios — Unax Aller",
     url: `https://unaxaller.com/${locale}/precios`,
     mainEntity: {
-      "@type": "ItemList",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          position: 1,
-          name: "Plan Essential",
-          price: "1200",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          position: 2,
-          name: "Plan Visionary",
-          price: "1800",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          position: 3,
-          name: "Plan Excellence",
-          price: "2800",
-          priceCurrency: "EUR",
-        },
+      "@type": "Offer",
+      name: "Plan Completo — Web a Medida",
+      description: "Web a medida completa: diseño premium, SEO técnico, multi-idioma y hosting el primer año. IVA incluido.",
+      price: "1300",
+      priceCurrency: "EUR",
+      seller: { "@id": "https://unaxaller.com/#business" },
+      areaServed: [
+        { "@type": "City", name: "Irun" },
+        { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+        { "@type": "AdministrativeArea", name: "País Vasco" },
       ],
     },
   };

@@ -14,11 +14,21 @@ type Props = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
-  const t = await getTranslations({ locale, namespace: "hero" });
+
+  const titles: Record<string, string> = {
+    es: "Diseñador Web en Irun, País Vasco | Unax Aller",
+    en: "Web Designer in Irun, Basque Country | Unax Aller",
+    eu: "Web Diseinatzailea Irunen, Euskal Herrian | Unax Aller",
+  };
+  const descriptions: Record<string, string> = {
+    es: "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento. Desde 1.300€ IVA incluido.",
+    en: "Freelance web designer in Irun, Basque Country. Custom websites for Basque businesses: premium design, SEO, animations and performance. From €1,300 VAT included.",
+    eu: "Web diseinatzaile freelance Irunen, Gipuzkoan. Neurrira egindako webguneak Euskal Herriko negozioetarako. 1.300€-tik BEZ barne.",
+  };
 
   return {
-    title: "Unax Aller — Diseño y Desarrollo Web Premium",
-    description: t("subtitle"),
+    title: titles[locale] || titles.es,
+    description: descriptions[locale] || descriptions.es,
     alternates: {
       canonical: `https://unaxaller.com/${locale}`,
     },
@@ -34,41 +44,49 @@ export default async function HomePage({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://unaxaller.com/#business",
-        name: "Unax Aller",
+        name: "Unax Aller — Diseñador Web",
         url: "https://unaxaller.com",
         logo: "https://unaxaller.com/favicon.svg",
         description:
-          "Diseño y desarrollo web premium en el País Vasco. Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados.",
+          "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento.",
         address: {
           "@type": "PostalAddress",
-          addressLocality: "País Vasco",
-          addressRegion: "Basque Country",
+          streetAddress: "Irun",
+          addressLocality: "Irun",
+          addressRegion: "Gipuzkoa",
+          postalCode: "20300",
           addressCountry: "ES",
         },
         geo: {
           "@type": "GeoCoordinates",
-          latitude: 43.263,
-          longitude: -2.935,
+          latitude: 43.339,
+          longitude: -1.7892,
         },
         priceRange: "€€€",
         email: "hola@unaxaller.com",
         openingHours: "Mo-Fr 09:00-18:00",
         sameAs: [
-          "https://linkedin.com/company/unaxaller",
+          "https://linkedin.com/in/unax-aller-8479b428b",
           "https://instagram.com/unaxaller",
+        ],
+        areaServed: [
+          { "@type": "City", name: "Irun" },
+          { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+          { "@type": "AdministrativeArea", name: "País Vasco" },
         ],
       },
       {
-        "@type": "WebDesign",
+        "@type": "ProfessionalService",
         "@id": "https://unaxaller.com/#service",
-        name: "Diseño y Desarrollo Web Premium",
+        name: "Diseño y Desarrollo Web",
         provider: { "@id": "https://unaxaller.com/#business" },
-        areaServed: {
-          "@type": "Country",
-          name: "Spain",
-        },
+        areaServed: [
+          { "@type": "City", name: "Irun" },
+          { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+          { "@type": "AdministrativeArea", name: "País Vasco" },
+        ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Planes de Diseño Web",
@@ -95,6 +113,30 @@ export default async function HomePage({ params }: Props) {
         name: "Unax Aller",
         publisher: { "@id": "https://unaxaller.com/#business" },
         inLanguage: ["es", "en", "eu"],
+      },
+      {
+        "@type": "Person",
+        "@id": "https://unaxaller.com/#person",
+        name: "Unax Aller Fernández",
+        jobTitle: "Diseñador y Desarrollador Web",
+        url: "https://unaxaller.com",
+        email: "hola@unaxaller.com",
+        sameAs: [
+          "https://linkedin.com/in/unax-aller-8479b428b",
+          "https://instagram.com/unaxaller",
+        ],
+        knowsLanguage: ["es", "fr", "en", "eu"],
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Universidad Alfonso X el Sabio",
+        },
+        worksFor: { "@id": "https://unaxaller.com/#business" },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Irun",
+          addressRegion: "Gipuzkoa",
+          addressCountry: "ES",
+        },
       },
     ],
   };

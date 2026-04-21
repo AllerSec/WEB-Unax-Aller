@@ -26,15 +26,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "nav" });
 
   const titles: Record<string, string> = {
-    es: "Unax Aller — Diseño y Desarrollo Web Premium | País Vasco",
-    en: "Unax Aller — Premium Web Design & Development | Basque Country",
-    eu: "Unax Aller — Web Diseinu eta Garapen Premium | Euskal Herria",
+    es: "Diseñador Web en Irun, País Vasco | Unax Aller",
+    en: "Web Designer in Irun, Basque Country | Unax Aller",
+    eu: "Web Diseinatzailea Irunen, Euskal Herrian | Unax Aller",
   };
 
   const descriptions: Record<string, string> = {
-    es: "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.300€ IVA incluido.",
-    en: "We craft bespoke digital experiences — sophisticated, results-driven. Premium web design and development in the Basque Country. From €1,300 VAT included.",
-    eu: "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. Web diseinu eta garapen premium-a Euskal Herrian. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento. Desde 1.300€ IVA incluido.",
+    en: "Freelance web designer in Irun, Basque Country. Custom websites for Basque businesses: premium design, SEO, animations and performance. From €1,300 VAT included.",
+    eu: "Web diseinatzaile freelance Irunen, Gipuzkoan. Neurrira egindako webguneak Euskal Herriko negozioetarako. 1.300€-tik BEZ barne.",
   };
 
   void t;
