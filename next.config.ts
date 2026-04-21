@@ -15,13 +15,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["gsap", "framer-motion"],
   },
-  async rewrites() {
-    return [
-      { source: "/gym", destination: "/gymstats/index.html" },
-      { source: "/gym/", destination: "/gymstats/index.html" },
-      { source: "/gym/:path*", destination: "/gymstats/:path*" },
-    ];
-  },
   async headers() {
     return [
       {
@@ -36,12 +29,6 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
-        ],
-      },
-      {
-        source: "/:path(gym|gymstats)(/.*)?",
-        headers: [
-          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
         ],
       },
     ];

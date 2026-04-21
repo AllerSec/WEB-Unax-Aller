@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build:gymstats && next build",
-    "build:gymstats": "cd apps/gymstats && npm install --no-audit --no-fund && npm run build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
