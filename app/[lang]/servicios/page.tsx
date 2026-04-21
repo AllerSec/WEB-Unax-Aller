@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -21,13 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web diseinu zerbitzuak Irunen, Gipuzkoan: neurrira egindako UI/UX, SEO teknikoa, GSAP animazioak, web errendimendua, hizkuntza anitza eta gehiago.",
   };
 
+  const title = titles[locale];
+  const description = descriptions[locale];
+
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/servicios`,
       languages: hreflangAlternates("/servicios"),
     },
+    openGraph: buildOpenGraph({ locale, title, description, path: "/servicios" }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 
@@ -159,6 +164,10 @@ export default async function ServiciosPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["details summary", "details p"],
+        },
         mainEntity: faqItems.map(({ q, a }) => ({
           "@type": "Question",
           name: q,

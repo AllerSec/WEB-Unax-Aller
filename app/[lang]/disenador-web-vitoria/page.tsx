@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -20,13 +20,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web diseinatzaile freelance Gasteizko negozioetarako. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.300€-tik BEZ barne.",
   };
 
+  const title = titles[locale];
+  const description = descriptions[locale];
+
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/disenador-web-vitoria`,
       languages: hreflangAlternates("/disenador-web-vitoria"),
     },
+    openGraph: buildOpenGraph({ locale, title, description, path: "/disenador-web-vitoria" }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 

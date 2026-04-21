@@ -344,3 +344,16 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
 export function getAllBlogSlugs(): string[] {
   return blogPosts.map((p) => p.slug);
 }
+
+export function getRelatedBlogPosts(slug: string, limit = 3): BlogPost[] {
+  const current = getBlogPostBySlug(slug);
+  if (!current) return [];
+  const scored = blogPosts
+    .filter((p) => p.slug !== slug)
+    .map((p) => ({
+      post: p,
+      score: p.tags.filter((t) => current.tags.includes(t)).length,
+    }))
+    .sort((a, b) => b.score - a.score || b.post.publishedAt.localeCompare(a.post.publishedAt));
+  return scored.slice(0, limit).map((s) => s.post);
+}

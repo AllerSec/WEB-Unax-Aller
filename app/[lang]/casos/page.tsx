@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { caseStudies } from "@/lib/data/case-studies";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -21,13 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Benetako web diseinu proiektuak neurgarriak diren emaitzeekin. Lighthouse 95+, karga abiadura, SEO lokala eta bihurketa hobeak.",
   };
 
+  const title = titles[locale];
+  const description = descriptions[locale];
+
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/casos`,
       languages: hreflangAlternates("/casos"),
     },
+    openGraph: buildOpenGraph({ locale, title, description, path: "/casos" }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 

@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -21,13 +21,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Unax Aller naiz, web diseinatzaile freelance Irunen, Gipuzkoan. Informatika ingeniaritza UAX-en, 4 hizkuntza eta Euskal Herriko negozioetarako webguneak.",
   };
 
+  const title = titles[locale];
+  const description = descriptions[locale];
+
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/sobre-nosotros`,
       languages: hreflangAlternates("/sobre-nosotros"),
     },
+    openGraph: {
+      ...buildOpenGraph({ locale, title, description, path: "/sobre-nosotros", type: "profile" }),
+    },
+    twitter: buildTwitter({ title, description }),
   };
 }
 

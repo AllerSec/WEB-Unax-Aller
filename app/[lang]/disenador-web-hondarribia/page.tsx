@@ -10,14 +10,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Bilbao | Unax Aller",
-    en: "Web Designer in Bilbao | Unax Aller",
-    eu: "Web Diseinatzailea Bilbon | Unax Aller",
+    es: "Diseñador Web en Hondarribia | Unax Aller",
+    en: "Web Designer in Hondarribia | Unax Aller",
+    eu: "Web Diseinatzailea Hondarribian | Unax Aller",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Bilbao. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for businesses in Bilbao. Custom websites with local SEO, premium design and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Bilboko negozioetarako. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Hondarribia. A 5 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.300€ IVA incluido.",
+    en: "Freelance web designer for businesses in Hondarribia. 5 km from Irun. Custom websites with local SEO, premium design and performance. From €1,300 VAT included.",
+    eu: "Web diseinatzaile freelance Hondarribiko negozioetarako. Iruntik 5 kmra. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.300€-tik BEZ barne.",
   };
 
   const title = titles[locale];
@@ -27,20 +27,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: `https://unaxaller.com/${locale}/disenador-web-bilbao`,
-      languages: hreflangAlternates("/disenador-web-bilbao"),
+      canonical: `https://unaxaller.com/${locale}/disenador-web-hondarribia`,
+      languages: hreflangAlternates("/disenador-web-hondarribia"),
     },
-    openGraph: buildOpenGraph({ locale, title, description, path: "/disenador-web-bilbao" }),
+    openGraph: buildOpenGraph({ locale, title, description, path: "/disenador-web-hondarribia" }),
     twitter: buildTwitter({ title, description }),
   };
 }
 
-export default async function BilbaoPage({ params }: Props) {
+export default async function HondarribiaPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
 
-  const cityName = locale === "eu" ? "Bilbo" : "Bilbao";
-  const regionName = "Bizkaia";
+  const cityName = "Hondarribia";
+  const regionName = "Gipuzkoa";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -61,7 +61,7 @@ export default async function BilbaoPage({ params }: Props) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? `Diseñador web ${cityName}` : locale === "en" ? `Web designer ${cityName}` : `Web diseinatzailea ${cityName}`, item: `https://unaxaller.com/${locale}/disenador-web-bilbao` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? `Diseñador web ${cityName}` : locale === "en" ? `Web designer ${cityName}` : `Web diseinatzailea ${cityName}`, item: `https://unaxaller.com/${locale}/disenador-web-hondarribia` },
         ],
       },
     ],
@@ -69,23 +69,23 @@ export default async function BilbaoPage({ params }: Props) {
 
   const benefits = locale === "es"
     ? [
-        { title: "Conoce el mercado local", desc: `Entiendo cómo buscan los clientes de ${cityName} y qué esperan de un negocio local. Eso se traduce en webs que conectan mejor.` },
-        { title: "SEO local de verdad", desc: "No solo pongo tus keywords. Optimizo para búsquedas locales, Google Maps y Google Business Profile." },
-        { title: "Comunicación directa", desc: "Hablas conmigo, no con un gestor de cuentas. Si necesitas una reunión presencial, puedo desplazarme." },
-        { title: "Precios justos sin letra pequeña", desc: "1.300€ IVA incluido. Sin sorpresas. Sin renovaciones forzosas." },
+        { title: "A 5 km de tu negocio", desc: "Estoy en Irun, justo al lado. Si necesitas reunión presencial en Hondarribia, voy el mismo día." },
+        { title: "Conozco el mercado local", desc: "Entiendo el tejido comercial de Hondarribia: hostelería, pesca, comercio, turismo. Webs que conectan con tu público real." },
+        { title: "SEO local de verdad", desc: "Optimización para búsquedas en Hondarribia, Google Maps y Google Business Profile. No solo keywords: estrategia completa." },
+        { title: "Precio justo, sin sorpresas", desc: "1.300€ IVA incluido. Sin permanencia. Sin renovaciones forzosas. El código es tuyo." },
       ]
     : locale === "en"
     ? [
-        { title: "Knows the local market", desc: `I understand how ${cityName} clients search and what they expect from a local business. That translates into websites that connect better.` },
-        { title: "Real local SEO", desc: "I don't just add keywords. I optimise for local searches, Google Maps and Google Business Profile." },
-        { title: "Direct communication", desc: "You talk to me, not an account manager. If you need an in-person meeting, I can travel." },
-        { title: "Fair prices, no small print", desc: "€1,300 VAT included. No surprises. No forced renewals." },
+        { title: "5 km from your business", desc: "I'm in Irun, right next door. If you need an in-person meeting in Hondarribia, I can come the same day." },
+        { title: "I know the local market", desc: "I understand Hondarribia's business landscape: hospitality, fishing, retail, tourism. Websites that connect with your real audience." },
+        { title: "Real local SEO", desc: "Optimization for searches in Hondarribia, Google Maps and Google Business Profile. Not just keywords — full strategy." },
+        { title: "Fair price, no surprises", desc: "€1,300 VAT included. No lock-in. No forced renewals. The code is yours." },
       ]
     : [
-        { title: "Merkatu lokala ezagutu", desc: `${cityName}ko bezeroek nola bilatzen duten eta negozio lokal batetik zer espero duten ulertzen dut.` },
-        { title: "Benetako SEO lokala", desc: "Ez ditut hitz gakoak bakarrik gehitzen. Bilaketa lokaletarako, Google Maps eta Google Business Profilerako optimizatzen dut." },
-        { title: "Komunikazio zuzena", desc: "Nirekin hitz egiten duzu, ez kontu kudeatzaile batekin." },
-        { title: "Prezio justu letra txikirik gabe", desc: "1.300€ BEZ barne. Sorpresarik gabe. Beharrezko berritzapenik gabe." },
+        { title: "Zure negoziotik 5 kmra", desc: "Irunen nago, ondo-ondoan. Hondarribian aurrez aurreko bilera behar baduzu, egun berean joaten naiz." },
+        { title: "Merkatu lokala ezagutzen dut", desc: "Hondarribiako merkataritza ehuna ulertzen dut: ostalaritza, arrantza, saltokia, turismoa." },
+        { title: "Benetako SEO lokala", desc: "Hondarribiako bilaketetarako, Google Maps eta Google Business Profilerako optimizazioa." },
+        { title: "Prezio justu, sorpresarik gabe", desc: "1.300€ BEZ barne. Iraunkortasunik gabe. Kodea zurea da." },
       ];
 
   return (
@@ -112,10 +112,10 @@ export default async function BilbaoPage({ params }: Props) {
             style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
           >
             {locale === "es"
-              ? `Soy Unax Aller, diseñador web freelance en Irun con clientes en ${cityName} y toda ${regionName}. Creo webs a medida que posicionan en Google y convierten visitantes en clientes.`
+              ? `Soy Unax Aller, diseñador web freelance en Irun, a 5 minutos de ${cityName}. Creo webs a medida para hostelería, comercio y servicios con SEO local real y diseño premium.`
               : locale === "en"
-              ? `I'm Unax Aller, a freelance web designer based in Irun with clients in ${cityName} and all of ${regionName}. I create custom websites that rank on Google and convert visitors into clients.`
-              : `Unax Aller naiz, Irungo web diseinatzaile freelancea ${cityName}ko eta ${regionName}ko bezero askorekin. Googleren rankean agertzen diren eta bisitariak bezeroak bihurtzen dituzten neurrizko webguneak sortzen ditut.`}
+              ? `I'm Unax Aller, a freelance web designer based in Irun, 5 minutes from ${cityName}. I build custom websites for hospitality, retail and services with real local SEO and premium design.`
+              : `Unax Aller naiz, Irungo web diseinatzaile freelancea, ${cityName}tik 5 minutura. Ostalaritza, merkataritza eta zerbitzuetarako neurrizko webguneak egiten ditut.`}
           </p>
           <Link
             href={`/${locale}/contacto`}
@@ -180,7 +180,7 @@ export default async function BilbaoPage({ params }: Props) {
                 : `${cityName}n negozioa al duzu?`}
             </h2>
             <p className="mb-8 text-sm" style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}>
-              {locale === "es" ? "Consulta gratuita de 30 minutos. Sin compromiso." : locale === "en" ? "Free 30-minute consultation. No commitment." : "30 minutuko doako kontsulta. Konpromisorik gabe."}
+              {locale === "es" ? "Consulta gratuita de 30 minutos. Puedo ir presencialmente." : locale === "en" ? "Free 30-minute consultation. I can come in person." : "30 minutuko doako kontsulta. Aurrez aurre joan naiteke."}
             </p>
             <Link
               href={`/${locale}/contacto`}

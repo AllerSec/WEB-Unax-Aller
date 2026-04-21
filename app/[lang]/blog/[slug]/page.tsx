@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import { blogPosts, getBlogPostBySlug, getAllBlogSlugs } from "@/lib/data/blog-posts";
-import { hreflangAlternates } from "@/lib/seo";
+import { blogPosts, getBlogPostBySlug, getAllBlogSlugs, getRelatedBlogPosts } from "@/lib/data/blog-posts";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -20,19 +20,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
 
+  const title = `${post.titles[locale]} | Unax Aller`;
+  const description = post.descriptions[locale];
+
   return {
-    title: `${post.titles[locale]} | Unax Aller`,
-    description: post.descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/blog/${slug}`,
       languages: hreflangAlternates(`/blog/${slug}`),
     },
     keywords: post.keywords[locale],
-    openGraph: {
+    openGraph: buildOpenGraph({
+      locale,
+      title,
+      description,
+      path: `/blog/${slug}`,
       type: "article",
       publishedTime: post.publishedAt,
+      modifiedTime: post.publishedAt,
       authors: ["Unax Aller Fernández"],
-    },
+      tags: post.tags,
+    }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 
@@ -54,14 +64,21 @@ export default async function BlogPostPage({ params }: Props) {
           "@id": "https://unaxaller.com/#person",
           "@type": "Person",
           name: "Unax Aller Fernández",
-          url: "https://unaxaller.com",
+          url: `https://unaxaller.com/${locale}/sobre-nosotros`,
           jobTitle: "Diseñador y Desarrollador Web Freelance",
         },
         publisher: { "@id": "https://unaxaller.com/#business" },
         datePublished: post.publishedAt,
+        dateModified: post.publishedAt,
         url: `https://unaxaller.com/${locale}/blog/${post.slug}`,
+        mainEntityOfPage: { "@type": "WebPage", "@id": `https://unaxaller.com/${locale}/blog/${post.slug}` },
+        image: `https://unaxaller.com/opengraph-image`,
         inLanguage: locale,
+        wordCount: post.content[locale].split(/\s+/).length,
+        timeRequired: `PT${post.readingTime}M`,
+        articleSection: post.tags[0] ?? "Diseño Web",
         keywords: post.keywords[locale].join(", "),
+        about: post.tags.map((t) => ({ "@type": "Thing", name: t })),
       },
       {
         "@type": "BreadcrumbList",
@@ -75,6 +92,7 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   const paragraphs = post.content[locale].split("\n\n");
+  const related = getRelatedBlogPosts(slug, 3);
 
   return (
     <>
@@ -194,6 +212,40 @@ export default async function BlogPostPage({ params }: Props) {
               </span>
             ))}
           </div>
+
+          {related.length > 0 && (
+            <AnimatedSection className="mt-16">
+              <h2
+                className="text-2xl font-light mb-6"
+                style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+              >
+                {locale === "es" ? "Sigue leyendo" : locale === "en" ? "Keep reading" : "Irakurtzen jarraitu"}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {related.map((rp) => (
+                  <Link
+                    key={rp.slug}
+                    href={`/${locale}/blog/${rp.slug}`}
+                    className="block p-5 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+                    style={{ backgroundColor: "#f5f4ef", border: "1px solid #e3e3de" }}
+                  >
+                    <div
+                      className="text-xs mb-2"
+                      style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
+                    >
+                      {rp.readingTime} {locale === "es" ? "min" : locale === "en" ? "min" : "min"}
+                    </div>
+                    <h3
+                      className="text-base font-medium leading-snug"
+                      style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+                    >
+                      {rp.titles[locale]}
+                    </h3>
+                  </Link>
+                ))}
+              </div>
+            </AnimatedSection>
+          )}
 
           <AnimatedSection className="mt-16 p-8 rounded-2xl text-center" style={{ backgroundColor: "#061b0e" }}>
             <p

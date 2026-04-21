@@ -98,3 +98,18 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
 export function getFeaturedCaseStudies(): CaseStudy[] {
   return caseStudies.filter((cs) => cs.featured);
 }
+
+export function getRelatedCaseStudies(slug: string, limit = 2): CaseStudy[] {
+  const current = getCaseStudyBySlug(slug);
+  if (!current) return [];
+  const scored = caseStudies
+    .filter((cs) => cs.slug !== slug)
+    .map((cs) => ({
+      cs,
+      score:
+        cs.tags.filter((t) => current.tags.includes(t)).length +
+        (cs.sector === current.sector ? 1 : 0),
+    }))
+    .sort((a, b) => b.score - a.score || b.cs.year - a.cs.year);
+  return scored.slice(0, limit).map((s) => s.cs);
+}

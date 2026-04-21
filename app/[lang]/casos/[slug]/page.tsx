@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import { caseStudies, getCaseStudyBySlug } from "@/lib/data/case-studies";
-import { hreflangAlternates } from "@/lib/seo";
+import { caseStudies, getCaseStudyBySlug, getRelatedCaseStudies } from "@/lib/data/case-studies";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -20,13 +20,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cs = getCaseStudyBySlug(slug);
   if (!cs) return {};
 
+  const title = `${cs.client} — ${locale === "es" ? "Caso de Estudio" : locale === "en" ? "Case Study" : "Kasu Azterketa"} | Unax Aller`;
+  const description = cs.solution[locale];
+
   return {
-    title: `${cs.client} — ${locale === "es" ? "Caso de Estudio" : locale === "en" ? "Case Study" : "Kasu Azterketa"} | Unax Aller`,
-    description: cs.solution[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/casos/${slug}`,
       languages: hreflangAlternates(`/casos/${slug}`),
     },
+    openGraph: buildOpenGraph({
+      locale,
+      title,
+      description,
+      path: `/casos/${slug}`,
+      type: "article",
+      publishedTime: `${cs.year}-01-01`,
+      authors: ["Unax Aller Fernández"],
+      tags: cs.tags,
+    }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 
@@ -37,6 +51,8 @@ export default async function CasoPage({ params }: Props) {
 
   if (!cs) notFound();
 
+  const related = getRelatedCaseStudies(slug, 2);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -44,10 +60,22 @@ export default async function CasoPage({ params }: Props) {
         "@type": "Article",
         headline: `${cs.client} — ${locale === "es" ? "Caso de Estudio" : locale === "en" ? "Case Study" : "Kasu Azterketa"}`,
         description: cs.solution[locale],
-        author: { "@id": "https://unaxaller.com/#person" },
+        author: {
+          "@id": "https://unaxaller.com/#person",
+          "@type": "Person",
+          name: "Unax Aller Fernández",
+          url: "https://unaxaller.com/es/sobre-nosotros",
+        },
         publisher: { "@id": "https://unaxaller.com/#business" },
         url: `https://unaxaller.com/${locale}/casos/${cs.slug}`,
+        mainEntityOfPage: { "@type": "WebPage", "@id": `https://unaxaller.com/${locale}/casos/${cs.slug}` },
         datePublished: `${cs.year}-01-01`,
+        dateModified: `${cs.year}-01-01`,
+        image: `https://unaxaller.com/opengraph-image`,
+        inLanguage: locale,
+        articleSection: cs.sector,
+        keywords: cs.tags.join(", "),
+        about: cs.tags.map((t) => ({ "@type": "Thing", name: t })),
       },
       {
         "@type": "BreadcrumbList",
@@ -160,6 +188,40 @@ export default async function CasoPage({ params }: Props) {
               </div>
             </AnimatedSection>
           </div>
+
+          {related.length > 0 && (
+            <AnimatedSection className="mt-16">
+              <h2
+                className="text-2xl font-light mb-6"
+                style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+              >
+                {locale === "es" ? "Otros casos" : locale === "en" ? "Other cases" : "Beste kasuak"}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {related.map((rc) => (
+                  <Link
+                    key={rc.slug}
+                    href={`/${locale}/casos/${rc.slug}`}
+                    className="block p-5 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+                    style={{ backgroundColor: "#f5f4ef", border: "1px solid #e3e3de" }}
+                  >
+                    <div
+                      className="text-xs uppercase tracking-widest mb-2"
+                      style={{ color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
+                    >
+                      {rc.sector} · {rc.year}
+                    </div>
+                    <h3
+                      className="text-lg font-medium"
+                      style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+                    >
+                      {rc.client}
+                    </h3>
+                  </Link>
+                ))}
+              </div>
+            </AnimatedSection>
+          )}
 
           <AnimatedSection className="mt-16 text-center">
             <Link

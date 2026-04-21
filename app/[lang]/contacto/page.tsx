@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -20,13 +20,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Kontatu zure proiektua. 24 ordutan baino gutxiagotan erantzuten dugu doako hasierako proposamen batekin.",
   };
 
+  const title = titles[locale];
+  const description = descriptions[locale];
+
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/contacto`,
       languages: hreflangAlternates("/contacto"),
     },
+    openGraph: buildOpenGraph({ locale, title, description, path: "/contacto" }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 
@@ -105,7 +110,14 @@ export default async function ContactoPage({ params }: Props) {
           latitude: 43.339,
           longitude: -1.7892,
         },
-        openingHours: "Mo-Fr 09:00-18:00",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        ],
         areaServed: [
           { "@type": "City", name: "Irun" },
           { "@type": "AdministrativeArea", name: "Gipuzkoa" },

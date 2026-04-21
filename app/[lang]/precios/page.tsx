@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PricingCards from "@/components/pricing/PricingCards";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -20,13 +20,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Plan argi bakarra: neurrira egindako web osoa 1.300€-tik BEZ barne. Diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean.",
   };
 
+  const title = titles[locale];
+  const description = descriptions[locale];
+
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/precios`,
       languages: hreflangAlternates("/precios"),
     },
+    openGraph: buildOpenGraph({ locale, title, description, path: "/precios" }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 
@@ -85,6 +90,10 @@ export default async function PreciosPage({ params }: Props) {
       },
       {
         "@type": "FAQPage",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["details summary", "details p"],
+        },
         mainEntity: faqItems.map(({ q, a }) => ({
           "@type": "Question",
           name: q,

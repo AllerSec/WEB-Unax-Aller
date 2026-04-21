@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { blogPosts } from "@/lib/data/blog-posts";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -21,13 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web diseinuari, SEO teknikoari eta web errendimenduari buruzko artikuluak. Gida praktikoak lineako presentzia hobetu nahi duten negozioetarako.",
   };
 
+  const title = titles[locale];
+  const description = descriptions[locale];
+
   return {
-    title: titles[locale],
-    description: descriptions[locale],
+    title,
+    description,
     alternates: {
       canonical: `https://unaxaller.com/${locale}/blog`,
       languages: hreflangAlternates("/blog"),
     },
+    openGraph: buildOpenGraph({ locale, title, description, path: "/blog" }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 

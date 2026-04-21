@@ -8,7 +8,7 @@ import PricingCards from "@/components/pricing/PricingCards";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Link from "next/link";
 import { siteConfig } from "@/lib/utils";
-import { hreflangAlternates } from "@/lib/seo";
+import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -26,14 +26,47 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     en: "Freelance web designer in Irun, Basque Country. Custom websites for Basque businesses: premium design, SEO, animations and performance. From €1,300 VAT included.",
     eu: "Web diseinatzaile freelance Irunen, Gipuzkoan. Neurrira egindako webguneak Euskal Herriko negozioetarako. 1.300€-tik BEZ barne.",
   };
+  const keywords: Record<string, string[]> = {
+    es: [
+      "diseñador web Irun",
+      "diseñador web Gipuzkoa",
+      "diseñador web País Vasco",
+      "desarrollador web freelance",
+      "diseño web a medida",
+      "web Next.js",
+      "SEO local Irun",
+      "páginas web profesionales Gipuzkoa",
+    ],
+    en: [
+      "web designer Irun",
+      "web designer Basque Country",
+      "freelance web developer Spain",
+      "custom web design",
+      "Next.js developer",
+      "SEO Gipuzkoa",
+    ],
+    eu: [
+      "web diseinatzailea Irun",
+      "web diseinatzailea Gipuzkoa",
+      "web diseinatzailea Euskal Herria",
+      "freelance garatzailea",
+      "neurrira egindako webguneak",
+    ],
+  };
+
+  const title = titles[locale] || titles.es;
+  const description = descriptions[locale] || descriptions.es;
 
   return {
-    title: titles[locale] || titles.es,
-    description: descriptions[locale] || descriptions.es,
+    title,
+    description,
+    keywords: keywords[locale] || keywords.es,
     alternates: {
       canonical: `https://unaxaller.com/${locale}`,
       languages: hreflangAlternates(""),
     },
+    openGraph: buildOpenGraph({ locale, title, description, path: "" }),
+    twitter: buildTwitter({ title, description }),
   };
 }
 
@@ -66,9 +99,30 @@ export default async function HomePage({ params }: Props) {
           latitude: 43.339,
           longitude: -1.7892,
         },
-        priceRange: "€€€",
+        priceRange: "€1300-€3000",
         email: "hola@unaxaller.com",
-        openingHours: "Mo-Fr 09:00-18:00",
+        telephone: "",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        ],
+        currenciesAccepted: "EUR",
+        paymentAccepted: "Bank transfer, SEPA",
+        knowsAbout: [
+          "Web Design",
+          "Next.js",
+          "SEO",
+          "User Experience",
+          "Performance Optimization",
+          "Core Web Vitals",
+          "Schema.org",
+          "Local SEO",
+        ],
+        slogan: "Diseño y desarrollo web que convierte visitantes en clientes",
         sameAs: [
           "https://linkedin.com/in/unax-aller-8479b428b",
           "https://instagram.com/unaxaller",

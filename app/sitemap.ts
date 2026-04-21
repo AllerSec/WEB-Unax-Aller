@@ -16,6 +16,8 @@ const staticRoutes = [
   { path: "/disenador-web-donostia", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/disenador-web-bilbao", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/disenador-web-vitoria", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-pais-vasco", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-hondarribia", priority: 0.9, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
