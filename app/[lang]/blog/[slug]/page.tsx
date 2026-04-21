@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { blogPosts, getBlogPostBySlug, getAllBlogSlugs, getRelatedBlogPosts } from "@/lib/data/blog-posts";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
@@ -26,6 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    authors: [{ name: "Unax Aller Fernández", url: `https://unaxaller.com/${locale}/sobre-nosotros` }],
+    category: post.tags[0] ?? "Diseño Web",
     alternates: {
       canonical: `https://unaxaller.com/${locale}/blog/${slug}`,
       languages: hreflangAlternates(`/blog/${slug}`),
@@ -103,6 +106,14 @@ export default async function BlogPostPage({ params }: Props) {
 
       <section className="pt-32 pb-12 md:pt-44" style={{ backgroundColor: "#faf9f4" }}>
         <div className="container-xl max-w-3xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: "Blog", href: `/${locale}/blog` },
+              { name: post.titles[locale] },
+            ]}
+          />
+
           <Link
             href={`/${locale}/blog`}
             className="inline-flex items-center gap-2 text-sm mb-8 transition-opacity hover:opacity-70"

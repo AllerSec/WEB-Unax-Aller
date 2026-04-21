@@ -18,6 +18,10 @@ const staticRoutes = [
   { path: "/disenador-web-vitoria", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/disenador-web-pais-vasco", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/disenador-web-hondarribia", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-errenteria", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-lasarte", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-eibar", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-tolosa", priority: 0.85, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

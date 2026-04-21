@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -177,9 +178,16 @@ export default async function SobreNosotrosPage({ params }: Props) {
       <section
         className="pt-32 pb-20 md:pt-44 md:pb-28"
         style={{ backgroundColor: "#faf9f4" }}
-        aria-label="About hero"
+        aria-label={locale === "es" ? "Sobre mí" : locale === "en" ? "About me" : "Ni buruz"}
       >
         <div className="container-xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: locale === "es" ? "Sobre mí" : locale === "en" ? "About me" : "Ni buruz" },
+            ]}
+          />
+
           <div className="max-w-3xl">
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold tracking-widest uppercase"

@@ -47,6 +47,18 @@ export default function Footer({ locale }: Props) {
     { href: `/${locale}/aviso-legal`, label: t("legalNotice") },
   ];
 
+  const cityLinks = [
+    { href: `/${locale}/disenador-web-pais-vasco`, label: locale === "eu" ? "Euskal Herria" : "País Vasco" },
+    { href: `/${locale}/disenador-web-donostia`, label: locale === "eu" ? "Donostia" : "Donostia-San Sebastián" },
+    { href: `/${locale}/disenador-web-bilbao`, label: locale === "eu" ? "Bilbo" : "Bilbao" },
+    { href: `/${locale}/disenador-web-vitoria`, label: locale === "eu" ? "Gasteiz" : "Vitoria-Gasteiz" },
+    { href: `/${locale}/disenador-web-hondarribia`, label: "Hondarribia" },
+    { href: `/${locale}/disenador-web-errenteria`, label: "Errenteria" },
+    { href: `/${locale}/disenador-web-lasarte`, label: "Lasarte-Oria" },
+    { href: `/${locale}/disenador-web-tolosa`, label: "Tolosa" },
+    { href: `/${locale}/disenador-web-eibar`, label: "Eibar" },
+  ];
+
   return (
     <footer
       style={{ backgroundColor: "#061b0e" }}
@@ -230,6 +242,40 @@ export default function Footer({ locale }: Props) {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Cities / zones widget */}
+        <div className="pt-8 mt-2" style={{ borderTop: "1px solid #1b3022" }}>
+          <h3
+            className="text-xs font-semibold uppercase tracking-widest mb-4"
+            style={{ color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
+          >
+            {locale === "es"
+              ? "Diseñador web en tu ciudad"
+              : locale === "en"
+              ? "Web designer in your city"
+              : "Web diseinatzailea zure hirian"}
+          </h3>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
+            {cityLinks.map((c) => (
+              <li key={c.href}>
+                <Link
+                  href={c.href}
+                  className="text-xs transition-colors duration-200"
+                  style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#b4cdb8";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#737973";
+                  }}
+                >
+                  {locale === "es" ? "Diseñador web " : locale === "en" ? "Web designer " : "Web diseinatzailea "}
+                  {c.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Divider */}

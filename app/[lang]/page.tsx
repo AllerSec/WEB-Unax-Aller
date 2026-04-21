@@ -171,6 +171,99 @@ export default async function HomePage({ params }: Props) {
         inLanguage: ["es", "en", "eu"],
       },
       {
+        "@type": "FAQPage",
+        "@id": `https://unaxaller.com/${locale}/#faq`,
+        mainEntity: (locale === "es"
+          ? [
+              {
+                q: "¿Cuánto cuesta una web profesional en Irun o Gipuzkoa?",
+                a: "Una web profesional a medida desde 1.300€ IVA incluido. Incluye diseño exclusivo, hasta 5 secciones, SEO técnico, velocidad Lighthouse 95+ y despliegue. Sin suscripciones ocultas: compras la web y es tuya.",
+              },
+              {
+                q: "¿En cuánto tiempo tienes la web lista?",
+                a: "Entre 2 y 4 semanas desde la aprobación del diseño. Depende del contenido que aportes y de la velocidad de respuesta en las revisiones.",
+              },
+              {
+                q: "¿Trabajas solo en Irun o también para empresas de otras ciudades?",
+                a: "Trabajo con negocios de Irun, Donostia, Hondarribia, Errenteria, Lasarte, Tolosa, Eibar, Bilbao y Vitoria-Gasteiz. Reuniones presenciales en Gipuzkoa; resto del País Vasco y España por videollamada.",
+              },
+              {
+                q: "¿La web está optimizada para Google (SEO)?",
+                a: "Sí. Todo el SEO técnico está incluido: Schema.org, sitemap multi-idioma, hreflang, OpenGraph, Core Web Vitals optimizados y estructura semántica correcta. También configuro Google Search Console.",
+              },
+              {
+                q: "¿Puedo tener la web en euskera, castellano e inglés?",
+                a: "Sí. El multi-idioma (es/en/eu) con URLs separadas y hreflang correcto está disponible en todos los proyectos. Es una ventaja competitiva clara para negocios del País Vasco.",
+              },
+              {
+                q: "¿Qué pasa si necesito cambios después del lanzamiento?",
+                a: "Los cambios estructurales post-entrega se presupuestan aparte, pero el código es 100% tuyo: cualquier desarrollador puede tocarlo. No te atas a mí ni a un CMS cerrado.",
+              },
+            ]
+          : locale === "en"
+          ? [
+              {
+                q: "How much does a professional website cost in Irun or Gipuzkoa?",
+                a: "A custom professional website from €1,300 VAT included. Includes exclusive design, up to 5 sections, technical SEO, Lighthouse 95+ speed and deployment. No hidden subscriptions: you buy it, it is yours.",
+              },
+              {
+                q: "How long until the website is ready?",
+                a: "Between 2 and 4 weeks from design approval, depending on content you provide and response speed during reviews.",
+              },
+              {
+                q: "Do you only work in Irun or also for businesses elsewhere?",
+                a: "I work with businesses in Irun, Donostia, Hondarribia, Errenteria, Lasarte, Tolosa, Eibar, Bilbao and Vitoria-Gasteiz. On-site meetings in Gipuzkoa; rest of the Basque Country and Spain via video call.",
+              },
+              {
+                q: "Is the website optimized for Google (SEO)?",
+                a: "Yes. All technical SEO is included: Schema.org, multi-language sitemap, hreflang, OpenGraph, optimized Core Web Vitals and correct semantic structure. I also set up Google Search Console.",
+              },
+              {
+                q: "Can I have the website in Basque, Spanish and English?",
+                a: "Yes. Multi-language (es/en/eu) with separate URLs and correct hreflang is available on every project. A clear competitive advantage for Basque Country businesses.",
+              },
+              {
+                q: "What happens if I need changes after launch?",
+                a: "Structural post-delivery changes are quoted separately, but the code is 100% yours: any developer can modify it. You are not locked in to me or a closed CMS.",
+              },
+            ]
+          : [
+              {
+                q: "Zenbat kostatzen da web profesional bat Irunen edo Gipuzkoan?",
+                a: "Neurrira egindako web profesional bat 1.300€-tik, BEZ barne. Diseinu esklusiboa, 5 atal arte, SEO teknikoa, Lighthouse 95+ abiadura eta hedapena barne. Harpidetza ezkuturik gabe: erosi eta zurea da.",
+              },
+              {
+                q: "Zenbat denboran izango duzu weba prest?",
+                a: "Diseinua onartu ondoren 2 eta 4 aste artean. Emandako edukiaren eta berrikuspen-erantzunen araberakoa da.",
+              },
+              {
+                q: "Irunen bakarrik egiten duzu lan, ala beste hirietako negozioentzat ere bai?",
+                a: "Irungo, Donostiako, Hondarribiko, Errenteriako, Lasarteko, Tolosako, Eibarko, Bilboko eta Gasteizko negozioekin egiten dut lan. Aurrez aurreko bilerak Gipuzkoan; Euskal Herriko eta Espainiako gainontzekoa bideo-deiz.",
+              },
+              {
+                q: "Weba Googlerako optimizatuta dago (SEO)?",
+                a: "Bai. SEO tekniko osoa barne: Schema.org, sitemap eleanitza, hreflang, OpenGraph, Core Web Vitals optimizatuak eta egitura semantiko zuzena. Google Search Console ere konfiguratzen dut.",
+              },
+              {
+                q: "Weba euskaraz, gaztelaniaz eta ingelesez eduki dezaket?",
+                a: "Bai. Eleaniztasuna (es/en/eu) URL bereiziekin eta hreflang zuzenarekin proiektu guztietan dago eskuragarri. Abantaila lehiakor argia Euskal Herriko negozioentzat.",
+              },
+              {
+                q: "Zer gertatzen da abian jarri ondoren aldaketak behar baditut?",
+                a: "Entrega ondorengo aldaketa estrukturalak aparte aurrekontatzen dira, baina kodea %100 zurea da: edozein garatzailek uki dezake. Ez zaude niri edo CMS itxi bati lotuta.",
+              },
+            ]
+        ).map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "h2", "[data-speakable]"],
+        },
+      },
+      {
         "@type": "Person",
         "@id": "https://unaxaller.com/#person",
         name: "Unax Aller Fernández",

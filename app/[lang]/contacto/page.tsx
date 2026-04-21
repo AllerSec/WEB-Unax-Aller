@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -145,9 +146,16 @@ export default async function ContactoPage({ params }: Props) {
       <section
         className="pt-32 pb-16 md:pt-44 md:pb-20"
         style={{ backgroundColor: "#faf9f4" }}
-        aria-label="Contact hero"
+        aria-label={locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua"}
       >
         <div className="container-xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua" },
+            ]}
+          />
+
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold tracking-widest uppercase"
             style={{

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { caseStudies, getCaseStudyBySlug, getRelatedCaseStudies } from "@/lib/data/case-studies";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
@@ -97,6 +98,14 @@ export default async function CasoPage({ params }: Props) {
 
       <section className="pt-32 pb-12 md:pt-44" style={{ backgroundColor: "#faf9f4" }}>
         <div className="container-xl max-w-3xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: locale === "es" ? "Casos" : locale === "en" ? "Cases" : "Kasuak", href: `/${locale}/casos` },
+              { name: cs.client },
+            ]}
+          />
+
           <Link
             href={`/${locale}/casos`}
             className="inline-flex items-center gap-2 text-sm mb-8 transition-opacity hover:opacity-70"

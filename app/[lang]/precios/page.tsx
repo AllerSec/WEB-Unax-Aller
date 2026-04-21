@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PricingCards from "@/components/pricing/PricingCards";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -68,10 +69,28 @@ export default async function PreciosPage({ params }: Props) {
     "@graph": [
       {
         "@type": "WebPage",
+        "@id": `https://unaxaller.com/${locale}/precios#webpage`,
         name: locale === "es" ? "Precios — Unax Aller" : locale === "en" ? "Pricing — Unax Aller" : "Prezioak — Unax Aller",
         url: `https://unaxaller.com/${locale}/precios`,
-        mainEntity: {
+        inLanguage: locale,
+        isPartOf: { "@id": "https://unaxaller.com/#website" },
+        mainEntity: { "@id": `https://unaxaller.com/${locale}/precios#product` },
+      },
+      {
+        "@type": "Product",
+        "@id": `https://unaxaller.com/${locale}/precios#product`,
+        name: locale === "es" ? "Plan Completo — Web a Medida" : locale === "en" ? "Complete Plan — Custom Website" : "Plan Osoa — Neurrizko Weba",
+        description: locale === "es"
+          ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma (es/en/eu) y hosting el primer año. IVA incluido. Código 100% tuyo."
+          : locale === "en"
+          ? "Complete custom website: premium design, technical SEO, multi-language (es/en/eu) and hosting for the first year. VAT included. Code is 100% yours."
+          : "Neurrira egindako web osoa: diseinu premium-a, SEO teknikoa, eleaniztasuna (es/en/eu) eta hostinga lehen urtean. BEZ barne. Kodea %100 zurea da.",
+        brand: { "@id": "https://unaxaller.com/#business" },
+        category: locale === "es" ? "Diseño y Desarrollo Web" : locale === "en" ? "Web Design and Development" : "Web Diseinua eta Garapena",
+        image: "https://unaxaller.com/opengraph-image",
+        offers: {
           "@type": "Offer",
+          "@id": `https://unaxaller.com/${locale}/precios#offer`,
           name: locale === "es" ? "Plan Completo — Web a Medida" : locale === "en" ? "Complete Plan — Custom Website" : "Plan Osoa — Neurrizko Weba",
           description: locale === "es"
             ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma y hosting el primer año. IVA incluido."
@@ -80,6 +99,19 @@ export default async function PreciosPage({ params }: Props) {
             : "Neurrira egindako web osoa: diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean. BEZ barne.",
           price: "1300",
           priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          validFrom: "2026-01-01",
+          priceValidUntil: "2026-12-31",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "1300",
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: true,
+          },
+          eligibleRegion: [
+            { "@type": "Country", name: "ES" },
+            { "@type": "AdministrativeArea", name: "País Vasco" },
+          ],
           seller: { "@id": "https://unaxaller.com/#business" },
           areaServed: [
             { "@type": "City", name: "Irun" },
@@ -116,7 +148,17 @@ export default async function PreciosPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="pt-16 md:pt-20">
+      <div className="pt-28 md:pt-36" style={{ backgroundColor: "#faf9f4" }}>
+        <div className="container-xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: locale === "es" ? "Precios" : locale === "en" ? "Pricing" : "Prezioak" },
+            ]}
+          />
+        </div>
+      </div>
+      <div style={{ backgroundColor: "#faf9f4" }}>
         <PricingCards locale={locale} />
       </div>
       <section className="pb-20 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>

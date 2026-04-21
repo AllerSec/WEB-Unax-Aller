@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -145,22 +146,114 @@ export default async function ServiciosPage({ params }: Props) {
         { q: "Euskal Herriko enpresekin bakarrik lan egiten al duzu?", a: "Ez, Espainiatik eta nazioarteetik ere bezeroekin lan egiten dut." },
       ];
 
+  const howToSteps = locale === "es"
+    ? [
+        { name: "1. Primer contacto y briefing", text: "Agendamos una llamada gratuita de 30 minutos para entender tu negocio, tus objetivos y competencia. Te envío un briefing previo por email." },
+        { name: "2. Propuesta y presupuesto cerrado", text: "En 48h recibes la propuesta con alcance, plazos y precio cerrado. Sin sorpresas, sin coste variable." },
+        { name: "3. Diseño visual (UI)", text: "Creo un prototipo en Figma con la home y las plantillas clave. Hasta 2 rondas de revisión incluidas." },
+        { name: "4. Desarrollo y programación", text: "Monto la web en Next.js con componentes reutilizables, SEO técnico y Schema.org desde el primer commit." },
+        { name: "5. Pruebas, QA y Lighthouse", text: "Verifico en dispositivos reales, auditoría Lighthouse con Performance/Accessibility/SEO > 95 y validación de datos estructurados." },
+        { name: "6. Despliegue y entrega", text: "Publico la web, conecto el dominio, Google Search Console, Analytics y te entrego el código. Es tuyo." },
+        { name: "7. Soporte post-lanzamiento", text: "Un mes de soporte incluido para resolver cualquier duda o ajuste menor. Después, plan de mantenimiento opcional." },
+      ]
+    : locale === "en"
+    ? [
+        { name: "1. First contact and brief", text: "We schedule a free 30-minute call to understand your business, goals and competition. You receive a briefing by email beforehand." },
+        { name: "2. Proposal and fixed quote", text: "Within 48h you receive the proposal with scope, timeline and fixed price. No surprises, no variable cost." },
+        { name: "3. Visual design (UI)", text: "I create a Figma prototype with the homepage and key templates. Up to 2 revision rounds included." },
+        { name: "4. Development and programming", text: "I build the site in Next.js with reusable components, technical SEO and Schema.org from the first commit." },
+        { name: "5. Testing, QA and Lighthouse", text: "I verify on real devices, Lighthouse audit with Performance/Accessibility/SEO > 95 and structured data validation." },
+        { name: "6. Deployment and handover", text: "I launch the site, connect the domain, Google Search Console, Analytics and hand you the code. It's yours." },
+        { name: "7. Post-launch support", text: "One month of included support to resolve any question or minor adjustment. After that, optional maintenance plan." },
+      ]
+    : [
+        { name: "1. Lehen kontaktua eta briefing-a", text: "Doako 30 minutuko deia antolatzen dugu zure negozioa, helburuak eta lehia ulertzeko. Aurretik briefing bat jasotzen duzu emailez." },
+        { name: "2. Proposamena eta aurrekontu itxia", text: "48 ordu barru proposamena jasotzen duzu, irismena, epea eta prezio itxiarekin. Ustekaberik gabe." },
+        { name: "3. Diseinu bisuala (UI)", text: "Figma prototipo bat sortzen dut home eta txantiloi garrantzitsuekin. 2 berrikuspen-txanda barne." },
+        { name: "4. Garapena eta programazioa", text: "Weba Next.js-en muntatzen dut, osagai berrerabilgarriekin, SEO teknikoarekin eta Schema.org-ekin lehen commit-etik." },
+        { name: "5. Probak, QA eta Lighthouse", text: "Benetako gailuetan egiaztatzen dut, Lighthouse audita Performance/Accessibility/SEO > 95, eta datu egituratuen balidazioa." },
+        { name: "6. Hedapena eta entrega", text: "Weba abian jartzen dut, domeinua konektatzen dut, Google Search Console, Analytics eta kodea entregatzen dizut. Zurea da." },
+        { name: "7. Abian jarri ondorengo laguntza", text: "Hilabeteko laguntza barne edozein zalantza edo doikuntza txiki konpontzeko." },
+      ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ProfessionalService",
+        "@type": "Service",
+        "@id": `https://unaxaller.com/${locale}/servicios#service`,
         provider: { "@id": "https://unaxaller.com/#business" },
         serviceType: "Diseño y Desarrollo Web",
+        name: locale === "es" ? "Servicios de Diseño Web Profesional" : locale === "en" ? "Professional Web Design Services" : "Web Diseinu Zerbitzu Profesionalak",
+        description: locale === "es"
+          ? "Diseño web a medida, desarrollo en Next.js, SEO técnico, rendimiento Lighthouse 95+ y multi-idioma para negocios del País Vasco."
+          : locale === "en"
+          ? "Custom web design, Next.js development, technical SEO, Lighthouse 95+ performance and multi-language for Basque Country businesses."
+          : "Neurrira egindako web diseinua, Next.js-ekin garapena, SEO teknikoa, Lighthouse 95+ errendimendua eta eleaniztasuna Euskal Herriko negozioetarako.",
         areaServed: [
           { "@type": "City", name: "Irun" },
           { "@type": "AdministrativeArea", name: "Gipuzkoa" },
           { "@type": "AdministrativeArea", name: "País Vasco" },
+          { "@type": "Country", name: "España" },
         ],
+        audience: {
+          "@type": "BusinessAudience",
+          audienceType: locale === "es" ? "PyMEs, autónomos y comercios locales" : locale === "en" ? "SMEs, freelancers and local businesses" : "ETE, autonomoak eta tokiko merkataritza",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "1300",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          validFrom: "2026-01-01",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "1300",
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: true,
+          },
+        },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: locale === "es" ? "Servicios de Diseño Web" : locale === "en" ? "Web Design Services" : "Web Diseinu Zerbitzuak",
+          itemListElement: services.map((s, i) => ({
+            "@type": "Offer",
+            position: i + 1,
+            itemOffered: {
+              "@type": "Service",
+              name: s.title,
+              description: s.description,
+              serviceType: s.title,
+            },
+          })),
         },
+      },
+      {
+        "@type": "HowTo",
+        "@id": `https://unaxaller.com/${locale}/servicios#howto`,
+        name: locale === "es"
+          ? "Cómo contratar una web profesional con Unax Aller"
+          : locale === "en"
+          ? "How to hire a professional website with Unax Aller"
+          : "Nola kontratatu web profesional bat Unax Allerekin",
+        description: locale === "es"
+          ? "Proceso paso a paso desde el primer contacto hasta la entrega final de una web profesional hecha a medida."
+          : locale === "en"
+          ? "Step-by-step process from first contact to final delivery of a custom-made professional website."
+          : "Urratsez urratseko prozesua lehen kontaktutik neurrira egindako web profesional baten azken entregara arte.",
+        totalTime: "PT21D",
+        estimatedCost: {
+          "@type": "MonetaryAmount",
+          currency: "EUR",
+          value: "1300",
+        },
+        step: howToSteps.map((s, i) => ({
+          "@type": "HowToStep",
+          position: i + 1,
+          name: s.name,
+          text: s.text,
+          url: `https://unaxaller.com/${locale}/servicios#paso-${i + 1}`,
+        })),
       },
       {
         "@type": "FAQPage",
@@ -198,6 +291,13 @@ export default async function ServiciosPage({ params }: Props) {
         aria-label="Services hero"
       >
         <div className="container-xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: locale === "es" ? "Servicios" : locale === "en" ? "Services" : "Zerbitzuak" },
+            ]}
+          />
+
           <div className="max-w-3xl">
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8 text-xs font-semibold tracking-widest uppercase"

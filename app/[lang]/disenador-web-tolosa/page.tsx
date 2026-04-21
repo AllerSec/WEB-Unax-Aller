@@ -3,7 +3,7 @@ import CityLanding from "@/components/landing/CityLanding";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 import { getCityLanding, getCityLandingContent } from "@/lib/data/city-landings";
 
-const SLUG = "disenador-web-bilbao";
+const SLUG = "disenador-web-tolosa";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Bilbao, Bizkaia | Unax Aller",
-    en: "Web Designer in Bilbao, Bizkaia | Unax Aller",
-    eu: "Web Diseinatzailea Bilbon, Bizkaian | Unax Aller",
+    es: "Diseñador Web en Tolosa, Gipuzkoa | Unax Aller",
+    en: "Web Designer in Tolosa, Gipuzkoa | Unax Aller",
+    eu: "Web Diseinatzailea Tolosan, Gipuzkoan | Unax Aller",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Bilbao y Bizkaia. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for businesses in Bilbao and Bizkaia. Custom websites with local SEO, premium design and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Bilbo eta Bizkaiko negozioetarako. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Tolosa: gastronomía, industria papelera, comercio y servicios. Webs a medida, SEO local. Desde 1.300€ IVA incluido.",
+    en: "Freelance web designer for Tolosa businesses: gastronomy, paper industry, retail and services. Custom websites, local SEO. From €1,300 VAT included.",
+    eu: "Web diseinatzaile freelance Tolosako negozioetarako: gastronomia, paper industria, merkataritza eta zerbitzuak. 1.300€-tik BEZ barne.",
   };
 
   const title = titles[locale];
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BilbaoPage({ params }: Props) {
+export default async function TolosaPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
   const def = getCityLanding(SLUG)!;

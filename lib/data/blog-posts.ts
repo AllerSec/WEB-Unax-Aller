@@ -335,6 +335,347 @@ Todas las webs que entrego tienen Lighthouse 95+ y Core Web Vitals en verde. No 
       eu: ["Core Web Vitals SEO", "webgune abiadura hobetu"],
     },
   },
+  {
+    slug: "seo-local-irun-gipuzkoa",
+    publishedAt: "2026-04-15",
+    readingTime: 7,
+    titles: {
+      es: "SEO local en Irun y Gipuzkoa: guía práctica 2026",
+      en: "Local SEO in Irun and Gipuzkoa: practical guide 2026",
+      eu: "SEO lokala Irunen eta Gipuzkoan: 2026ko gida praktikoa",
+    },
+    descriptions: {
+      es: "Cómo posicionar un negocio en Google Maps y búsquedas locales en Irun y Gipuzkoa. Google Business Profile, reseñas, Schema local y estrategia de contenido.",
+      en: "How to rank a business on Google Maps and local searches in Irun and Gipuzkoa. Google Business Profile, reviews, local Schema and content strategy.",
+      eu: "Nola posizionatu negozio bat Google Mapsen eta bilaketa lokaletan Irunen eta Gipuzkoan. Google Business Profile, iritziak, Schema lokala eta eduki estrategia.",
+    },
+    content: {
+      es: `El SEO local es la diferencia entre aparecer cuando alguien busca "restaurante en Irun" y ser invisible. Esta guía te explica qué funciona de verdad en 2026.
+
+## Los tres pilares del SEO local
+
+**1. Google Business Profile optimizado:** tu ficha es tu web en Google Maps. Categorías correctas, horario, fotos reales, publicaciones semanales.
+
+**2. Reseñas auténticas:** Google prioriza perfiles con reseñas recientes. Meta: 5 reseñas en 30 días, luego 1-2 al mes.
+
+**3. Señales locales en tu web:** Schema LocalBusiness, NAP (Nombre, Dirección, Teléfono) consistente en toda la web, contenido que mencione Irun, Hondarribia, Gipuzkoa.
+
+## Errores típicos en negocios de Gipuzkoa
+
+- **NAP inconsistente:** diferente dirección en Google Business, en la web y en Páginas Amarillas. Google lo detecta y penaliza.
+- **Categoría principal mal elegida:** "Tienda" en vez de "Panadería artesanal". La categoría principal es la más importante.
+- **Sin contenido local:** la web no menciona Irun, ni el barrio, ni los barrios vecinos. Si Google no ve señales locales, no te muestra en resultados locales.
+- **Cero reseñas o todas de golpe:** 10 reseñas en un día es bandera roja. Google prefiere un goteo constante.
+
+## Estrategia concreta para Irun / Gipuzkoa
+
+1. **Reclamar Google Business Profile** con dirección real en Irun
+2. **Categoría primaria:** la más específica que describa tu negocio
+3. **Área de servicio:** Irun, Hondarribia, Fuenterrabía, Behobia, Oiartzun
+4. **Publicar 1 post/semana** en el perfil (ofertas, novedades, fotos)
+5. **Pedir reseñas** a clientes contentos — plantilla por WhatsApp el mismo día de la compra
+6. **En la web:** Schema LocalBusiness, página de contacto con dirección y mapa, contenido que mencione barrios concretos
+
+## Señales extra que marcan diferencia
+
+- **Enlaces desde webs locales:** Cámara de Comercio Gipuzkoa, Diario Vasco, blogs de gastronomía de Irun
+- **Citas NAP** en directorios vascos: Guía Local Gipuzkoa, Irunpedia, asociaciones de comerciantes
+- **Contenido estacional:** "Mejores terrazas en Hondarribia en verano", "Rebajas en comercios de Irun en enero"
+
+Con estos ingredientes bien hechos, pasas del puesto 30 al top 3 en 3-6 meses. No hay magia, hay consistencia.`,
+      en: `Local SEO is the difference between showing up when someone searches "restaurant in Irun" and being invisible. This guide explains what actually works in 2026.
+
+## The three pillars of local SEO
+
+**1. Optimized Google Business Profile:** your listing is your website on Google Maps. Correct categories, hours, real photos, weekly posts.
+
+**2. Authentic reviews:** Google prioritises profiles with recent reviews. Goal: 5 reviews in 30 days, then 1-2 a month.
+
+**3. Local signals on your site:** LocalBusiness Schema, consistent NAP (Name, Address, Phone) across your site, content mentioning Irun, Hondarribia, Gipuzkoa.
+
+## Typical mistakes in Gipuzkoa businesses
+
+- **Inconsistent NAP:** different addresses on Google Business, on the site and on Yellow Pages. Google detects and penalises this.
+- **Wrong primary category:** "Shop" instead of "Artisan bakery". The primary category is the most important.
+- **No local content:** the site doesn't mention Irun, the district, or neighbouring towns. No local signals → no local results.
+- **Zero reviews or all at once:** 10 reviews in a day is a red flag. Google prefers a steady trickle.
+
+## Concrete strategy for Irun / Gipuzkoa
+
+1. **Claim Google Business Profile** with real Irun address
+2. **Primary category:** the most specific one that describes your business
+3. **Service area:** Irun, Hondarribia, Fuenterrabía, Behobia, Oiartzun
+4. **Publish 1 post/week** on the profile (offers, news, photos)
+5. **Ask for reviews** from happy customers — WhatsApp template same day as purchase
+6. **On the site:** LocalBusiness Schema, contact page with address and map, content mentioning specific districts
+
+## Extra signals that make a difference
+
+- **Links from local sites:** Gipuzkoa Chamber of Commerce, Diario Vasco, Irun gastronomy blogs
+- **NAP citations** in Basque directories: Guía Local Gipuzkoa, Irunpedia, merchant associations
+- **Seasonal content:** "Best terraces in Hondarribia in summer", "January sales in Irun shops"
+
+With these ingredients done well, you move from position 30 to top 3 in 3-6 months. No magic, just consistency.`,
+      eu: `SEO lokala da "jatetxea Irunen" bilatzen duenean agertzearen eta ikusezina izatearen arteko aldea. Gida honek 2026an benetan funtzionatzen duena azaltzen dizu.
+
+## SEO lokalaren hiru zutabeak
+
+**1. Google Business Profile optimizatua:** zure fitxa zure weba da Google Mapsen. Kategoria zuzenak, ordutegia, argazki errealak, asteroko posts-ak.
+
+**2. Benetako iritziak:** Googlek iritzi berriak dituzten profilak lehenesten ditu. Helburua: 5 iritzi 30 egunetan, gero 1-2 hilean.
+
+**3. Seinale lokalak zure weban:** LocalBusiness Schema, NAP (Izena, Helbidea, Telefonoa) koherentea web osoan, Irun, Hondarribia eta Gipuzkoa aipatzen dituen edukia.
+
+## Gipuzkoako negozioetan ohiko akatsak
+
+- **NAP ez-koherentea:** helbide desberdina Google Business-en, weban eta Orrialde Horietan. Googlek hori detektatzen du eta zigortu egiten du.
+- **Kategoria nagusi oker:** "Denda" "Okindegi artisaua" beharrean. Kategoria nagusia da garrantzitsuena.
+- **Eduki lokalik ez:** webak ez du Irun, auzoa, ezta inguruko herriak ere aipatzen.
+- **Iritzirik ez edo denak batera:** 10 iritzi egun batean bandera gorria da.
+
+Osagai hauek ondo eginda, 30. postutik top 3-era igarotzen zara 3-6 hilabetetan.`,
+    },
+    tags: ["SEO local", "Irun", "Gipuzkoa", "Google Business Profile", "negocio local"],
+    keywords: {
+      es: [
+        "SEO local Irun",
+        "SEO local Gipuzkoa",
+        "Google Business Profile Irun",
+        "posicionar negocio Gipuzkoa",
+        "reseñas Google negocio local",
+      ],
+      en: ["local SEO Irun", "local SEO Gipuzkoa", "Google Business Profile Basque Country"],
+      eu: ["SEO lokala Irunen", "SEO lokala Gipuzkoan", "Google Business Profile Euskadi"],
+    },
+  },
+  {
+    slug: "web-multi-idioma-euskera-castellano-ingles",
+    publishedAt: "2026-04-08",
+    readingTime: 6,
+    titles: {
+      es: "Web multi-idioma: castellano, euskera e inglés sin romper el SEO",
+      en: "Multi-language website: Spanish, Basque and English without breaking SEO",
+      eu: "Hizkuntza anitzeko weba: gaztelania, euskara eta ingelesa SEOa hautsi gabe",
+    },
+    descriptions: {
+      es: "Cómo montar una web trilingüe (castellano, inglés, euskera) con URLs correctas, hreflang y contenido traducido de verdad. Sin plugins frágiles.",
+      en: "How to build a trilingual website (Spanish, English, Basque) with proper URLs, hreflang and genuinely translated content. No fragile plugins.",
+      eu: "Nola egin hiru hizkuntzatako weba (gaztelania, ingelesa, euskara) URL egokiekin, hreflangekin eta benetan itzulitako edukiarekin.",
+    },
+    content: {
+      es: `En el País Vasco, muchos negocios necesitan web en castellano, euskera e inglés. La mayoría lo hace mal — plugin de traducción automática, URLs rotas, penalización SEO. Así se hace bien.
+
+## Los tres errores típicos
+
+**1. Plugin de traducción automática (Google Translate widget):** Google ignora el contenido traducido. No indexa nada. No posicionas en inglés ni en euskera.
+
+**2. Subdominios sin hreflang:** \`en.tuweb.com\` sin etiquetas \`hreflang\` → Google no sabe cuál mostrar a cada usuario.
+
+**3. Traducir solo menús:** contenido sigue en castellano pero navegación en inglés. El usuario llega y se siente engañado. Alto bounce rate.
+
+## Cómo se hace bien
+
+**Estructura de URLs:** subcarpetas por idioma \`/es/\`, \`/en/\`, \`/eu/\`. Cada página tiene su propia URL por idioma.
+
+**hreflang correcto:** en cada página, \`<link rel="alternate" hreflang="es" href="..." />\` para cada idioma, más \`x-default\`.
+
+**Contenido traducido de verdad:** textos escritos por humano o revisados. Traducción automática → posicionas a 0.
+
+**Metadatos por idioma:** title, description, OG tags cada uno en su idioma. No reutilizar el castellano con un prefijo.
+
+## Euskera: particularidades
+
+- **Declinaciones:** "Bilbo" → "Bilbon", "Donostia" → "Donostiara". Las ciudades se declinan. Si no, suena a traductor.
+- **Términos:** "webgunea" (página web), "diseinatzailea" (diseñador). No usar anglicismos cuando hay término vasco.
+- **Euskera batua:** usa el estándar, no dialectos, a menos que tu público sea muy local.
+
+## SEO por idioma
+
+Cada idioma compite por sus keywords. "Diseñador web Irun" (es), "web designer Irun" (en), "web diseinatzailea Irunen" (eu). Son búsquedas distintas con competencia distinta.
+
+Una web trilingüe bien hecha te da 3 veces más superficie de ataque en Google. Una mal hecha te penaliza en las 3.`,
+      en: `In the Basque Country, many businesses need websites in Spanish, Basque and English. Most do it wrong — auto-translation plugin, broken URLs, SEO penalty. Here's how to do it right.
+
+## The three typical mistakes
+
+**1. Auto-translation plugin (Google Translate widget):** Google ignores translated content. Doesn't index anything. You don't rank in English or Basque.
+
+**2. Subdomains without hreflang:** \`en.yoursite.com\` without \`hreflang\` tags → Google doesn't know which to show each user.
+
+**3. Translating only menus:** content stays in Spanish but navigation is in English. High bounce rate.
+
+## How to do it right
+
+**URL structure:** language subfolders \`/es/\`, \`/en/\`, \`/eu/\`. Each page has its own URL per language.
+
+**Proper hreflang:** on each page, \`<link rel="alternate" hreflang="es" href="..." />\` for each language, plus \`x-default\`.
+
+**Genuinely translated content:** human-written or reviewed. Machine translation → you rank at 0.
+
+**Per-language metadata:** title, description, OG tags each in its language.
+
+## Basque: specifics
+
+- **Declensions:** "Bilbo" → "Bilbon". Cities are declined. Otherwise it sounds like a translator.
+- **Terms:** "webgunea" (website), "diseinatzailea" (designer). Don't use anglicisms when there's a Basque term.
+- **Euskera batua:** use the standard, not dialects, unless your audience is very local.
+
+A well-done trilingual website gives you 3× more Google attack surface. A badly-done one penalises you in all three.`,
+      eu: `Euskal Herrian, negozio askok web gaztelaniaz, euskaraz eta ingelesez behar dute. Gehienek gaizki egiten dute — itzulpen automatikoko plugina, URL hautsiak, SEO zigorra. Honela egiten da ondo.
+
+## Hiru akats tipikoak
+
+**1. Itzulpen automatikoa (Google Translate widget):** Googlek ez du itzulitako edukia indexatzen.
+
+**2. Azpidomeinuak hreflang gabe:** \`en.zureweb.com\` hreflang etiketarik gabe.
+
+**3. Menuak bakarrik itzultzea:** edukia gaztelaniaz jarraitzen du baina nabigazioa ingelesez.
+
+## Nola egiten den ondo
+
+**URL egitura:** hizkuntzako azpikarpetak \`/es/\`, \`/en/\`, \`/eu/\`.
+
+**hreflang zuzena:** orrialde bakoitzean hizkuntza bakoitzerako.
+
+**Benetan itzulitako edukia:** gizakiak idatzita edo berrikusita. Itzulpen automatikoa → 0an rankeatzen duzu.
+
+Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu Googlen.`,
+    },
+    tags: ["multi-idioma", "euskera", "hreflang", "internacionalización", "SEO"],
+    keywords: {
+      es: [
+        "web multi-idioma España",
+        "web en euskera",
+        "hreflang SEO",
+        "web trilingüe País Vasco",
+        "next-intl",
+      ],
+      en: ["multi-language website", "Basque language website", "hreflang SEO", "trilingual website"],
+      eu: ["hizkuntza anitzeko weba", "webgunea euskaraz", "hreflang SEO"],
+    },
+  },
+  {
+    slug: "disenador-web-freelance-vs-agencia",
+    publishedAt: "2026-04-01",
+    readingTime: 5,
+    titles: {
+      es: "Diseñador web freelance vs agencia: ¿qué elegir en 2026?",
+      en: "Freelance web designer vs agency: what to choose in 2026?",
+      eu: "Web diseinatzaile freelance vs agentzia: zer aukeratu 2026an?",
+    },
+    descriptions: {
+      es: "Comparativa honesta entre contratar a un diseñador web freelance o una agencia. Precio, comunicación, calidad, mantenimiento. Sin humo.",
+      en: "Honest comparison between hiring a freelance web designer or an agency. Price, communication, quality, maintenance. No fluff.",
+      eu: "Konparaketa zintzoa web diseinatzaile freelance bat ala agentzia bat kontratatzearen artean. Prezioa, komunikazioa, kalitatea.",
+    },
+    content: {
+      es: `Esta es la duda que me plantean casi todos los clientes potenciales: ¿freelance o agencia? No hay respuesta universal. Depende. Esta guía te ayuda a decidir.
+
+## Lo que ofrece un freelance (como yo)
+
+- **Precio más bajo:** no pago alquiler de oficina ni salarios. 1.300€ IVA incluido para una web completa.
+- **Comunicación directa:** hablas con quien hace el trabajo. Sin intermediarios ni "te pasamos con tu gestor".
+- **Flexibilidad:** proyectos adaptados, no paquetes cerrados.
+- **Implicación personal:** mi reputación depende de cada proyecto.
+
+## Lo que ofrece una agencia
+
+- **Equipo multidisciplinar:** diseñador, desarrollador, copywriter, SEO, project manager. Todo en uno.
+- **Capacidad:** pueden abordar 10 proyectos a la vez. Un freelance, 2-3.
+- **Procesos establecidos:** metodologías probadas, contratos robustos.
+- **Respaldo:** si cae enfermo el diseñador, otro lo coge.
+
+## Cuándo elegir freelance
+
+- Presupuesto menor a 5.000€
+- Negocio pequeño o mediano
+- Valoras trato directo y rapidez de decisión
+- Proyecto de 1-3 meses
+
+## Cuándo elegir agencia
+
+- Presupuesto mayor a 10.000€
+- Proyecto con muchas partes (app + web + marketing + branding)
+- Necesitas equipo grande en plazo corto
+- Empresa grande con procesos formales de compra
+
+## Lo que NO debes hacer
+
+Elegir por precio de forma aislada. Un freelance barato sin cartera es peor que una agencia cara. Una agencia que promete "10.000€ y web en 7 días" te va a entregar plantilla.
+
+Mira: cartera, casos reales, reseñas, comunicación inicial. Ahí está la señal.`,
+      en: `This is the question almost every potential client asks me: freelance or agency? There's no universal answer. It depends. This guide helps you decide.
+
+## What a freelancer offers (like me)
+
+- **Lower price:** no office rent or salaries to pay. €1,300 VAT included for a complete website.
+- **Direct communication:** you talk to the person doing the work.
+- **Flexibility:** adapted projects, not closed packages.
+- **Personal stake:** my reputation depends on every project.
+
+## What an agency offers
+
+- **Multidisciplinary team:** designer, developer, copywriter, SEO, PM.
+- **Capacity:** they can handle 10 projects at once. A freelancer, 2-3.
+- **Established processes:** proven methodologies, robust contracts.
+- **Backup:** if the designer falls ill, another takes over.
+
+## When to choose a freelancer
+
+- Budget under €5,000
+- Small or mid-sized business
+- You value direct dealing and quick decisions
+- 1-3 month project
+
+## When to choose an agency
+
+- Budget over €10,000
+- Project with many parts (app + web + marketing + branding)
+- Need a large team in a short timeframe
+- Large company with formal procurement
+
+## What NOT to do
+
+Choose on price alone. A cheap freelancer with no portfolio is worse than a pricey agency. An agency promising "€10,000 and website in 7 days" will deliver a template.
+
+Look at: portfolio, real cases, reviews, initial communication. That's the signal.`,
+      eu: `Bezero potentzial gehienek egiten didaten galdera: freelance ala agentzia? Ez dago erantzun unibertsalik. Araberakoa da.
+
+## Freelance batek eskaintzen duena
+
+- **Prezio baxuagoa:** 1.300€ BEZ barne web oso batentzat.
+- **Komunikazio zuzena:** lana egiten duenarekin hitz egiten duzu.
+- **Malgutasuna:** moldatutako proiektuak.
+
+## Agentzia batek eskaintzen duena
+
+- **Talde diziplina anitzeko taldea:** diseinatzailea, garatzailea, copywriter-a, SEO.
+- **Gaitasuna:** aldi berean 10 proiektu. Freelance batek, 2-3.
+
+## Noiz aukeratu freelance
+
+- 5.000€tik beherako aurrekontua
+- Negozio txikia edo ertaina
+- Tratu zuzena baloratzen duzu
+
+## Noiz aukeratu agentzia
+
+- 10.000€tik gorako aurrekontua
+- Zati askotako proiektua
+- Talde handia behar duzu epe laburrean`,
+    },
+    tags: ["freelance", "agencia", "comparativa", "contratación web"],
+    keywords: {
+      es: [
+        "diseñador web freelance vs agencia",
+        "cuánto cobra un diseñador web freelance",
+        "elegir diseñador web",
+        "agencia diseño web España",
+      ],
+      en: ["freelance web designer vs agency", "choose web designer"],
+      eu: ["web diseinatzaile freelance edo agentzia"],
+    },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

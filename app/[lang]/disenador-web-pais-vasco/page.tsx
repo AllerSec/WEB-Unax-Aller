@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -41,6 +42,75 @@ export default async function PaisVascoPage({ params }: Props) {
 
   const regionName = locale === "eu" ? "Euskal Herria" : "País Vasco";
 
+  const faqItems = locale === "es"
+    ? [
+        {
+          q: `¿Cuánto cuesta una web profesional en el ${regionName}?`,
+          a: "Desde 1.300€ IVA incluido: diseño exclusivo, hasta 5 secciones, SEO técnico, multi-idioma (es/en/eu) y despliegue. Sin suscripciones ocultas.",
+        },
+        {
+          q: "¿Puedes trabajar en Bilbao, Donostia y Vitoria?",
+          a: "Sí. Estoy en Irun y me desplazo a cualquiera de las tres capitales cuando el proyecto lo requiere. La mayoría del trabajo se coordina por videollamada, pero la reunión inicial presencial es una opción.",
+        },
+        {
+          q: "¿La web está disponible en euskera?",
+          a: "Sí. El multi-idioma castellano, inglés y euskera viene de serie, con URLs separadas y hreflang correcto. Es una ventaja SEO clara para negocios del País Vasco.",
+        },
+        {
+          q: "¿Posicionas en Google para búsquedas locales del País Vasco?",
+          a: "Sí. Configuro SEO local por provincia y ciudad, Schema.org LocalBusiness con areaServed, y optimizo la ficha Google Business Profile.",
+        },
+        {
+          q: "¿En cuánto tiempo estará lista la web?",
+          a: "Entre 2 y 4 semanas desde la aprobación del diseño, dependiendo del contenido y las revisiones.",
+        },
+      ]
+    : locale === "en"
+    ? [
+        {
+          q: `How much does a professional website cost in the ${regionName}?`,
+          a: "From €1,300 VAT included: exclusive design, up to 5 sections, technical SEO, multi-language (es/en/eu) and deployment. No hidden subscriptions.",
+        },
+        {
+          q: "Can you work in Bilbao, Donostia and Vitoria?",
+          a: "Yes. I'm based in Irun and I travel to any of the three capitals when the project requires it. Most of the work is coordinated via video call, but an initial in-person meeting is an option.",
+        },
+        {
+          q: "Is the website available in Basque?",
+          a: "Yes. Multi-language Spanish, English and Basque is included by default, with separate URLs and correct hreflang. A clear SEO advantage for Basque Country businesses.",
+        },
+        {
+          q: "Do you rank on Google for Basque Country local searches?",
+          a: "Yes. I configure local SEO per province and city, Schema.org LocalBusiness with areaServed, and I optimize the Google Business Profile listing.",
+        },
+        {
+          q: "How long will the website take?",
+          a: "Between 2 and 4 weeks from design approval, depending on content and reviews.",
+        },
+      ]
+    : [
+        {
+          q: `Zenbat kostatzen da web profesional bat ${regionName}n?`,
+          a: "1.300€-tik BEZ barne: diseinu esklusiboa, 5 atal arte, SEO teknikoa, eleaniztasuna (es/en/eu) eta hedapena. Harpidetza ezkuturik gabe.",
+        },
+        {
+          q: "Bilbon, Donostian eta Gasteizen egin dezakezu lan?",
+          a: "Bai. Irunen nago eta hiru hiriburuetara joaten naiz proiektuak hala eskatzen duenean. Lan gehiena bideo-deiz koordinatzen da, baina hasierako aurrez aurreko bilera aukera bat da.",
+        },
+        {
+          q: "Weba euskaraz eskuragarri dago?",
+          a: "Bai. Gaztelania, ingelesa eta euskara lehenetsita datoz, URL bereiziekin eta hreflang zuzenarekin. SEO abantaila argia Euskal Herriko negozioentzat.",
+        },
+        {
+          q: "Euskal Herriko bilaketa lokaletarako posizionatzen duzu?",
+          a: "Bai. SEO lokala konfiguratzen dut lurraldez lurralde eta hiriz hiri, Schema.org LocalBusiness areaServed-ekin, eta Google Business Profile fitxa optimizatzen dut.",
+        },
+        {
+          q: "Zenbat denboran egongo da prest?",
+          a: "Diseinua onartu ondoren 2 eta 4 aste artean, edukiaren eta berrikuspenen arabera.",
+        },
+      ];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -76,6 +146,19 @@ export default async function PaisVascoPage({ params }: Props) {
             item: `https://unaxaller.com/${locale}/disenador-web-pais-vasco`,
           },
         ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `https://unaxaller.com/${locale}/disenador-web-pais-vasco#faq`,
+        mainEntity: faqItems.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: ["h1", "h2", "[data-speakable]"],
+        },
       },
     ],
   };
@@ -116,6 +199,19 @@ export default async function PaisVascoPage({ params }: Props) {
 
       <section className="pt-32 pb-20 md:pt-44 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
         <div className="container-xl max-w-3xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              {
+                name: locale === "es"
+                  ? `Diseñador web ${regionName}`
+                  : locale === "en"
+                  ? `Web designer ${regionName}`
+                  : `Web diseinatzailea ${regionName}`,
+              },
+            ]}
+          />
+
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6"
             style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
@@ -229,6 +325,48 @@ export default async function PaisVascoPage({ params }: Props) {
                       : `${c.name}rako zerbitzuak ikusi`}
                   </div>
                 </Link>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28" style={{ backgroundColor: "#efeee9" }}>
+        <div className="container-xl max-w-3xl">
+          <AnimatedSection>
+            <h2
+              className="text-2xl md:text-3xl font-light mb-8"
+              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+            >
+              {locale === "es" ? "Preguntas frecuentes" : locale === "en" ? "Frequently asked questions" : "Ohiko galderak"}
+            </h2>
+            <div className="flex flex-col gap-3">
+              {faqItems.map((item, i) => (
+                <details
+                  key={i}
+                  className="p-5 rounded-xl group"
+                  style={{ backgroundColor: "#faf9f4", border: "1px solid #e3e3de" }}
+                >
+                  <summary
+                    className="cursor-pointer text-base font-medium list-none flex items-start justify-between gap-4"
+                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+                  >
+                    <span>{item.q}</span>
+                    <span
+                      aria-hidden="true"
+                      className="flex-shrink-0 transition-transform group-open:rotate-45 text-xl leading-none"
+                      style={{ color: "#4d6453" }}
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p
+                    className="text-sm leading-relaxed mt-3"
+                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
+                  >
+                    {item.a}
+                  </p>
+                </details>
               ))}
             </div>
           </AnimatedSection>

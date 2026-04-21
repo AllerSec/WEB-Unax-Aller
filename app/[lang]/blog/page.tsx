@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { blogPosts } from "@/lib/data/blog-posts";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
@@ -76,6 +77,13 @@ export default async function BlogPage({ params }: Props) {
 
       <section className="pt-32 pb-20 md:pt-44 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
         <div className="container-xl">
+          <Breadcrumbs
+            items={[
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: "Blog" },
+            ]}
+          />
+
           <div className="max-w-3xl">
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6"
