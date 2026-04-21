@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -23,7 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/servicios` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/servicios`,
+      languages: hreflangAlternates("/servicios"),
+    },
   };
 }
 
@@ -164,7 +168,7 @@ export default async function ServiciosPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
           { "@type": "ListItem", position: 2, name: locale === "es" ? "Servicios" : locale === "en" ? "Services" : "Zerbitzuak", item: `https://unaxaller.com/${locale}/servicios` },
         ],
       },

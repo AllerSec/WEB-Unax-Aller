@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -22,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/disenador-web-vitoria` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/disenador-web-vitoria`,
+      languages: hreflangAlternates("/disenador-web-vitoria"),
+    },
   };
 }
 
@@ -30,7 +34,7 @@ export default async function VitoriaPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
 
-  const cityName = "Vitoria-Gasteiz";
+  const cityName = locale === "eu" ? "Gasteiz" : "Vitoria-Gasteiz";
   const regionName = locale === "eu" ? "Araba" : "Álava";
 
   const jsonLd = {
@@ -42,7 +46,7 @@ export default async function VitoriaPage({ params }: Props) {
         name: "Unax Aller — Diseñador Web",
         url: "https://unaxaller.com",
         areaServed: [
-          { "@type": "City", name: "Vitoria-Gasteiz" },
+          { "@type": "City", name: cityName },
           { "@type": "City", name: "Irun" },
           { "@type": "AdministrativeArea", name: regionName },
         ],
@@ -52,7 +56,7 @@ export default async function VitoriaPage({ params }: Props) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? "Diseñador web Vitoria" : locale === "en" ? "Web designer Vitoria" : "Web diseinatzailea Vitoria", item: `https://unaxaller.com/${locale}/disenador-web-vitoria` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? `Diseñador web ${cityName}` : locale === "en" ? `Web designer ${cityName}` : `Web diseinatzailea ${cityName}`, item: `https://unaxaller.com/${locale}/disenador-web-vitoria` },
         ],
       },
     ],

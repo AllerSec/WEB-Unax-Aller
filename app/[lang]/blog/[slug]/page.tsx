@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { blogPosts, getBlogPostBySlug, getAllBlogSlugs } from "@/lib/data/blog-posts";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -22,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.titles[locale]} | Unax Aller`,
     description: post.descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/blog/${slug}` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/blog/${slug}`,
+      languages: hreflangAlternates(`/blog/${slug}`),
+    },
     keywords: post.keywords[locale],
     openGraph: {
       type: "article",

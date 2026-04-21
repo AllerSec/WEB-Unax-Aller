@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PricingCards from "@/components/pricing/PricingCards";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -22,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/precios` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/precios`,
+      languages: hreflangAlternates("/precios"),
+    },
   };
 }
 
@@ -90,7 +94,7 @@ export default async function PreciosPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
           { "@type": "ListItem", position: 2, name: locale === "es" ? "Precios" : locale === "en" ? "Pricing" : "Prezioak", item: `https://unaxaller.com/${locale}/precios` },
         ],
       },

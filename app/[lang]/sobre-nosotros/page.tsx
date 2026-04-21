@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -23,7 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/sobre-nosotros` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/sobre-nosotros`,
+      languages: hreflangAlternates("/sobre-nosotros"),
+    },
   };
 }
 
@@ -111,35 +115,48 @@ export default async function SobreNosotrosPage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "Sobre Unax Aller",
-    url: `https://unaxaller.com/${locale}/sobre-nosotros`,
-    mainEntity: {
-      "@type": "Person",
-      "@id": "https://unaxaller.com/#person",
-      name: "Unax Aller Fernández",
-      jobTitle: "Diseñador y Desarrollador Web Freelance",
-      url: "https://unaxaller.com",
-      email: "hola@unaxaller.com",
-      sameAs: [
-        "https://linkedin.com/in/unax-aller-8479b428b",
-        "https://instagram.com/unaxaller",
-      ],
-      knowsLanguage: ["es", "fr", "en", "eu"],
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "Universidad Alfonso X el Sabio",
-        sameAs: "https://www.uax.es",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        name: "Sobre Unax Aller",
+        url: `https://unaxaller.com/${locale}/sobre-nosotros`,
+        mainEntity: { "@id": "https://unaxaller.com/#person" },
       },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Irun",
-        addressRegion: "Gipuzkoa",
-        postalCode: "20300",
-        addressCountry: "ES",
+      {
+        "@type": "Person",
+        "@id": "https://unaxaller.com/#person",
+        name: "Unax Aller Fernández",
+        jobTitle: "Diseñador y Desarrollador Web Freelance",
+        url: "https://unaxaller.com",
+        email: "hola@unaxaller.com",
+        sameAs: [
+          "https://linkedin.com/in/unax-aller-8479b428b",
+          "https://instagram.com/unaxaller",
+        ],
+        knowsLanguage: ["es", "fr", "en", "eu"],
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Universidad Alfonso X el Sabio",
+          sameAs: "https://www.uax.es",
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Irun",
+          addressRegion: "Gipuzkoa",
+          postalCode: "20300",
+          addressCountry: "ES",
+        },
+        worksFor: { "@id": "https://unaxaller.com/#business" },
+        description: t("intro"),
       },
-      description: t("intro"),
-    },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? "Sobre Nosotros" : locale === "en" ? "About" : "Ni buruz", item: `https://unaxaller.com/${locale}/sobre-nosotros` },
+        ],
+      },
+    ],
   };
 
   return (

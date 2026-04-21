@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -22,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/contacto` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/contacto`,
+      languages: hreflangAlternates("/contacto"),
+    },
   };
 }
 
@@ -76,34 +80,46 @@ export default async function ContactoPage({ params }: Props) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: "Contacto — Unax Aller",
-    url: `https://unaxaller.com/${locale}/contacto`,
-    mainEntity: {
-      "@type": ["LocalBusiness", "ProfessionalService"],
-      "@id": "https://unaxaller.com/#business",
-      name: "Unax Aller — Diseñador Web",
-      email: "hola@unaxaller.com",
-      url: "https://unaxaller.com",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Irun",
-        addressRegion: "Gipuzkoa",
-        postalCode: "20300",
-        addressCountry: "ES",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        name: "Contacto — Unax Aller",
+        url: `https://unaxaller.com/${locale}/contacto`,
+        mainEntity: { "@id": "https://unaxaller.com/#business" },
       },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 43.339,
-        longitude: -1.7892,
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://unaxaller.com/#business",
+        name: "Unax Aller — Diseñador Web",
+        email: "hola@unaxaller.com",
+        url: "https://unaxaller.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Irun",
+          addressRegion: "Gipuzkoa",
+          postalCode: "20300",
+          addressCountry: "ES",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 43.339,
+          longitude: -1.7892,
+        },
+        openingHours: "Mo-Fr 09:00-18:00",
+        areaServed: [
+          { "@type": "City", name: "Irun" },
+          { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+          { "@type": "AdministrativeArea", name: "País Vasco" },
+        ],
       },
-      openingHours: "Mo-Fr 09:00-18:00",
-      areaServed: [
-        { "@type": "City", name: "Irun" },
-        { "@type": "AdministrativeArea", name: "Gipuzkoa" },
-        { "@type": "AdministrativeArea", name: "País Vasco" },
-      ],
-    },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua", item: `https://unaxaller.com/${locale}/contacto` },
+        ],
+      },
+    ],
   };
 
   return (

@@ -8,6 +8,7 @@ import PricingCards from "@/components/pricing/PricingCards";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Link from "next/link";
 import { siteConfig } from "@/lib/utils";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: descriptions[locale] || descriptions.es,
     alternates: {
       canonical: `https://unaxaller.com/${locale}`,
+      languages: hreflangAlternates(""),
     },
   };
 }

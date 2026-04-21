@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { caseStudies } from "@/lib/data/case-studies";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -23,7 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/casos` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/casos`,
+      languages: hreflangAlternates("/casos"),
+    },
   };
 }
 

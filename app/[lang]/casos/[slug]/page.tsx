@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { caseStudies, getCaseStudyBySlug } from "@/lib/data/case-studies";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -22,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${cs.client} — ${locale === "es" ? "Caso de Estudio" : locale === "en" ? "Case Study" : "Kasu Azterketa"} | Unax Aller`,
     description: cs.solution[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/casos/${slug}` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/casos/${slug}`,
+      languages: hreflangAlternates(`/casos/${slug}`),
+    },
   };
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -22,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/disenador-web-donostia` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/disenador-web-donostia`,
+      languages: hreflangAlternates("/disenador-web-donostia"),
+    },
   };
 }
 
@@ -30,8 +34,8 @@ export default async function DonostiaPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
 
-  const cityName = "Donostia-San Sebastián";
-  const regionName = locale === "es" ? "Gipuzkoa" : locale === "en" ? "Gipuzkoa" : "Gipuzkoa";
+  const cityName = locale === "eu" ? "Donostia" : "Donostia-San Sebastián";
+  const regionName = "Gipuzkoa";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -42,9 +46,9 @@ export default async function DonostiaPage({ params }: Props) {
         name: "Unax Aller — Diseñador Web",
         url: "https://unaxaller.com",
         areaServed: [
-          { "@type": "City", name: "Donostia-San Sebastián" },
+          { "@type": "City", name: cityName },
           { "@type": "City", name: "Irun" },
-          { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+          { "@type": "AdministrativeArea", name: regionName },
         ],
         serviceType: "Diseño y Desarrollo Web",
       },
@@ -52,7 +56,7 @@ export default async function DonostiaPage({ params }: Props) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? "Diseñador web Donostia" : locale === "en" ? "Web designer Donostia" : "Web diseinatzailea Donostia", item: `https://unaxaller.com/${locale}/disenador-web-donostia` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? `Diseñador web ${cityName}` : locale === "en" ? `Web designer ${cityName}` : `Web diseinatzailea ${cityName}`, item: `https://unaxaller.com/${locale}/disenador-web-donostia` },
         ],
       },
     ],

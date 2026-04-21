@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -22,7 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: titles[locale],
     description: descriptions[locale],
-    alternates: { canonical: `https://unaxaller.com/${locale}/disenador-web-bilbao` },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/disenador-web-bilbao`,
+      languages: hreflangAlternates("/disenador-web-bilbao"),
+    },
   };
 }
 
@@ -30,7 +34,7 @@ export default async function BilbaoPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
 
-  const cityName = "Bilbao";
+  const cityName = locale === "eu" ? "Bilbo" : "Bilbao";
   const regionName = "Bizkaia";
 
   const jsonLd = {
@@ -42,9 +46,9 @@ export default async function BilbaoPage({ params }: Props) {
         name: "Unax Aller — Diseñador Web",
         url: "https://unaxaller.com",
         areaServed: [
-          { "@type": "City", name: "Bilbao" },
+          { "@type": "City", name: cityName },
           { "@type": "City", name: "Irun" },
-          { "@type": "AdministrativeArea", name: "Bizkaia" },
+          { "@type": "AdministrativeArea", name: regionName },
         ],
         serviceType: "Diseño y Desarrollo Web",
       },
@@ -52,7 +56,7 @@ export default async function BilbaoPage({ params }: Props) {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? "Diseñador web Bilbao" : locale === "en" ? "Web designer Bilbao" : "Web diseinatzailea Bilbao", item: `https://unaxaller.com/${locale}/disenador-web-bilbao` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? `Diseñador web ${cityName}` : locale === "en" ? `Web designer ${cityName}` : `Web diseinatzailea ${cityName}`, item: `https://unaxaller.com/${locale}/disenador-web-bilbao` },
         ],
       },
     ],
