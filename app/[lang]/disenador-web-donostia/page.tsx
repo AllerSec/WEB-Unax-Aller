@@ -30,7 +30,7 @@ export default async function DonostiaPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
 
-  const cityName = locale === "eu" ? "Donostia-San Sebastián" : "Donostia-San Sebastián";
+  const cityName = "Donostia-San Sebastián";
   const regionName = locale === "es" ? "Gipuzkoa" : locale === "en" ? "Gipuzkoa" : "Gipuzkoa";
 
   const jsonLd = {

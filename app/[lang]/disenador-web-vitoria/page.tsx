@@ -44,7 +44,7 @@ export default async function VitoriaPage({ params }: Props) {
         areaServed: [
           { "@type": "City", name: "Vitoria-Gasteiz" },
           { "@type": "City", name: "Irun" },
-          { "@type": "AdministrativeArea", name: "Álava" },
+          { "@type": "AdministrativeArea", name: regionName },
         ],
         serviceType: "Diseño y Desarrollo Web",
       },
