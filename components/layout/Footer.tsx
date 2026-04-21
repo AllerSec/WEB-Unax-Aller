@@ -19,6 +19,19 @@ export default function Footer({ locale }: Props) {
     { href: `/${locale}/servicios`, label: tNav("servicios") },
     { href: `/${locale}/precios`, label: tNav("precios") },
     { href: `/${locale}/contacto`, label: tNav("contacto") },
+    {
+      href: `/${locale}/blog`,
+      label: locale === "es" ? "Blog" : locale === "en" ? "Blog" : "Bloga",
+    },
+    {
+      href: `/${locale}/casos`,
+      label:
+        locale === "es"
+          ? "Casos de Estudio"
+          : locale === "en"
+          ? "Case Studies"
+          : "Kasu Azterketak",
+    },
   ];
 
   const serviceLinks = [
