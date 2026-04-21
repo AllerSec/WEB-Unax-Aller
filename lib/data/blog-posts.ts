@@ -338,7 +338,7 @@ Nire kasuan, plan bakarrak 1.300€ balio du BEZ barne.`,
   },
   {
     slug: "disenador-web-freelance-vs-agencia",
-    publishedAt: "2026-04-28",
+    publishedAt: "2026-03-25",
     readingTime: 5,
     titles: {
       es: "Freelance vs Agencia: ¿A quién contratar para tu web en 2026?",
@@ -409,7 +409,7 @@ Enpresa txiki eta ertainentzat (denda lokala, autonomo profesionala, hasierako s
   },
   {
     slug: "disenador-web-irun-gipuzkoa",
-    publishedAt: "2026-05-05",
+    publishedAt: "2026-03-18",
     readingTime: 4,
     titles: {
       es: "Diseñador web en Irun y Gipuzkoa: lo que necesitas saber",
@@ -484,7 +484,7 @@ To appear on Google when someone searches for "restaurant in Irun" or "plumber D
   },
   {
     slug: "que-es-core-web-vitals-y-por-que-importa",
-    publishedAt: "2026-05-12",
+    publishedAt: "2026-03-11",
     readingTime: 5,
     titles: {
       es: "Core Web Vitals: qué son y por qué afectan al SEO de tu web",
