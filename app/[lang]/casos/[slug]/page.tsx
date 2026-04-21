@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cs) return {};
 
   return {
-    title: `${cs.client} — Caso de Estudio | Unax Aller`,
+    title: `${cs.client} — ${locale === "es" ? "Caso de Estudio" : locale === "en" ? "Case Study" : "Kasu Azterketa"} | Unax Aller`,
     description: cs.solution[locale],
     alternates: { canonical: `https://unaxaller.com/${locale}/casos/${slug}` },
   };
@@ -48,8 +48,8 @@ export default async function CasoPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? "Casos" : "Cases", item: `https://unaxaller.com/${locale}/casos` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? "Casos" : locale === "en" ? "Cases" : "Kasuak", item: `https://unaxaller.com/${locale}/casos` },
           { "@type": "ListItem", position: 3, name: cs.client, item: `https://unaxaller.com/${locale}/casos/${cs.slug}` },
         ],
       },

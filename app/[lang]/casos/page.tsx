@@ -48,7 +48,7 @@ export default async function CasosPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Inicio", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
           { "@type": "ListItem", position: 2, name: locale === "es" ? "Casos de Estudio" : locale === "en" ? "Case Studies" : "Kasu Azterketak", item: `https://unaxaller.com/${locale}/casos` },
         ],
       },
