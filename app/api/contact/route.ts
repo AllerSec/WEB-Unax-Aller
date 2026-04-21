@@ -64,11 +64,23 @@ export async function POST(req: NextRequest) {
     const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
     const scriptToken = process.env.GOOGLE_SCRIPT_TOKEN;
     if (scriptUrl) {
-      const scriptRes = await fetch(scriptUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: scriptToken ?? "", name, email, company, budget, message }),
-      });
+      if (!scriptToken) {
+        console.error("GOOGLE_SCRIPT_TOKEN not configured");
+        return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+      }
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
+      let scriptRes!: Response;
+      try {
+        scriptRes = await fetch(scriptUrl, {
+          signal: controller.signal,
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: scriptToken, name, email, company, budget, message }),
+        });
+      } finally {
+        clearTimeout(timeoutId);
+      }
       let scriptData: { ok?: boolean } = {};
       try {
         scriptData = await scriptRes.json();
@@ -76,7 +88,7 @@ export async function POST(req: NextRequest) {
         // non-JSON response
       }
       if (!scriptRes.ok || !scriptData.ok) {
-        console.error("Google Script error:", scriptRes.status, scriptData);
+        console.error("Google Script error:", scriptRes.status);
         return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
       }
       return NextResponse.json({ ok: true });
