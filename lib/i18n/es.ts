@@ -231,6 +231,44 @@ const es = {
     close: "Cerrar",
     menu: "Menú",
   },
+  blog: {
+    title: "Blog",
+    subtitle: "Artículos sobre diseño web, SEO y rendimiento.",
+    readMore: "Leer artículo",
+    readingTime: "min de lectura",
+    backToBlog: "Volver al blog",
+    publishedOn: "Publicado el",
+  },
+  casos: {
+    title: "Casos de Estudio",
+    subtitle: "Proyectos reales con resultados reales.",
+    problem: "El problema",
+    solution: "La solución",
+    results: "Resultados",
+    metrics: "Métricas",
+    viewAll: "Ver todos los casos",
+    backToCasos: "Volver a casos",
+  },
+  faqServicios: {
+    title: "Preguntas frecuentes",
+    items: [
+      { q: "¿Cuánto tiempo tarda en hacerse una web?", a: "El proceso completo desde el primer contacto hasta la entrega dura entre 3 y 6 semanas, dependiendo de la complejidad del proyecto y la velocidad de feedback." },
+      { q: "¿Qué necesito aportar yo para empezar?", a: "Solo necesito que me cuentes tu negocio, tus objetivos y, si los tienes, logotipo y fotos. Del resto me encargo yo." },
+      { q: "¿Incluye el mantenimiento después de la entrega?", a: "El precio incluye 1 mes de soporte post-lanzamiento. A partir de ahí, ofrezco planes de mantenimiento opcionales." },
+      { q: "¿Puedo pedir cambios durante el proyecto?", a: "Sí, el proceso es iterativo. Incluye hasta 2 rondas de revisión sin coste adicional." },
+      { q: "¿Trabajas solo con empresas del País Vasco?", a: "No, trabajo con clientes de toda España y también internacionales. Solo necesitamos internet para comunicarnos." },
+    ],
+  },
+  faqPrecios: {
+    title: "Preguntas sobre el precio",
+    items: [
+      { q: "¿Por qué cuesta 1.300€ IVA incluido?", a: "Es el precio mínimo para hacer un trabajo de calidad: diseño personalizado, desarrollo a medida, SEO técnico y hosting el primer año. Sin recortar en ningún punto." },
+      { q: "¿Hay costes adicionales?", a: "No hay costes ocultos. El único coste recurrente es la renovación del dominio y hosting a partir del segundo año (aproximadamente 100-150€/año)." },
+      { q: "¿Se puede pagar en plazos?", a: "Sí. El pago habitual es 50% al inicio y 50% en la entrega. Para proyectos más grandes, podemos negociar plazos." },
+      { q: "¿Qué incluye exactamente el precio?", a: "Diseño UI/UX a medida, desarrollo en Next.js, SEO técnico completo, formulario de contacto, hasta 3 idiomas, hosting el primer año y soporte post-lanzamiento." },
+      { q: "¿Puedo tener una consulta gratuita antes de decidir?", a: "Sí, ofrezco una consulta gratuita de 30 minutos por videollamada para entender tu proyecto y ver si somos un buen match." },
+    ],
+  },
 };
 
 export default es;

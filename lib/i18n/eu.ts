@@ -230,6 +230,44 @@ const eu = {
     close: "Itxi",
     menu: "Menua",
   },
+  blog: {
+    title: "Bloga",
+    subtitle: "Web diseinuari, SEOri eta errendimenduari buruzko artikuluak.",
+    readMore: "Artikulua irakurri",
+    readingTime: "min irakurketa",
+    backToBlog: "Blogera itzuli",
+    publishedOn: "Argitaratua",
+  },
+  casos: {
+    title: "Kasu Azterketak",
+    subtitle: "Benetako proiektuak benetako emaitzeekin.",
+    problem: "Arazoa",
+    solution: "Irtenbidea",
+    results: "Emaitzak",
+    metrics: "Metrikak",
+    viewAll: "Kasu guztiak ikusi",
+    backToCasos: "Kasuetara itzuli",
+  },
+  faqServicios: {
+    title: "Galdera ohikoak",
+    items: [
+      { q: "Zenbat denbora behar da web bat egiteko?", a: "Lehen kontaktutik entregatzeraino osoko prozesuak 3 eta 6 aste artean irauten du, proiektuaren konplexutasunaren eta feedback abiaduraren arabera." },
+      { q: "Zer eman behar dut hasteko?", a: "Zure negozioa eta helburuak kontatzea besterik ez. Logo eta argazkiak badituzu, hobe. Gainerakoaz ni arduratuko naiz." },
+      { q: "Mantentze-lana entregatutakoan sartzen al da?", a: "Prezioak abian jarri ondoren 1 hilabeteko laguntza barne hartzen du. Hortik aurrera, aukerako mantentze-planak eskaintzen ditut." },
+      { q: "Prozesu bitartean aldaketak eskatu al ditzaket?", a: "Bai, prozesua iteratiboa da. Gehigarrizko kosturik gabe 2 berrikuspen txanda barne hartzen du." },
+      { q: "Euskal Herriko enpresekin bakarrik lan egiten al duzu?", a: "Ez, Espainiatik eta nazioarteetik ere bezeroekin lan egiten dut. Internet besterik ez dugu behar komunikatzeko." },
+    ],
+  },
+  faqPrecios: {
+    title: "Prezioari buruzko galderak",
+    items: [
+      { q: "Zergatik kostatzen da 1.300€ BEZ barne?", a: "Kalitatezko lana egiteko gutxieneko prezioa da: diseinu pertsonalizatua, garapen pertsonalizatua, SEO teknikoa eta lehen urteko hostinga." },
+      { q: "Kostu gehigarririk al dago?", a: "Ez dago ezkutuko kosturik. Kostu errepikakorra bigarren urtetik aurrerako domeinu eta hosting berriztapena baino ez da (gutxi gorabehera 100-150€/urte)." },
+      { q: "Epeka ordaindu al daiteke?", a: "Bai. Ohiko ordainketa hasieran %50 eta entregatzean %50 da. Proiektu handiagoetarako, ordainketa planei buruz negozia dezakegu." },
+      { q: "Zer barne hartzen du prezioaren barruan?", a: "Neurrizko UI/UX diseinua, Next.js garapena, SEO tekniko osoa, harremanetan jartzeko inprimakia, 3 hizkuntzara arte, lehen urteko hostinga eta abian jarri ondoko laguntza." },
+      { q: "Erabaki aurretik doako kontsulta bat eduki al dezaket?", a: "Bai, 30 minutuko bideo-deiari buruzko doako kontsulta eskaintzen dut zure proiektua ulertzeko eta bat gatozen ikusteko." },
+    ],
+  },
 };
 
 export default eu;

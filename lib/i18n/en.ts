@@ -230,6 +230,44 @@ const en = {
     close: "Close",
     menu: "Menu",
   },
+  blog: {
+    title: "Blog",
+    subtitle: "Articles about web design, SEO and performance.",
+    readMore: "Read article",
+    readingTime: "min read",
+    backToBlog: "Back to blog",
+    publishedOn: "Published on",
+  },
+  casos: {
+    title: "Case Studies",
+    subtitle: "Real projects with real results.",
+    problem: "The problem",
+    solution: "The solution",
+    results: "Results",
+    metrics: "Metrics",
+    viewAll: "View all cases",
+    backToCasos: "Back to cases",
+  },
+  faqServicios: {
+    title: "Frequently asked questions",
+    items: [
+      { q: "How long does it take to build a website?", a: "The complete process from first contact to delivery takes between 3 and 6 weeks, depending on project complexity and feedback speed." },
+      { q: "What do I need to provide to get started?", a: "I just need you to tell me about your business and goals, and if you have them, your logo and photos. I'll handle the rest." },
+      { q: "Does it include maintenance after delivery?", a: "The price includes 1 month of post-launch support. After that, I offer optional maintenance plans." },
+      { q: "Can I request changes during the project?", a: "Yes, the process is iterative. It includes up to 2 revision rounds at no additional cost." },
+      { q: "Do you only work with Basque Country businesses?", a: "No, I work with clients from all over Spain and internationally too. We just need the internet to communicate." },
+    ],
+  },
+  faqPrecios: {
+    title: "Pricing questions",
+    items: [
+      { q: "Why does it cost €1,300 VAT included?", a: "It's the minimum price to do quality work: custom design, bespoke development, technical SEO and hosting for the first year. No cutting corners." },
+      { q: "Are there additional costs?", a: "There are no hidden costs. The only recurring cost is domain and hosting renewal from the second year onwards (approximately €100-150/year)." },
+      { q: "Can I pay in instalments?", a: "Yes. The usual payment is 50% at the start and 50% on delivery. For larger projects, we can negotiate payment plans." },
+      { q: "What exactly does the price include?", a: "Custom UI/UX design, Next.js development, complete technical SEO, contact form, up to 3 languages, first-year hosting and post-launch support." },
+      { q: "Can I have a free consultation before deciding?", a: "Yes, I offer a free 30-minute video call consultation to understand your project and see if we're a good match." },
+    ],
+  },
 };
 
 export default en;
