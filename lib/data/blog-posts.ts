@@ -19,6 +19,177 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "comprar-dominio-sin-pillarte-los-dedos",
+    publishedAt: "2026-04-21",
+    updatedAt: "2026-04-21",
+    readingTime: 4,
+    titles: {
+      es: "Comprar un dominio sin pillarte los dedos: guía honesta 2026",
+      en: "Buying a domain without getting burned: an honest 2026 guide",
+      eu: "Domeinu bat erosi behatzak harrapatu gabe: 2026ko gida zintzoa",
+    },
+    descriptions: {
+      es: "Dónde comprar un dominio sin pagar de más, por qué WordPress.com te infla el precio y qué mirar para que el dominio sea tuyo de verdad.",
+      en: "Where to buy a domain without overpaying, why WordPress.com inflates the price and what to check so the domain is really yours.",
+      eu: "Non erosi domeinua gehiegi ordaindu gabe, zergatik WordPress.com-ek prezioa puzten duen eta zer begiratu domeinua benetan zurea izan dadin.",
+    },
+    content: {
+      es: `Yo estuve bastante tiempo buscando dónde comprar dominios antes de decidirme. Me encontré de todo: sitios que inflaban el precio hasta hacerlo parecer premium, páginas con "ofertas" del primer año que al segundo te cobraban el triple, y plataformas tipo WordPress.com que te cobran una cuota mensual que multiplica por diez lo que deberías pagar.
+
+![Pantalla con terminal y un teclado mecánico, entorno de desarrollo](https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Yo compro en Namecheap y me quedo tranquilo
+
+Los .com los saca por lo mínimo que se puede pagar al año, unos 10€. No te meten productos por defecto en el carrito, la renovación no se dispara al segundo año y el panel es sencillo. Obviamente el precio final depende del dominio — los .io, .ai y los de moda cuestan más — pero para un .com o .es de negocio normal, Namecheap sale bien de precio y sin letra pequeña absurda.
+
+No cobran por nada. Ni soy embajador ni me llevan comisión. Simplemente es lo que uso y lo que recomiendo después de comparar bastante.
+
+## WordPress.com y el truco de la cuota mensual
+
+Aquí hay que parar un momento. WordPress.com (ojo, no es lo mismo que el WordPress que instalas tú en un hosting) te vende un pack que incluye "dominio incluido". Suena bien. El problema es que el dominio va atado a la cuota mensual de la plataforma.
+
+O sea, en vez de pagar 10€/año por tu .com, pagas 15, 25 o 40€/mes por el combo entero. Haz la cuenta. Al año son 180-480€ por algo que con Namecheap y un hosting decente sumarías 60-80€ con creces.
+
+El dominio en sí es el mismo. Lo que encarece es la plataforma, que te hace dependiente y te complica irte cuando quieres.
+
+## Lo que hay que mirar antes de comprar
+
+Tres cosas importan de verdad:
+
+- **Precio del año 2, no solo del año 1:** muchos proveedores te regalan el primer año y luego triplican. Mira la letra pequeña, no solo el banner del descuento
+- **Qué te meten sin pedirlo:** privacidad WHOIS, "seguridad premium", paquetes de correo que no necesitas. Revisa el carrito antes de pagar
+- **Política de transferencia:** que puedas sacar el dominio a otro proveedor sin pelea cuando quieras. Algunos ponen pegas
+
+## El punto más importante: que el dominio esté a TU nombre
+
+Esto es lo que más me preocupa de toda la conversación de dominios. He tenido la suerte de que los clientes que me llegan de otros informáticos venían bien: con sus accesos, su DNS, su host, su titularidad limpia. Gente que había hecho el relevo profesionalmente.
+
+Pero he oído historias de lo contrario. Agencias o "primos informáticos" que compran el dominio a su nombre, no al del cliente. Y el día que el cliente quiere cambiar de proveedor, el dominio no es suyo. Es un drama absoluto y, si la otra parte se pone cabezona, puede tardar semanas en resolverse.
+
+Regla de oro: **el dominio se compra a tu nombre o al de tu empresa, siempre.** Da igual quién te lo gestione. El titular eres tú, con tu correo y tus datos en el registro. Si alguien te dice "ya lo compro yo y luego te lo paso", pregúntale cómo exactamente, y si no hay respuesta clara, compra tú directamente.
+
+## Resumen rápido
+
+Compra en un sitio barato y honesto (Namecheap, Porkbun, Cloudflare Registrar también está bien). Evita la cuota mensual de plataformas tipo WordPress.com si solo quieres un dominio. Y asegúrate de que el titular eres tú. Con eso, ya te has ahorrado el 95% de los dramas que se pueden montar alrededor de un dominio.`,
+      en: `I spent a decent chunk of time looking for where to buy my domains. I came across everything: sites that pumped up prices to look premium, "first year deals" that tripled the second year, and platforms like WordPress.com charging a monthly fee that's ten times what you should actually pay.
+
+![Screen with terminal and a mechanical keyboard, developer setup](https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## I buy at Namecheap and sleep well
+
+They sell .com domains at close to the minimum, around €10/year. No products sneaked into your cart, renewal doesn't explode in year two and the dashboard is simple. The final price obviously depends on the domain — .io, .ai and trendy TLDs cost more — but for a regular business .com or .es, Namecheap is fair-priced and without absurd fine print.
+
+I don't get a commission. I'm not an ambassador. It's just what I use and recommend after comparing a fair bit.
+
+## WordPress.com and the monthly fee trick
+
+Worth pausing here. WordPress.com (not the same as the WordPress you self-install on a hosting) sells you a pack with "domain included". Sounds nice. The catch is the domain is tied to the platform's monthly fee.
+
+So instead of €10/year for your .com, you pay €15, €25 or €40/month for the whole combo. Do the math. That's €180-480/year for something you could get with Namecheap plus decent hosting for €60-80, easy.
+
+The actual domain is the same. What makes it expensive is the platform, which makes you dependent and hard to leave.
+
+## What to check before buying
+
+Three things really matter:
+
+- **Year 2 price, not just year 1:** many providers gift the first year and then triple it. Read the fine print, not the discount banner
+- **What gets added silently:** WHOIS privacy, "premium security", mail packages you don't need. Review the cart before paying
+- **Transfer policy:** that you can move the domain to another provider without a fight. Some make it hard
+
+## The most important bit: the domain must be in YOUR name
+
+This is what worries me most about the whole domain conversation. I've been lucky that the clients coming to me from other developers arrived with everything clean: access, DNS, hosting, registrant all in order. Professional handovers.
+
+But I've heard the opposite stories. Agencies or a "cousin who does computers" buying the domain in their own name, not the client's. The day the client wants to switch provider, the domain isn't theirs. It's a full-blown drama and if the other side gets stubborn, it can take weeks to fix.
+
+Golden rule: **the domain goes in your name or your company's, always.** Doesn't matter who manages it for you. The registrant is you, with your email and your details. If someone says "I'll just buy it and pass it to you later", ask exactly how, and if there's no clear answer, buy it yourself.
+
+## Quick summary
+
+Buy at a cheap, honest registrar (Namecheap, Porkbun, Cloudflare Registrar works too). Avoid monthly fees from platforms like WordPress.com if you only want a domain. And make sure you're the registrant. That alone saves you from 95% of the mess that can happen around a domain.`,
+      eu: `Denbora dezente eman nuen non domeinuak erosi bilatzen. Gauza mota guztiak aurkitu nituen: prezioak premium itxura emateko puzten zituzten guneak, "lehen urteko eskaintzak" bigarrenean hirukoiztu egiten zirenak, eta WordPress.com bezalako plataformak hilabeteko kuota bat kobratzen dutenak, zure benetako prezioa halako hamar.
+
+![Pantaila terminalekin eta teklatu mekanikoa, garapen ingurunea](https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Nik Namecheap-en erosten dut eta lasai
+
+.com domeinuak ordaintzen den gutxienaren inguruan saltzen dituzte, 10€ urteko gutxi gorabehera. Ez dizute ezer ezkutuan sartzen saskian, berritzea ez da bigarren urtean lehertzen eta panela erraza da. Azken prezioa domeinuaren araberakoa da, jakina — .io, .ai eta modako TLDak garestiagoak dira — baina negozio arrunteko .com edo .es baterako, Namecheap prezio egokian dago eta letra txiki absurdurik gabe.
+
+Ez didate komisiorik ematen. Ez naiz enbaxadorea. Erabiltzen dudana eta konparatu ondoren gomendatzen dudana besterik ez da.
+
+## WordPress.com eta hilabeteko kuotaren trukoa
+
+Hemen pixka bat gelditzea komeni da. WordPress.com-ek (ez da zuk ostalaritza batean zuk instalatzen duzun WordPress berdina) "domeinua barne" duen pack bat saltzen dizu. Polita dirudi. Kontua da domeinua plataformaren hileko kuotari lotuta dagoela.
+
+Beraz, .com-agatik 10€/urte ordaindu ordez, 15, 25 edo 40€/hilean ordaintzen duzu paketeagatik. Egin kontuak. Urtean 180-480€ dira, Namecheap-en eta ostalaritza duin batean 60-80€-n egin zenezakeen zerbaitentzat.
+
+Domeinua berdina da. Plataformak garestitu egiten du, eta mendekoa egiten zaitu.
+
+## Zer begiratu erosi aurretik
+
+Hiru gauza dira benetan garrantzitsuak:
+
+- **2. urteko prezioa, ez 1. urtekoa bakarrik:** hornitzaile askok lehen urtea oparitzen dute eta gero hirukoiztu egiten dute
+- **Ezkutuan sartzen dizutena:** WHOIS pribatutasuna, "premium segurtasuna", behar ez dituzun posta paketeak. Begiratu saskia ordaindu aurretik
+- **Transferentzia politika:** beste hornitzaile batera eraman ahal izatea borrokarik gabe. Batzuek zailtasunak jartzen dituzte
+
+## Garrantzitsuena: domeinuak ZURE izenean egon behar du
+
+Hau da domeinuen gaiaren alderdirik arduratzen nauena gehien. Zortea izan dut: beste informatikari batzuen bidetik datozen bezeroek garbi iritsi dira — sarbideak, DNS, ostalaritza, titulartasun garbia. Profesionalak izan diren ordezkapenak.
+
+Baina aurkakoen istorioak entzun ditut. Agentziek edo "ordenagailuekin dabilen lehengusuak" domeinua beren izenean erosten dute, ez bezeroarenean. Bezeroak hornitzailez aldatu nahi duen egunean, domeinua ez da berea. Benetako drama da.
+
+Urrezko araua: **domeinua zure izenean edo zure enpresarenean erosten da, beti.** Berdin dio nork kudeatzen dizun. Titularra zu zara, zure emailarekin eta zure datuekin. Norbaitek "nik erosten dut eta gero pasatuko dizut" esaten badizu, galdetu nola zehazki. Erantzun argirik ez badago, erosi zuk zuzenean.
+
+## Laburpen azkarra
+
+Erosi hornitzaile merke eta zintzo batean (Namecheap, Porkbun, Cloudflare Registrar ere ondo dago). Saihestu WordPress.com bezalako plataformen hileko kuotak domeinu bat nahi baduzu bakarrik. Eta ziurtatu titularra zu zarela. Horrekin bakarrik, domeinu baten inguruan sor daitezkeen %95 dramatatik libratzen zara.`,
+    },
+    tags: ["dominio", "Namecheap", "hosting", "comprar dominio"],
+    keywords: {
+      es: [
+        "comprar dominio barato",
+        "mejor proveedor dominio 2026",
+        "Namecheap vs GoDaddy",
+        "WordPress.com dominio",
+        "titular del dominio",
+      ],
+      en: [
+        "cheap domain registrar",
+        "best domain provider 2026",
+        "Namecheap review",
+        "WordPress.com domain",
+        "domain ownership",
+      ],
+      eu: [
+        "domeinua erosi",
+        "Namecheap domeinua",
+        "WordPress.com domeinua",
+      ],
+    },
+    faq: {
+      es: [
+        {
+          q: "¿Cuánto debería costarme un dominio .com al año?",
+          a: "Alrededor de 10-12€ al año es el precio razonable en 2026. Si te cobran 25€ o más por un .com estándar, estás pagando de más. Los dominios de moda (.io, .ai, .dev) cuestan más, pero un .com o un .es no deberían salir caros en un registrador honesto como Namecheap, Porkbun o Cloudflare Registrar.",
+        },
+        {
+          q: "¿Por qué no comprar el dominio con WordPress.com o con el hosting?",
+          a: "Muchas plataformas atan el dominio a una cuota mensual de 15-40€. Al año son 180-480€ por algo que, comprado aparte, te costaría 10€ de dominio más el hosting que necesites. Además, si quieres dejar la plataforma, sacar el dominio puede complicarse. Separa siempre: dominio por un lado, hosting por otro.",
+        },
+        {
+          q: "¿El dominio tiene que estar a mi nombre o al del diseñador?",
+          a: "Siempre al tuyo (o al de tu empresa). El titular que figura en el registro del dominio es quien manda. Si lo compra un tercero a su nombre, técnicamente el dominio es suyo. El diseñador puede gestionártelo, tener acceso y configurar DNS, pero el titular legal debes ser tú. No es negociable.",
+        },
+        {
+          q: "¿Qué pasa si quiero cambiar de proveedor de dominio?",
+          a: "Se llama transferencia de dominio. Pides un código de autorización (auth code) al registrador actual, lo introduces en el nuevo y el dominio se mueve en unos días. Por eso importa tener los accesos y que el titular seas tú: sin eso, la transferencia no se puede iniciar.",
+        },
+      ],
+    },
+  },
+  {
     slug: "wordpress-no-es-gratis-lo-que-no-te-cuentan",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
