@@ -81,7 +81,7 @@ export default async function LangLayout({ children, params }: Props) {
       <script
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: `document.documentElement.lang="${locale}"`,
+          __html: `document.documentElement.lang="${locale}";try{if(sessionStorage.getItem("ua-visited"))document.documentElement.classList.add("ua-loader-skip")}catch(e){}`,
         }}
       />
       <a href="#main-content" className="skip-link focusable">

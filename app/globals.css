@@ -570,6 +570,11 @@ body.custom-cursor-active [role="button"] {
 }
 .prose-readable a:hover { color: var(--color-accent-hover); }
 
+/* Skip page loader on repeat visits — set by inline script in layout before hydration */
+html.ua-loader-skip #ua-page-loader {
+  display: none !important;
+}
+
 .article-figure {
   margin: var(--space-6) 0;
   display: flex;
@@ -1862,6 +1867,12 @@ body.custom-cursor-active [role="button"] {
   font-weight: 300;
   line-height: var(--lh-tight);
   letter-spacing: -0.02em;
+  opacity: 0;
+}
+.hero-title.is-ready,
+.hero-title.sweep-done,
+.hero-title.is-sweeping {
+  opacity: 1;
 }
 
 .hero-subtitle {

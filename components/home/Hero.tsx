@@ -67,6 +67,9 @@ export default function Hero({ locale }: Props) {
         willChange: "transform, opacity",
       });
 
+      // Reveal the title container now that words are hidden — prevents flash of full title on mobile
+      title.classList.add("is-ready");
+
       const tl = gsap.timeline({
         delay: 0.3,
         onComplete: () => {
