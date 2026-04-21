@@ -19,6 +19,198 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "google-analytics-no-te-hace-falta",
+    publishedAt: "2026-04-21",
+    updatedAt: "2026-04-21",
+    readingTime: 4,
+    titles: {
+      es: "Google Analytics no te hace falta (y quizá te está ralentizando)",
+      en: "You don't need Google Analytics (and it might be slowing you down)",
+      eu: "Ez duzu Google Analytics behar (eta agian zure weba moteltzen ari da)",
+    },
+    descriptions: {
+      es: "Por qué GA4 es un cañonazo para cazar una mosca en la mayoría de webs pequeñas, qué problemas tiene y qué alternativas gratis usar en 2026.",
+      en: "Why GA4 is overkill for most small websites, what problems it brings and which free alternatives to use in 2026.",
+      eu: "Zergatik GA4 gehiegizkoa den web txiki gehienetan, zer arazo dituen eta 2026an zein alternatiba doan erabili.",
+    },
+    content: {
+      es: `Iba a ponerle Google Analytics a todos mis clientes por defecto. De hecho, esta misma semana tocaba empezar con ello. Y entonces me senté a revisar si realmente tenía sentido en cada caso, porque había leído cosas raras sobre GA4 y el RGPD. Te cuento a qué conclusión he llegado.
+
+![Panel de analítica con gráficos en una pantalla](https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## El problema no es que GA4 sea malo
+
+Lo es que, para la mayoría de webs de negocio pequeño, es un cañonazo para cazar una mosca. Y encima trae líos propios:
+
+**Dudas legales con el RGPD.** Varias autoridades de protección de datos en Europa (Francia, Austria, Italia) han avisado de que usar GA sin medidas extra viola el reglamento, porque los datos vuelan a servidores de Google en EE.UU. Para dejarlo limpio necesitas banner de cookies bien montado, consentimiento explícito y a veces un proxy. Más trabajo para el cliente.
+
+**Ralentiza la web.** El script pesa y dispara peticiones. En una web bien hecha en Next.js, que debería ir como un cohete, GA4 es de lo más pesado que le añades. Y la velocidad es uno de los factores que Google mira para posicionar. O sea, le metes un script de Google que te penaliza en Google.
+
+**El panel es un caos para alguien normal.** Si tu cliente abre GA4 buscando "cuánta gente ha visto mi web", se pierde entre informes, exploraciones y dimensiones. Muchos entran dos veces y no vuelven nunca más.
+
+## Qué necesita saber de verdad un negocio pequeño
+
+Mira, al final casi ninguno de mis clientes necesita saber más que esto:
+
+- Cuántas visitas ha tenido la web este mes
+- De dónde vienen (Google, redes, directo, otra web)
+- Qué páginas se ven más
+- Cuántos rellenan el formulario de contacto
+
+Para eso no hace falta montar una astronave. De hecho, cuanto más simple, más probable es que el dueño lo abra de vez en cuando.
+
+## Alternativas que sí tienen sentido
+
+**Cloudflare Web Analytics:** gratis, sin cookies, sin banner. Se activa desde el panel de Cloudflare si ya usas su CDN. Datos básicos pero suficientes.
+
+**Umami:** gratis si lo auto-alojas, o plan barato en la nube. Panel minimalista, RGPD-friendly, se entiende a la primera.
+
+**Plausible:** de pago (unos 9€/mes para varias webs). Más bonito, reportes por email, soporte atento. Para quien quiere algo serio sin pagar los precios de GA360.
+
+## Cómo lo veo yo según el tipo de cliente
+
+Depende mucho del negocio. Un restaurante pequeño en Irun sí le interesa saber si la web le está llegando gente. En cambio, una empresa de ingeniería con la que he trabajado tiene la web más como carta de presentación, olvidada: no le hace falta analítica, y se lo digo.
+
+Pregunto siempre antes de entregar. Si el cliente quiere ver los datos él mismo, se lo monto, dejo el panel listo y le enseño a mirarlo en cinco minutos. Supone esfuerzo extra, claro, así que cobro un pequeño suplemento — nada caro, pero algo, porque el tiempo es tiempo.
+
+Para un negocio pequeño, directo a lo gratis y fácil. Si ya hablamos de una empresa más grande que necesite algo más completo y bonito, entonces sí miramos Plausible u otra cosa de pago. Pero la regla por defecto: simple, sin coste para el cliente, sin complicaciones.
+
+## Mi consejo si ya tienes Google Analytics puesto
+
+Quítalo. Ya. Te está restando velocidad a la web y eso se nota en el posicionamiento, que al final es lo importante. Si necesitas saber de tus visitas, pon cualquiera de los otros, que valen perfectamente para lo que haces. Pero Google, ese Google, fuera.`,
+      en: `I was about to put Google Analytics on all my clients' websites by default. This week I was going to start. Then I sat down to check if it actually made sense in each case, because I'd been reading weird things about GA4 and GDPR. Here's where I landed.
+
+![Analytics dashboard with charts on a screen](https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## The problem isn't that GA4 is bad
+
+It's that for most small-business websites, it's overkill. And it brings its own mess:
+
+**GDPR concerns.** Several European data protection authorities (France, Austria, Italy) have warned that using GA without extra measures breaks the regulation, because data flies to Google servers in the US. To run it cleanly you need a proper cookie banner, explicit consent and sometimes a proxy. More work for the client.
+
+**It slows the site.** The script is heavy and fires off requests. On a well-built Next.js site, which should fly, GA4 is one of the heaviest things you can add. And speed is one of the factors Google uses to rank. So you add a Google script that penalises you on Google.
+
+**The dashboard is a mess for a normal person.** If your client opens GA4 looking for "how many people saw my site", they get lost in reports, explorations and dimensions. Many open it twice and never come back.
+
+## What a small business actually needs to know
+
+Honestly, almost none of my clients need more than this:
+
+- How many visits this month
+- Where they come from (Google, social, direct, other sites)
+- Which pages get seen most
+- How many fill in the contact form
+
+You don't need a spaceship for that. In fact, the simpler it is, the more likely the owner will actually open it.
+
+## Alternatives that make sense
+
+**Cloudflare Web Analytics:** free, no cookies, no banner. Switch it on from the Cloudflare dashboard if you already use their CDN. Basic but solid data.
+
+**Umami:** free if you self-host, or cheap in the cloud. Minimalist dashboard, GDPR-friendly, understandable at a glance.
+
+**Plausible:** paid (about €9/month for several sites). Nicer looking, email reports, attentive support. For anyone who wants something serious without paying GA360 prices.
+
+## How I see it depending on the client
+
+It depends a lot on the business. A small restaurant in Irun does want to know if the site is bringing in people. On the other hand, an engineering company I've worked with has its site more as a business card, forgotten: no need for analytics, and I tell them straight.
+
+I always ask before delivery. If the client wants to see the data themselves, I set it up, leave the dashboard ready and show them how to read it in five minutes. That's extra effort, so I charge a small fee — nothing pricey, but something, because time is time.
+
+For a small business, straight to free and easy. For a larger company that needs something more complete and polished, then yes, we look at Plausible or another paid option. But the default rule: simple, no cost for the client, no complications.
+
+## My advice if you already have Google Analytics installed
+
+Remove it. Now. It's costing your site speed and that shows up in rankings, which is what ultimately matters. If you need to know about your visits, put any of the others — they work just fine for what you do. But Google, that Google, out.`,
+      eu: `Nire bezero guztiei Google Analytics jartzera nindoan, defektuz. Aste honetan bertan hasi behar nuen. Orduan kasu bakoitzean benetan zentzua zuen berrikustera jarri nintzen, GA4 eta DBEOari buruz gauza arraroak irakurri nituelako. Hona hemen iritsi naizen ondorioa.
+
+![Analitika panela grafikoekin pantaila batean](https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Arazoa ez da GA4 txarra denik
+
+Arazoa da, negozio txikiko web gehienetan, gehiegizkoa dela. Eta bere nahaspilak ekartzen ditu:
+
+**DBEOarekin zalantzak.** Europako hainbat datu-babes agintariek (Frantzia, Austria, Italia) ohartarazi dute GA neurri gehigarrietan gabe erabiltzeak araudia urratzen duela, datuak Googleren EEBBko zerbitzarietara doazelako. Garbi eramateko, cookie-banner ondo muntatua, baimen esplizitua eta batzuetan proxy bat behar dituzu. Lan gehiago bezeroarentzat.
+
+**Weba moteltzen du.** Script-a astuna da eta eskaerak botatzen ditu. Next.js-en ondo egindako web batean, GA4 gehitzen dituzun astunenetakoa da. Eta abiadura Googlek erabiltzen duen faktoreetako bat da ranking-erako. Hau da, Googlek zigortzen zaituen Google script bat gehitzen duzu.
+
+**Panela kaosa da pertsona arruntarentzat.** Zure bezeroak GA4 ireki eta "zenbat jendek ikusi du nire weba" bilatzen badu, galduta geratzen da txostenen, esplorazioen eta dimentsioen artean. Askok bi aldiz irekitzen dute eta ez dira berriro bueltatzen.
+
+## Negozio txiki batek zer jakin behar duen
+
+Egia esan, nire bezero ia batek ere ez du behar hau baino gehiago:
+
+- Zenbat bisita izan dituen hilabete honetan
+- Nondik datozen (Google, sare sozialak, zuzenak, beste web batzuk)
+- Zein orrialde ikusten diren gehien
+- Zenbat jendek betetzen duen kontaktu formularioa
+
+Horretarako ez duzu astronabea behar. Izan ere, zenbat eta sinpleagoa izan, jabeak noizean behin irekitzeko aukera handiagoa dago.
+
+## Zentzua duten alternatibak
+
+**Cloudflare Web Analytics:** doan, cookie-rik gabe, banner-ik gabe. Cloudflare panelatik pizten da jada haien CDN erabiltzen baduzu.
+
+**Umami:** doan zeuk ostatatzen baduzu, edo merkea hodeian. Panel minimalista, DBEOarekin bat, lehen begiradan ulertzen da.
+
+**Plausible:** ordainpekoa (9€/hilean inguru webgune batzuentzat). Politagoa, emailezko txostenak, arreta handiko laguntza.
+
+## Bezero motaren arabera nola ikusten dudan
+
+Negozioaren araberakoa da. Iruneko jatetxe txiki batek jakin nahi du weba jendea ekartzen ari den. Aldiz, ingeniaritza enpresa batek, nirekin lan egin duen bat, weba aurkezpen-txartel gisa du, ahaztuta: ez du analitikarik behar, eta horrela esaten diot.
+
+Entregatu aurretik beti galdetzen dut. Bezeroak berak datuak ikusi nahi baditu, muntatzen diot, panela prest uzten dut eta bost minututan erakusten diot. Hori lan gehigarria da, beraz, gain-kostu txiki bat kobratzen dut — ez garestia, baina zerbait, denbora denbora delako.
+
+Negozio txikiarentzat, zuzenean doakora eta errazera. Zerbait osoagoa eta politagoa behar duen enpresa handiago batez ari bagara, orduan bai, Plausible edo beste ordainpeko aukera bat begiratzen dugu. Baina defektuzko araua: sinplea, bezeroari kosturik gabe, korapilorik gabe.
+
+## Nire aholkua jada Google Analytics jarrita baduzu
+
+Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean nabaritzen da, azken finean garrantzitsuena dena. Zure bisitei buruz jakin behar baduzu, jarri besteren bat — primeran funtzionatzen dute egiten duzunerako. Baina Google, Google hori, kanpora.`,
+    },
+    tags: ["Google Analytics", "analítica web", "privacidad", "rendimiento web"],
+    keywords: {
+      es: [
+        "alternativas Google Analytics",
+        "Plausible vs GA4",
+        "analítica web sin cookies",
+        "Google Analytics RGPD",
+        "Cloudflare Web Analytics",
+      ],
+      en: [
+        "Google Analytics alternatives",
+        "Plausible vs GA4",
+        "cookieless analytics",
+        "Google Analytics GDPR",
+        "Cloudflare Web Analytics",
+      ],
+      eu: [
+        "Google Analytics alternatibak",
+        "analitika webgune cookie gabe",
+        "Plausible analitika",
+      ],
+    },
+    faq: {
+      es: [
+        {
+          q: "¿Es ilegal usar Google Analytics en España?",
+          a: "Ilegal no es, pero varias autoridades europeas de protección de datos (Francia, Austria, Italia) han dicho que usar GA4 sin medidas extra vulnera el RGPD. Para usarlo limpio necesitas consentimiento explícito en el banner, configuración avanzada y a veces un proxy. Muchas webs pequeñas no llegan a hacerlo bien y quedan expuestas.",
+        },
+        {
+          q: "¿Qué alternativa gratis recomiendas para un autónomo o comercio pequeño?",
+          a: "Cloudflare Web Analytics si ya usas Cloudflare como CDN — se activa en un clic, no requiere banner de cookies y da los datos básicos que necesitas. Si no, Umami (gratis auto-alojado) también funciona muy bien. Ambas cumplen RGPD sin complicaciones y no ralentizan la web.",
+        },
+        {
+          q: "¿Plausible de 9€/mes merece la pena?",
+          a: "Para negocios pequeños, no — con lo gratis sobra. Plausible merece la pena si tienes varios sitios, quieres reportes por email, un panel más pulido o simplemente prefieres apoyar herramientas independientes frente a Google. Para una empresa mediana que mira analítica cada semana, es una opción muy decente.",
+        },
+        {
+          q: "Si quito Google Analytics, ¿pierdo datos históricos?",
+          a: "Sí. Los datos se quedan en GA4 pero dejas de recoger nuevos desde el momento que quitas el script. Si es un histórico importante, puedes exportar un backup antes. Para la mayoría de pymes el histórico no se usa para nada, así que quitarlo no duele.",
+        },
+      ],
+    },
+  },
+  {
     slug: "comprar-dominio-sin-pillarte-los-dedos",
     publishedAt: "2026-04-21",
     updatedAt: "2026-04-21",
