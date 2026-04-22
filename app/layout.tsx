@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://unaxaller.com"),
   title: {
     default: "Unax Aller — Diseño y Desarrollo Web Premium",
-    template: "%s | Unax Aller",
+    template: "%s",
   },
   description:
     "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.300€ IVA incluido.",

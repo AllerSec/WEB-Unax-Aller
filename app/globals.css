@@ -1454,6 +1454,34 @@ html.ua-loader-skip #ua-page-loader {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   CONTACT STATS (stats variant on /contacto, above the form)
+   ═══════════════════════════════════════════════════════════════════ */
+.contact-stats-section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  background-color: var(--color-bg);
+}
+@media (min-width: 768px) {
+  .contact-stats-section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+}
+.contact-stats-section .stat-card {
+  will-change: transform;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-stats-section .stat-card:hover {
+  border-color: var(--color-accent, var(--color-ink-subtle));
+  box-shadow: 0 12px 30px -18px rgba(6, 27, 14, 0.25);
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-stats-section .stat-card {
+    transform: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    TESTIMONIALS
    ═══════════════════════════════════════════════════════════════════ */
 .testimonials-section {

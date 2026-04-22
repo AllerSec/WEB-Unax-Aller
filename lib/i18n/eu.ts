@@ -20,10 +20,10 @@ const eu = {
     title: "Zer nahi duten dakiten marken konfiantza",
     subtitle:
       "Diseinua, estrategia eta emaitzak baloratzen dituzten enpresekin lan egiten dugu.",
-    stat1: { value: "50+", label: "Proiektu burutuak" },
-    stat2: { value: "98%", label: "Bezero poztuak" },
-    stat3: { value: "3", label: "Asteko batazbesteko entrega" },
-    stat4: { value: "5★", label: "Batazbesteko balorazioa" },
+    stat1: { value: "14+", label: "Egindako proiektuak" },
+    stat2: { value: "100%", label: "Bezero poztuak" },
+    stat3: { value: "2", label: "Asteko batazbesteko entrega" },
+    stat4: { value: "5★", label: "Google balorazioa" },
   },
   services: {
     title: "Non estetikak funtzioarekin bat egiten duen.",
@@ -64,19 +64,19 @@ const eu = {
   },
   testimonials: {
     title: "Gure bezeroek zer dioten",
-    subtitle: "Benetako emaitzak, bezero poztuak.",
+    subtitle: "Bezeroen benetako iritziak Google-n.",
     items: [
       {
         quote:
-          "Unax Allerren lanak gure sareko presentzia erabat aldatu du.",
-        author: "Sarah J.",
-        role: "CEO, Lumina Creative",
+          "Arreta eta aholkularitza bikaina. Profesional handia, lan oso serioa. Eskerrik asko!",
+        author: "Motos Arretxe SL",
+        role: "Googleko iritzia",
       },
       {
         quote:
-          "Sofistikazioa eta eraginkortasuna entrega bakoitzean. Gure markaren funtsa harrapatu eta trebetasunez hizkuntza digitalera itzuli dute.",
-        author: "Mark T.",
-        role: "Zuzendari Kreatibo, Apex",
+          "Botikari gisa, xehetasunak eta pazientzia asko baloratzen ditut. Webgunea argia, intuitiboa, profesionala eta erabiltzeko erraza geratu da — konfiantza transmititzeko behar nuena. Tratua gertukoa eta eraginkorra izan da une oro. Oso-oso gomendagarria.",
+        author: "Aranzazu Fernández Díez",
+        role: "Botikaria · Googleko iritzia",
       },
     ],
   },
@@ -204,6 +204,15 @@ const eu = {
       email: "hola@unaxaller.com",
       response: "Erantzuna < 24h",
       availability: "Al – Or · 9:00 – 18:00",
+    },
+    stats: {
+      title: "Urrats bat gertuago zure webgunetik.",
+      subtitle:
+        "Konpromezurik gabe, letra txikirik gabe. Azkar erantzuten dugu, proposamen argi batekin.",
+      stat1: { value: "24", label: "Orduko erantzuna" },
+      stat2: { value: "100%", label: "Doako aurrekontua" },
+      stat3: { value: "2", label: "Asteko batazbesteko entrega" },
+      stat4: { value: "5★", label: "Google balorazioa" },
     },
   },
   footer: {

@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+import ContactStats from "@/components/contact/ContactStats";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
@@ -161,6 +162,8 @@ export default async function ContactoPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <ContactStats />
 
       <section aria-label="Contact form">
         <div className="container-xl">

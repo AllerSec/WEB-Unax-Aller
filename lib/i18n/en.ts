@@ -20,10 +20,10 @@ const en = {
     title: "Trusted by brands that know what they want",
     subtitle:
       "We work with companies that value design, strategy, and measurable results.",
-    stat1: { value: "50+", label: "Projects completed" },
-    stat2: { value: "98%", label: "Satisfied clients" },
-    stat3: { value: "3", label: "Weeks average delivery" },
-    stat4: { value: "5★", label: "Average rating" },
+    stat1: { value: "14+", label: "Projects delivered" },
+    stat2: { value: "100%", label: "Satisfied clients" },
+    stat3: { value: "2", label: "Weeks average delivery" },
+    stat4: { value: "5★", label: "Google rating" },
   },
   services: {
     title: "Where aesthetics meets function.",
@@ -64,19 +64,19 @@ const en = {
   },
   testimonials: {
     title: "What our clients say",
-    subtitle: "Real results, satisfied clients.",
+    subtitle: "Real reviews from clients on Google.",
     items: [
       {
         quote:
-          "Unax Aller's work has completely transformed our online presence.",
-        author: "Sarah J.",
-        role: "CEO, Lumina Creative",
+          "Impeccable attention and advice. A great professional — very serious work. Thank you!",
+        author: "Motos Arretxe SL",
+        role: "Google review",
       },
       {
         quote:
-          "Sophistication and efficiency in every delivery. They captured the essence of our brand and translated it into the digital language with mastery.",
-        author: "Mark T.",
-        role: "Creative Director, Apex",
+          "As a pharmacist I really value details and patience. The site turned out clear, intuitive, professional and very easy to use — exactly what I needed to convey trust. The treatment was close and efficient at every step. Highly recommended.",
+        author: "Aranzazu Fernández Díez",
+        role: "Pharmacist · Google review",
       },
     ],
   },
@@ -204,6 +204,15 @@ const en = {
       email: "hola@unaxaller.com",
       response: "Response in < 24h",
       availability: "Mon – Fri · 9:00 – 18:00",
+    },
+    stats: {
+      title: "One step closer to your website.",
+      subtitle:
+        "No commitment, no fine print. Fast replies and a clear, honest proposal.",
+      stat1: { value: "24", label: "Hour response time" },
+      stat2: { value: "100%", label: "Free proposal" },
+      stat3: { value: "2", label: "Weeks average delivery" },
+      stat4: { value: "5★", label: "Google rating" },
     },
   },
   footer: {

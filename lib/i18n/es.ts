@@ -20,10 +20,10 @@ const es = {
     title: "Confianza de marcas que saben lo que quieren",
     subtitle:
       "Trabajamos con empresas que valoran el diseño, la estrategia y los resultados.",
-    stat1: { value: "50+", label: "Proyectos completados" },
-    stat2: { value: "98%", label: "Clientes satisfechos" },
-    stat3: { value: "3", label: "Semanas de entrega media" },
-    stat4: { value: "5★", label: "Valoración media" },
+    stat1: { value: "14+", label: "Proyectos realizados" },
+    stat2: { value: "100%", label: "Clientes satisfechos" },
+    stat3: { value: "2", label: "Semanas de entrega media" },
+    stat4: { value: "5★", label: "Valoración en Google" },
   },
   services: {
     title: "Donde la estética encuentra la función.",
@@ -64,19 +64,19 @@ const es = {
   },
   testimonials: {
     title: "Lo que dicen nuestros clientes",
-    subtitle: "Resultados reales, clientes satisfechos.",
+    subtitle: "Reseñas reales de clientes en Google.",
     items: [
       {
         quote:
-          "El trabajo de Unax Aller ha transformado completamente nuestra presencia online.",
-        author: "Sarah J.",
-        role: "CEO, Lumina Creative",
+          "Atención y asesoramiento impecable. Gran profesional, trabajo muy serio. ¡Gracias!",
+        author: "Motos Arretxe SL",
+        role: "Cliente en Google",
       },
       {
         quote:
-          "Sofisticación y eficiencia en cada entrega. Han sabido captar la esencia de nuestra marca y traducirla al lenguaje digital con maestría.",
-        author: "Mark T.",
-        role: "Creative Director, Apex",
+          "Como farmacéutica valoro mucho los detalles y la paciencia. La web ha quedado clara, intuitiva, profesional y muy fácil de usar — justo lo que necesitaba para transmitir confianza. El trato ha sido cercano y resolutivo en todo momento. Muy muy recomendable.",
+        author: "Aranzazu Fernández Díez",
+        role: "Farmacéutica · Cliente en Google",
       },
     ],
   },
@@ -204,6 +204,15 @@ const es = {
       email: "hola@unaxaller.com",
       response: "Respuesta en < 24h",
       availability: "Lun – Vie · 9:00 – 18:00",
+    },
+    stats: {
+      title: "Un paso más cerca de tu web.",
+      subtitle:
+        "Sin compromiso, sin letra pequeña. Respondemos rápido y con una propuesta clara.",
+      stat1: { value: "24", label: "Horas de respuesta" },
+      stat2: { value: "100%", label: "Presupuesto gratis" },
+      stat3: { value: "2", label: "Semanas entrega media" },
+      stat4: { value: "5★", label: "Valoración en Google" },
     },
   },
   footer: {
