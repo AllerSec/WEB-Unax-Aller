@@ -23,15 +23,6 @@ export default function Footer({ locale }: Props) {
       href: `/${locale}/blog`,
       label: locale === "es" ? "Blog" : locale === "en" ? "Blog" : "Bloga",
     },
-    {
-      href: `/${locale}/casos`,
-      label:
-        locale === "es"
-          ? "Casos de Estudio"
-          : locale === "en"
-          ? "Case Studies"
-          : "Kasu Azterketak",
-    },
   ];
 
   const serviceLinks = [
@@ -134,12 +125,12 @@ export default function Footer({ locale }: Props) {
           <div>
             <h2 className="site-footer-heading">Contacto</h2>
             <div className="site-footer-list">
-              <a href="mailto:hola@unaxaller.com" className="site-footer-link site-footer-link-icon focusable">
+              <a href="mailto:contacto@unaxaller.com" className="site-footer-link site-footer-link-icon focusable">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
-                hola@unaxaller.com
+                contacto@unaxaller.com
               </a>
               <a
                 href="https://wa.me/34620909916"

@@ -27,15 +27,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "nav" });
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Irun, País Vasco | Unax Aller",
-    en: "Web Designer in Irun, Basque Country | Unax Aller",
-    eu: "Web Diseinatzailea Irunen, Euskal Herrian | Unax Aller",
+    es: "Diseñador Web en Irun, País Vasco",
+    en: "Web Designer in Irun, Basque Country",
+    eu: "Web Diseinatzailea Irunen, Euskal Herrian",
   };
 
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer in Irun, Basque Country. Custom websites for Basque businesses: premium design, SEO, animations and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Irunen, Gipuzkoan. Neurrira egindako webguneak Euskal Herriko negozioetarako. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer in Irun, Basque Country. Custom websites for Basque businesses: premium design, SEO, animations and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Irunen, Gipuzkoan. Neurrira egindako webguneak Euskal Herriko negozioetarako. 1.500€-tik BEZ barne.",
   };
 
   void t;
@@ -51,6 +51,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "eu": "https://unaxaller.com/eu",
         "x-default": "https://unaxaller.com/es",
       },
+    },
+    other: {
+      "content-language":
+        locale === "es" ? "es-ES" : locale === "en" ? "en-GB" : "eu-ES",
     },
     openGraph: {
       locale:

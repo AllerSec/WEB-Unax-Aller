@@ -22,8 +22,8 @@ type Props = {
  * so the line "draws" from left to right as the user scrolls through it.
  */
 export default function SectionDivider({
-  background = "#faf9f4",
-  accent = "rgba(77, 100, 83, 0.35)",
+  background = "var(--color-bg)",
+  accent = "rgba(180, 205, 184, 0.35)",
   padding = 48,
 }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);

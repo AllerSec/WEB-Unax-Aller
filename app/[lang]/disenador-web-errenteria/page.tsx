@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Errenteria, Gipuzkoa | Unax Aller",
-    en: "Web Designer in Errenteria, Gipuzkoa | Unax Aller",
-    eu: "Web Diseinatzailea Errenterian, Gipuzkoan | Unax Aller",
+    es: "Diseñador Web en Errenteria, Gipuzkoa",
+    en: "Web Designer in Errenteria, Gipuzkoa",
+    eu: "Web Diseinatzailea Errenterian, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Errenteria. A 15 km de Irun. Webs a medida, SEO local y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for businesses in Errenteria. 15 km from Irun. Custom websites, local SEO and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Errenteriako negozioetarako. Iruntik 15 kmra. Neurrizko webguneak, SEO lokala eta errendimendua. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Errenteria. A 15 km de Irun. Webs a medida, SEO local y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for businesses in Errenteria. 15 km from Irun. Custom websites, local SEO and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Errenteriako negozioetarako. Iruntik 15 kmra. Neurrizko webguneak, SEO lokala eta errendimendua. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];

@@ -1,13 +1,13 @@
-import type { Metadata, Viewport } from "next";
-import { Newsreader, Manrope } from "next/font/google";
+﻿import type { Metadata, Viewport } from "next";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-newsreader",
+  variable: "--font-fraunces",
   display: "swap",
   style: ["normal", "italic"],
-  weight: ["300", "400", "500", "600"],
+  axes: ["SOFT", "WONK", "opsz"],
 });
 
 const manrope = Manrope({
@@ -21,22 +21,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://unaxaller.com"),
   title: {
     default: "Unax Aller — Diseño y Desarrollo Web Premium",
-    template: "%s",
+    template: "%s | Unax Aller",
   },
   description:
-    "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.300€ IVA incluido.",
-  keywords: [
-    "diseño web Irun",
-    "diseñador web Irun",
-    "diseño web País Vasco",
-    "diseñador web País Vasco",
-    "páginas web Gipuzkoa",
-    "desarrollo web",
-    "freelance web",
-    "Basque Country",
-    "SEO",
-    "Next.js",
-  ],
+    "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.500€ IVA incluido.",
   applicationName: "Unax Aller",
   authors: [{ name: "Unax Aller Fernández", url: "https://unaxaller.com" }],
   creator: "Unax Aller Fernández",
@@ -70,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Unax Aller",
     title: "Unax Aller — Diseño y Desarrollo Web Premium",
     description:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.300€ IVA incluido.",
+      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.500€ IVA incluido.",
   },
   twitter: {
     card: "summary_large_image",
@@ -99,7 +87,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${newsreader.variable} ${manrope.variable}`}
+      className={`${fraunces.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
       <head>

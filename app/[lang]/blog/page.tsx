@@ -12,9 +12,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Blog de Diseño Web, SEO y Rendimiento | Unax Aller",
-    en: "Web Design, SEO and Performance Blog | Unax Aller",
-    eu: "Web Diseinu, SEO eta Errendimendu Bloga | Unax Aller",
+    es: "Blog de Diseño Web, SEO y Rendimiento",
+    en: "Web Design, SEO and Performance Blog",
+    eu: "Web Diseinu, SEO eta Errendimendu Bloga",
   };
   const descriptions: Record<string, string> = {
     es: "Artículos sobre diseño web, SEO técnico y rendimiento web. Guías prácticas para negocios que quieren mejorar su presencia online.",

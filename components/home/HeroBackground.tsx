@@ -48,11 +48,11 @@ export default function HeroBackground() {
   const initBlobs = useCallback((w: number, h: number) => {
     // Higher opacity — gives liquid glass something real to distort
     const colors = [
-      "rgba(77, 100, 83, 0.18)",   // surface-tint green
-      "rgba(180, 205, 184, 0.16)", // inverse-primary
-      "rgba(54, 76, 60, 0.14)",    // on-primary-fixed-variant
-      "rgba(208, 233, 212, 0.2)",  // primary-fixed
-      "rgba(195, 200, 193, 0.12)", // outline-variant
+      "rgba(180, 205, 184, 0.10)", // salvia luminoso
+      "rgba(208, 233, 212, 0.08)", // salvia más claro
+      "rgba(27, 48, 34, 0.55)",    // verde medio profundo (blob denso)
+      "rgba(236, 231, 214, 0.05)", // crema sutil
+      "rgba(54, 76, 60, 0.40)",    // verde bosque
     ];
     const blobs: Blob[] = [];
     for (let i = 0; i < 5; i++) {
@@ -200,7 +200,7 @@ export default function HeroBackground() {
       /* ─── Layer 0: Dot Grid (cheap — skip mouse math when inactive) ─── */
       const cols = Math.ceil(w / dotSpacing) + 1;
       const rows = Math.ceil(h / dotSpacing) + 1;
-      const baseColor = `rgba(77, 100, 83, ${dotBaseAlpha})`;
+      const baseColor = `rgba(180, 205, 184, ${dotBaseAlpha})`;
 
       if (!mouse.active) {
         // Fast path: all dots identical → one fill color, no math per dot
@@ -231,7 +231,7 @@ export default function HeroBackground() {
 
             ctx.beginPath();
             ctx.arc(dx, dy, radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(77, 100, 83, ${alpha})`;
+            ctx.fillStyle = `rgba(180, 205, 184, ${alpha})`;
             ctx.fill();
           }
         }
@@ -266,7 +266,7 @@ export default function HeroBackground() {
           blob.x, blob.y, pulsedRadius
         );
         gradient.addColorStop(0, blob.color);
-        gradient.addColorStop(1, "rgba(250, 249, 244, 0)");
+        gradient.addColorStop(1, "rgba(6, 27, 14, 0)");
 
         ctx.beginPath();
         ctx.arc(blob.x, blob.y, pulsedRadius, 0, Math.PI * 2);
@@ -333,7 +333,7 @@ export default function HeroBackground() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(77, 100, 83, ${finalAlpha})`;
+        ctx.fillStyle = `rgba(207, 224, 208, ${finalAlpha})`;
         ctx.fill();
 
         // Connections — squared distance, no sqrt when over threshold
@@ -351,7 +351,7 @@ export default function HeroBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(77, 100, 83, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(180, 205, 184, ${lineAlpha})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -365,8 +365,8 @@ export default function HeroBackground() {
           mouse.x, mouse.y, 280
         );
         auroraGrad.addColorStop(0, "rgba(180, 205, 184, 0.12)");
-        auroraGrad.addColorStop(0.4, "rgba(77, 100, 83, 0.06)");
-        auroraGrad.addColorStop(1, "rgba(250, 249, 244, 0)");
+        auroraGrad.addColorStop(0.4, "rgba(180, 205, 184, 0.08)");
+        auroraGrad.addColorStop(1, "rgba(6, 27, 14, 0)");
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, 280, 0, Math.PI * 2);
         ctx.fillStyle = auroraGrad;
@@ -443,7 +443,7 @@ export default function HeroBackground() {
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none"
       aria-hidden="true"
-      style={{ zIndex: 0 }}
+      style={{ zIndex: 1 }}
     />
   );
 }

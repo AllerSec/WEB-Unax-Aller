@@ -45,3 +45,12 @@ apps/gymstats/node_modules
 apps/gymstats/dist
 public/gymstats
 
+# IDE / tooling
+.claude/
+.idea/
+.vscode/
+
+# Master originals (high-res photos/videos kept locally, not in repo)
+_master/
+*.master.*
+

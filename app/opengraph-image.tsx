@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/og'
+﻿import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 export const alt = 'Unax Aller — Diseño y Desarrollo Web Premium'
@@ -55,7 +55,7 @@ export default async function Image() {
           marginBottom: 48,
           fontFamily: 'sans-serif',
         }}>
-          Desde 1.300€ IVA inc. · País Vasco · unaxaller.com
+          Desde 1.500€ IVA inc. · País Vasco · unaxaller.com
         </div>
 
         {/* Bottom bar */}

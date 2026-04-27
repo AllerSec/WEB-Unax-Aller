@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Vitoria-Gasteiz, Álava | Unax Aller",
-    en: "Web Designer in Vitoria-Gasteiz, Álava | Unax Aller",
-    eu: "Web Diseinatzailea Gasteizen, Araban | Unax Aller",
+    es: "Diseñador Web en Vitoria-Gasteiz, Álava",
+    en: "Web Designer in Vitoria-Gasteiz, Álava",
+    eu: "Web Diseinatzailea Gasteizen, Araban",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Vitoria-Gasteiz y Álava. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for businesses in Vitoria-Gasteiz and Álava. Custom websites with local SEO, premium design and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Gasteiz eta Arabako negozioetarako. Neurrizko webguneak SEO lokalarekin. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Vitoria-Gasteiz y Álava. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for businesses in Vitoria-Gasteiz and Álava. Custom websites with local SEO, premium design and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Gasteiz eta Arabako negozioetarako. Neurrizko webguneak SEO lokalarekin. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];

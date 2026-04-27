@@ -1,17 +1,20 @@
-const eu = {
+﻿const eu = {
   nav: {
     inicio: "Hasiera",
     servicios: "Zerbitzuak",
     precios: "Prezioak",
-    sobreNosotros: "Gu buruz",
+    sobreNosotros: "Ni buruz",
     contacto: "Kontaktua",
     consultaGratuita: "Doako kontsulta",
   },
   hero: {
     title: "Web diseinu eta garapen premium-ak zure negozioa altxatzen du.",
     subtitle:
-      "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. 1.300€-tik, BEZ barne.",
-    cta: "Zure weba doan 24 ordutan",
+      "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. 1.500€-tik, BEZ barne.",
+    subtitlePre:
+      "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak.",
+    subtitlePost: "-tik, BEZ barne.",
+    cta: "Zure weba doan 48 ordutan",
     cta2: "Planak ikusi",
     badge: "Irun · Euskal Herria · Espainia",
     scrollHint: "Mugitu esploratzeko",
@@ -26,38 +29,28 @@ const eu = {
     stat4: { value: "5★", label: "Google balorazioa" },
   },
   services: {
-    title: "Non estetikak funtzioarekin bat egiten duen.",
+    title: "Lau proiektu mota, atzean pertsona bakarra.",
     subtitle:
-      "Proiektu bakoitza zerbait berezia sortzeko aukera da. Diseinu estrategikoa eta teknologia aurreratua konbinatzen ditugu.",
-    design: {
-      title: "UI/UX Diseinu Pertsonalizatua",
+      "Proiektu bakoitza ezberdina da. Hauek dira nik ondoen ematen ditudan lau eszenatokiak. Zure kasua hemen ez badago, idatzi nirekin eta hitz egingo dugu.",
+    localBusiness: {
+      title: "Tokiko negoziorako webgunea",
       description:
-        "Zure markaren identitatea islatzen duten interfazeak. Pixel bakoitza intentziozkoa da, interakzio bakoitza gogoangarria.",
+        "Ile-apaindegiak, tailerrak, jatetxeak, dendak. Itxura profesionala ematen duen webgunea, Google Maps-en agertzen dena eta auzoko bezeroak ekartzen dituena. Norbaitek mugikorretik bilatzen zaituenean, zu aurkitu eta sartzeko gogoa izan dezan.",
     },
-    performance: {
-      title: "Performance-First",
+    clinic: {
+      title: "Klinika edo kontsulta profesionalerako webgunea",
       description:
-        "2 segundotan kargatzen diren webak. Google Core Web Vitals berdean. Bisitariak bezero bihurtzen dituen abiadura.",
+        "Hortz-klinikak, fisioterapia, estetika, kontsulta pribatuak. Hemen garrantzitsuena konfiantza da: argazki zaindua, zerbitzuen eta prezioen informazio argia, pribatutasun-politika ondo egina eta hitzorduen sistema behar baduzu.",
     },
-    seo: {
-      title: "SEO Tekniko Osoa",
+    multilingual: {
+      title: "Enpresa baterako webgune eleaniztuna",
       description:
-        "Lehenengo egunetik bilaketarako optimizatutako arkitektura. Schema.org, hreflang, Core Web Vitals eta eduki estrategia.",
+        "Ingeniaritza, aholkularitzak, esportatzen duten enpresak. 4 hizkuntzatara arte (euskara, gaztelania, ingelesa, frantsesa), azpiorri ugari, SEO tekniko serioa eta hazteko prestatutako arkitektura. Beren webgunea serio hartzen duten enpresentzat.",
     },
-    mobile: {
-      title: "Mobile-First",
+    redesign: {
+      title: "Lehendik dagoen weba berriztatzea",
       description:
-        "Zure bezeroen %70ak mugikorrean aurkitzen zaitu. Errealitate horretarako diseinatzen dugu, pantaila handiagoetara zabalduz.",
-    },
-    animation: {
-      title: "Animazio Aurreratuak",
-      description:
-        "GSAP, Framer Motion eta WebGL harritu egiten duten esperientzietarako. Animazioak ez dira dekorazioa — komunikazioa dira.",
-    },
-    multilang: {
-      title: "Hizkuntza anitz",
-      description:
-        "Nazioarteko merkatuetara iritsi 3 hizkuntza arte onartuz. i18n arkitektura oinarrietatik.",
+        "Webgunea baduzu baina pixka bat lotsa ematen dizu. Edo motel doa, edo ez du bihurtzen, edo duela bost urte WordPress-en egin zen eta inork ez du ukitzen. Hutsetik berregiten dizut, funtzionatzen duena mantenduz eta gainerakoa konponduz.",
     },
     cta: "Zerbitzu guztiak ikusi",
     learnMore: "Gehiago jakin",
@@ -95,7 +88,7 @@ const eu = {
       {
         name: "Plan Osoa",
         subtitle: "Neurrira egindako Weba",
-        price: "1.300€",
+        price: "1.500€",
         description:
           "Web profesional, azkar eta bihurtzaile bat abiarazteko behar duzun guztia. BEZ barne.",
         features: [
@@ -104,74 +97,74 @@ const eu = {
           "SEO tekniko osoa + Google Analytics",
           "Hizkuntza anitz behar izanez gero",
           "Mugikorrera egokitua lehen pixeletik",
-          "Domeinua, hostinga eta SSL lehen urtean",
+          "Mantentze-lana aukerakoa 100€/urtetik (domeinua, hosting, laguntza)",
         ],
       },
     ],
   },
   about: {
-    title: "Unax Aller buruz",
-    subtitle: "Web diseinatzailea Irunen, bihurtzen duten webak sortuz.",
+    title: "Ni buruz",
+    subtitle: "Kaixo, Unax naiz. Webguneak diseinatu eta garatzen ditut Irunen, ikasten dudan bitartean.",
     intro:
-      "Unax Aller naiz, web diseinatzaile eta garatzaile freelance Irunen, Gipuzkoan. Euskal Herriko negozioetarako neurrira egindako esperientzia digitalak sortzen ditut, itxura ona ez ezik, bisitariak bezero bihurtzen dituztenak.",
+      "Enpresentzat eta kliniketarako webguneak egiten ditut: SEO osoa, eleaniztasuna, azpiorri ugari eta diseinu zaindua. Ni bakarrik, agentziarik gabe, gogo handiarekin eta xehetasunarekiko arretarekin.",
     profile: {
       name: "Unax Aller Fernández",
       location: "Irun, Gipuzkoa · Euskal Herria",
       role: "Web Diseinatzaile eta Garatzaile Freelance",
       education: "Informatika Ingeniaritzako Gradua — Universidad Alfonso X el Sabio",
       linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
-      languages: "Gaztelania (natibo) · Frantsesa (profesional) · Ingelesa (profesional) · Euskara (oinarrizkoa)",
-      bio: "Informatika Ingeniaritzako ikaslea web diseinuarekiko grinarekin. Ezagutza tekniko sendoak eta diseinu begiak uztartzen ditut Euskal Herriko merkatuan nabarmentzen diren webak sortzeko.",
+      languages: "Gaztelania (natiboa) · Frantsesa (elebiduna) · Ingelesa (profesionala) · Euskara (oinarrizkoa)",
+      bio: "Informatika Ingeniaritzako ikaslea eta freelancea. Euskal Herriko enpresentzat eta klinikentzat webguneak egiten ditut profesionaltasun handiarekin eta gogo biziarekin, agentzia bat izan beharrik gabe. 15 urte bete arte Frantzian ikasi nuen, Erasmusa egin nuen, eta uda honetan AEBetan lan egin dut. Eroso egoteko gunetik ateratzeak ia beldur guztiak kendu dizkit eta ikasten jarraitzeko gogo handia eman dit.",
     },
     values: {
-      title: "Gure Balioak",
+      title: "Nola lan egiten dudan",
       craft: {
-        title: "Artisau Digitala",
+        title: "Xehetasunarekiko obsesioa",
         description:
-          "Proiektu bakoitza artisau batek bere lanean jartzen duen arreta berarekin tratatzen da. Bikaintasunean ez dago lasterbiderik.",
+          "Xehetasun txiki bat konpontzeko orduak behar baditut, hartu egiten ditut zalantzarik gabe. Lehen begi-kolpean ikusten ez diren fitxategietan erreparatzen dut, baina hor daude.",
       },
       results: {
-        title: "Emaitzara Orientatua",
+        title: "Sarreran sentitzen den estetika",
         description:
-          "Konbertsiorik gabeko diseinu ederra ez da ezertarako balio. Diseinu erabaki bakoitza datuen bidez babesten da eta zure negozio helburuekin lerrokatzen da.",
+          "Asko pentsatzen dut zer sentituko duen bezeroak zure webgunera sartzean. Letra-tipoa, paleta, mikroanimazioak. Harrituta egotea. Erraz mugitzea. Behar duen zerbait dela sentitzea.",
       },
       transparency: {
-        title: "Gardentasun Osoa",
+        title: "Bitartekaririk gabe",
         description:
-          "Komunikazio zuzena, aurrekontu argiak eta epeak betetzen. Zehazki dakizu zer erosten ari zaren eta noiz jasoko duzun.",
+          "Hasieratik bukaerara nirekin hitz egiten duzu. Agentziarik gabe, sailik gabe. Pertsonalagoa da eta niretzat askoz ere profesionalagoa da zure proiektua ezagutzen ez duten pertsona-katean barrena pasatzea baino.",
       },
       innovation: {
-        title: "Etengabeko Berrikuntza",
+        title: "Gaurko tresnak, ez atzokoak",
         description:
-          "Diseinu eta teknologiaren azken joerak estuki jarraitzen ditugu zure webgunea beti abangoardian egon dadin.",
+          "Egunean egotearekin obsesionatzen naiz. Next.js, AI tresnak, SEO teknikoaren azkenekoa. Ez txantiloirik, ez WordPress utzitakoa.",
       },
     },
     process: {
-      title: "Gure Prozesua",
+      title: "Proiektu bat nola doan",
       steps: [
         {
           number: "01",
-          title: "Aurkikuntza",
+          title: "Entzun egiten dizut",
           description:
-            "Zure negozioa, lehiakideak eta helburuak aztertzen ditugu. Ikerketa sakoneko astebete.",
+            "Dei bat edo kafe bat. Zer behar duzun, nor erakarri nahi duzun eta zer irudi eman nahi duzun esaten didazu. Asko galdetzen dut.",
         },
         {
           number: "02",
           title: "Diseinua",
           description:
-            "Wireframe-ak eta diseinu bisual osoa sortzen ditugu. Pozik egon arte errepikatzen dugu.",
+            "Lehenik eta behin, zure bezeroak webgunera sartzean zer sentituko duen pentsatzen dut. Letra-tipoa, paleta, mikroanimazioak. Egokitu arte errepikatzen dugu.",
         },
         {
           number: "03",
           title: "Garapena",
           description:
-            "Azken teknologiekin inplementatzen dugu. Performancea eta SEO lehen commit-etik.",
+            "Webgunea eskuz programatzen dut gaurko tresnekin. SEO teknikoa, eleaniztasuna behar baduzu, eta edozein gailutan ondo doala.",
         },
         {
           number: "04",
           title: "Abiaraztea",
           description:
-            "Deploy-a, proba zorrotzak eta prestakuntza. Zure webgunea merkatua konkistatzeko prest.",
+            "Webgunea igotzen dugu, analitika eta domeinua konfiguratzen ditugu. Lehen asteetan trafikoa nola doan erakusten dizut. Zerbait sortzen bada, hemen jarraitzen dut.",
         },
       ],
     },
@@ -193,7 +186,7 @@ const eu = {
         "Mezua bidalia! 24 ordutan baino gutxiagotan jarriko gara zurekin harremanetan.",
       error: "Bidaltzeko errorea. Mesedez, saiatu berriro.",
       budgetOptions: [
-        "1.300€ (plan estandarra)",
+        "1.500€ (plan estandarra)",
         "1.500€ – 2.500€",
         "2.500€ baino gehiago",
         "Ez daukat argi",
@@ -201,7 +194,7 @@ const eu = {
     },
     info: {
       location: "Irun, Gipuzkoa · Euskal Herria",
-      email: "hola@unaxaller.com",
+      email: "contacto@unaxaller.com",
       response: "Erantzuna < 24h",
       availability: "Al – Or · 9:00 – 18:00",
     },
@@ -247,16 +240,6 @@ const eu = {
     backToBlog: "Blogera itzuli",
     publishedOn: "Argitaratua",
   },
-  casos: {
-    title: "Kasu Azterketak",
-    subtitle: "Benetako proiektuak benetako emaitzeekin.",
-    problem: "Arazoa",
-    solution: "Irtenbidea",
-    results: "Emaitzak",
-    metrics: "Metrikak",
-    viewAll: "Kasu guztiak ikusi",
-    backToCasos: "Kasuetara itzuli",
-  },
   faqServicios: {
     title: "Galdera ohikoak",
     items: [
@@ -270,10 +253,10 @@ const eu = {
   faqPrecios: {
     title: "Prezioari buruzko galderak",
     items: [
-      { q: "Zergatik kostatzen da 1.300€ BEZ barne?", a: "Kalitatezko lana egiteko gutxieneko prezioa da: diseinu pertsonalizatua, garapen pertsonalizatua, SEO teknikoa eta lehen urteko hostinga." },
+      { q: "Zergatik kostatzen da 1.500€ BEZ barne?", a: "Kalitatezko lana egiteko gutxieneko prezioa da: diseinu pertsonalizatua, garapen pertsonalizatua, SEO teknikoa, eta mantentze-lana aukerakoa lehen urtean 100€-tik (hosting, domeinua, laguntza)." },
       { q: "Kostu gehigarririk al dago?", a: "Ez dago ezkutuko kosturik. Kostu errepikakorra bigarren urtetik aurrerako domeinu eta hosting berriztapena baino ez da (gutxi gorabehera 100-150€/urte)." },
       { q: "Epeka ordaindu al daiteke?", a: "Bai. Ohiko ordainketa hasieran %50 eta entregatzean %50 da. Proiektu handiagoetarako, ordainketa planei buruz negozia dezakegu." },
-      { q: "Zer barne hartzen du prezioaren barruan?", a: "Neurrizko UI/UX diseinua, Next.js garapena, SEO tekniko osoa, harremanetan jartzeko inprimakia, 3 hizkuntzara arte, lehen urteko hostinga eta abian jarri ondoko laguntza." },
+      { q: "Zer barne hartzen du prezioaren barruan?", a: "Neurrizko UI/UX diseinua, Next.js garapena, SEO tekniko osoa, harremanetan jartzeko inprimakia, 4 hizkuntzara arte, eta mantentze-lana aukerakoa 100€-tik lehen urtean (hosting, domeinua, laguntza)." },
       { q: "Erabaki aurretik doako kontsulta bat eduki al dezaket?", a: "Bai, 30 minutuko bideo-deiari buruzko doako kontsulta eskaintzen dut zure proiektua ulertzeko eta bat gatozen ikusteko." },
     ],
   },

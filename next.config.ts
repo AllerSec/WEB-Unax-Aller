@@ -6,14 +6,11 @@ const withNextIntl = createNextIntlPlugin("./lib/i18n/request.ts");
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "picsum.photos" },
       { protocol: "https", hostname: "images.pexels.com" },
-      { protocol: "https", hostname: "cdn.microlink.io" },
-      { protocol: "https", hostname: "s.microlink.io" },
     ],
   },
   experimental: {
-    optimizePackageImports: ["gsap", "framer-motion"],
+    optimizePackageImports: ["gsap"],
   },
   async headers() {
     return [

@@ -10,9 +10,9 @@ export default async function Image({ params }: Props) {
   const { lang } = await params
 
   const subtitles: Record<string, string> = {
-    es: 'Desde 1.300€ IVA inc. · País Vasco · unaxaller.com',
-    en: 'From €1,300 VAT inc. · Basque Country · unaxaller.com',
-    eu: '1.300€-tik BEZ barne · Euskal Herria · unaxaller.com',
+    es: 'Desde 1.500€ IVA inc. · País Vasco · unaxaller.com',
+    en: 'From €1,500 VAT inc. · Basque Country · unaxaller.com',
+    eu: '1.500€-tik BEZ barne · Euskal Herria · unaxaller.com',
   }
 
   const titles: Record<string, { line1: string; line2: string }> = {

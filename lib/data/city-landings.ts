@@ -1,4 +1,4 @@
-import type { CityLandingContent } from "@/components/landing/CityLanding";
+﻿import type { CityLandingContent } from "@/components/landing/CityLanding";
 
 export type LocaleKey = "es" | "en" | "eu";
 
@@ -157,7 +157,7 @@ export function getCityLandingContent(
         },
         {
           title: "Precio justo sin letra pequeña",
-          desc: "1.300€ IVA incluido. Web completa, sin permanencia, sin renovaciones forzosas. El código es tuyo desde el día 1.",
+          desc: "Una web a medida desde 1.500€, IVA incluido. Si necesitas algo más complejo (citas, automatizaciones), puede subir hasta unos 2.000€. Te paso un presupuesto cerrado antes de empezar.",
         },
       ],
       faqTitle: `Preguntas frecuentes sobre diseño web en ${city}`,
@@ -165,24 +165,28 @@ export function getCityLandingContent(
         {
           q: `¿Trabajas presencialmente con clientes en ${city}?`,
           a: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
-            ? `Sí. Estoy en Irun, ${distStr}, y puedo desplazarme a ${city} para la reunión inicial y entregables clave. El resto lo llevamos por videollamada y email.`
-            : `Trabajo con clientes de ${city} combinando videollamadas con visitas puntuales cuando el proyecto lo necesita. Estoy en Irun, ${distStr}.`,
+            ? `Sí. Estoy en Irun, ${distStr}, y puedo desplazarme a ${city} para la reunión inicial. El resto lo llevamos por WhatsApp, email o videollamada, lo que te venga bien.`
+            : `Trabajo con clientes de ${city} combinando videollamadas y mensajes con visitas puntuales si el proyecto lo necesita. Estoy en Irun, ${distStr}.`,
         },
         {
           q: `¿Cuánto cuesta una web para un negocio de ${city}?`,
-          a: "El plan es único: 1.300€ IVA incluido. Incluye diseño a medida, desarrollo en Next.js, SEO técnico completo, multi-idioma (hasta 3) y hosting el primer año.",
+          a: "Una web a medida desde 1.500€, IVA incluido. Incluye diseño exclusivo, SEO técnico, velocidad Lighthouse 95+ y despliegue. Si necesitas algo más complejo (sistema de citas, automatizaciones, integraciones específicas) puede subir hasta unos 2.000€. Te paso un presupuesto cerrado antes de empezar, sin sorpresas.",
         },
         {
           q: `¿Cuánto tardas en entregar la web?`,
-          a: "Entre 3 y 6 semanas desde la firma, según complejidad. Contenidos y feedback rápido del cliente aceleran el proceso.",
+          a: "Si no tengo otros proyectos activos, entre 1 y 2 semanas. Si los tengo, puede ser algo más. Te digo el plazo real desde el primer día y voy contándote cómo va.",
         },
         {
           q: `¿Haces SEO local específico para ${city}?`,
-          a: `Sí. Optimizo tu web para que aparezca en búsquedas tipo "tu sector en ${city}", te configuro Google Business Profile y te dejo una estrategia de contenido y reseñas.`,
+          a: `Sí. Configuro toda la parte técnica para que tu web aparezca en búsquedas tipo "tu sector en ${city}". Te configuro Google Business Profile y Google Search Console para que veas tú mismo cómo va.`,
         },
         {
-          q: "¿El código es mío o me quedo atado a una plataforma?",
-          a: "El código es tuyo desde el día 1. No hay ataduras a plataformas propietarias. Si un día quieres llevarlo a otro desarrollador, puedes.",
+          q: "¿Puedo tener la web en varios idiomas?",
+          a: "Sí, hasta en 4 idiomas (euskera, castellano, inglés y francés) y entra dentro del precio. Estudié en Francia hasta los 15, así que el francés lo trabajo igual de fino que el resto.",
+        },
+        {
+          q: "¿Qué pasa con el mantenimiento después del lanzamiento?",
+          a: "El primer año son 100€ y cubre hosting, dominio y soporte. A partir del segundo año son 200€/año con cambios menores incluidos (textos, imágenes, ajustes). Si vas a necesitar muchos cambios al mes, lo hablamos y ajustamos. Sin permanencia.",
         },
       ],
       ctaTitle: `¿Tienes un negocio en ${city}?`,
@@ -220,7 +224,7 @@ export function getCityLandingContent(
         },
         {
           title: "Fair price, no small print",
-          desc: "€1,300 VAT included. Complete website, no lock-in, no forced renewals. The code is yours from day one.",
+          desc: "A custom website from €1,500, VAT included. If you need something more complex (booking, automations) it can go up to around €2,000. I give you a fixed quote before we start.",
         },
       ],
       faqTitle: `Frequently asked questions about web design in ${city}`,
@@ -228,24 +232,28 @@ export function getCityLandingContent(
         {
           q: `Do you work in person with clients in ${city}?`,
           a: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
-            ? `Yes. I'm in Irun, ${distStr}, and I can travel to ${city} for the initial meeting and key deliverables. The rest we handle via video call and email.`
-            : `I work with ${city} clients combining video calls with occasional on-site visits when the project needs it. I'm in Irun, ${distStr}.`,
+            ? `Yes. I'm in Irun, ${distStr}, and I can travel to ${city} for the initial meeting. The rest we handle through WhatsApp, email or video call, whatever works for you.`
+            : `I work with ${city} clients combining video calls and messages with occasional on-site visits when the project needs it. I'm in Irun, ${distStr}.`,
         },
         {
           q: `How much does a website cost for a ${city} business?`,
-          a: "The plan is a single price: €1,300 VAT included. It covers custom design, Next.js development, full technical SEO, multi-language (up to 3) and first-year hosting.",
+          a: "A custom website from €1,500, VAT included. It comes with exclusive design, technical SEO, Lighthouse 95+ speed and deployment. If you need something more complex (booking system, automations, specific integrations) it can go up to around €2,000. I send you a fixed quote before we start, no surprises.",
         },
         {
           q: "How long does delivery take?",
-          a: "Between 3 and 6 weeks from signing, depending on complexity. Quick client feedback and ready content speed the process up.",
+          a: "If I don't have other active projects, between 1 and 2 weeks. If I do, it can take a bit longer. I tell you the real timeline from day one and keep you posted as we go.",
         },
         {
           q: `Do you do specific local SEO for ${city}?`,
-          a: `Yes. I optimize your site so it ranks for "your sector in ${city}" searches, set up your Google Business Profile, and leave you a content and reviews strategy.`,
+          a: `Yes. I set up all the technical work so your site ranks for "your sector in ${city}" searches. I configure your Google Business Profile and Google Search Console so you can see how it's doing yourself.`,
         },
         {
-          q: "Is the code mine, or am I locked into a platform?",
-          a: "The code is yours from day one. No proprietary platform lock-in. If you ever want to move it to another developer, you can.",
+          q: "Can I have the site in several languages?",
+          a: "Yes, up to 4 languages (Basque, Spanish, English and French) included in the price. I studied in France until I was 15, so French I treat with the same care as the rest.",
+        },
+        {
+          q: "What about maintenance after launch?",
+          a: "The first year maintenance is €100, covering hosting, domain and onboarding support. From the second year onwards it's €200/year, with minor changes included (text, images, tweaks) and ongoing support. If you'll need a lot of changes per month, we adjust accordingly. No lock-in.",
         },
       ],
       ctaTitle: `Have a business in ${city}?`,
@@ -285,7 +293,7 @@ export function getCityLandingContent(
       },
       {
         title: "Prezio justu letra txikirik gabe",
-        desc: "1.300€ BEZ barne. Web osoa, iraunkortasunik gabe, beharrezko berritzapenik gabe. Kodea lehen egunetik zurea.",
+        desc: "Neurrira egindako webgune bat 1.500€-tik, BEZ barne. Zerbait konplexuagoa behar baduzu (hitzorduak, automatizazioak), 2.000€ ingurura igo daiteke. Hasi aurretik aurrekontu itxia ematen dizut.",
       },
     ],
     faqTitle: `${city}ko web diseinuari buruzko ohiko galderak`,
@@ -293,24 +301,28 @@ export function getCityLandingContent(
       {
         q: `Aurrez aurre egiten duzu lan ${cityIn} bezeroekin?`,
         a: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
-          ? `Bai. Irunen nago, ${distStr}, eta ${cityIn} joan naiteke hasierako bilerarako eta entrega giltzarrietarako. Gainerakoa bideo-deien eta emailaren bidez egiten dugu.`
-          : `${cityIn} bezeroekin bideo-deiak eta noizbehinkako bisitak konbinatuz lan egiten dut. Irunen nago, ${distStr}.`,
+          ? `Bai. Irunen nago, ${distStr}, eta ${cityIn} joan naiteke hasierako bilerarako. Gainerakoa WhatsApp, posta elektroniko edo bideo-deiz, ondo datorkizun moduan.`
+          : `${cityIn} bezeroekin bideo-deiak eta mezuak konbinatuz lan egiten dut, eta proiektuak behar duenean noizbehinkako bisitak. Irunen nago, ${distStr}.`,
       },
       {
         q: `Zenbat kostatzen da web bat ${city}ko negozio batentzat?`,
-        a: "Plan bakarra: 1.300€ BEZ barne. Neurrizko diseinua, Next.js garapena, SEO tekniko osoa, hizkuntza anitza (3ra arte) eta lehen urteko hostinga barne.",
+        a: "Neurrira egindako webgune bat 1.500€-tik, BEZ barne. Diseinu esklusiboa, SEO teknikoa, Lighthouse 95+ abiadura eta hedapena barne. Zerbait konplexuagoa behar baduzu (hitzorduen sistema, automatizazioak, integrazio espezifikoak) 2.000€ ingurura igo daiteke. Hasi aurretik aurrekontu itxia ematen dizut, ezustekorik gabe.",
       },
       {
         q: "Zenbat denbora behar duzu weba entregatzeko?",
-        a: "Sinatzetik 3-6 aste, konplexutasunaren arabera. Bezeroaren feedback azkarra eta prest dagoen edukia prozesua bizkortzen dute.",
+        a: "Beste proiektu aktiborik ez badut, 1 eta 2 aste artean. Baditudanean, zerbait gehiago izan daiteke. Lehen egunetik benetako epea esaten dizut eta nola doan kontatzen dizut.",
       },
       {
         q: `${city}rako SEO lokal espezifikoa egiten duzu?`,
-        a: `Bai. Zure weba "${city} zure sektorea" moduko bilaketetarako optimizatzen dut, Google Business Profile konfiguratzen dizut, eta edukia eta iritzien estrategia uzten dizut.`,
+        a: `Bai. Atal tekniko osoa konfiguratzen dut zure weba "${city} zure sektorea" moduko bilaketetan ager dadin. Google Business Profile eta Google Search Console konfiguratzen dizkizut, zuk zeuk nola doan ikus dezazun.`,
       },
       {
-        q: "Kodea nirea da, ala plataforma bati lotuta geratzen naiz?",
-        a: "Kodea lehen egunetik zurea da. Plataforma pribatiboekin loturarik gabe. Beste garatzaile batengana eraman nahi baduzu, ahal duzu.",
+        q: "Webgunea hizkuntza batean baino gehiagotan eduki dezaket?",
+        a: "Bai, 4 hizkuntzatara arte (euskara, gaztelania, ingelesa eta frantsesa) eta prezioan sartzen da. 15 urte bete arte Frantzian ikasi nuen, beraz frantsesa beste hizkuntzen arreta berarekin lantzen dut.",
+      },
+      {
+        q: "Zer gertatzen da abian jarri ondoren mantentze-lanekin?",
+        a: "Lehen urteko mantentze-lana 100€ da, hosting-a, domeinua eta hasierako laguntza barne. Bigarren urtetik aurrera 200€/urtean da, aldaketa txikiak (testuak, irudiak, doikuntzak) eta etengabeko laguntza barne. Hilean aldaketa asko behar badituzu, egokitzen dugu. Iraupenik gabe.",
       },
     ],
     ctaTitle: `${cityIn} negozioa al duzu?`,

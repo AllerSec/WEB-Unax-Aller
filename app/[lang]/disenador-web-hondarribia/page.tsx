@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Hondarribia | Unax Aller",
-    en: "Web Designer in Hondarribia | Unax Aller",
-    eu: "Web Diseinatzailea Hondarribian | Unax Aller",
+    es: "Diseñador Web en Hondarribia",
+    en: "Web Designer in Hondarribia",
+    eu: "Web Diseinatzailea Hondarribian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Hondarribia. A 5 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for businesses in Hondarribia. 5 km from Irun. Custom websites with local SEO, premium design and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Hondarribiko negozioetarako. Iruntik 5 kmra. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Hondarribia. A 5 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for businesses in Hondarribia. 5 km from Irun. Custom websites with local SEO, premium design and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Hondarribiko negozioetarako. Iruntik 5 kmra. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];

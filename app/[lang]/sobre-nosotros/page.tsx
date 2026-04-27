@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -12,9 +13,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Sobre Mí — Diseñador Web en Irun, Gipuzkoa | Unax Aller",
-    en: "About Me — Web Designer in Irun, Basque Country | Unax Aller",
-    eu: "Ni buruz — Web Diseinatzailea Irunen, Gipuzkoan | Unax Aller",
+    es: "Sobre Mí — Diseñador Web en Irun, Gipuzkoa",
+    en: "About Me — Web Designer in Irun, Basque Country",
+    eu: "Ni buruz — Web Diseinatzailea Irunen, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
     es: "Soy Unax Aller, diseñador web freelance en Irun, Gipuzkoa. Ingeniería informática en la UAX, 4 idiomas y webs a medida para negocios del País Vasco.",
@@ -136,7 +137,7 @@ export default async function SobreNosotrosPage({ params }: Props) {
         name: "Unax Aller Fernández",
         jobTitle: "Diseñador y Desarrollador Web Freelance",
         url: "https://unaxaller.com",
-        email: "hola@unaxaller.com",
+        email: "contacto@unaxaller.com",
         sameAs: [
           "https://linkedin.com/in/unax-aller-8479b428b",
           "https://instagram.com/unaxaller",
@@ -198,7 +199,16 @@ export default async function SobreNosotrosPage({ params }: Props) {
         <div className="container-xl">
           <AnimatedSection>
             <div className="profile-card">
-              <div className="profile-avatar" aria-hidden="true">UA</div>
+              <div className="profile-avatar profile-avatar-photo" aria-hidden="true">
+                <Image
+                  src="/images/unax-square-no-bg.png"
+                  alt=""
+                  width={600}
+                  height={600}
+                  sizes="(max-width: 768px) 96px, 128px"
+                  priority
+                />
+              </div>
 
               <div className="profile-info">
                 <div>

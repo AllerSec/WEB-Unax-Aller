@@ -8,9 +8,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Política de Cookies | Unax Aller",
-    en: "Cookie Policy | Unax Aller",
-    eu: "Cookie Politika | Unax Aller",
+    es: "Política de Cookies",
+    en: "Cookie Policy",
+    eu: "Cookie Politika",
   };
 
   return {
@@ -63,7 +63,7 @@ export default async function CookiesPage({ params }: Props) {
                 <p>You can configure your browser to block or delete cookies at any time. Blocking strictly necessary cookies may affect site functionality. For instructions, visit your browser&apos;s help section.</p>
 
                 <h2>Contact</h2>
-                <p>For questions about this policy, contact us at <a href="mailto:hola@unaxaller.com">hola@unaxaller.com</a>. See also our <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
+                <p>For questions about this policy, contact us at <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a>. See also our <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
               </>
             ) : locale === "eu" ? (
               <>
@@ -78,7 +78,7 @@ export default async function CookiesPage({ params }: Props) {
                 <p>Zure arakatzailea edozein unetan cookieak blokeatzeko edo ezabatzeko konfigura dezakezu. Ezinbesteko cookieak blokeatzeak webgunearen funtzionaltasunean eragina izan dezake.</p>
 
                 <h2>Kontaktua</h2>
-                <p>Politika honi buruzko galderak egiteko, jarri gurekin harremanetan <a href="mailto:hola@unaxaller.com">hola@unaxaller.com</a> helbidean. Ikusi baita gure <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
+                <p>Politika honi buruzko galderak egiteko, jarri gurekin harremanetan <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a> helbidean. Ikusi baita gure <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
               </>
             ) : (
               <>
@@ -93,7 +93,7 @@ export default async function CookiesPage({ params }: Props) {
                 <p>Puedes configurar tu navegador para bloquear o eliminar las cookies en cualquier momento. Bloquear las cookies estrictamente necesarias puede afectar la funcionalidad del sitio. Para instrucciones, visita la sección de ayuda de tu navegador.</p>
 
                 <h2>Contacto</h2>
-                <p>Para preguntas sobre esta política, contáctanos en <a href="mailto:hola@unaxaller.com">hola@unaxaller.com</a>. Consulta también nuestra <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
+                <p>Para preguntas sobre esta política, contáctanos en <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a>. Consulta también nuestra <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
               </>
             )}
           </div>

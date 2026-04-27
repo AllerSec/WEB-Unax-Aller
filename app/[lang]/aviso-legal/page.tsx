@@ -8,9 +8,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Aviso Legal | Unax Aller",
-    en: "Legal Notice | Unax Aller",
-    eu: "Lege Oharra | Unax Aller",
+    es: "Aviso Legal",
+    en: "Legal Notice",
+    eu: "Lege Oharra",
   };
 
   return {
@@ -55,7 +55,7 @@ export default async function AvisoLegalPage({ params }: Props) {
                   <li><strong>Name:</strong> Unax Aller Fernández</li>
                   <li><strong>Activity:</strong> Web design and development (freelance)</li>
                   <li><strong>Registered address:</strong> País Vasco, Spain</li>
-                  <li><strong>Email:</strong> <a href="mailto:hola@unaxaller.com">hola@unaxaller.com</a></li>
+                  <li><strong>Email:</strong> <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a></li>
                   <li><strong>Website:</strong> https://unaxaller.com</li>
                 </ul>
 
@@ -76,7 +76,7 @@ export default async function AvisoLegalPage({ params }: Props) {
                   <li><strong>Izena:</strong> Unax Aller Fernández</li>
                   <li><strong>Jarduera:</strong> Web diseinua eta garapena (autonomoa)</li>
                   <li><strong>Erregistratutako helbidea:</strong> Euskal Herria, Espainia</li>
-                  <li><strong>Helbide elektronikoa:</strong> <a href="mailto:hola@unaxaller.com">hola@unaxaller.com</a></li>
+                  <li><strong>Helbide elektronikoa:</strong> <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a></li>
                   <li><strong>Webgunea:</strong> https://unaxaller.com</li>
                 </ul>
 
@@ -97,7 +97,7 @@ export default async function AvisoLegalPage({ params }: Props) {
                   <li><strong>Nombre:</strong> Unax Aller Fernández</li>
                   <li><strong>Actividad:</strong> Diseño y desarrollo web (autónomo)</li>
                   <li><strong>Domicilio:</strong> País Vasco, España</li>
-                  <li><strong>Correo electrónico:</strong> <a href="mailto:hola@unaxaller.com">hola@unaxaller.com</a></li>
+                  <li><strong>Correo electrónico:</strong> <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a></li>
                   <li><strong>Sitio web:</strong> https://unaxaller.com</li>
                 </ul>
 

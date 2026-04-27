@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Donostia-San Sebastián | Unax Aller",
-    en: "Web Designer in Donostia-San Sebastián | Unax Aller",
-    eu: "Web Diseinatzailea Donostian | Unax Aller",
+    es: "Diseñador Web en Donostia-San Sebastián",
+    en: "Web Designer in Donostia-San Sebastián",
+    eu: "Web Diseinatzailea Donostian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Donostia-San Sebastián. A 20 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for businesses in Donostia-San Sebastián. 20 km from Irun. Custom websites with local SEO, premium design and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Donostiako negozioetarako. Iruntik 20 kmra. Neurrizko webguneak SEO lokalarekin. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Donostia-San Sebastián. A 20 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for businesses in Donostia-San Sebastián. 20 km from Irun. Custom websites with local SEO, premium design and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Donostiako negozioetarako. Iruntik 20 kmra. Neurrizko webguneak SEO lokalarekin. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];

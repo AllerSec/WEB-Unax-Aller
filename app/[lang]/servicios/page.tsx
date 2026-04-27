@@ -12,9 +12,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Servicios de Diseño Web en Irun, País Vasco | Unax Aller",
-    en: "Web Design Services in Irun, Basque Country | Unax Aller",
-    eu: "Web Diseinu Zerbitzuak Irunen, Euskal Herrian | Unax Aller",
+    es: "Servicios de Diseño Web en Irun, País Vasco",
+    en: "Web Design Services in Irun, Basque Country",
+    eu: "Web Diseinu Zerbitzuak Irunen, Euskal Herrian",
   };
   const descriptions: Record<string, string> = {
     es: "Servicios de diseño web en Irun, Gipuzkoa: UI/UX a medida, SEO técnico, animaciones GSAP, rendimiento web, multi-idioma y más para negocios del País Vasco.",
@@ -61,64 +61,48 @@ export default async function ServiciosPage({ params }: Props) {
 
   const services: Service[] = [
     {
-      icon: <ServiceIcon path={<><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></>} />,
-      title: t("design.title"),
-      description: t("design.description"),
+      // storefront / local shop
+      icon: <ServiceIcon path={<><path d="M3 9l1-5h16l1 5"/><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M9 21V13h6v8"/></>} />,
+      title: t("localBusiness.title"),
+      description: t("localBusiness.description"),
       bullets: locale === "es"
-        ? ["Investigación de usuarios y competidores", "Wireframes y prototipos interactivos", "Sistema de diseño completo", "Pruebas de usabilidad"]
+        ? ["Diseño cuidado que da imagen profesional", "Optimizada para que aparezcas en Google Maps", "Pensada para móvil de arriba a abajo", "Información clara: horarios, contacto, servicios"]
         : locale === "en"
-        ? ["User & competitor research", "Wireframes & interactive prototypes", "Complete design system", "Usability testing"]
-        : ["Erabiltzaile eta lehiakide ikerketa", "Wireframe eta prototipo interaktiboak", "Diseinu sistema osoa", "Erabilgarritasun probak"],
+        ? ["Careful design that gives a professional image", "Optimised so you show up on Google Maps", "Built mobile-first from top to bottom", "Clear info: hours, contact, services"]
+        : ["Diseinu zaindua, irudi profesionala ematen duena", "Google Maps-en ager zaitezen optimizatua", "Mugikorrerako lehenik pentsatua, goitik behera", "Informazio argia: ordutegia, kontaktua, zerbitzuak"],
     },
     {
-      icon: <ServiceIcon path={<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>} />,
-      title: t("performance.title"),
-      description: t("performance.description"),
+      // medical cross / health
+      icon: <ServiceIcon path={<><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="2"/></>} />,
+      title: t("clinic.title"),
+      description: t("clinic.description"),
       bullets: locale === "es"
-        ? ["Core Web Vitals en verde", "Lazy loading y optimización de imágenes", "Caché avanzado y CDN", "Auditoría Lighthouse 95+"]
+        ? ["Identidad visual que transmite confianza", "Servicios y precios claros, sin letra pequeña", "Sistema de citas online si lo necesitas", "Política de privacidad y RGPD bien hechos"]
         : locale === "en"
-        ? ["Core Web Vitals in the green", "Lazy loading & image optimization", "Advanced caching & CDN", "Lighthouse audit 95+"]
-        : ["Core Web Vitals berdean", "Lazy loading eta irudien optimizazioa", "Cache aurreratua eta CDN", "Lighthouse audita 95+"],
+        ? ["Visual identity that builds trust", "Clear services and pricing, no small print", "Online booking system if you need one", "Proper privacy policy and GDPR"]
+        : ["Konfiantza ematen duen identitate bisuala", "Zerbitzu eta prezio argiak, letra txikirik gabe", "Online hitzorduen sistema behar baduzu", "Pribatutasun-politika eta DBEO ondo eginak"],
     },
     {
-      icon: <ServiceIcon path={<><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></>} />,
-      title: t("seo.title"),
-      description: t("seo.description"),
-      bullets: locale === "es"
-        ? ["Schema.org y datos estructurados", "Hreflang para multi-idioma", "Sitemaps y robots.txt", "Google My Business optimizado"]
-        : locale === "en"
-        ? ["Schema.org & structured data", "Hreflang for multi-language", "Sitemaps & robots.txt", "Google My Business optimised"]
-        : ["Schema.org eta datu egituratuak", "Hreflang hizkuntza anitzetarako", "Sitemaps eta robots.txt", "Google My Business optimizatua"],
-    },
-    {
-      icon: <ServiceIcon path={<><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></>} />,
-      title: t("mobile.title"),
-      description: t("mobile.description"),
-      bullets: locale === "es"
-        ? ["Diseño mobile-first", "Touch gestures y micro-interacciones", "PWA opcional", "Pruebas en dispositivos reales"]
-        : locale === "en"
-        ? ["Mobile-first design", "Touch gestures & micro-interactions", "Optional PWA", "Tested on real devices"]
-        : ["Mobile-first diseinua", "Ukipen keinuak eta mikro-interakzioak", "PWA aukerazkoa", "Benetako gailuetan probatua"],
-    },
-    {
-      icon: <ServiceIcon path={<polygon points="5 3 19 12 5 21 5 3"/>} />,
-      title: t("animation.title"),
-      description: t("animation.description"),
-      bullets: locale === "es"
-        ? ["GSAP y ScrollTrigger", "Framer Motion para React", "Animaciones de carga", "Transiciones de página suaves"]
-        : locale === "en"
-        ? ["GSAP & ScrollTrigger", "Framer Motion for React", "Loading animations", "Smooth page transitions"]
-        : ["GSAP eta ScrollTrigger", "Framer Motion Reactentzat", "Karga animazioak", "Orrialde trantsizio leunak"],
-    },
-    {
+      // globe / international
       icon: <ServiceIcon path={<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>} />,
-      title: t("multilang.title"),
-      description: t("multilang.description"),
+      title: t("multilingual.title"),
+      description: t("multilingual.description"),
       bullets: locale === "es"
-        ? ["Español, Inglés y Euskera", "URLs por idioma", "Detección automática de idioma", "Contenido adaptado culturalmente"]
+        ? ["Hasta 4 idiomas: euskera, castellano, inglés, francés", "URLs separadas y hreflang correcto", "Estructura preparada para muchas subpáginas", "SEO técnico para posicionar en cada mercado"]
         : locale === "en"
-        ? ["Spanish, English & Basque", "Per-language URLs", "Automatic language detection", "Culturally adapted content"]
-        : ["Gaztelania, Ingelesa eta Euskara", "Hizkuntzako URL-ak", "Hizkuntza detekzio automatikoa", "Kulturalki egokitutako edukia"],
+        ? ["Up to 4 languages: Basque, Spanish, English, French", "Separate URLs and proper hreflang", "Architecture ready for many subpages", "Technical SEO that ranks in each market"]
+        : ["4 hizkuntzatara arte: euskara, gaztelania, ingelesa, frantsesa", "URL bereiziak eta hreflang zuzena", "Azpiorri askotarako prestatutako egitura", "Merkatu bakoitzean posizionatzeko SEO teknikoa"],
+    },
+    {
+      // refresh / redesign
+      icon: <ServiceIcon path={<><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></>} />,
+      title: t("redesign.title"),
+      description: t("redesign.description"),
+      bullets: locale === "es"
+        ? ["Auditoría de tu web actual antes de empezar", "Mantenemos lo que sí funciona", "Migración limpia sin perder posicionamiento", "Web nueva, rápida y bien hecha"]
+        : locale === "en"
+        ? ["Audit of your current site before we start", "We keep what already works", "Clean migration without losing rankings", "A new site that's fast and well built"]
+        : ["Zure egungo webgunearen auditoria hasi aurretik", "Funtzionatzen duena mantentzen dugu", "Migrazio garbia, posizionamendua galdu gabe", "Webgune berria, azkarra eta ondo egina"],
     },
   ];
 
@@ -148,32 +132,32 @@ export default async function ServiciosPage({ params }: Props) {
 
   const howToSteps = locale === "es"
     ? [
-        { name: "1. Primer contacto y briefing", text: "Agendamos una llamada gratuita de 30 minutos para entender tu negocio, tus objetivos y competencia. Te envío un briefing previo por email." },
-        { name: "2. Propuesta y presupuesto cerrado", text: "En 48h recibes la propuesta con alcance, plazos y precio cerrado. Sin sorpresas, sin coste variable." },
-        { name: "3. Diseño visual (UI)", text: "Creo un prototipo en Figma con la home y las plantillas clave. Hasta 2 rondas de revisión incluidas." },
-        { name: "4. Desarrollo y programación", text: "Monto la web en Next.js con componentes reutilizables, SEO técnico y Schema.org desde el primer commit." },
-        { name: "5. Pruebas, QA y Lighthouse", text: "Verifico en dispositivos reales, auditoría Lighthouse con Performance/Accessibility/SEO > 95 y validación de datos estructurados." },
-        { name: "6. Despliegue y entrega", text: "Publico la web, conecto el dominio, Google Search Console, Analytics y te entrego el código. Es tuyo." },
-        { name: "7. Soporte post-lanzamiento", text: "Un mes de soporte incluido para resolver cualquier duda o ajuste menor. Después, plan de mantenimiento opcional." },
+        { name: "1. Hablamos", text: "Una llamada o un café de 30 minutos. Me cuentas qué necesitas, a quién quieres atraer y qué imagen quieres dar. Pregunto mucho." },
+        { name: "2. Presupuesto cerrado", text: "Te paso un presupuesto cerrado en 24-48h. 1.500€ base, hasta unos 2.000€ si necesitas algo más complejo (citas, automatizaciones, integraciones). Sin sorpresas." },
+        { name: "3. Diseño", text: "Pienso primero en qué va a sentir tu cliente al entrar en la web. Fuente, paleta, microanimaciones. Te enseño avances e iteramos hasta que cuadra." },
+        { name: "4. Desarrollo", text: "Programo la web a mano con las herramientas más actuales. SEO técnico, multi-idioma si lo necesitas, y que fluya bien en cualquier dispositivo." },
+        { name: "5. Pruebas", text: "Compruebo en dispositivos reales, auditoría Lighthouse con Performance/Accessibility/SEO por encima de 95 y validación de datos estructurados." },
+        { name: "6. Lanzamiento", text: "Subimos la web, configuramos dominio, Google Search Console y Analytics. Te enseño cómo va el tráfico las primeras semanas." },
+        { name: "7. Mantenimiento", text: "Si quieres que me siga encargando, son 200€ al año e incluye hosting, dominio, cambios menores y soporte. Si vas a necesitar muchos cambios, lo ajustamos." },
       ]
     : locale === "en"
     ? [
-        { name: "1. First contact and brief", text: "We schedule a free 30-minute call to understand your business, goals and competition. You receive a briefing by email beforehand." },
-        { name: "2. Proposal and fixed quote", text: "Within 48h you receive the proposal with scope, timeline and fixed price. No surprises, no variable cost." },
-        { name: "3. Visual design (UI)", text: "I create a Figma prototype with the homepage and key templates. Up to 2 revision rounds included." },
-        { name: "4. Development and programming", text: "I build the site in Next.js with reusable components, technical SEO and Schema.org from the first commit." },
-        { name: "5. Testing, QA and Lighthouse", text: "I verify on real devices, Lighthouse audit with Performance/Accessibility/SEO > 95 and structured data validation." },
-        { name: "6. Deployment and handover", text: "I launch the site, connect the domain, Google Search Console, Analytics and hand you the code. It's yours." },
-        { name: "7. Post-launch support", text: "One month of included support to resolve any question or minor adjustment. After that, optional maintenance plan." },
+        { name: "1. We talk", text: "A 30-minute call or coffee. You tell me what you need, who you want to attract and the image you want to give. I ask a lot." },
+        { name: "2. Fixed quote", text: "I send a fixed quote in 24-48h. €1,500 base, up to around €2,000 if you need something more complex (booking, automations, integrations). No surprises." },
+        { name: "3. Design", text: "I think first about what your client will feel when they land on the site. Font, palette, microanimations. I show you progress and we iterate until it fits." },
+        { name: "4. Development", text: "I code the site by hand with today's tools. Technical SEO, multi-language if you need it, and that it flows on any device." },
+        { name: "5. Testing", text: "I check on real devices, Lighthouse audit with Performance/Accessibility/SEO above 95 and structured data validation." },
+        { name: "6. Launch", text: "We push the site, set up the domain, Google Search Console and Analytics. I show you how the traffic looks the first weeks." },
+        { name: "7. Maintenance", text: "If you want me to keep handling it, it's €200 per year and covers hosting, domain, minor changes and support. If you'll need lots of changes, we adjust." },
       ]
     : [
-        { name: "1. Lehen kontaktua eta briefing-a", text: "Doako 30 minutuko deia antolatzen dugu zure negozioa, helburuak eta lehia ulertzeko. Aurretik briefing bat jasotzen duzu emailez." },
-        { name: "2. Proposamena eta aurrekontu itxia", text: "48 ordu barru proposamena jasotzen duzu, irismena, epea eta prezio itxiarekin. Ustekaberik gabe." },
-        { name: "3. Diseinu bisuala (UI)", text: "Figma prototipo bat sortzen dut home eta txantiloi garrantzitsuekin. 2 berrikuspen-txanda barne." },
-        { name: "4. Garapena eta programazioa", text: "Weba Next.js-en muntatzen dut, osagai berrerabilgarriekin, SEO teknikoarekin eta Schema.org-ekin lehen commit-etik." },
-        { name: "5. Probak, QA eta Lighthouse", text: "Benetako gailuetan egiaztatzen dut, Lighthouse audita Performance/Accessibility/SEO > 95, eta datu egituratuen balidazioa." },
-        { name: "6. Hedapena eta entrega", text: "Weba abian jartzen dut, domeinua konektatzen dut, Google Search Console, Analytics eta kodea entregatzen dizut. Zurea da." },
-        { name: "7. Abian jarri ondorengo laguntza", text: "Hilabeteko laguntza barne edozein zalantza edo doikuntza txiki konpontzeko." },
+        { name: "1. Hitz egiten dugu", text: "30 minutuko deia edo kafea. Zer behar duzun, nor erakarri nahi duzun eta zer irudi eman nahi duzun esaten didazu. Asko galdetzen dut." },
+        { name: "2. Aurrekontu itxia", text: "24-48 ordutan aurrekontu itxia bidaltzen dizut. 1.500€ oinarrian, 2.000€ ingurura zerbait konplexuagoa behar baduzu (hitzorduak, automatizazioak, integrazioak). Ezustekorik gabe." },
+        { name: "3. Diseinua", text: "Lehenik eta behin, zure bezeroak webgunera sartzean zer sentituko duen pentsatzen dut. Letra-tipoa, paleta, mikroanimazioak. Aurrerapenak erakusten dizkizut eta egokitu arte errepikatzen dugu." },
+        { name: "4. Garapena", text: "Webgunea eskuz programatzen dut gaurko tresnekin. SEO teknikoa, eleaniztasuna behar baduzu, eta edozein gailutan ondo doala." },
+        { name: "5. Probak", text: "Benetako gailuetan egiaztatzen dut, Lighthouse audita Performance/Accessibility/SEO 95 baino gehiagorekin eta datu egituratuen balidazioa." },
+        { name: "6. Abiaraztea", text: "Webgunea igotzen dugu, domeinua, Google Search Console eta Analytics konfiguratzen ditugu. Lehen asteetan trafikoa nola doan erakusten dizut." },
+        { name: "7. Mantentze-lana", text: "Nik jarraitzea nahi baduzu, urtean 200€ da eta hosting-a, domeinua, aldaketa txikiak eta laguntza barne ditu. Aldaketa asko behar badituzu, egokitu egiten dugu." },
       ];
 
   const jsonLd = {
@@ -202,13 +186,13 @@ export default async function ServiciosPage({ params }: Props) {
         },
         offers: {
           "@type": "Offer",
-          price: "1300",
+          price: "1500",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
           validFrom: "2026-01-01",
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: "1300",
+            price: "1500",
             priceCurrency: "EUR",
             valueAddedTaxIncluded: true,
           },
@@ -245,7 +229,7 @@ export default async function ServiciosPage({ params }: Props) {
         estimatedCost: {
           "@type": "MonetaryAmount",
           currency: "EUR",
-          value: "1300",
+          value: "1500",
         },
         step: howToSteps.map((s, i) => ({
           "@type": "HowToStep",

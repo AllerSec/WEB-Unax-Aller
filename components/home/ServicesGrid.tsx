@@ -18,43 +18,30 @@ interface ServiceIconProps {
 
 function ServiceIcon({ type }: ServiceIconProps) {
   const icons: Record<string, React.ReactNode> = {
-    design: (
+    localBusiness: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M12 19l7-7 3 3-7 7-3-3z" />
-        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-        <path d="M2 2l7.586 7.586" />
-        <circle cx="11" cy="11" r="2" />
+        <path d="M3 9l1-5h16l1 5" />
+        <path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9" />
+        <path d="M9 21V13h6v8" />
       </svg>
     ),
-    performance: (
+    clinic: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M12 8v8M8 12h8" />
       </svg>
     ),
-    seo: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        <line x1="11" y1="8" x2="11" y2="14" />
-        <line x1="8" y1="11" x2="14" y2="11" />
-      </svg>
-    ),
-    mobile: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-        <line x1="12" y1="18" x2="12.01" y2="18" />
-      </svg>
-    ),
-    animation: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <polygon points="5 3 19 12 5 21 5 3" />
-      </svg>
-    ),
-    multilang: (
+    multilingual: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
         <circle cx="12" cy="12" r="10" />
         <line x1="2" y1="12" x2="22" y2="12" />
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+    redesign: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+        <path d="M21 12a9 9 0 1 1-3-6.7" />
+        <polyline points="21 3 21 9 15 9" />
       </svg>
     ),
   };
@@ -71,20 +58,40 @@ interface ServiceCardProps {
 
 function ServiceCard({ iconType, title, description, locale, learnMore }: ServiceCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const rafPendingRef = useRef(false);
+  const lastCoordsRef = useRef<{ x: number; y: number; mx: number; my: number } | null>(null);
 
   const onMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    lastCoordsRef.current = {
+      x: px - 0.5,
+      y: py - 0.5,
+      mx: px * 100,
+      my: py * 100,
+    };
 
-    gsap.to(card, {
-      rotateX: -y * 6,
-      rotateY: x * 6,
-      transformPerspective: 1000,
-      duration: 0.4,
-      ease: "power2.out",
+    if (rafPendingRef.current) return;
+    rafPendingRef.current = true;
+    requestAnimationFrame(() => {
+      rafPendingRef.current = false;
+      const c = cardRef.current;
+      const last = lastCoordsRef.current;
+      if (!c || !last) return;
+      // Spotlight position via CSS custom properties (cheap, no GPU layer churn)
+      c.style.setProperty("--mx", `${last.mx}%`);
+      c.style.setProperty("--my", `${last.my}%`);
+      // 3D tilt — kept subtle so the spotlight does the heavy work
+      gsap.to(c, {
+        rotateX: -last.y * 6,
+        rotateY: last.x * 6,
+        transformPerspective: 1000,
+        duration: 0.4,
+        ease: "power2.out",
+      });
     });
   }, []);
 
@@ -184,12 +191,10 @@ export default function ServicesGrid({ locale }: Props) {
   );
 
   const services = [
-    { key: "design", iconType: "design", title: t("design.title"), description: t("design.description") },
-    { key: "performance", iconType: "performance", title: t("performance.title"), description: t("performance.description") },
-    { key: "seo", iconType: "seo", title: t("seo.title"), description: t("seo.description") },
-    { key: "mobile", iconType: "mobile", title: t("mobile.title"), description: t("mobile.description") },
-    { key: "animation", iconType: "animation", title: t("animation.title"), description: t("animation.description") },
-    { key: "multilang", iconType: "multilang", title: t("multilang.title"), description: t("multilang.description") },
+    { key: "localBusiness", iconType: "localBusiness", title: t("localBusiness.title"), description: t("localBusiness.description") },
+    { key: "clinic", iconType: "clinic", title: t("clinic.title"), description: t("clinic.description") },
+    { key: "multilingual", iconType: "multilingual", title: t("multilingual.title"), description: t("multilingual.description") },
+    { key: "redesign", iconType: "redesign", title: t("redesign.title"), description: t("redesign.description") },
   ];
 
   return (

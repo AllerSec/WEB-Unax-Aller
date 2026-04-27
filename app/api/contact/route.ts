@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
-    const to = "hola@unaxaller.com";
+    const to = "contacto@unaxaller.com";
     const subject = `Nuevo contacto de ${name}${company ? ` (${company})` : ""}`;
     const text = [
       `Nombre: ${name}`,

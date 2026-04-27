@@ -10,7 +10,7 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
     <nav aria-label="Breadcrumb" className="mb-6">
       <ol
         className="flex flex-wrap items-center gap-2 text-xs"
-        style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}
+        style={{ color: "var(--color-ink-subtle)", fontFamily: "Manrope, sans-serif" }}
       >
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
@@ -20,17 +20,17 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
                 <Link
                   href={item.href}
                   className="transition-colors hover:underline"
-                  style={{ color: "#4d6453" }}
+                  style={{ color: "var(--color-accent)" }}
                 >
                   {item.name}
                 </Link>
               ) : (
-                <span aria-current={isLast ? "page" : undefined} style={{ color: "#434843" }}>
+                <span aria-current={isLast ? "page" : undefined} style={{ color: "var(--color-ink-muted)" }}>
                   {item.name}
                 </span>
               )}
               {!isLast && (
-                <span aria-hidden="true" style={{ color: "#c3c8c1" }}>
+                <span aria-hidden="true" style={{ color: "var(--color-line-strong)" }}>
                   /
                 </span>
               )}

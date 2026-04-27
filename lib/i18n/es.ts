@@ -1,17 +1,20 @@
-const es = {
+﻿const es = {
   nav: {
     inicio: "Inicio",
     servicios: "Servicios",
     precios: "Precios",
-    sobreNosotros: "Sobre Nosotros",
+    sobreNosotros: "Sobre mí",
     contacto: "Contacto",
     consultaGratuita: "Consulta Gratuita",
   },
   hero: {
     title: "Diseño y desarrollo web premium que eleva tu negocio.",
     subtitle:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.300€, IVA incluido.",
-    cta: "Demo gratis de tu web en 24h",
+      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.500€, IVA incluido.",
+    subtitlePre:
+      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde",
+    subtitlePost: ", IVA incluido.",
+    cta: "Demo gratis de tu web en 48h",
     cta2: "Ver Planes",
     badge: "Irun · País Vasco · España",
     scrollHint: "Desplázate para explorar",
@@ -26,38 +29,28 @@ const es = {
     stat4: { value: "5★", label: "Valoración en Google" },
   },
   services: {
-    title: "Donde la estética encuentra la función.",
+    title: "Cuatro tipos de proyecto, una sola persona detrás.",
     subtitle:
-      "Cada proyecto es una oportunidad de crear algo extraordinario. Combinamos diseño estratégico con tecnología de vanguardia.",
-    design: {
-      title: "Diseño UI/UX a Medida",
+      "Cada proyecto es distinto. Estos son los cuatro escenarios donde encajo mejor. Si tu caso no aparece aquí, escríbeme igual y lo hablamos.",
+    localBusiness: {
+      title: "Web para negocio local",
       description:
-        "Interfaces únicas que reflejan la identidad de tu marca. Cada pixel es intencional, cada interacción es memorable.",
+        "Peluquerías, talleres, restaurantes, comercios. Una web que da imagen profesional, aparece en Google Maps y trae clientes del barrio. Pensada para que cuando alguien te busque desde el móvil, te encuentre y le entren ganas de entrar.",
     },
-    performance: {
-      title: "Performance-First",
+    clinic: {
+      title: "Web para clínica o consulta profesional",
       description:
-        "Webs que cargan en menos de 2 segundos. Google Core Web Vitals en verde. Velocidad que convierte visitantes en clientes.",
+        "Clínicas dentales, fisioterapia, estética, consultas privadas. Lo importante aquí es la confianza: foto cuidada, información clara de servicios y precios, política de privacidad bien hecha y sistema de citas si lo necesitas.",
     },
-    seo: {
-      title: "SEO Técnico Completo",
+    multilingual: {
+      title: "Web multi-idioma para empresa",
       description:
-        "Arquitectura optimizada para buscadores desde el primer día. Schema.org, hreflang, Core Web Vitals y estrategia de contenido.",
+        "Ingeniería, consultoras, empresas que exportan. Hasta 4 idiomas (euskera, castellano, inglés, francés), muchas subpáginas, SEO técnico serio y arquitectura preparada para crecer. Pensada para empresas que se toman su web en serio.",
     },
-    mobile: {
-      title: "Mobile-First",
+    redesign: {
+      title: "Rediseño de web existente",
       description:
-        "El 70% de tus clientes te encuentran desde el móvil. Diseñamos para esa realidad, ampliando a pantallas mayores.",
-    },
-    animation: {
-      title: "Animaciones Avanzadas",
-      description:
-        "GSAP, Framer Motion y WebGL para experiencias que sorprenden. Las animaciones no son decoración, son comunicación.",
-    },
-    multilang: {
-      title: "Multi-idioma",
-      description:
-        "Llega a mercados internacionales con soporte para hasta 3 idiomas. Arquitectura i18n desde los cimientos.",
+        "Ya tienes web pero te da un poco de vergüenza. O va lenta, o no convierte, o está hecha hace cinco años con WordPress y nadie la toca. Te la rehago desde cero manteniendo lo que sí funciona y arreglando todo lo demás.",
     },
     cta: "Ver todos los servicios",
     learnMore: "Saber más",
@@ -95,7 +88,7 @@ const es = {
       {
         name: "Plan Completo",
         subtitle: "Web a medida",
-        price: "1.300€",
+        price: "1.500€",
         description:
           "Todo lo que necesitas para lanzar una web profesional, rápida y que convierta. IVA incluido.",
         features: [
@@ -104,74 +97,74 @@ const es = {
           "SEO técnico completo + Google Analytics",
           "Multi-idioma si lo necesitas",
           "Adaptada a móvil desde el primer pixel",
-          "Dominio, hosting y SSL el primer año",
+          "Mantenimiento opcional desde 100€/año (dominio, hosting, soporte)",
         ],
       },
     ],
   },
   about: {
-    title: "Sobre Unax Aller",
-    subtitle: "Diseñador web en Irun, creando webs que convierten.",
+    title: "Sobre mí",
+    subtitle: "Hola, soy Unax. Diseño y desarrollo webs en Irun mientras estudio.",
     intro:
-      "Soy Unax Aller, diseñador y desarrollador web freelance en Irun, Gipuzkoa. Creo experiencias digitales a medida para negocios del País Vasco que no solo se ven bien, sino que convierten visitantes en clientes.",
+      "Hago webs para empresas y clínicas: SEO completo, multi-idioma, muchas subpáginas, diseño cuidado. Yo solo, sin agencias por medio, con muchísimas ganas y atención al detalle.",
     profile: {
       name: "Unax Aller Fernández",
       location: "Irun, Gipuzkoa · País Vasco",
       role: "Diseñador y Desarrollador Web Freelance",
       education: "Grado en Ingeniería Informática — Universidad Alfonso X el Sabio",
       linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
-      languages: "Español (nativo) · Francés (profesional) · Inglés (profesional) · Euskera (básico)",
-      bio: "Estudiante de Ingeniería Informática con pasión por el diseño web. Combino conocimientos técnicos sólidos con un ojo para el diseño para crear webs que destacan en el mercado del País Vasco.",
+      languages: "Español (nativo) · Francés (bilingüe) · Inglés (profesional) · Euskera (básico)",
+      bio: "Estudiante de Ingeniería Informática y freelance. Hago webs para empresas y clínicas en el País Vasco con muchísima profesionalidad y muchísimas ganas, sin necesitar de ser una agencia. Estudié toda mi vida en Francia hasta los 15, hice Erasmus y este verano trabajé en EEUU. Salir de mi zona de confort me ha quitado el miedo a casi todo y me ha dado muchas ganas de seguir aprendiendo.",
     },
     values: {
-      title: "Nuestros Valores",
+      title: "Cómo trabajo",
       craft: {
-        title: "Artesanía Digital",
+        title: "Obsesión por el detalle",
         description:
-          "Cada proyecto es tratado con el mismo cuidado y dedicación que un artesano pone en su obra. No existen atajos en la excelencia.",
+          "Si me puedo pasar horas para solucionar un pequeño detalle, lo voy a hacer sin ningún tipo de duda. Me fijo en archivos que a simple vista no se ven, pero ahí están.",
       },
       results: {
-        title: "Orientados a Resultados",
+        title: "Estética que se siente al entrar",
         description:
-          "El diseño bonito sin conversiones no sirve. Cada decisión de diseño está respaldada por datos y orientada a tus objetivos de negocio.",
+          "Pienso mucho en qué va a sentir el cliente cuando entre en tu web. La fuente, la paleta, las microanimaciones. Que se sorprenda y que fluya. Que sienta que es algo que necesita.",
       },
       transparency: {
-        title: "Transparencia Total",
+        title: "Cero intermediarios",
         description:
-          "Comunicación directa, presupuestos claros y plazos cumplidos. Sabes exactamente qué estás comprando y cuándo lo recibirás.",
+          "Hablas conmigo de principio a fin. Sin agencias, sin departamentos. Es más personal y para mí mucho más profesional que pasar por una cadena de gente que no conoce tu proyecto.",
       },
       innovation: {
-        title: "Innovación Constante",
+        title: "Las herramientas más actuales",
         description:
-          "Seguimos de cerca las últimas tendencias en diseño y tecnología para que tu web esté siempre a la vanguardia.",
+          "Me obsesiono mucho con tener lo más actualizado posible. Next.js, herramientas de IA, lo último en SEO técnico. Nada de plantillas ni de WordPress dejado.",
       },
     },
     process: {
-      title: "Nuestro Proceso",
+      title: "Cómo va un proyecto",
       steps: [
         {
           number: "01",
-          title: "Descubrimiento",
+          title: "Te escucho",
           description:
-            "Analizamos tu negocio, competidores y objetivos. Una semana de investigación profunda.",
+            "Una llamada o un café. Me cuentas qué necesitas, a quién quieres atraer y qué imagen quieres dar. Pregunto mucho.",
         },
         {
           number: "02",
           title: "Diseño",
           description:
-            "Creamos wireframes y el diseño visual completo. Iteramos hasta que quedes satisfecho.",
+            "Pienso primero en qué va a sentir tu cliente al entrar en la web. Fuente, paleta, microanimaciones. Iteramos hasta que cuadra.",
         },
         {
           number: "03",
           title: "Desarrollo",
           description:
-            "Implementamos con las últimas tecnologías. Performance y SEO desde el primer commit.",
+            "Programo la web a mano con las herramientas más actuales. SEO técnico, multi-idioma si lo necesitas, y que fluya bien en cualquier dispositivo.",
         },
         {
           number: "04",
           title: "Lanzamiento",
           description:
-            "Deploy, pruebas exhaustivas y formación. Tu web lista para conquistar el mercado.",
+            "Subimos la web, configuramos analítica y dominio. Te enseño cómo va el tráfico las primeras semanas. Si surge algo, sigo aquí.",
         },
       ],
     },
@@ -193,7 +186,7 @@ const es = {
         "¡Mensaje enviado! Te contactaremos en menos de 24 horas.",
       error: "Error al enviar. Por favor, intenta de nuevo.",
       budgetOptions: [
-        "1.300€ (plan estándar)",
+        "1.500€ (plan estándar)",
         "1.500€ – 2.500€",
         "Más de 2.500€",
         "No lo tengo claro",
@@ -201,7 +194,7 @@ const es = {
     },
     info: {
       location: "Irun, Gipuzkoa · País Vasco",
-      email: "hola@unaxaller.com",
+      email: "contacto@unaxaller.com",
       response: "Respuesta en < 24h",
       availability: "Lun – Vie · 9:00 – 18:00",
     },
@@ -248,16 +241,6 @@ const es = {
     backToBlog: "Volver al blog",
     publishedOn: "Publicado el",
   },
-  casos: {
-    title: "Casos de Estudio",
-    subtitle: "Proyectos reales con resultados reales.",
-    problem: "El problema",
-    solution: "La solución",
-    results: "Resultados",
-    metrics: "Métricas",
-    viewAll: "Ver todos los casos",
-    backToCasos: "Volver a casos",
-  },
   faqServicios: {
     title: "Preguntas frecuentes",
     items: [
@@ -271,10 +254,10 @@ const es = {
   faqPrecios: {
     title: "Preguntas sobre el precio",
     items: [
-      { q: "¿Por qué cuesta 1.300€ IVA incluido?", a: "Es el precio mínimo para hacer un trabajo de calidad: diseño personalizado, desarrollo a medida, SEO técnico y hosting el primer año. Sin recortar en ningún punto." },
+      { q: "¿Por qué cuesta 1.500€ IVA incluido?", a: "Es el precio mínimo para hacer un trabajo de calidad: diseño personalizado, desarrollo a medida, SEO técnico, dominio y hosting incluidos el primer año por 100€ adicionales (mantenimiento). Sin recortar en ningún punto." },
       { q: "¿Hay costes adicionales?", a: "No hay costes ocultos. El único coste recurrente es la renovación del dominio y hosting a partir del segundo año (aproximadamente 100-150€/año)." },
       { q: "¿Se puede pagar en plazos?", a: "Sí. El pago habitual es 50% al inicio y 50% en la entrega. Para proyectos más grandes, podemos negociar plazos." },
-      { q: "¿Qué incluye exactamente el precio?", a: "Diseño UI/UX a medida, desarrollo en Next.js, SEO técnico completo, formulario de contacto, hasta 3 idiomas, hosting el primer año y soporte post-lanzamiento." },
+      { q: "¿Qué incluye exactamente el precio?", a: "Diseño UI/UX a medida, desarrollo en Next.js, SEO técnico completo, formulario de contacto, hasta 4 idiomas, y mantenimiento opcional desde 100€ el primer año (hosting, dominio, soporte)." },
       { q: "¿Puedo tener una consulta gratuita antes de decidir?", a: "Sí, ofrezco una consulta gratuita de 30 minutos por videollamada para entender tu proyecto y ver si somos un buen match." },
     ],
   },

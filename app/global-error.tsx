@@ -15,7 +15,7 @@ export default function GlobalError({
 
   return (
     <html lang="es">
-      <body style={{ backgroundColor: "#faf9f4", margin: 0, fontFamily: "system-ui, sans-serif" }}>
+      <body style={{ backgroundColor: "#061b0e", margin: 0, fontFamily: "system-ui, sans-serif" }}>
         <div
           style={{
             minHeight: "100vh",
@@ -35,7 +35,7 @@ export default function GlobalError({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#061b0e",
+              backgroundColor: "#1b3022",
               marginBottom: "1.5rem",
             }}
           >
@@ -43,17 +43,17 @@ export default function GlobalError({
               UA
             </span>
           </div>
-          <h1 style={{ fontSize: "1.5rem", fontWeight: 300, color: "#061b0e", marginBottom: "1rem" }}>
+          <h1 style={{ fontSize: "1.5rem", fontWeight: 300, color: "#ece7d6", marginBottom: "1rem" }}>
             Error crítico
           </h1>
-          <p style={{ color: "#434843", marginBottom: "2rem", maxWidth: "400px" }}>
+          <p style={{ color: "#a9b1a7", marginBottom: "2rem", maxWidth: "400px" }}>
             Ha ocurrido un error inesperado. Por favor, recarga la página.
           </p>
           <button
             onClick={reset}
             style={{
-              backgroundColor: "#061b0e",
-              color: "#ffffff",
+              backgroundColor: "#ece7d6",
+              color: "#061b0e",
               border: "none",
               borderRadius: "12px",
               padding: "12px 24px",

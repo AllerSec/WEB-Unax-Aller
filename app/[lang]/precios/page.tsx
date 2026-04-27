@@ -11,14 +11,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Precios — Web a Medida desde 1.300€ en Irun | Unax Aller",
-    en: "Pricing — Custom Website from €1,300 in Irun | Unax Aller",
-    eu: "Prezioak — Neurrira egindako weba 1.300€-tik Irunen | Unax Aller",
+    es: "Precios — Web a Medida desde 1.500€ en Irun",
+    en: "Pricing — Custom Website from €1,500 in Irun",
+    eu: "Prezioak — Neurrira egindako weba 1.500€-tik Irunen",
   };
   const descriptions: Record<string, string> = {
-    es: "Un único plan claro: web a medida completa desde 1.300€ IVA incluido. Diseño premium, SEO técnico, multi-idioma y hosting el primer año. Sin sorpresas.",
-    en: "One clear plan: complete custom website from €1,300 VAT included. Premium design, technical SEO, multi-language and hosting for the first year. No surprises.",
-    eu: "Plan argi bakarra: neurrira egindako web osoa 1.300€-tik BEZ barne. Diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean.",
+    es: "Un único plan claro: web a medida completa desde 1.500€ IVA incluido. Diseño premium, SEO técnico, multi-idioma . El primer año el mantenimiento son 100€ (hosting, dominio, soporte). Sin sorpresas.",
+    en: "One clear plan: complete custom website from €1,500 VAT included. Premium design, technical SEO, multi-language and hosting for the first year. No surprises.",
+    eu: "Plan argi bakarra: neurrira egindako web osoa 1.500€-tik BEZ barne. Diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean.",
   };
 
   const title = titles[locale];
@@ -42,25 +42,25 @@ export default async function PreciosPage({ params }: Props) {
 
   const faqItems = locale === "es"
     ? [
-        { q: "¿Por qué cuesta 1.300€ IVA incluido?", a: "Es el precio mínimo para hacer un trabajo de calidad: diseño personalizado, desarrollo a medida, SEO técnico y hosting el primer año. Sin recortar en ningún punto." },
+        { q: "¿Por qué cuesta 1.500€ IVA incluido?", a: "Es el precio mínimo para hacer un trabajo de calidad: diseño personalizado, desarrollo a medida, SEO técnico, dominio y hosting incluidos el primer año por 100€ adicionales (mantenimiento). Sin recortar en ningún punto." },
         { q: "¿Hay costes adicionales?", a: "No hay costes ocultos. El único coste recurrente es la renovación del dominio y hosting a partir del segundo año (aproximadamente 100-150€/año)." },
         { q: "¿Se puede pagar en plazos?", a: "Sí. El pago habitual es 50% al inicio y 50% en la entrega. Para proyectos más grandes, podemos negociar plazos." },
-        { q: "¿Qué incluye exactamente el precio?", a: "Diseño UI/UX a medida, desarrollo en Next.js, SEO técnico completo, formulario de contacto, hasta 3 idiomas, hosting el primer año y soporte post-lanzamiento." },
+        { q: "¿Qué incluye exactamente el precio?", a: "Diseño UI/UX a medida, desarrollo en Next.js, SEO técnico completo, formulario de contacto, hasta 4 idiomas, y mantenimiento opcional desde 100€ el primer año (hosting, dominio, soporte)." },
         { q: "¿Puedo tener una consulta gratuita antes de decidir?", a: "Sí, ofrezco una consulta gratuita de 30 minutos por videollamada para entender tu proyecto y ver si somos un buen match." },
       ]
     : locale === "en"
     ? [
-        { q: "Why does it cost €1,300 VAT included?", a: "It's the minimum price to do quality work: custom design, bespoke development, technical SEO and hosting for the first year. No cutting corners." },
+        { q: "Why does it cost €1,500 VAT included?", a: "It's the minimum price to do quality work: custom design, bespoke development, technical SEO and hosting for the first year. No cutting corners." },
         { q: "Are there additional costs?", a: "There are no hidden costs. The only recurring cost is domain and hosting renewal from the second year onwards (approximately €100-150/year)." },
         { q: "Can I pay in instalments?", a: "Yes. The usual payment is 50% at the start and 50% on delivery. For larger projects, we can negotiate payment plans." },
-        { q: "What exactly does the price include?", a: "Custom UI/UX design, Next.js development, complete technical SEO, contact form, up to 3 languages, first-year hosting and post-launch support." },
+        { q: "What exactly does the price include?", a: "Custom UI/UX design, Next.js development, complete technical SEO, contact form, up to 4 languages, and optional maintenance from €100 the first year (hosting, domain, support)." },
         { q: "Can I have a free consultation before deciding?", a: "Yes, I offer a free 30-minute video call consultation to understand your project and see if we're a good match." },
       ]
     : [
-        { q: "Zergatik kostatzen da 1.300€ BEZ barne?", a: "Kalitatezko lana egiteko gutxieneko prezioa da: diseinu pertsonalizatua, garapen pertsonalizatua, SEO teknikoa eta lehen urteko hostinga." },
+        { q: "Zergatik kostatzen da 1.500€ BEZ barne?", a: "Kalitatezko lana egiteko gutxieneko prezioa da: diseinu pertsonalizatua, garapen pertsonalizatua, SEO teknikoa, eta mantentze-lana aukerakoa lehen urtean 100€-tik (hosting, domeinua, laguntza)." },
         { q: "Kostu gehigarririk al dago?", a: "Ez dago ezkutuko kosturik. Kostu errepikakorra bigarren urtetik aurrerako domeinu eta hosting berriztapena baino ez da." },
         { q: "Epeka ordaindu al daiteke?", a: "Bai. Ohiko ordainketa hasieran %50 eta entregatzean %50 da." },
-        { q: "Zer barne hartzen du prezioaren barruan?", a: "Neurrizko UI/UX diseinua, Next.js garapena, SEO tekniko osoa, harremanetan jartzeko inprimakia, 3 hizkuntzara arte, lehen urteko hostinga eta abian jarri ondoko laguntza." },
+        { q: "Zer barne hartzen du prezioaren barruan?", a: "Neurrizko UI/UX diseinua, Next.js garapena, SEO tekniko osoa, harremanetan jartzeko inprimakia, 4 hizkuntzara arte, eta mantentze-lana aukerakoa 100€-tik lehen urtean (hosting, domeinua, laguntza)." },
         { q: "Erabaki aurretik doako kontsulta bat eduki al dezaket?", a: "Bai, 30 minutuko bideo-deiari buruzko doako kontsulta eskaintzen dut." },
       ];
 
@@ -81,7 +81,7 @@ export default async function PreciosPage({ params }: Props) {
         "@id": `https://unaxaller.com/${locale}/precios#product`,
         name: locale === "es" ? "Plan Completo — Web a Medida" : locale === "en" ? "Complete Plan — Custom Website" : "Plan Osoa — Neurrizko Weba",
         description: locale === "es"
-          ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma (es/en/eu) y hosting el primer año. IVA incluido. Código 100% tuyo."
+          ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma (hasta 4 idiomas, incluido francés). IVA incluido."
           : locale === "en"
           ? "Complete custom website: premium design, technical SEO, multi-language (es/en/eu) and hosting for the first year. VAT included. Code is 100% yours."
           : "Neurrira egindako web osoa: diseinu premium-a, SEO teknikoa, eleaniztasuna (es/en/eu) eta hostinga lehen urtean. BEZ barne. Kodea %100 zurea da.",
@@ -93,18 +93,18 @@ export default async function PreciosPage({ params }: Props) {
           "@id": `https://unaxaller.com/${locale}/precios#offer`,
           name: locale === "es" ? "Plan Completo — Web a Medida" : locale === "en" ? "Complete Plan — Custom Website" : "Plan Osoa — Neurrizko Weba",
           description: locale === "es"
-            ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma y hosting el primer año. IVA incluido."
+            ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma. IVA incluido. Mantenimiento opcional desde 100€/año."
             : locale === "en"
             ? "Complete custom website: premium design, technical SEO, multi-language and hosting for the first year. VAT included."
             : "Neurrira egindako web osoa: diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean. BEZ barne.",
-          price: "1300",
+          price: "1500",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
           validFrom: "2026-01-01",
           priceValidUntil: "2026-12-31",
           priceSpecification: {
             "@type": "UnitPriceSpecification",
-            price: "1300",
+            price: "1500",
             priceCurrency: "EUR",
             valueAddedTaxIncluded: true,
           },

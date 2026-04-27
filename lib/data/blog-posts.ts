@@ -1,4 +1,4 @@
-// lib/data/blog-posts.ts
+﻿// lib/data/blog-posts.ts
 export interface BlogPostFaq {
   q: string;
   a: string;
@@ -607,7 +607,7 @@ Lo que no entra ahí suele ser la trampa de muchos presupuestos "completos".
 
 ## Mi experiencia real
 
-En mi caso el plan es uno solo: 1.300€ IVA incluido. Un único precio, una única web.
+En mi caso el plan es uno solo: 1.500€ IVA incluido. Un único precio, una única web.
 
 He tenido clientes que llegaron huyendo de webs por las que pagaron 2.000€ a una agencia y que tardaban ocho segundos en cargar. El precio no garantiza calidad. La transparencia sí.
 
@@ -641,7 +641,7 @@ When you hire a freelance web designer, a reasonable price includes:
 
 ## My real experience
 
-In my case, the single plan costs €1,300 VAT included. I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality. Transparency does.`,
+In my case, the single plan costs €1,500 VAT included. I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality. Transparency does.`,
       eu: `2026an, Espainian webgune baten prezioa izugarri aldatzen da proiektu motaren eta nork egiten duen arabera.
 
 ## Webgune motak eta haien prezioak
@@ -654,7 +654,7 @@ In my case, the single plan costs €1,300 VAT included. I've seen clients arriv
 
 ## Nire benetako esperientzia
 
-Nire kasuan, plan bakarrak 1.300€ balio du BEZ barne.`,
+Nire kasuan, plan bakarrak 1.500€ balio du BEZ barne.`,
     },
     tags: ["precios", "diseño web", "España", "freelance"],
     keywords: {
@@ -677,7 +677,7 @@ Nire kasuan, plan bakarrak 1.300€ balio du BEZ barne.`,
           a: "El rango normal va de 0€ (Wix o Squarespace) a 10.000€ o más en desarrollo a medida. Para un negocio pequeño o mediano, lo razonable con un freelance está entre 800€ y 3.000€. Por debajo de 800€ lo más probable es una plantilla sin trabajo real; por encima de 5.000€ ya estás pagando estructura de agencia.",
         },
         {
-          q: "¿Por qué tu plan es único en 1.300€?",
+          q: "¿Por qué tu plan es único en 1.500€?",
           a: "Para que no dependas de un comercial, de paquetes con letra pequeña o de sorpresas al final. Un precio cerrado, IVA incluido, con todo lo que una web necesita para funcionar: diseño a medida, desarrollo responsive, SEO técnico básico y formulario de contacto.",
         },
         {
@@ -689,8 +689,8 @@ Nire kasuan, plan bakarrak 1.300€ balio du BEZ barne.`,
           a: "El SEO técnico sí: velocidad, meta tags, Schema.org, URLs limpias, hreflang entre idiomas. El SEO orgánico a largo plazo (contenidos, backlinks, enlaces locales) es otro trabajo aparte, porque requiere meses de seguimiento y no se entrega con la web.",
         },
         {
-          q: "¿Qué diferencia hay entre una web de 500€ y una de 1.300€?",
-          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. A 1.300€ la web es tuya: diseño pensado para tu negocio, optimizada para móvil y Google, con detalles que marcan diferencia en la percepción de la marca y en la conversión.",
+          q: "¿Qué diferencia hay entre una web de 500€ y una de 1.500€?",
+          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. A 1.500€ la web es tuya: diseño pensado para tu negocio, optimizada para móvil y Google, con detalles que marcan diferencia en la percepción de la marca y en la conversión.",
         },
         {
           q: "¿Cuánto tarda el proyecto?",
@@ -1163,7 +1163,7 @@ Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu
 
 ## Lo que ofrece un freelance (como yo)
 
-- **Precio más bajo:** no pago alquiler de oficina ni salarios. 1.300€ IVA incluido para una web completa.
+- **Precio más bajo:** no pago alquiler de oficina ni salarios. 1.500€ IVA incluido para una web completa.
 - **Comunicación directa:** hablas con quien hace el trabajo. Sin intermediarios ni "te pasamos con tu gestor".
 - **Flexibilidad:** proyectos adaptados, no paquetes cerrados.
 - **Implicación personal:** mi reputación depende de cada proyecto.
@@ -1198,7 +1198,7 @@ Mira: cartera, casos reales, reseñas, comunicación inicial. Ahí está la señ
 
 ## What a freelancer offers (like me)
 
-- **Lower price:** no office rent or salaries to pay. €1,300 VAT included for a complete website.
+- **Lower price:** no office rent or salaries to pay. €1,500 VAT included for a complete website.
 - **Direct communication:** you talk to the person doing the work.
 - **Flexibility:** adapted projects, not closed packages.
 - **Personal stake:** my reputation depends on every project.
@@ -1233,7 +1233,7 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
 
 ## Freelance batek eskaintzen duena
 
-- **Prezio baxuagoa:** 1.300€ BEZ barne web oso batentzat.
+- **Prezio baxuagoa:** 1.500€ BEZ barne web oso batentzat.
 - **Komunikazio zuzena:** lana egiten duenarekin hitz egiten duzu.
 - **Malgutasuna:** moldatutako proiektuak.
 

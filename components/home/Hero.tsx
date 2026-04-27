@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroBackground from "./HeroBackground";
+import HeroVideo from "./HeroVideo";
 import { useLiquidGlassHover } from "@/hooks/useLiquidGlassHover";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -43,12 +44,101 @@ export default function Hero({ locale }: Props) {
 
       if (!title) return;
 
+      // Helper — set the price to its final formatted value (used by every branch
+      // that does NOT run the count-up animation, so the price never reads "0€").
+      const setFinalPrice = () => {
+        const priceEl = subtitle?.querySelector<HTMLSpanElement>(".hero-price");
+        if (!priceEl) return;
+        const formatted = (1500).toLocaleString(locale === "en" ? "en-US" : "es-ES");
+        priceEl.textContent = locale === "en" ? `€${formatted}` : `${formatted}€`;
+      };
+
       // Respect reduced motion — reveal everything instantly, no split, no timeline, no sweep
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         gsap.set([badge, subtitle, ctas, scrollHint], { opacity: 1, y: 0 });
         gsap.set([decorLeft, decorRight], { scaleX: 1 });
         title.classList.add("sweep-done");
+        setFinalPrice();
         window.dispatchEvent(new CustomEvent("hero-entrance-done"));
+        return;
+      }
+
+      // Mobile / coarse pointer: skip SplitText + sweep. Simple fade+up on the whole title.
+      // SplitText on tiny viewports is the cause of the "title appears late" issue.
+      const isMobile =
+        window.matchMedia("(max-width: 767px)").matches ||
+        window.matchMedia("(pointer: coarse)").matches;
+
+      if (isMobile) {
+        gsap.set([decorLeft, decorRight], { scaleX: 1 });
+        title.classList.add("is-ready", "sweep-done");
+
+        const tlMobile = gsap.timeline({
+          delay: 0.1,
+          onComplete: () => {
+            window.dispatchEvent(new CustomEvent("hero-entrance-done"));
+          },
+        });
+
+        tlMobile
+          .fromTo(
+            badge,
+            { y: 10, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
+          )
+          .fromTo(
+            title,
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
+            "-=0.2"
+          )
+          .fromTo(
+            subtitle,
+            { y: 16, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+            "-=0.3"
+          )
+          .to(
+            { v: 0 },
+            {
+              v: 1500,
+              duration: 1,
+              ease: "power2.out",
+              snap: { v: 1 },
+              onUpdate(this: gsap.core.Tween) {
+                const priceEl = subtitle?.querySelector<HTMLSpanElement>(".hero-price");
+                if (!priceEl) return;
+                const v = Math.round((this.targets()[0] as { v: number }).v);
+                const formatted = v.toLocaleString(locale === "en" ? "en-US" : "es-ES");
+                priceEl.textContent = locale === "en" ? `€${formatted}` : `${formatted}€`;
+              },
+            },
+            "<0.1"
+          )
+          .fromTo(
+            ctas,
+            { y: 16, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+            "-=0.3"
+          )
+          .fromTo(
+            scrollHint,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.4, ease: "power2.out" },
+            "-=0.1"
+          );
+
+        if (scrollHint) {
+          gsap.to(scrollHint, {
+            y: 6,
+            duration: 1.2,
+            ease: "power1.inOut",
+            repeat: -1,
+            yoyo: true,
+            delay: 1.5,
+          });
+        }
+
         return;
       }
 
@@ -57,6 +147,19 @@ export default function Hero({ locale }: Props) {
         type: "words",
         wordsClass: "hero-word",
       });
+
+      // Split subtitle by words too — same vocabulary as the title, lighter feel.
+      // We ignore the price span so it stays one piece for the count-up.
+      const splitSubtitle = subtitle
+        ? SplitText.create(subtitle, {
+            type: "words",
+            wordsClass: "hero-sub-word",
+            ignore: ".hero-price",
+          })
+        : null;
+      if (splitSubtitle) {
+        gsap.set(splitSubtitle.words, { y: 16, opacity: 0, force3D: true });
+      }
 
       // Set initial states — no rotateX (3D per-element rasterization is the #1 hero jank source)
       // will-change applied pre-entrance, removed onComplete
@@ -123,18 +226,42 @@ export default function Hero({ locale }: Props) {
           },
           "-=0.4"
         )
-        // Subtitle — no blur filter (blur animation repaints every frame)
+        // Subtitle reveal — first the wrapper fades, then words stagger in
         .fromTo(
           subtitle,
-          { y: 20, opacity: 0 },
+          { opacity: 0 },
+          { opacity: 1, duration: 0.4, ease: "power2.out" },
+          "-=0.3"
+        )
+        .to(
+          splitSubtitle?.words ?? [],
           {
             y: 0,
             opacity: 1,
-            duration: 0.6,
+            duration: 0.55,
             ease: "power3.out",
+            stagger: 0.025,
             force3D: true,
           },
-          "-=0.3"
+          "<"
+        )
+        // Count-up the price from 0 → 1500, in sync with the subtitle reveal
+        .to(
+          { v: 0 },
+          {
+            v: 1500,
+            duration: 1.2,
+            ease: "power2.out",
+            snap: { v: 1 },
+            onUpdate(this: gsap.core.Tween) {
+              const priceEl = subtitle?.querySelector<HTMLSpanElement>(".hero-price");
+              if (!priceEl) return;
+              const v = Math.round((this.targets()[0] as { v: number }).v);
+              const formatted = v.toLocaleString(locale === "en" ? "en-US" : "es-ES");
+              priceEl.textContent = locale === "en" ? `€${formatted}` : `${formatted}€`;
+            },
+          },
+          "<0.1"
         )
         // CTAs
         .fromTo(
@@ -202,6 +329,7 @@ export default function Hero({ locale }: Props) {
       // Cleanup SplitText + ScrollTriggers on unmount
       return () => {
         splitTitle.revert();
+        splitSubtitle?.revert();
         reactiveSweepST.kill();
         decorLinesST?.kill();
       };
@@ -291,6 +419,7 @@ export default function Hero({ locale }: Props) {
       onMouseLeave={handleMouseLeave}
       aria-label="Hero"
     >
+      <HeroVideo />
       <HeroBackground />
 
       <div className="hero-vignette" aria-hidden="true" />
@@ -325,7 +454,11 @@ export default function Hero({ locale }: Props) {
           </div>
 
           <p ref={subtitleRef} className="hero-subtitle">
-            {t("subtitle")}
+            {t("subtitlePre")}{" "}
+            <span className="hero-price" data-price-value="1500">
+              {locale === "en" ? "€0" : "0€"}
+            </span>
+            {t("subtitlePost")}
           </p>
 
           <div ref={ctasRef} className="hero-ctas">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -11,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en el País Vasco | Unax Aller",
-    en: "Web Designer in the Basque Country | Unax Aller",
-    eu: "Web Diseinatzailea Euskal Herrian | Unax Aller",
+    es: "Diseñador Web en el País Vasco",
+    en: "Web Designer in the Basque Country",
+    eu: "Web Diseinatzailea Euskal Herrian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios del País Vasco: Bizkaia, Gipuzkoa y Álava. Webs a medida con SEO local, trilingüe (es/en/eu) y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for Basque Country businesses: Bizkaia, Gipuzkoa and Álava. Custom trilingual websites (es/en/eu) with local SEO and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Euskal Herriko negozioetarako: Bizkaia, Gipuzkoa eta Araba. Hiru hizkuntzatan (es/en/eu) eta SEO lokalarekin. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios del País Vasco: Bizkaia, Gipuzkoa y Álava. Webs a medida con SEO local, trilingüe (es/en/eu) y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for Basque Country businesses: Bizkaia, Gipuzkoa and Álava. Custom trilingual websites (es/en/eu) with local SEO and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Euskal Herriko negozioetarako: Bizkaia, Gipuzkoa eta Araba. Hiru hizkuntzatan (es/en/eu) eta SEO lokalarekin. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];
@@ -46,68 +47,80 @@ export default async function PaisVascoPage({ params }: Props) {
     ? [
         {
           q: `¿Cuánto cuesta una web profesional en el ${regionName}?`,
-          a: "Desde 1.300€ IVA incluido: diseño exclusivo, hasta 5 secciones, SEO técnico, multi-idioma (es/en/eu) y despliegue. Sin suscripciones ocultas.",
+          a: "Una web a medida desde 1.500€, IVA incluido. Incluye diseño exclusivo, SEO técnico, velocidad Lighthouse 95+ y despliegue. Si necesitas algo más complejo (sistema de citas, automatizaciones, integraciones específicas) puede subir hasta unos 2.000€. Te paso un presupuesto cerrado antes de empezar, sin sorpresas.",
         },
         {
           q: "¿Puedes trabajar en Bilbao, Donostia y Vitoria?",
-          a: "Sí. Estoy en Irun y me desplazo a cualquiera de las tres capitales cuando el proyecto lo requiere. La mayoría del trabajo se coordina por videollamada, pero la reunión inicial presencial es una opción.",
+          a: "Sí. Estoy en Irun y me desplazo a cualquiera de las tres capitales cuando el proyecto lo requiere. El resto lo llevamos por WhatsApp, email o videollamada, lo que te venga bien.",
         },
         {
-          q: "¿La web está disponible en euskera?",
-          a: "Sí. El multi-idioma castellano, inglés y euskera viene de serie, con URLs separadas y hreflang correcto. Es una ventaja SEO clara para negocios del País Vasco.",
+          q: "¿La web puede estar en euskera, castellano, inglés y francés?",
+          a: "Sí. Hasta 4 idiomas (euskera, castellano, inglés y francés) y entran en el precio. Estudié en Francia hasta los 15, así que el francés lo trabajo igual de fino que el resto. URLs separadas, hreflang correcto, todo bien hecho.",
         },
         {
           q: "¿Posicionas en Google para búsquedas locales del País Vasco?",
-          a: "Sí. Configuro SEO local por provincia y ciudad, Schema.org LocalBusiness con areaServed, y optimizo la ficha Google Business Profile.",
+          a: "Sí. Configuro toda la parte técnica para que Google entienda y valore tu web. El objetivo es que tu negocio aparezca en los primeros resultados de tu nicho. Te configuro Google Business Profile y Google Search Console para que veas tú mismo cómo va.",
         },
         {
           q: "¿En cuánto tiempo estará lista la web?",
-          a: "Entre 2 y 4 semanas desde la aprobación del diseño, dependiendo del contenido y las revisiones.",
+          a: "Si no tengo otros proyectos activos, entre 1 y 2 semanas. Si los tengo, puede ser algo más. Te digo el plazo real desde el primer día.",
+        },
+        {
+          q: "¿Qué pasa con el mantenimiento después?",
+          a: "El primer año el mantenimiento son 100€ (hosting, dominio y soporte para arrancar). A partir del segundo año son 200€/año con cambios menores incluidos (textos, imágenes, ajustes). Si vas a necesitar muchos cambios al mes, lo hablamos y ajustamos. Sin permanencia.",
         },
       ]
     : locale === "en"
     ? [
         {
           q: `How much does a professional website cost in the ${regionName}?`,
-          a: "From €1,300 VAT included: exclusive design, up to 5 sections, technical SEO, multi-language (es/en/eu) and deployment. No hidden subscriptions.",
+          a: "A custom website from €1,500, VAT included. It comes with exclusive design, technical SEO, Lighthouse 95+ speed and deployment. If you need something more complex (booking system, automations, specific integrations) it can go up to around €2,000. I send you a fixed quote before we start, no surprises.",
         },
         {
           q: "Can you work in Bilbao, Donostia and Vitoria?",
-          a: "Yes. I'm based in Irun and I travel to any of the three capitals when the project requires it. Most of the work is coordinated via video call, but an initial in-person meeting is an option.",
+          a: "Yes. I'm based in Irun and I travel to any of the three capitals when the project requires it. The rest we handle via WhatsApp, email or video call, whatever works for you.",
         },
         {
-          q: "Is the website available in Basque?",
-          a: "Yes. Multi-language Spanish, English and Basque is included by default, with separate URLs and correct hreflang. A clear SEO advantage for Basque Country businesses.",
+          q: "Can the website be in Basque, Spanish, English and French?",
+          a: "Yes. Up to 4 languages (Basque, Spanish, English and French), included in the price. I studied in France until I was 15, so French I treat with the same care as the rest. Separate URLs, proper hreflang, everything done right.",
         },
         {
           q: "Do you rank on Google for Basque Country local searches?",
-          a: "Yes. I configure local SEO per province and city, Schema.org LocalBusiness with areaServed, and I optimize the Google Business Profile listing.",
+          a: "Yes. I set up all the technical work that helps Google understand and value your site. The goal is for your business to show up in the top results of your niche. I configure your Google Business Profile and Google Search Console so you can see how it's doing yourself.",
         },
         {
           q: "How long will the website take?",
-          a: "Between 2 and 4 weeks from design approval, depending on content and reviews.",
+          a: "If I don't have other active projects, between 1 and 2 weeks. If I do, it can take a bit longer. I tell you the real timeline from day one.",
+        },
+        {
+          q: "What about maintenance afterwards?",
+          a: "The first year maintenance is €100 (hosting, domain, onboarding support). From the second year on it's €200/year, with minor changes included (text, images, tweaks) and ongoing support. If you'll need a lot of changes per month, we adjust. No lock-in.",
         },
       ]
     : [
         {
           q: `Zenbat kostatzen da web profesional bat ${regionName}n?`,
-          a: "1.300€-tik BEZ barne: diseinu esklusiboa, 5 atal arte, SEO teknikoa, eleaniztasuna (es/en/eu) eta hedapena. Harpidetza ezkuturik gabe.",
+          a: "Neurrira egindako webgune bat 1.500€-tik, BEZ barne. Diseinu esklusiboa, SEO teknikoa, Lighthouse 95+ abiadura eta hedapena barne. Zerbait konplexuagoa behar baduzu (hitzorduen sistema, automatizazioak, integrazio espezifikoak) 2.000€ ingurura igo daiteke. Hasi aurretik aurrekontu itxia ematen dizut, ezustekorik gabe.",
         },
         {
           q: "Bilbon, Donostian eta Gasteizen egin dezakezu lan?",
-          a: "Bai. Irunen nago eta hiru hiriburuetara joaten naiz proiektuak hala eskatzen duenean. Lan gehiena bideo-deiz koordinatzen da, baina hasierako aurrez aurreko bilera aukera bat da.",
+          a: "Bai. Irunen nago eta hiru hiriburuetara joaten naiz proiektuak hala eskatzen duenean. Gainerakoa WhatsApp, posta elektroniko edo bideo-deiz, ondo datorkizun moduan.",
         },
         {
-          q: "Weba euskaraz eskuragarri dago?",
-          a: "Bai. Gaztelania, ingelesa eta euskara lehenetsita datoz, URL bereiziekin eta hreflang zuzenarekin. SEO abantaila argia Euskal Herriko negozioentzat.",
+          q: "Webgunea euskaraz, gaztelaniaz, ingelesez eta frantsesez egon daiteke?",
+          a: "Bai. 4 hizkuntzatara arte (euskara, gaztelania, ingelesa eta frantsesa), eta prezioan sartzen da. 15 urte bete arte Frantzian ikasi nuen, beraz frantsesa beste hizkuntzen arreta berarekin lantzen dut. URL bereiziak, hreflang zuzena, dena ondo egina.",
         },
         {
           q: "Euskal Herriko bilaketa lokaletarako posizionatzen duzu?",
-          a: "Bai. SEO lokala konfiguratzen dut lurraldez lurralde eta hiriz hiri, Schema.org LocalBusiness areaServed-ekin, eta Google Business Profile fitxa optimizatzen dut.",
+          a: "Bai. Atal tekniko osoa konfiguratzen dut Googlek zure weba ulertu eta baloratzeko. Helburua zure negozioa zure nitxoko lehen emaitzetan agertzea da. Google Business Profile eta Google Search Console konfiguratzen dizkizut, zuk zeuk nola doan ikus dezazun.",
         },
         {
           q: "Zenbat denboran egongo da prest?",
-          a: "Diseinua onartu ondoren 2 eta 4 aste artean, edukiaren eta berrikuspenen arabera.",
+          a: "Beste proiektu aktiborik ez badut, 1 eta 2 aste artean. Baditudanean, zerbait gehiago izan daiteke. Lehen egunetik benetako epea esaten dizut.",
+        },
+        {
+          q: "Zer gertatzen da gero mantentze-lanekin?",
+          a: "Lehen urteko mantentze-lana 100€ da (hosting, domeinua, hasierako laguntza). Bigarren urtetik 200€/urtean da, aldaketa txikiak (testuak, irudiak, doikuntzak) eta laguntza barne. Hilean aldaketa asko behar badituzu, egokitzen dugu. Iraupenik gabe.",
         },
       ];
 
@@ -197,7 +210,7 @@ export default async function PaisVascoPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="pt-32 pb-20 md:pt-44 md:pb-28" style={{ backgroundColor: "#faf9f4" }}>
+      <section className="pt-32 pb-20 md:pt-44 md:pb-28" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="container-xl max-w-3xl">
           <Breadcrumbs
             items={[
@@ -212,9 +225,20 @@ export default async function PaisVascoPage({ params }: Props) {
             ]}
           />
 
+          <div className="city-hero-author" aria-hidden="true">
+            <Image
+              src="/images/unax-square-no-bg.png"
+              alt=""
+              width={600}
+              height={600}
+              sizes="(max-width: 768px) 56px, 72px"
+              priority
+            />
+          </div>
+
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6"
-            style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+            style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
           >
             {locale === "es"
               ? `Diseñador web en el ${regionName}`
@@ -224,7 +248,7 @@ export default async function PaisVascoPage({ params }: Props) {
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed mb-10"
-            style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
+            style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}
           >
             {locale === "es"
               ? `Soy Unax Aller, diseñador web freelance basado en Irun con clientes en Bizkaia, Gipuzkoa y Álava. Creo webs trilingües (castellano, inglés y euskera) que posicionan en Google y convierten visitantes en clientes.`
@@ -235,7 +259,7 @@ export default async function PaisVascoPage({ params }: Props) {
           <Link
             href={`/${locale}/contacto`}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-            style={{ backgroundColor: "#061b0e", color: "#ffffff", fontFamily: "Manrope, sans-serif" }}
+            style={{ backgroundColor: "var(--color-ink)", color: "var(--color-bg)", fontFamily: "Manrope, sans-serif" }}
           >
             {locale === "es" ? "Solicitar presupuesto gratis" : locale === "en" ? "Request a free quote" : "Doako aurrekontua eskatu"}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -245,12 +269,12 @@ export default async function PaisVascoPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#efeee9" }}>
+      <section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-bg-muted)" }}>
         <div className="container-xl max-w-3xl">
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-8"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
             >
               {locale === "es"
                 ? `¿Por qué un diseñador local del ${regionName}?`
@@ -263,15 +287,15 @@ export default async function PaisVascoPage({ params }: Props) {
                 <div
                   key={i}
                   className="p-6 rounded-xl"
-                  style={{ backgroundColor: "#faf9f4", border: "1px solid #e3e3de" }}
+                  style={{ backgroundColor: "var(--color-bg-alt)", border: "1px solid var(--color-line)" }}
                 >
                   <h3
                     className="text-lg font-medium mb-2"
-                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+                    style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}>
                     {item.desc}
                   </p>
                 </div>
@@ -281,12 +305,12 @@ export default async function PaisVascoPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#faf9f4" }}>
+      <section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="container-xl max-w-3xl">
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-8"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
             >
               {locale === "es"
                 ? "Cubro las tres capitales vascas"
@@ -300,23 +324,23 @@ export default async function PaisVascoPage({ params }: Props) {
                   key={c.slug}
                   href={`/${locale}/${c.slug}`}
                   className="block p-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ backgroundColor: "#f5f4ef", border: "1px solid #e3e3de" }}
+                  style={{ backgroundColor: "var(--color-bg-alt)", border: "1px solid var(--color-line)" }}
                 >
                   <div
                     className="text-xs uppercase tracking-widest mb-2"
-                    style={{ color: "#4d6453", fontFamily: "Manrope, sans-serif" }}
+                    style={{ color: "var(--color-accent)", fontFamily: "Manrope, sans-serif" }}
                   >
                     {c.region}
                   </div>
                   <div
                     className="text-xl font-medium"
-                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+                    style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
                   >
                     {c.name}
                   </div>
                   <div
                     className="text-sm mt-2"
-                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
+                    style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}
                   >
                     {locale === "es"
                       ? `Ver servicios para ${c.name}`
@@ -331,12 +355,12 @@ export default async function PaisVascoPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#efeee9" }}>
+      <section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-bg-muted)" }}>
         <div className="container-xl max-w-3xl">
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-8"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
             >
               {locale === "es" ? "Preguntas frecuentes" : locale === "en" ? "Frequently asked questions" : "Ohiko galderak"}
             </h2>
@@ -345,24 +369,24 @@ export default async function PaisVascoPage({ params }: Props) {
                 <details
                   key={i}
                   className="p-5 rounded-xl group"
-                  style={{ backgroundColor: "#faf9f4", border: "1px solid #e3e3de" }}
+                  style={{ backgroundColor: "var(--color-bg-alt)", border: "1px solid var(--color-line)" }}
                 >
                   <summary
                     className="cursor-pointer text-base font-medium list-none flex items-start justify-between gap-4"
-                    style={{ fontFamily: "Newsreader, Georgia, serif", color: "#061b0e" }}
+                    style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
                   >
                     <span>{item.q}</span>
                     <span
                       aria-hidden="true"
                       className="flex-shrink-0 transition-transform group-open:rotate-45 text-xl leading-none"
-                      style={{ color: "#4d6453" }}
+                      style={{ color: "var(--color-accent)" }}
                     >
                       +
                     </span>
                   </summary>
                   <p
                     className="text-sm leading-relaxed mt-3"
-                    style={{ color: "#434843", fontFamily: "Manrope, sans-serif" }}
+                    style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}
                   >
                     {item.a}
                   </p>
@@ -373,12 +397,12 @@ export default async function PaisVascoPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-20" style={{ backgroundColor: "#061b0e" }}>
+      <section className="py-20" style={{ backgroundColor: "var(--color-bg-alt)" }}>
         <div className="container-xl text-center">
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-6"
-              style={{ fontFamily: "Newsreader, Georgia, serif", color: "#b4cdb8" }}
+              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-accent)" }}
             >
               {locale === "es"
                 ? `¿Tienes un negocio en el ${regionName}?`
@@ -386,13 +410,13 @@ export default async function PaisVascoPage({ params }: Props) {
                 ? `Have a business in the ${regionName}?`
                 : `${regionName}n negozioa al duzu?`}
             </h2>
-            <p className="mb-8 text-sm" style={{ color: "#737973", fontFamily: "Manrope, sans-serif" }}>
+            <p className="mb-8 text-sm" style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}>
               {locale === "es" ? "Consulta gratuita de 30 minutos. Sin compromiso." : locale === "en" ? "Free 30-minute consultation. No commitment." : "30 minutuko doako kontsulta. Konpromisorik gabe."}
             </p>
             <Link
               href={`/${locale}/contacto`}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-              style={{ backgroundColor: "#b4cdb8", color: "#061b0e", fontFamily: "Manrope, sans-serif" }}
+              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-accent-contrast)", fontFamily: "Manrope, sans-serif" }}
             >
               {locale === "es" ? "Hablar con Unax" : locale === "en" ? "Talk to Unax" : "Unaxekin hitz egin"}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">

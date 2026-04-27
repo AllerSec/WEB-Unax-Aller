@@ -67,15 +67,15 @@ export default function NotFound() {
     <div
       ref={containerRef}
       className="min-h-screen flex flex-col items-center justify-center text-center px-6"
-      style={{ backgroundColor: "#faf9f4" }}
+      style={{ backgroundColor: "var(--color-bg)" }}
     >
       {/* 404 number */}
       <div className="nf-number mb-8" style={{ opacity: 0 }}>
         <span
           className="text-[120px] md:text-[180px] font-light leading-none select-none"
           style={{
-            fontFamily: "Newsreader, Georgia, serif",
-            color: "#e3e3de",
+            fontFamily: "Fraunces, Georgia, serif",
+            color: "var(--color-line-strong)",
             display: "block",
           }}
           aria-hidden="true"
@@ -88,12 +88,12 @@ export default function NotFound() {
       <div className="mb-6">
         <div
           className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto"
-          style={{ backgroundColor: "#061b0e" }}
+          style={{ backgroundColor: "#1b3022" }}
         >
           <span
             style={{
               fontFamily: "Georgia, serif",
-              color: "#b4cdb8",
+              color: "var(--color-accent)",
               fontSize: "0.8rem",
             }}
           >
@@ -105,8 +105,8 @@ export default function NotFound() {
       <h1
         className="nf-title text-2xl md:text-3xl font-light mb-4"
         style={{
-          fontFamily: "Newsreader, Georgia, serif",
-          color: "#061b0e",
+          fontFamily: "Fraunces, Georgia, serif",
+          color: "var(--color-ink)",
           opacity: 0,
         }}
       >
@@ -116,7 +116,7 @@ export default function NotFound() {
       <p
         className="nf-sub text-base mb-8 max-w-md"
         style={{
-          color: "#434843",
+          color: "var(--color-ink-muted)",
           fontFamily: "Manrope, sans-serif",
           opacity: 0,
         }}
@@ -129,8 +129,8 @@ export default function NotFound() {
           href={`/${activeLocale}`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
           style={{
-            backgroundColor: "#061b0e",
-            color: "#ffffff",
+            backgroundColor: "var(--color-ink)",
+            color: "var(--color-bg)",
             fontFamily: "Manrope, sans-serif",
           }}
         >
@@ -143,8 +143,8 @@ export default function NotFound() {
           href={`/${activeLocale}/contacto`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
           style={{
-            border: "1.5px solid #c3c8c1",
-            color: "#061b0e",
+            border: "1.5px solid var(--color-line-strong)",
+            color: "var(--color-ink)",
             fontFamily: "Manrope, sans-serif",
           }}
         >

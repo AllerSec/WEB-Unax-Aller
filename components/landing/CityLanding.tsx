@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 
@@ -107,7 +108,17 @@ export default function CityLanding({
               { name: content.breadcrumbHere },
             ]}
           />
-          <div className="page-hero-inner">
+          <div className="page-hero-inner city-hero-inner">
+            <div className="city-hero-author" aria-hidden="true">
+              <Image
+                src="/images/unax-square-no-bg.png"
+                alt=""
+                width={600}
+                height={600}
+                sizes="(max-width: 768px) 56px, 72px"
+                priority
+              />
+            </div>
             <span className="page-hero-eyebrow">{cityName}</span>
             <h1 id="hero-title" className="page-hero-title">{content.heroTitle}</h1>
             <p className="page-hero-subtitle">{content.intro}</p>

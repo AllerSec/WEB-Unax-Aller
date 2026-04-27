@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Eibar, Gipuzkoa | Unax Aller",
-    en: "Web Designer in Eibar, Gipuzkoa | Unax Aller",
-    eu: "Web Diseinatzailea Eibarren, Gipuzkoan | Unax Aller",
+    es: "Diseñador Web en Eibar, Gipuzkoa",
+    en: "Web Designer in Eibar, Gipuzkoa",
+    eu: "Web Diseinatzailea Eibarren, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para la industria, máquina-herramienta y comercio de Eibar. Webs a medida, SEO local y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for Eibar's industry, machine-tool and retail. Custom websites, local SEO and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Eibarreko industria, makina-erreminta eta merkataritzarako. Neurrizko webguneak. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para la industria, máquina-herramienta y comercio de Eibar. Webs a medida, SEO local y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for Eibar's industry, machine-tool and retail. Custom websites, local SEO and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Eibarreko industria, makina-erreminta eta merkataritzarako. Neurrizko webguneak. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];

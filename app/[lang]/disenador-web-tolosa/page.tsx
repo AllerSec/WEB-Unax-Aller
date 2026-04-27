@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Tolosa, Gipuzkoa | Unax Aller",
-    en: "Web Designer in Tolosa, Gipuzkoa | Unax Aller",
-    eu: "Web Diseinatzailea Tolosan, Gipuzkoan | Unax Aller",
+    es: "Diseñador Web en Tolosa, Gipuzkoa",
+    en: "Web Designer in Tolosa, Gipuzkoa",
+    eu: "Web Diseinatzailea Tolosan, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Tolosa: gastronomía, industria papelera, comercio y servicios. Webs a medida, SEO local. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for Tolosa businesses: gastronomy, paper industry, retail and services. Custom websites, local SEO. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Tolosako negozioetarako: gastronomia, paper industria, merkataritza eta zerbitzuak. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Tolosa: gastronomía, industria papelera, comercio y servicios. Webs a medida, SEO local. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for Tolosa businesses: gastronomy, paper industry, retail and services. Custom websites, local SEO. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Tolosako negozioetarako: gastronomia, paper industria, merkataritza eta zerbitzuak. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];

@@ -1,17 +1,20 @@
-const en = {
+﻿const en = {
   nav: {
     inicio: "Home",
     servicios: "Services",
     precios: "Pricing",
-    sobreNosotros: "About",
+    sobreNosotros: "About me",
     contacto: "Contact",
     consultaGratuita: "Free Consultation",
   },
   hero: {
     title: "Premium web design and development that elevates your business.",
     subtitle:
-      "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From €1,300, VAT included.",
-    cta: "Free 24h demo of your website",
+      "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From €1,500, VAT included.",
+    subtitlePre:
+      "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From",
+    subtitlePost: ", VAT included.",
+    cta: "Free 48h demo of your website",
     cta2: "View Plans",
     badge: "Irun · Basque Country · Spain",
     scrollHint: "Scroll to explore",
@@ -26,38 +29,28 @@ const en = {
     stat4: { value: "5★", label: "Google rating" },
   },
   services: {
-    title: "Where aesthetics meets function.",
+    title: "Four kinds of project, one person behind them.",
     subtitle:
-      "Every project is an opportunity to create something extraordinary. We combine strategic design with cutting-edge technology.",
-    design: {
-      title: "Bespoke UI/UX Design",
+      "Every project is different. These are the four scenarios I fit best in. If your case isn't here, write me anyway and we'll talk.",
+    localBusiness: {
+      title: "Website for a local business",
       description:
-        "Unique interfaces that reflect your brand identity. Every pixel is intentional, every interaction is memorable.",
+        "Hair salons, workshops, restaurants, shops. A site that gives a professional image, shows up on Google Maps and brings in clients from the neighbourhood. Built so that when someone searches you on their phone, they find you and feel like walking in.",
     },
-    performance: {
-      title: "Performance-First",
+    clinic: {
+      title: "Website for a clinic or private practice",
       description:
-        "Sites that load in under 2 seconds. Google Core Web Vitals in the green. Speed that converts visitors into clients.",
+        "Dental clinics, physio, aesthetics, private practices. What matters most here is trust: clean photography, clear info on services and pricing, a proper privacy policy and a booking system if you need one.",
     },
-    seo: {
-      title: "Full Technical SEO",
+    multilingual: {
+      title: "Multi-language site for a company",
       description:
-        "Search-engine-optimised architecture from day one. Schema.org, hreflang, Core Web Vitals and content strategy.",
+        "Engineering firms, consultancies, businesses that export. Up to 4 languages (Basque, Spanish, English, French), plenty of subpages, serious technical SEO and architecture ready to grow. Built for companies that take their site seriously.",
     },
-    mobile: {
-      title: "Mobile-First Approach",
+    redesign: {
+      title: "Redesign of an existing site",
       description:
-        "70% of your customers find you on mobile. We design for that reality, scaling up to larger screens.",
-    },
-    animation: {
-      title: "Advanced Animations",
-      description:
-        "GSAP, Framer Motion and WebGL for experiences that surprise. Animations are not decoration — they are communication.",
-    },
-    multilang: {
-      title: "Multi-language",
-      description:
-        "Reach international markets with support for up to 3 languages. i18n architecture built from the ground up.",
+        "You already have a website but you're a bit embarrassed by it. Or it's slow. Or it doesn't convert. Or it was built five years ago in WordPress and nobody touches it. I rebuild it from scratch, keeping what works and fixing the rest.",
     },
     cta: "View all services",
     learnMore: "Learn more",
@@ -95,7 +88,7 @@ const en = {
       {
         name: "Complete Plan",
         subtitle: "Bespoke Web",
-        price: "€1,300",
+        price: "€1,500",
         description:
           "Everything you need to launch a professional, fast, converting site. VAT included.",
         features: [
@@ -104,74 +97,74 @@ const en = {
           "Full technical SEO + Google Analytics",
           "Multi-language if needed",
           "Mobile-first from the first pixel",
-          "Domain, hosting and SSL for the first year",
+          "Optional maintenance from €100/year (domain, hosting, support)",
         ],
       },
     ],
   },
   about: {
-    title: "About Unax Aller",
-    subtitle: "Web designer in Irun, creating websites that convert.",
+    title: "About me",
+    subtitle: "Hi, I'm Unax. I design and build websites in Irun while I study.",
     intro:
-      "I'm Unax Aller, freelance web designer and developer in Irun, Basque Country. I create custom digital experiences for Basque businesses that not only look great, but convert visitors into clients.",
+      "I build websites for businesses and clinics: full SEO, multi-language, plenty of subpages, careful design. Just me, no agencies in the middle, with real drive and attention to the detail.",
     profile: {
       name: "Unax Aller Fernández",
       location: "Irun, Gipuzkoa · Basque Country",
       role: "Freelance Web Designer & Developer",
       education: "BSc Computer Engineering — Universidad Alfonso X el Sabio",
       linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
-      languages: "Spanish (native) · French (professional) · English (professional) · Basque (basic)",
-      bio: "Computer Engineering student with a passion for web design. I combine solid technical knowledge with an eye for design to create websites that stand out in the Basque Country market.",
+      languages: "Spanish (native) · French (bilingual) · English (professional) · Basque (basic)",
+      bio: "Computer Engineering student and freelance. I build websites for businesses and clinics in the Basque Country with real professionalism and real drive, no need to be an agency. I studied in France until I was 15, did Erasmus, and worked in the US this summer. Stepping out of my comfort zone took most of the fear away and gave me a lot of energy to keep learning.",
     },
     values: {
-      title: "Our Values",
+      title: "How I work",
       craft: {
-        title: "Digital Craftsmanship",
+        title: "Obsessed with the detail",
         description:
-          "Every project is treated with the same care and dedication that a craftsman puts into their work. There are no shortcuts to excellence.",
+          "If I need hours to fix a small thing, I'll take them without hesitation. I notice files that aren't visible at first glance, but they're there.",
       },
       results: {
-        title: "Results-Oriented",
+        title: "An aesthetic you feel on entry",
         description:
-          "Beautiful design without conversions is pointless. Every design decision is backed by data and aligned with your business goals.",
+          "I think a lot about what your client will feel when they land on your site. The font, the palette, the microanimations. That they're surprised. That it flows. That it feels like something they need.",
       },
       transparency: {
-        title: "Full Transparency",
+        title: "No middlemen",
         description:
-          "Direct communication, clear budgets and met deadlines. You know exactly what you are buying and when you will receive it.",
+          "You talk to me from start to finish. No agencies, no departments. It's more personal, and to me far more professional than going through a chain of people who don't know your project.",
       },
       innovation: {
-        title: "Constant Innovation",
+        title: "Today's tools, not yesterday's",
         description:
-          "We closely follow the latest trends in design and technology so your website is always at the cutting edge.",
+          "I obsess over staying up to date. Next.js, AI tools, the latest in technical SEO. No templates, no neglected WordPress.",
       },
     },
     process: {
-      title: "Our Process",
+      title: "How a project goes",
       steps: [
         {
           number: "01",
-          title: "Discovery",
+          title: "I listen",
           description:
-            "We analyse your business, competitors and goals. One week of deep research.",
+            "A call or a coffee. You tell me what you need, who you want to attract, what image you want to give. I ask a lot.",
         },
         {
           number: "02",
           title: "Design",
           description:
-            "We create wireframes and the full visual design. We iterate until you are satisfied.",
+            "I think first about what your client will feel when they land on the site. Font, palette, microanimations. We iterate until it fits.",
         },
         {
           number: "03",
           title: "Development",
           description:
-            "We implement with the latest technologies. Performance and SEO from the first commit.",
+            "I code the site by hand with today's tools. Technical SEO, multi-language if you need it, and that it flows on any device.",
         },
         {
           number: "04",
           title: "Launch",
           description:
-            "Deploy, thorough testing and training. Your website ready to conquer the market.",
+            "We push the site, set up analytics and the domain. I show you how the traffic looks the first weeks. If anything comes up, I'm still here.",
         },
       ],
     },
@@ -193,7 +186,7 @@ const en = {
         "Message sent! We will contact you within 24 hours.",
       error: "Error sending. Please try again.",
       budgetOptions: [
-        "€1,300 (standard plan)",
+        "€1,500 (standard plan)",
         "€1,500 – €2,500",
         "More than €2,500",
         "Not sure yet",
@@ -201,7 +194,7 @@ const en = {
     },
     info: {
       location: "Irun, Gipuzkoa · Basque Country",
-      email: "hola@unaxaller.com",
+      email: "contacto@unaxaller.com",
       response: "Response in < 24h",
       availability: "Mon – Fri · 9:00 – 18:00",
     },
@@ -247,16 +240,6 @@ const en = {
     backToBlog: "Back to blog",
     publishedOn: "Published on",
   },
-  casos: {
-    title: "Case Studies",
-    subtitle: "Real projects with real results.",
-    problem: "The problem",
-    solution: "The solution",
-    results: "Results",
-    metrics: "Metrics",
-    viewAll: "View all cases",
-    backToCasos: "Back to cases",
-  },
   faqServicios: {
     title: "Frequently asked questions",
     items: [
@@ -270,10 +253,10 @@ const en = {
   faqPrecios: {
     title: "Pricing questions",
     items: [
-      { q: "Why does it cost €1,300 VAT included?", a: "It's the minimum price to do quality work: custom design, bespoke development, technical SEO and hosting for the first year. No cutting corners." },
+      { q: "Why does it cost €1,500 VAT included?", a: "It's the minimum price to do quality work: custom design, bespoke development, technical SEO and hosting for the first year. No cutting corners." },
       { q: "Are there additional costs?", a: "There are no hidden costs. The only recurring cost is domain and hosting renewal from the second year onwards (approximately €100-150/year)." },
       { q: "Can I pay in instalments?", a: "Yes. The usual payment is 50% at the start and 50% on delivery. For larger projects, we can negotiate payment plans." },
-      { q: "What exactly does the price include?", a: "Custom UI/UX design, Next.js development, complete technical SEO, contact form, up to 3 languages, first-year hosting and post-launch support." },
+      { q: "What exactly does the price include?", a: "Custom UI/UX design, Next.js development, complete technical SEO, contact form, up to 4 languages, and optional maintenance from €100 the first year (hosting, domain, support)." },
       { q: "Can I have a free consultation before deciding?", a: "Yes, I offer a free 30-minute video call consultation to understand your project and see if we're a good match." },
     ],
   },

@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
-import ContactStats from "@/components/contact/ContactStats";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
@@ -12,9 +11,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Contacto — Agenda tu Consulta Gratuita | Unax Aller",
-    en: "Contact — Book Your Free Consultation | Unax Aller",
-    eu: "Kontaktua — Doako Kontsulta Antolatu | Unax Aller",
+    es: "Contacto — Agenda tu Consulta Gratuita",
+    en: "Contact — Book Your Free Consultation",
+    eu: "Kontaktua — Doako Kontsulta Antolatu",
   };
   const descriptions: Record<string, string> = {
     es: "Cuéntanos tu proyecto. Respondemos en menos de 24 horas con una propuesta inicial gratuita. Diseño y desarrollo web premium.",
@@ -61,7 +60,7 @@ export default async function ContactoPage({ params }: Props) {
         </svg>
       ),
       label: t("info.email"),
-      href: "mailto:hola@unaxaller.com",
+      href: "mailto:contacto@unaxaller.com",
     },
     {
       icon: (
@@ -98,7 +97,7 @@ export default async function ContactoPage({ params }: Props) {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://unaxaller.com/#business",
         name: "Unax Aller — Diseñador Web",
-        email: "hola@unaxaller.com",
+        email: "contacto@unaxaller.com",
         url: "https://unaxaller.com",
         address: {
           "@type": "PostalAddress",
@@ -162,8 +161,6 @@ export default async function ContactoPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      <ContactStats />
 
       <section aria-label="Contact form">
         <div className="container-xl">

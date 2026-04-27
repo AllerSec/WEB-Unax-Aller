@@ -12,14 +12,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Lasarte-Oria, Gipuzkoa | Unax Aller",
-    en: "Web Designer in Lasarte-Oria, Gipuzkoa | Unax Aller",
-    eu: "Web Diseinatzailea Lasarte-Orian | Unax Aller",
+    es: "Diseñador Web en Lasarte-Oria, Gipuzkoa",
+    en: "Web Designer in Lasarte-Oria, Gipuzkoa",
+    eu: "Web Diseinatzailea Lasarte-Orian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Lasarte-Oria. A 28 km de Irun. Webs a medida, SEO local y rendimiento. Desde 1.300€ IVA incluido.",
-    en: "Freelance web designer for businesses in Lasarte-Oria. 28 km from Irun. Custom websites, local SEO and performance. From €1,300 VAT included.",
-    eu: "Web diseinatzaile freelance Lasarte-Oriako negozioetarako. Iruntik 28 kmra. Neurrizko webguneak. 1.300€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Lasarte-Oria. A 28 km de Irun. Webs a medida, SEO local y rendimiento. Desde 1.500€ IVA incluido.",
+    en: "Freelance web designer for businesses in Lasarte-Oria. 28 km from Irun. Custom websites, local SEO and performance. From €1,500 VAT included.",
+    eu: "Web diseinatzaile freelance Lasarte-Oriako negozioetarako. Iruntik 28 kmra. Neurrizko webguneak. 1.500€-tik BEZ barne.",
   };
 
   const title = titles[locale];

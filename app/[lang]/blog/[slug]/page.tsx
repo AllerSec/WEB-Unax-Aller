@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
 
-  const title = `${post.titles[locale]} | Unax Aller`;
+  const title = post.titles[locale];
   const description = post.descriptions[locale];
 
   return {
@@ -37,7 +37,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `https://unaxaller.com/${locale}/blog/${slug}`,
       languages: hreflangAlternates(`/blog/${slug}`),
     },
-    keywords: post.keywords[locale],
     openGraph: buildOpenGraph({
       locale,
       title,

@@ -16,6 +16,6 @@ export default async function Image({ params }: Props) {
     eyebrow: locale === "es" ? "Diseñador web local" : locale === "en" ? "Local web designer" : "Tokiko web diseinatzailea",
     line1: locale === "es" ? `Webs a medida en` : locale === "en" ? `Custom websites in` : `Neurrira egindako webguneak`,
     line2: city,
-    subtitle: locale === "es" ? "Desde 1.300€ IVA inc. · unaxaller.com" : locale === "en" ? "From €1,300 VAT inc. · unaxaller.com" : "1.300€-tik BEZ barne · unaxaller.com",
+    subtitle: locale === "es" ? "Desde 1.500€ IVA inc. · unaxaller.com" : locale === "en" ? "From €1,500 VAT inc. · unaxaller.com" : "1.500€-tik BEZ barne · unaxaller.com",
   });
 }
