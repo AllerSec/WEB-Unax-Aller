@@ -6,10 +6,10 @@ import SocialProof from "@/components/home/SocialProof";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
 import PricingCards from "@/components/pricing/PricingCards";
+import ProjectsBoard from "@/components/home/ProjectsBoard";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import SectionDivider from "@/components/shared/SectionDivider";
 import Link from "next/link";
-import { siteConfig } from "@/lib/utils";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 import { cityLandings } from "@/lib/data/city-landings";
 
@@ -40,7 +40,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: hreflangAlternates(""),
     },
     openGraph: buildOpenGraph({ locale, title, description, path: "" }),
-    twitter: buildTwitter({ title, description }),
+    twitter: buildTwitter({ title, description, locale, path: "" }),
+    other: {
+      // Geo signals belong on pages where the business location is the
+      // primary entity — the home does that. City landings declare areaServed
+      // through schema instead, so we don't pin them all to Irun coordinates.
+      "geo.region": "ES-PV",
+      "geo.placename": "Irun, Gipuzkoa",
+      "geo.position": "43.3390;-1.7892",
+      ICBM: "43.3390, -1.7892",
+    },
   };
 }
 
@@ -58,6 +67,10 @@ export default async function HomePage({ params }: Props) {
         name: "Unax Aller — Diseñador Web",
         url: "https://unaxaller.com",
         logo: "https://unaxaller.com/favicon.svg",
+        image: [
+          "https://unaxaller.com/es/opengraph-image",
+          "https://unaxaller.com/favicon.svg",
+        ],
         description:
           "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento.",
         address: {
@@ -73,7 +86,7 @@ export default async function HomePage({ params }: Props) {
           latitude: 43.339,
           longitude: -1.7892,
         },
-        priceRange: "€1500-€3000",
+        priceRange: "€1500-€2000",
         email: "contacto@unaxaller.com",
         telephone: "+34620909916",
         openingHoursSpecification: [
@@ -136,13 +149,14 @@ export default async function HomePage({ params }: Props) {
             {
               "@type": "Offer",
               name: "Plan Completo",
-              price: "1500",
               priceCurrency: "EUR",
               priceSpecification: {
-                "@type": "UnitPriceSpecification",
-                price: "1500",
+                "@type": "PriceSpecification",
+                minPrice: "1500",
+                maxPrice: "2000",
                 priceCurrency: "EUR",
-                description: "IVA incluido",
+                valueAddedTaxIncluded: true,
+                description: "Desde 1.500€ IVA incluido. Hasta 2.000€ si requiere integraciones complejas.",
               },
             },
           ],
@@ -338,6 +352,11 @@ export default async function HomePage({ params }: Props) {
             </div>
           </div>
         </section>
+      </AnimatedSection>
+
+      {/* Projects board — corkboard with polaroids */}
+      <AnimatedSection>
+        <ProjectsBoard locale={locale} />
       </AnimatedSection>
 
       {/* Pricing preview */}

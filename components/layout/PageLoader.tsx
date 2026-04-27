@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useSyncExternalStore } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -8,20 +8,30 @@ gsap.registerPlugin(useGSAP);
 
 type Mode = "pending" | "animate" | "skip";
 
+// External store: reads sessionStorage to decide whether the loader plays.
+// On first hydration the value is "pending"; once subscribed (post-mount)
+// we either mark "skip" (already visited this session) or "animate" and
+// flag the visit so subsequent navigations skip it.
+const subscribe = () => () => {};
+const getServerSnapshot = (): Mode => "pending";
+const getClientSnapshot = (): Mode => {
+  try {
+    if (sessionStorage.getItem("ua-visited")) return "skip";
+    sessionStorage.setItem("ua-visited", "1");
+    return "animate";
+  } catch {
+    return "animate";
+  }
+};
+
 export default function PageLoader() {
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
-  const [mode, setMode] = useState<Mode>("pending");
-
-  useEffect(() => {
-    const hasVisited = sessionStorage.getItem("ua-visited");
-    if (hasVisited) {
-      setMode("skip");
-    } else {
-      sessionStorage.setItem("ua-visited", "1");
-      setMode("animate");
-    }
-  }, []);
+  const mode = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
 
   useGSAP(
     () => {
@@ -49,6 +59,9 @@ export default function PageLoader() {
           { scale: 0.8, opacity: 0, duration: 0.4, ease: "power3.in" },
           "+=0.1"
         )
+        // Release pointer events before the slide-out so any tap during the
+        // 0.7s exit animation reaches the page underneath (avoids INP hits).
+        .set(container, { pointerEvents: "none" })
         .to(
           container,
           { yPercent: -100, duration: 0.7, ease: "power4.inOut" },

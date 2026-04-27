@@ -2,6 +2,7 @@
   nav: {
     inicio: "Home",
     servicios: "Services",
+    proyectos: "Work",
     precios: "Pricing",
     sobreNosotros: "About me",
     contacto: "Contact",
@@ -170,27 +171,39 @@
     },
     cta: "Let's work together",
   },
+  projects: {
+    eyebrow: "Work",
+    title: "Hand-built websites for real clients.",
+    subtitle:
+      "Every site is coded from scratch with the user in mind. Here are some recent cases — feel free to visit them.",
+    sectorLabel: "Sector",
+    cityLabel: "Location",
+    yearLabel: "Year",
+    visitSite: "Visit site",
+    backToProjects: "Back to projects",
+    relatedTitle: "More projects",
+    tasksTitle: "What we did",
+    aboutTitle: "About the project",
+    testimonialTitle: "What the client says",
+    ctaTitle: "Got a project in mind?",
+    ctaSubtitle:
+      "If you want a site built with this level of care for your business, let's talk. I reply within 24 hours.",
+    ctaButton: "Start your project",
+  },
   contact: {
     title: "Let's start building.",
     subtitle:
       "Tell us about your project. We respond in less than 24 hours with a free initial proposal.",
     form: {
-      name: "Your name",
-      email: "Professional email",
-      company: "Company (optional)",
-      budget: "Approximate budget",
-      message: "Tell us about your project",
-      submit: "Send message",
+      name: "Full name",
+      email: "Email address",
+      phone: "WhatsApp number",
+      privacy: "I accept the privacy policy",
+      submit: "Request information",
       sending: "Sending...",
       success:
         "Message sent! We will contact you within 24 hours.",
       error: "Error sending. Please try again.",
-      budgetOptions: [
-        "€1,500 (standard plan)",
-        "€1,500 – €2,500",
-        "More than €2,500",
-        "Not sure yet",
-      ],
     },
     info: {
       location: "Irun, Gipuzkoa · Basque Country",

@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
       dateModified: post.updatedAt ?? post.publishedAt,
       url: `https://unaxaller.com/${locale}/blog/${post.slug}`,
       mainEntityOfPage: { "@type": "WebPage", "@id": `https://unaxaller.com/${locale}/blog/${post.slug}` },
-      image: `https://unaxaller.com/opengraph-image`,
+      image: `https://unaxaller.com/${locale}/blog/${post.slug}/opengraph-image`,
       inLanguage: locale,
       wordCount: post.content[locale].split(/\s+/).length,
       timeRequired: `PT${post.readingTime}M`,

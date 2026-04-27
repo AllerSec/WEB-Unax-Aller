@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 interface Service {
+  id: string;
   icon: React.ReactNode;
   title: string;
   description: string;
@@ -52,6 +53,13 @@ function ServiceIcon({ path }: { path: React.ReactNode }) {
   );
 }
 
+// Build-time constants for JSON-LD validity dates (computed once at module
+// load so the JSX renders pure values).
+const VALID_FROM = new Date().toISOString().slice(0, 10);
+const PRICE_VALID_UNTIL = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+  .toISOString()
+  .slice(0, 10);
+
 export default async function ServiciosPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
@@ -61,6 +69,7 @@ export default async function ServiciosPage({ params }: Props) {
 
   const services: Service[] = [
     {
+      id: "local-business",
       // storefront / local shop
       icon: <ServiceIcon path={<><path d="M3 9l1-5h16l1 5"/><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M9 21V13h6v8"/></>} />,
       title: t("localBusiness.title"),
@@ -72,6 +81,7 @@ export default async function ServiciosPage({ params }: Props) {
         : ["Diseinu zaindua, irudi profesionala ematen duena", "Google Maps-en ager zaitezen optimizatua", "Mugikorrerako lehenik pentsatua, goitik behera", "Informazio argia: ordutegia, kontaktua, zerbitzuak"],
     },
     {
+      id: "clinic",
       // medical cross / health
       icon: <ServiceIcon path={<><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="2"/></>} />,
       title: t("clinic.title"),
@@ -83,6 +93,7 @@ export default async function ServiciosPage({ params }: Props) {
         : ["Konfiantza ematen duen identitate bisuala", "Zerbitzu eta prezio argiak, letra txikirik gabe", "Online hitzorduen sistema behar baduzu", "Pribatutasun-politika eta DBEO ondo eginak"],
     },
     {
+      id: "multilingual",
       // globe / international
       icon: <ServiceIcon path={<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>} />,
       title: t("multilingual.title"),
@@ -94,6 +105,7 @@ export default async function ServiciosPage({ params }: Props) {
         : ["4 hizkuntzatara arte: euskara, gaztelania, ingelesa, frantsesa", "URL bereiziak eta hreflang zuzena", "Azpiorri askotarako prestatutako egitura", "Merkatu bakoitzean posizionatzeko SEO teknikoa"],
     },
     {
+      id: "redesign",
       // refresh / redesign
       icon: <ServiceIcon path={<><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></>} />,
       title: t("redesign.title"),
@@ -185,17 +197,14 @@ export default async function ServiciosPage({ params }: Props) {
           audienceType: locale === "es" ? "PyMEs, autónomos y comercios locales" : locale === "en" ? "SMEs, freelancers and local businesses" : "ETE, autonomoak eta tokiko merkataritza",
         },
         offers: {
-          "@type": "Offer",
-          price: "1500",
+          "@type": "AggregateOffer",
           priceCurrency: "EUR",
+          lowPrice: "1500",
+          highPrice: "2000",
+          offerCount: 1,
           availability: "https://schema.org/InStock",
-          validFrom: "2026-01-01",
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "1500",
-            priceCurrency: "EUR",
-            valueAddedTaxIncluded: true,
-          },
+          validFrom: VALID_FROM,
+          priceValidUntil: PRICE_VALID_UNTIL,
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -291,8 +300,8 @@ export default async function ServiciosPage({ params }: Props) {
         <div className="container-xl">
           <div className="services-detail-grid">
             {services.map((service, i) => (
-              <AnimatedSection key={i} delay={i * 0.05}>
-                <div className="service-detail-card">
+              <AnimatedSection key={service.id} delay={i * 0.05}>
+                <div id={service.id} className="service-detail-card">
                   <div className="service-detail-icon">{service.icon}</div>
 
                   <h2 className="service-detail-title">{service.title}</h2>

@@ -2,6 +2,7 @@
   nav: {
     inicio: "Hasiera",
     servicios: "Zerbitzuak",
+    proyectos: "Proiektuak",
     precios: "Prezioak",
     sobreNosotros: "Ni buruz",
     contacto: "Kontaktua",
@@ -170,27 +171,39 @@
     },
     cta: "Elkarrekin lan egin dezagun",
   },
+  projects: {
+    eyebrow: "Proiektuak",
+    title: "Eskuz egindako webguneak, benetako bezeroentzat.",
+    subtitle:
+      "Web bakoitza zerotik programatzen dut, erabiltzailea pentsatuta. Hona hemen azken kasu batzuk — bisitatu eta egiaztatu.",
+    sectorLabel: "Sektorea",
+    cityLabel: "Kokalekua",
+    yearLabel: "Urtea",
+    visitSite: "Bisitatu",
+    backToProjects: "Itzuli proiektuetara",
+    relatedTitle: "Beste proiektu batzuk",
+    tasksTitle: "Egin genuena",
+    aboutTitle: "Proiektuari buruz",
+    testimonialTitle: "Bezeroak diona",
+    ctaTitle: "Proiekturen bat duzu buruan?",
+    ctaSubtitle:
+      "Maila honetako arretaz egindako web bat zure negoziorako nahi baduzu, hitz egin dezagun. 24 ordu baino gutxiagoan erantzuten dut.",
+    ctaButton: "Hasi zure proiektua",
+  },
   contact: {
     title: "Has gaitezen eraikitzen.",
     subtitle:
       "Kontatu zure proiektua. 24 ordutan baino gutxiagotan erantzuten dugu doako hasierako proposamen batekin.",
     form: {
-      name: "Zure izena",
-      email: "Posta elektronikoaren helbide profesionala",
-      company: "Enpresa (aukerakoa)",
-      budget: "Gutxi gorabeherako aurrekontua",
-      message: "Kontatu zure proiektua",
-      submit: "Mezua bidali",
+      name: "Izen-abizenak",
+      email: "Helbide elektronikoa",
+      phone: "WhatsApp zenbakia",
+      privacy: "Pribatutasun politika onartzen dut",
+      submit: "Eskatu informazioa",
       sending: "Bidaltzen...",
       success:
         "Mezua bidalia! 24 ordutan baino gutxiagotan jarriko gara zurekin harremanetan.",
       error: "Bidaltzeko errorea. Mesedez, saiatu berriro.",
-      budgetOptions: [
-        "1.500€ (plan estandarra)",
-        "1.500€ – 2.500€",
-        "2.500€ baino gehiago",
-        "Ez daukat argi",
-      ],
     },
     info: {
       location: "Irun, Gipuzkoa · Euskal Herria",

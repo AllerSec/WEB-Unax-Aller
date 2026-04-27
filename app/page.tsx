@@ -1,30 +1,10 @@
-import { redirect } from "next/navigation";
-import { headers } from "next/headers";
+import { permanentRedirect } from "next/navigation";
 
-export default async function RootPage() {
-  const headersList = await headers();
-  const acceptLanguage = headersList.get("accept-language") || "";
-
-  const preferredLocale = parseAcceptLanguage(acceptLanguage);
-  redirect(`/${preferredLocale}`);
-}
-
-function parseAcceptLanguage(acceptLanguage: string): "es" | "en" | "eu" {
-  if (!acceptLanguage) return "es";
-
-  const languages = acceptLanguage
-    .split(",")
-    .map((lang) => {
-      const [tag, q] = lang.trim().split(";q=");
-      return { tag: tag.trim().toLowerCase(), q: q ? parseFloat(q) : 1.0 };
-    })
-    .sort((a, b) => b.q - a.q);
-
-  for (const { tag } of languages) {
-    if (tag === "eu" || tag.startsWith("eu-")) return "eu";
-    if (tag === "en" || tag.startsWith("en-")) return "en";
-    if (tag === "es" || tag.startsWith("es-")) return "es";
-  }
-
-  return "es";
+// 308 redirect to the default locale.
+// Avoids Accept-Language sniffing — Googlebot only sees one URL (/es)
+// which matches the sitemap canonical and the hreflang x-default.
+// Users coming from search engines for other locales land directly
+// on /en or /eu through search results, not through this root.
+export default function RootPage() {
+  permanentRedirect("/es");
 }

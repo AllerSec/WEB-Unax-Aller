@@ -24,10 +24,15 @@ function StatCard({ value, label }: StatProps) {
       data-stat-value={value}
       className="stat-card"
     >
-      <span ref={numRef} data-stat-number className="stat-card-value">
+      <span
+        ref={numRef}
+        data-stat-number
+        className="stat-card-value"
+        aria-label={`${value} ${label}`}
+      >
         {value}
       </span>
-      <span className="stat-card-label">{label}</span>
+      <span className="stat-card-label" aria-hidden="true">{label}</span>
     </div>
   );
 }

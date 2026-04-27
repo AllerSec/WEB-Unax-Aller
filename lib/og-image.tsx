@@ -96,3 +96,33 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
     { ...ogSize }
   );
 }
+
+type CityOgOptions = {
+  cityName: string;
+  regionName: string;
+  locale: "es" | "en" | "eu";
+};
+
+export function renderCityOgImage({ cityName, regionName, locale }: CityOgOptions) {
+  const line1Map: Record<string, string> = {
+    es: "Diseñador web en",
+    en: "Web designer in",
+    eu: "Web diseinatzailea",
+  };
+  const line2Map: Record<string, string> = {
+    es: `${cityName}, ${regionName}`,
+    en: `${cityName}, ${regionName}`,
+    eu: `${cityName}n`,
+  };
+  const subtitleMap: Record<string, string> = {
+    es: `Desde 1.500€ IVA incluido · unaxaller.com`,
+    en: `From €1,500 VAT inc. · unaxaller.com`,
+    eu: `1.500€-tik BEZ barne · unaxaller.com`,
+  };
+  return renderOgImage({
+    eyebrow: locale === "es" ? "Ciudad" : locale === "en" ? "Location" : "Hiria",
+    line1: line1Map[locale],
+    line2: line2Map[locale],
+    subtitle: subtitleMap[locale],
+  });
+}

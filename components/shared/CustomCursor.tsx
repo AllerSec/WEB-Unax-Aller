@@ -136,6 +136,20 @@ export default function CustomCursor() {
     document.addEventListener("mouseover", onOver, { passive: true });
     document.addEventListener("mouseout", onOut, { passive: true });
 
+    // Escape hatch — pressing Esc twice in <500ms disables the custom cursor
+    // for the rest of the session (a11y / DevTools users).
+    let lastEsc = 0;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      const now = Date.now();
+      if (now - lastEsc < 500) {
+        document.body.classList.remove("custom-cursor-active");
+        hideCursors();
+      }
+      lastEsc = now;
+    };
+    document.addEventListener("keydown", onKey);
+
     return () => {
       cancelAnimationFrame(rafId);
       document.body.classList.remove("custom-cursor-active");
@@ -146,6 +160,7 @@ export default function CustomCursor() {
       document.documentElement.removeEventListener("mouseenter", onWindowEnter);
       document.removeEventListener("mouseover", onOver);
       document.removeEventListener("mouseout", onOut);
+      document.removeEventListener("keydown", onKey);
     };
   }, []);
 

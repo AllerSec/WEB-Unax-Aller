@@ -75,10 +75,17 @@ export default function Navbar({ locale }: Props) {
     };
   }, []);
 
-  useEffect(() => {
+  // Close menus when the pathname changes. React's documented pattern for
+  // resetting state from a changed prop: compare in render and call setState
+  // synchronously — React schedules the update before commit, so it doesn't
+  // produce an extra render in practice.
+  // https://react.dev/learn/you-might-not-need-an-effect#resetting-state-when-a-prop-changes
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (lastPathname !== pathname) {
+    setLastPathname(pathname);
     setMenuOpen(false);
     setLangOpen(false);
-  }, [pathname]);
+  }
 
   const isActive = (href: string) => {
     if (href === `/${locale}`) return pathname === `/${locale}` || pathname === `/${locale}/`;

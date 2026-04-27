@@ -2,6 +2,7 @@
   nav: {
     inicio: "Inicio",
     servicios: "Servicios",
+    proyectos: "Proyectos",
     precios: "Precios",
     sobreNosotros: "Sobre mí",
     contacto: "Contacto",
@@ -170,27 +171,39 @@
     },
     cta: "Trabajemos juntos",
   },
+  projects: {
+    eyebrow: "Proyectos",
+    title: "Trabajos hechos a mano, con clientes reales.",
+    subtitle:
+      "Cada web la programo desde cero pensando en quién va a usarla. Aquí algunos casos recientes que puedes visitar y comprobar.",
+    sectorLabel: "Sector",
+    cityLabel: "Ubicación",
+    yearLabel: "Año",
+    visitSite: "Ver web",
+    backToProjects: "Volver a proyectos",
+    relatedTitle: "Otros proyectos",
+    tasksTitle: "Lo que hicimos",
+    aboutTitle: "Sobre el proyecto",
+    testimonialTitle: "Lo que dice el cliente",
+    ctaTitle: "¿Tienes un proyecto en mente?",
+    ctaSubtitle:
+      "Si quieres una web con este nivel de cuidado para tu negocio, hablemos. Respondo en menos de 24h.",
+    ctaButton: "Empieza tu proyecto",
+  },
   contact: {
     title: "Empecemos a construir.",
     subtitle:
       "Cuéntanos tu proyecto. Respondemos en menos de 24 horas con una propuesta inicial gratuita.",
     form: {
-      name: "Tu nombre",
-      email: "Email profesional",
-      company: "Empresa (opcional)",
-      budget: "Presupuesto aproximado",
-      message: "Cuéntanos tu proyecto",
-      submit: "Enviar mensaje",
+      name: "Nombre completo",
+      email: "Correo electrónico",
+      phone: "Número de WhatsApp",
+      privacy: "Acepto la política de privacidad",
+      submit: "Solicita información",
       sending: "Enviando...",
       success:
         "¡Mensaje enviado! Te contactaremos en menos de 24 horas.",
       error: "Error al enviar. Por favor, intenta de nuevo.",
-      budgetOptions: [
-        "1.500€ (plan estándar)",
-        "1.500€ – 2.500€",
-        "Más de 2.500€",
-        "No lo tengo claro",
-      ],
     },
     info: {
       location: "Irun, Gipuzkoa · País Vasco",

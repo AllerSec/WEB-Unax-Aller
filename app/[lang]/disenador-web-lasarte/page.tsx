@@ -51,6 +51,8 @@ export default async function LasartePage({ params }: Props) {
       regionName={def.regionNames[locale]}
       content={content}
       distanceFromIrunKm={def.distanceFromIrunKm}
+      localTouches={def.localTouches?.[locale]}
+      nearbyCitySlugs={def.nearbyCities}
     />
   );
 }

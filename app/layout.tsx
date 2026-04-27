@@ -77,6 +77,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#061b0e",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -90,12 +91,6 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        <meta name="geo.region" content="ES-PV" />
-        <meta name="geo.placename" content="Irun, Gipuzkoa" />
-        <meta name="geo.position" content="43.3390;-1.7892" />
-        <meta name="ICBM" content="43.3390, -1.7892" />
-      </head>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

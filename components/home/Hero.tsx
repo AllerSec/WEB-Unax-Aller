@@ -55,13 +55,25 @@ export default function Hero({ locale }: Props) {
 
       // Respect reduced motion — reveal everything instantly, no split, no timeline, no sweep
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        gsap.set([badge, subtitle, ctas, scrollHint], { opacity: 1, y: 0 });
+        gsap.set([badge, ctas, scrollHint], { opacity: 1, y: 0 });
         gsap.set([decorLeft, decorRight], { scaleX: 1 });
         title.classList.add("sweep-done");
         setFinalPrice();
         window.dispatchEvent(new CustomEvent("hero-entrance-done"));
         return;
       }
+
+      // JS will animate secondary elements — leave the H1 visible from first
+      // paint so it remains the LCP candidate (no JS-blocked LCP).
+      // SplitText runs on the visible title; the per-word entrance still plays
+      // but the title block itself never goes opacity:0.
+      if (subtitle) subtitle.style.opacity = "0";
+      if (badge) (badge as HTMLElement).style.opacity = "0";
+      if (ctas) (ctas as HTMLElement).style.opacity = "0";
+      if (scrollHint) (scrollHint as HTMLElement).style.opacity = "0";
+      // Reset price to 0 so the count-up animation has somewhere to start from.
+      const priceElInit = subtitle?.querySelector<HTMLSpanElement>(".hero-price");
+      if (priceElInit) priceElInit.textContent = locale === "en" ? "€0" : "0€";
 
       // Mobile / coarse pointer: skip SplitText + sweep. Simple fade+up on the whole title.
       // SplitText on tiny viewports is the cause of the "title appears late" issue.
@@ -73,13 +85,18 @@ export default function Hero({ locale }: Props) {
         gsap.set([decorLeft, decorRight], { scaleX: 1 });
         title.classList.add("is-ready", "sweep-done");
 
+        // Mutable counter object for the price tween — read by onUpdate
+        // without relying on `this`, which the React Compiler does not support.
+        const priceCounter = { v: 0 };
+
         const tlMobile = gsap.timeline({
-          delay: 0.1,
           onComplete: () => {
             window.dispatchEvent(new CustomEvent("hero-entrance-done"));
           },
         });
 
+        // Title is NOT hidden — it stays visible from first paint as the LCP
+        // candidate. Animate only secondary elements (badge, subtitle, CTAs).
         tlMobile
           .fromTo(
             badge,
@@ -87,28 +104,22 @@ export default function Hero({ locale }: Props) {
             { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
           )
           .fromTo(
-            title,
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
-            "-=0.2"
-          )
-          .fromTo(
             subtitle,
             { y: 16, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
-            "-=0.3"
+            "-=0.2"
           )
           .to(
-            { v: 0 },
+            priceCounter,
             {
               v: 1500,
               duration: 1,
               ease: "power2.out",
               snap: { v: 1 },
-              onUpdate(this: gsap.core.Tween) {
+              onUpdate: () => {
                 const priceEl = subtitle?.querySelector<HTMLSpanElement>(".hero-price");
                 if (!priceEl) return;
-                const v = Math.round((this.targets()[0] as { v: number }).v);
+                const v = priceCounter.v;
                 const formatted = v.toLocaleString(locale === "en" ? "en-US" : "es-ES");
                 priceEl.textContent = locale === "en" ? `€${formatted}` : `${formatted}€`;
               },
@@ -173,8 +184,11 @@ export default function Hero({ locale }: Props) {
       // Reveal the title container now that words are hidden — prevents flash of full title on mobile
       title.classList.add("is-ready");
 
+      // Mutable counter object for the price tween — read by onUpdate
+      // without relying on `this`, which the React Compiler does not support.
+      const priceCounterDesktop = { v: 0 };
+
       const tl = gsap.timeline({
-        delay: 0.3,
         onComplete: () => {
           // Signal to HeroBackground that it can start its RAF loop
           window.dispatchEvent(new CustomEvent("hero-entrance-done"));
@@ -247,16 +261,16 @@ export default function Hero({ locale }: Props) {
         )
         // Count-up the price from 0 → 1500, in sync with the subtitle reveal
         .to(
-          { v: 0 },
+          priceCounterDesktop,
           {
             v: 1500,
             duration: 1.2,
             ease: "power2.out",
             snap: { v: 1 },
-            onUpdate(this: gsap.core.Tween) {
+            onUpdate: () => {
               const priceEl = subtitle?.querySelector<HTMLSpanElement>(".hero-price");
               if (!priceEl) return;
-              const v = Math.round((this.targets()[0] as { v: number }).v);
+              const v = priceCounterDesktop.v;
               const formatted = v.toLocaleString(locale === "en" ? "en-US" : "es-ES");
               priceEl.textContent = locale === "en" ? `€${formatted}` : `${formatted}€`;
             },
@@ -417,7 +431,7 @@ export default function Hero({ locale }: Props) {
       className="hero-section"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      aria-label="Hero"
+      aria-labelledby="hero-title"
     >
       <HeroVideo />
       <HeroBackground />
@@ -442,7 +456,11 @@ export default function Hero({ locale }: Props) {
               aria-hidden="true"
             />
 
-            <h1 ref={titleRef} className="hero-title hero-title-sweep">
+            <h1
+              id="hero-title"
+              ref={titleRef}
+              className="hero-title hero-title-sweep"
+            >
               {t("title")}
             </h1>
 
@@ -456,7 +474,7 @@ export default function Hero({ locale }: Props) {
           <p ref={subtitleRef} className="hero-subtitle">
             {t("subtitlePre")}{" "}
             <span className="hero-price" data-price-value="1500">
-              {locale === "en" ? "€0" : "0€"}
+              {locale === "en" ? "€1,500" : "1.500€"}
             </span>
             {t("subtitlePost")}
           </p>

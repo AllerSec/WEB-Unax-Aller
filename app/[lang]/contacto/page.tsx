@@ -144,6 +144,7 @@ export default async function ContactoPage({ params }: Props) {
 
       <section
         className="page-hero"
+        data-page="contacto"
         aria-label={locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua"}
       >
         <div className="container-xl">

@@ -1,4 +1,3 @@
-import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PricingCards from "@/components/pricing/PricingCards";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
@@ -35,6 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: buildTwitter({ title, description }),
   };
 }
+
+// Build-time constants used inside the page's JSON-LD. Computed once at
+// module load (server-side) so the JSX renders pure values.
+const VALID_FROM = new Date().toISOString().slice(0, 10);
+const PRICE_VALID_UNTIL = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+  .toISOString()
+  .slice(0, 10);
 
 export default async function PreciosPage({ params }: Props) {
   const { lang } = await params;
@@ -87,27 +93,17 @@ export default async function PreciosPage({ params }: Props) {
           : "Neurrira egindako web osoa: diseinu premium-a, SEO teknikoa, eleaniztasuna (es/en/eu) eta hostinga lehen urtean. BEZ barne. Kodea %100 zurea da.",
         brand: { "@id": "https://unaxaller.com/#business" },
         category: locale === "es" ? "Diseño y Desarrollo Web" : locale === "en" ? "Web Design and Development" : "Web Diseinua eta Garapena",
-        image: "https://unaxaller.com/opengraph-image",
+        image: `https://unaxaller.com/${locale}/opengraph-image`,
         offers: {
-          "@type": "Offer",
+          "@type": "AggregateOffer",
           "@id": `https://unaxaller.com/${locale}/precios#offer`,
-          name: locale === "es" ? "Plan Completo — Web a Medida" : locale === "en" ? "Complete Plan — Custom Website" : "Plan Osoa — Neurrizko Weba",
-          description: locale === "es"
-            ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma. IVA incluido. Mantenimiento opcional desde 100€/año."
-            : locale === "en"
-            ? "Complete custom website: premium design, technical SEO, multi-language and hosting for the first year. VAT included."
-            : "Neurrira egindako web osoa: diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean. BEZ barne.",
-          price: "1500",
           priceCurrency: "EUR",
+          lowPrice: "1500",
+          highPrice: "2000",
+          offerCount: 1,
           availability: "https://schema.org/InStock",
-          validFrom: "2026-01-01",
-          priceValidUntil: "2026-12-31",
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "1500",
-            priceCurrency: "EUR",
-            valueAddedTaxIncluded: true,
-          },
+          validFrom: VALID_FROM,
+          priceValidUntil: PRICE_VALID_UNTIL,
           eligibleRegion: [
             { "@type": "Country", name: "ES" },
             { "@type": "AdministrativeArea", name: "País Vasco" },
@@ -117,6 +113,27 @@ export default async function PreciosPage({ params }: Props) {
             { "@type": "City", name: "Irun" },
             { "@type": "AdministrativeArea", name: "Gipuzkoa" },
             { "@type": "AdministrativeArea", name: "País Vasco" },
+          ],
+          offers: [
+            {
+              "@type": "Offer",
+              name: locale === "es" ? "Plan Completo — Web a Medida" : locale === "en" ? "Complete Plan — Custom Website" : "Plan Osoa — Neurrizko Weba",
+              description: locale === "es"
+                ? "Web a medida completa: diseño premium, SEO técnico, multi-idioma. IVA incluido. Mantenimiento opcional desde 100€/año."
+                : locale === "en"
+                ? "Complete custom website: premium design, technical SEO, multi-language and hosting for the first year. VAT included."
+                : "Neurrira egindako web osoa: diseinu premium-a, SEO teknikoa, hizkuntza anitza eta hostinga lehen urtean. BEZ barne.",
+              price: "1500",
+              priceCurrency: "EUR",
+              availability: "https://schema.org/InStock",
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                price: "1500",
+                priceCurrency: "EUR",
+                valueAddedTaxIncluded: true,
+              },
+              seller: { "@id": "https://unaxaller.com/#business" },
+            },
           ],
         },
       },

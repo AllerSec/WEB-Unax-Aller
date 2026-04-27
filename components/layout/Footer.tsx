@@ -17,6 +17,7 @@ export default function Footer({ locale }: Props) {
   const companyLinks = [
     { href: `/${locale}/sobre-nosotros`, label: tNav("sobreNosotros") },
     { href: `/${locale}/servicios`, label: tNav("servicios") },
+    { href: `/${locale}/proyectos`, label: tNav("proyectos") },
     { href: `/${locale}/precios`, label: tNav("precios") },
     { href: `/${locale}/contacto`, label: tNav("contacto") },
     {
@@ -26,10 +27,42 @@ export default function Footer({ locale }: Props) {
   ];
 
   const serviceLinks = [
-    { href: `/${locale}/servicios`, label: "UI/UX Design" },
-    { href: `/${locale}/servicios`, label: "SEO Técnico" },
-    { href: `/${locale}/servicios`, label: "Performance Web" },
-    { href: `/${locale}/servicios`, label: "Multi-idioma" },
+    {
+      href: `/${locale}/servicios#local-business`,
+      label:
+        locale === "es"
+          ? "Web para negocio local"
+          : locale === "en"
+          ? "Local business website"
+          : "Tokiko negoziorako weba",
+    },
+    {
+      href: `/${locale}/servicios#clinic`,
+      label:
+        locale === "es"
+          ? "Web para clínica"
+          : locale === "en"
+          ? "Clinic website"
+          : "Klinikaren weba",
+    },
+    {
+      href: `/${locale}/servicios#multilingual`,
+      label:
+        locale === "es"
+          ? "Web multi-idioma"
+          : locale === "en"
+          ? "Multi-language website"
+          : "Web eleaniztuna",
+    },
+    {
+      href: `/${locale}/servicios#redesign`,
+      label:
+        locale === "es"
+          ? "Rediseño de web"
+          : locale === "en"
+          ? "Website redesign"
+          : "Webaren birdiseinua",
+    },
   ];
 
   const legalLinks = [
@@ -43,11 +76,18 @@ export default function Footer({ locale }: Props) {
     { href: `/${locale}/disenador-web-donostia`, label: locale === "eu" ? "Donostia" : "Donostia-San Sebastián" },
     { href: `/${locale}/disenador-web-bilbao`, label: locale === "eu" ? "Bilbo" : "Bilbao" },
     { href: `/${locale}/disenador-web-vitoria`, label: locale === "eu" ? "Gasteiz" : "Vitoria-Gasteiz" },
+    { href: `/${locale}/disenador-web-pamplona`, label: locale === "eu" ? "Iruñea" : "Pamplona" },
+    { href: `/${locale}/disenador-web-logrono`, label: "Logroño" },
+    { href: `/${locale}/disenador-web-santander`, label: "Santander" },
     { href: `/${locale}/disenador-web-hondarribia`, label: "Hondarribia" },
     { href: `/${locale}/disenador-web-errenteria`, label: "Errenteria" },
+    { href: `/${locale}/disenador-web-pasaia`, label: "Pasaia" },
     { href: `/${locale}/disenador-web-lasarte`, label: "Lasarte-Oria" },
+    { href: `/${locale}/disenador-web-zarautz`, label: "Zarautz" },
     { href: `/${locale}/disenador-web-tolosa`, label: "Tolosa" },
     { href: `/${locale}/disenador-web-eibar`, label: "Eibar" },
+    { href: `/${locale}/disenador-web-getxo`, label: "Getxo" },
+    { href: `/${locale}/disenador-web-bermeo`, label: "Bermeo" },
   ];
 
   const cityPrefix =
@@ -69,7 +109,7 @@ export default function Footer({ locale }: Props) {
             <p className="site-footer-tagline">{t("tagline")}</p>
             <div className="site-footer-socials">
               <a
-                href="https://linkedin.com/in/unaxaller"
+                href="https://linkedin.com/in/unax-aller-8479b428b"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="site-footer-social focusable"

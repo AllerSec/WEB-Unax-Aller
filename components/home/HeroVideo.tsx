@@ -12,10 +12,14 @@ type Props = {
  * Background hero — desktop gets the autoplay video, mobile gets a static poster
  * (saves bandwidth and avoids the busy look on small screens).
  * Renders the poster on first paint to avoid SSR/hydration flash.
+ *
+ * Video load is deferred until after `hero-entrance-done` so the 4 MB asset
+ * never competes with LCP. Poster (77 KB) is paint-ready immediately.
  */
 export default function HeroVideo({ className }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -26,8 +30,29 @@ export default function HeroVideo({ className }: Props) {
     return () => mq.removeEventListener("change", update);
   }, []);
 
+  // Defer video network load until the hero text is in. Falls back to a
+  // 1.5 s timer in case the entrance event never fires (e.g. reduced motion
+  // path that already dispatches it, but be safe).
   useEffect(() => {
     if (isMobile !== false) return;
+    let armed = true;
+    const arm = () => {
+      if (!armed) return;
+      armed = false;
+      setShouldLoadVideo(true);
+    };
+    window.addEventListener("hero-entrance-done", arm, { once: true });
+    const fallback = window.setTimeout(arm, 1500);
+    return () => {
+      armed = false;
+      window.removeEventListener("hero-entrance-done", arm);
+      window.clearTimeout(fallback);
+    };
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile !== false) return;
+    if (!shouldLoadVideo) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -45,10 +70,12 @@ export default function HeroVideo({ className }: Props) {
     return () => {
       video.removeEventListener("loadeddata", tryPlay);
     };
-  }, [isMobile]);
+  }, [isMobile, shouldLoadVideo]);
 
-  // SSR / pre-hydration: show poster only.
-  if (isMobile === null || isMobile) {
+  // SSR / pre-hydration / mobile / pre-entrance: show poster only.
+  // Video <source> is mounted only after `hero-entrance-done` so it never
+  // competes with the LCP H1 over the network.
+  if (isMobile === null || isMobile || !shouldLoadVideo) {
     return (
       <div className={`hero-video-root ${className ?? ""}`.trim()} aria-hidden="true">
         <div
@@ -68,7 +95,7 @@ export default function HeroVideo({ className }: Props) {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         poster="/video/hero-poster.jpg"
         tabIndex={-1}
         onError={(e) => {

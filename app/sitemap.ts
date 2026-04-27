@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getAllBlogSlugs } from "@/lib/data/blog-posts";
+import { blogPosts } from "@/lib/data/blog-posts";
+import { projects } from "@/lib/data/projects";
 
 const BASE_URL = "https://unaxaller.com";
 const LOCALES = ["es", "en", "eu"] as const;
@@ -10,6 +11,7 @@ const staticRoutes = [
   { path: "/precios", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/sobre-nosotros", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/contacto", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/proyectos", priority: 0.95, changeFrequency: "monthly" as const },
   { path: "/colabora", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
   { path: "/disenador-web-donostia", priority: 0.9, changeFrequency: "monthly" as const },
@@ -21,41 +23,73 @@ const staticRoutes = [
   { path: "/disenador-web-lasarte", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/disenador-web-eibar", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/disenador-web-tolosa", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-pamplona", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-logrono", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-santander", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-pasaia", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-zarautz", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-getxo", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-bermeo", priority: 0.8, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-04-21");
+  // Sitemap is rebuilt with the project, so build time is the natural
+  // lastModified for static routes (it changes whenever copy or layout ships).
+  const buildTime = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of LOCALES) {
     for (const route of staticRoutes) {
       entries.push({
         url: `${BASE_URL}/${locale}${route.path}`,
-        lastModified,
+        lastModified: buildTime,
         changeFrequency: route.changeFrequency,
         priority: route.priority,
         alternates: {
-          languages: Object.fromEntries(
-            LOCALES.map((loc) => [loc, `${BASE_URL}/${loc}${route.path}`])
-          ),
+          languages: {
+            ...Object.fromEntries(
+              LOCALES.map((loc) => [loc, `${BASE_URL}/${loc}${route.path}`])
+            ),
+            "x-default": `${BASE_URL}/es${route.path}`,
+          },
         },
       });
     }
 
-    for (const slug of getAllBlogSlugs()) {
+    for (const post of blogPosts) {
       entries.push({
-        url: `${BASE_URL}/${locale}/blog/${slug}`,
-        lastModified,
+        url: `${BASE_URL}/${locale}/blog/${post.slug}`,
+        lastModified: new Date(post.updatedAt ?? post.publishedAt),
         changeFrequency: "monthly" as const,
         priority: 0.7,
         alternates: {
-          languages: Object.fromEntries(
-            LOCALES.map((loc) => [loc, `${BASE_URL}/${loc}/blog/${slug}`])
-          ),
+          languages: {
+            ...Object.fromEntries(
+              LOCALES.map((loc) => [loc, `${BASE_URL}/${loc}/blog/${post.slug}`])
+            ),
+            "x-default": `${BASE_URL}/es/blog/${post.slug}`,
+          },
         },
       });
     }
 
+    for (const project of projects) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/proyectos/${project.slug}`,
+        // Project shipped that year; lastModified anchors to the project year.
+        lastModified: new Date(`${project.year}-12-31`),
+        changeFrequency: "yearly" as const,
+        priority: 0.85,
+        alternates: {
+          languages: {
+            ...Object.fromEntries(
+              LOCALES.map((loc) => [loc, `${BASE_URL}/${loc}/proyectos/${project.slug}`])
+            ),
+            "x-default": `${BASE_URL}/es/proyectos/${project.slug}`,
+          },
+        },
+      });
+    }
   }
 
   return entries;

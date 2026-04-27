@@ -1,7 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import SectionDivider from "@/components/shared/SectionDivider";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import FounderPhoto from "@/components/home/FounderPhoto";
+import PricingCards from "@/components/pricing/PricingCards";
+import ProjectsBoard from "@/components/home/ProjectsBoard";
+import SocialProof from "@/components/home/SocialProof";
+import Testimonials from "@/components/home/Testimonials";
+import { cityLandings, type LocaleKey } from "@/lib/data/city-landings";
 
 export interface CityLandingContent {
   benefits: { title: string; desc: string }[];
@@ -19,13 +26,19 @@ export interface CityLandingContent {
 }
 
 export interface CityLandingProps {
-  locale: "es" | "en" | "eu";
+  locale: LocaleKey;
   slug: string;
   cityName: string;
   regionName: string;
   content: CityLandingContent;
   distanceFromIrunKm?: number;
+  localTouches?: string[];
+  nearbyCitySlugs?: string[];
 }
+
+// Decorative icon glyph for each benefit slot — keeps the "why local" grid
+// visually rhythmic without leaning on a generic icon library.
+const BENEFIT_GLYPHS = ["◐", "◓", "◑", "◒"] as const;
 
 export default function CityLanding({
   locale,
@@ -34,24 +47,18 @@ export default function CityLanding({
   regionName,
   content,
   distanceFromIrunKm,
+  localTouches,
+  nearbyCitySlugs,
 }: CityLandingProps) {
   const url = `https://unaxaller.com/${locale}/${slug}`;
+
+  const nearby = (nearbyCitySlugs ?? [])
+    .map((s) => cityLandings.find((c) => c.slug === s))
+    .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": ["LocalBusiness", "ProfessionalService"],
-        "@id": "https://unaxaller.com/#business",
-        name: "Unax Aller — Diseñador Web",
-        url: "https://unaxaller.com",
-        areaServed: [
-          { "@type": "City", name: cityName },
-          { "@type": "City", name: "Irun" },
-          { "@type": "AdministrativeArea", name: regionName },
-        ],
-        serviceType: "Diseño y Desarrollo Web",
-      },
       {
         "@type": "WebPage",
         "@id": `${url}#webpage`,
@@ -60,7 +67,8 @@ export default function CityLanding({
         description: content.intro,
         inLanguage: locale,
         isPartOf: { "@id": "https://unaxaller.com/#website" },
-        primaryImageOfPage: `https://unaxaller.com/opengraph-image`,
+        about: { "@id": "https://unaxaller.com/#business" },
+        primaryImageOfPage: `${url}/opengraph-image`,
       },
       {
         "@type": "FAQPage",
@@ -84,14 +92,35 @@ export default function CityLanding({
     ],
   };
 
-  const distanceLabel =
-    distanceFromIrunKm !== undefined
-      ? locale === "es"
-        ? `A ${distanceFromIrunKm} km de Irun — reuniones presenciales posibles`
-        : locale === "en"
-        ? `${distanceFromIrunKm} km from Irun — in-person meetings available`
-        : `Iruntik ${distanceFromIrunKm} km-ra — aurrez aurreko bilerak posibleak`
-      : null;
+  // Localised section labels
+  const localTitle =
+    locale === "es"
+      ? `Lo que conozco de ${cityName}`
+      : locale === "en"
+      ? `What I know about ${cityName}`
+      : `${cityName}ri buruz dakidana`;
+  const localEyebrow =
+    locale === "es" ? "Conociendo el terreno" : locale === "en" ? "Knowing the ground" : "Lurraldea ezagutzen";
+  const nearbyTitle =
+    locale === "es"
+      ? "También trabajo en estas ciudades"
+      : locale === "en"
+      ? "I also work in these cities"
+      : "Hiri hauetan ere lan egiten dut";
+  const founderEyebrow =
+    locale === "es" ? "Quién está detrás" : locale === "en" ? "Who's behind" : "Nor dago atzean";
+  const founderTitle =
+    locale === "es" ? "Hola, soy Unax." : locale === "en" ? "Hi, I'm Unax." : "Kaixo, Unax naiz.";
+  const founderBody =
+    locale === "es"
+      ? `Diseño y desarrollo cada web a mano desde Irun. Hablas conmigo de principio a fin, sin agencias ni intermediarios. Trabajo con clientes de ${cityName} y de toda ${regionName}: pongo el mismo cuidado, el mismo detalle, esté a 5 km o a 100. Si tengo que pasar horas para resolver un detalle pequeño, las paso.`
+      : locale === "en"
+      ? `I design and code every site by hand from Irun. You talk to me start to finish, no agencies, no middlemen. I work with clients in ${cityName} and across ${regionName}: same care, same attention to detail, whether you're 5 or 100 km away. If a small thing needs hours to fix, I take them.`
+      : `Webgune bakoitza eskuz diseinatu eta garatzen dut Irunetik. Hasieratik amaierara nirekin hitz egiten duzu, agentziarik gabe. ${cityName} eta ${regionName} osoko bezeroekin lan egiten dut: arreta bera, xehetasun bera, 5 km-ra edo 100 km-ra egon. Xehetasun txiki batek orduak behar baditu konpontzeko, hartu egiten ditut.`;
+  const founderLink =
+    locale === "es" ? "Conóceme mejor" : locale === "en" ? "Get to know me" : "Ezagutu nazazu hobeto";
+  const benefitsEyebrow =
+    locale === "es" ? "Por qué local" : locale === "en" ? "Why local" : "Zergatik bertakoa";
 
   return (
     <>
@@ -100,6 +129,7 @@ export default function CityLanding({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      {/* 1. Hero — title + intro + CTA. Distance pin moved to bottom of hero. */}
       <section className="page-hero" aria-labelledby="hero-title">
         <div className="container-xl">
           <Breadcrumbs
@@ -116,7 +146,6 @@ export default function CityLanding({
                 width={600}
                 height={600}
                 sizes="(max-width: 768px) 56px, 72px"
-                priority
               />
             </div>
             <span className="page-hero-eyebrow">{cityName}</span>
@@ -129,34 +158,124 @@ export default function CityLanding({
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
-              {distanceLabel && (
-                <p className="city-hero-distance" aria-label="distance">
-                  <span aria-hidden="true">📍 </span>{distanceLabel}
-                </p>
-              )}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="city-section" aria-labelledby="benefits-title">
-        <div className="container-xl">
-          <div className="city-section-inner">
-            <AnimatedSection>
-              <h2 id="benefits-title" className="section-heading">{content.benefitsTitle}</h2>
-              <div className="city-benefits-list">
-                {content.benefits.map((item, i) => (
-                  <div key={i} className="city-benefit-card">
-                    <h3 className="city-benefit-title">{item.title}</h3>
-                    <p className="city-benefit-desc">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
+      {/* 2. Founder strip */}
+      <AnimatedSection>
+        <section className="founder-strip" aria-labelledby="city-founder-title">
+          <div className="container-xl founder-strip-inner">
+            <FounderPhoto
+              alt={
+                locale === "es"
+                  ? "Foto de Unax Aller, diseñador y desarrollador web"
+                  : locale === "en"
+                  ? "Photo of Unax Aller, web designer and developer"
+                  : "Unax Aller, web diseinatzaile eta garatzailearen argazkia"
+              }
+            />
+            <div className="founder-strip-content">
+              <span className="founder-strip-eyebrow">{founderEyebrow}</span>
+              <h2 id="city-founder-title" className="founder-strip-title">{founderTitle}</h2>
+              <p className="founder-strip-body">{founderBody}</p>
+              <Link href={`/${locale}/sobre-nosotros`} className="founder-strip-link focusable">
+                {founderLink}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
+        </section>
+      </AnimatedSection>
+
+      {/* 3. Projects board — front and centre */}
+      <AnimatedSection>
+        <ProjectsBoard locale={locale} />
+      </AnimatedSection>
+
+      <SectionDivider background="var(--color-bg)" />
+
+      {/* 4. Pricing */}
+      <div className="surface-alt">
+        <PricingCards locale={locale} headingLevel="h2" />
+      </div>
+
+      <SectionDivider background="var(--color-bg)" />
+
+      {/* 5. Local benefits — playful redesign with numbered cards + glyphs */}
+      <section className="city-benefits-section" aria-labelledby="benefits-title">
+        <div className="container-xl">
+          <AnimatedSection>
+            <header className="city-benefits-header">
+              <span className="city-benefits-eyebrow">{benefitsEyebrow}</span>
+              <h2 id="benefits-title" className="city-benefits-title">{content.benefitsTitle}</h2>
+            </header>
+            <ul className="city-benefits-grid" role="list">
+              {content.benefits.map((item, i) => (
+                <li key={i} className="city-benefit-tile" style={{ animationDelay: `${i * 0.08}s` }}>
+                  <span className="city-benefit-tile-num" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="city-benefit-tile-glyph" aria-hidden="true">
+                    {BENEFIT_GLYPHS[i % BENEFIT_GLYPHS.length]}
+                  </span>
+                  <h3 className="city-benefit-tile-title">{item.title}</h3>
+                  <p className="city-benefit-tile-desc">{item.desc}</p>
+                </li>
+              ))}
+            </ul>
+          </AnimatedSection>
         </div>
       </section>
 
+      {/* 6. Social proof */}
+      <SocialProof />
+
+      <SectionDivider background="var(--color-bg)" />
+
+      {/* 7. Testimonials */}
+      <Testimonials />
+
+      {/* 8. Local touches — pushed down, designed as a magazine spread */}
+      {localTouches && localTouches.length > 0 && (
+        <section className="city-local-section" aria-labelledby="city-local-title">
+          <div className="container-xl">
+            <AnimatedSection>
+              <div className="city-local-grid">
+                <div className="city-local-aside">
+                  <span className="city-local-eyebrow">{localEyebrow}</span>
+                  <h2 id="city-local-title" className="city-local-title">{localTitle}</h2>
+                  {distanceFromIrunKm !== undefined && (
+                    <div className="city-local-pin">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                      <span>
+                        {locale === "es"
+                          ? `A ${distanceFromIrunKm} km · reuniones presenciales posibles`
+                          : locale === "en"
+                          ? `${distanceFromIrunKm} km away · in-person meetings available`
+                          : `${distanceFromIrunKm} km-ra · aurrez aurreko bilerak posibleak`}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="city-local-prose">
+                  {localTouches.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      )}
+
+      {/* 9. FAQ */}
       {content.faq.length > 0 && (
         <section className="city-faq-section" aria-labelledby="faq-title">
           <div className="container-xl">
@@ -185,6 +304,33 @@ export default function CityLanding({
         </section>
       )}
 
+      {/* 10. Nearby cities */}
+      {nearby.length > 0 && (
+        <section className="city-section city-nearby" aria-labelledby="city-nearby-title">
+          <div className="container-xl">
+            <div className="city-section-inner">
+              <AnimatedSection>
+                <h2 id="city-nearby-title" className="section-heading">{nearbyTitle}</h2>
+                <ul className="city-nearby-list" role="list">
+                  {nearby.map((c) => (
+                    <li key={c.slug}>
+                      <Link href={`/${locale}/${c.slug}`} className="city-nearby-chip focusable">
+                        <span className="city-nearby-chip-name">{c.cityNames[locale]}</span>
+                        <span className="city-nearby-chip-region">{c.regionNames[locale]}</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 11. Final CTA */}
       <section className="city-cta-section" aria-label="Call to action">
         <div className="container-xl">
           <div className="city-cta-inner">

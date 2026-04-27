@@ -32,9 +32,9 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { name, email, company, budget, message } = body;
+    const { name, email, phone, countryCode, locale } = body;
 
-    if (!name || !email || !message) {
+    if (!name || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
@@ -43,16 +43,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
+    const phoneDigits = String(phone).replace(/\D/g, "");
+    if (phoneDigits.length < 6 || phoneDigits.length > 15) {
+      return NextResponse.json({ error: "Invalid phone" }, { status: 400 });
+    }
+
     const to = "contacto@unaxaller.com";
-    const subject = `Nuevo contacto de ${name}${company ? ` (${company})` : ""}`;
+    const subject = `Nueva solicitud de información — ${name}`;
     const text = [
       `Nombre: ${name}`,
       `Email: ${email}`,
-      company ? `Empresa: ${company}` : null,
-      budget ? `Presupuesto: ${budget}` : null,
-      "",
-      `Mensaje:`,
-      message,
+      `WhatsApp: ${phone}`,
+      countryCode ? `País: ${countryCode}` : null,
+      locale ? `Idioma: ${locale}` : null,
     ]
       .filter(Boolean)
       .join("\n");
@@ -68,7 +71,14 @@ export async function POST(req: NextRequest) {
         console.error("GOOGLE_SCRIPT_TOKEN not configured");
         return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
       }
-      const scriptBody = JSON.stringify({ token: scriptToken, name, email, company, budget, message });
+      const scriptBody = JSON.stringify({
+        token: scriptToken,
+        name,
+        email,
+        phone,
+        countryCode,
+        locale,
+      });
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
       let scriptRes!: Response;
@@ -126,9 +136,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    // Fallback: log to console (dev mode) and return mailto link
     if (process.env.NODE_ENV === "development") {
-      console.log("[contact form]", { name, email, company, budget, message });
+      console.log("[contact form]", { name, email, phone, countryCode, locale });
     }
 
     return NextResponse.json({ ok: true, mailtoLink });

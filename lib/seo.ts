@@ -16,7 +16,7 @@ export function canonicalFor(locale: Locale, path: string) {
 
 export const OG_LOCALE: Record<Locale, string> = {
   es: "es_ES",
-  en: "en_GB",
+  en: "en_US",
   eu: "eu_ES",
 };
 
@@ -33,6 +33,9 @@ export function buildOpenGraph(args: {
 }) {
   const { locale, title, description, path, type = "website", publishedTime, modifiedTime, authors, tags } = args;
   const primary = OG_LOCALE[locale];
+  // Per-page OG image: Next.js exposes the route's opengraph-image.tsx at
+  // `<page-url>/opengraph-image`. Locale-aware so the OG matches the page.
+  const ogImage = `${SITE_URL}/${locale}${path}/opengraph-image`;
   return {
     type,
     title,
@@ -43,7 +46,7 @@ export function buildOpenGraph(args: {
     alternateLocale: Object.values(OG_LOCALE).filter((l) => l !== primary),
     images: [
       {
-        url: `${SITE_URL}/opengraph-image`,
+        url: ogImage,
         width: 1200,
         height: 630,
         alt: title,
@@ -56,11 +59,21 @@ export function buildOpenGraph(args: {
   };
 }
 
-export function buildTwitter(args: { title: string; description: string }) {
+export function buildTwitter(args: {
+  title: string;
+  description: string;
+  locale?: Locale;
+  path?: string;
+}) {
+  const { title, description, locale, path } = args;
+  const ogImage =
+    locale !== undefined
+      ? `${SITE_URL}/${locale}${path ?? ""}/opengraph-image`
+      : `${SITE_URL}/opengraph-image`;
   return {
     card: "summary_large_image" as const,
-    title: args.title,
-    description: args.description,
-    images: [`${SITE_URL}/opengraph-image`],
+    title,
+    description,
+    images: [ogImage],
   };
 }
