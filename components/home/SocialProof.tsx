@@ -139,6 +139,13 @@ export default function SocialProof() {
     { key: "stat4", value: t("stat4.value"), label: t("stat4.label") },
   ];
 
+  const clients = [
+    { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmacia · Bera" },
+    { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Hondarribia" },
+    { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optica · Irun" },
+    { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "IA · Irun" },
+  ];
+
   return (
     <section
       ref={sectionRef}
@@ -161,6 +168,25 @@ export default function SocialProof() {
               label={stat.label}
             />
           ))}
+        </div>
+
+        <div className="social-proof-clients">
+          <p className="social-proof-clients-label">{t("clientsLabel")}</p>
+          <div className="social-proof-clients-row">
+            {clients.map((client) => (
+              <a
+                key={client.name}
+                href={client.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-proof-client-chip focusable"
+                aria-label={`${client.name} — ${client.sector}`}
+              >
+                <span className="social-proof-client-name">{client.name}</span>
+                <span className="social-proof-client-sector">{client.sector}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

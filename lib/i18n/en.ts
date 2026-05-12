@@ -22,13 +22,13 @@
     availability: "Taking projects in June 2026",
   },
   socialProof: {
-    title: "Trusted by brands that know what they want",
-    subtitle:
-      "We work with companies that value design, strategy, and measurable results.",
+    title: "Real businesses that already have their website",
+    subtitle: "From pharmacies in Navarra to AI agencies in Gipuzkoa. Every project, built by hand.",
     stat1: { value: "14+", label: "Projects delivered" },
     stat2: { value: "100%", label: "Satisfied clients" },
     stat3: { value: "2", label: "Weeks average delivery" },
     stat4: { value: "5★", label: "Google rating" },
+    clientsLabel: "They trusted me",
   },
   services: {
     title: "Four kinds of project, one person behind them.",

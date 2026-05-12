@@ -22,13 +22,13 @@
     availability: "2026ko ekainean proiektuak onartzen",
   },
   socialProof: {
-    title: "Zer nahi duten dakiten marken konfiantza",
-    subtitle:
-      "Diseinua, estrategia eta emaitzak baloratzen dituzten enpresekin lan egiten dugu.",
-    stat1: { value: "14+", label: "Egindako proiektuak" },
+    title: "Benetako negozioak dagoeneko beren weba dutenak",
+    subtitle: "Nafarroako farmazietatik Gipuzkoako IA agentziara. Proiektu bakoitza, eskuz egina.",
+    stat1: { value: "14+", label: "Entregatutako proiektuak" },
     stat2: { value: "100%", label: "Bezero poztuak" },
-    stat3: { value: "2", label: "Asteko batazbesteko entrega" },
+    stat3: { value: "2", label: "Batez besteko entrega asteak" },
     stat4: { value: "5★", label: "Google balorazioa" },
+    clientsLabel: "Konfiantza eman didatenak",
   },
   services: {
     title: "Lau proiektu mota, atzean pertsona bakarra.",

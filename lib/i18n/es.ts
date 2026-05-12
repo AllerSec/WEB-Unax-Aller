@@ -22,13 +22,13 @@
     availability: "Acepto proyectos en junio 2026",
   },
   socialProof: {
-    title: "Confianza de marcas que saben lo que quieren",
-    subtitle:
-      "Trabajamos con empresas que valoran el diseño, la estrategia y los resultados.",
-    stat1: { value: "14+", label: "Proyectos realizados" },
+    title: "Negocios reales que ya tienen su web",
+    subtitle: "Desde farmacias en Navarra hasta agencias de IA en Gipuzkoa. Cada proyecto, hecho a mano.",
+    stat1: { value: "14+", label: "Proyectos entregados" },
     stat2: { value: "100%", label: "Clientes satisfechos" },
     stat3: { value: "2", label: "Semanas de entrega media" },
-    stat4: { value: "5★", label: "Valoración en Google" },
+    stat4: { value: "5★", label: "Valoracion en Google" },
+    clientsLabel: "Han confiado en mi",
   },
   services: {
     title: "Cuatro tipos de proyecto, una sola persona detrás.",

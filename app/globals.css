@@ -7257,3 +7257,12 @@ a.contact-info-label:hover {
 .process-strip-cta {
   text-align: center;
 }
+
+/* === Social Proof Client Chips === */
+.social-proof-clients { margin-top: var(--space-12); text-align: center; }
+.social-proof-clients-label { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-ink-muted); margin-bottom: var(--space-4); }
+.social-proof-clients-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); }
+.social-proof-client-chip { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: var(--space-2) var(--space-4); border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent); border-radius: var(--radius-md); text-decoration: none; transition: border-color 0.2s ease, background 0.2s ease; }
+.social-proof-client-chip:hover { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 5%, transparent); }
+.social-proof-client-name { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 600; color: var(--color-ink); }
+.social-proof-client-sector { font-family: var(--font-sans); font-size: 0.7rem; color: var(--color-ink-muted); }
