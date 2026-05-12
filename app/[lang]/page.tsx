@@ -7,6 +7,7 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import Testimonials from "@/components/home/Testimonials";
 import PricingCards from "@/components/pricing/PricingCards";
 import ProjectsBoard from "@/components/home/ProjectsBoard";
+import ProcessStrip from "@/components/home/ProcessStrip";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import SectionDivider from "@/components/shared/SectionDivider";
 import Link from "next/link";
@@ -353,6 +354,8 @@ export default async function HomePage({ params }: Props) {
           </div>
         </section>
       </AnimatedSection>
+
+      <ProcessStrip locale={locale} />
 
       {/* Projects board — corkboard with polaroids */}
       <AnimatedSection>

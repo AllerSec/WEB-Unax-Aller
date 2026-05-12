@@ -57,6 +57,17 @@
     cta: "Zerbitzu guztiak ikusi",
     learnMore: "Gehiago jakin",
   },
+  homeProcess: {
+    eyebrow: "Hain sinplea",
+    title: "Hutsetik bizira 4 urratsetan.",
+    steps: [
+      { number: "01", title: "Hitz egiten dugu", desc: "30 minututan zer behar duzun esaten didazu. Konpromiso gabe, inprimaki luzerik gabe." },
+      { number: "02", title: "Aurrekontua 24 ordutan", desc: "Hurrengo egunean prezio itxia bidaltzen dizut. Tarterik gabe, ezustekorik gabe." },
+      { number: "03", title: "Diseinua eta kodea", desc: "Zure weba eskuz eraikitzen dut. Aurrerapena erakusten dizut eta egokitu arte aldatzen dugu." },
+      { number: "04", title: "Zure weba bizirik dago", desc: "Abiarazten dugu, Google eta Analytics konfiguratzen ditugu. Zerbait agertzen bada hemen nago." },
+    ],
+    cta: "Hasi dei doan batekin",
+  },
   testimonials: {
     title: "Gure bezeroek zer dioten",
     subtitle: "Bezeroen benetako iritziak Google-n.",

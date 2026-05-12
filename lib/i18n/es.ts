@@ -57,6 +57,17 @@
     cta: "Ver todos los servicios",
     learnMore: "Saber más",
   },
+  homeProcess: {
+    eyebrow: "Así de sencillo",
+    title: "De cero a live en 4 pasos.",
+    steps: [
+      { number: "01", title: "Hablamos", desc: "Me cuentas qué necesitas en 30 minutos. Sin compromiso, sin formularios largos." },
+      { number: "02", title: "Presupuesto en 24h", desc: "Te mando el precio cerrado al día siguiente. Sin rangos, sin sorpresas." },
+      { number: "03", title: "Diseño y código", desc: "Programo tu web a mano. Te enseño avances y ajustamos hasta que cuadra." },
+      { number: "04", title: "Tu web está viva", desc: "Lanzamos, configuramos Google y Analytics. Estoy aquí si aparece cualquier cosa." },
+    ],
+    cta: "Empezar con una llamada gratis",
+  },
   testimonials: {
     title: "Lo que dicen nuestros clientes",
     subtitle: "Reseñas reales de clientes en Google.",

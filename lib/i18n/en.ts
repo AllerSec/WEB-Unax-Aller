@@ -57,6 +57,17 @@
     cta: "View all services",
     learnMore: "Learn more",
   },
+  homeProcess: {
+    eyebrow: "That simple",
+    title: "From zero to live in 4 steps.",
+    steps: [
+      { number: "01", title: "We talk", desc: "You tell me what you need in 30 minutes. No commitment, no long forms." },
+      { number: "02", title: "Quote in 24h", desc: "I send you the fixed price the next day. No ranges, no surprises." },
+      { number: "03", title: "Design and code", desc: "I build your site by hand. I show you progress and we adjust until it fits." },
+      { number: "04", title: "Your site is live", desc: "We launch, set up Google and Analytics. I'm here if anything comes up." },
+    ],
+    cta: "Start with a free call",
+  },
   testimonials: {
     title: "What our clients say",
     subtitle: "Real reviews from clients on Google.",
