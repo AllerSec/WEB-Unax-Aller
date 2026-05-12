@@ -7282,3 +7282,13 @@ a.contact-info-label:hover {
 .comparison-item-bad svg { color: var(--color-danger); flex-shrink: 0; margin-top: 3px; }
 .comparison-item-good { color: var(--color-ink); }
 .comparison-item-good svg { color: var(--color-success); flex-shrink: 0; margin-top: 3px; }
+
+/* === Timeline (About) === */
+.timeline { display: flex; flex-direction: column; padding-left: var(--space-4); border-left: 2px solid color-mix(in srgb, var(--color-accent) 30%, transparent); margin-top: var(--space-8); }
+.timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-6); padding-bottom: var(--space-8); position: relative; }
+.timeline-item::before { content: ""; position: absolute; left: calc(0px - var(--space-4) - 5px); top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-accent); }
+@media (max-width: 640px) { .timeline-item { grid-template-columns: 1fr; gap: var(--space-1); } }
+.timeline-year { font-family: var(--font-serif); font-size: 0.875rem; font-weight: 600; color: var(--color-accent); padding-top: 4px; white-space: nowrap; }
+.timeline-content { display: flex; flex-direction: column; gap: var(--space-1); }
+.timeline-title { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; color: var(--color-ink); }
+.timeline-desc { font-family: var(--font-sans); font-size: 0.875rem; color: var(--color-ink-muted); line-height: 1.6; }

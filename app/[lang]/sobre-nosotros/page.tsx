@@ -272,6 +272,66 @@ export default async function SobreNosotrosPage({ params }: Props) {
         </div>
       </section>
 
+      <section className="about-section" aria-labelledby="timeline-title">
+        <div className="container-xl">
+          <AnimatedSection className="about-section-header">
+            <h2 id="timeline-title" className="section-heading">
+              {locale === "es" ? "Experiencia que marca la diferencia" : locale === "en" ? "Experience that makes a difference" : "Aldea egiten duen esperientzia"}
+            </h2>
+          </AnimatedSection>
+          <div className="timeline">
+            {[
+              {
+                year: "2009–2020",
+                title: locale === "es" ? "Educación en Francia" : locale === "en" ? "Education in France" : "Hezkuntza Frantzian",
+                desc: locale === "es"
+                  ? "Estudié toda mi vida en Francia hasta los 15 años. Francés bilingüe de verdad, no de academia. Eso se nota cuando hago webs para empresas que exportan."
+                  : locale === "en"
+                  ? "I studied my whole life in France until I was 15. Genuinely bilingual French, not from a class. That shows when I build websites for exporting companies."
+                  : "Nire bizitza osoa Frantzian ikasi nuen 15 urte bete arte. Frantses elebidun benetakoa. Hori nabaritzen da esportatzen duten enpresetarako webguneak egiten ditudanean.",
+              },
+              {
+                year: "2022",
+                title: "Erasmus",
+                desc: locale === "es"
+                  ? "Programa de intercambio internacional. Adaptarse a entornos nuevos rápido y sin miedo."
+                  : locale === "en"
+                  ? "International exchange program. Adapting to new environments fast and without fear."
+                  : "Nazioarteko truke programa. Ingurune berrietara azkar eta beldurrik gabe egokitzea.",
+              },
+              {
+                year: "2023",
+                title: locale === "es" ? "Trabajo en EEUU" : locale === "en" ? "Work in the USA" : "Lana AEBetan",
+                desc: locale === "es"
+                  ? "Experiencia profesional en Estados Unidos. Inglés profesional en contexto real, no de examen."
+                  : locale === "en"
+                  ? "Professional experience in the United States. Professional English in real context, not exam English."
+                  : "Esperientzia profesionala Estatu Batuetan. Ingelesa ingurune errealean landua, ez azterketa ingelesa.",
+              },
+              {
+                year: "2024–",
+                title: locale === "es" ? "Freelance en Irun" : locale === "en" ? "Freelance in Irun" : "Freelance Irunen",
+                desc: locale === "es"
+                  ? "14+ proyectos entregados. Farmacia, motos, IA, óptica. 5 estrellas en Google. Trabajando mientras estudio Ingeniería Informática en la UAX."
+                  : locale === "en"
+                  ? "14+ projects delivered. Pharmacy, motorbikes, AI, optics. 5 stars on Google. Working while studying Computer Engineering at UAX."
+                  : "14+ proiektu entregatuak. Farmazia, motozikleta, IA, optika. 5 izar Google-n. UAX-en Informatika Ingeniaritza ikasten ari naizen bitartean lan egiten.",
+              },
+            ].map((item, i) => (
+              <AnimatedSection key={i} delay={i * 0.1}>
+                <div className="timeline-item">
+                  <div className="timeline-year">{item.year}</div>
+                  <div className="timeline-content">
+                    <h3 className="timeline-title">{item.title}</h3>
+                    <p className="timeline-desc">{item.desc}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section
         className="about-section"
         data-surface="alt"
