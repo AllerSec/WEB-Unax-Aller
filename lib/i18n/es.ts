@@ -28,7 +28,7 @@
     stat2: { value: "100%", label: "Clientes satisfechos" },
     stat3: { value: "2", label: "Semanas de entrega media" },
     stat4: { value: "5★", label: "Valoracion en Google" },
-    clientsLabel: "Han confiado en mi",
+    clientsLabel: "Han confiado en mí",
   },
   services: {
     title: "Cuatro tipos de proyecto, una sola persona detrás.",
