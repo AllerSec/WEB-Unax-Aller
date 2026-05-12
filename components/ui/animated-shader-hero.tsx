@@ -1,0 +1,222 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+import Link from "next/link";
+
+interface HeroProps {
+  trustBadge?: { text: string; icons?: string[] };
+  headline: { line1: string; line2: string };
+  subtitle: string;
+  buttons?: {
+    primary?: { text: string; href?: string };
+    secondary?: { text: string; href?: string };
+  };
+  className?: string;
+}
+
+/* Shader basado en Matthias Hurrle (@atzedent) — destellos orbitales
+   recoloreados a la paleta verde bosque / salvia / crema de la marca */
+const SHADER = `#version 300 es
+precision highp float;
+out vec4 O;
+uniform vec2 resolution;
+uniform float time;
+#define FC gl_FragCoord.xy
+#define T time
+#define R resolution
+#define MN min(R.x,R.y)
+
+float rnd(vec2 p){
+  p=fract(p*vec2(12.9898,78.233));
+  p+=dot(p,p+34.56);
+  return fract(p.x*p.y);
+}
+float noise(in vec2 p){
+  vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);
+  float a=rnd(i),b=rnd(i+vec2(1,0)),c=rnd(i+vec2(0,1)),d=rnd(i+1.);
+  return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);
+}
+float fbm(vec2 p){
+  float t=.0,a=1.; mat2 m=mat2(1.,-.5,.2,1.2);
+  for(int i=0;i<5;i++){t+=a*noise(p);p*=2.*m;a*=.5;}
+  return t;
+}
+float clouds(vec2 p){
+  float d=1.,t=.0;
+  for(float i=.0;i<3.;i++){
+    float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);
+    t=mix(t,d,a); d=a; p*=2./(i+1.);
+  }
+  return t;
+}
+
+void main(void){
+  vec2 uv=(FC-.5*R)/MN, st=uv*vec2(2,1);
+  vec3 col=vec3(0);
+  float bg=clouds(vec2(st.x+T*.5,-st.y));
+  uv*=1.-.3*(sin(T*.2)*.5+.5);
+
+  for(float i=1.;i<12.;i++){
+    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
+    vec2 p=uv;
+    float d=length(p);
+
+    /* destellos — paleta verde bosque/salvia en vez de naranja/rojo */
+    /* cos(sin(i)*vec3(A,B,C))+1 produce 0–2; escalamos a 0–1
+       Elegimos fases para que el canal verde domine */
+    vec3 spark=cos(sin(i)*vec3(0.4,1.2,0.7)+vec3(2.1,0.3,1.8))+1.;
+    /* spark.r≈verde oscuro, spark.g≈salvia, spark.b≈crema/azul apagado */
+    /* remapeamos: queremos verde en R, verde brillante en G, crema en B */
+    vec3 tinted=vec3(
+      spark.g*0.18+spark.r*0.05,   /* canal R: muy bajo → tono oscuro */
+      spark.g*0.55+spark.r*0.30,   /* canal G: verde dominante */
+      spark.b*0.22+spark.g*0.12    /* canal B: toque azul-verdoso */
+    );
+    col+=.00125/d*tinted;
+
+    float b=noise(i+p+bg*1.731);
+    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(0.12,0.55,0.28);
+    col=mix(col,vec3(bg*.04,bg*.18,bg*.08),d);
+  }
+
+  /* vignette suave */
+  float vig=1.-dot(uv*.7,uv*.7);
+  col*=max(vig,0.15);
+
+  O=vec4(col,1.);
+}`;
+
+function useShaderCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const gl = canvas.getContext("webgl2");
+    if (!gl) return;
+
+    const compile = (type: number, src: string) => {
+      const s = gl.createShader(type)!;
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return s;
+    };
+
+    const vs = compile(gl.VERTEX_SHADER,
+      `#version 300 es\nin vec4 p;\nvoid main(){gl_Position=p;}`);
+    const fs = compile(gl.FRAGMENT_SHADER, SHADER);
+    const prog = gl.createProgram()!;
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER,
+      new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, "p");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const uRes = gl.getUniformLocation(prog, "resolution");
+    const uTime = gl.getUniformLocation(prog, "time");
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio, 1.5);
+      canvas.width  = window.innerWidth  * dpr;
+      canvas.height = window.innerHeight * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const loop = (now: number) => {
+      gl.useProgram(prog);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+      gl.uniform1f(uTime, now * 1e-3);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      rafRef.current = requestAnimationFrame(loop);
+    };
+    rafRef.current = requestAnimationFrame(loop);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(rafRef.current);
+      gl.deleteProgram(prog);
+    };
+  }, []);
+
+  return canvasRef;
+}
+
+export function AnimatedShaderHero({
+  trustBadge, headline, subtitle, buttons, className = "",
+}: HeroProps) {
+  const canvasRef = useShaderCanvas();
+
+  return (
+    <section className={`sh ${className}`} aria-labelledby="hero-h1">
+      {/* WebGL background */}
+      <canvas ref={canvasRef} className="sh__canvas" aria-hidden="true" />
+
+      {/* Gradient veil — keeps text readable while shader shows through */}
+      <div className="sh__veil" aria-hidden="true" />
+
+      {/* Noise grain overlay for texture */}
+      <div className="sh__grain" aria-hidden="true" />
+
+      <div className="sh__inner">
+        {/* Availability pill */}
+        {trustBadge && (
+          <div className="sh__pill" aria-label={trustBadge.text}>
+            <span className="sh__pill-dot" aria-hidden="true" />
+            <span className="sh__pill-text">{trustBadge.text}</span>
+          </div>
+        )}
+
+        {/* Main headline — huge, split into two lines with accent on line 2 */}
+        <h1 id="hero-h1" className="sh__h1">
+          <span className="sh__h1-plain">{headline.line1}</span>
+          <span className="sh__h1-accent">{headline.line2}</span>
+        </h1>
+
+        {/* Sub */}
+        <p className="sh__sub">{subtitle}</p>
+
+        {/* CTAs */}
+        {buttons && (
+          <div className="sh__ctas">
+            {buttons.primary && (
+              <Link
+                href={buttons.primary.href ?? "/es/contacto"}
+                className="sh__btn-primary"
+              >
+                {buttons.primary.text}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            )}
+            {buttons.secondary && (
+              <Link
+                href={buttons.secondary.href ?? "/es/precios"}
+                className="sh__btn-secondary"
+              >
+                {buttons.secondary.text}
+              </Link>
+            )}
+          </div>
+        )}
+
+        {/* Scroll cue */}
+        <div className="sh__scroll" aria-hidden="true">
+          <div className="sh__scroll-line" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default AnimatedShaderHero;

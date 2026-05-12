@@ -69,8 +69,8 @@
     cta: "Empezar con una llamada gratis",
   },
   testimonials: {
-    title: "Lo que dicen nuestros clientes",
-    subtitle: "Reseñas reales de clientes en Google.",
+    title: "Lo que dicen mis clientes",
+    subtitle: "Reseñas reales en Google.",
     items: [
       {
         quote:
@@ -205,7 +205,7 @@
   contact: {
     title: "Empecemos a construir.",
     subtitle:
-      "Cuéntanos tu proyecto. Respondemos en menos de 24 horas con una propuesta inicial gratuita.",
+      "Cuéntame tu proyecto. Respondo en menos de 24 horas con una propuesta inicial gratuita.",
     form: {
       name: "Nombre completo",
       email: "Correo electrónico",
@@ -214,19 +214,20 @@
       submit: "Solicita información",
       sending: "Enviando...",
       success:
-        "¡Mensaje enviado! Te contactaremos en menos de 24 horas.",
+        "¡Mensaje enviado! Me pondré en contacto contigo en menos de 24 horas.",
       error: "Error al enviar. Por favor, intenta de nuevo.",
     },
     info: {
       location: "Irun, Gipuzkoa · País Vasco",
       email: "contacto@unaxaller.com",
+      phone: "+34 620 90 99 26",
       response: "Respuesta en < 24h",
       availability: "Lun – Vie · 9:00 – 18:00",
     },
     stats: {
       title: "Un paso más cerca de tu web.",
       subtitle:
-        "Sin compromiso, sin letra pequeña. Respondemos rápido y con una propuesta clara.",
+        "Sin compromiso, sin letra pequeña. Respondo rápido y con una propuesta clara.",
       stat1: { value: "24", label: "Horas de respuesta" },
       stat2: { value: "100%", label: "Presupuesto gratis" },
       stat3: { value: "2", label: "Semanas entrega media" },
@@ -269,11 +270,12 @@
   faqServicios: {
     title: "Preguntas frecuentes",
     items: [
-      { q: "¿Cuánto tiempo tarda en hacerse una web?", a: "El proceso completo desde el primer contacto hasta la entrega dura entre 3 y 6 semanas, dependiendo de la complejidad del proyecto y la velocidad de feedback." },
+      { q: "¿Cuánto tiempo tarda en hacerse una web?", a: "Depende del proyecto: una landing page sencilla de 1–3 páginas está lista en 1 semana. Una web corporativa con 5–8 páginas tarda 1–2 semanas. Multi-idioma o proyectos más complejos, 2–3 semanas. Siempre te digo el plazo real desde el primer día." },
       { q: "¿Qué necesito aportar yo para empezar?", a: "Solo necesito que me cuentes tu negocio, tus objetivos y, si los tienes, logotipo y fotos. Del resto me encargo yo." },
-      { q: "¿Incluye el mantenimiento después de la entrega?", a: "El precio incluye 1 mes de soporte post-lanzamiento. A partir de ahí, ofrezco planes de mantenimiento opcionales." },
+      { q: "¿Incluye el mantenimiento después de la entrega?", a: "El precio incluye 1 mes de soporte post-lanzamiento. A partir de ahí, el mantenimiento es opcional: 100€ el primer año (dominio, hosting, soporte y cambios menores como textos o fotos). 200€/año a partir del segundo." },
       { q: "¿Puedo pedir cambios durante el proyecto?", a: "Sí, el proceso es iterativo. Incluye hasta 2 rondas de revisión sin coste adicional." },
       { q: "¿Trabajas solo con empresas del País Vasco?", a: "No, trabajo con clientes de toda España y también internacionales. Solo necesitamos internet para comunicarnos." },
+      { q: "¿Qué pasa si no estás disponible por vacaciones o exámenes?", a: "Tienes acceso total al repositorio desde el primer día: código, dominio y hosting a tu nombre. Cualquier desarrollador puede continuar sin depender de mí. No hay ningún lock-in. Y si necesito ausentarme, te aviso siempre con antelación." },
     ],
   },
   faqPrecios: {

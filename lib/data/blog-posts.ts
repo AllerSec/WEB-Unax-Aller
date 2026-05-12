@@ -1266,6 +1266,447 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
       eu: ["web diseinatzaile freelance edo agentzia"],
     },
   },
+  {
+    slug: "wordpress-vs-nextjs-para-tu-negocio",
+    publishedAt: "2026-05-13",
+    readingTime: 7,
+    titles: {
+      es: "WordPress vs Next.js: cuál elegir para la web de tu negocio en 2026",
+      en: "WordPress vs Next.js: which to choose for your business website in 2026",
+      eu: "WordPress vs Next.js: zein aukeratu zure negozioaren webgunean 2026an",
+    },
+    descriptions: {
+      es: "Comparativa honesta entre WordPress y Next.js para webs de negocio. Velocidad, SEO, coste, mantenimiento y cuándo tiene sentido cada uno.",
+      en: "Honest comparison between WordPress and Next.js for business websites. Speed, SEO, cost, maintenance and when each one makes sense.",
+      eu: "WordPress eta Next.js-en konparaketa zintzoa negozio-webguneentzat. Abiadura, SEO, kostua, mantentzea eta noiz du zentzua bakoitzak.",
+    },
+    content: {
+      es: `Si preguntas a cualquier agencia qué usar para tu web, el 80% te dirá WordPress sin pensarlo dos veces. Si preguntas a un desarrollador moderno, te dirá Next.js. Ninguno te va a explicar el porqué con honestidad. Yo sí.
+
+## Qué es cada uno, en términos reales
+
+**WordPress** es un CMS que nació en 2003 para gestionar blogs. Hoy tiene el 43% de internet. El problema es que ese número incluye webs abandonadas, hackeadas, lentas y mantenidas con plantillas de hace cinco años. No es una medalla.
+
+**Next.js** es un framework de React creado en 2016 por Vercel. Nació para aplicaciones web modernas: rápidas, seguras, con SSR (server-side rendering) y generación estática. No tiene panel de administración por defecto — es código, no clicks.
+
+## Rendimiento: diferencia real
+
+Una web en Next.js bien hecha carga en menos de 1 segundo. En WordPress, depende de cuántos plugins tienes, qué hosting usas, si tienes caché bien configurada, si el theme está optimizado... Con WordPress, Lighthouse 95+ es un proyecto; con Next.js, es el punto de partida.
+
+Los Core Web Vitals (LCP, CLS, INP) que Google usa para posicionar tienen una correlación directa con la tecnología. No es que WordPress no pueda llegar a verde — puede, con trabajo. Pero Next.js llega ahí por diseño.
+
+## SEO: el mito de "WordPress es mejor para SEO"
+
+Esto es falso y se repite mucho. WordPress tiene Yoast o RankMath, que son herramientas SEO muy completas. Pero el SEO técnico de base — URLs limpias, sitemap, hreflang, metadatos correctos — se hace igual de bien en Next.js. Y las métricas de velocidad que afectan al posicionamiento, mejor.
+
+Lo que WordPress tiene a su favor en SEO: es más fácil para alguien sin conocimientos técnicos subir contenido, actualizar el blog y gestionar textos. Si tu estrategia de contenido la lleva alguien del equipo sin perfil técnico, WordPress facilita ese flujo.
+
+## Coste real de cada uno
+
+**WordPress:**
+- Hosting decente: 10–30€/mes (el barato de 2€ te da problemas)
+- Theme premium: 60–80€ (único, pero hay que renovar)
+- Plugins esenciales: formulario, SEO, seguridad, caché — fácil 150–300€/año
+- Actualizaciones que rompen cosas: cada 3–6 meses aparece alguna
+- Desarrollador de urgencia cuando algo falla: 50–150€/hora
+
+**Next.js:**
+- Hosting en Vercel: gratis hasta cierto tráfico, luego 20€/mes
+- Dominio: 10–15€/año
+- Mantenimiento: mínimo, porque no hay plugins que actualizar
+- Coste inicial más alto (desarrollo a medida)
+
+A largo plazo, Next.js sale más barato si sumas todo. A corto plazo, WordPress es más económico si tienes claro que puedes gestionarlo tú.
+
+## Cuándo tiene sentido WordPress
+
+Tiene sentido si necesitas un CMS potente para gestionar contenido sin depender de un desarrollador. Una revista online, un e-commerce con WooCommerce, un directorio de empresas — ahí WordPress brilla. También si ya lo conoces bien, tienes un desarrollador de confianza y no quieres cambiar de herramienta.
+
+No tiene sentido para una web corporativa o de servicios donde el contenido cambia poco. Ahí pagas el precio del CMS sin aprovechar sus ventajas.
+
+## Cuándo tiene sentido Next.js
+
+Para la mayoría de webs de negocio local, clínicas, profesionales, empresas de servicios. Proyectos donde la velocidad, el SEO técnico, el multi-idioma y la seguridad importan. Si la web va a estar bastante estática — home, servicios, precios, contacto — Next.js es la opción que envejece mejor.
+
+También para proyectos con multi-idioma serio. Con next-intl o next-i18next, el hreflang, las URLs por idioma y los metadatos por locale se configuran de forma limpia desde el principio. Con WordPress necesitas plugins que a veces se pelean entre sí.
+
+## Mi postura honesta
+
+Yo uso Next.js para todos mis clientes. No porque sea una moda, sino porque lo que me piden — velocidad, posicionamiento, multi-idioma, diseño a medida — lo resuelve mejor. Las webs que entrego tienen Lighthouse 95+ de salida, sin pelear con plugins ni con el tema que se actualiza solo un martes.
+
+Si alguien me pide un e-commerce con 500 productos y un equipo de marketing que sube contenido cada día, lo hablo. Quizá WordPress o Shopify tiene más sentido ahí. Pero para la web de un médico, un taller, una consultora o una clínica, Next.js gana sin discusión.`,
+      en: `Ask any agency what to use for your website and 80% will say WordPress without thinking. Ask a modern developer and they'll say Next.js. Neither will explain the why honestly. I will.
+
+## What each one is, in real terms
+
+**WordPress** is a CMS born in 2003 to manage blogs. Today it powers 43% of the internet. The problem is that number includes abandoned, hacked, slow sites maintained with five-year-old templates. Not a medal.
+
+**Next.js** is a React framework created in 2016 by Vercel. Born for modern web apps: fast, secure, with SSR and static generation. No admin panel by default — it's code, not clicks.
+
+## Performance: the real difference
+
+A well-built Next.js site loads in under 1 second. WordPress depends on how many plugins you have, what hosting, whether cache is set up right, whether the theme is optimised... With WordPress, Lighthouse 95+ is a project; with Next.js, it's the starting point.
+
+The Core Web Vitals Google uses for ranking have a direct correlation with technology. It's not that WordPress can't reach green — it can, with work. But Next.js gets there by design.
+
+## SEO: the myth that "WordPress is better for SEO"
+
+This is false and repeated constantly. WordPress has Yoast or RankMath, which are solid SEO tools. But the underlying technical SEO — clean URLs, sitemap, hreflang, correct metadata — works just as well in Next.js. And the speed metrics that affect ranking, better.
+
+Where WordPress has an advantage in SEO: it's easier for someone without technical knowledge to upload content, update the blog and manage text. If your content strategy is run by a non-technical team member, WordPress makes that flow easier.
+
+## Real cost of each
+
+**WordPress:**
+- Decent hosting: €10–30/month (the cheap €2 option causes problems)
+- Premium theme: €60–80 (one-off, but needs renewal)
+- Essential plugins: contact form, SEO, security, cache — easily €150–300/year
+- Updates that break things: every 3–6 months something breaks
+- Emergency developer when something fails: €50–150/hour
+
+**Next.js:**
+- Hosting on Vercel: free up to a point, then €20/month
+- Domain: €10–15/year
+- Maintenance: minimal, no plugins to update
+- Higher upfront cost (custom development)
+
+Long-term, Next.js works out cheaper when you add everything up. Short-term, WordPress is more economical if you're confident managing it yourself.
+
+## When WordPress makes sense
+
+It makes sense when you need a powerful CMS to manage content without depending on a developer. An online magazine, a WooCommerce e-commerce, a business directory — WordPress shines there. Also if you know it well, have a trusted developer and don't want to switch tools.
+
+It doesn't make sense for a corporate or service website where content rarely changes. There you pay the CMS price without using its advantages.
+
+## When Next.js makes sense
+
+For most local business websites, clinics, professionals, service companies. Projects where speed, technical SEO, multi-language and security matter. If the site will be fairly static — home, services, pricing, contact — Next.js ages better.
+
+Also for projects with serious multi-language needs. With next-intl, hreflang, per-language URLs and per-locale metadata are set up cleanly from the start. With WordPress you need plugins that sometimes fight each other.
+
+## My honest take
+
+I use Next.js for all my clients. Not because it's fashionable, but because what they ask for — speed, ranking, multi-language, custom design — it resolves better. The sites I deliver have Lighthouse 95+ out of the box, without fighting plugins or a theme that auto-updates itself on a Tuesday.
+
+If someone asks me for an e-commerce with 500 products and a marketing team uploading content daily, I'll discuss it. Maybe WordPress or Shopify makes more sense there. But for a doctor's site, a workshop, a consultancy or a clinic, Next.js wins without argument.`,
+      eu: `Edozein agentziari galdetu zer erabili zure webgunean eta %80k WordPress esango dizu pentsatu gabe. Garatzaile moderno bati galdetu eta Next.js esango dizu. Inork ez dizu azalpena emango zintzotasunez. Nik bai.
+
+## Zer den bakoitza, termino errealetan
+
+**WordPress** 2003an blog-ak kudeatzeko jaio zen CMS bat da. Gaur egun interneten %43 hartzen du. Arazoa da zenbaki hori utzia, hackeatu, motel eta bost urteko txantiloiekin mantendutako webguneak barne hartzen dituela. Ez da domina bat.
+
+**Next.js** Vercel-ek 2016an sortutako React framework bat da. Web aplikazio modernoentzat jaioa: azkarrak, seguruak, SSR eta sorkuntza estatikoarekin. Ez du administrazio-panelik defektuz — kodea da, ez klikak.
+
+## Errendimendua: benetako aldea
+
+Ondo egindako Next.js webgune bat segundo batean baino gutxiagoan kargatzen da. WordPressen, zenbat plugin daukazun, zer hosting, cache ondo konfiguratua dagoen, theme optimizatua dagoen... WordPressen Lighthouse 95+ proiektu bat da; Next.js-en, abiapuntua da.
+
+Googlek rankeatzerakoan erabiltzen dituen Core Web Vitals-ek (LCP, CLS, INP) zuzeneko korrelazioa dute teknologiarekin.
+
+## SEO: "WordPress SEOrako hobea da" mitoa
+
+Hau faltsua da eta asko errepikatu egiten da. WordPressen Yoast edo RankMath daude, SEO tresna oso osoak. Baina oinarrizko SEO teknikoa — URL garbiak, sitemap, hreflang, metadatu zuzenak — Next.js-en berdin egiten da. Eta rankeatzeari eragiten dioten abiadura metrikak, hobeto.
+
+## Noiz du zentzua WordPressek
+
+Zentzua du garatzaile batean oinarritu gabe edukia kudeatzeko CMS indartsua behar duzunean. Online aldizkari bat, WooCommerce e-commerce bat, enpresa-direktorio bat — WordPress hor distira egiten du.
+
+Ez du zentzua edukia gutxitan aldatzen den web korporatiborako edo zerbitzu-webgunearentzat.
+
+## Noiz du zentzua Next.js-ek
+
+Tokiko negozio-webgune gehienentzat, klinikak, profesionalak, zerbitzu-enpresak. Abiadura, SEO teknikoa, hizkuntza anitza eta segurtasuna garrantzitsuak diren proiektuentzat.
+
+## Nire iritzi zintzoa
+
+Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskatzen didatena — abiadura, posizionamendua, hizkuntza anitza, neurrizko diseinua — hobeto ebazten duelako. Entregatzen ditudan webguneak Lighthouse 95+ dituzte hasieratik, pluginekin edo asteartean bere kabuz eguneratzen den theme batekin borrokatu gabe.`,
+    },
+    tags: ["WordPress", "Next.js", "tecnología web", "rendimiento web", "SEO"],
+    keywords: {
+      es: [
+        "WordPress vs Next.js",
+        "WordPress o Next.js para negocio",
+        "Next.js vs WordPress velocidad",
+        "mejor tecnología web 2026",
+        "alternativa WordPress empresas",
+      ],
+      en: [
+        "WordPress vs Next.js",
+        "WordPress or Next.js for business",
+        "Next.js vs WordPress speed",
+        "best web technology 2026",
+      ],
+      eu: [
+        "WordPress vs Next.js",
+        "web teknologia 2026",
+        "Next.js negozioetarako",
+      ],
+    },
+    faq: {
+      es: [
+        {
+          q: "¿Es WordPress suficiente para una web de negocio pequeño?",
+          a: "Depende. Para un negocio que va a gestionar mucho contenido él mismo (blog activo, catálogo de productos, equipo sin perfil técnico), WordPress puede tener sentido. Para una web de servicios donde el contenido cambia poco, WordPress añade complejidad y costes sin ventaja real.",
+        },
+        {
+          q: "¿Se puede hacer SEO igual de bien en Next.js que en WordPress?",
+          a: "Sí. El SEO técnico — hreflang, sitemaps, metadatos por página, URLs limpias — se implementa perfectamente en Next.js. La diferencia es que en WordPress necesitas plugins para eso; en Next.js va integrado. Y la velocidad, que Google usa como factor de ranking, es superior en Next.js.",
+        },
+        {
+          q: "¿Puedo gestionar el contenido yo mismo con Next.js?",
+          a: "En el modelo que uso yo, los textos e imágenes se cambian pidiéndome a mí — no hay panel de administración. Para muchos negocios eso es suficiente: el contenido cambia poco y prefieren no lidiar con sistemas que no conocen. Si necesitas gestión autónoma de contenido, existen soluciones (Sanity, Contentful, Notion como CMS) pero añaden complejidad y coste.",
+        },
+        {
+          q: "¿Por qué no usas WordPress si tiene más cuota de mercado?",
+          a: "Cuota de mercado no es sinónimo de mejor opción técnica. El 43% de internet en WordPress incluye blogs abandonados, tiendas hackeadas y webs que cargan en 8 segundos. Para proyectos nuevos de negocio donde la velocidad y el SEO técnico son prioritarios, Next.js es objetivamente superior.",
+        },
+      ],
+      en: [
+        {
+          q: "Is WordPress enough for a small business website?",
+          a: "Depends. For a business that will manage a lot of content themselves (active blog, product catalogue, non-technical team), WordPress can make sense. For a service website where content rarely changes, WordPress adds complexity and costs with no real advantage.",
+        },
+        {
+          q: "Can SEO be done just as well in Next.js as in WordPress?",
+          a: "Yes. Technical SEO — hreflang, sitemaps, per-page metadata, clean URLs — is implemented perfectly in Next.js. The difference is that in WordPress you need plugins for that; in Next.js it's built in. And the speed Google uses as a ranking factor is better in Next.js.",
+        },
+        {
+          q: "Why don't you use WordPress if it has more market share?",
+          a: "Market share isn't the same as best technical option. The 43% of the internet on WordPress includes abandoned blogs, hacked shops and sites that load in 8 seconds. For new business projects where speed and technical SEO are priorities, Next.js is objectively superior.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "diseno-web-para-clinicas",
+    publishedAt: "2026-05-13",
+    readingTime: 6,
+    titles: {
+      es: "Diseño web para clínicas y consultas: lo que de verdad importa",
+      en: "Web design for clinics and practices: what really matters",
+      eu: "Web diseinua klinikak eta kontsultetarako: benetan garrantzitsuena",
+    },
+    descriptions: {
+      es: "Qué necesita la web de una clínica dental, fisioterapia o estética para generar confianza, aparecer en Google y convertir visitas en citas.",
+      en: "What a dental clinic, physiotherapy or aesthetics website needs to build trust, appear on Google and turn visits into bookings.",
+      eu: "Hortz-klinikaren, fisioterapiaren edo estetikaren webguneak zer behar duen konfiantza sortzeko, Googlen agertzeko eta bisitaldiak hitzorduetan bihurtzeko.",
+    },
+    content: {
+      es: `La web de una clínica no es como la de una tienda. Aquí no vendes un producto — convences a alguien de que le vas a poner las manos encima, a veces literalmente. La confianza lo es todo. Y la mayoría de webs de clínicas fallan exactamente en eso.
+
+![Recepción de clínica limpia y bien iluminada](https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## El error número uno: parecer una clínica genérica
+
+Entras en la web de una clínica dental cualquiera y ves: logo corporativo, foto de stock de dentista con mascarilla, lista de servicios en dos columnas, formulario de contacto al fondo. Podría ser cualquier clínica del mundo.
+
+Tu paciente potencial llega a tu web después de buscar en Google, comparar tres opciones y llegar a la tuya. Si no ve nada que le diferencie, elige al que tiene más reseñas o al más barato. Tú no quieres competir en precio con una clínica franquicia.
+
+Lo que diferencia una web de clínica que convierte:
+- Foto real del equipo, no de stock
+- Historia del centro: cuándo se fundó, quién está detrás, por qué lo hacen
+- Testimonios reales con nombre y servicio
+- Información clara de precios (o al menos rangos)
+- Un proceso de cita fácil de entender
+
+## Confianza antes que diseño
+
+El diseño importa, pero está al servicio de la confianza. Un diseño impecable con fotos de stock y sin información real genera menos conversiones que un diseño discreto con foto del equipo y 20 reseñas de Google visibles.
+
+Lo que genera confianza en una web de clínica:
+
+**Equipo visible.** Foto real, nombre completo, especialidad y años de experiencia. Los pacientes quieren saber quién les va a atender.
+
+**Certificaciones y colegiación.** Número de colegiado visible. No porque lo exija la ley, sino porque el paciente que lo busca encuentra lo que busca y queda tranquilo.
+
+**Antes y después (si aplica).** En estética dental o cirugía estética, los casos antes/después son el argumento más potente. Con consentimiento, claro.
+
+**Política de privacidad real.** No el texto genérico del plugin. Una que explique cómo se manejan los datos de salud — porque son datos sensibles bajo el RGPD y la ley española tiene requisitos específicos para centros sanitarios.
+
+## SEO para clínicas: lo que funciona en 2026
+
+Una clínica local compite en búsquedas como "dentista en Irun", "fisioterapeuta Hondarribia" o "clínica estética Donostia". Para ganar esas búsquedas:
+
+**Google Business Profile optimizado.** Categoría correcta (no "clínica" genérico — "Clínica dental", "Centro de fisioterapia"). Fotos reales del local. Respuesta a todas las reseñas. Publicaciones semanales con ofertas o noticias.
+
+**Schema LocalBusiness y MedicalOrganization.** Los datos estructurados le dicen a Google qué tipo de centro eres, tu especialidad, tu zona de servicio. Muchas webs de clínicas no lo tienen — es una ventaja directa para quien lo implementa.
+
+**Páginas por servicio.** Una página por tratamiento con contenido real: en qué consiste, cuánto dura, qué resultados esperar, preguntas frecuentes, precio orientativo. No una lista. Una página.
+
+**Reseñas recientes.** Pide reseña justo cuando el paciente sale satisfecho. Con una plantilla de WhatsApp es fácil. 5 reseñas en un mes valen más que 50 de hace tres años.
+
+## Formulario de cita: el punto de conversión
+
+El formulario de una clínica tiene que pedir lo mínimo: nombre, teléfono, servicio que busca. No DNI, no historial médico, no fecha de nacimiento. Eso se pide en la consulta. El objetivo del formulario es que el paciente dé el primer paso.
+
+Mejor aún que el formulario: un enlace de WhatsApp directo. Muchos pacientes prefieren escribir un mensaje a rellenar un formulario. Si tienes WhatsApp Business, úsalo.
+
+## Lo que yo incluyo en webs de clínicas
+
+Cuando hago la web de una clínica, pienso en el paciente que llega con una duda y tiene que decidir en 30 segundos si confía o busca otra opción. El diseño, los textos y la estructura están al servicio de esa decisión.
+
+Lo habitual que configuro: página de inicio con foto real del equipo arriba del pliegue, sección de servicios con página individual por tratamiento, precios orientativos, sección de equipo con datos de cada profesional, reseñas de Google integradas, formulario de cita + link de WhatsApp, Schema MedicalOrganization y LocalBusiness, política de privacidad adaptada a datos de salud.
+
+El resultado: una clínica que aparece en Google para sus búsquedas locales y que convierte esas visitas en citas reales.`,
+      en: `A clinic's website isn't like a shop's. You're not selling a product — you're convincing someone to let you put your hands on them, sometimes literally. Trust is everything. And most clinic websites fail at exactly that.
+
+![Clean, well-lit clinic reception](https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Mistake number one: looking like a generic clinic
+
+Open any dental clinic's website and you see: corporate logo, stock photo of a dentist with a mask, list of services in two columns, contact form at the bottom. Could be any clinic in the world.
+
+Your potential patient arrives at your site after searching on Google, comparing three options and landing on yours. If they see nothing that sets you apart, they choose whoever has more reviews or is cheapest. You don't want to compete on price with a franchise clinic.
+
+What differentiates a clinic website that converts:
+- Real photos of the team, not stock
+- Centre story: when it was founded, who's behind it, why they do it
+- Real testimonials with name and service
+- Clear pricing information (or at least ranges)
+- An easy-to-understand booking process
+
+## Trust before design
+
+Design matters, but it serves trust. Impeccable design with stock photos and no real information converts less than modest design with a team photo and 20 visible Google reviews.
+
+What builds trust on a clinic website:
+
+**Visible team.** Real photo, full name, specialty and years of experience. Patients want to know who will treat them.
+
+**Certifications and registration numbers.** Visible registration number. Not because the law requires it, but because the patient who looks for it finds it and feels reassured.
+
+**Before and after (if applicable).** In dental or cosmetic aesthetics, before/after cases are the most powerful argument. With consent, of course.
+
+**Real privacy policy.** Not the generic plugin text. One that explains how health data is handled — because it's sensitive data under GDPR and Spanish law has specific requirements for healthcare centres.
+
+## SEO for clinics: what works in 2026
+
+A local clinic competes on searches like "dentist in Irun", "physio Hondarribia" or "aesthetic clinic Donostia". To win those searches:
+
+**Optimised Google Business Profile.** Correct category (not generic "clinic" — "Dental clinic", "Physiotherapy centre"). Real photos of the premises. Response to all reviews. Weekly posts with offers or news.
+
+**LocalBusiness and MedicalOrganization schema.** Structured data tells Google what type of centre you are, your specialty, your service area. Many clinic websites don't have this — it's a direct advantage for whoever implements it.
+
+**A page per service.** One page per treatment with real content: what it involves, how long it takes, what results to expect, FAQs, indicative price. Not a list. A page.
+
+**Recent reviews.** Ask for a review right when the patient leaves satisfied. A WhatsApp template makes it easy. 5 reviews in a month are worth more than 50 from three years ago.
+
+## Booking form: the conversion point
+
+A clinic's form should ask for the minimum: name, phone, service they're looking for. Not ID number, medical history, or date of birth. That's for the appointment. The form's goal is to get the patient to take the first step.
+
+Even better than a form: a direct WhatsApp link. Many patients prefer to write a message over filling in a form.
+
+## What I include in clinic websites
+
+When I build a clinic's website, I think about the patient who arrives with a doubt and has 30 seconds to decide whether to trust or search for another option. The design, text and structure serve that decision.
+
+The usual setup: home page with real team photo above the fold, services section with individual pages per treatment, indicative prices, team section with each professional's details, integrated Google reviews, booking form + WhatsApp link, MedicalOrganization and LocalBusiness schema, privacy policy adapted to health data.
+
+The result: a clinic that appears on Google for its local searches and converts those visits into real appointments.`,
+      eu: `Klinikaren webgunea ez da denda baten modukoa. Ez duzu produkturik saltzen — norbaiti eskuak gainean jartzea konbentzitzen duzu, batzuetan literalki. Konfiantza dena da. Eta kliniken web gehienek horretan huts egiten dute.
+
+![Harrera garbi eta ondo argiztatua](https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Akats nagusia: klinika generiko baten itxura edukitzea
+
+Edozein hortz-klinikaren webgunea irekitzen duzu eta ikusten duzu: logo korporatiboa, maskara duen dentistaren stock argazkia, zerbitzuen zerrenda bi zutabetan, kontaktu-formularioa behean. Munduko edozein klinika izan liteke.
+
+Zure paziente potentzialak zure webgunera iristen da Googlen bilatu, hiru aukera alderatu eta zurearen ondoren. Bereizten duen ezer ikusten ez badu, iritzi gehien dituena edo merkeena aukeratzen du.
+
+Konbertsio-klinikaren webgunea bereizten duena:
+- Taldearen argazki erreala, ez stock-ekoa
+- Zentroaren historia: noiz sortu zen, nor dagoen atzean, zergatik egiten duten
+- Izen eta zerbitzuarekin benetako testigantzak
+- Prezioen informazio argia (gutxienez tarteak)
+- Ulertzeko erraza den hitzorduen prozesua
+
+## Konfiantza diseinuaren aurretik
+
+Diseinua garrantzitsua da, baina konfiantzaren zerbitzuan dago. Stock argazkiekin eta informazio errealik gabe diseinu ezin hobeak konbertsio gutxiago sortzen du.
+
+Klinikaren webgunean konfiantza sortzen duena:
+
+**Talde bistaratu.** Argazki erreala, izen osoa, espezialitatea eta esperientzia urteak.
+
+**Ziurtagiriak eta kolegiazio zenbakiak.** Kolegiazio zenbaki bistaratzaile bat. Ez legearen eskakizunagatik, bilatzen duen pazientea aurkitzen duelako eta lasai geratzen delako.
+
+**Lehenago eta ondoren (aplikagarria bada).** Hortz-estetikan edo estetika-kirurgian, lehen/orain kasuak argudio indartsuena dira.
+
+**Pribatutasun-politika erreala.** Osasun-datuak nola kudeatzen diren azaltzen duena.
+
+## Klinikaren SEO: 2026an funtzionatzen duena
+
+Tokiko klinika batek "dentista Irunen", "fisioterapeuta Hondarribian" edo "estetika klinika Donostian" bezalako bilaketetan lehiatzen du.
+
+**Google Business Profile optimizatua.** Kategoria zuzena. Lokalaren argazki errealak. Iritzi guztiei erantzuna. Asteroko posts-ak.
+
+**LocalBusiness eta MedicalOrganization Schema.** Datu egituratuek Googler esaten diote zer mota zentro zaren, zure espezialitatea, zure zerbitzu-area.
+
+**Zerbitzu bakoitzeko orrialdea.** Tratamendu bakoitzeko orrialde bat eduki erreal batekin: zertan datzan, zenbat irauten duen, zer emaitza espero, galdera ohikoak.
+
+**Iritzi berriak.** Eskatu iritzia pazientea pozik irteten denean. WhatsApp txantiloi batekin erraza da.
+
+Emaitza: bere tokiko bilaketetan Googlen agertzen den eta bisita horiek benetako hitzordutan bihurtzen dituen klinika bat.`,
+    },
+    tags: ["clínicas", "diseño web clínica", "SEO médico", "confianza web", "conversión"],
+    keywords: {
+      es: [
+        "diseño web clínica dental",
+        "web para clínica fisioterapia",
+        "diseño web centro médico",
+        "SEO clínica local",
+        "web clínica estética",
+        "diseñador web clínica País Vasco",
+      ],
+      en: [
+        "web design dental clinic",
+        "clinic website design",
+        "medical practice website",
+        "local SEO clinic",
+        "aesthetic clinic website",
+      ],
+      eu: [
+        "web diseinua hortz-klinikak",
+        "klinikaren webgunea",
+        "SEO medikua lokala",
+      ],
+    },
+    faq: {
+      es: [
+        {
+          q: "¿Qué información legal necesita la web de una clínica en España?",
+          a: "Obligatorio: aviso legal, política de privacidad y política de cookies. En centros sanitarios, la política de privacidad debe especificar el tratamiento de datos de salud (categoría especial bajo RGPD), el responsable del tratamiento y el DPO si aplica. También es necesario el consentimiento informado para formularios que recojan datos de salud.",
+        },
+        {
+          q: "¿Puedo poner precios en la web de mi clínica?",
+          a: "Sí, y es muy recomendable. Los precios — aunque sean orientativos — eliminan una barrera de entrada importante: el miedo a pedir presupuesto. Una clínica que pone sus precios visibles transmite transparencia. Si hay mucha variabilidad (cada caso es diferente), pon rangos o precios de consulta inicial.",
+        },
+        {
+          q: "¿Qué diferencia un formulario de cita que convierte del que no convierte?",
+          a: "El que convierte pide el mínimo: nombre, teléfono y servicio que busca. El que no convierte pide DNI, fecha de nacimiento, historial o demasiados campos. El objetivo es que el paciente dé el primer paso, no recopilar expediente completo. El resto se pide en la consulta.",
+        },
+        {
+          q: "¿Cuánto tiempo tarda Google en posicionar una clínica nueva?",
+          a: "Con Google Business Profile optimizado, reseñas constantes y Schema correcto, una clínica nueva puede aparecer en los primeros resultados locales en 2-4 meses. El SEO orgánico (posición en resultados de búsqueda sin Maps) tarda más — 4-8 meses para términos competitivos en ciudades como Donostia o Bilbao.",
+        },
+      ],
+      en: [
+        {
+          q: "What legal information does a clinic website need in Spain?",
+          a: "Required: legal notice, privacy policy and cookie policy. In healthcare centres, the privacy policy must specify the processing of health data (special category under GDPR), the data controller and DPO if applicable.",
+        },
+        {
+          q: "Can I put prices on my clinic's website?",
+          a: "Yes, and it's highly recommended. Prices — even indicative ones — remove an important barrier: the fear of asking for a quote. A clinic that shows its prices visibly communicates transparency.",
+        },
+        {
+          q: "What differentiates a booking form that converts from one that doesn't?",
+          a: "The one that converts asks for the minimum: name, phone and service they're looking for. The one that doesn't asks for ID, date of birth, history or too many fields. The goal is for the patient to take the first step, not to collect a full record.",
+        },
+      ],
+    },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

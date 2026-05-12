@@ -69,8 +69,8 @@
     cta: "Start with a free call",
   },
   testimonials: {
-    title: "What our clients say",
-    subtitle: "Real reviews from clients on Google.",
+    title: "What my clients say",
+    subtitle: "Real reviews on Google.",
     items: [
       {
         quote:
@@ -205,7 +205,7 @@
   contact: {
     title: "Let's start building.",
     subtitle:
-      "Tell us about your project. We respond in less than 24 hours with a free initial proposal.",
+      "Tell me about your project. I reply in less than 24 hours with a free initial proposal.",
     form: {
       name: "Full name",
       email: "Email address",
@@ -214,19 +214,20 @@
       submit: "Request information",
       sending: "Sending...",
       success:
-        "Message sent! We will contact you within 24 hours.",
+        "Message sent! I'll get back to you within 24 hours.",
       error: "Error sending. Please try again.",
     },
     info: {
       location: "Irun, Gipuzkoa · Basque Country",
       email: "contacto@unaxaller.com",
+      phone: "+34 620 90 99 26",
       response: "Response in < 24h",
       availability: "Mon – Fri · 9:00 – 18:00",
     },
     stats: {
       title: "One step closer to your website.",
       subtitle:
-        "No commitment, no fine print. Fast replies and a clear, honest proposal.",
+        "No commitment, no fine print. I reply fast with a clear, honest proposal.",
       stat1: { value: "24", label: "Hour response time" },
       stat2: { value: "100%", label: "Free proposal" },
       stat3: { value: "2", label: "Weeks average delivery" },
@@ -268,11 +269,12 @@
   faqServicios: {
     title: "Frequently asked questions",
     items: [
-      { q: "How long does it take to build a website?", a: "The complete process from first contact to delivery takes between 3 and 6 weeks, depending on project complexity and feedback speed." },
+      { q: "How long does it take to build a website?", a: "Depends on the project: a simple 1–3 page landing is ready in 1 week. A 5–8 page corporate site takes 1–2 weeks. Multi-language or more complex projects, 2–3 weeks. I always give you the real timeline from day one." },
       { q: "What do I need to provide to get started?", a: "I just need you to tell me about your business and goals, and if you have them, your logo and photos. I'll handle the rest." },
-      { q: "Does it include maintenance after delivery?", a: "The price includes 1 month of post-launch support. After that, I offer optional maintenance plans." },
+      { q: "Does it include maintenance after delivery?", a: "The price includes 1 month of post-launch support. After that, maintenance is optional: €100 for the first year (domain, hosting, support and minor changes like text or photos). €200/year from the second year onwards." },
       { q: "Can I request changes during the project?", a: "Yes, the process is iterative. It includes up to 2 revision rounds at no additional cost." },
       { q: "Do you only work with Basque Country businesses?", a: "No, I work with clients from all over Spain and internationally too. We just need the internet to communicate." },
+      { q: "What happens if you're away for holidays or exams?", a: "You have full access to the repository from day one: code, domain and hosting in your name. Any developer can continue without depending on me — no lock-in. And if I need to be away, I always give you advance notice." },
     ],
   },
   faqPrecios: {

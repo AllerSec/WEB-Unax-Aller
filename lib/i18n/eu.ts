@@ -69,8 +69,8 @@
     cta: "Hasi dei doan batekin",
   },
   testimonials: {
-    title: "Gure bezeroek zer dioten",
-    subtitle: "Bezeroen benetako iritziak Google-n.",
+    title: "Nire bezeroek zer dioten",
+    subtitle: "Benetako iritziak Google-n.",
     items: [
       {
         quote:
@@ -205,7 +205,7 @@
   contact: {
     title: "Has gaitezen eraikitzen.",
     subtitle:
-      "Kontatu zure proiektua. 24 ordutan baino gutxiagotan erantzuten dugu doako hasierako proposamen batekin.",
+      "Kontatu zure proiektua. 24 ordutan baino gutxiagotan erantzuten dut doako hasierako proposamen batekin.",
     form: {
       name: "Izen-abizenak",
       email: "Helbide elektronikoa",
@@ -214,19 +214,20 @@
       submit: "Eskatu informazioa",
       sending: "Bidaltzen...",
       success:
-        "Mezua bidalia! 24 ordutan baino gutxiagotan jarriko gara zurekin harremanetan.",
+        "Mezua bidalia! 24 ordutan baino gutxiagotan jarriko naiz zurekin harremanetan.",
       error: "Bidaltzeko errorea. Mesedez, saiatu berriro.",
     },
     info: {
       location: "Irun, Gipuzkoa · Euskal Herria",
       email: "contacto@unaxaller.com",
+      phone: "+34 620 90 99 26",
       response: "Erantzuna < 24h",
       availability: "Al – Or · 9:00 – 18:00",
     },
     stats: {
       title: "Urrats bat gertuago zure webgunetik.",
       subtitle:
-        "Konpromezurik gabe, letra txikirik gabe. Azkar erantzuten dugu, proposamen argi batekin.",
+        "Konpromezurik gabe, letra txikirik gabe. Azkar erantzuten dut, proposamen argi batekin.",
       stat1: { value: "24", label: "Orduko erantzuna" },
       stat2: { value: "100%", label: "Doako aurrekontua" },
       stat3: { value: "2", label: "Asteko batazbesteko entrega" },
@@ -268,11 +269,12 @@
   faqServicios: {
     title: "Galdera ohikoak",
     items: [
-      { q: "Zenbat denbora behar da web bat egiteko?", a: "Lehen kontaktutik entregatzeraino osoko prozesuak 3 eta 6 aste artean irauten du, proiektuaren konplexutasunaren eta feedback abiaduraren arabera." },
+      { q: "Zenbat denbora behar da web bat egiteko?", a: "Proiektuaren arabera: 1–3 orriko landing soil bat 1 astean prest dago. 5–8 orriko web korporatibo bat 1–2 aste. Hizkuntza anitzeko edo proiektu konplexuagoak, 2–3 aste. Beti egunez egiazko epea esaten dizut." },
       { q: "Zer eman behar dut hasteko?", a: "Zure negozioa eta helburuak kontatzea besterik ez. Logo eta argazkiak badituzu, hobe. Gainerakoaz ni arduratuko naiz." },
-      { q: "Mantentze-lana entregatutakoan sartzen al da?", a: "Prezioak abian jarri ondoren 1 hilabeteko laguntza barne hartzen du. Hortik aurrera, aukerako mantentze-planak eskaintzen ditut." },
+      { q: "Mantentze-lana entregatutakoan sartzen al da?", a: "Prezioak abian jarri ondoren 1 hilabeteko laguntza barne hartzen du. Hortik aurrera, mantentze-lana aukerakoa da: 100€ lehen urtean (domeinua, hosting, laguntza eta aldaketa txikiak testua edo argazkiak bezalakoak). 200€/urte bigarren urtetik aurrera." },
       { q: "Prozesu bitartean aldaketak eskatu al ditzaket?", a: "Bai, prozesua iteratiboa da. Gehigarrizko kosturik gabe 2 berrikuspen txanda barne hartzen du." },
       { q: "Euskal Herriko enpresekin bakarrik lan egiten al duzu?", a: "Ez, Espainiatik eta nazioarteetik ere bezeroekin lan egiten dut. Internet besterik ez dugu behar komunikatzeko." },
+      { q: "Zer gertatzen da oporrak edo azterketan ez bazaude?", a: "Biltegirako sarbide osoa duzu lehen egunetik: kodea, domeinua eta hosting zure izenean. Edozein garatzailek jarraitu dezake nire menpe egon gabe — lock-in gabe. Eta alde egin behar badut, aldez aurretik abisatzen dizut beti." },
     ],
   },
   faqPrecios: {
