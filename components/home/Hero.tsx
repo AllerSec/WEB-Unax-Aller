@@ -11,6 +11,7 @@ import HeroBackground from "./HeroBackground";
 import HeroVideo from "./HeroVideo";
 import { useLiquidGlassHover } from "@/hooks/useLiquidGlassHover";
 import type { Locale } from "@/lib/i18n/config";
+import UrgencyBadge from "@/components/shared/UrgencyBadge";
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
@@ -448,6 +449,8 @@ export default function Hero({ locale }: Props) {
             <span className="hero-badge-dot" aria-hidden="true" />
             {t("badge")}
           </div>
+
+          <UrgencyBadge text={t("availability")} className="hero-availability" />
 
           <div className="hero-title-row">
             <div
