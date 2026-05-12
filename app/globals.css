@@ -7266,3 +7266,19 @@ a.contact-info-label:hover {
 .social-proof-client-chip:hover { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 5%, transparent); }
 .social-proof-client-name { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 600; color: var(--color-ink); }
 .social-proof-client-sector { font-family: var(--font-sans); font-size: 0.7rem; color: var(--color-ink-muted); }
+
+/* === Comparison Table === */
+.comparison-section { margin-block: var(--space-16); }
+.comparison-table { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-8); }
+@media (max-width: 640px) { .comparison-table { grid-template-columns: 1fr; } }
+.comparison-col { padding: var(--space-6); border-radius: var(--radius-md); }
+.comparison-col-agency { background: color-mix(in srgb, var(--color-danger) 6%, transparent); border: 1px solid color-mix(in srgb, var(--color-danger) 20%, transparent); }
+.comparison-col-unax { background: color-mix(in srgb, var(--color-success) 6%, transparent); border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent); }
+.comparison-col-title { font-family: var(--font-sans); font-size: 1rem; font-weight: 700; color: var(--color-ink); margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-2); }
+.comparison-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--color-success); color: var(--color-surface); padding: 2px 8px; border-radius: 100px; }
+.comparison-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.comparison-item { display: flex; align-items: flex-start; gap: var(--space-2); font-family: var(--font-sans); font-size: 0.875rem; line-height: 1.5; }
+.comparison-item-bad { color: var(--color-ink-muted); }
+.comparison-item-bad svg { color: var(--color-danger); flex-shrink: 0; margin-top: 3px; }
+.comparison-item-good { color: var(--color-ink); }
+.comparison-item-good svg { color: var(--color-success); flex-shrink: 0; margin-top: 3px; }

@@ -320,6 +320,84 @@ export default async function ServiciosPage({ params }: Props) {
             ))}
           </div>
 
+          {/* Comparacion Agencia vs Unax */}
+          <AnimatedSection className="comparison-section">
+            <h2 className="section-heading">
+              {locale === "es" ? "¿Por qué no una agencia?" : locale === "en" ? "Why not an agency?" : "Zergatik ez agentzia bat?"}
+            </h2>
+            <div className="comparison-table">
+              <div className="comparison-col comparison-col-agency">
+                <h3 className="comparison-col-title">
+                  {locale === "es" ? "Agencia de diseño" : locale === "en" ? "Design agency" : "Diseinu agentzia"}
+                </h3>
+                <ul className="comparison-list">
+                  {(locale === "es" ? [
+                    "3.000 € a 15.000 € por un proyecto similar",
+                    "Gestor de cuentas que no conoce tu proyecto",
+                    "6 a 12 semanas de entrega mínima",
+                    "Plantillas disfrazadas de diseño a medida",
+                    "Factura por cada pequeño cambio",
+                  ] : locale === "en" ? [
+                    "€3,000 to €15,000 for a similar project",
+                    "Account manager who does not know your project",
+                    "6 to 12 weeks minimum delivery",
+                    "Templates disguised as custom design",
+                    "Invoice for every small change",
+                  ] : [
+                    "3.000 € - 15.000 € antzeko proiektu baterako",
+                    "Zure proiektua ezagutzen ez duen kontu-kudeatzailea",
+                    "6-12 aste gutxieneko entrega",
+                    "Neurrirako diseinuaz mozorrotutako txantiloiak",
+                    "Faktura aldaketa txiki bakoitzeko",
+                  ]).map((item, i) => (
+                    <li key={i} className="comparison-item comparison-item-bad">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="comparison-col comparison-col-unax">
+                <h3 className="comparison-col-title">
+                  Unax Aller
+                  <span className="comparison-badge">
+                    {locale === "es" ? "Recomendado" : locale === "en" ? "Recommended" : "Gomendatua"}
+                  </span>
+                </h3>
+                <ul className="comparison-list">
+                  {(locale === "es" ? [
+                    "1.500 € base, todo incluido",
+                    "Hablas directamente conmigo de principio a fin",
+                    "1 a 2 semanas de entrega real",
+                    "Diseño hecho a mano para tu negocio específico",
+                    "Cambios menores incluidos en el mantenimiento",
+                  ] : locale === "en" ? [
+                    "€1,500 base, everything included",
+                    "You talk directly to me from start to finish",
+                    "1 to 2 weeks real delivery",
+                    "Design made by hand for your specific business",
+                    "Minor changes included in maintenance",
+                  ] : [
+                    "1.500 € oinarrian, dena barne",
+                    "Hasieratik bukaerara nirekin zuzenean hitz egiten duzu",
+                    "1-2 aste benetako entrega",
+                    "Zure negozio espezifikorako eskuz egindako diseinua",
+                    "Aldaketa txikiak mantentze-lanean barne",
+                  ]).map((item, i) => (
+                    <li key={i} className="comparison-item comparison-item-good">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </AnimatedSection>
+
           {/* FAQ */}
           <AnimatedSection className="faq-wrap">
             <h2 className="section-heading">
