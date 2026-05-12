@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PricingCards from "@/components/pricing/PricingCards";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -178,6 +179,40 @@ export default async function PreciosPage({ params }: Props) {
       </section>
 
       <PricingCards locale={locale} />
+
+      <AnimatedSection>
+        <section aria-labelledby="pricing-context-title" style={{ paddingBlock: "var(--space-16)" }}>
+          <div className="container-xl">
+            <h2 id="pricing-context-title" className="section-heading" style={{ textAlign: "center", marginBottom: "var(--space-8)" }}>
+              {locale === "es" ? "¿Qué cuesta esto en el mercado?" : locale === "en" ? "What does this cost in the market?" : "Zenbat kostatzen da hau merkatuan?"}
+            </h2>
+            <div className="pricing-market-grid">
+              {(locale === "es" ? [
+                { who: "Agencia grande", price: "5.000 € – 20.000 €", note: "Misma web, mucho más cara. Pagas su estructura.", highlight: false },
+                { who: "Freelancer sin experiencia", price: "400 € – 800 €", note: "Plantilla WordPress. No convierte, no escala.", highlight: false },
+                { who: "Constructor online (Wix)", price: "200 € – 500 €/año", note: "No es tuya. Lenta. Sin SEO real.", highlight: false },
+                { who: "Unax Aller", price: "1.500 €", note: "Código a mano, SEO real, tuya para siempre.", highlight: true },
+              ] : locale === "en" ? [
+                { who: "Large agency", price: "€5,000 – €20,000", note: "Same website, much more expensive. You pay for their structure.", highlight: false },
+                { who: "Inexperienced freelancer", price: "€400 – €800", note: "WordPress template. Does not convert or scale.", highlight: false },
+                { who: "Online builder (Wix)", price: "€200 – €500/year", note: "Not yours. Slow. No real SEO.", highlight: false },
+                { who: "Unax Aller", price: "€1,500", note: "Hand-coded, real SEO, yours forever.", highlight: true },
+              ] : [
+                { who: "Agentzia handia", price: "5.000 € – 20.000 €", note: "Web bera, askoz garestiagoa. Beren egitura ordaintzen duzu.", highlight: false },
+                { who: "Esperientziarik gabeko freelance-a", price: "400 € – 800 €", note: "WordPress txantiloia. Ez du konbertsio egiten.", highlight: false },
+                { who: "Online eraikitzailea (Wix)", price: "200 € – 500 €/urte", note: "Ez da zurea. Motela. SEO errealik gabe.", highlight: false },
+                { who: "Unax Aller", price: "1.500 €", note: "Eskuz kodeatua, benetako SEO, zurea betirako.", highlight: true },
+              ]).map((row, i) => (
+                <div key={i} className={`pricing-market-row${row.highlight ? " pricing-market-row--highlight" : ""}`}>
+                  <div className="pricing-market-who">{row.who}</div>
+                  <div className="pricing-market-price">{row.price}</div>
+                  <div className="pricing-market-note">{row.note}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
 
       <section aria-label="Pricing FAQ">
         <div className="container-xl">

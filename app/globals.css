@@ -7291,4 +7291,13 @@ a.contact-info-label:hover {
 .timeline-year { font-family: var(--font-serif); font-size: 0.875rem; font-weight: 600; color: var(--color-accent); padding-top: 4px; white-space: nowrap; }
 .timeline-content { display: flex; flex-direction: column; gap: var(--space-1); }
 .timeline-title { font-family: var(--font-sans); font-size: 1rem; font-weight: 600; color: var(--color-ink); }
+
+/* === Pricing Market Comparison === */
+.pricing-market-grid { display: flex; flex-direction: column; gap: var(--space-2); max-width: 700px; margin-inline: auto; }
+.pricing-market-row { display: grid; grid-template-columns: 1.5fr 1fr 2fr; gap: var(--space-4); padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--color-ink) 4%, transparent); align-items: center; }
+.pricing-market-row--highlight { background: color-mix(in srgb, var(--color-success) 8%, transparent); border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent); }
+@media (max-width: 640px) { .pricing-market-row { grid-template-columns: 1fr; gap: var(--space-1); } }
+.pricing-market-who { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 600; color: var(--color-ink); }
+.pricing-market-price { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--color-accent); }
+.pricing-market-note { font-family: var(--font-sans); font-size: 0.8rem; color: var(--color-ink-muted); }
 .timeline-desc { font-family: var(--font-sans); font-size: 0.875rem; color: var(--color-ink-muted); line-height: 1.6; }
