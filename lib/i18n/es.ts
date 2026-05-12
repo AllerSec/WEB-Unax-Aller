@@ -9,16 +9,17 @@
     consultaGratuita: "Consulta Gratuita",
   },
   hero: {
-    title: "Diseño y desarrollo web premium que eleva tu negocio.",
+    title: "Tu web nueva, lista en 2 semanas. Desde Irun, para todo el mundo.",
     subtitle:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.500€, IVA incluido.",
+      "Webs a medida que aparecen en Google, cargan en menos de 1 segundo y convierten visitas en llamadas. Sin agencias, sin intermediarios.",
     subtitlePre:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde",
+      "Webs a medida que aparecen en Google, cargan en menos de 1 segundo y convierten visitas en llamadas. Desde",
     subtitlePost: ", IVA incluido.",
-    cta: "Demo gratis de tu web en 48h",
-    cta2: "Ver Planes",
-    badge: "Irun · País Vasco · España",
-    scrollHint: "Desplázate para explorar",
+    cta: "Quiero mi web — consulta gratis",
+    cta2: "Ver proyectos reales",
+    badge: "Diseñador web · Irun, País Vasco",
+    scrollHint: "Ver cómo funciona",
+    availability: "Acepto proyectos en junio 2026",
   },
   socialProof: {
     title: "Confianza de marcas que saben lo que quieren",

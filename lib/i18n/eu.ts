@@ -9,16 +9,17 @@
     consultaGratuita: "Doako kontsulta",
   },
   hero: {
-    title: "Web diseinu eta garapen premium-ak zure negozioa altxatzen du.",
+    title: "Zure webgune berria, 2 astetan prest. Irunetik, mundu osoarentzat.",
     subtitle:
-      "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak. 1.500€-tik, BEZ barne.",
+      "Neurrira egindako webguneak Google-n agertzen direnak, segundo batean kargatu eta bisitaldiak deialdietan bihurtzen dituztenak. Agentziarik gabe, bitartekaririk gabe.",
     subtitlePre:
-      "Neurrira egindako esperientzia digitalak sortzen ditugu — sofistikatuak, emaitzara orientatuak.",
+      "Neurrira egindako webguneak Google-n agertzen direnak, segundo batean kargatu eta bisitaldiak deialdietan bihurtzen dituztenak. ",
     subtitlePost: "-tik, BEZ barne.",
-    cta: "Zure weba doan 48 ordutan",
-    cta2: "Planak ikusi",
-    badge: "Irun · Euskal Herria · Espainia",
-    scrollHint: "Mugitu esploratzeko",
+    cta: "Nahi dut nire weba — kontsulta doan",
+    cta2: "Ikusi benetako proiektuak",
+    badge: "Web diseinatzailea · Irun, Euskal Herria",
+    scrollHint: "Ikusi nola funtzionatzen duen",
+    availability: "2026ko ekainean proiektuak onartzen",
   },
   socialProof: {
     title: "Zer nahi duten dakiten marken konfiantza",

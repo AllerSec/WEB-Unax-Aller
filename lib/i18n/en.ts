@@ -9,16 +9,17 @@
     consultaGratuita: "Free Consultation",
   },
   hero: {
-    title: "Premium web design and development that elevates your business.",
+    title: "Your new website, live in 2 weeks. From Irun, for everyone.",
     subtitle:
-      "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From €1,500, VAT included.",
+      "Custom websites that rank on Google, load under 1 second and turn visits into calls. No agencies, no middlemen.",
     subtitlePre:
-      "We craft bespoke digital experiences — sophisticated, results-driven, and built to convert. From",
+      "Custom websites that rank on Google, load under 1 second and turn visits into calls. From",
     subtitlePost: ", VAT included.",
-    cta: "Free 48h demo of your website",
-    cta2: "View Plans",
-    badge: "Irun · Basque Country · Spain",
-    scrollHint: "Scroll to explore",
+    cta: "I want my website — free consultation",
+    cta2: "See real projects",
+    badge: "Web designer · Irun, Basque Country",
+    scrollHint: "See how it works",
+    availability: "Taking projects in June 2026",
   },
   socialProof: {
     title: "Trusted by brands that know what they want",
