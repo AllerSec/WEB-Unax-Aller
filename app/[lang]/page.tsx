@@ -302,6 +302,11 @@ export default async function HomePage({ params }: Props) {
       {/* Hero */}
       <Hero locale={locale} />
 
+      <SectionDivider background="var(--color-bg)" />
+
+      {/* Social Proof */}
+      <SocialProof />
+
       {/* Who's behind — face-to-face moment right before pricing */}
       <AnimatedSection>
         <section className="founder-strip" aria-labelledby="founder-strip-title">
@@ -357,6 +362,9 @@ export default async function HomePage({ params }: Props) {
 
       <ProcessStrip locale={locale} />
 
+      {/* Services Grid */}
+      <ServicesGrid locale={locale} />
+
       {/* Projects board — corkboard with polaroids */}
       <AnimatedSection>
         <ProjectsBoard locale={locale} />
@@ -366,16 +374,6 @@ export default async function HomePage({ params }: Props) {
       <div className="surface-alt">
         <PricingCards locale={locale} headingLevel="h2" />
       </div>
-
-      <SectionDivider background="var(--color-bg)" />
-
-      {/* Social Proof */}
-      <SocialProof />
-
-      <SectionDivider background="var(--color-bg)" />
-
-      {/* Services Grid */}
-      <ServicesGrid locale={locale} />
 
       {/* Testimonials */}
       <Testimonials />
