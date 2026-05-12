@@ -7301,3 +7301,11 @@ a.contact-info-label:hover {
 .pricing-market-price { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--color-accent); }
 .pricing-market-note { font-family: var(--font-sans); font-size: 0.8rem; color: var(--color-ink-muted); }
 .timeline-desc { font-family: var(--font-sans); font-size: 0.875rem; color: var(--color-ink-muted); line-height: 1.6; }
+
+/* === Contact What Happens === */
+.contact-what-happens { background: color-mix(in srgb, var(--color-accent) 6%, transparent); border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent); border-radius: var(--radius-md); padding: var(--space-6) var(--space-8); margin-bottom: var(--space-10); }
+.contact-what-title { font-family: var(--font-sans); font-size: 1rem; font-weight: 700; color: var(--color-ink); margin-bottom: var(--space-4); }
+.contact-steps-row { display: flex; gap: var(--space-8); flex-wrap: wrap; }
+.contact-step { display: flex; align-items: flex-start; gap: var(--space-2); }
+.contact-step-number { width: 22px; height: 22px; border-radius: 50%; background: var(--color-accent); color: var(--color-surface); font-family: var(--font-sans); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.contact-step-text { font-family: var(--font-sans); font-size: 0.875rem; color: var(--color-ink); line-height: 1.5; max-width: 180px; }

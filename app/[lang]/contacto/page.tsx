@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
@@ -166,6 +167,34 @@ export default async function ContactoPage({ params }: Props) {
       <section aria-label="Contact form">
         <div className="container-xl">
           <div className="contact-grid">
+            <AnimatedSection>
+              <div className="contact-what-happens">
+                <h2 className="contact-what-title">
+                  {locale === "es" ? "¿Qué pasa cuando contactas?" : locale === "en" ? "What happens when you get in touch?" : "Zer gertatzen da kontaktuan jartzen zarenean?"}
+                </h2>
+                <div className="contact-steps-row">
+                  {(locale === "es" ? [
+                    { step: "1", text: "Me llega tu mensaje en minutos" },
+                    { step: "2", text: "Te respondo en menos de 24h con una propuesta inicial" },
+                    { step: "3", text: "Si encaja, agendamos una llamada de 30 min gratis" },
+                  ] : locale === "en" ? [
+                    { step: "1", text: "Your message reaches me in minutes" },
+                    { step: "2", text: "I reply within 24h with an initial proposal" },
+                    { step: "3", text: "If it fits, we schedule a free 30-min call" },
+                  ] : [
+                    { step: "1", text: "Zure mezua minututan iristen zait" },
+                    { step: "2", text: "24 ordutan erantzuten dizut hasierako proposamen batekin" },
+                    { step: "3", text: "Bat badator, 30 minutuko dei doan bat antolatzen dugu" },
+                  ]).map((item) => (
+                    <div key={item.step} className="contact-step">
+                      <span className="contact-step-number">{item.step}</span>
+                      <p className="contact-step-text">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
             <ContactForm locale={locale} />
 
             <aside className="contact-aside">
