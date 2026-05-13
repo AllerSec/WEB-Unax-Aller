@@ -21,8 +21,9 @@ export default async function Image({ params }: Props) {
     eu: { line1: 'Web diseinu eta', line2: 'garapen premium-a' },
   }
 
-  const title = titles[lang] || titles.es
-  const subtitle = subtitles[lang] || subtitles.es
+  const safelang = ['es', 'en', 'eu'].includes(lang) ? lang : 'es'
+  const title = titles[safelang]
+  const subtitle = subtitles[safelang]
 
   return new ImageResponse(
     (

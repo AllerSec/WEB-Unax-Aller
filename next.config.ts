@@ -12,6 +12,25 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["gsap", "@gsap/react"],
   },
+  async redirects() {
+    return [
+      // Legacy paths without locale prefix → canonical ES version
+      { source: "/sobre-nosotros", destination: "/es/sobre-nosotros", permanent: true },
+      { source: "/disenador-web-pasaia", destination: "/es/disenador-web-pasaia", permanent: true },
+      { source: "/disenador-web-logrono", destination: "/es/disenador-web-logrono", permanent: true },
+      { source: "/disenador-web-santander", destination: "/es/disenador-web-santander", permanent: true },
+      { source: "/proyectos/virtuosolve", destination: "/es/proyectos/virtuosolve", permanent: true },
+      { source: "/blog/:slug", destination: "/es/blog/:slug", permanent: true },
+      // Old /casos/ paths → /proyectos/
+      { source: "/casos/:slug", destination: "/es/proyectos/:slug", permanent: true },
+      { source: "/:lang/casos/:slug", destination: "/:lang/proyectos/:slug", permanent: true },
+      // Old .html extensions
+      { source: "/:lang/servicios.html", destination: "/:lang/servicios", permanent: true },
+      { source: "/:lang/zerbitzuak.html", destination: "/:lang/servicios", permanent: true },
+      // Orphan paths
+      { source: "/mes", destination: "/es", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

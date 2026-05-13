@@ -5,7 +5,6 @@ import { routing } from "@/lib/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageLoader from "@/components/layout/PageLoader";
-import CustomCursor from "@/components/shared/CustomCursor";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 
 type Props = {
@@ -48,7 +47,6 @@ export default async function LangLayout({ children, params }: Props) {
         {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : "Edukira joan"}
       </a>
       <PageLoader />
-      <CustomCursor />
       <Navbar locale={locale} />
       <main id="main-content" className="flex-1">{children}</main>
       <Footer locale={locale} />
