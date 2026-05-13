@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView, type Variants } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const IconCheck = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>;
 const IconArrowRight = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>;
 const IconSparkles = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/><path d="M19 15l.75 2.25L22 18l-2.25.75L19 21l-.75-2.25L16 18l2.25-.75L19 15z"/><path d="M5 19l.5 1.5L7 21l-1.5.5L5 23l-.5-1.5L3 21l1.5-.5L5 19z"/></svg>;
@@ -14,23 +13,22 @@ interface PricingCardProps {
   headingLevel?: "h1" | "h2";
 }
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.08 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
-};
-
 export default function PricingCard({ locale, headingLevel = "h2" }: PricingCardProps) {
   const HeadingTag = headingLevel;
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [isInView, setIsInView] = useState(false);
   const [activePlan, setActivePlan] = useState<PlanDetail | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); observer.disconnect(); } },
+      { rootMargin: "-80px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const plan: PlanDetail = {
     name: locale === "es" ? "Plan Completo" : locale === "en" ? "Complete Plan" : "Plan Osoa",
@@ -144,28 +142,24 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
         .pc-client{display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-sans);font-size:var(--text-xs);color:rgba(236,231,214,.45)}
         .pc-client-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:#4ade80;flex-shrink:0}
         .pc-note{text-align:center;margin-top:var(--space-5);font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);line-height:var(--lh-relaxed)}
+        .pc-animate{opacity:0;transform:translateY(24px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+        .pc-animate.in-view{opacity:1;transform:translateY(0)}
+        .pc-feature-animate{opacity:0;transform:translateY(16px);transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
+        .pc-feature-animate.in-view{opacity:1;transform:translateY(0)}
       `}</style>
       <section
         ref={ref}
         className="pc-section"
         aria-labelledby="pc-title"
       >
-        <motion.div
-          className="container-xl"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {/* Card */}
-          <motion.div variants={itemVariants} className="pc-card-wrap">
+        <div className="container-xl">
+          <div className={`pc-animate pc-card-wrap${isInView ? " in-view" : ""}`}>
             <div className="pc-card">
-              {/* Popular badge */}
               <div className="pc-badge">
                 <IconSparkles />
                 {popularLabel}
               </div>
 
-              {/* Left: header + features */}
               <div className="pc-left">
                 <div className="pc-header">
                   <p className="pc-subtitle">{plan.subtitle}</p>
@@ -177,21 +171,20 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
 
                 <ul className="pc-features" aria-label="Incluido en el plan">
                   {plan.features.map((f, i) => (
-                    <motion.li
+                    <li
                       key={i}
-                      variants={itemVariants}
-                      className="pc-feature"
+                      className={`pc-feature-animate pc-feature${isInView ? " in-view" : ""}`}
+                      style={{ transitionDelay: isInView ? `${i * 80}ms` : "0ms" }}
                     >
                       <span className="pc-check" aria-hidden="true">
                         <IconCheck />
                       </span>
                       <span>{f}</span>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Right: price + CTA */}
               <div className="pc-right">
                 <div className="pc-price-block">
                   <p className="pc-from">{fromLabel}</p>
@@ -216,7 +209,6 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
                   </button>
                 </div>
 
-                {/* Mini client proofs */}
                 <div className="pc-clients">
                   {plan.clients.map((c) => (
                     <div key={c.domain} className="pc-client">
@@ -229,8 +221,8 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
             </div>
 
             <p className="pc-note">{noteLabel}</p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       <PlanModal plan={activePlan} onClose={() => setActivePlan(null)} locale={locale} />
