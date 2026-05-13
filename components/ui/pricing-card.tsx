@@ -2,7 +2,9 @@
 
 import { motion, useInView, type Variants } from "framer-motion";
 import { useRef, useState } from "react";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
+const IconCheck = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>;
+const IconArrowRight = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>;
+const IconSparkles = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/><path d="M19 15l.75 2.25L22 18l-2.25.75L19 21l-.75-2.25L16 18l2.25-.75L19 15z"/><path d="M5 19l.5 1.5L7 21l-1.5.5L5 23l-.5-1.5L3 21l1.5-.5L5 19z"/></svg>;
 import { Separator } from "@/components/ui/separator";
 import type { Locale } from "@/lib/i18n/config";
 import PlanModal, { type PlanDetail } from "@/components/pricing/PlanModal";
@@ -159,7 +161,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
             <div className="pc-card">
               {/* Popular badge */}
               <div className="pc-badge">
-                <Sparkles size={13} aria-hidden="true" />
+                <IconSparkles />
                 {popularLabel}
               </div>
 
@@ -181,7 +183,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
                       className="pc-feature"
                     >
                       <span className="pc-check" aria-hidden="true">
-                        <Check size={14} strokeWidth={2.5} />
+                        <IconCheck />
                       </span>
                       <span>{f}</span>
                     </motion.li>
@@ -203,7 +205,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
                     className="pc-cta-primary focusable"
                   >
                     {ctaLabel}
-                    <ArrowRight size={16} aria-hidden="true" />
+                    <IconArrowRight />
                   </a>
                   <button
                     type="button"
