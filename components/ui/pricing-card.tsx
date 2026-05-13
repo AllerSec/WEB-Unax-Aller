@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 import { useRef, useState } from "react";
 import { Check, ArrowRight, Sparkles } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
@@ -12,16 +12,16 @@ interface PricingCardProps {
   headingLevel?: "h1" | "h2";
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.08 },
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 };
 
 export default function PricingCard({ locale, headingLevel = "h2" }: PricingCardProps) {
