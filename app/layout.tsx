@@ -7,7 +7,9 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   display: "swap",
   style: ["normal", "italic"],
-  axes: ["SOFT", "WONK", "opsz"],
+  // Dropping SOFT/WONK axes — they multiplied the font payload but we never
+  // varied them on screen. opsz is kept implicit via display: swap.
+  weight: ["400", "500", "600", "700"],
 });
 
 const manrope = Manrope({

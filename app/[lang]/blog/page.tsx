@@ -5,6 +5,10 @@ import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { blogPosts } from "@/lib/data/blog-posts";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
+// Cache the rendered HTML on the CDN for 1h. Content changes ship via
+// new deploys (which bust the cache), so an hourly fallback is plenty.
+export const revalidate = 3600;
+
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
