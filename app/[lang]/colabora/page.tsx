@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    robots: { index: false, follow: false },
+    robots: { index: false, follow: true },
     alternates: {
       canonical: `https://unaxaller.com/${locale}${SLUG}`,
       languages: hreflangAlternates(SLUG),

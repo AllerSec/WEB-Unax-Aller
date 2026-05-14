@@ -36,49 +36,149 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const jsonLdData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["LocalBusiness", "ProfessionalService"],
-      "@id": "https://unaxaller.com/#business",
-      name: "Unax Aller — Diseñador Web",
-      url: "https://unaxaller.com",
-      logo: "https://unaxaller.com/favicon.svg",
-      description:
-        "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento.",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Irun",
-        addressLocality: "Irun",
-        addressRegion: "Gipuzkoa",
-        postalCode: "20300",
-        addressCountry: "ES",
-      },
-      geo: { "@type": "GeoCoordinates", latitude: 43.339, longitude: -1.7892 },
-      priceRange: "€1500-€2000",
-      email: "contacto@unaxaller.com",
-      telephone: "+34620909916",
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          opens: "09:00",
-          closes: "18:00",
+function buildHomeJsonLd(locale: "es" | "en" | "eu") {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://unaxaller.com/#website",
+        url: "https://unaxaller.com",
+        name: "Unax Aller",
+        description:
+          "Diseñador y desarrollador web freelance en Irun, País Vasco.",
+        publisher: { "@id": "https://unaxaller.com/#business" },
+        inLanguage: ["es-ES", "en-GB", "eu-ES"],
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `https://unaxaller.com/${locale}/blog?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
         },
-      ],
-      slogan: "Tu web a medida en 1–2 semanas desde 1.500€",
-      sameAs: [
-        "https://linkedin.com/in/unax-aller-8479b428b",
-        "https://instagram.com/unaxaller",
-      ],
-      areaServed: [
-        { "@type": "City", name: "Irun" },
-        { "@type": "AdministrativeArea", name: "País Vasco" },
-      ],
-    },
-  ],
-};
+      },
+      {
+        "@type": "Person",
+        "@id": "https://unaxaller.com/#person",
+        name: "Unax Aller Fernández",
+        givenName: "Unax",
+        familyName: "Aller Fernández",
+        jobTitle: "Diseñador y Desarrollador Web Freelance",
+        url: `https://unaxaller.com/${locale}/sobre-nosotros`,
+        image: "https://unaxaller.com/images/unax-square-no-bg.png",
+        email: "contacto@unaxaller.com",
+        telephone: "+34620909916",
+        knowsLanguage: ["es", "eu", "en", "fr"],
+        knowsAbout: [
+          "Diseño web",
+          "Desarrollo web",
+          "Next.js",
+          "React",
+          "SEO técnico",
+          "Core Web Vitals",
+          "Accesibilidad web",
+          "Diseño UI/UX",
+        ],
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Universidad Alfonso X el Sabio",
+          sameAs: "https://www.uax.es",
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Irun",
+          addressRegion: "Gipuzkoa",
+          postalCode: "20300",
+          addressCountry: "ES",
+        },
+        worksFor: { "@id": "https://unaxaller.com/#business" },
+        sameAs: [
+          "https://linkedin.com/in/unax-aller-8479b428b",
+          "https://instagram.com/unaxaller",
+        ],
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://unaxaller.com/#business",
+        name: "Unax Aller — Diseñador Web",
+        legalName: "Unax Aller Fernández",
+        url: "https://unaxaller.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://unaxaller.com/favicon.svg",
+          width: 512,
+          height: 512,
+        },
+        image: "https://unaxaller.com/images/unax-square-no-bg.png",
+        description:
+          "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento.",
+        founder: { "@id": "https://unaxaller.com/#person" },
+        knowsLanguage: ["es", "eu", "en", "fr"],
+        inLanguage: ["es", "en", "eu"],
+        currenciesAccepted: "EUR",
+        paymentAccepted: "Bank transfer, Bizum",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Irun",
+          addressLocality: "Irun",
+          addressRegion: "Gipuzkoa",
+          postalCode: "20300",
+          addressCountry: "ES",
+        },
+        geo: { "@type": "GeoCoordinates", latitude: 43.339, longitude: -1.7892 },
+        priceRange: "€€",
+        email: "contacto@unaxaller.com",
+        telephone: "+34620909916",
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        ],
+        slogan: "Tu web a medida en 1–2 semanas desde 1.500€",
+        sameAs: [
+          "https://linkedin.com/in/unax-aller-8479b428b",
+          "https://instagram.com/unaxaller",
+        ],
+        areaServed: [
+          { "@type": "City", name: "Irun" },
+          { "@type": "City", name: "Donostia-San Sebastián" },
+          { "@type": "City", name: "Bilbao" },
+          { "@type": "City", name: "Vitoria-Gasteiz" },
+          { "@type": "City", name: "Pamplona" },
+          { "@type": "AdministrativeArea", name: "País Vasco" },
+          { "@type": "AdministrativeArea", name: "Navarra" },
+          { "@type": "Country", name: "España" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Servicios de Diseño y Desarrollo Web",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Diseño Web" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Desarrollo Web Next.js" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Técnico" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Multi-idioma" } },
+          ],
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://unaxaller.com/${locale}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera",
+            item: `https://unaxaller.com/${locale}`,
+          },
+        ],
+      },
+    ],
+  };
+}
 
 export default async function HomePage({ params }: Props) {
   const { lang } = await params;
@@ -90,7 +190,7 @@ export default async function HomePage({ params }: Props) {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildHomeJsonLd(locale)) }}
       />
 
       {/* ── 1. HERO con shader animado ── */}

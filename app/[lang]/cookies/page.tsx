@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { hreflangAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -15,8 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: titles[locale],
-    robots: { index: false, follow: false },
-    alternates: { canonical: `https://unaxaller.com/${locale}/cookies` },
+    robots: { index: false, follow: true },
+    alternates: {
+      canonical: `https://unaxaller.com/${locale}/cookies`,
+      languages: hreflangAlternates("/cookies"),
+    },
   };
 }
 

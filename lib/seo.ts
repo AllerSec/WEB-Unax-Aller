@@ -66,14 +66,18 @@ export function buildTwitter(args: {
   path?: string;
 }) {
   const { title, description, locale, path } = args;
+  // Always prefer the locale-aware OG image when a locale is known. Falling
+  // back to a global /opengraph-image makes Twitter cards lose locale context.
   const ogImage =
     locale !== undefined
       ? `${SITE_URL}/${locale}${path ?? ""}/opengraph-image`
-      : `${SITE_URL}/opengraph-image`;
+      : `${SITE_URL}/es/opengraph-image`;
   return {
     card: "summary_large_image" as const,
     title,
     description,
+    site: "@unaxaller",
+    creator: "@unaxaller",
     images: [ogImage],
   };
 }

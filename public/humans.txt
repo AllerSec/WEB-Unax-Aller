@@ -1,0 +1,12 @@
+/* TEAM */
+Diseñador y Desarrollador: Unax Aller Fernández
+Contacto: contacto [at] unaxaller.com
+LinkedIn: https://linkedin.com/in/unax-aller-8479b428b
+Ubicación: Irun, Gipuzkoa, País Vasco, España
+
+/* SITE */
+Last update: 2026/05/14
+Language: Español / English / Euskara
+Doctype: HTML5
+Stack: Next.js 16, React 19, TypeScript, Tailwind CSS, GSAP
+Hosting: Netlify
