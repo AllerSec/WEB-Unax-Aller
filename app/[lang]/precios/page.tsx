@@ -56,11 +56,11 @@ export default async function PreciosPage({ params }: Props) {
   const faqItems = locale === "es"
     ? [
         { q: "¿Por qué 149€ al mes y no un pago único?", a: "Porque la mayoría de negocios locales no quieren soltar 2.000€ o 3.000€ de golpe por una web. Una cuota fija mensual entra en la contabilidad como un gasto más, igual que el gestor, el seguro o el teléfono. Y la web empieza a trabajar para ti desde el primer día, no cuando tengas dinero ahorrado." },
-        { q: "¿Qué pasa cuando terminan los 12 meses?", a: "Sigues mes a mes sin permanencia. La cuota se queda bloqueada durante los 12 meses contratados, y si en algún momento decides irte solo tienes que avisar. No hay sorpresas." },
+        { q: "¿Qué pasa cuando terminan los 12 meses?", a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados y, si decides irte, solo tienes que avisar. El dominio te lo llevas a tu nombre y tu ficha de Google Maps con las reseñas sigue siendo de tu negocio. La web se apaga porque va sobre mis servidores: funciona mientras mantengas la cuota, como el software del taller o la tarifa del móvil." },
         { q: "¿Y si no me gusta el resultado?", a: "Tienes 30 días desde el lanzamiento para devolver lo pagado sin tener que dar explicaciones. Si no te convence cómo ha quedado, no pagas más." },
         { q: "¿Hay algún coste oculto?", a: "No. Los 149€/mes ya incluyen diseño, programación, dominio, hosting, SSL, optimización de Google Maps, sistema de reseñas, soporte por WhatsApp y cambios menores cada mes. Sin facturas extra." },
         { q: "¿Qué incluyen exactamente los cambios mensuales?", a: "Cambios de texto, fotos, precios, horarios, añadir un servicio nuevo, ajustar la ficha de Google… todo lo que un negocio necesita ir actualizando. Si pides un rediseño completo a los 6 meses, eso se cotiza aparte." },
-        { q: "¿La web es mía o tuya?", a: "El dominio se registra a tu nombre desde el primer día. Si decides irte, te llevas el dominio. Solo el hosting y el código quedan vinculados al servicio." },
+        { q: "¿La web es mía o tuya?", a: "El dominio lo registro a tu nombre desde el primer día y es tuyo siempre. La web (el código y el hosting) va sobre mi sistema, igual que el programa que usas para facturar en el taller o el teléfono de empresa: pagas la cuota y te desentiendes de todo. Yo me encargo de que funcione, tú te encargas de tu negocio. Si te das de baja, el dominio y tu ficha de Google Maps con las reseñas se quedan contigo; la web se apaga." },
         { q: "¿Cuándo está lista la web?", a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida." },
       ]
     : locale === "en"

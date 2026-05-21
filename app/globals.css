@@ -7995,9 +7995,9 @@ a.contact-info-label:hover {
 .lp-pain-row--bad { opacity: 0.7; }
 .lp-pain-row--bad.lp-pain-row--in { opacity: 0.7; transform: translateY(0); }
 .lp-pain-row--good {
-  background: rgba(239, 68, 68, 0.07);
-  border-color: rgba(239, 68, 68, 0.35);
-  box-shadow: 0 0 30px rgba(239, 68, 68, 0.12), inset 3px 0 0 #ef4444;
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.4);
+  box-shadow: 0 0 30px rgba(22, 163, 74, 0.14), inset 3px 0 0 #16a34a;
 }
 .lp-pain-row--good.lp-pain-row--in {
   opacity: 1;
@@ -8005,8 +8005,8 @@ a.contact-info-label:hover {
   animation: lp-pain-good-pulse 2.4s ease-in-out 0.4s infinite;
 }
 @keyframes lp-pain-good-pulse {
-  0%, 100% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.12), inset 3px 0 0 #ef4444; }
-  50% { box-shadow: 0 0 48px rgba(239, 68, 68, 0.28), inset 3px 0 0 #ef4444; }
+  0%, 100% { box-shadow: 0 0 30px rgba(22, 163, 74, 0.14), inset 3px 0 0 #16a34a; }
+  50% { box-shadow: 0 0 48px rgba(22, 163, 74, 0.32), inset 3px 0 0 #16a34a; }
 }
 .lp-pain-icon {
   font-size: 1.1rem;
@@ -8024,8 +8024,8 @@ a.contact-info-label:hover {
 }
 .lp-pain-icon--good {
   color: #fff;
-  background: #ef4444;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+  background: #16a34a;
+  box-shadow: 0 0 12px rgba(22, 163, 74, 0.55);
 }
 @media (prefers-reduced-motion: reduce) {
   .lp-pain-row { opacity: 1; transform: none; }

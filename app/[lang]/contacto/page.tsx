@@ -240,23 +240,23 @@ export default async function ContactoPage({ params }: Props) {
                 <ul className="contact-trust-list">
                   {(locale === "es"
                     ? [
-                        "Presupuesto gratuito en 24h",
-                        "Sin compromiso ni permanencia",
-                        "Código limpio, tuyo para siempre",
-                        "Soporte post-lanzamiento incluido",
+                        "Respuesta el mismo día por WhatsApp",
+                        "0€ al firmar · cuota fija de 149€/mes",
+                        "30 días de garantía desde el lanzamiento",
+                        "Cambios al WhatsApp incluidos cada mes",
                       ]
                     : locale === "en"
                     ? [
-                        "Free quote within 24 hours",
-                        "No commitment or lock-in",
-                        "Clean code, yours forever",
-                        "Post-launch support included",
+                        "Same-day reply over WhatsApp",
+                        "€0 to sign · fixed €149/month",
+                        "30-day guarantee from launch",
+                        "Monthly changes over WhatsApp included",
                       ]
                     : [
-                        "Doako aurrekontua 24 ordutan",
-                        "Konpromezurik eta permanentziarik gabe",
-                        "Kode garbia, betirako zurea",
-                        "Abiarazte osteko laguntza barne",
+                        "Egun bereko erantzuna WhatsApp bidez",
+                        "0€ sinatzean · 149€/hil kuota finkoa",
+                        "30 eguneko bermea abiarazi eta gero",
+                        "Hileroko aldaketak WhatsApp bidez barne",
                       ]
                   ).map((item, i) => (
                     <li key={i} className="contact-trust-item">

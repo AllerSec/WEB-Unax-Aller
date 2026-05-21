@@ -117,56 +117,56 @@ export default async function ServiciosPage({ params }: Props) {
 
   const faqItems = locale === "es"
     ? [
-        { q: "¿Cuánto tiempo tarda en hacerse una web?", a: "El proceso completo desde el primer contacto hasta la entrega dura entre 3 y 6 semanas, dependiendo de la complejidad del proyecto y la velocidad de feedback." },
-        { q: "¿Qué necesito aportar yo para empezar?", a: "Solo necesito que me cuentes tu negocio, tus objetivos y, si los tienes, logotipo y fotos. Del resto me encargo yo." },
-        { q: "¿Incluye el mantenimiento después de la entrega?", a: "El precio incluye 1 mes de soporte post-lanzamiento. A partir de ahí, ofrezco planes de mantenimiento opcionales." },
-        { q: "¿Puedo pedir cambios durante el proyecto?", a: "Sí, incluye hasta 2 rondas de revisión sin coste adicional." },
-        { q: "¿Trabajas solo con empresas del País Vasco?", a: "No, trabajo con clientes de toda España y también internacionales." },
+        { q: "¿Cuánto tardas en publicar la web?", a: "Entre 7 y 10 días desde que cerramos. Lo que más alarga el plazo es esperar tus textos o fotos; cuanto antes me los pases, antes está viva." },
+        { q: "¿Qué necesito aportar yo para empezar?", a: "Lo justo: cuéntame qué hace tu negocio, a quién quieres atraer y, si los tienes a mano, logo y fotos. Si no tienes fotos buenas, también lo resolvemos." },
+        { q: "¿Incluye el mantenimiento después de la entrega?", a: "Sí. Los 149€/mes ya cubren hosting, dominio, SSL, soporte por WhatsApp y los cambios menores cada mes (textos, fotos, precios, horarios, añadir un servicio). No hay facturas extra." },
+        { q: "¿Puedo pedir cambios durante el proyecto?", a: "Sí. Durante el desarrollo te enseño avances por WhatsApp y vamos ajustando hasta que te guste. Después del lanzamiento, los cambios menores entran en la cuota." },
+        { q: "¿Trabajas solo con empresas del País Vasco?", a: "Trabajo con negocios del País Vasco y Navarra. Nos vemos por WhatsApp y videollamada, con visitas presenciales cuando el proyecto lo merece." },
       ]
     : locale === "en"
     ? [
-        { q: "How long does it take to build a website?", a: "The complete process takes between 3 and 6 weeks, depending on project complexity and feedback speed." },
-        { q: "What do I need to provide to get started?", a: "I just need you to tell me about your business and goals, and if you have them, your logo and photos." },
-        { q: "Does it include maintenance after delivery?", a: "The price includes 1 month of post-launch support. After that, I offer optional maintenance plans." },
-        { q: "Can I request changes during the project?", a: "Yes, it includes up to 2 revision rounds at no additional cost." },
-        { q: "Do you only work with Basque Country businesses?", a: "No, I work with clients from all over Spain and internationally too." },
+        { q: "How long until my site goes live?", a: "Between 7 and 10 days from the day we sign. What usually slows things down is waiting on your copy or photos — the sooner I get them, the sooner the site is live." },
+        { q: "What do I need to provide to get started?", a: "Just enough: tell me what your business does, who you want to attract and, if you have them handy, logo and photos. If you don't have good photos, we'll sort it." },
+        { q: "Does it include maintenance after launch?", a: "Yes. The €149/month already covers hosting, domain, SSL, WhatsApp support and minor changes every month (copy, photos, prices, hours, adding a service). No extra invoices." },
+        { q: "Can I request changes during the project?", a: "Yes. While I build it I send you progress over WhatsApp and we adjust until it fits. After launch, minor changes are included in the monthly fee." },
+        { q: "Do you only work with Basque Country businesses?", a: "I work with businesses in the Basque Country and Navarre. We meet over WhatsApp and video call, with in-person visits when the project calls for it." },
       ]
     : [
-        { q: "Zenbat denbora behar da web bat egiteko?", a: "Osoko prozesuak 3 eta 6 aste artean irauten du, proiektuaren konplexutasunaren arabera." },
-        { q: "Zer eman behar dut hasteko?", a: "Zure negozioa eta helburuak kontatzea besterik ez." },
-        { q: "Mantentze-lana entregatutakoan sartzen al da?", a: "Prezioak abian jarri ondoren 1 hilabeteko laguntza barne hartzen du." },
-        { q: "Prozesu bitartean aldaketak eskatu al ditzaket?", a: "Bai, gehigarrizko kosturik gabe 2 berrikuspen txanda barne hartzen du." },
-        { q: "Euskal Herriko enpresekin bakarrik lan egiten al duzu?", a: "Ez, Espainiatik eta nazioarteetik ere bezeroekin lan egiten dut." },
+        { q: "Zenbat denbora behar da weba argitaratzeko?", a: "Sinatu eta 7-10 egunera. Atzeratzen duena izaten da zure testuen edo argazkien zain egotea; lehenago bidalita, lehenago dago martxan." },
+        { q: "Zer eman behar dut hasteko?", a: "Justu behar dena: zer egiten duen zure negozioak, nor erakarri nahi duzun eta, eskura badituzu, logoa eta argazkiak. Argazki onik ez baduzu, hori ere konponduko dugu." },
+        { q: "Mantentze-lana entregatutakoan sartzen al da?", a: "Bai. 149€/hil horretan hosting-a, domeinua, SSL, WhatsApp bidezko laguntza eta hileko aldaketa txikiak (testuak, argazkiak, prezioak, ordutegiak, zerbitzuren bat eranstea) sartzen dira. Faktura gehigarririk gabe." },
+        { q: "Prozesu bitartean aldaketak eskatu al ditzaket?", a: "Bai. Garapenean WhatsApp bidez aurrerapenak erakusten dizkizut eta gustatu arte doitzen ditugu. Abian jarri ondoren, aldaketa txikiak hileko kuotan sartzen dira." },
+        { q: "Euskal Herriko enpresekin bakarrik lan egiten al duzu?", a: "Euskal Herriko eta Nafarroako negozioekin lan egiten dut. WhatsApp eta bideodeiez elkartzen gara, eta presentzialki proiektuak hala eskatzen duenean." },
       ];
 
   const howToSteps = locale === "es"
     ? [
-        { name: "1. Hablamos", text: "Una llamada o un café de 30 minutos. Me cuentas qué necesitas, a quién quieres atraer y qué imagen quieres dar. Pregunto mucho." },
-        { name: "2. Presupuesto cerrado", text: "Te paso un presupuesto cerrado en 24-48h. 1.500€ base, hasta unos 2.000€ si necesitas algo más complejo. Sin sorpresas." },
-        { name: "3. Diseño", text: "Pienso primero en qué va a sentir tu cliente al entrar en la web. Fuente, paleta, microanimaciones. Te enseño avances e iteramos hasta que cuadra." },
-        { name: "4. Desarrollo", text: "Programo la web a mano con las herramientas más actuales. SEO técnico, multi-idioma si lo necesitas, y que fluya bien en cualquier dispositivo." },
-        { name: "5. Pruebas", text: "Compruebo en dispositivos reales, auditoría Lighthouse con Performance/Accessibility/SEO por encima de 95 y validación de datos estructurados." },
-        { name: "6. Lanzamiento", text: "Subimos la web, configuramos dominio, Google Search Console y Analytics. Te enseño cómo va el tráfico las primeras semanas." },
-        { name: "7. Mantenimiento", text: "Si quieres que me siga encargando, son 200€ al año e incluye hosting, dominio, cambios menores y soporte." },
+        { name: "1. Hablamos", text: "Una llamada de 30 minutos por teléfono o videollamada. Me cuentas qué hace tu negocio, a quién quieres atraer y de dónde te llegan ahora los clientes. Pregunto mucho." },
+        { name: "2. Te enseño una propuesta", text: "Antes de pedirte que firmes nada, te paso una propuesta visual: cómo veo tu web, la dirección de diseño y la estructura. Si no te encaja, ahí acaba y no me debes nada." },
+        { name: "3. Si te gusta, firmamos", text: "Contrato simple a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota de 149€ no se pasa hasta que la web esté publicada." },
+        { name: "4. Diseño final", text: "Ya con el proyecto en marcha cerramos los detalles: tipografía, paleta, jerarquía, microcopys. Te paso avances por WhatsApp y vamos ajustando hasta que te guste de verdad." },
+        { name: "5. Desarrollo", text: "Programo la web a mano, sin plantillas. SEO técnico, multi-idioma si lo necesitas y rápida en móvil. Ficha de Google Maps y sistema de reseñas configurados." },
+        { name: "6. Pruebas y lanzamiento", text: "Pruebo en dispositivos reales, paso Lighthouse con Performance, Accessibility y SEO por encima de 95 y valido los datos estructurados. Subimos la web, configuramos dominio, Search Console y Analytics. En 7-10 días desde la firma, viva." },
+        { name: "7. Cambios por WhatsApp", text: "Después, los 149€/mes cubren hosting, dominio, SSL y los cambios menores cada mes. Me escribes por WhatsApp y lo hago yo: sin formularios, sin tickets." },
       ]
     : locale === "en"
     ? [
-        { name: "1. We talk", text: "A 30-minute call or coffee. You tell me what you need, who you want to attract and the image you want to give. I ask a lot." },
-        { name: "2. Fixed quote", text: "I send a fixed quote in 24-48h. €1,500 base, up to around €2,000 if you need something more complex. No surprises." },
-        { name: "3. Design", text: "I think first about what your client will feel when they land on the site. Font, palette, microanimations. I show you progress and we iterate until it fits." },
-        { name: "4. Development", text: "I code the site by hand with today's tools. Technical SEO, multi-language if you need it, and that it flows on any device." },
-        { name: "5. Testing", text: "I check on real devices, Lighthouse audit with Performance/Accessibility/SEO above 95 and structured data validation." },
-        { name: "6. Launch", text: "We push the site, set up the domain, Google Search Console and Analytics. I show you how the traffic looks the first weeks." },
-        { name: "7. Maintenance", text: "If you want me to keep handling it, it's €200 per year and covers hosting, domain, minor changes and support." },
+        { name: "1. We talk", text: "A 30-minute phone or video call. You tell me what your business does, who you want to attract and where clients come from today. I ask a lot." },
+        { name: "2. I show you a proposal", text: "Before I ask you to sign anything, I send you a visual proposal: how I picture your site, the design direction and the structure. If it doesn't click, that's the end of it and you owe me nothing." },
+        { name: "3. If you like it, we sign", text: "A simple 12-month contract with a 30-day guarantee. €0 to sign. The first €149 fee doesn't kick in until the site is published." },
+        { name: "4. Final design", text: "With the project underway we lock in the details: type, palette, hierarchy, microcopy. I send progress over WhatsApp and we adjust until you actually like it." },
+        { name: "5. Development", text: "I code the site by hand, no templates. Technical SEO, multi-language if you need it and fast on mobile. Google Maps profile and reviews system set up." },
+        { name: "6. Testing and launch", text: "I test on real devices, run Lighthouse with Performance, Accessibility and SEO above 95, and validate structured data. We push the site, set up the domain, Search Console and Analytics. 7-10 days from signing and it's live." },
+        { name: "7. Changes over WhatsApp", text: "After that, €149/month covers hosting, domain, SSL and minor changes every month. You message me on WhatsApp and I do it: no forms, no tickets." },
       ]
     : [
-        { name: "1. Hitz egiten dugu", text: "30 minutuko deia edo kafea. Zer behar duzun, nor erakarri nahi duzun eta zer irudi eman nahi duzun esaten didazu." },
-        { name: "2. Aurrekontu itxia", text: "24-48 ordutan aurrekontu itxia bidaltzen dizut. 1.500€ oinarrian, 2.000€ ingurura konplexuagoa bada. Ezustekorik gabe." },
-        { name: "3. Diseinua", text: "Lehenik eta behin, zure bezeroak webgunera sartzean zer sentituko duen pentsatzen dut. Letra-tipoa, paleta, mikroanimazioak." },
-        { name: "4. Garapena", text: "Webgunea eskuz programatzen dut gaurko tresnekin. SEO teknikoa, eleaniztasuna behar baduzu." },
-        { name: "5. Probak", text: "Benetako gailuetan egiaztatzen dut, Lighthouse audita 95 baino gehiagorekin." },
-        { name: "6. Abiaraztea", text: "Webgunea igotzen dugu, domeinua, Google Search Console eta Analytics konfiguratzen ditugu." },
-        { name: "7. Mantentze-lana", text: "Nik jarraitzea nahi baduzu, urtean 200€ da eta hosting-a, domeinua, aldaketa txikiak eta laguntza barne ditu." },
+        { name: "1. Hitz egiten dugu", text: "30 minutuko deia edo bideodeia. Zure negozioak zer egiten duen, nor erakarri nahi duzun eta gaur egun bezeroak nondik datozkizun kontatzen didazu." },
+        { name: "2. Proposamen bat erakusten dizut", text: "Ezer sinatu aurretik, proposamen bisual bat bidaltzen dizut: zure weba nola ikusten dudan, diseinu-norabidea eta egitura. Egokitzen ez bazaizu, hor amaitzen da eta ez didazu ezer zor." },
+        { name: "3. Gustatzen bazaizu, sinatzen dugu", text: "12 hilabeteko kontratu sinplea, 30 eguneko bermearekin. 0€ sinatzean. Lehen 149€-ko kuota ez da pasatzen weba argitaratu arte." },
+        { name: "4. Azken diseinua", text: "Proiektua martxan dugula, xehetasunak ixten ditugu: tipografia, paleta, hierarkia, mikrokopya. Aurrerapenak WhatsApp bidez bidaltzen dizkizut eta benetan gustatu arte doitzen ditugu." },
+        { name: "5. Garapena", text: "Weba eskuz programatzen dut, txantiloirik gabe. SEO teknikoa, eleaniztasuna behar baduzu eta mugikorrean azkar. Google Maps fitxa eta iritzi-sistema prest." },
+        { name: "6. Probak eta abiaraztea", text: "Benetako gailuetan probatzen dut, Lighthouse 95etik gora Performance, Accessibility eta SEO-n, eta datu egituratuak baliozkotzen ditut. Weba igotzen dugu, domeinua, Search Console eta Analytics konfiguratzen ditugu. Sinatu eta 7-10 egunera martxan." },
+        { name: "7. Aldaketak WhatsApp bidez", text: "Ondoren, 149€/hil hosting-a, domeinua, SSL eta hileko aldaketa txikiak dira. WhatsApp idazten didazu eta nik egiten dut: formulariorik gabe, ticketsik gabe." },
       ];
 
   const comparisonRows = locale === "es"
@@ -228,18 +228,23 @@ export default async function ServiciosPage({ params }: Props) {
           { "@type": "City", name: "Irun" },
           { "@type": "AdministrativeArea", name: "Gipuzkoa" },
           { "@type": "AdministrativeArea", name: "País Vasco" },
-          { "@type": "Country", name: "España" },
+          { "@type": "AdministrativeArea", name: "Navarra" },
         ],
         audience: {
           "@type": "BusinessAudience",
           audienceType: locale === "es" ? "PyMEs, autónomos y comercios locales" : locale === "en" ? "SMEs, freelancers and local businesses" : "ETE, autonomoak eta tokiko merkataritza",
         },
         offers: {
-          "@type": "AggregateOffer",
+          "@type": "Offer",
           priceCurrency: "EUR",
-          lowPrice: "1500",
-          highPrice: "2000",
-          offerCount: 1,
+          price: "149",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "149",
+            priceCurrency: "EUR",
+            unitText: "MONTH",
+            referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" },
+          },
           availability: "https://schema.org/InStock",
           validFrom: VALID_FROM,
           priceValidUntil: PRICE_VALID_UNTIL,
@@ -258,8 +263,8 @@ export default async function ServiciosPage({ params }: Props) {
         "@type": "HowTo",
         "@id": `https://unaxaller.com/${locale}/servicios#howto`,
         name: locale === "es" ? "Cómo contratar una web profesional con Unax Aller" : locale === "en" ? "How to hire a professional website with Unax Aller" : "Nola kontratatu web profesional bat Unax Allerekin",
-        totalTime: "PT21D",
-        estimatedCost: { "@type": "MonetaryAmount", currency: "EUR", value: "1500" },
+        totalTime: "P10D",
+        estimatedCost: { "@type": "MonetaryAmount", currency: "EUR", value: "0" },
         step: howToSteps.map((s, i) => ({
           "@type": "HowToStep",
           position: i + 1,

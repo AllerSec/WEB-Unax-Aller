@@ -518,7 +518,7 @@ export function getCityLandingContent(
         },
         {
           q: "¿Qué pasa al terminar los 12 meses?",
-          a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados; cualquier subida futura solo afecta a nuevos clientes. Si quieres irte, solo avisar.",
+          a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados; cualquier subida futura solo afecta a nuevos clientes. Si quieres irte, solo avisar: el dominio te lo llevas a tu nombre y tu ficha de Google Maps con las reseñas sigue siendo de tu negocio. La web va sobre mis servidores, así que funciona mientras mantengas la cuota — igual que el software del taller o la tarifa del móvil.",
         },
       ],
       ctaTitle: `¿Tienes un negocio en ${city}?`,

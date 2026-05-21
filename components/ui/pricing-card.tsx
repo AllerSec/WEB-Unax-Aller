@@ -36,10 +36,10 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
     price: locale === "en" ? "€149/mo" : "149€/mes",
     description:
       locale === "es"
-        ? "0€ al firmar. 149€/mes durante 12 meses. 30 días de garantía de devolución. Después, mes a mes y la web sigue siendo tuya."
+        ? "0€ al firmar. Cuota fija de 149€/mes con permanencia de 12 meses y 30 días de garantía. Mientras mantengas tu cuota: web online, posicionamiento en Google Maps vigilado y soporte total por WhatsApp."
         : locale === "en"
-        ? "€0 to sign. €149/month for 12 months. 30-day money-back guarantee. After that, month to month and the site stays yours."
-        : "0€ sinatzean. 149€/hilean 12 hilabetez. 30 eguneko itzulketa bermea. Ondoren, hilez hile eta weba zurea izaten jarraitzen du.",
+        ? "€0 to sign. Fixed €149/month with a 12-month commitment and a 30-day money-back guarantee. While your subscription is active: site online, Google Maps ranking watched and full WhatsApp support."
+        : "0€ sinatzean. 149€/hileko kuota finkoa, 12 hilabeteko iraupenarekin eta 30 eguneko bermearekin. Kuota mantentzen duzun bitartean: weba sarean, Google Maps posizionamendua zaindua eta WhatsApp bidezko laguntza osoa.",
     popular: true,
     features:
       locale === "es"
@@ -47,26 +47,26 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
             "Diseño profesional a medida para tu negocio",
             "Hasta 5 secciones (inicio, servicios, sobre ti, contacto, reseñas)",
             "Optimizada para móvil — la mayoría de tus clientes te buscan desde el teléfono",
-            "Aparece en Google Maps con tu ficha optimizada",
-            "Sistema para conseguir más reseñas de 5 estrellas",
-            "Soporte directo por WhatsApp y cambios al mes incluidos",
+            "Ficha de Google Maps optimizada y vigilada cada mes para que no te adelante la competencia",
+            "Sistema automático para conseguir reseñas de 5 estrellas",
+            "Soporte directo por WhatsApp: cambios de precios, fotos u horarios el mismo día",
           ]
         : locale === "en"
         ? [
             "Professional custom design built around your business",
             "Up to 5 sections (home, services, about, contact, reviews)",
             "Mobile-optimized — most of your customers search from a phone",
-            "Shows on Google Maps with your profile properly set up",
-            "System to bring in more 5-star reviews",
-            "Direct WhatsApp support and monthly changes included",
+            "Google Maps profile optimized and monitored every month so competitors don't overtake you",
+            "Automatic system to bring in 5-star reviews",
+            "Direct WhatsApp support: price, photo or hours changes same day",
           ]
         : [
             "Zure negoziorako diseinu profesional pertsonalizatua",
             "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
             "Mugikorrerako optimizatua — bezero gehienek mugikorretik bilatzen zaituzte",
-            "Google Maps-en agertzen da fitxa ondo konfiguratuta",
-            "5 izarreko iritzi gehiago lortzeko sistema",
-            "WhatsApp bidezko zuzeneko laguntza eta hileko aldaketak barne",
+            "Google Maps fitxa optimizatua eta hilero zainduta, lehiakideek aurrera ez zaitzaten",
+            "5 izarreko iritziak lortzeko sistema automatikoa",
+            "WhatsApp bidezko laguntza zuzena: prezio, argazki edo ordutegi aldaketak egunean bertan",
           ],
     deliverables: [
       locale === "es" ? "Dominio propio y hosting incluidos (sin facturas extra)" : locale === "en" ? "Own domain & hosting included (no extra invoices)" : "Domeinu propioa eta hostinga barne (faktura gehigarririk gabe)",

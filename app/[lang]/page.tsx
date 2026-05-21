@@ -279,9 +279,8 @@ export default async function HomePage({ params }: Props) {
                 Hola, soy Unax.
               </h2>
               <p className="lp-body">
-                Trabajo desde Irun con negocios del País Vasco y Navarra:
-                clínicas de Donostia, despachos profesionales de Bilbao,
-                industria de Pamplona, comercio premium de Vitoria.
+                Trabajo desde Irun para negocios del País Vasco y Navarra: clínicas,
+                despachos profesionales, pequeña industria y comercio con ticket alto.
                 Cuando llamas, me coges directamente al teléfono. Cuando necesitas un cambio,
                 me escribes al WhatsApp. Por eso puedo permitirme firmar contigo
                 <strong> sin pedirte ni un euro al empezar y dándote 30 días para devolver</strong>:
@@ -355,13 +354,13 @@ export default async function HomePage({ params }: Props) {
           </AnimatedSection>
           <div className="lp-steps">
             {([
-              { n: "01", title: "Auditoría gratis de tu zona", desc: "Te enseño quién está saliendo primero en Google Maps en tu sector y tu ciudad. Y por qué te están quitando llamadas." },
-              { n: "02", title: "Llamada de 30 minutos", desc: "Por teléfono o por un café. Me cuentas tu negocio, tus competidores y cómo te llegan ahora los clientes." },
-              { n: "03", title: "Firmamos sin pagar nada", desc: "Contrato simple, 12 meses, 30 días de garantía. 0€ al firmar. La primera cuota se pasa cuando la web está lista." },
-              { n: "04", title: "Diseño visual", desc: "Logo, paleta, estructura. Te enseño avances por WhatsApp y ajustamos hasta que estés satisfecho." },
-              { n: "05", title: "Programación y pruebas", desc: "Web profesional, rápida en móvil, ficha de Google Maps configurada, sistema de reseñas listo." },
-              { n: "06", title: "Lanzamiento", desc: "En 7–10 días la web está viva. Te enseño el panel. Configuramos el seguimiento de llamadas." },
-              { n: "07", title: "Soporte por WhatsApp", desc: "Mientras dure el servicio: cambios de texto, fotos, precios, horarios… al WhatsApp y listo, sin tickets." },
+              { n: "01", title: "Miro tu zona contigo", desc: "Antes de nada te enseño qué competidores tuyos están saliendo primero en Google Maps en tu zona y por qué. Es gratis y no tienes que firmar nada." },
+              { n: "02", title: "Hablamos 30 minutos", desc: "Por teléfono o por videollamada. Me cuentas tu negocio, de dónde te llegan ahora los clientes y a quién quieres atraer." },
+              { n: "03", title: "Si encaja, lo cerramos", desc: "Contrato simple a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota no se pasa hasta que tu web esté publicada." },
+              { n: "04", title: "Te enseño el diseño", desc: "Logo, colores y cómo se va a ver la web. Te paso los avances por WhatsApp y vamos ajustando hasta que te guste." },
+              { n: "05", title: "Monto la web", desc: "Programo todo desde cero, sin plantillas. Va rápida en el móvil, te dejo lista la ficha de Google Maps y un sistema para pedir reseñas a tus clientes." },
+              { n: "06", title: "La ponemos en marcha", desc: "Entre 7 y 10 días desde que cerramos. Subimos la web, configuramos dominio, Google Search Console y Analytics, y te enseño cómo va el tráfico las primeras semanas." },
+              { n: "07", title: "Después, tú me escribes", desc: "Cambios de texto, fotos, precios, horarios o añadir un servicio… me mandas un WhatsApp y lo hago yo. Sin formularios ni tickets." },
             ] as { n: string; title: string; desc: string }[]).map((step, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="lp-step">
@@ -571,7 +570,7 @@ export default async function HomePage({ params }: Props) {
               },
               {
                 q: "¿Qué pasa al terminar los 12 meses?",
-                a: "Sigues mes a mes. La cuota queda bloqueada durante los 12 meses contratados; si después subo precios para nuevos clientes, a ti no te afecta. Y si quieres irte, solo tienes que avisar.",
+                a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados; si después subo precios para nuevos clientes, a ti no te afecta. Si quieres irte, solo avisar: el dominio te lo llevas a tu nombre y la ficha de Google Maps con tus reseñas también es tuya. Lo que se apaga es la web, porque va sobre mi sistema — como el software del taller o tu tarifa de móvil: pagas cuota, tienes servicio.",
               },
               {
                 q: "¿Necesito saber algo de internet?",

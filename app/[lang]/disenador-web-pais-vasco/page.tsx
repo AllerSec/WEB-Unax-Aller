@@ -191,20 +191,20 @@ export default async function PaisVascoPage({ params }: Props) {
         { title: "Trilingüe de serie", desc: "Entrego tu web en castellano, inglés y euskera. Sin plugins frágiles, con URLs localizadas y hreflang correcto." },
         { title: "SEO para el mercado vasco", desc: "Optimización para búsquedas en Euskadi, Google Maps y Google Business Profile en las tres provincias." },
         { title: "Cercanía real", desc: "Estoy en Irun. Puedo desplazarme a Bilbao, Donostia o Vitoria cuando tu proyecto lo necesite." },
-        { title: "Código tuyo para siempre", desc: "Web a medida en Next.js. Sin ataduras a plataformas propietarias. El código es tuyo el día 1." },
+        { title: "Hecho a mano, sin plantillas", desc: "Web a medida en Next.js, no una plantilla de WordPress. Rápida en móvil, Lighthouse 95+ y SEO técnico bien resuelto desde el día 1." },
       ]
     : locale === "en"
     ? [
         { title: "Trilingual out of the box", desc: "I deliver your site in Spanish, English and Basque. No fragile plugins — localized URLs and proper hreflang." },
         { title: "SEO for the Basque market", desc: "Optimization for searches across the Basque Country, Google Maps and Google Business Profile in all three provinces." },
         { title: "Real proximity", desc: "I'm based in Irun. I can travel to Bilbao, Donostia or Vitoria whenever your project needs it." },
-        { title: "Your code, forever", desc: "Custom Next.js site. No lock-in to proprietary platforms. The code is yours from day one." },
+        { title: "Hand-built, no templates", desc: "Custom Next.js site, not a WordPress theme. Fast on mobile, Lighthouse 95+ and technical SEO solved properly from day one." },
       ]
     : [
         { title: "Hiru hizkuntza hasieratik", desc: "Zure weba gaztelaniaz, ingelesez eta euskaraz entregatzen dut. URL lokalizatuak eta hreflang zuzena." },
         { title: "Euskal merkaturako SEO", desc: "Euskadiko bilaketetarako optimizazioa, Google Maps eta Google Business Profile hiru lurraldeetan." },
         { title: "Benetako hurbiltasuna", desc: "Irunen nago. Bilbora, Donostiara edo Gasteizera joan naiteke proiektuak hala behar duenean." },
-        { title: "Kodea betirako zurea", desc: "Neurrira egindako weba Next.js-en. Lotura pribatibo barik. Kodea lehen egunetik zurea da." },
+        { title: "Eskuz egina, txantiloirik gabe", desc: "Next.js-eko web pertsonalizatua, ez WordPress txantiloi bat. Mugikorrean azkar, Lighthouse 95+ eta SEO teknikoa ondo lehen egunetik." },
       ];
 
   return (

@@ -96,7 +96,7 @@
     cta: "Empezar sin pagar nada",
     ctaContact: "Pedir auditoría",
     notePrice:
-      "Cuota bloqueada durante los 12 meses contratados. Después, mes a mes sin permanencia. Las subidas futuras solo afectarían a nuevos clientes.",
+      "Cuota bloqueada durante los 12 meses contratados. Después, sigues mes a mes sin permanencia. Cualquier subida futura solo afecta a clientes nuevos.",
     plans: [
       {
         name: "Renting Web",
@@ -275,7 +275,7 @@
       { q: "¿Incluye el mantenimiento?", a: "Sí. Los 149€/mes ya incluyen hosting, dominio, SSL, soporte por WhatsApp y cambios menores cada mes (textos, fotos, precios, horarios, añadir un servicio…). Sin facturas extra." },
       { q: "¿Puedo pedir cambios cuando quiera?", a: "Sí. Durante el desarrollo hay rondas de revisión sin coste. Después del lanzamiento, los cambios menores entran en la cuota mensual: me los mandas al WhatsApp y los hago." },
       { q: "¿Trabajas solo con empresas de Gipuzkoa?", a: "No. Trabajo con negocios profesionales en todo el País Vasco y Navarra — Bilbao, Donostia, Vitoria, Pamplona, comarcas y polígonos industriales. También atiendo La Rioja y Cantabria. La cercanía digital pesa más que la geográfica: nos vemos por WhatsApp y videollamada, y visitas presenciales cuando el proyecto lo merece." },
-      { q: "¿Qué pasa si quiero dejar el servicio?", a: "Durante los 12 meses iniciales tienes que cumplir el contrato. A partir de ahí, sigues mes a mes sin permanencia: solo avisar. El dominio está a tu nombre y te lo llevas si quieres." },
+      { q: "¿Qué pasa si quiero dejar el servicio?", a: "Durante los 12 meses iniciales tienes que cumplir el contrato. A partir de ahí, sigues mes a mes sin permanencia: solo avisar. El dominio lo registro a tu nombre y te lo llevas. La ficha de Google Maps y tus reseñas también se quedan contigo porque son de tu negocio. Lo único que se apaga es la web, igual que el software del taller o la tarifa del móvil: pagas cuota, tienes servicio." },
     ],
   },
   faqPrecios: {

@@ -61,18 +61,40 @@ export default function PainSection() {
         "-=0.35"
       );
 
-      tl.to(
-        rows,
-        {
-          opacity: (i, el) => (el.classList.contains("lp-pain-row--bad") ? 0.7 : 1),
-          y: 0,
-          duration: 0.55,
-          stagger: 0.1,
-          ease: "power3.out",
-          onStart: () => rows.forEach((r) => r.classList.add("lp-pain-row--in")),
-        },
-        "-=0.2"
-      );
+      rows.forEach((row, i) => {
+        const isGood = row.classList.contains("lp-pain-row--good");
+        const icon = row.querySelector<HTMLElement>(".lp-pain-icon");
+        const label = `row-${i}`;
+        const offset = i === 0 ? "-=0.2" : "+=0.18";
+
+        tl.add(label, offset);
+
+        tl.to(
+          row,
+          {
+            opacity: isGood ? 1 : 0.7,
+            y: 0,
+            duration: isGood ? 0.85 : 0.6,
+            ease: isGood ? "power4.out" : "power3.out",
+            onStart: () => row.classList.add("lp-pain-row--in"),
+          },
+          label
+        );
+
+        if (icon) {
+          tl.fromTo(
+            icon,
+            { scale: 0.4, rotate: isGood ? -25 : 0 },
+            {
+              scale: 1,
+              rotate: 0,
+              duration: isGood ? 0.7 : 0.45,
+              ease: isGood ? "back.out(2.4)" : "back.out(1.8)",
+            },
+            label + "+=0.05"
+          );
+        }
+      });
     }, root);
 
     return () => ctx.revert();
