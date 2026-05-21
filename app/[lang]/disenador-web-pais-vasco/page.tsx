@@ -231,7 +231,7 @@ export default async function PaisVascoPage({ params }: Props) {
 
           <div className="city-hero-author" aria-hidden="true">
             <Image
-              src="/images/IMG_1729.jpeg"
+              src="/images/founder-unax.webp"
               alt=""
               width={5712}
               height={4284}

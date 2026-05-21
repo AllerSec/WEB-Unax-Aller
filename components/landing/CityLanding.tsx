@@ -141,7 +141,7 @@ export default function CityLanding({
           <div className="page-hero-inner city-hero-inner">
             <div className="city-hero-author" aria-hidden="true">
               <Image
-                src="/images/IMG_1729.jpeg"
+                src="/images/founder-unax.webp"
                 alt=""
                 width={5712}
                 height={4284}

@@ -205,7 +205,7 @@ export default async function SobreNosotrosPage({ params }: Props) {
             <div className="profile-card">
               <div className="profile-avatar profile-avatar-photo" aria-hidden="true">
                 <Image
-                  src="/images/IMG_1729.jpeg"
+                  src="/images/founder-unax.webp"
                   alt=""
                   width={5712}
                   height={4284}

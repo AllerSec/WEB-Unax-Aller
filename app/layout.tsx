@@ -89,6 +89,7 @@ export default function RootLayout({
     <html
       lang="es"
       className={`${sourceSerif.variable} ${lexend.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">{children}</body>

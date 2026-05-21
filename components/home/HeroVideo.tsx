@@ -78,10 +78,7 @@ export default function HeroVideo({ className }: Props) {
   if (isMobile === null || isMobile || !shouldLoadVideo) {
     return (
       <div className={`hero-video-root ${className ?? ""}`.trim()} aria-hidden="true">
-        <div
-          className="hero-video-poster"
-          style={{ backgroundImage: "url(/video/hero-poster.jpg)" }}
-        />
+        <div className="hero-video-poster" />
       </div>
     );
   }
@@ -96,7 +93,6 @@ export default function HeroVideo({ className }: Props) {
         loop
         playsInline
         preload="metadata"
-        poster="/video/hero-poster.jpg"
         tabIndex={-1}
         onError={(e) => {
           console.error("[HeroVideo] error:", (e.target as HTMLVideoElement).error);

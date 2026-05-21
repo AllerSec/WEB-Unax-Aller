@@ -1990,7 +1990,7 @@ html.ua-loader-skip #ua-page-loader {
       linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.95) 55%, rgba(15, 23, 42, 0.98) 100%),
       /* green colorize layer — tugs leaves toward salvia/forest hues */
       linear-gradient(rgba(11, 50, 28, 0.7), rgba(11, 50, 28, 0.7)),
-      url("/images/IMG_1729.jpeg");
+      url("/images/founder-unax.webp");
     background-size: cover, cover, cover;
     background-position: center, center, center;
     background-repeat: no-repeat, no-repeat, no-repeat;
@@ -2023,6 +2023,7 @@ html.ua-loader-skip #ua-page-loader {
   filter: none;
 }
 .hero-video-poster {
+  background: radial-gradient(120% 80% at 50% 30%, #1f3a2e 0%, #0b321c 55%, #050f08 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -28,14 +28,6 @@ export default async function LangLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      {/* Hero poster preload — first contentful background under the H1.
-          High priority so it does not compete with text for LCP. */}
-      <link
-        rel="preload"
-        as="image"
-        href="/video/hero-poster.jpg"
-        fetchPriority="high"
-      />
       {/* Sync html[lang] with the active locale without hydration mismatch */}
       <script
         suppressHydrationWarning

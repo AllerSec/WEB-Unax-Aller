@@ -72,7 +72,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         familyName: "Aller Fernández",
         jobTitle: "Renting Web para negocios locales",
         url: `https://unaxaller.com/${locale}/sobre-nosotros`,
-        image: "https://unaxaller.com/images/IMG_1729.jpeg",
+        image: "https://unaxaller.com/images/founder-unax.webp",
         email: "contacto@unaxaller.com",
         telephone: "+34620909916",
         knowsLanguage: ["es", "eu", "en", "fr"],
@@ -116,7 +116,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
           width: 512,
           height: 512,
         },
-        image: "https://unaxaller.com/images/IMG_1729.jpeg",
+        image: "https://unaxaller.com/images/founder-unax.webp",
         description:
           "Renting Web para negocios locales de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (diseño, hosting, dominio, Google Maps, reseñas, soporte WhatsApp). 0€ al firmar.",
         founder: { "@id": "https://unaxaller.com/#person" },
@@ -266,7 +266,7 @@ export default async function HomePage({ params }: Props) {
           <div className="container-xl lp-founder-inner">
             <div className="lp-founder-photo">
               <Image
-                src="/images/IMG_1729.jpeg"
+                src="/images/founder-unax.webp"
                 alt="Unax Aller, especialista en webs para negocio local en País Vasco y Navarra"
                 width={400}
                 height={400}
