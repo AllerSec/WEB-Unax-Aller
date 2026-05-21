@@ -11,6 +11,7 @@ export interface Gallery4Item {
   href: string;
   externalUrl: string;
   mobileImage: string;
+  mobileVideo?: string;
   accent: string;
   meta: string;
 }
@@ -106,19 +107,33 @@ const Gallery4 = ({
                 <Link href={item.href} className="g4-phone-link" aria-label={`Ver caso de estudio: ${item.title}`}>
                   <div className="g4-phone-frame">
                     <div className="g4-phone-screen">
-                      <Image
-                        src={item.mobileImage}
-                        alt={`Captura móvil de ${item.title}`}
-                        width={390}
-                        height={820}
-                        className="g4-phone-img"
-                        sizes="280px"
-                        priority={false}
-                      />
+                      {item.mobileVideo ? (
+                        <video
+                          src={item.mobileVideo}
+                          poster={item.mobileImage}
+                          className="g4-phone-img"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                          aria-label={`Vídeo móvil de ${item.title}`}
+                        />
+                      ) : (
+                        <Image
+                          src={item.mobileImage}
+                          alt={`Captura móvil de ${item.title}`}
+                          width={390}
+                          height={820}
+                          className="g4-phone-img"
+                          sizes="280px"
+                          priority={false}
+                        />
+                      )}
                     </div>
                     <div
                       className="g4-phone-overlay"
-                      style={{ background: `linear-gradient(to top, ${item.accent}ee 0%, ${item.accent}55 40%, transparent 70%)` }}
+                      style={{ background: `linear-gradient(to top, ${item.accent}77 0%, ${item.accent}2b 40%, transparent 70%)` }}
                       aria-hidden="true"
                     />
                   </div>

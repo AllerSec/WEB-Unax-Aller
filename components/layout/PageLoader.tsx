@@ -78,14 +78,14 @@ export default function PageLoader() {
       ref={containerRef}
       id="ua-page-loader"
       className="fixed inset-0 z-[9999] flex items-center justify-center"
-      style={{ backgroundColor: "#061b0e" }}
+      style={{ backgroundColor: "var(--color-bg)" }}
       aria-hidden="true"
     >
       <div
         className="absolute inset-0 opacity-10"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 50% 50%, #4d6453 0%, transparent 70%)",
+            "radial-gradient(circle at 50% 50%, var(--color-ink-subtle) 0%, transparent 70%)",
         }}
       />
 
@@ -101,7 +101,7 @@ export default function PageLoader() {
           xmlns="http://www.w3.org/2000/svg"
           aria-label="Unax Aller UA monogram"
         >
-          <rect width="80" height="80" rx="16" fill="#1b3022" />
+          <rect width="80" height="80" rx="16" fill="var(--color-line)" />
           <text
             x="40"
             y="52"
@@ -109,7 +109,7 @@ export default function PageLoader() {
             fontFamily="Georgia, serif"
             fontSize="32"
             fontWeight="400"
-            fill="#b4cdb8"
+            fill="var(--color-accent)"
             letterSpacing="-1"
           >
             UA
@@ -120,7 +120,7 @@ export default function PageLoader() {
           <span
             style={{
               fontFamily: "Georgia, serif",
-              color: "#b4cdb8",
+              color: "var(--color-accent)",
               fontSize: "1rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -132,7 +132,7 @@ export default function PageLoader() {
             style={{
               width: "40px",
               height: "1px",
-              backgroundColor: "#4d6453",
+              backgroundColor: "var(--color-ink-subtle)",
             }}
           />
         </div>

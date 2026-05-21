@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -103,8 +104,14 @@ export default function Footer({ locale }: Props) {
               className="site-footer-logo focusable"
               aria-label="Unax Aller — Inicio"
             >
-              <span className="site-footer-logo-mark" aria-hidden="true">UA</span>
-              <span className="site-footer-logo-text">Unax Aller</span>
+              <Image
+                src="/images/brand/logo-lockup.webp"
+                alt="Unax Aller"
+                width={529}
+                height={483}
+                className="site-footer-logo-img"
+                sizes="260px"
+              />
             </Link>
             <p className="site-footer-tagline">{t("tagline")}</p>
             <div className="site-footer-socials">

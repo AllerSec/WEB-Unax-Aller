@@ -15,7 +15,7 @@ interface HeroProps {
 }
 
 /* Shader basado en Matthias Hurrle (@atzedent) — destellos orbitales
-   recoloreados a la paleta verde bosque / salvia / crema de la marca */
+   recoloreados a la paleta Trust & Authority: navy → sky blue */
 const SHADER = `#version 300 es
 precision highp float;
 out vec4 O;
@@ -61,22 +61,21 @@ void main(void){
     vec2 p=uv;
     float d=length(p);
 
-    /* destellos — paleta verde bosque/salvia en vez de naranja/rojo */
-    /* cos(sin(i)*vec3(A,B,C))+1 produce 0–2; escalamos a 0–1
-       Elegimos fases para que el canal verde domine */
+    /* destellos — paleta Trust & Authority: navy oscuro con azul cielo */
+    /* Queremos: azul cielo dominante (B), un toque blanco (G), R bajo */
     vec3 spark=cos(sin(i)*vec3(0.4,1.2,0.7)+vec3(2.1,0.3,1.8))+1.;
-    /* spark.r≈verde oscuro, spark.g≈salvia, spark.b≈crema/azul apagado */
-    /* remapeamos: queremos verde en R, verde brillante en G, crema en B */
     vec3 tinted=vec3(
-      spark.g*0.18+spark.r*0.05,   /* canal R: muy bajo → tono oscuro */
-      spark.g*0.55+spark.r*0.30,   /* canal G: verde dominante */
-      spark.b*0.22+spark.g*0.12    /* canal B: toque azul-verdoso */
+      spark.r*0.08+spark.g*0.04,   /* canal R: muy bajo → mantener navy */
+      spark.g*0.30+spark.b*0.18,   /* canal G: medio → blueprint */
+      spark.b*0.65+spark.g*0.30    /* canal B: dominante → sky blue */
     );
     col+=.00125/d*tinted;
 
     float b=noise(i+p+bg*1.731);
-    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(0.12,0.55,0.28);
-    col=mix(col,vec3(bg*.04,bg*.18,bg*.08),d);
+    /* segundo gradiente: azul cielo brillante */
+    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(0.10,0.30,0.70);
+    /* fondo de tela navy con ligera azulada */
+    col=mix(col,vec3(bg*.03,bg*.05,bg*.12),d);
   }
 
   /* vignette suave */

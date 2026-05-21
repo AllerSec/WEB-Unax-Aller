@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -17,11 +18,13 @@ export default function Testimonials() {
       quote: t("items.0.quote"),
       author: t("items.0.author"),
       role: t("items.0.role"),
+      logo: "/images/testimonials/motos-arretxe.png",
     },
     {
       quote: t("items.1.quote"),
       author: t("items.1.author"),
       role: t("items.1.role"),
+      logo: "/images/testimonials/farmacia-fernandez-bera.webp",
     },
   ];
 
@@ -125,7 +128,17 @@ export default function Testimonials() {
 
               <div className="testimonial-author">
                 <div className="testimonial-avatar" aria-hidden="true">
-                  {item.author.charAt(0)}
+                  {item.logo ? (
+                    <Image
+                      src={item.logo}
+                      alt=""
+                      width={48}
+                      height={48}
+                      className="testimonial-avatar-img"
+                    />
+                  ) : (
+                    item.author.charAt(0)
+                  )}
                 </div>
                 <div>
                   <p className="testimonial-author-name">{item.author}</p>

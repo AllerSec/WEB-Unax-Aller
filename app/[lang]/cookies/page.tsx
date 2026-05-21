@@ -35,9 +35,9 @@ export default async function CookiesPage({ params }: Props) {
   const title =
     locale === "es" ? "Política de Cookies" : locale === "en" ? "Cookie Policy" : "Cookie Politika";
   const updatedLabel =
-    locale === "es" ? "Última actualización: enero 2025" :
-    locale === "en" ? "Last updated: January 2025" :
-    "Azken eguneraketa: 2025eko urtarrila";
+    locale === "es" ? "Última actualización: enero 2026" :
+    locale === "en" ? "Last updated: January 2026" :
+    "Azken eguneraketa: 2026ko urtarrila";
   const backLabel =
     locale === "es" ? "Volver al inicio" : locale === "en" ? "Back to home" : "Hasierara itzuli";
   const privacyLabel =

@@ -31,117 +31,119 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
   }, []);
 
   const plan: PlanDetail = {
-    name: locale === "es" ? "Plan Completo" : locale === "en" ? "Complete Plan" : "Plan Osoa",
-    subtitle: locale === "es" ? "Web a medida" : locale === "en" ? "Custom website" : "Neurrizko weba",
-    price: locale === "en" ? "€1,500" : "1.500€",
+    name: locale === "es" ? "Renting Web" : locale === "en" ? "Web Renting" : "Web Errentaria",
+    subtitle: locale === "es" ? "Tu web profesional sin pagar nada al empezar" : locale === "en" ? "Your professional site with no upfront payment" : "Zure web profesionala hasieran ezer ordaindu gabe",
+    price: locale === "en" ? "€149/mo" : "149€/mes",
     description:
       locale === "es"
-        ? "Todo lo que necesitas para lanzar una web profesional, rápida y que convierta. IVA incluido."
+        ? "0€ al firmar. 149€/mes durante 12 meses. 30 días de garantía de devolución. Después, mes a mes y la web sigue siendo tuya."
         : locale === "en"
-        ? "Everything you need to launch a professional, fast, high-converting website. VAT included."
-        : "Web profesional, azkarra eta konbertsio handikoa. BEZ barne.",
+        ? "€0 to sign. €149/month for 12 months. 30-day money-back guarantee. After that, month to month and the site stays yours."
+        : "0€ sinatzean. 149€/hilean 12 hilabetez. 30 eguneko itzulketa bermea. Ondoren, hilez hile eta weba zurea izaten jarraitzen du.",
     popular: true,
     features:
       locale === "es"
         ? [
-            "Diseño premium a medida con animaciones",
-            "Páginas necesarias para tu proyecto",
-            "SEO técnico completo + Google Analytics",
-            "Multi-idioma si lo necesitas",
-            "Adaptada a móvil desde el primer pixel",
-            "Mantenimiento opcional desde 100€/año",
+            "Diseño profesional a medida para tu negocio",
+            "Hasta 5 secciones (inicio, servicios, sobre ti, contacto, reseñas)",
+            "Optimizada para móvil — la mayoría de tus clientes te buscan desde el teléfono",
+            "Aparece en Google Maps con tu ficha optimizada",
+            "Sistema para conseguir más reseñas de 5 estrellas",
+            "Soporte directo por WhatsApp y cambios al mes incluidos",
           ]
         : locale === "en"
         ? [
-            "Premium custom design with animations",
-            "Pages tailored to your project",
-            "Full technical SEO + Google Analytics",
-            "Multi-language support if needed",
-            "Mobile-first from the very first pixel",
-            "Optional maintenance from €100/year",
+            "Professional custom design built around your business",
+            "Up to 5 sections (home, services, about, contact, reviews)",
+            "Mobile-optimized — most of your customers search from a phone",
+            "Shows on Google Maps with your profile properly set up",
+            "System to bring in more 5-star reviews",
+            "Direct WhatsApp support and monthly changes included",
           ]
         : [
-            "Diseinu premium pertsonalizatua animazioekin",
-            "Zure proiekturako beharrezko orriak",
-            "SEO tekniko osoa + Google Analytics",
-            "Eleaniztasuna behar baduzu",
-            "Mugikorrerako egokitua lehen pixelatik",
-            "Mantentze-lana aukerakoa 100€/urtetik",
+            "Zure negoziorako diseinu profesional pertsonalizatua",
+            "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
+            "Mugikorrerako optimizatua — bezero gehienek mugikorretik bilatzen zaituzte",
+            "Google Maps-en agertzen da fitxa ondo konfiguratuta",
+            "5 izarreko iritzi gehiago lortzeko sistema",
+            "WhatsApp bidezko zuzeneko laguntza eta hileko aldaketak barne",
           ],
     deliverables: [
-      locale === "es" ? "Dominio y hosting durante 1 año" : locale === "en" ? "Domain & hosting for 1 year" : "Domeinua eta hostinga 1 urterako",
-      locale === "es" ? "Panel de administración de contenidos" : locale === "en" ? "Content management panel" : "Edukien administrazio panela",
-      locale === "es" ? "Acceso y propiedad del código fuente" : locale === "en" ? "Full source code ownership" : "Iturburu-kodearen jabetza",
-      locale === "es" ? "Certificado SSL + CDN incluido" : locale === "en" ? "SSL certificate + CDN included" : "SSL ziurtagiria + CDN barne",
+      locale === "es" ? "Dominio propio y hosting incluidos (sin facturas extra)" : locale === "en" ? "Own domain & hosting included (no extra invoices)" : "Domeinu propioa eta hostinga barne (faktura gehigarririk gabe)",
+      locale === "es" ? "Ficha de Google Business Profile lista para captar llamadas" : locale === "en" ? "Google Business Profile set up to capture phone calls" : "Google Business Profile fitxa deiak hartzeko prest",
+      locale === "es" ? "Certificado SSL y velocidad optimizada" : locale === "en" ? "SSL certificate and speed optimization" : "SSL ziurtagiria eta abiadura optimizatua",
+      locale === "es" ? "Cambios menores cada mes sin coste extra" : locale === "en" ? "Minor changes every month at no extra cost" : "Aldaketa txikiak hilero kostu gehigarririk gabe",
     ],
     process: [
       {
-        step: locale === "es" ? "Estrategia digital" : locale === "en" ? "Digital strategy" : "Estrategia digitala",
-        desc: locale === "es" ? "Análisis de competencia y definición de objetivos." : locale === "en" ? "Competitive analysis and goal definition." : "Lehiakideen analisia eta helburuen definizioa.",
+        step: locale === "es" ? "Llamada de 30 minutos" : locale === "en" ? "30-minute call" : "30 minutuko deia",
+        desc: locale === "es" ? "Me cuentas tu negocio, qué clientes quieres atraer y qué hace tu competencia." : locale === "en" ? "You tell me about your business, the clients you want and what your competition does." : "Zure negozioa, nahi dituzun bezeroak eta lehiakideen lana kontatzen dizkidazu.",
       },
       {
-        step: locale === "es" ? "Diseño premium" : locale === "en" ? "Premium design" : "Diseinu premium-a",
-        desc: locale === "es" ? "Sistema de diseño completo con animaciones y microinteracciones." : locale === "en" ? "Full design system with animations and microinteractions." : "Diseinu sistema osoa animazioekin eta mikrointerakzioekin.",
+        step: locale === "es" ? "Auditoría de tu competencia" : locale === "en" ? "Competitor audit" : "Lehiakideen auditoria",
+        desc: locale === "es" ? "Te enseño quién te está quitando llamadas en Google y por qué." : locale === "en" ? "I show you who's taking your calls on Google and why." : "Googlen deiak nork kentzen dizkizun eta zergatik erakusten dizut.",
       },
       {
-        step: locale === "es" ? "Desarrollo y pruebas" : locale === "en" ? "Development & QA" : "Garapena eta probak",
-        desc: locale === "es" ? "Código limpio, optimizado y probado en todos los dispositivos." : locale === "en" ? "Clean, optimized code tested on all devices." : "Kode garbia, optimizatua eta gailu guztietan probatua.",
+        step: locale === "es" ? "Web lista en 7–10 días" : locale === "en" ? "Site live in 7–10 days" : "Weba 7–10 egunean prest",
+        desc: locale === "es" ? "La diseño, la programo y la subo. Pruebas reales en móvil antes de lanzar." : locale === "en" ? "I design, build and launch it. Real mobile tests before going live." : "Diseinatu, programatu eta jartzen dut. Mugikorreko proba errealak abiatu aurretik.",
       },
       {
-        step: locale === "es" ? "Lanzamiento y formación" : locale === "en" ? "Launch & training" : "Abiatzea eta prestakuntza",
-        desc: locale === "es" ? "Publicación, analytics y sesión de formación para tu equipo." : locale === "en" ? "Publishing, analytics and team training session." : "Argitalpena, analitika eta taldearen prestakuntza saioa.",
+        step: locale === "es" ? "Acompañamiento continuo" : locale === "en" ? "Ongoing support" : "Etengabeko laguntza",
+        desc: locale === "es" ? "WhatsApp directo conmigo. Cambios menores, hosting y dominio incluidos." : locale === "en" ? "Direct WhatsApp with me. Minor changes, hosting and domain included." : "Nirekin WhatsApp zuzena. Aldaketa txikiak, hostinga eta domeinua barne.",
       },
     ],
     clients: [
-      { name: "Farmacia Fernández Bera", url: "https://farmaciafernandezbera.com", domain: "farmaciafernandezbera.com", type: locale === "es" ? "Farmacia" : locale === "en" ? "Pharmacy" : "Farmazia" },
-      { name: "Virtuosolve", url: "https://virtuosolve.com", domain: "virtuosolve.com", type: locale === "es" ? "IA para clínicas estéticas" : locale === "en" ? "AI for aesthetic clinics" : "IA klinika estetikoetarako" },
-      { name: "Arretxe Motos", url: "https://motosarretxe.com", domain: "motosarretxe.com", type: locale === "es" ? "Taller y concesionario Honda & SYM · 58 años" : locale === "en" ? "Honda & SYM dealer · 58 years" : "Honda & SYM kontzesionarioa · 58 urte" },
+      { name: "Farmacia Fernández Bera", url: "https://farmaciafernandezbera.com", domain: "farmaciafernandezbera.com", type: locale === "es" ? "Farmacia · Bera" : locale === "en" ? "Pharmacy · Bera" : "Farmazia · Bera" },
+      { name: "Motos Arretxe", url: "https://motosarretxe.com", domain: "motosarretxe.com", type: locale === "es" ? "Taller y concesionario · Irun" : locale === "en" ? "Workshop & dealer · Irun" : "Tailerra eta kontzesionarioa · Irun" },
+      { name: "Anaka Óptica", url: "https://anakaoptica.com", domain: "anakaoptica.com", type: locale === "es" ? "Óptica · Irun" : locale === "en" ? "Optician · Irun" : "Optika · Irun" },
     ],
   };
 
-  const ctaLabel = locale === "es" ? "Empezar ahora" : locale === "en" ? "Get started" : "Hasi orain";
-  const detailLabel = locale === "es" ? "Ver todos los detalles" : locale === "en" ? "See full details" : "Xehetasun guztiak ikusi";
-  const fromLabel = locale === "es" ? "Desde" : locale === "en" ? "From" : "Honetatik";
-  const popularLabel = locale === "es" ? "Recomendado" : locale === "en" ? "Recommended" : "Gomendatua";
+  const ctaLabel = locale === "es" ? "Empezar sin pagar nada" : locale === "en" ? "Start with €0 upfront" : "Hasi ezer ordaindu gabe";
+  const detailLabel = locale === "es" ? "Ver todo lo que incluye" : locale === "en" ? "See everything included" : "Sartzen den guztia ikusi";
+  const fromLabel = locale === "es" ? "Cuota fija" : locale === "en" ? "Flat fee" : "Kuota finkoa";
+  const popularLabel = locale === "es" ? "0€ inicial" : locale === "en" ? "€0 upfront" : "0€ hasieran";
   const noteLabel =
     locale === "es"
-      ? "Precio orientativo. Para proyectos más complejos, hasta 2.000€. Siempre precio cerrado antes de empezar."
+      ? "Permanencia 12 meses. Garantía de devolución 30 días sin preguntas. Cuota bloqueada durante los 12 meses; futuros cambios solo afectan a nuevos clientes."
       : locale === "en"
-      ? "Indicative price. For more complex projects, up to €2,000. Always a fixed price before starting."
-      : "Gutxi gorabeherako prezioa. Proiektu konplexuagoetarako, 2.000€ arte. Beti prezio itxia hasi aurretik.";
+      ? "12-month minimum term. 30-day no-questions-asked money-back guarantee. Price locked for 12 months; any future increases only apply to new clients."
+      : "12 hilabeteko iraupena. 30 eguneko itzulketa bermea galderarik gabe. Kuota 12 hilabetez blokeatuta; etorkizuneko aldaketak bezero berriei bakarrik aplikatuko zaizkie.";
 
   return (
     <>
       <style>{`
         .pc-section{padding:clamp(4rem,8vw,7rem) 0;background:var(--color-bg)}
-        .pc-card-wrap{max-width:860px;margin:0 auto}
-        .pc-card{position:relative;display:grid;grid-template-columns:1fr 1fr;border-radius:var(--radius-2xl);background:linear-gradient(160deg,#0a2412 0%,#162b1c 100%);border:1px solid rgba(180,205,184,.18);box-shadow:0 32px 80px rgba(0,0,0,.55),0 0 0 1px rgba(180,205,184,.08);overflow:hidden}
+        .pc-card-wrap{max-width:920px;margin:0 auto}
+        .pc-card{position:relative;display:grid;grid-template-columns:1fr 1fr;border-radius:var(--radius-2xl);background:#FFFFFF;border:1px solid var(--color-line);box-shadow:var(--shadow-lg);overflow:hidden}
         @media(max-width:640px){.pc-card{grid-template-columns:1fr}}
-        .pc-badge{position:absolute;top:var(--space-5);right:var(--space-5);display:inline-flex;align-items:center;gap:var(--space-1);padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:rgba(180,205,184,.18);color:#b4cdb8;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-        .pc-left{display:flex;flex-direction:column;padding:clamp(1.5rem,4vw,2.5rem);border-right:1px solid rgba(180,205,184,.1)}
-        @media(max-width:640px){.pc-left{border-right:none;border-bottom:1px solid rgba(180,205,184,.1)}}
+        .pc-badge{position:absolute;top:var(--space-5);right:var(--space-5);display:inline-flex;align-items:center;gap:var(--space-1);padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:var(--color-primary);color:#FFFFFF;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+        .pc-left{display:flex;flex-direction:column;padding:clamp(1.5rem,4vw,2.5rem);border-right:1px solid var(--color-line)}
+        @media(max-width:640px){.pc-left{border-right:none;border-bottom:1px solid var(--color-line)}}
         .pc-header{margin-bottom:var(--space-6);padding-right:clamp(0px,5vw,3rem)}
-        .pc-subtitle{font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#b4cdb8;margin:0 0 var(--space-2)}
-        .pc-name{font-family:var(--font-serif);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:400;line-height:var(--lh-tight);letter-spacing:-.02em;color:#ece7d6;margin:0 0 var(--space-3)}
-        .pc-description{font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-relaxed);color:rgba(236,231,214,.55);margin:0}
-        .pc-sep{background:rgba(180,205,184,.12)!important;margin-bottom:var(--space-6)}
+        .pc-subtitle{font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent);margin:0 0 var(--space-2)}
+        .pc-name{font-family:var(--font-serif);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:500;line-height:var(--lh-tight);letter-spacing:-.02em;color:var(--color-ink);margin:0 0 var(--space-3)}
+        .pc-description{font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-relaxed);color:var(--color-ink-muted);margin:0}
+        .pc-sep{background:var(--color-line)!important;margin-bottom:var(--space-6)}
         .pc-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-3)}
-        .pc-feature{display:flex;align-items:flex-start;gap:var(--space-3);font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-normal);color:rgba(236,231,214,.75)}
-        .pc-check{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(74,222,128,.12);color:#4ade80;margin-top:.05em}
-        .pc-right{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,4vw,2.5rem);gap:var(--space-6)}
+        .pc-feature{display:flex;align-items:flex-start;gap:var(--space-3);font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-normal);color:var(--color-ink-soft)}
+        .pc-check{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--color-success-bg);color:var(--color-success);margin-top:.05em}
+        .pc-right{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,4vw,2.5rem);gap:var(--space-6);background:var(--color-bg-muted)}
         .pc-price-block{text-align:center}
-        .pc-from{font-family:var(--font-sans);font-size:var(--text-sm);color:rgba(236,231,214,.45);margin:0 0 var(--space-1)}
-        .pc-price{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:400;line-height:1;letter-spacing:-.03em;color:#ece7d6;margin:0;font-variant-numeric:tabular-nums}
-        .pc-price-note{font-family:var(--font-sans);font-size:var(--text-xs);color:rgba(236,231,214,.4);margin:var(--space-1) 0 0}
+        .pc-from{font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink-muted);margin:0 0 var(--space-1)}
+        .pc-price{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:500;line-height:1;letter-spacing:-.03em;color:var(--color-primary);margin:0;font-variant-numeric:tabular-nums}
+        .pc-price-note{font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);margin:var(--space-1) 0 0}
+        .pc-value-strip{display:flex;justify-content:center;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--color-success-bg);border:1px solid var(--color-success);border-radius:var(--radius-full);margin:0 auto;font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-success);flex-wrap:wrap;justify-content:center;text-align:center;font-weight:600}
+        .pc-value-strip strong{color:var(--color-success);font-weight:800}
         .pc-actions{display:flex;flex-direction:column;gap:var(--space-3)}
-        .pc-cta-primary{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:48px;padding:0 var(--space-6);border-radius:var(--radius-lg);background:#b4cdb8;color:#061b0e;font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;text-decoration:none;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out)}
-        .pc-cta-primary:hover{background:#ece7d6;transform:translateY(-2px);box-shadow:0 8px 24px rgba(180,205,184,.35)}
-        .pc-cta-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 var(--space-6);border-radius:var(--radius-lg);background:transparent;color:rgba(236,231,214,.6);border:1px solid rgba(180,205,184,.18);font-family:var(--font-sans);font-size:var(--text-sm);font-weight:500;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
-        .pc-cta-secondary:hover{background:rgba(180,205,184,.06);color:#ece7d6;border-color:rgba(180,205,184,.3)}
-        .pc-clients{display:flex;flex-direction:column;gap:var(--space-2);border-top:1px solid rgba(180,205,184,.1);padding-top:var(--space-4)}
-        .pc-client{display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-sans);font-size:var(--text-xs);color:rgba(236,231,214,.45)}
-        .pc-client-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:#4ade80;flex-shrink:0}
-        .pc-note{text-align:center;margin-top:var(--space-5);font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);line-height:var(--lh-relaxed)}
+        .pc-cta-primary{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:48px;padding:0 var(--space-6);border-radius:var(--radius-lg);background:var(--color-accent);color:#FFFFFF;font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;text-decoration:none;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out);box-shadow:var(--shadow-sm)}
+        .pc-cta-primary:hover{background:var(--color-accent-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+        .pc-cta-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 var(--space-6);border-radius:var(--radius-lg);background:#FFFFFF;color:var(--color-ink-soft);border:1px solid var(--color-line-strong);font-family:var(--font-sans);font-size:var(--text-sm);font-weight:500;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
+        .pc-cta-secondary:hover{background:var(--color-bg);color:var(--color-primary);border-color:var(--color-primary)}
+        .pc-clients{display:flex;flex-direction:column;gap:var(--space-2);border-top:1px solid var(--color-line);padding-top:var(--space-4)}
+        .pc-client{display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-muted)}
+        .pc-client-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--color-success);flex-shrink:0}
+        .pc-note{text-align:center;margin-top:var(--space-5);font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);line-height:var(--lh-relaxed);max-width:720px;margin-left:auto;margin-right:auto}
         .pc-animate{opacity:0;transform:translateY(24px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
         .pc-animate.in-view{opacity:1;transform:translateY(0)}
         .pc-feature-animate{opacity:0;transform:translateY(16px);transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
@@ -189,7 +191,19 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
                 <div className="pc-price-block">
                   <p className="pc-from">{fromLabel}</p>
                   <p className="pc-price">{plan.price}</p>
-                  <p className="pc-price-note">IVA incl.</p>
+                  <p className="pc-price-note">
+                    {locale === "es" ? "IVA no inc. · 12 meses" : locale === "en" ? "VAT excl. · 12 months" : "BEZ kanpo · 12 hilabete"}
+                  </p>
+                </div>
+
+                <div className="pc-value-strip" aria-label={locale === "es" ? "Valor incluido el primer año" : locale === "en" ? "First-year value" : "Lehen urteko balioa"}>
+                  <span>
+                    {locale === "es"
+                      ? <>Valor del sistema primer año: <strong>6.700€+</strong></>
+                      : locale === "en"
+                      ? <>First-year system value: <strong>€6,700+</strong></>
+                      : <>Lehen urteko sistemaren balioa: <strong>6.700€+</strong></>}
+                  </span>
                 </div>
 
                 <div className="pc-actions">

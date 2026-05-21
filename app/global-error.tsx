@@ -15,7 +15,7 @@ export default function GlobalError({
 
   return (
     <html lang="es">
-      <body style={{ backgroundColor: "#061b0e", margin: 0, fontFamily: "system-ui, sans-serif" }}>
+      <body style={{ backgroundColor: "var(--color-bg)", margin: 0, fontFamily: "system-ui, sans-serif" }}>
         <div
           style={{
             minHeight: "100vh",
@@ -35,25 +35,25 @@ export default function GlobalError({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#1b3022",
+              backgroundColor: "var(--color-line)",
               marginBottom: "1.5rem",
             }}
           >
-            <span style={{ fontFamily: "Georgia, serif", color: "#b4cdb8", fontSize: "0.8rem" }}>
+            <span style={{ fontFamily: "Georgia, serif", color: "var(--color-accent)", fontSize: "0.8rem" }}>
               UA
             </span>
           </div>
-          <h1 style={{ fontSize: "1.5rem", fontWeight: 300, color: "#ece7d6", marginBottom: "1rem" }}>
+          <h1 style={{ fontSize: "1.5rem", fontWeight: 300, color: "var(--color-ink)", marginBottom: "1rem" }}>
             Error crítico
           </h1>
-          <p style={{ color: "#a9b1a7", marginBottom: "2rem", maxWidth: "400px" }}>
+          <p style={{ color: "var(--color-ink-muted)", marginBottom: "2rem", maxWidth: "400px" }}>
             Ha ocurrido un error inesperado. Por favor, recarga la página.
           </p>
           <button
             onClick={reset}
             style={{
-              backgroundColor: "#ece7d6",
-              color: "#061b0e",
+              backgroundColor: "var(--color-ink)",
+              color: "var(--color-bg)",
               border: "none",
               borderRadius: "12px",
               padding: "12px 24px",

@@ -205,11 +205,11 @@ export default async function SobreNosotrosPage({ params }: Props) {
             <div className="profile-card">
               <div className="profile-avatar profile-avatar-photo" aria-hidden="true">
                 <Image
-                  src="/images/unax-square-no-bg.png"
+                  src="/images/IMG_1729.jpeg"
                   alt=""
-                  width={600}
-                  height={600}
-                  sizes="(max-width: 768px) 96px, 128px"
+                  width={5712}
+                  height={4284}
+                  sizes="(max-width: 768px) 160px, 220px"
                   priority
                 />
               </div>

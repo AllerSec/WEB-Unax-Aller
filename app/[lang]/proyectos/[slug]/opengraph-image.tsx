@@ -1,7 +1,7 @@
 import { renderOgImage, ogSize, ogContentType } from "@/lib/og-image";
 import { projects } from "@/lib/data/projects";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const size = ogSize;
 export const contentType = ogContentType;
 

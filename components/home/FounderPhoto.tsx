@@ -75,11 +75,11 @@ export default function FounderPhoto({ alt }: Props) {
   return (
     <div ref={wrapperRef} className="founder-strip-photo founder-strip-photo-anim">
       <Image
-        src="/images/unax.jpg"
+        src="/images/founder-unax.webp"
         alt={alt}
-        width={800}
-        height={1456}
-        sizes="(max-width: 768px) 80vw, 360px"
+        width={1200}
+        height={1600}
+        sizes="(max-width: 768px) 90vw, 520px"
         priority={false}
       />
     </div>

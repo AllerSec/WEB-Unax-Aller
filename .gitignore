@@ -55,3 +55,9 @@ _master/
 *.master.*
 
 lighthouse-report.*
+
+# Local screenshots / captures
+/screenshots/
+
+# PowerShell garbage outputs
+System.Collections.*.out

@@ -1,32 +1,35 @@
 ﻿import type { Metadata, Viewport } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Source_Serif_4, Lexend } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+// Trust & Authority typography stack — Source Serif 4 (display) + Lexend (UI).
+// Lexend is engineered for readability and works well in legal, healthcare and
+// B2B contexts; Source Serif 4 gives the display headlines a classy gravitas
+// without the playful curves of Fraunces.
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-source-serif",
   display: "swap",
   style: ["normal", "italic"],
-  // Dropping SOFT/WONK axes — they multiplied the font payload but we never
-  // varied them on screen. opsz is kept implicit via display: swap.
   weight: ["400", "500", "600", "700"],
 });
 
-const manrope = Manrope({
+const lexend = Lexend({
   subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-lexend",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://unaxaller.com"),
   title: {
-    default: "Unax Aller — Diseño y Desarrollo Web Premium",
+    default: "Unax Aller — Renting Web para negocio local · 149€/mes",
     template: "%s | Unax Aller",
   },
   description:
-    "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Diseño y desarrollo web premium en el País Vasco. Desde 1.500€ IVA incluido.",
+    "Renting Web para negocios profesionales del País Vasco y Navarra: 149€/mes, 0€ inicial, 30 días de garantía. Todo incluido — web, Google Maps, reseñas, soporte WhatsApp.",
   applicationName: "Unax Aller",
   authors: [{ name: "Unax Aller Fernández", url: "https://unaxaller.com" }],
   creator: "Unax Aller Fernández",
@@ -58,28 +61,23 @@ export const metadata: Metadata = {
     alternateLocale: ["en_GB", "eu_ES"],
     url: "https://unaxaller.com",
     siteName: "Unax Aller",
-    title: "Unax Aller — Diseño y Desarrollo Web Premium",
+    title: "Unax Aller — Renting Web para negocio local · 149€/mes",
     description:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados. Desde 1.500€ IVA incluido.",
+      "Renting Web para negocios del País Vasco y Navarra. 149€/mes, 0€ inicial, 30 días de garantía. Todo incluido.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unax Aller — Diseño y Desarrollo Web Premium",
+    title: "Unax Aller — Renting Web · 149€/mes, 0€ inicial",
     description:
-      "Creamos experiencias digitales a medida, sofisticadas y orientadas a resultados.",
+      "Renting Web para negocios profesionales: web, Google Maps, reseñas, soporte por WhatsApp. Todo incluido.",
     creator: "@unaxaller",
-  },
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
   },
   manifest: "/manifest.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#061b0e",
-  colorScheme: "dark",
+  themeColor: "#0F172A",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -90,7 +88,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${fraunces.variable} ${manrope.variable}`}
+      className={`${sourceSerif.variable} ${lexend.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">{children}</body>

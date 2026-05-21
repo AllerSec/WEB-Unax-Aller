@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const CLIENTS = [
   { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmacia · Bera" },
-  { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Hondarribia" },
+  { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Irun" },
   { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optica · Irun" },
   { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "IA · Irun" },
 ];
@@ -67,11 +67,15 @@ export default function SocialProof() {
         }
       );
 
-      // Count-up helper: animate the number inside a card from 0 → target
+      // Count-up helper: animate the number inside a card from 0 → target.
+      // Skip values that contain a range separator (–, —, -, ‑) since
+      // animating to the concatenated digits ("7‑10" → 710) is wrong.
       const countUp = (card: Element) => {
         const numEl = card.querySelector<HTMLSpanElement>("[data-stat-number]");
         const rawValue = card.getAttribute("data-stat-value") || "";
         if (!numEl || !rawValue) return;
+        // Ranges like "7–10", "7-10", "7‑10": leave the static value in place
+        if (/[–—\-‑]/.test(rawValue)) return;
         const raw = rawValue.replace(/[^0-9.]/g, "");
         const num = parseFloat(raw);
         if (isNaN(num)) return;

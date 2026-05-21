@@ -39,7 +39,7 @@ const PERSONALITY: Record<
     tapeCorner: "br",
     tapeAngle: 18,
     captionStyle: "marker",
-    badgeText: { es: "AI · 2025", en: "AI · 2025", eu: "AI · 2025" },
+    badgeText: { es: "AI · 2026", en: "AI · 2026", eu: "AI · 2026" },
   },
   "farmacia-fernandez-bera": {
     tilt: 3,
@@ -48,6 +48,14 @@ const PERSONALITY: Record<
     tapeAngle: -32,
     captionStyle: "serif",
     badgeText: { es: "BERA", en: "BERA", eu: "BERA" },
+  },
+  tecmac: {
+    tilt: -2.5,
+    pinX: "62%",
+    tapeCorner: "tr",
+    tapeAngle: -18,
+    captionStyle: "stencil",
+    badgeText: { es: "ACERO", en: "STEEL", eu: "ALTZAIRUA" },
   },
 };
 

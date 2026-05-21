@@ -88,7 +88,7 @@ export default function NotFound() {
       <div className="mb-6">
         <div
           className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto"
-          style={{ backgroundColor: "#1b3022" }}
+          style={{ backgroundColor: "var(--color-line)" }}
         >
           <span
             style={{

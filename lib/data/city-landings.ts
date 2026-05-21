@@ -60,17 +60,17 @@ export const cityLandings: CityLandingDef[] = [
     localTouches: {
       es: [
         "Donostia es ciudad pequeña con clientes muy exigentes. Trabajo con restaurantes y bares de la Parte Vieja, comercios premium del Centro y Gros, hoteles de la zona de la Concha y consultas profesionales de Antiguo y Amara. Cada uno tiene una clientela específica y la web tiene que hablar su idioma.",
-        "Aquí el SEO local pesa mucho: las búsquedas «mejor restaurante en San Sebastián», «hotel en la Concha», «óptica en Donostia» se las llevan los que tienen ficha de Google bien configurada y web rápida en móvil. Eso es exactamente lo que monto: web ligera, Google Business Profile alineado y schema markup correcto para que aparezcas en el mapa y en los resultados enriquecidos.",
+        "Aquí el SEO local pesa mucho: las búsquedas «mejor restaurante en San Sebastián», «hotel en la Concha», «óptica en Donostia» se las llevan los que tienen ficha de Google bien configurada y web rápida en móvil. Eso es exactamente lo que monto: web rápida en móvil, ficha de Google Business Profile bien configurada y reseñas recientes para que salgas el primero en el mapa.",
         "Estoy a 21 km en coche desde Irun, así que reuniones presenciales en Donostia son habituales. Tomar café cerca del Boulevard antes de cerrar un proyecto pasa a menudo.",
       ],
       en: [
         "Donostia is a small city with very demanding clients. I work with restaurants and bars in the Old Town, premium retail in the city centre and Gros, hotels around La Concha and professional practices in Antiguo and Amara. Each has its own audience and the website has to speak their language.",
-        "Local SEO matters a lot here: queries like «best restaurant San Sebastián», «hotel La Concha», «optician Donostia» go to those with a well-configured Google profile and a fast mobile site. That's exactly what I build: lightweight site, aligned Google Business Profile and correct schema markup so you show up on the map and in rich results.",
+        "Local SEO matters a lot here: queries like «best restaurant San Sebastián», «hotel La Concha», «optician Donostia» go to those with a well-configured Google profile and a fast mobile site. That's exactly what I build: fast mobile site, properly set up Google Business Profile and recent reviews so you rank first on the map.",
         "I'm 21 km away by car from Irun, so in-person meetings in Donostia are common. Coffee near the Boulevard before closing a project happens often.",
       ],
       eu: [
         "Donostia hiri txikia da bezero oso exijenteekin. Parte Zaharreko jatetxe eta tabernekin, Erdialde eta Groseko denda premiumekin, Kontxa inguruko hotelekin eta Antiguo eta Amarako kontsulta profesionalekin lan egiten dut. Bakoitzak bere bezero mota du eta webak haien hizkuntza hitz egin behar du.",
-        "Hemen tokiko SEO lanak pisu handia du: «San Sebastiángo jatetxe onena», «Kontxako hotela», «Donostiako optika» bilaketak ondo konfiguratutako Google fitxa eta mugikorrean azkarra den web bat dutenek eramaten dituzte. Hori da egiten dudana: web arina, Google Business Profile lerrokatua eta schema markup zuzena.",
+        "Hemen tokiko SEO lanak pisu handia du: «San Sebastiángo jatetxe onena», «Kontxako hotela», «Donostiako optika» bilaketak ondo konfiguratutako Google fitxa eta mugikorrean azkarra den web bat dutenek eramaten dituzte. Hori da egiten dudana: web azkarra, Google Business Profile ondo konfiguratuta eta azken iritziak.",
         "Iruneik 21 km-ra nago kotxez, beraz Donostian aurrez aurreko bilerak ohikoak dira. Boulevard inguruan kafea hartzea proiektu bat itxi aurretik askotan gertatzen da.",
       ],
     },
@@ -117,17 +117,17 @@ export const cityLandings: CityLandingDef[] = [
     },
     localTouches: {
       es: [
-        "Hondarribia es básicamente la puerta de al lado: 5 km desde Irun, voy y vuelvo en bici. He hecho la web de Motos Arretxe aquí. Trabajo con bares y restaurantes del casco medieval, comercios de la Marina, hoteles boutique cerca de la playa y empresas pequeñas del polígono Zubieta.",
+        "Hondarribia es básicamente la puerta de al lado: 5 km desde Irun, voy y vuelvo en bici. Trabajo con bares y restaurantes del casco medieval, comercios de la Marina, hoteles boutique cerca de la playa y empresas pequeñas del polígono Zubieta.",
         "Aquí la temporada turística manda: la web tiene que cargar rápido cuando los visitantes franceses, vascos del interior y madrileños buscan reservar. Optimizo para móvil con conexión lenta, bilingüismo es/eu/en/fr (porque el francés viene fijo) y SEO local pegado al nombre del establecimiento.",
         "Estar a 5 km significa que reuniones presenciales son tan fáciles como un café. Si quieres revisar un cambio en directo, paso por la mañana antes de comer y lo vemos juntos en tu pantalla.",
       ],
       en: [
-        "Hondarribia is basically next door: 5 km from Irun, I bike there and back. I built the Motos Arretxe site here. I work with bars and restaurants in the medieval old town, retailers in the Marina, boutique hotels near the beach and small companies in the Zubieta industrial estate.",
+        "Hondarribia is basically next door: 5 km from Irun, I bike there and back. I work with bars and restaurants in the medieval old town, retailers in the Marina, boutique hotels near the beach and small companies in the Zubieta industrial estate.",
         "Tourist season rules here: the site has to load fast when French visitors, Basque locals from inland and Madrid travellers come looking to book. I optimise for mobile on slow connections, multilingual es/eu/en/fr (French is a given here) and local SEO tied to the venue name.",
         "Being 5 km away means in-person meetings are as easy as coffee. If you want to review a change live, I drop by mid-morning and we look at it together on your screen.",
       ],
       eu: [
-        "Hondarribia funtsean ondoko atea da: Iruneik 5 km-ra, bizikletaz joan-etorria egiten dut. Motos Arretxeren weba hemen egin nuen. Erdi Aroko alde zaharreko taberna eta jatetxeekin lan egiten dut, Marinako dendekin, hondartza inguruko hotel boutikeekin eta Zubieta poligonoko enpresa txikiekin.",
+        "Hondarribia funtsean ondoko atea da: Iruneik 5 km-ra, bizikletaz joan-etorria egiten dut. Erdi Aroko alde zaharreko taberna eta jatetxeekin lan egiten dut, Marinako dendekin, hondartza inguruko hotel boutikeekin eta Zubieta poligonoko enpresa txikiekin.",
         "Hemen turismo denboraldiak agintzen du: webak azkar kargatu behar du frantziar bisitariak, barnealdeko euskaldunak eta madrildarrak bila datozenean. Mugikorrerako optimizatzen dut konexio motelarekin, eleaniztuna es/eu/en/fr (frantsesa hemen ezinbestekoa da) eta tokiko SEOa establezimenduaren izenari lotuta.",
         "5 km-ra egotea aurrez aurreko bilerak kafea bezain errazak izatea esan nahi du. Aldaketa bat zuzenean ikusi nahi baduzu, goizez pasatzen naiz eta zure pantailan ikusten dugu elkarrekin.",
       ],
@@ -303,15 +303,15 @@ export const cityLandings: CityLandingDef[] = [
     localTouches: {
       es: [
         "Santander es ciudad costera con un peso turístico fuerte y vida residencial premium en El Sardinero, Centro y Pedreña. Hoteles, restaurantes y comercio se mezclan con servicios profesionales y bufetes en el centro, y empresas industriales en los polígonos de Raos y Candina. Cada cliente espera un nivel distinto.",
-        "El reto aquí es la temporada: la web tiene que aguantar el pico de tráfico de verano sin caerse y dar respuesta rápida a quien busca «hotel en Santander», «restaurante en El Sardinero» o «notario en Santander» desde el móvil. Lo monto con velocidad medida en Lighthouse y SEO local fino.",
+        "El reto aquí es la temporada: la web tiene que aguantar el pico de tráfico de verano sin caerse y dar respuesta rápida a quien busca «hotel en Santander», «restaurante en El Sardinero» o «notario en Santander» desde el móvil. Lo monto rápido para móvil y con la ficha de Google bien afinada para tu zona.",
       ],
       en: [
         "Santander is a coastal city with a strong tourism weight and premium residential life in El Sardinero, the centre and Pedreña. Hotels, restaurants and retail mix with professional services and law firms in the centre, and industrial companies in the Raos and Candina estates. Each client expects a different level.",
-        "The challenge here is seasonality: the site has to handle the summer traffic peak without falling over and respond fast to people searching «hotel Santander», «restaurant El Sardinero» or «notary Santander» from mobile. I build it with Lighthouse-measured speed and sharp local SEO.",
+        "The challenge here is seasonality: the site has to handle the summer traffic peak without falling over and respond fast to people searching «hotel Santander», «restaurant El Sardinero» or «notary Santander» from mobile. I build it fast on mobile and with the Google profile finely tuned to your area.",
       ],
       eu: [
         "Santander kostaldeko hiria da turismo pisu handiarekin eta El Sardinero, Erdialde eta Pedreñako bizitza erresidentzial premiumarekin. Hotelak, jatetxeak eta merkataritza zerbitzu profesionalekin eta erdialdeko bulegoekin nahasten dira, baita Raos eta Candinako poligonoetako industria-enpresekin ere. Bezero bakoitzak maila desberdina espero du.",
-        "Hemengo erronka denboraldikotasuna da: webak udako trafiko-puntua eutsi behar du erori gabe eta «Santander hotela», «El Sardineroko jatetxea» edo «Santander notarioa» mugikorretik bilatzen duenari azkar erantzun. Lighthouse-rekin neurtutako abiadura eta tokiko SEO zorrotzaren bidez egiten dut.",
+        "Hemengo erronka denboraldikotasuna da: webak udako trafiko-puntua eutsi behar du erori gabe eta «Santander hotela», «El Sardineroko jatetxea» edo «Santander notarioa» mugikorretik bilatzen duenari azkar erantzun. Mugikorrerako azkar eta zure eremurako ondo afinatutako Google fitxarekin egiten dut.",
       ],
     },
     nearbyCities: ["disenador-web-bilbao"],
@@ -355,15 +355,15 @@ export const cityLandings: CityLandingDef[] = [
     localTouches: {
       es: [
         "Zarautz vive del surf, la playa más larga de Gipuzkoa, una hostelería de altura (con restaurante 3 estrellas Michelin incluido) y un comercio premium que sabe que el cliente medio aquí tiene poder adquisitivo. Trabajo con surf shops, restaurantes y casas de huéspedes del centro y la zona de la playa.",
-        "El SEO local pesa fuerte porque la búsqueda «restaurante Zarautz», «hotel Zarautz playa» o «clase de surf Zarautz» se decide en los primeros 3 resultados. Para conseguirlo combino Google Business Profile bien optimizado con web ligera y schema markup específico (LocalBusiness, Restaurant, LodgingBusiness).",
+        "El SEO local pesa fuerte porque la búsqueda «restaurante Zarautz», «hotel Zarautz playa» o «clase de surf Zarautz» se decide en los primeros 3 resultados. Para conseguirlo combino una ficha de Google Business Profile muy bien optimizada con una web rápida en móvil y un sistema de reseñas que mantiene tu negocio activo en el mapa.",
       ],
       en: [
         "Zarautz lives on surfing, the longest beach in Gipuzkoa, top-tier hospitality (with a 3-Michelin-star restaurant included) and premium retail that knows the average client here has buying power. I work with surf shops, restaurants and guesthouses in the centre and the beach area.",
-        "Local SEO matters a lot here because searches like «Zarautz restaurant», «Zarautz beach hotel» or «Zarautz surf class» are decided in the first 3 results. To get there I combine well-optimised Google Business Profile with a lightweight site and specific schema markup (LocalBusiness, Restaurant, LodgingBusiness).",
+        "Local SEO matters a lot here because searches like «Zarautz restaurant», «Zarautz beach hotel» or «Zarautz surf class» are decided in the first 3 results. To get there I combine a very well-optimized Google Business Profile with a fast mobile site and a reviews system that keeps your business active on the map.",
       ],
       eu: [
         "Zarautz surf-aren, Gipuzkoako hondartza luzeenaren, maila handiko ostalaritzaren (3 izar Michelin duen jatetxe bat barne) eta hemengo bezero ertainak erosteko ahalmena duela dakien merkataritza premium baten bidez bizi da. Erdialdeko eta hondartza inguruko surf-dendekin, jatetxeekin eta ostatuekin lan egiten dut.",
-        "Tokiko SEOk pisu handia du, «Zarautz jatetxea», «Zarautz hondartza hotela» edo «Zarautz surf eskola» bilaketak lehen 3 emaitzetan erabakitzen direlako. Lortzeko, ondo optimizatutako Google Business Profile, web arina eta schema markup espezifikoa (LocalBusiness, Restaurant, LodgingBusiness) konbinatzen ditut.",
+        "Tokiko SEOk pisu handia du, «Zarautz jatetxea», «Zarautz hondartza hotela» edo «Zarautz surf eskola» bilaketak lehen 3 emaitzetan erabakitzen direlako. Lortzeko, oso ondo optimizatutako Google Business Profile, mugikorrean azkarra den web bat eta zure negozioa mapan aktibo mantentzen duen iritzien sistema konbinatzen ditut.",
       ],
     },
     nearbyCities: ["disenador-web-donostia", "disenador-web-tolosa", "disenador-web-lasarte"],
@@ -465,66 +465,66 @@ export function getCityLandingContent(
     return {
       breadcrumbHome: "Inicio",
       breadcrumbHere: `Diseñador web ${city}`,
-      heroTitle: `Diseñador web en ${city}`,
-      intro: `Soy Unax Aller, diseñador web freelance en Irun${
+      heroTitle: `Más llamadas para tu negocio en ${city}`,
+      intro: `Soy Unax Aller, trabajo desde Irun${
         def.distanceFromIrunKm !== undefined ? ` (${distShort})` : ""
-      } con clientes en ${city} y ${region}. Creo webs a medida${
-        sectors ? ` para ${sectors}` : ""
-      } que posicionan en Google y convierten visitantes en clientes.`,
-      benefitsTitle: `¿Por qué elegir un diseñador web local para ${city}?`,
+      } con negocios locales de ${city} y ${region}. Te monto la web, la ficha de Google Maps y un sistema de reseñas${
+        sectors ? ` pensado para ${sectors}` : ""
+      } por 149€/mes — sin pagar nada al firmar.`,
+      benefitsTitle: `Por qué los negocios de ${city} eligen el Renting Web`,
       benefits: [
         {
           title: "Conozco el mercado de " + city,
-          desc: `Entiendo cómo buscan los clientes de ${city} y qué esperan de un negocio local. Eso se traduce en webs que conectan de verdad.`,
+          desc: `Entiendo cómo buscan los clientes de ${city} y qué esperan de un negocio local. Eso se traduce en una ficha de Google y una web que conectan de verdad.`,
         },
         {
-          title: "SEO local real",
-          desc: `Optimización para búsquedas "${"mejor [tu sector] " + city}", Google Maps y Google Business Profile. Estrategia completa, no solo keywords.`,
+          title: `Sales el primero en Google Maps`,
+          desc: `Optimizo tu ficha de Google Business Profile para que aparezcas en búsquedas tipo "tu sector en ${city}". El que sale primero, recibe la llamada.`,
         },
         {
-          title: "Cercanía y comunicación directa",
-          desc: def.distanceFromIrunKm !== undefined
-            ? `Estoy en Irun, ${distShort} de ${city}. Si necesitas reunión presencial, puedo desplazarme.`
-            : `Hablas conmigo, no con un gestor de cuentas. Respuesta en 24h garantizada.`,
+          title: "Cercanía y soporte por WhatsApp",
+          desc: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
+            ? `Estoy en Irun, ${distShort} de ${city}. Reunión presencial sin problema. Cambios mensuales por WhatsApp directo.`
+            : `Hablas siempre conmigo, no con un gestor de cuentas. Cambios mensuales por WhatsApp directo, respuesta el mismo día.`,
         },
         {
-          title: "Precio justo sin letra pequeña",
-          desc: "Una web a medida desde 1.500€, IVA incluido. Si necesitas algo más complejo (citas, automatizaciones), puede subir hasta unos 2.000€. Te paso un presupuesto cerrado antes de empezar.",
+          title: "0€ al firmar, 30 días de garantía",
+          desc: "Renting Web por 149€/mes durante 12 meses. No pagas nada al firmar. Si en los primeros 30 días no estás conforme, devolución completa sin preguntas.",
         },
       ],
-      faqTitle: `Preguntas frecuentes sobre diseño web en ${city}`,
+      faqTitle: `Preguntas frecuentes para negocios en ${city}`,
       faq: [
         {
           q: `¿Trabajas presencialmente con clientes en ${city}?`,
           a: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
-            ? `Sí. Estoy en Irun, ${distShort} de ${city}, y puedo desplazarme para la reunión inicial. El resto lo llevamos por WhatsApp, email o videollamada, lo que te venga bien.`
-            : `Trabajo con clientes de ${city} combinando videollamadas y mensajes con visitas puntuales si el proyecto lo necesita. Estoy en Irun, ${distStr}.`,
+            ? `Sí. Estoy en Irun, ${distShort} de ${city}, y puedo desplazarme para la reunión inicial y revisiones puntuales. El día a día lo llevamos por WhatsApp, sin necesidad de pisar la oficina.`
+            : `Trabajo con clientes de ${city} combinando videollamada inicial, WhatsApp en el día a día y alguna visita puntual cuando el proyecto lo merece. Estoy en Irun, ${distStr}.`,
         },
         {
           q: `¿Cuánto cuesta una web para un negocio de ${city}?`,
-          a: "Una web a medida desde 1.500€, IVA incluido. Incluye diseño exclusivo, SEO técnico, velocidad Lighthouse 95+ y despliegue. Si necesitas algo más complejo (sistema de citas, automatizaciones, integraciones específicas) puede subir hasta unos 2.000€. Te paso un presupuesto cerrado antes de empezar, sin sorpresas.",
+          a: "149€/mes durante 12 meses, con 0€ al firmar. Incluye diseño a medida, hosting, dominio, ficha de Google Business Profile optimizada para tu zona, sistema de reseñas, soporte por WhatsApp y cambios mensuales. Sin facturas extra.",
         },
         {
-          q: `¿Cuánto tardas en entregar la web?`,
-          a: "Si no tengo otros proyectos activos, entre 1 y 2 semanas. Si los tengo, puede ser algo más. Te digo el plazo real desde el primer día y voy contándote cómo va.",
+          q: `¿Cuándo está lista la web?`,
+          a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida — no tienes que esperar a ahorrar.",
         },
         {
-          q: `¿Haces SEO local específico para ${city}?`,
-          a: `Sí. Configuro toda la parte técnica para que tu web aparezca en búsquedas tipo "tu sector en ${city}". Te configuro Google Business Profile y Google Search Console para que veas tú mismo cómo va.`,
+          q: `¿Cómo me ayuda esto a recibir más llamadas en ${city}?`,
+          a: `Cuando alguien en ${city} busca en Google «tu servicio + ${city}» desde el móvil, ve principalmente Google Maps. Si tu ficha sale primero y tiene reseñas recientes, el cliente te llama directamente. Eso es lo que monto, optimizado para tu zona y sector.`,
         },
         {
-          q: "¿Puedo tener la web en varios idiomas?",
-          a: "Sí, hasta en 4 idiomas (euskera, castellano, inglés y francés) y entra dentro del precio. Estudié en Francia hasta los 15, así que el francés lo trabajo igual de fino que el resto.",
+          q: "¿Puedo tener la web en euskera o francés?",
+          a: "Sí, hasta 4 idiomas (euskera, castellano, inglés y francés) sin coste extra. En zonas con turismo francés es muy útil. Estudié en Francia hasta los 15, así que el francés lo trabajo igual de fino que el resto.",
         },
         {
-          q: "¿Qué pasa con el mantenimiento después del lanzamiento?",
-          a: "El primer año son 100€ y cubre hosting, dominio y soporte. A partir del segundo año son 200€/año con cambios menores incluidos (textos, imágenes, ajustes). Si vas a necesitar muchos cambios al mes, lo hablamos y ajustamos. Sin permanencia.",
+          q: "¿Qué pasa al terminar los 12 meses?",
+          a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados; cualquier subida futura solo afecta a nuevos clientes. Si quieres irte, solo avisar.",
         },
       ],
       ctaTitle: `¿Tienes un negocio en ${city}?`,
-      ctaSub: "Consulta gratuita de 30 minutos. Sin compromiso.",
+      ctaSub: "Auditoría gratuita: te enseño quién te está quitando llamadas en Google y por qué. Sin compromiso.",
       ctaBtn: "Hablar con Unax",
-      quoteBtn: "Solicitar presupuesto gratis",
+      quoteBtn: "Pedir auditoría gratis",
     };
   }
 
@@ -532,66 +532,66 @@ export function getCityLandingContent(
     return {
       breadcrumbHome: "Home",
       breadcrumbHere: `Web designer ${city}`,
-      heroTitle: `Web designer in ${city}`,
-      intro: `I'm Unax Aller, a freelance web designer based in Irun${
+      heroTitle: `More calls for your ${city} business`,
+      intro: `I'm Unax Aller, based in Irun${
         def.distanceFromIrunKm !== undefined ? ` (${distShort})` : ""
-      } with clients in ${city} and ${region}. I build custom websites${
-        sectors ? ` for ${sectors}` : ""
-      } that rank on Google and convert visitors into clients.`,
-      benefitsTitle: `Why choose a local web designer for ${city}?`,
+      } working with local businesses in ${city} and ${region}. I set up your website, your Google Maps profile and a reviews system${
+        sectors ? ` built for ${sectors}` : ""
+      } for €149/month — with no upfront payment.`,
+      benefitsTitle: `Why ${city} businesses choose Web Renting`,
       benefits: [
         {
           title: `I know the ${city} market`,
-          desc: `I understand how ${city} clients search and what they expect from a local business. That translates into websites that truly connect.`,
+          desc: `I understand how ${city} customers search and what they expect from a local business. That translates into a Google profile and a website that actually connect.`,
         },
         {
-          title: "Real local SEO",
-          desc: `Optimization for "best [your sector] ${city}" searches, Google Maps and Google Business Profile. Full strategy — not just keywords.`,
+          title: `You rank first on Google Maps`,
+          desc: `I optimize your Google Business Profile so you show up for "your sector in ${city}" searches. The first result gets the call.`,
         },
         {
-          title: "Proximity and direct communication",
-          desc: def.distanceFromIrunKm !== undefined
-            ? `I'm in Irun, ${distShort} from ${city}. If you need an in-person meeting, I can travel.`
-            : `You talk to me, not an account manager. Response within 24h guaranteed.`,
+          title: "Closeness and WhatsApp support",
+          desc: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
+            ? `I'm in Irun, ${distShort} from ${city}. In-person meetings no problem. Monthly changes via direct WhatsApp.`
+            : `You always talk to me, not an account manager. Monthly changes via direct WhatsApp, same-day reply.`,
         },
         {
-          title: "Fair price, no small print",
-          desc: "A custom website from €1,500, VAT included. If you need something more complex (booking, automations) it can go up to around €2,000. I give you a fixed quote before we start.",
+          title: "€0 to sign, 30-day money-back",
+          desc: "Web Renting at €149/month for 12 months. €0 to sign. If in the first 30 days you're not happy, full refund, no questions asked.",
         },
       ],
-      faqTitle: `Frequently asked questions about web design in ${city}`,
+      faqTitle: `Frequently asked questions for ${city} businesses`,
       faq: [
         {
           q: `Do you work in person with clients in ${city}?`,
           a: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
-            ? `Yes. I'm in Irun, ${distShort} from ${city}, and I can travel for the initial meeting. The rest we handle through WhatsApp, email or video call, whatever works for you.`
-            : `I work with ${city} clients combining video calls and messages with occasional on-site visits when the project needs it. I'm in Irun, ${distStr}.`,
+            ? `Yes. I'm in Irun, ${distShort} from ${city}, and I can travel for the initial meeting and occasional reviews. Day-to-day we handle it via WhatsApp.`
+            : `I work with ${city} clients combining an initial video call, WhatsApp day-to-day and the occasional on-site visit when warranted. I'm in Irun, ${distStr}.`,
         },
         {
           q: `How much does a website cost for a ${city} business?`,
-          a: "A custom website from €1,500, VAT included. It comes with exclusive design, technical SEO, Lighthouse 95+ speed and deployment. If you need something more complex (booking system, automations, specific integrations) it can go up to around €2,000. I send you a fixed quote before we start, no surprises.",
+          a: "€149/month for 12 months, with €0 to sign. Includes custom design, hosting, domain, optimized Google Business Profile for your area, reviews system, WhatsApp support and monthly changes. No extra invoices.",
         },
         {
-          q: "How long does delivery take?",
-          a: "If I don't have other active projects, between 1 and 2 weeks. If I do, it can take a bit longer. I tell you the real timeline from day one and keep you posted as we go.",
+          q: "How fast is the site ready?",
+          a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start immediately — you don't have to save up.",
         },
         {
-          q: `Do you do specific local SEO for ${city}?`,
-          a: `Yes. I set up all the technical work so your site ranks for "your sector in ${city}" searches. I configure your Google Business Profile and Google Search Console so you can see how it's doing yourself.`,
+          q: `How does this help me get more calls in ${city}?`,
+          a: `When somebody in ${city} searches «your service + ${city}» from their phone, what they mostly see is Google Maps. If your profile ranks first and has recent reviews, customers call you directly. That's what I build, tuned to your area and sector.`,
         },
         {
           q: "Can I have the site in several languages?",
-          a: "Yes, up to 4 languages (Basque, Spanish, English and French) included in the price. I studied in France until I was 15, so French I treat with the same care as the rest.",
+          a: "Yes, up to 4 languages (Basque, Spanish, English, French) at no extra cost. In tourist areas with French visitors it makes a real difference. I studied in France until I was 15.",
         },
         {
-          q: "What about maintenance after launch?",
-          a: "The first year maintenance is €100, covering hosting, domain and onboarding support. From the second year onwards it's €200/year, with minor changes included (text, images, tweaks) and ongoing support. If you'll need a lot of changes per month, we adjust accordingly. No lock-in.",
+          q: "What happens after the 12 months?",
+          a: "Month-to-month with no lock-in. The fee stays locked for the 12 months you signed up for; any future increases only apply to new clients.",
         },
       ],
       ctaTitle: `Have a business in ${city}?`,
-      ctaSub: "Free 30-minute consultation. No commitment.",
+      ctaSub: "Free audit: I show you who's taking calls from you on Google and why. No commitment.",
       ctaBtn: "Talk to Unax",
-      quoteBtn: "Request a free quote",
+      quoteBtn: "Request a free audit",
     };
   }
 
@@ -601,66 +601,66 @@ export function getCityLandingContent(
   return {
     breadcrumbHome: "Hasiera",
     breadcrumbHere: `Web diseinatzailea ${city}`,
-    heroTitle: `Web diseinatzailea ${cityIn}`,
-    intro: `Unax Aller naiz, Irungo web diseinatzaile freelancea${
+    heroTitle: `Dei gehiago zure ${city}ko negoziorako`,
+    intro: `Unax Aller naiz, Irunen lan egiten dut${
       def.distanceFromIrunKm !== undefined ? ` (${distShort})` : ""
-    }, ${cityIn} eta ${region}n bezeroekin. Googlen agertzen diren eta bisitariak bezeroak bihurtzen dituzten neurrizko webguneak sortzen ditut${
-      sectors ? ` ${sectors}entzat` : ""
-    }.`,
-    benefitsTitle: `Zergatik aukeratu bertako web diseinatzaile bat ${cityIn}?`,
+    } ${cityIn} eta ${region}ko tokiko negozioekin. Weba, Google Maps fitxa eta iritzien sistema jartzen dizkizut${
+      sectors ? ` (${sectors})` : ""
+    } 149€/hilean — hasieran ezer ordaindu gabe.`,
+    benefitsTitle: `Zergatik aukeratzen duten ${city}ko negozioek Web Errentaria`,
     benefits: [
       {
         title: `${city}ko merkatua ezagutzen dut`,
-        desc: `${cityIn} bezeroek nola bilatzen duten eta negozio lokal batetik zer espero duten ulertzen dut. Benetan konektatzen duten webguneak sortzen ditut.`,
+        desc: `${cityIn} bezeroek nola bilatzen duten eta negozio lokal batetik zer espero duten ulertzen dut. Horrek benetan konektatzen duten Google fitxa eta web bat eskaintzen ditu.`,
       },
       {
-        title: "Benetako SEO lokala",
-        desc: `"${city} zure sektorea" bilaketetarako optimizazioa, Google Maps eta Google Business Profile. Estrategia osoa, ez hitz gakoak bakarrik.`,
+        title: "Google Maps-en lehenengo ager zaitezen",
+        desc: `Zure Google Business Profile optimizatzen dut "${city} zure sektorea" bilaketetan ager zaitezen. Lehenengo emaitzak jasotzen du deia.`,
       },
       {
-        title: "Hurbiltasuna eta komunikazio zuzena",
-        desc: def.distanceFromIrunKm !== undefined
-          ? `Irunen nago, ${cityFrom} ${distShort}. Aurrez aurreko bilera behar baduzu, joan naiteke.`
-          : `Nirekin hitz egiten duzu, ez kontu kudeatzaile batekin. 24 ordutan erantzuna bermatuta.`,
+        title: "Hurbiltasuna eta WhatsApp laguntza",
+        desc: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
+          ? `Irunen nago, ${cityFrom} ${distShort}. Aurrez aurreko bilera arazorik gabe. Hileko aldaketak WhatsApp zuzenez.`
+          : `Beti nirekin hitz egiten duzu, ez kontu kudeatzaile batekin. Hileko aldaketak WhatsApp zuzenez, egun bereko erantzuna.`,
       },
       {
-        title: "Prezio justu letra txikirik gabe",
-        desc: "Neurrira egindako webgune bat 1.500€-tik, BEZ barne. Zerbait konplexuagoa behar baduzu (hitzorduak, automatizazioak), 2.000€ ingurura igo daiteke. Hasi aurretik aurrekontu itxia ematen dizut.",
+        title: "0€ sinatzean, 30 eguneko bermea",
+        desc: "Web Errentaria 149€/hilean 12 hilabetez. 0€ sinatzean. Lehen 30 egunetan pozik ez bazaude, dirua osorik itzultzen dizut.",
       },
     ],
-    faqTitle: `${city}ko web diseinuari buruzko ohiko galderak`,
+    faqTitle: `${city}ko negozioentzat galdera ohikoak`,
     faq: [
       {
         q: `Aurrez aurre egiten duzu lan ${cityIn} bezeroekin?`,
         a: def.distanceFromIrunKm !== undefined && def.distanceFromIrunKm < 30
-          ? `Bai. Irunen nago, ${distStr}, eta ${cityIn} joan naiteke hasierako bilerarako. Gainerakoa WhatsApp, posta elektroniko edo bideo-deiz, ondo datorkizun moduan.`
-          : `${cityIn} bezeroekin bideo-deiak eta mezuak konbinatuz lan egiten dut, eta proiektuak behar duenean noizbehinkako bisitak. Irunen nago, ${distStr}.`,
+          ? `Bai. Irunen nago, ${distStr}, eta ${cityIn} joan naiteke hasierako bilerarako eta noizbehinkako berrikuspenetarako. Egunerokoa WhatsApp-ez.`
+          : `${cityIn} bezeroekin hasierako bideo-deia, eguneroko WhatsApp eta beharrezkoa denean bisita konbinatzen ditut. Irunen nago, ${distStr}.`,
       },
       {
         q: `Zenbat kostatzen da web bat ${city}ko negozio batentzat?`,
-        a: "Neurrira egindako webgune bat 1.500€-tik, BEZ barne. Diseinu esklusiboa, SEO teknikoa, Lighthouse 95+ abiadura eta hedapena barne. Zerbait konplexuagoa behar baduzu (hitzorduen sistema, automatizazioak, integrazio espezifikoak) 2.000€ ingurura igo daiteke. Hasi aurretik aurrekontu itxia ematen dizut, ezustekorik gabe.",
+        a: "149€/hilean 12 hilabetez, 0€ sinatzean. Neurrizko diseinua, hostinga, domeinua, zure eremurako optimizatutako Google Business Profile fitxa, iritzien sistema, WhatsApp laguntza eta hileko aldaketak barne. Faktura gehigarririk gabe.",
       },
       {
-        q: "Zenbat denbora behar duzu weba entregatzeko?",
-        a: "Beste proiektu aktiborik ez badut, 1 eta 2 aste artean. Baditudanean, zerbait gehiago izan daiteke. Lehen egunetik benetako epea esaten dizut eta nola doan kontatzen dizut.",
+        q: "Noiz dago weba prest?",
+        a: "Sinatzen dugun unetik 7 eta 10 egun artean. Hasierako desenbolsorik ez dagoenez, berehala has gaitezke.",
       },
       {
-        q: `${city}rako SEO lokal espezifikoa egiten duzu?`,
-        a: `Bai. Atal tekniko osoa konfiguratzen dut zure weba "${city} zure sektorea" moduko bilaketetan ager dadin. Google Business Profile eta Google Search Console konfiguratzen dizkizut, zuk zeuk nola doan ikus dezazun.`,
+        q: `Nola laguntzen dit honek ${cityIn} dei gehiago jasotzen?`,
+        a: `${cityIn} norbaitek mugikorretik «zure zerbitzua + ${city}» bilatzen duenean, batez ere Google Maps ikusten du. Zure fitxa lehenengo ageri bada eta azken iritziak baditu, bezeroak zuzenean deitzen dizu. Hori da eraikitzen duguna, zure eremu eta sektorerako.`,
       },
       {
         q: "Webgunea hizkuntza batean baino gehiagotan eduki dezaket?",
-        a: "Bai, 4 hizkuntzatara arte (euskara, gaztelania, ingelesa eta frantsesa) eta prezioan sartzen da. 15 urte bete arte Frantzian ikasi nuen, beraz frantsesa beste hizkuntzen arreta berarekin lantzen dut.",
+        a: "Bai, 4 hizkuntzatara arte (euskara, gaztelania, ingelesa, frantsesa) kosturik gabe. Frantses turismoa duten eremuetan oso baliagarria da.",
       },
       {
-        q: "Zer gertatzen da abian jarri ondoren mantentze-lanekin?",
-        a: "Lehen urteko mantentze-lana 100€ da, hosting-a, domeinua eta hasierako laguntza barne. Bigarren urtetik aurrera 200€/urtean da, aldaketa txikiak (testuak, irudiak, doikuntzak) eta etengabeko laguntza barne. Hilean aldaketa asko behar badituzu, egokitzen dugu. Iraupenik gabe.",
+        q: "Zer gertatzen da 12 hilabete amaitu ondoren?",
+        a: "Hilez hile iraupenik gabe. Kuota 12 hilabetez blokeatuta dago; etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
       },
     ],
     ctaTitle: `${cityIn} negozioa al duzu?`,
-    ctaSub: "30 minutuko doako kontsulta. Konpromisorik gabe.",
+    ctaSub: "Doako auditoria: Googlen nork kentzen dizkizun deiak eta zergatik erakusten dizut. Konpromisorik gabe.",
     ctaBtn: "Unaxekin hitz egin",
-    quoteBtn: "Doako aurrekontua eskatu",
+    quoteBtn: "Doako auditoria eskatu",
   };
 }
 

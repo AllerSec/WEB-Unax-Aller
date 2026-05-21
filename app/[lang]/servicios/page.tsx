@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -66,7 +67,6 @@ export default async function ServiciosPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
   const t = await getTranslations({ locale, namespace: "services" });
-  const tHero = await getTranslations({ locale, namespace: "hero" });
 
   const services: Service[] = [
     {
@@ -171,42 +171,42 @@ export default async function ServiciosPage({ params }: Props) {
 
   const comparisonRows = locale === "es"
     ? [
-        { feature: "Precio", agency: "5.000€ – 20.000€", unax: "1.500€" },
-        { feature: "Tiempo de entrega", agency: "2 – 6 meses", unax: "1 – 2 semanas" },
-        { feature: "Interlocutor", agency: "Varios departamentos", unax: "Solo yo" },
-        { feature: "Equipo dedicado", agency: "3–5 especialistas", unax: "Solo yo", agencyWins: true },
-        { feature: "Código propietario", agency: "A veces no", unax: "Siempre tuyo" },
-        { feature: "SEO técnico real", agency: "Depende", unax: "Incluido" },
+        { feature: "Pago inicial", agency: "2.500€ – 5.000€ de golpe", unax: "0€ al firmar" },
+        { feature: "Cuota mensual", agency: "Solo si pides mantenimiento", unax: "149€ todo incluido" },
+        { feature: "Tiempo de entrega", agency: "2 – 6 meses", unax: "7 – 10 días" },
+        { feature: "Interlocutor", agency: "Comercial, diseñador, dev…", unax: "Solo yo, por WhatsApp" },
+        { feature: "Cambios mensuales", agency: "Cada uno se factura", unax: "Incluidos en la cuota" },
+        { feature: "Garantía de devolución", agency: "No suele existir", unax: "30 días sin preguntas" },
+        { feature: "SEO local técnico", agency: "Coste aparte", unax: "Incluido" },
         { feature: "Lighthouse 95+", agency: "Raro", unax: "Garantizado" },
-        { feature: "Cambios post-lanzamiento", agency: "De pago", unax: "1 mes gratis" },
       ]
     : locale === "en"
     ? [
-        { feature: "Price", agency: "€5,000 – €20,000", unax: "€1,500" },
-        { feature: "Delivery time", agency: "2 – 6 months", unax: "1 – 2 weeks" },
-        { feature: "Point of contact", agency: "Multiple departments", unax: "Just me" },
-        { feature: "Dedicated team", agency: "3–5 specialists", unax: "Just me", agencyWins: true },
-        { feature: "Your code", agency: "Sometimes not", unax: "Always yours" },
-        { feature: "Real technical SEO", agency: "Depends", unax: "Included" },
+        { feature: "Upfront payment", agency: "€2,500 – €5,000 in one go", unax: "€0 to sign" },
+        { feature: "Monthly fee", agency: "Only if you add maintenance", unax: "€149 all-inclusive" },
+        { feature: "Delivery time", agency: "2 – 6 months", unax: "7 – 10 days" },
+        { feature: "Point of contact", agency: "Sales, designer, dev…", unax: "Just me, on WhatsApp" },
+        { feature: "Monthly changes", agency: "Each one billed", unax: "Included in the fee" },
+        { feature: "Money-back guarantee", agency: "Rarely offered", unax: "30 days, no questions" },
+        { feature: "Technical local SEO", agency: "Charged separately", unax: "Included" },
         { feature: "Lighthouse 95+", agency: "Rare", unax: "Guaranteed" },
-        { feature: "Post-launch changes", agency: "Paid", unax: "1 month free" },
       ]
     : [
-        { feature: "Prezioa", agency: "5.000€ – 20.000€", unax: "1.500€" },
-        { feature: "Entrega denbora", agency: "2 – 6 hilabete", unax: "1 – 2 aste" },
-        { feature: "Elkarrizketaria", agency: "Hainbat sail", unax: "Ni bakarrik" },
-        { feature: "Talde dedikatua", agency: "3–5 espezialista", unax: "Ni bakarrik", agencyWins: true },
-        { feature: "Jabetzako kodea", agency: "Batzuetan ez", unax: "Beti zurea" },
-        { feature: "SEO tekniko erreala", agency: "Datorrena", unax: "Barne hartuta" },
+        { feature: "Hasierako ordainketa", agency: "2.500€ – 5.000€ batera", unax: "0€ sinatzean" },
+        { feature: "Hileko kuota", agency: "Mantentze-lana eskatuz gero", unax: "149€ dena barne" },
+        { feature: "Entrega denbora", agency: "2 – 6 hilabete", unax: "7 – 10 egun" },
+        { feature: "Elkarrizketaria", agency: "Komertziala, diseinatzailea…", unax: "Ni bakarrik, WhatsApp-ez" },
+        { feature: "Hileko aldaketak", agency: "Bakoitza fakturatzen da", unax: "Kuotan barne" },
+        { feature: "Itzulketa bermea", agency: "Ez ohi dago", unax: "30 egun galderarik gabe" },
+        { feature: "Tokiko SEO teknikoa", agency: "Apartetik kobratzen da", unax: "Barne hartuta" },
         { feature: "Lighthouse 95+", agency: "Arraroa", unax: "Bermatua" },
-        { feature: "Abiarazi osteko aldaketak", agency: "Ordainpekoa", unax: "1 hilabete doan" },
       ];
 
-  const SERVICE_GRADIENTS: Record<string, string> = {
-    "local-business": "linear-gradient(135deg, #0d2415 0%, #142e1a 100%)",
-    "clinic": "linear-gradient(135deg, #0a1f22 0%, #0d2a18 100%)",
-    "multilingual": "linear-gradient(135deg, #12200f 0%, #1a2d10 100%)",
-    "redesign": "linear-gradient(135deg, #1a1a0a 0%, #1c2a10 100%)",
+  const SERVICE_ACCENTS: Record<string, string> = {
+    "local-business": "#dc2626",
+    "clinic": "#0369A1",
+    "multilingual": "#047857",
+    "redesign": "#a16207",
   };
   const SERVICE_ORDERS = ["01", "02", "03", "04"];
 
@@ -292,39 +292,63 @@ export default async function ServiciosPage({ params }: Props) {
       <style>{`
         @keyframes svcFadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
         @keyframes svcChipIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-        .svc-hero-inner { animation: svcFadeUp 0.7s cubic-bezier(.16,1,.3,1) both; }
-        .svc-chip { display:inline-flex;align-items:center;background:rgba(180,205,184,.08);border:1px solid rgba(180,205,184,.16);color:var(--color-ink);border-radius:var(--radius-full);padding:.25rem .75rem;font-size:var(--text-xs);font-family:var(--font-sans);animation:svcChipIn .6s cubic-bezier(.16,1,.3,1) .3s both; }
+        .svc-hero { position:relative;overflow:hidden;padding-block:var(--space-16);background:linear-gradient(180deg,var(--color-bg-muted) 0%,var(--color-bg) 100%); }
+        .svc-hero-mark { position:absolute;top:-6rem;right:-6rem;width:520px;height:auto;opacity:.05;pointer-events:none;user-select:none;transform:rotate(-8deg); }
+        @media(max-width:768px){ .svc-hero-mark{width:320px;top:-3rem;right:-4rem;opacity:.06} }
+        .svc-hero-inner { position:relative;z-index:1;animation: svcFadeUp 0.7s cubic-bezier(.16,1,.3,1) both;max-width:780px; }
+        .svc-chip { display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(2, 6, 23, .12);color:var(--color-ink);border-radius:var(--radius-full);padding:.35rem .85rem;font-size:var(--text-xs);font-family:var(--font-sans);font-weight:500;animation:svcChipIn .6s cubic-bezier(.16,1,.3,1) .3s both;box-shadow:0 1px 2px rgba(2,6,23,.04); }
+        .svc-chip--accent { background:var(--color-ink);color:#fff;border-color:var(--color-ink); }
         .svc-chips { display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-6); }
-        .svc-bento { display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-6); }
-        @media(max-width:768px){ .svc-bento{grid-template-columns:1fr} }
-        .svc-card { position:relative;padding:2rem;border-radius:var(--radius-2xl);border:1px solid rgba(180,205,184,.12);overflow:hidden;transition:border-color .2s ease,box-shadow .2s ease; }
-        .svc-card:hover { border-color:rgba(180,205,184,.28);box-shadow:0 8px 40px rgba(0,0,0,.35); }
-        .svc-card-order { position:absolute;top:1rem;right:1.5rem;font-family:var(--font-serif);font-size:4rem;line-height:1;color:rgba(180,205,184,.1);pointer-events:none;user-select:none; }
-        .svc-icon-wrap { width:60px;height:60px;border-radius:var(--radius-full);background:rgba(74,222,128,.08);display:flex;align-items:center;justify-content:center;color:#4ade80;margin-bottom:var(--space-5); }
-        .svc-card-title { font-family:var(--font-serif);font-size:var(--text-xl);color:var(--color-ink);margin-bottom:var(--space-3);line-height:var(--lh-snug); }
+
+        .svc-bento { display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-5); }
+        @media(max-width:768px){ .svc-bento{grid-template-columns:1fr;gap:var(--space-4)} }
+        .svc-card { position:relative;padding:2rem;border-radius:var(--radius-2xl);border:1px solid rgba(2, 6, 23, .08);overflow:hidden;background:#fff;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;display:flex;flex-direction:column; }
+        .svc-card::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--svc-accent,#dc2626);opacity:.85; }
+        .svc-card:hover { transform:translateY(-2px);border-color:rgba(2, 6, 23, .15);box-shadow:0 12px 32px rgba(2,6,23,.08); }
+        .svc-card-order { position:absolute;top:1.25rem;right:1.5rem;font-family:var(--font-serif);font-size:3.5rem;line-height:1;color:rgba(2, 6, 23, .06);pointer-events:none;user-select:none;font-weight:700; }
+        .svc-icon-wrap { width:48px;height:48px;border-radius:var(--radius-lg);background:color-mix(in srgb,var(--svc-accent,#dc2626) 12%,transparent);display:flex;align-items:center;justify-content:center;color:var(--svc-accent,#dc2626);margin-bottom:var(--space-5);transition:transform .25s ease; }
+        .svc-card:hover .svc-icon-wrap { transform:scale(1.08) rotate(-3deg); }
+        .svc-card-title { font-family:var(--font-serif);font-size:var(--text-xl);color:var(--color-ink);margin-bottom:var(--space-3);line-height:var(--lh-snug);font-weight:600; }
         .svc-card-desc { font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink-muted);line-height:var(--lh-relaxed);margin-bottom:var(--space-5); }
-        .svc-bullets { list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2); }
-        .svc-bullet { display:flex;align-items:flex-start;gap:var(--space-2);font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink-muted);line-height:var(--lh-normal); }
-        .svc-bullet-check { color:#4ade80;flex-shrink:0;font-style:normal; }
-        .svc-process-section { background:var(--color-bg-alt);padding-block:var(--space-16); }
-        .svc-timeline { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);position:relative; }
-        .svc-timeline::before { content:'';position:absolute;top:2rem;left:12.5%;right:12.5%;border-top:1px dashed rgba(180,205,184,.2);pointer-events:none; }
-        @media(max-width:900px){ .svc-timeline{grid-template-columns:1fr} .svc-timeline::before{display:none} }
-        .svc-step-num { font-family:var(--font-serif);font-size:var(--text-3xl);color:#4ade80;font-weight:700;line-height:1;margin-bottom:var(--space-3); }
+        .svc-bullets { list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-2);margin-top:auto; }
+        .svc-bullet { display:flex;align-items:flex-start;gap:var(--space-2);font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink);line-height:var(--lh-normal); }
+        .svc-bullet-check { color:var(--svc-accent,#dc2626);flex-shrink:0;font-weight:700;line-height:1.4; }
+
+        .svc-process-section { background:var(--color-bg-muted);padding-block:var(--space-16); }
+        .svc-timeline { display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6);position:relative;counter-reset:step; }
+        .svc-timeline::before { content:'';position:absolute;top:1.5rem;left:6%;right:6%;border-top:2px dashed rgba(2, 6, 23, .12);pointer-events:none;z-index:0; }
+        @media(max-width:900px){ .svc-timeline{grid-template-columns:1fr;gap:var(--space-5)} .svc-timeline::before{display:none} }
+        .svc-step { position:relative;z-index:1; }
+        .svc-step-num { display:inline-flex;align-items:center;justify-content:center;width:3rem;height:3rem;border-radius:50%;background:var(--color-ink);color:#fff;font-family:var(--font-serif);font-size:var(--text-md);font-weight:700;line-height:1;margin-bottom:var(--space-4);box-shadow:0 4px 12px rgba(2,6,23,.15); }
         .svc-step-title { font-family:var(--font-sans);font-size:var(--text-md);font-weight:600;color:var(--color-ink);margin-bottom:var(--space-2); }
         .svc-step-desc { font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink-muted);line-height:var(--lh-relaxed); }
-        .svc-table-wrap { overflow-x:auto; }
+
+        .svc-table-wrap { overflow-x:auto;border-radius:var(--radius-xl);border:1px solid rgba(2,6,23,.08);background:#fff; }
         .svc-compare-table { width:100%;border-collapse:separate;border-spacing:0; }
-        .svc-compare-table th,.svc-compare-table td { padding:.875rem 1.25rem;text-align:left;font-family:var(--font-sans);font-size:var(--text-sm);border-bottom:1px solid rgba(180,205,184,.10); }
-        .svc-compare-table th { font-weight:600;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-ink-muted); }
-        .svc-col-agency { color:var(--color-ink-muted);background:rgba(255,255,255,.02); }
-        .svc-col-unax { color:var(--color-ink);background:linear-gradient(160deg,#0a2412,#162b1c);border-left:1px solid rgba(180,205,184,.2);border-right:1px solid rgba(180,205,184,.2); }
-        .svc-col-unax-head { background:linear-gradient(160deg,#0a2412,#162b1c);color:var(--color-accent);border-left:1px solid rgba(180,205,184,.2);border-right:1px solid rgba(180,205,184,.2);border-top:1px solid rgba(180,205,184,.2); }
-        .svc-check { color:#4ade80; }
-        .svc-cross { color:#f87171; }
-        .svc-faq-section { background:var(--color-bg-alt);padding-block:var(--space-16); }
-        .svc-cta-section { background:linear-gradient(160deg,#0a2412 0%,#061b0e 100%);border-top:1px solid rgba(180,205,184,.1);padding-block:var(--space-16);text-align:center; }
-        .svc-cta-footnote { margin-top:var(--space-4);font-family:var(--font-sans);font-size:var(--text-xs);color:rgba(236,231,214,.40); }
+        .svc-compare-table th,.svc-compare-table td { padding:1rem 1.25rem;text-align:left;font-family:var(--font-sans);font-size:var(--text-sm);border-bottom:1px solid rgba(2, 6, 23, .06); }
+        .svc-compare-table tr:last-child td { border-bottom:0; }
+        .svc-compare-table th { font-weight:600;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-ink-muted);background:var(--color-bg-muted); }
+        .svc-col-agency { color:var(--color-ink-muted); }
+        .svc-col-unax { color:var(--color-ink);background:#fafaf7;border-left:2px solid #dc2626;font-weight:500; }
+        .svc-col-unax-head { background:var(--color-ink);color:#fff;border-left:2px solid #dc2626;font-weight:700; }
+        .svc-check { color:#047857;font-weight:700; }
+        .svc-cross { color:#9ca3af; }
+
+        .svc-faq-section { background:var(--color-bg);padding-block:var(--space-16); }
+        .svc-cta-section { background:var(--color-ink);color:#fff;padding-block:var(--space-16);text-align:center;position:relative;overflow:hidden; }
+        .svc-cta-section::before { content:'';position:absolute;top:-6rem;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(220,38,38,.12) 0%,transparent 60%);pointer-events:none; }
+        .svc-cta-inner { position:relative;z-index:1; }
+        .svc-cta-section .lp-eyebrow { color:#dc2626; }
+        .svc-cta-section h2 { color:#fff;font-family:var(--font-serif); }
+        .svc-cta-section .svc-cta-lead { color:rgba(255,255,255,.72); }
+        .svc-cta-footnote { margin-top:var(--space-4);font-family:var(--font-sans);font-size:var(--text-xs);color:rgba(255,255,255,.5); }
+        /* Button overrides for dark CTA section */
+        .svc-cta-section .btn-primary { background:#dc2626;color:#fff;border-color:#dc2626;box-shadow:0 8px 24px rgba(220,38,38,.35); }
+        .svc-cta-section .btn-primary:hover { background:#ef4444;border-color:#ef4444;box-shadow:0 12px 32px rgba(220,38,38,.45);transform:translateY(-2px); }
+        .svc-cta-section .btn-primary:active { transform:translateY(0); }
+        .svc-cta-section .btn-secondary { background:transparent;color:#fff;border-color:rgba(255,255,255,.25); }
+        .svc-cta-section .btn-secondary:hover { background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5);color:#fff;transform:translateY(-2px); }
+        .svc-cta-section .btn-secondary:active { transform:translateY(0);background:rgba(255,255,255,.12); }
       `}</style>
 
       <script
@@ -334,10 +358,18 @@ export default async function ServiciosPage({ params }: Props) {
 
       {/* ── HERO ── */}
       <section
-        className="page-hero"
+        className="svc-hero"
         aria-label={locale === "es" ? "Servicios" : locale === "en" ? "Services" : "Zerbitzuak"}
-        style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(74,222,128,0.04) 0%, transparent 70%)" }}
       >
+        <Image
+          src="/images/brand/logo-mark.webp"
+          alt=""
+          width={602}
+          height={359}
+          className="svc-hero-mark"
+          aria-hidden="true"
+          priority={false}
+        />
         <div className="container-xl">
           <div className="svc-hero-inner">
             <Breadcrumbs
@@ -349,11 +381,14 @@ export default async function ServiciosPage({ params }: Props) {
             <p className="page-hero-eyebrow lp-eyebrow" style={{ marginTop: "var(--space-6)" }}>
               {locale === "es" ? "Lo que hago" : locale === "en" ? "What I do" : "Zer egiten dudan"}
             </p>
-            <h1 className="page-hero-title">{t("title")}</h1>
+            <h1 className="page-hero-title" style={{ fontFamily: "var(--font-serif)" }}>{t("title")}</h1>
             <p className="page-hero-subtitle">{t("subtitle")}</p>
             <div className="svc-chips">
-              <span className="svc-chip">{locale === "es" ? "1–2 semanas" : locale === "en" ? "1–2 weeks" : "1–2 aste"}</span>
-              <span className="svc-chip">{locale === "es" ? "desde 1.500€" : locale === "en" ? "from €1,500" : "1.500€-tik"}</span>
+              <span className="svc-chip svc-chip--accent">
+                {locale === "es" ? "149€/mes · 0€ inicial" : locale === "en" ? "€149/mo · €0 upfront" : "149€/hil · 0€ hasieran"}
+              </span>
+              <span className="svc-chip">{locale === "es" ? "Entrega 7–10 días" : locale === "en" ? "Delivered in 7–10 days" : "7–10 egunetan"}</span>
+              <span className="svc-chip">{locale === "es" ? "30 días de garantía" : locale === "en" ? "30-day guarantee" : "30 eguneko bermea"}</span>
               <span className="svc-chip">Lighthouse 95+</span>
             </div>
           </div>
@@ -369,11 +404,11 @@ export default async function ServiciosPage({ params }: Props) {
             </h2>
             <div className="svc-bento">
               {services.map((svc, idx) => (
-                <div
+                <article
                   key={svc.id}
                   id={svc.id}
                   className="svc-card"
-                  style={{ background: SERVICE_GRADIENTS[svc.id] }}
+                  style={{ ["--svc-accent" as string]: SERVICE_ACCENTS[svc.id] }}
                 >
                   <span className="svc-card-order" aria-hidden="true">{SERVICE_ORDERS[idx]}</span>
                   <div className="svc-icon-wrap" aria-hidden="true">{svc.icon}</div>
@@ -387,7 +422,7 @@ export default async function ServiciosPage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -406,8 +441,8 @@ export default async function ServiciosPage({ params }: Props) {
             </h2>
             <div className="svc-timeline">
               {howToSteps.slice(0, 4).map((step, i) => (
-                <div key={i} id={`paso-${i + 1}`}>
-                  <div className="svc-step-num" aria-hidden="true">{step.name.split(".")[0]}</div>
+                <div key={i} id={`paso-${i + 1}`} className="svc-step">
+                  <div className="svc-step-num" aria-hidden="true">{i + 1}</div>
                   <div className="svc-step-title">{step.name.replace(/^\d+\.\s*/, "")}</div>
                   <p className="svc-step-desc">{step.text}</p>
                 </div>
@@ -431,24 +466,24 @@ export default async function ServiciosPage({ params }: Props) {
               <table className="svc-compare-table">
                 <thead>
                   <tr>
-                    <th style={{ color: "rgba(236,231,214,0.40)", width: "34%" }}>
+                    <th style={{ width: "34%" }}>
                       {locale === "es" ? "Punto" : locale === "en" ? "Point" : "Puntua"}
                     </th>
-                    <th className="svc-col-agency">
-                      {locale === "es" ? "Agencia" : locale === "en" ? "Agency" : "Agentzia"}
+                    <th>
+                      {locale === "es" ? "Agencia tradicional" : locale === "en" ? "Traditional agency" : "Agentzia tradizionala"}
                     </th>
-                    <th className="svc-col-unax-head">Unax Aller</th>
+                    <th className="svc-col-unax-head">Unax · Renting Web</th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparisonRows.map((row, i) => (
                     <tr key={i}>
-                      <td style={{ color: "var(--color-ink)", fontWeight: 500 }}>{row.feature}</td>
+                      <td style={{ color: "var(--color-ink)", fontWeight: 600 }}>{row.feature}</td>
                       <td className="svc-col-agency">
-                        <span className={row.agencyWins ? "svc-check" : "svc-cross"} aria-hidden="true">{row.agencyWins ? "✓" : "✗"}</span>{" "}{row.agency}
+                        <span className="svc-cross" aria-hidden="true">✗</span>{" "}{row.agency}
                       </td>
                       <td className="svc-col-unax">
-                        <span className={row.agencyWins ? "svc-cross" : "svc-check"} aria-hidden="true">{row.agencyWins ? "✗" : "✓"}</span>{" "}{row.unax}
+                        <span className="svc-check" aria-hidden="true">✓</span>{" "}{row.unax}
                       </td>
                     </tr>
                   ))}
@@ -487,38 +522,43 @@ export default async function ServiciosPage({ params }: Props) {
 
       {/* ── CTA FINAL ── */}
       <section className="svc-cta-section" aria-labelledby="cta-services-title">
-        <div className="container-xl">
+        <div className="container-xl svc-cta-inner">
           <p className="lp-eyebrow" style={{ marginBottom: "var(--space-4)" }}>
-            {locale === "es" ? "¿Empezamos?" : locale === "en" ? "Shall we start?" : "Has egiten al dugu?"}
+            {locale === "es" ? "Sin papeleo. Sin desembolso." : locale === "en" ? "No paperwork. No upfront cost." : "Paperik gabe. Hasierako kosturik gabe."}
           </p>
-          <h2 id="cta-services-title" className="section-heading" style={{ marginBottom: "var(--space-4)" }}>
+          <h2 id="cta-services-title" className="section-heading" style={{ marginBottom: "var(--space-4)", maxWidth: "780px", marginInline: "auto" }}>
             {locale === "es"
-              ? "Tu proyecto merece una web que funcione."
+              ? "Cuéntame tu negocio. En 7 días tienes web."
               : locale === "en"
-              ? "Your project deserves a site that works."
-              : "Zure proiektuak funtzionatzen duen web bat merezi du."}
+              ? "Tell me about your business. In 7 days you have a site."
+              : "Esan zure negozioari buruz. 7 egunean weba duzu."}
           </h2>
-          <p style={{ color: "rgba(236,231,214,0.65)", fontFamily: "var(--font-sans)", fontSize: "var(--text-md)", marginBottom: "var(--space-8)" }}>
+          <p className="svc-cta-lead" style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-md)", marginBottom: "var(--space-8)", maxWidth: "640px", marginInline: "auto", lineHeight: "var(--lh-relaxed)" }}>
             {locale === "es"
-              ? "Cuéntame lo que necesitas. Respondo en menos de 24 horas."
+              ? "30 minutos por teléfono o un café. Te enseño cómo te está quitando llamadas tu competencia en Google y qué haría yo en tu caso."
               : locale === "en"
-              ? "Tell me what you need. I reply in under 24 hours."
-              : "Esan zer behar duzun. 24 ordutan baino gutxiagotan erantzuten dut."}
+              ? "30 minutes on the phone or over coffee. I show you how competitors are taking calls from you on Google and what I'd do in your case."
+              : "30 minutu telefonoz edo kafe baten. Erakusten dizut lehiakideek nola kentzen dizkizuten deiak Googlen."}
           </p>
           <div style={{ display: "flex", gap: "var(--space-4)", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href={`/${locale}/contacto`} className="btn btn-primary btn-lg focusable">
-              {tHero("cta")}
+              {locale === "es" ? "Pedir auditoría gratis →" : locale === "en" ? "Request free audit →" : "Doako auditoria eskatu →"}
             </Link>
-            <Link href={`/${locale}/precios`} className="btn btn-secondary btn-lg focusable">
-              {tHero("cta2")}
-            </Link>
+            <a
+              href="https://wa.me/34620909926"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary btn-lg focusable"
+            >
+              {locale === "es" ? "WhatsApp directo" : locale === "en" ? "WhatsApp direct" : "WhatsApp zuzena"}
+            </a>
           </div>
           <p className="svc-cta-footnote">
             {locale === "es"
-              ? "Sin compromiso. Respondo en menos de 24h."
+              ? "Sin compromiso · Respuesta el mismo día · Hablas siempre conmigo"
               : locale === "en"
-              ? "No commitment. I reply in under 24h."
-              : "Konpromisorik gabe. 24h baino gutxiagotan erantzuten dut."}
+              ? "No commitment · Same-day reply · You always talk to me"
+              : "Konpromisorik gabe · Egun bereko erantzuna · Beti nirekin hitz egiten duzu"}
           </p>
         </div>
       </section>

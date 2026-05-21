@@ -5,9 +5,15 @@ import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 import { cityLandings } from "@/lib/data/city-landings";
 import AnimatedShaderHero from "@/components/ui/animated-shader-hero";
 import SocialProof from "@/components/home/SocialProof";
+import PainSection from "@/components/home/PainSection";
 import Testimonials from "@/components/home/Testimonials";
 import PricingCard from "@/components/ui/pricing-card";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import GuaranteeBlock from "@/components/shared/GuaranteeBlock";
+import GoogleMapsMock from "@/components/shared/GoogleMapsMock";
+import PhoneMockup from "@/components/shared/PhoneMockup";
+import LiveCallCounter from "@/components/shared/LiveCallCounter";
+import SectorMarquee from "@/components/shared/SectorMarquee";
 import { Gallery4, type Gallery4Item } from "@/components/ui/gallery4";
 
 // Cache the rendered HTML on the CDN for 1h. Content changes ship via
@@ -19,9 +25,9 @@ type Props = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
-  const title = "Diseñador Web en Irun, País Vasco";
+  const title = "Web para negocio local · 149€/mes, 0€ inicial · Unax Aller";
   const description =
-    "Diseñador web freelance en Irun. Webs a medida desde 1.500€, entrega en 1–2 semanas. SEO técnico, Next.js, sin agencias. Hablas directamente conmigo.";
+    "Renting Web para negocios de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (web, Google Maps, reseñas, hosting, soporte WhatsApp). 0€ al firmar y 30 días de garantía. Pensado para clínicas, despachos, industria B2B y comercio profesional.";
   return {
     title,
     description,
@@ -50,17 +56,13 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         url: "https://unaxaller.com",
         name: "Unax Aller",
         description:
-          "Diseñador y desarrollador web freelance en Irun, País Vasco.",
+          "Renting Web para negocios locales de Gipuzkoa, Bizkaia y Navarra. Cuota mensual todo incluido, sin pago inicial.",
         publisher: { "@id": "https://unaxaller.com/#business" },
         inLanguage: ["es-ES", "en-GB", "eu-ES"],
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `https://unaxaller.com/${locale}/blog?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
+        // SearchAction removed: the blog index doesn't accept ?q= queries,
+        // and Googlebot was indexing the template URL as an alternate page
+        // (GSC: "Alternate page with proper canonical tag"). Reintroduce only
+        // when there is a real /buscar endpoint backing the query.
       },
       {
         "@type": "Person",
@@ -68,21 +70,21 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         name: "Unax Aller Fernández",
         givenName: "Unax",
         familyName: "Aller Fernández",
-        jobTitle: "Diseñador y Desarrollador Web Freelance",
+        jobTitle: "Renting Web para negocios locales",
         url: `https://unaxaller.com/${locale}/sobre-nosotros`,
-        image: "https://unaxaller.com/images/unax-square-no-bg.png",
+        image: "https://unaxaller.com/images/IMG_1729.jpeg",
         email: "contacto@unaxaller.com",
         telephone: "+34620909916",
         knowsLanguage: ["es", "eu", "en", "fr"],
         knowsAbout: [
-          "Diseño web",
-          "Desarrollo web",
-          "Next.js",
-          "React",
-          "SEO técnico",
-          "Core Web Vitals",
-          "Accesibilidad web",
-          "Diseño UI/UX",
+          "Diseño web para negocio local",
+          "Google Business Profile",
+          "Google Maps optimización",
+          "SEO local",
+          "Captación de reseñas",
+          "Webs para pymes",
+          "Renting Web",
+          "WhatsApp Business",
         ],
         alumniOf: {
           "@type": "CollegeOrUniversity",
@@ -105,7 +107,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://unaxaller.com/#business",
-        name: "Unax Aller — Diseñador Web",
+        name: "Unax Aller — Renting Web para negocios locales",
         legalName: "Unax Aller Fernández",
         url: "https://unaxaller.com",
         logo: {
@@ -114,9 +116,9 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
           width: 512,
           height: 512,
         },
-        image: "https://unaxaller.com/images/unax-square-no-bg.png",
+        image: "https://unaxaller.com/images/IMG_1729.jpeg",
         description:
-          "Diseñador web freelance en Irun, Gipuzkoa. Webs a medida para negocios del País Vasco: diseño premium, SEO, animaciones y rendimiento.",
+          "Renting Web para negocios locales de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (diseño, hosting, dominio, Google Maps, reseñas, soporte WhatsApp). 0€ al firmar.",
         founder: { "@id": "https://unaxaller.com/#person" },
         knowsLanguage: ["es", "eu", "en", "fr"],
         inLanguage: ["es", "en", "eu"],
@@ -142,7 +144,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
             closes: "18:00",
           },
         ],
-        slogan: "Tu web a medida en 1–2 semanas desde 1.500€",
+        slogan: "Más llamadas para tu negocio local · 149€/mes, 0€ inicial",
         sameAs: [
           "https://linkedin.com/in/unax-aller-8479b428b",
           "https://instagram.com/unaxaller",
@@ -159,12 +161,12 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Servicios de Diseño y Desarrollo Web",
+          name: "Renting Web para negocio local",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Diseño Web" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Desarrollo Web Next.js" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO Técnico" } },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Multi-idioma" } },
+            { "@type": "Offer", priceCurrency: "EUR", price: "149", itemOffered: { "@type": "Service", name: "Renting Web — cuota mensual todo incluido" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Optimización de Google Business Profile" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema de captación de reseñas" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO local para Gipuzkoa" } },
           ],
         },
       },
@@ -200,17 +202,17 @@ export default async function HomePage({ params }: Props) {
       {/* ── 1. HERO con shader animado ── */}
       <AnimatedShaderHero
         trustBadge={{
-          text: "Disponible para nuevos proyectos · Entrega en 1–2 semanas",
-          icons: ["⚡"],
+          text: "0€ al firmar · 30 días de garantía · 149€/mes durante 12 meses",
+          icons: ["✓"],
         }}
         headline={{
-          line1: "Tu web a medida",
-          line2: "desde 1.500€",
+          line1: "Más llamadas para",
+          line2: "tu negocio local",
         }}
-        subtitle="Diseño y desarrollo web en Next.js para negocios del País Vasco. Hablas directamente conmigo, sin agencias. SEO técnico incluido."
+        subtitle="Tu web profesional, tu ficha de Google Maps y un sistema de reseñas — todo incluido por 149€ al mes. No pagas nada al firmar. 30 días para probarlo y devolverlo sin preguntas. Pensado para clínicas, despachos profesionales, industria B2B y comercio especializado en Gipuzkoa, Bizkaia y Navarra."
         buttons={{
-          primary: { text: "Pedir presupuesto gratis", href: `/${locale}/contacto` },
-          secondary: { text: "Ver precios", href: `/${locale}/precios` },
+          primary: { text: "Pedir auditoría gratis", href: `/${locale}/contacto` },
+          secondary: { text: "Ver cómo funciona", href: `/${locale}/precios` },
         }}
       />
 
@@ -218,48 +220,45 @@ export default async function HomePage({ params }: Props) {
       <SocialProof />
 
       {/* ── 3. PROBLEMA — agitar el dolor ── */}
+      <PainSection />
+
+      {/* ── 3b. VISUAL DE GOOGLE MAPS + MÓVIL — el bombazo visual del modelo ── */}
       <AnimatedSection>
-        <section className="lp-pain" aria-labelledby="lp-pain-title">
-          <div className="container-xl lp-pain-inner">
-            <div className="lp-pain-text">
-              <span className="lp-eyebrow">El problema</span>
-              <h2 id="lp-pain-title" className="lp-section-title">
-                Las agencias cobran{" "}
-                <span style={{ color: "#f87171" }}>5.000€</span> y tardan{" "}
-                <span style={{ color: "#f87171" }}>3 meses</span>.
-                <br />
-                Los constructores online no son tuyos.
-              </h2>
-              <p className="lp-body">
-                Tu negocio necesita una web que convierta visitantes en clientes, no
-                una plantilla de Wix o una factura de agencia que te deja sin presupuesto.
-                Mereces diseño a mano, SEO real y alguien que responda al WhatsApp.
-              </p>
-            </div>
-            <div className="lp-pain-comparison">
-              {[
-                { bad: true, who: "Agencia", detail: "5.000–20.000€ · 6–12 semanas · plantillas disfrazadas" },
-                { bad: true, who: "Wix / Squarespace", detail: "No es tuya · lenta · sin SEO real · pagas siempre" },
-                { bad: true, who: "Freelancer barato", detail: "Plantilla WordPress · sin SEO · desaparece al mes" },
-                { bad: false, who: "Unax Aller", detail: "1.500€ · 1–2 semanas · código a mano · tuya para siempre" },
-              ].map((row) => (
-                <div
-                  key={row.who}
-                  className={`lp-pain-row${row.bad ? " lp-pain-row--bad" : " lp-pain-row--good"}`}
-                >
-                  <span className={`lp-pain-icon${row.bad ? "" : " lp-pain-icon--good"}`}>
-                    {row.bad ? "✗" : "✓"}
-                  </span>
-                  <div>
-                    <strong>{row.who}</strong>
-                    <span>{row.detail}</span>
-                  </div>
+        <section className="lp-mockups" aria-label="Cómo se ve el resultado">
+          <div className="container-xl">
+            <div className="lp-mockups-grid">
+              <div className="lp-mockups-text">
+                <span className="lp-eyebrow">Cómo se ve el resultado</span>
+                <h2 className="lp-section-title">
+                  Tu negocio, <span style={{ color: "var(--color-accent)" }}>el primero</span> cuando alguien busca tu servicio en tu ciudad.
+                </h2>
+                <p className="lp-body">
+                  Cuando un paciente busca «dentista en tu ciudad» desde el móvil,
+                  Google le enseña tres resultados con foto, valoración y botón
+                  de llamada directa. El que sale primero recibe la llamada;
+                  los otros dos esperan al siguiente intento.
+                </p>
+                <ul className="lp-mockups-list">
+                  <li><span aria-hidden="true">✓</span> Ficha de Google Business Profile bien configurada</li>
+                  <li><span aria-hidden="true">✓</span> Web rápida, móvil-first, con botón de llamada visible</li>
+                  <li><span aria-hidden="true">✓</span> Sistema de reseñas activo para mantenerte arriba</li>
+                </ul>
+              </div>
+              <div className="lp-mockups-visuals">
+                <div className="lp-mockups-maps">
+                  <GoogleMapsMock locale={locale} />
                 </div>
-              ))}
+                <div className="lp-mockups-phone">
+                  <PhoneMockup locale={locale} variant="maps" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </AnimatedSection>
+
+      {/* ── 3c. SECTORES — marquee con quiénes son mis clientes ── */}
+      <SectorMarquee locale={locale} />
 
       {/* ── 4. FUNDADOR — cara visible, humaniza la propuesta ── */}
       <AnimatedSection>
@@ -267,11 +266,11 @@ export default async function HomePage({ params }: Props) {
           <div className="container-xl lp-founder-inner">
             <div className="lp-founder-photo">
               <Image
-                src="/images/unax-square-no-bg.png"
-                alt="Unax Aller, diseñador web freelance en Irun"
+                src="/images/IMG_1729.jpeg"
+                alt="Unax Aller, especialista en webs para negocio local en País Vasco y Navarra"
                 width={400}
                 height={400}
-                sizes="(max-width: 768px) 180px, 260px"
+                sizes="(max-width: 768px) 260px, 400px"
               />
             </div>
             <div className="lp-founder-content">
@@ -280,16 +279,45 @@ export default async function HomePage({ params }: Props) {
                 Hola, soy Unax.
               </h2>
               <p className="lp-body">
-                Diseño y programo cada web a mano desde Irun. Hablas conmigo de principio
-                a fin — sin gestor de cuentas, sin intermediarios, sin sorpresas en la
-                factura. Llevo 4 idiomas (español, euskera, inglés, francés) y me obsesiono
-                con que tu cliente sienta algo cuando entre en la web.
+                Trabajo desde Irun con negocios del País Vasco y Navarra:
+                clínicas de Donostia, despachos profesionales de Bilbao,
+                industria de Pamplona, comercio premium de Vitoria.
+                Cuando llamas, me coges directamente al teléfono. Cuando necesitas un cambio,
+                me escribes al WhatsApp. Por eso puedo permitirme firmar contigo
+                <strong> sin pedirte ni un euro al empezar y dándote 30 días para devolver</strong>:
+                porque me juego mi nombre con cada negocio que entra.
               </p>
               <ul className="lp-founder-facts">
-                <li>📍 Irun, Gipuzkoa</li>
-                <li>🎓 Ingeniería Informática — UAX</li>
-                <li>🌍 4 idiomas: ES · EU · EN · FR</li>
-                <li>⭐ 5 estrellas en Google · 14+ proyectos</li>
+                <li>
+                  <svg className="lp-fact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span>Irun, Gipuzkoa</span>
+                </li>
+                <li>
+                  <svg className="lp-fact-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                  </svg>
+                  <span>WhatsApp directo: 620 90 99 16</span>
+                </li>
+                <li>
+                  <svg className="lp-fact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="m5 8 6 6" />
+                    <path d="m4 14 6-6 2-3" />
+                    <path d="M2 5h12" />
+                    <path d="M7 2h1" />
+                    <path d="m22 22-5-10-5 10" />
+                    <path d="M14 18h6" />
+                  </svg>
+                  <span>ES · EU · EN · FR</span>
+                </li>
+                <li>
+                  <svg className="lp-fact-icon lp-fact-icon--star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                  <span>5 estrellas en Google · 14+ negocios atendidos</span>
+                </li>
               </ul>
               <Link href={`/${locale}/sobre-nosotros`} className="lp-link">
                 Conóceme mejor
@@ -302,6 +330,15 @@ export default async function HomePage({ params }: Props) {
         </section>
       </AnimatedSection>
 
+      {/* ── 4b. COUNTERS — resultados medibles del primer trimestre ── */}
+      <AnimatedSection>
+        <section className="lp-counters" aria-label="Resultados medibles">
+          <div className="container-xl">
+            <LiveCallCounter locale={locale} />
+          </div>
+        </section>
+      </AnimatedSection>
+
       {/* ── 5. PROCESO — 7 pasos, reduce ansiedad ── */}
       <section className="lp-process" aria-labelledby="lp-process-title">
         <div className="container-xl">
@@ -309,22 +346,22 @@ export default async function HomePage({ params }: Props) {
             <div className="lp-section-header">
               <span className="lp-eyebrow">Cómo funciona</span>
               <h2 id="lp-process-title" className="lp-section-title lp-section-title--center">
-                De cero a web en 1–2 semanas
+                De cero a más llamadas en 7–10 días
               </h2>
               <p className="lp-body lp-body--center">
-                Sin reuniones infinitas. Sin sorpresas. Cada paso lo ves venir.
+                Sin papeleo inicial. Sin reuniones infinitas. Pago la primera cuota y empezamos.
               </p>
             </div>
           </AnimatedSection>
           <div className="lp-steps">
             {([
-              { n: "01", title: "Hablamos 30 min", desc: "Me cuentas tu negocio, a quién quieres atraer y qué imagen quieres dar. Por WhatsApp, llamada o café." },
-              { n: "02", title: "Presupuesto cerrado", desc: "En 24–48h recibes un presupuesto fijo. 1.500€ base. Sin letra pequeña, sin costes sorpresa." },
-              { n: "03", title: "Diseño visual", desc: "Fuente, paleta, estructura. Te enseño avances e iteramos hasta que queda perfecto para tu marca." },
-              { n: "04", title: "Desarrollo Next.js", desc: "Código a mano con las herramientas más actuales. SEO técnico, multi-idioma si lo necesitas, carga en menos de 1s." },
-              { n: "05", title: "Pruebas reales", desc: "Lighthouse 95+ en Performance, Accessibility y SEO. Pruebo en dispositivos móviles reales." },
-              { n: "06", title: "Lanzamiento", desc: "Subimos la web, configuramos dominio, Google Search Console y Analytics. Te enseño el panel." },
-              { n: "07", title: "Mantenimiento", desc: "100€ el primer año (hosting + dominio + soporte). 200€/año a partir del segundo. Cambios menores incluidos." },
+              { n: "01", title: "Auditoría gratis de tu zona", desc: "Te enseño quién está saliendo primero en Google Maps en tu sector y tu ciudad. Y por qué te están quitando llamadas." },
+              { n: "02", title: "Llamada de 30 minutos", desc: "Por teléfono o por un café. Me cuentas tu negocio, tus competidores y cómo te llegan ahora los clientes." },
+              { n: "03", title: "Firmamos sin pagar nada", desc: "Contrato simple, 12 meses, 30 días de garantía. 0€ al firmar. La primera cuota se pasa cuando la web está lista." },
+              { n: "04", title: "Diseño visual", desc: "Logo, paleta, estructura. Te enseño avances por WhatsApp y ajustamos hasta que estés satisfecho." },
+              { n: "05", title: "Programación y pruebas", desc: "Web profesional, rápida en móvil, ficha de Google Maps configurada, sistema de reseñas listo." },
+              { n: "06", title: "Lanzamiento", desc: "En 7–10 días la web está viva. Te enseño el panel. Configuramos el seguimiento de llamadas." },
+              { n: "07", title: "Soporte por WhatsApp", desc: "Mientras dure el servicio: cambios de texto, fotos, precios, horarios… al WhatsApp y listo, sin tickets." },
             ] as { n: string; title: string; desc: string }[]).map((step, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="lp-step">
@@ -345,42 +382,68 @@ export default async function HomePage({ params }: Props) {
         <div className="container-xl">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">Qué hago</span>
+              <span className="lp-eyebrow">Para quién</span>
               <h2 id="lp-services-title" className="lp-section-title lp-section-title--center">
-                Webs que hacen crecer negocios reales
+                Pensado para negocios profesionales del País Vasco y Navarra
               </h2>
             </div>
           </AnimatedSection>
           <div className="lp-services-grid">
             {([
               {
-                emoji: "🏪",
-                title: "Negocio local",
-                desc: "Peluquería, taller, restaurante, clínica. Una web que aparece en Google Maps y da imagen profesional.",
-                tags: ["SEO local", "Google Maps", "Móvil-first"],
+                icon: (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 5.5c-1.5-1-3-1.5-4.5-1.5C5 4 3 6 3 9c0 2 .5 3.5 1.5 6 .8 2 1.2 4.5 2.5 4.5 1.2 0 1.5-1.5 2-3 .3-1 .8-1.5 2-1.5h2c1.2 0 1.7.5 2 1.5.5 1.5.8 3 2 3 1.3 0 1.7-2.5 2.5-4.5 1-2.5 1.5-4 1.5-6 0-3-2-5-4.5-5-1.5 0-3 .5-4.5 1.5Z" />
+                  </svg>
+                ),
+                title: "Clínicas dentales, fisio, estética",
+                desc: "Pacientes que comparan 3 clínicas antes de pedir cita. Tu web tiene que generar confianza: fotos reales del equipo, reseñas visibles, información clara de servicios y cita previa fácil.",
+                tags: ["Reseñas", "Confianza", "Cita previa"],
               },
               {
-                emoji: "🏥",
-                title: "Clínica o consulta",
-                desc: "Dental, fisio, estética. Identidad visual de confianza, política de privacidad y sistema de citas opcional.",
-                tags: ["RGPD", "Citas online", "Confianza"],
+                icon: (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                  </svg>
+                ),
+                title: "Asesorías y despachos profesionales",
+                desc: "Abogados, gestorías, consultorías, ingenierías. Servicios con ticket alto donde el cliente compara online antes de levantar el teléfono. Web seria, áreas de práctica claras y formulario cualificado.",
+                tags: ["Confianza", "Áreas", "Leads"],
               },
               {
-                emoji: "🌍",
-                title: "Multi-idioma",
-                desc: "Empresa exportadora o turismo. Hasta 4 idiomas reales (ES/EU/EN/FR) con hreflang correcto.",
-                tags: ["4 idiomas", "hreflang", "SEO global"],
+                icon: (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                    <path d="M17 18h1" />
+                    <path d="M12 18h1" />
+                    <path d="M7 18h1" />
+                  </svg>
+                ),
+                title: "Industria y servicios técnicos B2B",
+                desc: "Pequeñas industrias y proveedores B2B de los polígonos del País Vasco y Navarra. Quien decide la compra compara catálogos por la noche desde el móvil. Web seria, capacidades técnicas claras y cotización rápida.",
+                tags: ["Catálogo", "Capacidades", "Cotización"],
               },
               {
-                emoji: "🔄",
-                title: "Rediseño",
-                desc: "Tu web da vergüenza o va lenta. Auditoría, migración limpia y nueva web sin perder posicionamiento.",
-                tags: ["Auditoría", "Migración", "Sin perder SEO"],
+                icon: (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M3 21h18" />
+                    <path d="M5 21V7l8-4v18" />
+                    <path d="M19 21V11l-6-4" />
+                    <path d="M9 9v.01" />
+                    <path d="M9 12v.01" />
+                    <path d="M9 15v.01" />
+                    <path d="M9 18v.01" />
+                  </svg>
+                ),
+                title: "Inmobiliarias premium",
+                desc: "Inmobiliarias de obra nueva, vivienda de alto standing y locales comerciales en País Vasco y Navarra. Operaciones de ticket alto donde la marca, las fotos profesionales y un buscador de propiedades rápido marcan la diferencia entre llamar a tu oficina o a la del vecino.",
+                tags: ["Marca", "Listings", "Leads"],
               },
-            ] as { emoji: string; title: string; desc: string; tags: string[] }[]).map((s, i) => (
+            ] as { icon: React.ReactNode; title: string; desc: string; tags: string[] }[]).map((s, i) => (
               <AnimatedSection key={i} delay={i * 0.08}>
                 <div className="lp-service-card">
-                  <span className="lp-service-emoji">{s.emoji}</span>
+                  <span className="lp-service-icon">{s.icon}</span>
                   <h3 className="lp-service-title">{s.title}</h3>
                   <p className="lp-service-desc">{s.desc}</p>
                   <div className="lp-service-tags">
@@ -407,8 +470,8 @@ export default async function HomePage({ params }: Props) {
       <AnimatedSection>
         <Gallery4
           locale={locale}
-          title="Proyectos realizados"
-          description="Webs reales para negocios del País Vasco y Navarra. Diseño a medida, SEO incluido, entrega en 1–2 semanas."
+          title="Negocios reales que ya tienen su web"
+          description="Farmacia en Bera, taller de motos en Irun, óptica en Irun, agencia en Donostia. Negocios que llaman, escriben y atienden mejor desde que tienen su sistema online montado."
           items={[
             {
               id: "farmacia-fernandez-bera",
@@ -418,17 +481,18 @@ export default async function HomePage({ params }: Props) {
               externalUrl: "https://farmaciafernandezbera.com",
               mobileImage: "/images/projects/mobile-farmacia-fernandez-bera.jpg",
               accent: "#c79a3a",
-              meta: "Farmacia · Bera, Navarra · 2025",
+              meta: "Farmacia · Bera, Navarra · 2026",
             },
             {
               id: "motos-arretxe",
               title: "Motos Arretxe",
-              description: "Concesionario y taller de motos en Hondarribia. Catálogo, cita previa y SEO local.",
+              description: "Concesionario y taller de motos en Irun. Catálogo, cita previa y SEO local.",
               href: `/${locale}/proyectos/motos-arretxe`,
               externalUrl: "https://motosarretxe.com",
               mobileImage: "/images/projects/mobile-motos-arretxe.jpg",
+              mobileVideo: "/video/motos-arretxe.mp4",
               accent: "#dc2626",
-              meta: "Motos · Hondarribia · 2025",
+              meta: "Motos · Irun · 2026",
             },
             {
               id: "anaka-optica",
@@ -438,7 +502,7 @@ export default async function HomePage({ params }: Props) {
               externalUrl: "https://anakaoptica.com",
               mobileImage: "/images/projects/mobile-anaka-optica.jpg",
               accent: "#f97316",
-              meta: "Óptica · Irun · 2025",
+              meta: "Óptica · Irun · 2026",
             },
             {
               id: "virtuosolve",
@@ -447,8 +511,20 @@ export default async function HomePage({ params }: Props) {
               href: `/${locale}/proyectos/virtuosolve`,
               externalUrl: "https://virtuosolve.com",
               mobileImage: "/images/projects/mobile-virtuosolve.jpg",
+              mobileVideo: "/video/virtuosolve.mp4",
               accent: "#3b82f6",
-              meta: "IA · Irun · 2025",
+              meta: "IA · Irun · 2026",
+            },
+            {
+              id: "tecmac",
+              title: "Tecmac",
+              description: "Ingeniería y servicios auxiliares de laminación para industrias siderúrgicas. Web técnica con más de 30 años de trayectoria.",
+              href: `/${locale}/proyectos/tecmac`,
+              externalUrl: "https://tecmac.es",
+              mobileImage: "/images/projects/mobile-tecmac.jpg",
+              mobileVideo: "/video/tecmac.mp4",
+              accent: "#ef4444",
+              meta: "Industrial · Navarra · 2026",
             },
           ] satisfies Gallery4Item[]}
         />
@@ -465,6 +541,9 @@ export default async function HomePage({ params }: Props) {
         </div>
         <PricingCard locale={locale} headingLevel="h2" />
       </section>
+
+      {/* ── 8b. GARANTÍA ROTUNDA — repetir el mantra ── */}
+      <GuaranteeBlock locale={locale} />
 
       {/* ── 9. TESTIMONIOS ── */}
       <Testimonials />
@@ -483,28 +562,28 @@ export default async function HomePage({ params }: Props) {
           <div className="lp-faq-grid">
             {([
               {
-                q: "¿Por qué 1.500€ si hay freelancers más baratos?",
-                a: "Porque con menos no puedo hacer un trabajo de calidad real: diseño personalizado, código a mano, SEO técnico y entrega rápida. Los que cobran 400€ usan plantillas WordPress sin configurar. Tú recibes una web tuya para siempre.",
+                q: "¿Por qué Renting Web y no pagar la web de una vez?",
+                a: "Porque la mayoría de negocios locales no se pueden permitir 2.000€ de golpe, pero sí pagan 149€/mes sin problema. Es una cuota fija como la del gestor, el seguro o el teléfono. Y la web empieza a traer llamadas desde el primer día.",
               },
               {
-                q: "¿Cuánto tarda realmente?",
-                a: "Si no tengo otros proyectos activos, entre 1 y 2 semanas. Te digo el plazo real desde el primer día — no acepto proyectos que no puedo entregar a tiempo.",
+                q: "¿De verdad no pago nada al firmar?",
+                a: "Sí. 0€ al firmar. La primera cuota de 149€ se cobra cuando la web está lista, entre 7 y 10 días después. Si en los primeros 30 días no estás conforme, te devuelvo lo pagado y aquí no ha pasado nada.",
               },
               {
-                q: "¿Eres solo un estudiante?",
-                a: "Sí, estudio Ingeniería Informática en la UAX y llevo 14+ proyectos reales entregados, 5 estrellas en Google y código en producción. Eso me motiva más que una agencia que ya tiene su factura asegurada.",
+                q: "¿Qué pasa al terminar los 12 meses?",
+                a: "Sigues mes a mes. La cuota queda bloqueada durante los 12 meses contratados; si después subo precios para nuevos clientes, a ti no te afecta. Y si quieres irte, solo tienes que avisar.",
               },
               {
-                q: "¿La web es mía o me tienes atado?",
-                a: "Tuya para siempre. Te entrego el código completo, dominio a tu nombre y hosting en cualquier proveedor. No hay ninguna dependencia conmigo si no la quieres.",
+                q: "¿Necesito saber algo de internet?",
+                a: "Nada. Tú me cuentas qué haces, a quién quieres atraer y cómo. Yo me encargo del resto: dominio, hosting, Google Maps, reseñas. Cuando necesites un cambio, me escribes al WhatsApp.",
               },
               {
-                q: "¿Puedo tener la web en euskera o inglés?",
-                a: "Sí, hasta 4 idiomas (ES/EU/EN/FR) sin coste adicional. Estudié en Francia hasta los 15, así que el francés lo trabajo igual de fino que el resto.",
+                q: "¿Funciona si mi sector es muy local (un pueblo pequeño)?",
+                a: "Sí, y de hecho funciona mejor. En pueblos y comarcas pequeñas la competencia digital es muy floja: con una ficha de Google bien optimizada y unas pocas reseñas ya sales el primero.",
               },
               {
-                q: "¿Cómo sé que va a quedar bien?",
-                a: "Te enseño avances durante el proceso y tienes 2 rondas de revisión sin coste. No lanzamos nada hasta que estés satisfecho.",
+                q: "¿Cómo sé que de verdad va a traer clientes?",
+                a: "Antes de firmar te hago una auditoría gratis: te enseño qué competidores tuyos están saliendo primero en tu zona, por qué, y cuántas llamadas estiman que reciben. Con datos, no con palabrería.",
               },
             ] as { q: string; a: string }[]).map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.04}>
@@ -537,24 +616,38 @@ export default async function HomePage({ params }: Props) {
         <section className="lp-cta-final" aria-label="Contacto final" id="contacto">
           <div className="container-xl lp-cta-final-inner">
             <div className="lp-cta-final-badge">
-              <span aria-hidden="true">⚡</span> Disponible para nuevos proyectos
+              <svg
+                aria-hidden="true"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />
+              </svg>
+              Auditoría gratis · Sin firmar nada
             </div>
             <h2 className="lp-cta-final-title">
-              ¿Hablamos esta semana?
+              ¿Cuántas llamadas estás perdiendo?
             </h2>
             <p className="lp-cta-final-sub">
-              Cuéntame tu proyecto en 2 minutos. Te respondo con un presupuesto
-              cerrado en menos de 48h, sin compromiso.
+              Te enseño en 30 minutos qué competidores tuyos en tu pueblo o ciudad
+              están saliendo primero en Google y por qué. Sin compromiso, sin firmar
+              nada — y si quieres después arrancamos con 0€ al firmar.
             </p>
             <div className="lp-cta-final-actions">
               <Link href={`/${locale}/contacto`} className="lp-cta-final-btn-primary">
-                Pedir presupuesto gratis
+                Pedir auditoría gratis
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
               <a
-                href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20una%20web"
+                href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20el%20Renting%20Web%20de%20149%E2%82%AC%2Fmes%20para%20mi%20negocio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lp-cta-final-btn-whatsapp"
@@ -566,7 +659,7 @@ export default async function HomePage({ params }: Props) {
               </a>
             </div>
             <p className="lp-cta-final-reassurance">
-              Sin compromiso · Respuesta en menos de 48h · Precio cerrado desde el inicio
+              0€ al firmar · 30 días de garantía · 12 meses con cuota bloqueada · Hablas siempre conmigo
             </p>
           </div>
         </section>

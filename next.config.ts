@@ -19,16 +19,34 @@ const nextConfig: NextConfig = {
       { source: "/disenador-web-pasaia", destination: "/es/disenador-web-pasaia", permanent: true },
       { source: "/disenador-web-logrono", destination: "/es/disenador-web-logrono", permanent: true },
       { source: "/disenador-web-santander", destination: "/es/disenador-web-santander", permanent: true },
+      { source: "/disenador-web-zarautz", destination: "/es/disenador-web-zarautz", permanent: true },
+      { source: "/disenador-web-:slug", destination: "/es/disenador-web-:slug", permanent: true },
+      { source: "/colabora", destination: "/es/colabora", permanent: true },
+      { source: "/cookies", destination: "/es/cookies", permanent: true },
+      { source: "/aviso-legal", destination: "/es/aviso-legal", permanent: true },
+      { source: "/privacidad", destination: "/es/privacidad", permanent: true },
+      { source: "/contacto", destination: "/es/contacto", permanent: true },
+      { source: "/servicios", destination: "/es/servicios", permanent: true },
+      { source: "/precios", destination: "/es/precios", permanent: true },
+      { source: "/proyectos", destination: "/es/proyectos", permanent: true },
       { source: "/proyectos/virtuosolve", destination: "/es/proyectos/virtuosolve", permanent: true },
+      { source: "/proyectos/:slug", destination: "/es/proyectos/:slug", permanent: true },
+      { source: "/blog", destination: "/es/blog", permanent: true },
       { source: "/blog/:slug", destination: "/es/blog/:slug", permanent: true },
       // Old /casos/ paths → /proyectos/
       { source: "/casos/:slug", destination: "/es/proyectos/:slug", permanent: true },
       { source: "/:lang/casos/:slug", destination: "/:lang/proyectos/:slug", permanent: true },
+      // Old euskera "portfolioa" alias → proyectos
+      { source: "/:lang/portfolioa", destination: "/:lang/proyectos", permanent: true },
+      { source: "/portfolioa", destination: "/es/proyectos", permanent: true },
       // Old .html extensions
       { source: "/:lang/servicios.html", destination: "/:lang/servicios", permanent: true },
       { source: "/:lang/zerbitzuak.html", destination: "/:lang/servicios", permanent: true },
+      { source: "/:lang/index.html", destination: "/:lang", permanent: true },
       // Orphan paths
       { source: "/mes", destination: "/es", permanent: true },
+      { source: "/home", destination: "/es", permanent: true },
+      { source: "/inicio", destination: "/es", permanent: true },
     ];
   },
   async headers() {

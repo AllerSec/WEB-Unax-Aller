@@ -53,7 +53,7 @@ export const projects: Project[] = [
     },
     city: "Bera",
     region: "Navarra",
-    year: 2025,
+    year: 2026,
     url: "https://farmaciafernandezbera.com",
     tasks: {
       es: [
@@ -127,9 +127,9 @@ export const projects: Project[] = [
       en: "Motorcycles, dealership and workshop",
       eu: "Motoak, kontzesionarioa eta tailerra",
     },
-    city: "Hondarribia",
+    city: "Irun",
     region: "Gipuzkoa",
-    year: 2025,
+    year: 2026,
     url: "https://motosarretxe.com",
     relatedCitySlug: "disenador-web-hondarribia",
     tasks: {
@@ -137,35 +137,35 @@ export const projects: Project[] = [
         "Diseño web a medida con catálogo de motos",
         "Sistema de contacto y solicitud de cita para el taller",
         "Galería profesional de stock y servicios",
-        "SEO local para Hondarribia, Irun y Gipuzkoa",
+        "SEO local para Irun, Hondarribia y Gipuzkoa",
         "Optimización de rendimiento y velocidad",
       ],
       en: [
         "Custom web design with motorcycle catalogue",
         "Contact and workshop booking system",
         "Professional gallery for stock and services",
-        "Local SEO for Hondarribia, Irun and Gipuzkoa",
+        "Local SEO for Irun, Hondarribia and Gipuzkoa",
         "Performance and speed optimisation",
       ],
       eu: [
         "Neurriko web diseinua, motoen katalogoarekin",
         "Tailerrerako kontaktu eta hitzordu eskaera sistema",
         "Stock eta zerbitzuen galeria profesionala",
-        "Tokiko SEO Hondarribia, Irun eta Gipuzkoarentzat",
+        "Tokiko SEO Irun, Hondarribia eta Gipuzkoarentzat",
         "Errendimendu eta abiaduraren optimizazioa",
       ],
     },
     description: {
       es: [
-        "Motos Arretxe necesitaba una web que reflejase la atención y el asesoramiento que dan en el taller, no un escaparate genérico. La diseñamos pensando en quien busca una moto concreta o necesita un mecánico de confianza cerca de Hondarribia.",
+        "Motos Arretxe necesitaba una web que reflejase la atención y el asesoramiento que dan en el taller, no un escaparate genérico. La diseñamos pensando en quien busca una moto concreta o necesita un mecánico de confianza en Irun.",
         "Cada sección está pensada para resolver dudas rápido: stock, servicios, ubicación y contacto directo. La web carga en menos de un segundo y aparece en las búsquedas de la zona.",
       ],
       en: [
-        "Motos Arretxe needed a site that reflects the care and advice they give at the workshop, not a generic showcase. We designed it for the person looking for a specific bike or a trusted mechanic near Hondarribia.",
+        "Motos Arretxe needed a site that reflects the care and advice they give at the workshop, not a generic showcase. We designed it for the person looking for a specific bike or a trusted mechanic in Irun.",
         "Every section is built to solve doubts fast: stock, services, location and direct contact. The site loads in under a second and shows up in local searches.",
       ],
       eu: [
-        "Motos Arretxek tailerrean ematen duten arreta eta aholkularitza islatuko zuen weba behar zuen, ez erakusleku generikoa. Hondarribia inguruan moto zehatza edo mekaniko fidagarria bilatzen duenarentzat diseinatu genuen.",
+        "Motos Arretxek tailerrean ematen duten arreta eta aholkularitza islatuko zuen weba behar zuen, ez erakusleku generikoa. Irunen moto zehatza edo mekaniko fidagarria bilatzen duenarentzat diseinatu genuen.",
         "Atal bakoitza zalantzak azkar konpontzeko pentsatuta dago: stocka, zerbitzuak, kokalekua eta zuzeneko kontaktua. Weba segundo bat baino gutxiagoan kargatzen da eta inguruko bilaketetan agertzen da.",
       ],
     },
@@ -177,9 +177,9 @@ export const projects: Project[] = [
       },
       author: "Motos Arretxe SL",
       role: {
-        es: "Concesionario y taller de motos en Hondarribia",
-        en: "Motorcycle dealership and workshop in Hondarribia",
-        eu: "Motoen kontzesionario eta tailerra Hondarribian",
+        es: "Concesionario y taller de motos en Irun",
+        en: "Motorcycle dealership and workshop in Irun",
+        eu: "Motoen kontzesionario eta tailerra Irunen",
       },
       rating: 5,
     },
@@ -206,7 +206,7 @@ export const projects: Project[] = [
     },
     city: "Irun",
     region: "Gipuzkoa",
-    year: 2025,
+    year: 2026,
     url: "https://anakaoptica.com",
     tasks: {
       es: [
@@ -268,7 +268,7 @@ export const projects: Project[] = [
     },
     city: "Irun",
     region: "Gipuzkoa",
-    year: 2025,
+    year: 2026,
     url: "https://virtuosolve.com",
     tasks: {
       es: [
@@ -328,6 +328,68 @@ export const projects: Project[] = [
       eu: "Unax Allerrek diseinatutako VirtuoSolve webaren irudia",
     },
     accent: { color: "#3b82f6", ink: "#06101f" },
+  },
+  {
+    slug: "tecmac",
+    name: "Tecmac",
+    tagline: {
+      es: "Web técnica para una ingeniería de servicios auxiliares de laminación",
+      en: "Technical website for a rolling-mill auxiliary services engineering firm",
+      eu: "Web teknikoa ijezketa-zerbitzu osagarrien ingeniaritza batentzat",
+    },
+    sector: {
+      es: "Ingeniería industrial y siderurgia",
+      en: "Industrial engineering and steelmaking",
+      eu: "Ingeniaritza industriala eta siderurgia",
+    },
+    city: "Navarra",
+    region: "Navarra",
+    year: 2026,
+    url: "https://tecmac.es",
+    tasks: {
+      es: [
+        "Diseño y desarrollo web a medida",
+        "Estructura orientada a captación B2B industrial",
+        "Catálogo de servicios y sectores",
+        "SEO técnico para nichos industriales",
+        "Optimización de rendimiento y carga rápida",
+      ],
+      en: [
+        "Custom web design and development",
+        "Structure tuned for industrial B2B capture",
+        "Services and sectors catalogue",
+        "Technical SEO for industrial niches",
+        "Performance and fast-loading optimisation",
+      ],
+      eu: [
+        "Neurriko web diseinu eta garapena",
+        "B2B industrialerako egokitutako egitura",
+        "Zerbitzu eta sektoreen katalogoa",
+        "SEO teknikoa nitxo industrialetarako",
+        "Errendimendu eta karga azkarraren optimizazioa",
+      ],
+    },
+    description: {
+      es: [
+        "Tecmac es una ingeniería con más de 30 años de experiencia en mecanizado, fabricación y servicios auxiliares para la industria del acero. Su web tenía que transmitir solidez técnica y trayectoria, sin caer en el catálogo aburrido.",
+        "Diseñamos una experiencia con identidad propia: hero potente, navegación clara por servicios y sectores, y una estructura orientada a la captación B2B de clientes industriales. El SEO técnico apunta a nichos muy específicos del sector siderúrgico.",
+      ],
+      en: [
+        "Tecmac is an engineering firm with over 30 years of experience in machining, fabrication and auxiliary services for the steel industry. Their site needed to convey technical solidity and track record without becoming a dull catalogue.",
+        "We designed an experience with its own voice: a strong hero, clear navigation through services and sectors, and a structure tuned for B2B capture of industrial clients. Technical SEO targets very specific niches in the steel sector.",
+      ],
+      eu: [
+        "Tecmac altzairu industrian mekanizatu, fabrikazio eta zerbitzu osagarrietan 30 urtetik gorako esperientzia duen ingeniaritza da. Webak sendotasun teknikoa eta ibilbidea adierazi behar zituen, katalogo aspergarri batean erori gabe.",
+        "Bere ahotsa duen esperientzia diseinatu genuen: hero indartsua, zerbitzu eta sektoreetan zehar nabigazio argia, eta bezero industrialen B2B bilketarako egokitutako egitura. SEO teknikoa siderurgia sektoreko nitxo zehatzetara bideratzen da.",
+      ],
+    },
+    cover: "/images/projects/tecmac.avif",
+    coverAlt: {
+      es: "Captura de la web de Tecmac diseñada por Unax Aller",
+      en: "Screenshot of the Tecmac website designed by Unax Aller",
+      eu: "Unax Allerrek diseinatutako Tecmac webaren irudia",
+    },
+    accent: { color: "#ef4444", ink: "#1c0a0a" },
   },
 ];
 

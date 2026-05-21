@@ -1,6 +1,6 @@
 import { renderOgImage, ogSize, ogContentType } from "@/lib/og-image";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const size = ogSize;
 export const contentType = ogContentType;
 
@@ -10,9 +10,9 @@ export default async function Image({ params }: Props) {
   const { lang } = await params;
   const locale = (lang as "es" | "en" | "eu") || "es";
   return renderOgImage({
-    eyebrow: locale === "es" ? "Precios" : locale === "en" ? "Pricing" : "Prezioak",
-    line1: locale === "es" ? "Web a medida" : locale === "en" ? "Custom website" : "Neurrira egindako",
-    line2: locale === "es" ? "desde 1.500€ IVA inc." : locale === "en" ? "from €1,500 VAT inc." : "weba 1.500€-tik BEZ barne",
-    subtitle: locale === "es" ? "Sin permanencia · Sin sorpresas · unaxaller.com" : locale === "en" ? "No lock-in · No surprises · unaxaller.com" : "Iraupenik gabe · Ezustekorik gabe · unaxaller.com",
+    eyebrow: locale === "es" ? "Renting Web" : locale === "en" ? "Web Renting" : "Web Errentaria",
+    line1: locale === "es" ? "Tu web profesional" : locale === "en" ? "Your professional site" : "Zure web profesionala",
+    line2: locale === "es" ? "por 149€/mes" : locale === "en" ? "for €149/month" : "149€/hilean",
+    subtitle: locale === "es" ? "0€ inicial · 30 días de garantía · unaxaller.com" : locale === "en" ? "€0 upfront · 30-day guarantee · unaxaller.com" : "0€ hasieran · 30 eguneko bermea · unaxaller.com",
   });
 }
