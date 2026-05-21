@@ -21,7 +21,6 @@ const nextConfig: NextConfig = {
       { source: "/disenador-web-santander", destination: "/es/disenador-web-santander", permanent: true },
       { source: "/disenador-web-zarautz", destination: "/es/disenador-web-zarautz", permanent: true },
       { source: "/disenador-web-:slug", destination: "/es/disenador-web-:slug", permanent: true },
-      { source: "/colabora", destination: "/es/colabora", permanent: true },
       { source: "/cookies", destination: "/es/cookies", permanent: true },
       { source: "/aviso-legal", destination: "/es/aviso-legal", permanent: true },
       { source: "/privacidad", destination: "/es/privacidad", permanent: true },

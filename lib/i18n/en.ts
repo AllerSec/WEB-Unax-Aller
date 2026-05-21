@@ -14,7 +14,7 @@
       "Your professional website, your Google Maps profile optimized and a system to collect reviews — all included. €0 to sign. 30-day money-back guarantee.",
     subtitlePre:
       "Your professional website, your Google Maps profile and a reviews system — all included for",
-    subtitlePost: ", with no upfront payment.",
+    subtitlePost: ". €0 to sign.",
     cta: "Request a free audit",
     cta2: "See how it works",
     badge: "Web Renting · Gipuzkoa",

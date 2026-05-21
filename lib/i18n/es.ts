@@ -14,7 +14,7 @@
       "Tu web profesional, tu ficha de Google Maps optimizada y un sistema para captar reseñas — todo incluido. 0€ al firmar. 30 días de garantía.",
     subtitlePre:
       "Tu web profesional, tu ficha de Google Maps y un sistema para captar reseñas — todo incluido por",
-    subtitlePost: ", sin pagar nada al empezar.",
+    subtitlePost: ". 0€ al firmar.",
     cta: "Pedir auditoría gratis",
     cta2: "Ver cómo funciona",
     badge: "Renting Web · Gipuzkoa",

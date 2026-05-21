@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Eibarren, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para la industria, máquina-herramienta y comercio de Eibar. Webs a medida, SEO local y rendimiento. Desde 1.500€ IVA incluido.",
-    en: "Freelance web designer for Eibar's industry, machine-tool and retail. Custom websites, local SEO and performance. From €1,500 VAT included.",
-    eu: "Web diseinatzaile freelance Eibarreko industria, makina-erreminta eta merkataritzarako. Neurrizko webguneak. 1.500€-tik BEZ barne.",
+    es: "Diseñador web freelance para la industria, máquina-herramienta y comercio de Eibar. Webs a medida, SEO local y rendimiento. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
+    en: "Freelance web designer for Eibar's industry, machine-tool and retail. Custom websites, local SEO and performance. No upfront cost: €0 to sign, €149/month.",
+    eu: "Web diseinatzaile freelance Eibarreko industria, makina-erreminta eta merkataritzarako. Neurrizko webguneak. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
   };
 
   const title = titles[locale];

@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Zarautzen, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para hostelería, surf shops y comercio premium de Zarautz. Webs a medida con SEO local. Desde 1.500€ IVA incluido.",
-    en: "Freelance web designer for hospitality, surf shops and premium retail in Zarautz. Custom websites with local SEO. From €1,500 VAT included.",
-    eu: "Web diseinatzaile freelance Zarauzko ostalaritza, surf-denda eta merkataritza premium-arentzat. Neurrizko webguneak SEO lokalarekin. 1.500€-tik BEZ barne.",
+    es: "Diseñador web freelance para hostelería, surf shops y comercio premium de Zarautz. Webs a medida con SEO local. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
+    en: "Freelance web designer for hospitality, surf shops and premium retail in Zarautz. Custom websites with local SEO. No upfront cost: €0 to sign, €149/month.",
+    eu: "Web diseinatzaile freelance Zarauzko ostalaritza, surf-denda eta merkataritza premium-arentzat. Neurrizko webguneak SEO lokalarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
   };
 
   const title = titles[locale];

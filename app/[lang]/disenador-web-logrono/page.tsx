@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Logroñon, Errioxan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para bodegas, hostelería y negocios de Logroño y La Rioja. Webs a medida con SEO local. Desde 1.500€ IVA incluido.",
-    en: "Freelance web designer for wineries, hospitality and businesses in Logroño and La Rioja. Custom websites with local SEO. From €1,500 VAT included.",
-    eu: "Web diseinatzaile freelance Logroño eta Errioxako upategi, ostalaritza eta negozioetarako. Neurrizko webguneak SEO lokalarekin. 1.500€-tik BEZ barne.",
+    es: "Diseñador web freelance para bodegas, hostelería y negocios de Logroño y La Rioja. Webs a medida con SEO local. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
+    en: "Freelance web designer for wineries, hospitality and businesses in Logroño and La Rioja. Custom websites with local SEO. No upfront cost: €0 to sign, €149/month.",
+    eu: "Web diseinatzaile freelance Logroño eta Errioxako upategi, ostalaritza eta negozioetarako. Neurrizko webguneak SEO lokalarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
   };
 
   const title = titles[locale];

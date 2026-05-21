@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Euskal Herrian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios del País Vasco: Bizkaia, Gipuzkoa y Álava. Webs a medida con SEO local, trilingüe (es/en/eu) y rendimiento. Desde 1.500€ IVA incluido.",
-    en: "Freelance web designer for Basque Country businesses: Bizkaia, Gipuzkoa and Álava. Custom trilingual websites (es/en/eu) with local SEO and performance. From €1,500 VAT included.",
-    eu: "Web diseinatzaile freelance Euskal Herriko negozioetarako: Bizkaia, Gipuzkoa eta Araba. Hiru hizkuntzatan (es/en/eu) eta SEO lokalarekin. 1.500€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios del País Vasco: Bizkaia, Gipuzkoa y Álava. Webs a medida con SEO local, trilingüe (es/en/eu) y rendimiento. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
+    en: "Freelance web designer for Basque Country businesses: Bizkaia, Gipuzkoa and Álava. Custom trilingual websites (es/en/eu) with local SEO and performance. No upfront cost: €0 to sign, €149/month.",
+    eu: "Web diseinatzaile freelance Euskal Herriko negozioetarako: Bizkaia, Gipuzkoa eta Araba. Hiru hizkuntzatan (es/en/eu) eta SEO lokalarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
   };
 
   const title = titles[locale];
@@ -51,7 +51,7 @@ export default async function PaisVascoPage({ params }: Props) {
     ? [
         {
           q: `¿Cuánto cuesta una web profesional en el ${regionName}?`,
-          a: "Una web a medida desde 1.500€, IVA incluido. Incluye diseño exclusivo, SEO técnico, velocidad Lighthouse 95+ y despliegue. Si necesitas algo más complejo (sistema de citas, automatizaciones, integraciones específicas) puede subir hasta unos 2.000€. Te paso un presupuesto cerrado antes de empezar, sin sorpresas.",
+          a: "Trabajo con un modelo de Renting Web: 0€ al firmar y una cuota fija de 149€/mes con permanencia de 12 meses. Incluye diseño a medida, SEO técnico, Lighthouse 95+, hosting, dominio, ficha de Google Maps optimizada, sistema de reseñas y soporte directo por WhatsApp. Sin desembolso inicial y sin facturas extra cada mes.",
         },
         {
           q: "¿Puedes trabajar en Bilbao, Donostia y Vitoria?",
@@ -67,18 +67,18 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "¿En cuánto tiempo estará lista la web?",
-          a: "Si no tengo otros proyectos activos, entre 1 y 2 semanas. Si los tengo, puede ser algo más. Te digo el plazo real desde el primer día.",
+          a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida.",
         },
         {
-          q: "¿Qué pasa con el mantenimiento después?",
-          a: "El primer año el mantenimiento son 100€ (hosting, dominio y soporte para arrancar). A partir del segundo año son 200€/año con cambios menores incluidos (textos, imágenes, ajustes). Si vas a necesitar muchos cambios al mes, lo hablamos y ajustamos. Sin permanencia.",
+          q: "¿Qué incluye la cuota mensual?",
+          a: "Los 149€/mes incluyen hosting, dominio, SSL, ficha de Google Maps vigilada cada mes, sistema de reseñas, soporte por WhatsApp y los cambios menores cada mes (textos, fotos, precios, horarios, añadir un servicio). Sin facturas extra. Tras los 12 meses de permanencia, sigues mes a mes sin compromiso.",
         },
       ]
     : locale === "en"
     ? [
         {
           q: `How much does a professional website cost in the ${regionName}?`,
-          a: "A custom website from €1,500, VAT included. It comes with exclusive design, technical SEO, Lighthouse 95+ speed and deployment. If you need something more complex (booking system, automations, specific integrations) it can go up to around €2,000. I send you a fixed quote before we start, no surprises.",
+          a: "I work on a Web Renting model: €0 to sign and a fixed €149/month fee with a 12-month commitment. It includes custom design, technical SEO, Lighthouse 95+, hosting, domain, optimized Google Maps profile, reviews system and direct WhatsApp support. No upfront cost and no extra invoices each month.",
         },
         {
           q: "Can you work in Bilbao, Donostia and Vitoria?",
@@ -94,17 +94,17 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "How long will the website take?",
-          a: "If I don't have other active projects, between 1 and 2 weeks. If I do, it can take a bit longer. I tell you the real timeline from day one.",
+          a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start straight away.",
         },
         {
-          q: "What about maintenance afterwards?",
-          a: "The first year maintenance is €100 (hosting, domain, onboarding support). From the second year on it's €200/year, with minor changes included (text, images, tweaks) and ongoing support. If you'll need a lot of changes per month, we adjust. No lock-in.",
+          q: "What does the monthly fee include?",
+          a: "The €149/month covers hosting, domain, SSL, a Google Maps profile monitored every month, reviews system, WhatsApp support and the minor changes each month (text, photos, prices, hours, adding a service). No extra invoices. After the 12-month commitment, you continue month to month with no lock-in.",
         },
       ]
     : [
         {
           q: `Zenbat kostatzen da web profesional bat ${regionName}n?`,
-          a: "Neurrira egindako webgune bat 1.500€-tik, BEZ barne. Diseinu esklusiboa, SEO teknikoa, Lighthouse 95+ abiadura eta hedapena barne. Zerbait konplexuagoa behar baduzu (hitzorduen sistema, automatizazioak, integrazio espezifikoak) 2.000€ ingurura igo daiteke. Hasi aurretik aurrekontu itxia ematen dizut, ezustekorik gabe.",
+          a: "Web Errentamendu eredu batekin lan egiten dut: 0€ sinatzean eta 149€/hil kuota finkoa, 12 hilabeteko iraupenarekin. Diseinu pertsonalizatua, SEO teknikoa, Lighthouse 95+, hosting-a, domeinua, Google Maps fitxa optimizatua, iritzi-sistema eta WhatsApp bidezko zuzeneko laguntza barne. Hasierako kosturik gabe eta hileko faktura gehigarririk gabe.",
         },
         {
           q: "Bilbon, Donostian eta Gasteizen egin dezakezu lan?",
@@ -120,11 +120,11 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "Zenbat denboran egongo da prest?",
-          a: "Beste proiektu aktiborik ez badut, 1 eta 2 aste artean. Baditudanean, zerbait gehiago izan daiteke. Lehen egunetik benetako epea esaten dizut.",
+          a: "Sinatu eta 7-10 egunera. Hasierako kosturik ez dagoenez, berehala hasi gaitezke.",
         },
         {
-          q: "Zer gertatzen da gero mantentze-lanekin?",
-          a: "Lehen urteko mantentze-lana 100€ da (hosting, domeinua, hasierako laguntza). Bigarren urtetik 200€/urtean da, aldaketa txikiak (testuak, irudiak, doikuntzak) eta laguntza barne. Hilean aldaketa asko behar badituzu, egokitzen dugu. Iraupenik gabe.",
+          q: "Zer dakar hileko kuotak?",
+          a: "149€/hilek hosting-a, domeinua, SSL, hilero zaindutako Google Maps fitxa, iritzi-sistema, WhatsApp bidezko laguntza eta hileko aldaketa txikiak (testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat eranstea) hartzen ditu. Faktura gehigarririk gabe. 12 hilabeteko iraupenaren ondoren, hilez hile jarraitzen duzu konpromisorik gabe.",
         },
       ];
 

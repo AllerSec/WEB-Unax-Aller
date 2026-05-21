@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Iruñean, Nafarroan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Pamplona y Navarra. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.500€ IVA incluido.",
-    en: "Freelance web designer for businesses in Pamplona and Navarre. Custom websites with local SEO, premium design and performance. From €1,500 VAT included.",
-    eu: "Web diseinatzaile freelance Iruñea eta Nafarroako negozioetarako. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.500€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Pamplona y Navarra. Webs a medida con SEO local, diseño premium y rendimiento. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
+    en: "Freelance web designer for businesses in Pamplona and Navarre. Custom websites with local SEO, premium design and performance. No upfront cost: €0 to sign, €149/month.",
+    eu: "Web diseinatzaile freelance Iruñea eta Nafarroako negozioetarako. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
   };
 
   const title = titles[locale];

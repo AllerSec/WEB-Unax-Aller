@@ -12,7 +12,6 @@ const staticRoutes = [
   { path: "/sobre-nosotros", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/contacto", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/proyectos", priority: 0.95, changeFrequency: "monthly" as const },
-  // /colabora omitida del sitemap: página fina, Google la ignoraba (crawled not indexed)
   { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
   { path: "/disenador-web-donostia", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/disenador-web-bilbao", priority: 0.9, changeFrequency: "monthly" as const },

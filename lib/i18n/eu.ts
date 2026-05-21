@@ -14,7 +14,7 @@
       "Zure web profesionala, zure Google Maps fitxa optimizatua eta iritziak biltzeko sistema — dena barne. 0€ sinatzean. 30 eguneko itzulketa bermea.",
     subtitlePre:
       "Zure web profesionala, zure Google Maps fitxa eta iritzien sistema — dena barne ",
-    subtitlePost: ", hasieran ezer ordaindu gabe.",
+    subtitlePost: ". 0€ sinatzean.",
     cta: "Doako auditoria eskatu",
     cta2: "Nola funtzionatzen duen ikusi",
     badge: "Web Errentaria · Gipuzkoa",

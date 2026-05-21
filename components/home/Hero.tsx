@@ -476,8 +476,8 @@ export default function Hero({ locale }: Props) {
 
           <p ref={subtitleRef} className="hero-subtitle">
             {t("subtitlePre")}{" "}
-            <span className="hero-price" data-price-value="1500">
-              {locale === "en" ? "€1,500" : "1.500€"}
+            <span className="hero-price" data-price-value="149">
+              {locale === "en" ? "€149/mo" : "149€/mes"}
             </span>
             {t("subtitlePost")}
           </p>

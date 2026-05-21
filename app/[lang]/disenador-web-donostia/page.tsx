@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Donostian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Donostia-San Sebastián. A 20 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Desde 1.500€ IVA incluido.",
-    en: "Freelance web designer for businesses in Donostia-San Sebastián. 20 km from Irun. Custom websites with local SEO, premium design and performance. From €1,500 VAT included.",
-    eu: "Web diseinatzaile freelance Donostiako negozioetarako. Iruntik 20 kmra. Neurrizko webguneak SEO lokalarekin. 1.500€-tik BEZ barne.",
+    es: "Diseñador web freelance para negocios de Donostia-San Sebastián. A 20 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
+    en: "Freelance web designer for businesses in Donostia-San Sebastián. 20 km from Irun. Custom websites with local SEO, premium design and performance. No upfront cost: €0 to sign, €149/month.",
+    eu: "Web diseinatzaile freelance Donostiako negozioetarako. Iruntik 20 kmra. Neurrizko webguneak SEO lokalarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
   };
 
   const title = titles[locale];

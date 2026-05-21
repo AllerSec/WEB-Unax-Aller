@@ -607,7 +607,9 @@ Lo que no entra ahí suele ser la trampa de muchos presupuestos "completos".
 
 ## Mi experiencia real
 
-En mi caso el plan es uno solo: 1.500€ IVA incluido. Un único precio, una única web.
+En mi caso he dejado el modelo del pago único. Hoy trabajo con Renting Web: 0€ al firmar, 149€/mes con permanencia de 12 meses y todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp).
+
+¿Por qué cambié el modelo? Porque la mayoría de negocios locales no quieren soltar 2.000€ de golpe por una web, pero sí pagan una cuota mensual fija sin problema, como hacen con el gestor, el seguro o el teléfono. Y porque a la agencia tradicional le interesa que la web se quede vieja para venderte una nueva: a mí, no. Mientras pagues tu cuota, yo trabajo para que tu web siga viva, rápida y arriba en Google.
 
 He tenido clientes que llegaron huyendo de webs por las que pagaron 2.000€ a una agencia y que tardaban ocho segundos en cargar. El precio no garantiza calidad. La transparencia sí.
 
@@ -641,7 +643,11 @@ When you hire a freelance web designer, a reasonable price includes:
 
 ## My real experience
 
-In my case, the single plan costs €1,500 VAT included. I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality. Transparency does.`,
+I've moved away from the one-off pricing model. Today I work with Web Renting: €0 to sign, €149/month with a 12-month commitment and everything included (design, hosting, domain, Google Maps, reviews and WhatsApp support).
+
+Why did I change? Because most local businesses don't want to drop €2,000 in one go on a website but happily pay a fixed monthly fee like they do for the accountant, insurance or phone bill. And because the traditional agency profits from your site getting old so they can sell you a new one — I don't. As long as you pay your fee, I keep your site alive, fast and ranking on Google.
+
+I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality. Transparency does.`,
       eu: `2026an, Espainian webgune baten prezioa izugarri aldatzen da proiektu motaren eta nork egiten duen arabera.
 
 ## Webgune motak eta haien prezioak
@@ -654,7 +660,9 @@ In my case, the single plan costs €1,500 VAT included. I've seen clients arriv
 
 ## Nire benetako esperientzia
 
-Nire kasuan, plan bakarrak 1.500€ balio du BEZ barne.`,
+Ordainketa bakarreko eredua utzi nuen. Gaur Web Errentamenduarekin lan egiten dut: 0€ sinatzean, 149€/hil 12 hilabeteko iraupenarekin eta dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza).
+
+Zergatik aldatu nuen? Tokiko negozio gehienek ez baitute 2.000€ batera ordaindu nahi web batengatik, baina hileko kuota finkoa erraz ordaintzen dute, kontulariarena, aseguruarena edo telefonoarena bezala. Eta agentzia tradizionalari weba zahartzea komeni zaio berri bat saltzeko — niri ez. Zure kuota ordaintzen duzun bitartean, ni arduratzen naiz zure weba bizirik, azkar eta Googlen gora egotea.`,
     },
     tags: ["precios", "diseño web", "España", "freelance"],
     keywords: {
@@ -677,24 +685,24 @@ Nire kasuan, plan bakarrak 1.500€ balio du BEZ barne.`,
           a: "El rango normal va de 0€ (Wix o Squarespace) a 10.000€ o más en desarrollo a medida. Para un negocio pequeño o mediano, lo razonable con un freelance está entre 800€ y 3.000€. Por debajo de 800€ lo más probable es una plantilla sin trabajo real; por encima de 5.000€ ya estás pagando estructura de agencia.",
         },
         {
-          q: "¿Por qué tu plan es único en 1.500€?",
-          a: "Para que no dependas de un comercial, de paquetes con letra pequeña o de sorpresas al final. Un precio cerrado, IVA incluido, con todo lo que una web necesita para funcionar: diseño a medida, desarrollo responsive, SEO técnico básico y formulario de contacto.",
+          q: "¿Por qué cobras 149€/mes en vez de un pago único?",
+          a: "Porque la mayoría de negocios locales no quieren soltar 2.000€ o 3.000€ de golpe por una web. Una cuota fija mensual entra en la contabilidad como un gasto más, igual que el gestor, el seguro o el teléfono. Y la web empieza a trabajar para ti desde el primer día, no cuando tengas dinero ahorrado.",
         },
         {
           q: "¿Qué pasa con el dominio y el hosting?",
-          a: "Depende del proyecto. En muchos casos incluyo dominio y hosting el primer año para que arranques sin pagar nada aparte. A partir del segundo año tú decides: te quedas con los servicios que uses, o te lo llevas a tu propio proveedor. No hay atadura.",
+          a: "Los registro a tu nombre desde el primer día. El dominio es tuyo siempre y, si en algún momento decides irte, te lo llevas. El hosting va sobre mis servidores y por eso está incluido en los 149€/mes: yo me encargo de que tu web funcione siempre, tú te encargas de tu negocio.",
         },
         {
           q: "¿El SEO está incluido en el precio?",
-          a: "El SEO técnico sí: velocidad, meta tags, Schema.org, URLs limpias, hreflang entre idiomas. El SEO orgánico a largo plazo (contenidos, backlinks, enlaces locales) es otro trabajo aparte, porque requiere meses de seguimiento y no se entrega con la web.",
+          a: "El SEO técnico sí: velocidad, meta tags, Schema.org, URLs limpias, hreflang entre idiomas. Y, dentro de la cuota mensual, vigilo tu ficha de Google Maps cada mes para que la competencia no te adelante. El SEO orgánico a largo plazo (contenidos, backlinks) es otro trabajo aparte porque requiere meses de seguimiento.",
         },
         {
-          q: "¿Qué diferencia hay entre una web de 500€ y una de 1.500€?",
-          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. A 1.500€ la web es tuya: diseño pensado para tu negocio, optimizada para móvil y Google, con detalles que marcan diferencia en la percepción de la marca y en la conversión.",
+          q: "¿Qué diferencia hay entre una web de 500€ y una con Renting Web?",
+          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. Con Renting Web tienes diseño hecho a mano para tu negocio, optimizada para móvil y Google, soporte real por WhatsApp y la tranquilidad de que cada mes hay alguien vigilando que sigas saliendo arriba. Los detalles marcan la diferencia en cómo te perciben tus clientes y en cuánto conviertes.",
         },
         {
           q: "¿Cuánto tarda el proyecto?",
-          a: "Entre 2 y 4 semanas de media, dependiendo de lo rápido que llegue el contenido (textos y fotos). Empezamos con una llamada para entender el negocio, yo preparo el diseño, lo revisas y, cuando te convence, paso a desarrollo. Al final hacemos una revisión juntos antes de publicar.",
+          a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida. Lo que más alarga el plazo suele ser esperar tus textos o fotos.",
         },
       ],
     },
@@ -1163,7 +1171,7 @@ Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu
 
 ## Lo que ofrece un freelance (como yo)
 
-- **Precio más bajo:** no pago alquiler de oficina ni salarios. 1.500€ IVA incluido para una web completa.
+- **Sin desembolso inicial:** en mi caso, Renting Web son 0€ al firmar y 149€/mes todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp). Donde una agencia te pide 2.500-5.000€ de golpe, aquí lo metes en la contabilidad como una cuota más.
 - **Comunicación directa:** hablas con quien hace el trabajo. Sin intermediarios ni "te pasamos con tu gestor".
 - **Flexibilidad:** proyectos adaptados, no paquetes cerrados.
 - **Implicación personal:** mi reputación depende de cada proyecto.
@@ -1198,7 +1206,7 @@ Mira: cartera, casos reales, reseñas, comunicación inicial. Ahí está la señ
 
 ## What a freelancer offers (like me)
 
-- **Lower price:** no office rent or salaries to pay. €1,500 VAT included for a complete website.
+- **No upfront cost:** in my case, Web Renting is €0 to sign and €149/month all-inclusive (design, hosting, domain, Google Maps, reviews and WhatsApp support). Where an agency asks for €2,500-5,000 upfront, here it goes in the books as another monthly subscription.
 - **Direct communication:** you talk to the person doing the work.
 - **Flexibility:** adapted projects, not closed packages.
 - **Personal stake:** my reputation depends on every project.
@@ -1233,7 +1241,7 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
 
 ## Freelance batek eskaintzen duena
 
-- **Prezio baxuagoa:** 1.500€ BEZ barne web oso batentzat.
+- **Hasierako kosturik gabe:** nire kasuan, Web Errentamendua 0€ sinatzean eta 149€/hil dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Agentziak 2.500-5.000€ batera eskatzen dituen lekuan, hemen beste hileko kuota bat besterik ez da.
 - **Komunikazio zuzena:** lana egiten duenarekin hitz egiten duzu.
 - **Malgutasuna:** moldatutako proiektuak.
 
