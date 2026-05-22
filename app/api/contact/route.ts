@@ -56,21 +56,47 @@ export async function POST(req: NextRequest) {
     }
 
     const to = "contacto@unaxaller.com";
-    const subject = `Nueva solicitud de información — ${name}`;
-    const text = [
-      `Nombre: ${name}`,
-      `Email: ${email}`,
-      `WhatsApp: ${phone}`,
-      countryCode ? `País: ${countryCode}` : null,
-      locale ? `Idioma: ${locale}` : null,
-    ]
-      .filter(Boolean)
-      .join("\n");
+    const subject = `Nuevo lead web — ${name}`;
+    const text = buildPlainBody({ name, email, phone, countryCode, locale });
+    const html = buildHtmlBody({ name, email, phone, countryCode, locale });
 
     const mailtoBody = encodeURIComponent(text);
     const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
 
-    // Send via Google Apps Script if configured
+    // Preferred path: Resend (free 3k/mo, sends from a verified domain so the
+    // visible sender is contacto@unaxaller.com, not a personal Gmail). Only
+    // requires a single env var RESEND_API_KEY + DNS verification of the
+    // domain inside resend.com.
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Web Unax Aller <contacto@unaxaller.com>",
+          to,
+          subject,
+          text,
+          html,
+          reply_to: email,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.text();
+        console.error("Resend error:", err);
+        return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+      }
+
+      return NextResponse.json({ ok: true });
+    }
+
+    // Fallback path: Google Apps Script webhook. Kept for backwards
+    // compatibility with the older setup. Mail goes out from the Gmail
+    // account that owns the Apps Script project.
     const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
     const scriptToken = process.env.GOOGLE_SCRIPT_TOKEN;
     if (scriptUrl) {
@@ -117,33 +143,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    // Send via Resend if RESEND_API_KEY is configured
-    const resendKey = process.env.RESEND_API_KEY;
-    if (resendKey) {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "contacto@unaxaller.com",
-          to,
-          subject,
-          text,
-          reply_to: email,
-        }),
-      });
-
-      if (!res.ok) {
-        const err = await res.text();
-        console.error("Resend error:", err);
-        return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
-      }
-
-      return NextResponse.json({ ok: true });
-    }
-
     if (process.env.NODE_ENV === "development") {
       console.log("[contact form]", { name, email, phone, countryCode, locale });
     }
@@ -152,4 +151,84 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
+}
+
+// ── Email body builders ───────────────────────────────────────────────────
+
+type Lead = {
+  name: string;
+  email: string;
+  phone: string;
+  countryCode?: string;
+  locale?: string;
+};
+
+function buildPlainBody(d: Lead): string {
+  const lines = [
+    "Nuevo lead recibido desde unaxaller.com",
+    "",
+    `Nombre:    ${d.name}`,
+    `Email:     ${d.email}`,
+    `WhatsApp:  ${d.phone}`,
+  ];
+  if (d.countryCode) lines.push(`País:      ${d.countryCode}`);
+  if (d.locale) lines.push(`Idioma:    ${d.locale}`);
+  lines.push("", `Responde a este correo y le llegará directamente a ${d.email}.`);
+  return lines.join("\n");
+}
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function buildHtmlBody(d: Lead): string {
+  // Self-contained HTML email. Inline styles only — Gmail strips <style>
+  // tags in <head>. Dark-mode safe via neutral colors that survive
+  // theme inversion.
+  const row = (label: string, value: string) =>
+    `<tr>
+       <td style="padding:8px 0;width:120px;color:#64748b;font-size:13px;vertical-align:top;">${label}</td>
+       <td style="padding:8px 0;color:#0f172a;font-weight:500;">${value}</td>
+     </tr>`;
+
+  const phoneDigits = d.phone.replace(/\D/g, "");
+  const rows = [
+    row("Nombre", escapeHtml(d.name)),
+    row(
+      "Email",
+      `<a href="mailto:${escapeHtml(d.email)}" style="color:#0369a1;text-decoration:none;">${escapeHtml(d.email)}</a>`
+    ),
+    row(
+      "WhatsApp",
+      `<a href="https://wa.me/${phoneDigits}" style="color:#16a34a;text-decoration:none;">${escapeHtml(d.phone)}</a>`
+    ),
+  ];
+  if (d.countryCode) rows.push(row("País", escapeHtml(d.countryCode)));
+  if (d.locale) rows.push(row("Idioma", escapeHtml(d.locale)));
+
+  return `<!doctype html><html><body style="margin:0;padding:0;background:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;padding:24px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
+      <tr><td style="padding:20px 24px;border-bottom:1px solid #e2e8f0;background:#0f172a;color:#fff;">
+        <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;">unaxaller.com</div>
+        <div style="font-size:20px;font-weight:700;margin-top:4px;">Nuevo lead recibido</div>
+      </td></tr>
+      <tr><td style="padding:24px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;line-height:1.5;">
+          ${rows.join("")}
+        </table>
+        <div style="margin-top:24px;padding:14px 16px;background:#f1f5f9;border-radius:8px;font-size:13px;color:#475569;">
+          Responde a este correo y le llegará directamente a <strong>${escapeHtml(d.email)}</strong>.
+        </div>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`;
 }
