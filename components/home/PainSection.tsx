@@ -72,7 +72,7 @@ export default function PainSection() {
         tl.to(
           row,
           {
-            opacity: isGood ? 1 : 0.7,
+            opacity: 1,
             y: 0,
             duration: isGood ? 0.85 : 0.6,
             ease: isGood ? "power4.out" : "power3.out",

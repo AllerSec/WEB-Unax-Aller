@@ -107,7 +107,7 @@ export default function Testimonials() {
                 &ldquo;
               </div>
 
-              <div className="testimonial-stars" aria-label="5 estrellas">
+              <div className="testimonial-stars" role="img" aria-label="5 estrellas">
                 {[...Array(5)].map((_, s) => (
                   <svg
                     key={s}

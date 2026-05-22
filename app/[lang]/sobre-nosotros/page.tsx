@@ -286,40 +286,40 @@ export default async function SobreNosotrosPage({ params }: Props) {
           <div className="timeline">
             {[
               {
-                year: "2009–2020",
+                year: "2007–2020",
                 title: locale === "es" ? "Educación en Francia" : locale === "en" ? "Education in France" : "Hezkuntza Frantzian",
                 desc: locale === "es"
-                  ? "Estudié toda mi vida en Francia hasta los 15 años. Francés bilingüe de verdad, no de academia. Eso se nota cuando hago webs para empresas que exportan."
+                  ? "Estudié desde 2007 hasta 2020 en Francia. Francés bilingüe de verdad, no de academia. Eso se nota cuando hago webs para empresas que exportan."
                   : locale === "en"
-                  ? "I studied my whole life in France until I was 15. Genuinely bilingual French, not from a class. That shows when I build websites for exporting companies."
-                  : "Nire bizitza osoa Frantzian ikasi nuen 15 urte bete arte. Frantses elebidun benetakoa. Hori nabaritzen da esportatzen duten enpresetarako webguneak egiten ditudanean.",
-              },
-              {
-                year: "2022",
-                title: "Erasmus",
-                desc: locale === "es"
-                  ? "Programa de intercambio internacional. Adaptarse a entornos nuevos rápido y sin miedo."
-                  : locale === "en"
-                  ? "International exchange program. Adapting to new environments fast and without fear."
-                  : "Nazioarteko truke programa. Ingurune berrietara azkar eta beldurrik gabe egokitzea.",
+                  ? "I studied in France from 2007 to 2020. Genuinely bilingual French, not from a class. That shows when I build websites for exporting companies."
+                  : "2007tik 2020ra Frantzian ikasi nuen. Frantses elebidun benetakoa. Hori nabaritzen da esportatzen duten enpresetarako webguneak egiten ditudanean.",
               },
               {
                 year: "2023",
-                title: locale === "es" ? "Trabajo en EEUU" : locale === "en" ? "Work in the USA" : "Lana AEBetan",
+                title: locale === "es" ? "Ingeniería Informática" : locale === "en" ? "Computer Engineering" : "Informatika Ingeniaritza",
                 desc: locale === "es"
-                  ? "Experiencia profesional en Estados Unidos. Inglés profesional en contexto real, no de examen."
+                  ? "Empecé la carrera de Ingeniería Informática en la UAX. Por el camino, intercambios internacionales y una temporada de trabajo en el extranjero — adaptarse a entornos nuevos rápido y sin miedo, en inglés real, no de examen."
                   : locale === "en"
-                  ? "Professional experience in the United States. Professional English in real context, not exam English."
-                  : "Esperientzia profesionala Estatu Batuetan. Ingelesa ingurune errealean landua, ez azterketa ingelesa.",
+                  ? "Started a Computer Engineering degree at UAX. Along the way, international exchanges and a stint working abroad — adapting to new environments fast and without fear, in real English, not exam English."
+                  : "Informatika Ingeniaritza karrera hasi nuen UAX-en. Bidean, nazioarteko trukeak eta atzerrian lan-tarte bat — ingurune berrietara azkar eta beldurrik gabe egokitzea, benetako ingelesez, ez azterketakoa.",
               },
               {
-                year: "2024–",
-                title: locale === "es" ? "Freelance en Irun" : locale === "en" ? "Freelance in Irun" : "Freelance Irunen",
+                year: "2024",
+                title: locale === "es" ? "Primer interés por la web" : locale === "en" ? "First interest in the web" : "Lehen interesa webean",
                 desc: locale === "es"
-                  ? "14+ proyectos entregados. Farmacia, motos, IA, óptica. 5 estrellas en Google. Trabajando mientras estudio Ingeniería Informática en la UAX."
+                  ? "Comencé a interesarme por el diseño y desarrollo web. Mucha práctica con proyectos personales, tipografía, SEO técnico y rendimiento."
                   : locale === "en"
-                  ? "14+ projects delivered. Pharmacy, motorbikes, AI, optics. 5 stars on Google. Working while studying Computer Engineering at UAX."
-                  : "14+ proiektu entregatuak. Farmazia, motozikleta, IA, optika. 5 izar Google-n. UAX-en Informatika Ingeniaritza ikasten ari naizen bitartean lan egiten.",
+                  ? "I started getting interested in web design and development. A lot of practice with personal projects, typography, technical SEO and performance."
+                  : "Web diseinuan eta garapenean interesatzen hasi nintzen. Praktika asko proiektu pertsonalekin, tipografia, SEO teknikoa eta errendimendua.",
+              },
+              {
+                year: "2026–",
+                title: locale === "es" ? "Webs profesionales" : locale === "en" ? "Professional websites" : "Web profesionalak",
+                desc: locale === "es"
+                  ? "Comencé a crear webs profesionalmente. Farmacia, motos, IA, óptica. 5 estrellas en Google. Trabajando para negocios del País Vasco y Navarra mientras sigo con Ingeniería Informática."
+                  : locale === "en"
+                  ? "Started building websites professionally. Pharmacy, motorbikes, AI, optics. 5 stars on Google. Working for businesses in the Basque Country and Navarre while continuing my Computer Engineering studies."
+                  : "Webguneak profesionalki egiten hasi nintzen. Farmazia, motozikletak, IA, optika. 5 izar Google-n. Euskal Herriko eta Nafarroako negozioentzat lan egiten Informatika Ingeniaritza ikasten jarraitzen dudan bitartean.",
               },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>

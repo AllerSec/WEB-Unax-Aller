@@ -248,6 +248,8 @@ export default function Navbar({ locale }: Props) {
                 width={602}
                 height={359}
                 priority
+                fetchPriority="high"
+                sizes="(max-width: 640px) 140px, 180px"
                 className="nav-logo-img"
               />
             </Link>
@@ -281,14 +283,16 @@ export default function Navbar({ locale }: Props) {
                   }}
                   aria-expanded={langOpen}
                   aria-haspopup="listbox"
-                  aria-label="Cambiar idioma"
                   data-open={langOpen ? "true" : "false"}
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                   </svg>
-                  <span>{locale.toUpperCase()}</span>
+                  <span className="sr-only">
+                    {locale === "es" ? "Idioma: " : locale === "en" ? "Language: " : "Hizkuntza: "}
+                  </span>
+                  <span aria-hidden="true">{locale.toUpperCase()}</span>
                   <svg
                     width="12"
                     height="12"

@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/lib/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import PageLoader from "@/components/layout/PageLoader";
 import WhatsAppFloat from "@/components/shared/WhatsAppFloat";
 
 type Props = {
@@ -30,12 +29,11 @@ export default async function LangLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Script id="ua-lang-sync" strategy="beforeInteractive">
-        {`document.documentElement.lang="${locale}";try{if(sessionStorage.getItem("ua-visited"))document.documentElement.classList.add("ua-loader-skip")}catch(e){}`}
+        {`document.documentElement.lang="${locale}"`}
       </Script>
       <a href="#main-content" className="skip-link focusable">
         {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : "Edukira joan"}
       </a>
-      <PageLoader />
       <Navbar locale={locale} />
       <main id="main-content" className="flex-1">{children}</main>
       <Footer locale={locale} />

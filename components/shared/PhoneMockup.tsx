@@ -199,7 +199,7 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
                 <span className="pm-maps-pin" aria-hidden="true" />
               </div>
               <div className="pm-maps-detail">
-                <h4 className="pm-maps-name">{labels.businessName}</h4>
+                <p className="pm-maps-name">{labels.businessName}</p>
                 <div className="pm-maps-meta">
                   <span className="pm-maps-stars">★ {labels.rating}</span>
                   <span>· {labels.reviews}</span>

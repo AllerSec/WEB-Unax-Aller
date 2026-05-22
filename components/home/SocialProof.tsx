@@ -184,7 +184,6 @@ export default function SocialProof() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-proof-client-chip focusable"
-                aria-label={`${client.name} — ${client.sector}`}
               >
                 <span className="social-proof-client-name">{client.name}</span>
                 <span className="social-proof-client-sector">{client.sector}</span>

@@ -111,13 +111,13 @@ export default function SectorMarquee({ locale }: Props) {
           to   { transform:translateX(-50%); }
         }
       `}</style>
-      <div className="sm-wrap" aria-label={locale === "es" ? "Sectores con los que trabajo" : locale === "en" ? "Sectors I work with" : "Lan egiten dudan sektoreak"}>
+      <section className="sm-wrap" aria-label={locale === "es" ? "Sectores con los que trabajo" : locale === "en" ? "Sectors I work with" : "Lan egiten dudan sektoreak"}>
         <div className="sm-track" aria-hidden="true">
           {doubled.map((s, i) => (
             <span key={i} className="sm-chip">{s}</span>
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 }

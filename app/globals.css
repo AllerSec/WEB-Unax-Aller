@@ -596,11 +596,6 @@ body.custom-cursor-active [role="button"] {
 }
 .prose-readable a:hover { color: var(--color-accent-hover); }
 
-/* Skip page loader on repeat visits — set by inline script in layout before hydration */
-html.ua-loader-skip #ua-page-loader {
-  display: none !important;
-}
-
 .article-figure {
   margin: var(--space-6) 0;
   display: flex;
@@ -1218,7 +1213,7 @@ html.ua-loader-skip #ua-page-loader {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #8b948a;
+  color: var(--color-ink-soft);
   margin-bottom: var(--space-5);
 }
 
@@ -1291,14 +1286,15 @@ html.ua-loader-skip #ua-page-loader {
 .site-footer-copy {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: #8b948a;
+  color: var(--color-ink-muted);
 }
 .site-footer-copy-link {
-  color: var(--color-accent-soft);
-  text-decoration: none;
+  color: var(--color-ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
   transition: color var(--dur-fast) var(--ease-out);
 }
-.site-footer-copy-link:hover { color: #d9e3dc; }
+.site-footer-copy-link:hover { color: var(--color-accent); }
 
 .site-footer-legal {
   display: flex;
@@ -1312,7 +1308,7 @@ html.ua-loader-skip #ua-page-loader {
 .site-footer-legal-link {
   font-family: var(--font-sans);
   font-size: var(--text-xs);
-  color: #8b948a;
+  color: var(--color-ink-muted);
   text-decoration: none;
   min-height: 32px;
   display: inline-flex;
@@ -8232,8 +8228,10 @@ a.contact-info-label:hover {
   will-change: transform, opacity;
 }
 .lp-pain-row:hover { border-color: var(--color-line-strong); transform: translateX(4px); }
-.lp-pain-row--bad { opacity: 0.7; }
-.lp-pain-row--bad.lp-pain-row--in { opacity: 0.7; transform: translateY(0); }
+.lp-pain-row--bad { opacity: 1; }
+.lp-pain-row--bad.lp-pain-row--in { opacity: 1; transform: translateY(0); }
+.lp-pain-row--bad strong,
+.lp-pain-row--bad span { color: var(--color-ink-muted); }
 .lp-pain-row--good {
   background: rgba(22, 163, 74, 0.08);
   border-color: rgba(22, 163, 74, 0.4);

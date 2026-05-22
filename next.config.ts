@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Root → /es as 308 (permanent). Replaces the 307 that next-intl
+      // middleware would otherwise emit, removes the audit penalty and
+      // lets browsers cache the redirect.
+      { source: "/", destination: "/es", permanent: true },
       // Legacy paths without locale prefix → canonical ES version
       { source: "/sobre-nosotros", destination: "/es/sobre-nosotros", permanent: true },
       { source: "/disenador-web-pasaia", destination: "/es/disenador-web-pasaia", permanent: true },

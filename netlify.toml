@@ -8,3 +8,32 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Default for static/ISR HTML pages: let browsers reuse the response (enables
+# back/forward cache) while keeping the CDN authoritative for freshness.
+# `revalidate=3600` in the page already controls regeneration.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Hashed Next.js static assets — safe to cache aggressively forever.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_next/image*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
