@@ -9,14 +9,16 @@
  * DEPLOYMENT (one-time):
  *   1. script.google.com → New project, paste this file as Code.gs.
  *   2. Project Settings → Script Properties, add:
- *        TOKEN        = a random string shared with Vercel (GOOGLE_SCRIPT_TOKEN)
+ *        TOKEN        = a random string shared with the host (GOOGLE_SCRIPT_TOKEN env var)
  *        TO_EMAIL     = contacto@unaxaller.com  (where the lead arrives)
  *        FROM_NAME    = Web Unax Aller          (sender's display name)
  *        SHEET_ID     = (optional) Spreadsheet ID to log every submission
  *   3. Deploy → New deployment → Web app
  *        Execute as: Me (unaxprgr@gmail.com)
  *        Who has access: Anyone
- *      Copy the resulting /exec URL into Vercel as GOOGLE_SCRIPT_URL.
+ *      Copy the resulting /exec URL into your host's environment variables
+ *      as GOOGLE_SCRIPT_URL (Netlify → Site configuration → Environment
+ *      variables, or whatever your hosting provider calls them).
  *   4. (Optional) Visit /exec?ping=1 in a browser. You should see
  *      {"ok":true,"service":"contact-webhook","version":"2"} — that
  *      confirms the deployment is live without sending any email.
@@ -26,7 +28,7 @@
  *
  * SECURITY:
  *   - Shared-secret token in Script Properties; rotated by editing the
- *     property + the matching Vercel env var (no code change needed).
+ *     property + the matching host env var (no code change needed).
  *   - Honeypot field `hp`: if filled, we 200-OK silently without sending.
  *   - Per-IP throttling lives in the Next.js route, not here.
  *   - Server-side email validation as a second line of defence.
