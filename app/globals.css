@@ -953,12 +953,22 @@ html.ua-loader-skip #ua-page-loader {
   display: none;
   gap: 0.45rem;
   height: 36px;
+  /* Override .btn's min-height:44px so the CTA matches the 36px nav-link
+     and nav-lang-btn rhythm. Without this, it sits 8px taller and
+     reads as misaligned. */
+  min-height: 0;
   padding-block: 0;
+  padding-inline: 0.875rem;
   font-size: 0.875rem;
   border-radius: var(--radius-md);
 }
 .nav-cta svg {
   transition: transform .25s var(--ease-out);
+}
+/* Suppress the inherited translateY(-1px) lift from .btn-primary:hover —
+   it pops the CTA out of the navbar's baseline. Keep only the icon nudge. */
+.nav-cta:hover {
+  transform: none;
 }
 .nav-cta:hover svg { transform: translateX(3px); }
 @media (min-width: 1024px) {
