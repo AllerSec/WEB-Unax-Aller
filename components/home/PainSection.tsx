@@ -1,19 +1,67 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLocale } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 type Row = { bad: boolean; who: string; detail: string };
 
-const ROWS: Row[] = [
-  { bad: true, who: "Agencia local", detail: "2.500–5.000€ inicial · cambios siempre aparte · pagas y rezas" },
-  { bad: true, who: "Wix / Squarespace", detail: "Lenta · plantilla genérica · te quedas sin web si dejas de pagar" },
-  { bad: true, who: "Sin web (sólo Google Maps)", detail: "Ficha sin optimizar · sin reseñas · te ven, pero no te llaman" },
-  { bad: false, who: "Renting Web · Unax", detail: "0€ inicial · 149€/mes todo incluido · cambios al WhatsApp" },
-];
+const ROWS_BY_LOCALE: Record<"es" | "en" | "eu", Row[]> = {
+  es: [
+    { bad: true, who: "Agencia local", detail: "2.500–5.000€ inicial · cambios siempre aparte · pagas y rezas" },
+    { bad: true, who: "Wix / Squarespace", detail: "Lenta · plantilla genérica · te quedas sin web si dejas de pagar" },
+    { bad: true, who: "Sin web (sólo Google Maps)", detail: "Ficha sin optimizar · sin reseñas · te ven, pero no te llaman" },
+    { bad: false, who: "Renting Web · Unax", detail: "0€ inicial · 149€/mes todo incluido · cambios al WhatsApp" },
+  ],
+  en: [
+    { bad: true, who: "Local agency", detail: "€2,500–5,000 upfront · changes always extra · pay and pray" },
+    { bad: true, who: "Wix / Squarespace", detail: "Slow · generic template · lose your site if you stop paying" },
+    { bad: true, who: "No website (Google Maps only)", detail: "Listing not optimized · no reviews · they see you but don't call" },
+    { bad: false, who: "Renting Web · Unax", detail: "€0 upfront · €149/month all-in · changes by WhatsApp" },
+  ],
+  eu: [
+    { bad: true, who: "Tokiko agentzia", detail: "2.500–5.000€ hasieran · aldaketak beti aparte · ordaindu eta otoitz egin" },
+    { bad: true, who: "Wix / Squarespace", detail: "Geldoa · txantiloi generikoa · webgunea galtzen duzu ordaintzeari uzten badiozu" },
+    { bad: true, who: "Webgunerik ez (Google Maps soilik)", detail: "Fitxa optimizatu gabe · iritzirik ez · ikusten zaituzte baina ez dizute deitzen" },
+    { bad: false, who: "Renting Web · Unax", detail: "0€ hasieran · 149€/hilean dena barne · aldaketak WhatsApp-etik" },
+  ],
+};
+
+const COPY = {
+  es: {
+    eyebrow: "El problema real",
+    titleA: "Tu competencia en",
+    titleHighlight1: "tu ciudad",
+    titleB: "te está quitando",
+    titleHighlight2: "40 llamadas al mes",
+    titleC: "Y la mayoría ni siquiera lo sabe.",
+    body: "Quien sale primero en Google Maps cuando alguien busca «clínica dental en Bilbao», «asesoría en Donostia» o «proveedor industrial en Pamplona», se lleva el cliente. El resto se queda esperando el boca a boca. Yo te monto la ficha de Google, la web y el sistema de reseñas para que el primero seas tú.",
+  },
+  en: {
+    eyebrow: "The real problem",
+    titleA: "Your competitors in",
+    titleHighlight1: "your city",
+    titleB: "are taking",
+    titleHighlight2: "40 calls a month",
+    titleC: "from you. And most don't even know it.",
+    body: "Whoever shows up first on Google Maps when someone searches \"dentist in Bilbao\", \"accountant in Donostia\" or \"industrial supplier in Pamplona\" gets the client. The rest wait for word of mouth. I set up your Google listing, your website and your review system so that the first one is you.",
+  },
+  eu: {
+    eyebrow: "Egiazko arazoa",
+    titleA: "Zure",
+    titleHighlight1: "hiriko",
+    titleB: "lehiakideak hilean",
+    titleHighlight2: "40 dei",
+    titleC: "kentzen ari zaizkizu. Eta gehienek ez dakite.",
+    body: "Norbaitek «hortz-klinika Bilbon», «aholkularitza Donostian» edo «hornitzaile industriala Iruñean» bilatzen duenean, Google Mapsen lehenengo agertzen denak eramaten du bezeroa. Gainerakoek aho-belarrizko publizitatearen zain geratzen dira. Nik prestatzen dizut Google-ko fitxa, webgunea eta iritzi sistema zu lehena izan zaitezen.",
+  },
+} as const;
 
 export default function PainSection() {
+  const locale = (useLocale() as "es" | "en" | "eu") ?? "es";
+  const copy = COPY[locale];
+  const rows = ROWS_BY_LOCALE[locale];
   const rootRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -104,22 +152,17 @@ export default function PainSection() {
     <section ref={rootRef} className="lp-pain" aria-labelledby="lp-pain-title">
       <div className="container-xl lp-pain-inner">
         <div className="lp-pain-text">
-          <span className="lp-eyebrow">El problema real</span>
+          <span className="lp-eyebrow">{copy.eyebrow}</span>
           <h2 id="lp-pain-title" className="lp-section-title">
-            Tu competencia en <span className="lp-pain-highlight">tu ciudad</span> te está quitando{" "}
-            <span className="lp-pain-highlight">40 llamadas al mes</span>.
+            {copy.titleA} <span className="lp-pain-highlight">{copy.titleHighlight1}</span> {copy.titleB}{" "}
+            <span className="lp-pain-highlight">{copy.titleHighlight2}</span>.
             <br />
-            Y la mayoría ni siquiera lo sabe.
+            {copy.titleC}
           </h2>
-          <p className="lp-body">
-            Quien sale primero en Google Maps cuando alguien busca «clínica dental en Bilbao»,
-            «asesoría en Donostia» o «proveedor industrial en Pamplona», se lleva el cliente.
-            El resto se queda esperando el boca a boca. Yo te monto la ficha de Google,
-            la web y el sistema de reseñas para que el primero seas tú.
-          </p>
+          <p className="lp-body">{copy.body}</p>
         </div>
         <div className="lp-pain-comparison">
-          {ROWS.map((row) => (
+          {rows.map((row) => (
             <div
               key={row.who}
               className={`lp-pain-row${row.bad ? " lp-pain-row--bad" : " lp-pain-row--good"}`}

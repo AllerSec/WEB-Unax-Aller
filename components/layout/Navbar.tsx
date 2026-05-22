@@ -254,7 +254,10 @@ export default function Navbar({ locale }: Props) {
               />
             </Link>
 
-            <nav className="nav-links" aria-label="Navegación principal">
+            <nav
+              className="nav-links"
+              aria-label={locale === "es" ? "Navegación principal" : locale === "en" ? "Main navigation" : "Nabigazio nagusia"}
+            >
               {navLinks.map((link) => {
                 const active = isActive(link.href);
                 return (
@@ -354,7 +357,11 @@ export default function Navbar({ locale }: Props) {
                 }}
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
-                aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+                aria-label={
+                  menuOpen
+                    ? locale === "es" ? "Cerrar menú" : locale === "en" ? "Close menu" : "Itxi menua"
+                    : locale === "es" ? "Abrir menú" : locale === "en" ? "Open menu" : "Ireki menua"
+                }
                 data-open={menuOpen ? "true" : "false"}
               >
                 <span className="nav-burger-line" />
@@ -373,7 +380,10 @@ export default function Navbar({ locale }: Props) {
           aria-hidden={!menuOpen}
         >
           <div className="nav-mobile-inner">
-            <nav className="container-xl nav-mobile-list" aria-label="Menú móvil">
+            <nav
+              className="container-xl nav-mobile-list"
+              aria-label={locale === "es" ? "Menú móvil" : locale === "en" ? "Mobile menu" : "Mugikorreko menua"}
+            >
               {navLinks.map((link) => {
                 const active = isActive(link.href);
                 return (

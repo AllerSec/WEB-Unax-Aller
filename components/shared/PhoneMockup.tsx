@@ -147,7 +147,15 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
         .pm-maps-btn--secondary { background:var(--color-bg-muted); color:var(--color-ink); border:1px solid var(--color-line); }
       `}</style>
 
-      <div className="pm-frame" role="img" aria-label={variant === "site" ? "Mockup de móvil con tu web" : "Mockup de Google Maps con tu negocio"}>
+      <div
+        className="pm-frame"
+        role="img"
+        aria-label={
+          variant === "site"
+            ? locale === "es" ? "Mockup de móvil con tu web" : locale === "en" ? "Mobile mockup with your website" : "Mugikorreko mockupa zure webarekin"
+            : locale === "es" ? "Mockup de Google Maps con tu negocio" : locale === "en" ? "Google Maps mockup with your business" : "Google Maps mockupa zure negozioarekin"
+        }
+      >
         <div className="pm-notch" aria-hidden="true" />
         <div className="pm-screen">
           {variant === "site" ? (

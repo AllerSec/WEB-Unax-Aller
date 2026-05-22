@@ -64,7 +64,7 @@ const labels: Record<Locale, {
     clients: "Plan honekin egindako proiektuak",
     cta: "Plan hau eskatu",
     close: "Itxi",
-    from: "Desde",
+    from: "Hasieratik",
     visitSite: "Webgunea ikusi",
   },
 };

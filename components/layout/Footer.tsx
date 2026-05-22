@@ -95,7 +95,10 @@ export default function Footer({ locale }: Props) {
     locale === "es" ? "Diseñador web " : locale === "en" ? "Web designer " : "Web diseinatzailea ";
 
   return (
-    <footer className="site-footer" aria-label="Pie de página">
+    <footer
+      className="site-footer"
+      aria-label={locale === "es" ? "Pie de página" : locale === "en" ? "Footer" : "Orri-oina"}
+    >
       <div className="container-xl site-footer-inner">
         <div className="site-footer-grid">
           <div className="site-footer-brand">
@@ -170,7 +173,9 @@ export default function Footer({ locale }: Props) {
           </div>
 
           <div>
-            <h2 className="site-footer-heading">Contacto</h2>
+            <h2 className="site-footer-heading">
+              {locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua"}
+            </h2>
             <div className="site-footer-list">
               <a href="mailto:contacto@unaxaller.com" className="site-footer-link site-footer-link-icon focusable">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -195,7 +200,11 @@ export default function Footer({ locale }: Props) {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                País Vasco, España
+                {locale === "es"
+                  ? "País Vasco, España"
+                  : locale === "en"
+                  ? "Basque Country, Spain"
+                  : "Euskal Herria, Espainia"}
               </div>
             </div>
           </div>

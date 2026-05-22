@@ -21,7 +21,7 @@ export interface Gallery4Item {
 // mount the <video> element. Pauses + unloads when the slot scrolls
 // out so we don't decode 3 H.264 streams in parallel — which was the
 // source of the desktop hitching the user reported.
-function PhonePreview({ item }: { item: Gallery4Item }) {
+function PhonePreview({ item, locale }: { item: Gallery4Item; locale: string }) {
   const slotRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [shouldMountVideo, setShouldMountVideo] = useState(false);
@@ -73,12 +73,12 @@ function PhonePreview({ item }: { item: Gallery4Item }) {
           muted
           playsInline
           preload="none"
-          aria-label={`Vídeo móvil de ${item.title}`}
+          aria-label={`${locale === "es" ? "Vídeo móvil de" : locale === "en" ? "Mobile video of" : "Mugikorreko bideoa:"} ${item.title}`}
         />
       ) : (
         <Image
           src={item.mobileImage}
-          alt={`Captura móvil de ${item.title}`}
+          alt={`${locale === "es" ? "Captura móvil de" : locale === "en" ? "Mobile screenshot of" : "Mugikorreko pantaila-argazkia:"} ${item.title}`}
           width={390}
           height={820}
           className="g4-phone-img"
@@ -101,7 +101,10 @@ const Gallery4 = ({
   title = "Proyectos realizados",
   description = "Webs reales para negocios reales del País Vasco y Navarra. Cada proyecto a medida, entregado en 1–2 semanas.",
   items,
+  locale = "es",
 }: Gallery4Props) => {
+  const t = (es: string, en: string, eu: string) =>
+    locale === "es" ? es : locale === "en" ? en : eu;
   const trackRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
   const [canPrev, setCanPrev] = useState(false);
@@ -140,16 +143,16 @@ const Gallery4 = ({
       <div className="container-xl">
         <div className="g4-header">
           <div className="g4-header-text">
-            <span className="lp-eyebrow">Proyectos reales</span>
+            <span className="lp-eyebrow">{t("Proyectos reales", "Real projects", "Benetako proiektuak")}</span>
             <h2 id="g4-title" className="g4-title">{title}</h2>
             <p className="g4-description">{description}</p>
           </div>
-          <div className="g4-nav-desktop" aria-label="Controles del carrusel">
+          <div className="g4-nav-desktop" aria-label={t("Controles del carrusel", "Carousel controls", "Karruselaren kontrolak")}>
             <button
               onClick={scrollPrev}
               disabled={!canPrev}
               className="g4-nav-btn"
-              aria-label="Proyecto anterior"
+              aria-label={t("Proyecto anterior", "Previous project", "Aurreko proiektua")}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
@@ -157,7 +160,7 @@ const Gallery4 = ({
               onClick={scrollNext}
               disabled={!canNext}
               className="g4-nav-btn"
-              aria-label="Proyecto siguiente"
+              aria-label={t("Proyecto siguiente", "Next project", "Hurrengo proiektua")}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
@@ -178,9 +181,9 @@ const Gallery4 = ({
               style={{ scrollSnapAlign: "start", flexShrink: 0 }}
             >
               <div className="g4-card group">
-                <Link href={item.href} className="g4-phone-link" aria-label={`Ver caso de estudio: ${item.title}`}>
+                <Link href={item.href} className="g4-phone-link" aria-label={`${t("Ver caso de estudio:", "View case study:", "Ikusi kasua:")} ${item.title}`}>
                   <div className="g4-phone-frame">
-                    <PhonePreview item={item} />
+                    <PhonePreview item={item} locale={locale} />
                     <div
                       className="g4-phone-overlay"
                       style={{ background: `linear-gradient(to top, ${item.accent}3c 0%, ${item.accent}15 40%, transparent 70%)` }}
@@ -194,7 +197,7 @@ const Gallery4 = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="g4-visit-badge"
-                  aria-label={`Visitar ${item.externalUrl}`}
+                  aria-label={`${t("Visitar", "Visit", "Bisitatu")} ${item.externalUrl}`}
                 >
                   ↗
                 </a>
@@ -204,7 +207,7 @@ const Gallery4 = ({
                   <h3 className="g4-name">{item.title}</h3>
                   <p className="g4-desc">{item.description}</p>
                   <span className="g4-cta">
-                    Ver caso
+                    {t("Ver caso", "View case", "Ikusi kasua")}
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="g4-cta-arrow" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
                   </span>
                 </Link>
@@ -214,13 +217,13 @@ const Gallery4 = ({
         </div>
       </div>
 
-      <div className="g4-dots" role="tablist" aria-label="Navegación de proyectos">
+      <div className="g4-dots" role="tablist" aria-label={t("Navegación de proyectos", "Project navigation", "Proiektuen nabigazioa")}>
         {items.map((item, index) => (
           <button
             key={index}
             role="tab"
             aria-selected={current === index}
-            aria-label={`Ir a ${item.title}`}
+            aria-label={`${t("Ir a", "Go to", "Joan")} ${item.title}`}
             className={`g4-dot${current === index ? " g4-dot--active" : ""}`}
             onClick={() => scrollTo(index)}
           />
