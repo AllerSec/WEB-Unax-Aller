@@ -954,21 +954,20 @@ body.custom-cursor-active [role="button"] {
   display: none;
   align-items: center;
   justify-content: center;
-  align-self: center;
   gap: 0.45rem;
   height: 40px;
   min-height: 0;
-  padding-block: 0;
-  padding-inline: 1.1rem;
+  padding: 0 1.1rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: var(--radius-md);
-  vertical-align: middle;
 }
 .nav-cta > span {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   line-height: 1;
+  /* Lexend's em box sits slightly above optical center; nudge down so the
+     glyphs align with the icon and surrounding nav links. */
+  transform: translateY(1px);
 }
 .nav-cta svg {
   display: block;
