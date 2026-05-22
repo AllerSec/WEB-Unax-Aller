@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import type { Locale } from "@/lib/i18n/config";
+
+gsap.registerPlugin(useGSAP);
 
 type Props = { locale: Locale };
 
@@ -117,9 +120,11 @@ export default function ContactForm({ locale }: Props) {
       if (res.ok && data.success) {
         setStatus("success");
       } else {
+        console.error("Web3Forms response:", res.status, data);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Contact form submit failed:", err);
       setStatus("error");
     }
   };
@@ -335,58 +340,52 @@ function SuccessState({ locale, message }: { locale: Locale; message: string }) 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const messageRef = useRef<HTMLParagraphElement>(null);
 
-  useEffect(() => {
-    const root = rootRef.current;
-    const icon = iconRef.current;
-    const check = checkRef.current;
-    const title = titleRef.current;
-    const msg = messageRef.current;
-    if (!root || !icon || !check || !title || !msg) return;
+  useGSAP(
+    () => {
+      const icon = iconRef.current;
+      const check = checkRef.current;
+      const title = titleRef.current;
+      const msg = messageRef.current;
+      if (!icon || !check || !title || !msg) return;
 
-    const length = check.getTotalLength();
+      const length = check.getTotalLength();
+      const reduce =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const mm = gsap.matchMedia();
-    mm.add(
-      { reduceMotion: "(prefers-reduced-motion: reduce)" },
-      (ctx) => {
-        const reduce = ctx.conditions?.reduceMotion;
+      // Final visible state — applied for reduced-motion users and as the
+      // animation end state for everyone else. Without this, the elements
+      // would stay invisible if GSAP failed to run.
+      if (reduce) {
+        gsap.set(check, { strokeDasharray: length, strokeDashoffset: 0 });
+        gsap.set([icon, title, msg], { autoAlpha: 1, y: 0, scale: 1 });
+        return;
+      }
 
-        gsap.set(check, {
-          strokeDasharray: length,
-          strokeDashoffset: reduce ? 0 : length,
-        });
-        gsap.set([icon, title, msg], { autoAlpha: 0 });
-        gsap.set(icon, { scale: reduce ? 1 : 0, transformOrigin: "50% 50%" });
-        gsap.set([title, msg], { y: reduce ? 0 : 12 });
+      gsap.set(check, { strokeDasharray: length, strokeDashoffset: length });
+      gsap.set(icon, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" });
+      gsap.set([title, msg], { autoAlpha: 0, y: 12 });
 
-        if (reduce) {
-          gsap.set([icon, title, msg], { autoAlpha: 1 });
-          return;
-        }
-
-        const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-        tl.to(icon, {
-          autoAlpha: 1,
-          scale: 1,
-          duration: 0.55,
-          ease: "back.out(2)",
-        })
-          .to(
-            check,
-            { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" },
-            "-=0.15"
-          )
-          .to(
-            [title, msg],
-            { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.08 },
-            "-=0.25"
-          );
-      },
-      root
-    );
-
-    return () => mm.revert();
-  }, []);
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      tl.to(icon, {
+        autoAlpha: 1,
+        scale: 1,
+        duration: 0.55,
+        ease: "back.out(2)",
+      })
+        .to(
+          check,
+          { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" },
+          "-=0.15"
+        )
+        .to(
+          [title, msg],
+          { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.08 },
+          "-=0.25"
+        );
+    },
+    { scope: rootRef }
+  );
 
   return (
     <div ref={rootRef} className="contact-success" role="status" aria-live="polite">
