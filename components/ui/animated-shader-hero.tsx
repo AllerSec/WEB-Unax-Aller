@@ -92,7 +92,14 @@ function useShaderCanvas() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const gl = canvas.getContext("webgl2");
+
+    // Respect reduced-motion: skip the WebGL pipeline entirely. The static
+    // gradient veil already covers the canvas so the hero looks fine without
+    // animation, and we save ~28 noise samples per pixel per frame.
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    const gl = canvas.getContext("webgl2", { antialias: false, powerPreference: "low-power" });
     if (!gl) return;
 
     const compile = (type: number, src: string) => {
@@ -121,27 +128,70 @@ function useShaderCanvas() {
     const uRes = gl.getUniformLocation(prog, "resolution");
     const uTime = gl.getUniformLocation(prog, "time");
 
+    // Render at half resolution. The shader is heavy (5-octave fbm × 12-iter
+    // sparkle loop ≈ 28 noise samples per pixel) so going from 1.5× DPR to
+    // 0.75× DPR drops fragment work by ~4×. The canvas is CSS-stretched back
+    // to full size, which on a soft cloudy shader is visually indistinguishable.
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio, 1.5);
-      canvas.width  = window.innerWidth  * dpr;
-      canvas.height = window.innerHeight * dpr;
+      const dpr = 0.75;
+      canvas.width  = Math.floor(window.innerWidth  * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
     resize();
     window.addEventListener("resize", resize);
 
-    const loop = (now: number) => {
-      gl.useProgram(prog);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.uniform1f(uTime, now * 1e-3);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    // Only run the RAF loop while the hero is on-screen AND the tab is
+    // visible. Off-screen / background tabs would otherwise keep the GPU
+    // busy and starve other rendering work (= page-wide stutter).
+    let inView = true;
+    let tabVisible = !document.hidden;
+    let running = false;
+
+    const start = () => {
+      if (running) return;
+      running = true;
+      const loop = (now: number) => {
+        if (!running) return;
+        gl.useProgram(prog);
+        gl.uniform2f(uRes, canvas.width, canvas.height);
+        gl.uniform1f(uTime, now * 1e-3);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        rafRef.current = requestAnimationFrame(loop);
+      };
       rafRef.current = requestAnimationFrame(loop);
     };
-    rafRef.current = requestAnimationFrame(loop);
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(rafRef.current);
+    };
+    const evaluate = () => {
+      if (inView && tabVisible) start();
+      else stop();
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        inView = entries[0]?.isIntersecting ?? false;
+        evaluate();
+      },
+      { threshold: 0 }
+    );
+    io.observe(canvas);
+
+    const onVisibility = () => {
+      tabVisible = !document.hidden;
+      evaluate();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    evaluate();
 
     return () => {
       window.removeEventListener("resize", resize);
-      cancelAnimationFrame(rafRef.current);
+      document.removeEventListener("visibilitychange", onVisibility);
+      io.disconnect();
+      stop();
       gl.deleteProgram(prog);
     };
   }, []);
