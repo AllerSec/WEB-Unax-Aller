@@ -83,31 +83,62 @@ export async function POST(req: NextRequest) {
         locale,
         ip,
       });
+
+      // Apps Script Web Apps respond to a doPost with a 302 redirect to
+      // script.googleusercontent.com — and that second hop MUST be a GET.
+      // Undici (Node fetch) honors that on `redirect: "follow"` for 303 but
+      // can mis-handle 302+POST inside serverless runtimes, surfacing as a
+      // Google 411 "Length Required" error. So we drive the two hops by
+      // hand: POST without following, read the Location header, then GET.
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
-      let scriptRes!: Response;
+      let scriptData: { ok?: boolean; error?: string } = {};
+      let finalStatus = 0;
       try {
-        scriptRes = await fetch(scriptUrl, {
+        const postRes = await fetch(scriptUrl, {
           signal: controller.signal,
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Content-Length": Buffer.byteLength(scriptBody).toString(),
-          },
+          headers: { "Content-Type": "application/json" },
           body: scriptBody,
-          redirect: "follow",
+          redirect: "manual",
         });
+
+        // 302 with a Location header → follow as GET. Anything else
+        // (200, error, no redirect at all) is treated as the final response.
+        if (postRes.status === 302 || postRes.status === 301) {
+          const location = postRes.headers.get("location");
+          if (!location) {
+            throw new Error("Apps Script redirect missing Location header");
+          }
+          const getRes = await fetch(location, {
+            signal: controller.signal,
+            method: "GET",
+            redirect: "follow",
+          });
+          finalStatus = getRes.status;
+          try {
+            scriptData = await getRes.json();
+          } catch {
+            // Apps Script always returns JSON on success; if we can't parse
+            // it the call failed somewhere.
+          }
+        } else {
+          finalStatus = postRes.status;
+          try {
+            scriptData = await postRes.json();
+          } catch {
+            // non-JSON response
+          }
+        }
       } finally {
         clearTimeout(timeoutId);
       }
-      let scriptData: { ok?: boolean } = {};
-      try {
-        scriptData = await scriptRes.json();
-      } catch {
-        // non-JSON response
-      }
-      if (!scriptRes.ok || !scriptData.ok) {
-        console.error("Google Script error:", scriptRes.status);
+
+      if (finalStatus < 200 || finalStatus >= 300 || !scriptData.ok) {
+        console.error("Google Script error:", {
+          status: finalStatus,
+          response: scriptData,
+        });
         return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
       }
       return NextResponse.json({ ok: true });
