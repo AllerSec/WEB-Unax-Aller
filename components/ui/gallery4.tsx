@@ -183,7 +183,7 @@ const Gallery4 = ({
                     <PhonePreview item={item} />
                     <div
                       className="g4-phone-overlay"
-                      style={{ background: `linear-gradient(to top, ${item.accent}77 0%, ${item.accent}2b 40%, transparent 70%)` }}
+                      style={{ background: `linear-gradient(to top, ${item.accent}3c 0%, ${item.accent}15 40%, transparent 70%)` }}
                       aria-hidden="true"
                     />
                   </div>
