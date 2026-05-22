@@ -301,8 +301,9 @@ body.custom-cursor-active [role="button"] {
   box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover {
-  background: #ffffff;
-  border-color: #ffffff;
+  background: var(--color-ink-soft);
+  border-color: var(--color-ink-soft);
+  color: var(--color-bg);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
