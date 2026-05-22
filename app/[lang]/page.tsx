@@ -14,7 +14,8 @@ import GoogleMapsMock from "@/components/shared/GoogleMapsMock";
 import PhoneMockup from "@/components/shared/PhoneMockup";
 import LiveCallCounter from "@/components/shared/LiveCallCounter";
 import SectorMarquee from "@/components/shared/SectorMarquee";
-import { Gallery4, type Gallery4Item } from "@/components/ui/gallery4";
+import { Gallery4 } from "@/components/ui/gallery4";
+import { HOME_COPY } from "@/lib/i18n/home-copy";
 
 // Cache the rendered HTML on the CDN for 1h. Content changes ship via
 // new deploys (which bust the cache), so an hourly fallback is plenty.
@@ -189,6 +190,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
 export default async function HomePage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
+  const copy = HOME_COPY[locale];
 
   return (
     <>
@@ -201,18 +203,12 @@ export default async function HomePage({ params }: Props) {
 
       {/* ── 1. HERO con shader animado ── */}
       <AnimatedShaderHero
-        trustBadge={{
-          text: "0€ al firmar · 30 días de garantía · 149€/mes durante 12 meses",
-          icons: ["✓"],
-        }}
-        headline={{
-          line1: "Más llamadas para",
-          line2: "tu negocio local",
-        }}
-        subtitle="Tu web profesional, tu ficha de Google Maps y un sistema de reseñas — todo incluido por 149€ al mes. No pagas nada al firmar. 30 días para probarlo y devolverlo sin preguntas. Pensado para clínicas, despachos profesionales, industria B2B y comercio especializado en Gipuzkoa, Bizkaia y Navarra."
+        trustBadge={{ text: copy.hero.trustBadge, icons: ["✓"] }}
+        headline={{ line1: copy.hero.headlineLine1, line2: copy.hero.headlineLine2 }}
+        subtitle={copy.hero.subtitle}
         buttons={{
-          primary: { text: "Pedir auditoría gratis", href: `/${locale}/contacto` },
-          secondary: { text: "Ver cómo funciona", href: `/${locale}/precios` },
+          primary: { text: copy.hero.primaryCta, href: `/${locale}/contacto` },
+          secondary: { text: copy.hero.secondaryCta, href: `/${locale}/precios` },
         }}
       />
 
@@ -224,24 +220,21 @@ export default async function HomePage({ params }: Props) {
 
       {/* ── 3b. VISUAL DE GOOGLE MAPS + MÓVIL — el bombazo visual del modelo ── */}
       <AnimatedSection>
-        <section className="lp-mockups" aria-label="Cómo se ve el resultado">
+        <section className="lp-mockups" aria-label={copy.mockups.ariaLabel}>
           <div className="container-xl">
             <div className="lp-mockups-grid">
               <div className="lp-mockups-text">
-                <span className="lp-eyebrow">Cómo se ve el resultado</span>
+                <span className="lp-eyebrow">{copy.mockups.eyebrow}</span>
                 <h2 className="lp-section-title">
-                  Tu negocio, <span style={{ color: "var(--color-accent)" }}>el primero</span> cuando alguien busca tu servicio en tu ciudad.
+                  {copy.mockups.titleA}
+                  <span style={{ color: "var(--color-accent)" }}>{copy.mockups.titleHighlight}</span>
+                  {copy.mockups.titleB}
                 </h2>
-                <p className="lp-body">
-                  Cuando un paciente busca «dentista en tu ciudad» desde el móvil,
-                  Google le enseña tres resultados con foto, valoración y botón
-                  de llamada directa. El que sale primero recibe la llamada;
-                  los otros dos esperan al siguiente intento.
-                </p>
+                <p className="lp-body">{copy.mockups.body}</p>
                 <ul className="lp-mockups-list">
-                  <li><span aria-hidden="true">✓</span> Ficha de Google Business Profile bien configurada</li>
-                  <li><span aria-hidden="true">✓</span> Web rápida, móvil-first, con botón de llamada visible</li>
-                  <li><span aria-hidden="true">✓</span> Sistema de reseñas activo para mantenerte arriba</li>
+                  {copy.mockups.bullets.map((b) => (
+                    <li key={b}><span aria-hidden="true">✓</span> {b}</li>
+                  ))}
                 </ul>
               </div>
               <div className="lp-mockups-visuals">
@@ -267,24 +260,21 @@ export default async function HomePage({ params }: Props) {
             <div className="lp-founder-photo">
               <Image
                 src="/images/founder-unax.webp"
-                alt="Unax Aller, especialista en webs para negocio local en País Vasco y Navarra"
+                alt={copy.founder.imageAlt}
                 width={400}
                 height={400}
                 sizes="(max-width: 768px) 260px, 400px"
               />
             </div>
             <div className="lp-founder-content">
-              <span className="lp-eyebrow">Quién está detrás</span>
+              <span className="lp-eyebrow">{copy.founder.eyebrow}</span>
               <h2 id="lp-founder-title" className="lp-founder-title">
-                Hola, soy Unax.
+                {copy.founder.title}
               </h2>
               <p className="lp-body">
-                Trabajo desde Irun para negocios del País Vasco y Navarra: clínicas,
-                despachos profesionales, pequeña industria y comercio con ticket alto.
-                Cuando llamas, me coges directamente al teléfono. Cuando necesitas un cambio,
-                me escribes al WhatsApp. Por eso puedo permitirme firmar contigo
-                <strong> sin pedirte ni un euro al empezar y dándote 30 días para devolver</strong>:
-                porque me juego mi nombre con cada negocio que entra.
+                {copy.founder.bodyA}
+                <strong>{copy.founder.bodyStrong}</strong>
+                {copy.founder.bodyB}
               </p>
               <ul className="lp-founder-facts">
                 <li>
@@ -292,13 +282,13 @@ export default async function HomePage({ params }: Props) {
                     <path d="M20 10c0 7-8 12-8 12s-8-5-8-12a8 8 0 0 1 16 0Z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
-                  <span>Irun, Gipuzkoa</span>
+                  <span>{copy.founder.location}</span>
                 </li>
                 <li>
                   <svg className="lp-fact-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
                   </svg>
-                  <span>WhatsApp directo: 620 90 99 16</span>
+                  <span>{copy.founder.whatsapp}</span>
                 </li>
                 <li>
                   <svg className="lp-fact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -309,17 +299,17 @@ export default async function HomePage({ params }: Props) {
                     <path d="m22 22-5-10-5 10" />
                     <path d="M14 18h6" />
                   </svg>
-                  <span>ES · EU · EN · FR</span>
+                  <span>{copy.founder.languages}</span>
                 </li>
                 <li>
                   <svg className="lp-fact-icon lp-fact-icon--star" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
-                  <span>5 estrellas en Google · 14+ negocios atendidos</span>
+                  <span>{copy.founder.reviews}</span>
                 </li>
               </ul>
               <Link href={`/${locale}/sobre-nosotros`} className="lp-link">
-                Conóceme mejor
+                {copy.founder.link}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -331,7 +321,7 @@ export default async function HomePage({ params }: Props) {
 
       {/* ── 4b. COUNTERS — resultados medibles del primer trimestre ── */}
       <AnimatedSection>
-        <section className="lp-counters" aria-label="Resultados medibles">
+        <section className="lp-counters" aria-label={copy.counters.ariaLabel}>
           <div className="container-xl">
             <LiveCallCounter locale={locale} />
           </div>
@@ -343,24 +333,17 @@ export default async function HomePage({ params }: Props) {
         <div className="container-xl">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">Cómo funciona</span>
+              <span className="lp-eyebrow">{copy.process.eyebrow}</span>
               <h2 id="lp-process-title" className="lp-section-title lp-section-title--center">
-                De cero a más llamadas en 7–10 días
+                {copy.process.title}
               </h2>
               <p className="lp-body lp-body--center">
-                Sin papeleo inicial. Sin reuniones infinitas. Pago la primera cuota y empezamos.
+                {copy.process.subtitle}
               </p>
             </div>
           </AnimatedSection>
           <div className="lp-steps">
-            {([
-              { n: "01", title: "Te paso una propuesta", desc: "Antes de firmar nada, te paso una propuesta para que veas cómo quedaría tu web: estructura, diseño y enfoque. Si no te convence, ahí se queda y no me debes un euro." },
-              { n: "02", title: "Cerramos sin desembolso", desc: "Contrato a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota de 149€ no se cobra hasta que tu web esté publicada." },
-              { n: "03", title: "Diseño que validas tú", desc: "Tipografía, colores y maquetas reales. Te paso avances por WhatsApp y vamos ajustando hasta que te guste de verdad." },
-              { n: "04", title: "Tu web, programada a mano", desc: "Sin plantillas y sin WordPress. Rápida en móvil, Lighthouse 95+, ficha de Google Maps y sistema de reseñas listos para captar clientes." },
-              { n: "05", title: "Online en 7–10 días", desc: "Subimos la web, configuramos dominio, Search Console y Analytics. Te enseño el tráfico real las primeras semanas para que veas lo que entra." },
-              { n: "06", title: "Cambios por WhatsApp", desc: "Textos, fotos, precios, horarios, un servicio nuevo… me escribes y lo hago yo. Sin formularios, sin tickets, sin facturas extra." },
-            ] as { n: string; title: string; desc: string }[]).map((step, i) => (
+            {copy.process.steps.map((step, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="lp-step">
                   <span className="lp-step-number" aria-hidden="true">{step.n}</span>
@@ -380,85 +363,53 @@ export default async function HomePage({ params }: Props) {
         <div className="container-xl">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">Para quién</span>
+              <span className="lp-eyebrow">{copy.services.eyebrow}</span>
               <h2 id="lp-services-title" className="lp-section-title lp-section-title--center">
-                Pensado para negocios profesionales del País Vasco y Navarra
+                {copy.services.title}
               </h2>
             </div>
           </AnimatedSection>
           <div className="lp-services-grid">
-            {([
-              {
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
-                  </svg>
-                ),
-                title: "Salud y bienestar",
-                desc: "Ópticas, farmacias, clínicas dentales, fisio, podología, estética, peluquerías, veterinarias. Negocios donde el cliente compara antes de entrar y la confianza lo es todo.",
-                tags: ["Reseñas", "Cita previa", "Confianza"],
-              },
-              {
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M3 9h18l-1.5 10.5a2 2 0 0 1-2 1.5h-11a2 2 0 0 1-2-1.5L3 9Z" />
-                    <path d="M8 9V6a4 4 0 0 1 8 0v3" />
-                  </svg>
-                ),
-                title: "Comercio local",
-                desc: "Tiendas de barrio, moda, joyería, decoración, alimentación, librerías, floristerías, papelerías. Tu escaparate digital cuando la tienda está cerrada.",
-                tags: ["Catálogo", "SEO local", "WhatsApp"],
-              },
-              {
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
-                  </svg>
-                ),
-                title: "Automoción y oficios",
-                desc: "Talleres mecánicos, neumáticos, chapa y pintura, fontaneros, electricistas, reformas, cerrajeros, climatización, jardinería. Quien necesita ayuda urgente llama al primero que le inspira confianza.",
-                tags: ["Llamada directa", "Urgencias", "Presupuesto"],
-              },
-              {
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                  </svg>
-                ),
-                title: "Servicios profesionales",
-                desc: "Asesorías, gestorías, abogados, despachos, consultorías, ingenierías, arquitectos, academias, autoescuelas. Servicios con ticket alto donde el cliente compara online antes de llamar.",
-                tags: ["Autoridad", "Áreas", "Leads"],
-              },
-              {
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M2 20h20" />
-                    <path d="M4 20V10l5 4V10l5 4V6l5 4v10" />
-                  </svg>
-                ),
-                title: "Industria y B2B local",
-                desc: "Pequeñas industrias de polígono, talleres de fabricación, proveedores B2B, distribución, almacenes. Capacidad técnica, certificaciones visibles y cotización seria.",
-                tags: ["Catálogo", "Multiidioma", "Cotización"],
-              },
-            ] as { icon: React.ReactNode; title: string; desc: string; tags: string[] }[]).map((s, i) => (
-              <AnimatedSection key={i} delay={i * 0.08}>
-                <div className="lp-service-card">
-                  <span className="lp-service-icon">{s.icon}</span>
-                  <h3 className="lp-service-title">{s.title}</h3>
-                  <p className="lp-service-desc">{s.desc}</p>
-                  <div className="lp-service-tags">
-                    {s.tags.map((tag) => (
-                      <span key={tag} className="lp-tag">{tag}</span>
-                    ))}
+            {[
+              <svg key="i0" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+              </svg>,
+              <svg key="i1" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 9h18l-1.5 10.5a2 2 0 0 1-2 1.5h-11a2 2 0 0 1-2-1.5L3 9Z" />
+                <path d="M8 9V6a4 4 0 0 1 8 0v3" />
+              </svg>,
+              <svg key="i2" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
+              </svg>,
+              <svg key="i3" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>,
+              <svg key="i4" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M2 20h20" />
+                <path d="M4 20V10l5 4V10l5 4V6l5 4v10" />
+              </svg>,
+            ].map((icon, i) => {
+              const s = copy.services.cards[i];
+              return (
+                <AnimatedSection key={i} delay={i * 0.08}>
+                  <div className="lp-service-card">
+                    <span className="lp-service-icon">{icon}</span>
+                    <h3 className="lp-service-title">{s.title}</h3>
+                    <p className="lp-service-desc">{s.desc}</p>
+                    <div className="lp-service-tags">
+                      {s.tags.map((tag) => (
+                        <span key={tag} className="lp-tag">{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </AnimatedSection>
-            ))}
+                </AnimatedSection>
+              );
+            })}
           </div>
           <AnimatedSection className="lp-services-cta">
             <Link href={`/${locale}/servicios`} className="lp-link">
-              Ver todos los servicios
+              {copy.services.seeAll}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
@@ -471,72 +422,18 @@ export default async function HomePage({ params }: Props) {
       <AnimatedSection>
         <Gallery4
           locale={locale}
-          title="Negocios reales que ya tienen su web"
-          description="Farmacia en Bera, taller de motos en Irun, óptica en Irun, agencia en Donostia. Negocios que llaman, escriben y atienden mejor desde que tienen su sistema online montado."
-          items={[
-            {
-              id: "farmacia-fernandez-bera",
-              title: "Farmacia Fernández Bera",
-              description: "Web clara e intuitiva para una farmacia de pueblo. SEO local optimizado para Bera y comarca.",
-              href: `/${locale}/proyectos/farmacia-fernandez-bera`,
-              externalUrl: "https://farmaciafernandezbera.com",
-              mobileImage: "/images/projects/mobile-farmacia-fernandez-bera.jpg",
-              accent: "#c79a3a",
-              meta: "Farmacia · Bera, Navarra · 2026",
-            },
-            {
-              id: "motos-arretxe",
-              title: "Motos Arretxe",
-              description: "Concesionario y taller de motos en Irun. Catálogo, cita previa y SEO local.",
-              href: `/${locale}/proyectos/motos-arretxe`,
-              externalUrl: "https://motosarretxe.com",
-              mobileImage: "/images/projects/mobile-motos-arretxe.jpg",
-              mobileVideo: "/video/motos-arretxe.mp4",
-              accent: "#dc2626",
-              meta: "Motos · Irun · 2026",
-            },
-            {
-              id: "anaka-optica",
-              title: "Anaka Óptica",
-              description: "Web editorial para una óptica con personalidad. Galería de monturas y cita online.",
-              href: `/${locale}/proyectos/anaka-optica`,
-              externalUrl: "https://anakaoptica.com",
-              mobileImage: "/images/projects/mobile-anaka-optica.jpg",
-              accent: "#f97316",
-              meta: "Óptica · Irun · 2026",
-            },
-            {
-              id: "virtuosolve",
-              title: "VirtuoSolve",
-              description: "Agencia de IA con web orientada a captación B2B. Micro-animaciones y SEO técnico.",
-              href: `/${locale}/proyectos/virtuosolve`,
-              externalUrl: "https://virtuosolve.com",
-              mobileImage: "/images/projects/mobile-virtuosolve.jpg",
-              mobileVideo: "/video/virtuosolve.mp4",
-              accent: "#3b82f6",
-              meta: "IA · Irun · 2026",
-            },
-            {
-              id: "tecmac",
-              title: "Tecmac",
-              description: "Ingeniería y servicios auxiliares de laminación para industrias siderúrgicas. Web técnica con más de 30 años de trayectoria.",
-              href: `/${locale}/proyectos/tecmac`,
-              externalUrl: "https://tecmac.es",
-              mobileImage: "/images/projects/mobile-tecmac.jpg",
-              mobileVideo: "/video/tecmac.mp4",
-              accent: "#ef4444",
-              meta: "Industrial · Navarra · 2026",
-            },
-          ] satisfies Gallery4Item[]}
+          title={copy.gallery.title}
+          description={copy.gallery.description}
+          items={copy.gallery.items(locale)}
         />
       </AnimatedSection>
 
       {/* ── 8. PRECIOS ── */}
-      <section id="precios" aria-label="Precios">
+      <section id="precios" aria-label={copy.pricing.ariaLabel}>
         <div className="container-xl">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">Precio transparente</span>
+              <span className="lp-eyebrow">{copy.pricing.eyebrow}</span>
             </div>
           </AnimatedSection>
         </div>
@@ -554,39 +451,14 @@ export default async function HomePage({ params }: Props) {
         <div className="container-xl lp-faq-inner">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">Tus dudas</span>
+              <span className="lp-eyebrow">{copy.faq.eyebrow}</span>
               <h2 id="lp-faq-title" className="lp-section-title lp-section-title--center">
-                Preguntas frecuentes
+                {copy.faq.title}
               </h2>
             </div>
           </AnimatedSection>
           <div className="lp-faq-grid">
-            {([
-              {
-                q: "¿Por qué Renting Web y no pagar la web de una vez?",
-                a: "Porque la mayoría de negocios locales no se pueden permitir 2.000€ de golpe, pero sí pagan 149€/mes sin problema. Es una cuota fija como la del gestor, el seguro o el teléfono. Y la web empieza a traer llamadas desde el primer día.",
-              },
-              {
-                q: "¿De verdad no pago nada al firmar?",
-                a: "Sí. 0€ al firmar. La primera cuota de 149€ se cobra cuando la web está lista, entre 7 y 10 días después. Si en los primeros 30 días no estás conforme, te devuelvo lo pagado y aquí no ha pasado nada.",
-              },
-              {
-                q: "¿Qué pasa al terminar los 12 meses?",
-                a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados; si después subo precios para nuevos clientes, a ti no te afecta. Si quieres irte, solo avisar: el dominio te lo llevas a tu nombre y la ficha de Google Maps con tus reseñas también es tuya. Lo que se apaga es la web, porque va sobre mi sistema — como el software del taller o tu tarifa de móvil: pagas cuota, tienes servicio.",
-              },
-              {
-                q: "¿Necesito saber algo de internet?",
-                a: "Nada. Tú me cuentas qué haces, a quién quieres atraer y cómo. Yo me encargo del resto: dominio, hosting, Google Maps, reseñas. Cuando necesites un cambio, me escribes al WhatsApp.",
-              },
-              {
-                q: "¿Funciona si mi sector es muy local (un pueblo pequeño)?",
-                a: "Sí, y de hecho funciona mejor. En pueblos y comarcas pequeñas la competencia digital es muy floja: con una ficha de Google bien optimizada y unas pocas reseñas ya sales el primero.",
-              },
-              {
-                q: "¿Cómo sé que de verdad va a traer clientes?",
-                a: "Antes de firmar te hago una auditoría gratis: te enseño qué competidores tuyos están saliendo primero en tu zona, por qué, y cuántas llamadas estiman que reciben. Con datos, no con palabrería.",
-              },
-            ] as { q: string; a: string }[]).map((item, i) => (
+            {copy.faq.items.map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.04}>
                 <details className="lp-faq-item">
                   <summary className="lp-faq-summary">
@@ -614,7 +486,7 @@ export default async function HomePage({ params }: Props) {
 
       {/* ── 11. CTA FINAL — máxima urgencia, mínima fricción ── */}
       <AnimatedSection>
-        <section className="lp-cta-final" aria-label="Contacto final" id="contacto">
+        <section className="lp-cta-final" aria-label={copy.finalCta.ariaLabel} id="contacto">
           <div className="container-xl lp-cta-final-inner">
             <div className="lp-cta-final-badge">
               <svg
@@ -630,25 +502,19 @@ export default async function HomePage({ params }: Props) {
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />
               </svg>
-              Auditoría gratis · Sin firmar nada
+              {copy.finalCta.badge}
             </div>
-            <h2 className="lp-cta-final-title">
-              ¿Cuántas llamadas estás perdiendo?
-            </h2>
-            <p className="lp-cta-final-sub">
-              Te enseño en 30 minutos qué competidores tuyos en tu pueblo o ciudad
-              están saliendo primero en Google y por qué. Sin compromiso, sin firmar
-              nada — y si quieres después arrancamos con 0€ al firmar.
-            </p>
+            <h2 className="lp-cta-final-title">{copy.finalCta.title}</h2>
+            <p className="lp-cta-final-sub">{copy.finalCta.sub}</p>
             <div className="lp-cta-final-actions">
               <Link href={`/${locale}/contacto`} className="lp-cta-final-btn-primary">
-                Pedir auditoría gratis
+                {copy.finalCta.primaryCta}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
               <a
-                href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20el%20Renting%20Web%20de%20149%E2%82%AC%2Fmes%20para%20mi%20negocio"
+                href={`https://wa.me/34620909916?text=${encodeURIComponent(copy.finalCta.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lp-cta-final-btn-whatsapp"
@@ -656,12 +522,10 @@ export default async function HomePage({ params }: Props) {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
-                WhatsApp directo
+                {copy.finalCta.whatsappCta}
               </a>
             </div>
-            <p className="lp-cta-final-reassurance">
-              0€ al firmar · 30 días de garantía · 12 meses con cuota bloqueada · Hablas siempre conmigo
-            </p>
+            <p className="lp-cta-final-reassurance">{copy.finalCta.reassurance}</p>
           </div>
         </section>
       </AnimatedSection>

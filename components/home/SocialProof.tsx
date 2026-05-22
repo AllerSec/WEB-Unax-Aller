@@ -1,19 +1,33 @@
 "use client";
 
 import { useRef } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const CLIENTS = [
-  { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmacia · Bera" },
-  { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Irun" },
-  { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optica · Irun" },
-  { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "IA · Irun" },
-];
+const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu", { name: string; url: string; sector: string }[]> = {
+  es: [
+    { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmacia · Bera" },
+    { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Irun" },
+    { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Óptica · Irun" },
+    { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "IA · Irun" },
+  ],
+  en: [
+    { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Pharmacy · Bera" },
+    { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motorbikes · Irun" },
+    { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optician · Irun" },
+    { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "AI · Irun" },
+  ],
+  eu: [
+    { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmazia · Bera" },
+    { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motorrak · Irun" },
+    { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optika · Irun" },
+    { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "AA · Irun" },
+  ],
+};
 
 interface StatProps {
   value: string;
@@ -46,6 +60,8 @@ function StatCard({ value, label }: StatProps) {
 
 export default function SocialProof() {
   const t = useTranslations("socialProof");
+  const locale = (useLocale() as "es" | "en" | "eu") ?? "es";
+  const clients = CLIENTS_BY_LOCALE[locale];
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
 
@@ -177,7 +193,7 @@ export default function SocialProof() {
         <div className="social-proof-clients">
           <p className="social-proof-clients-label">{t("clientsLabel")}</p>
           <div className="social-proof-clients-row">
-            {CLIENTS.map((client) => (
+            {clients.map((client) => (
               <a
                 key={client.name}
                 href={client.url}
