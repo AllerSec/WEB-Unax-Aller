@@ -956,10 +956,10 @@ body.custom-cursor-active [role="button"] {
   justify-content: center;
   align-self: center;
   gap: 0.45rem;
-  height: 40px;
+  height: 36px;
   min-height: 0;
   padding-block: 0;
-  padding-inline: 1.1rem;
+  padding-inline: 1rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: var(--radius-md);
@@ -977,11 +977,10 @@ body.custom-cursor-active [role="button"] {
 @media (min-width: 1024px) {
   .nav-cta { display: inline-flex; }
 }
-/* When the navbar collapses on scroll the bar shrinks from 4.5rem → 4rem;
-   shrink the CTA in lock-step so it stays optically centered instead of
-   appearing to "rise" toward the top edge. */
+/* When the navbar collapses on scroll the bar shrinks; nudge the CTA to
+   stay in sync. */
 .nav-root[data-scrolled="true"] .nav-cta {
-  height: 36px;
+  height: 32px;
 }
 
 /* Burger button (mobile) */
