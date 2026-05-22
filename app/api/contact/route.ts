@@ -63,40 +63,10 @@ export async function POST(req: NextRequest) {
     const mailtoBody = encodeURIComponent(text);
     const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
 
-    // Preferred path: Resend (free 3k/mo, sends from a verified domain so the
-    // visible sender is contacto@unaxaller.com, not a personal Gmail). Only
-    // requires a single env var RESEND_API_KEY + DNS verification of the
-    // domain inside resend.com.
-    const resendKey = process.env.RESEND_API_KEY;
-    if (resendKey) {
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "Web Unax Aller <contacto@unaxaller.com>",
-          to,
-          subject,
-          text,
-          html,
-          reply_to: email,
-        }),
-      });
-
-      if (!res.ok) {
-        const err = await res.text();
-        console.error("Resend error:", err);
-        return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
-      }
-
-      return NextResponse.json({ ok: true });
-    }
-
-    // Fallback path: Google Apps Script webhook. Kept for backwards
-    // compatibility with the older setup. Mail goes out from the Gmail
-    // account that owns the Apps Script project.
+    // Primary path: Google Apps Script webhook. The script owns its own
+    // HTML email template (scripts/contact-webhook.gs), so we just forward
+    // the raw fields and the token; it does the rendering and the actual
+    // MailApp.sendEmail() call.
     const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
     const scriptToken = process.env.GOOGLE_SCRIPT_TOKEN;
     if (scriptUrl) {
@@ -140,6 +110,36 @@ export async function POST(req: NextRequest) {
         console.error("Google Script error:", scriptRes.status);
         return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
       }
+      return NextResponse.json({ ok: true });
+    }
+
+    // Optional fallback: Resend. Only used if no GOOGLE_SCRIPT_URL is
+    // configured. Renders the same HTML body locally because Resend
+    // doesn't have access to the Apps Script template.
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Web Unax Aller <contacto@unaxaller.com>",
+          to,
+          subject,
+          text,
+          html,
+          reply_to: email,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.text();
+        console.error("Resend error:", err);
+        return NextResponse.json({ error: "Email delivery failed" }, { status: 502 });
+      }
+
       return NextResponse.json({ ok: true });
     }
 
