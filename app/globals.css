@@ -965,7 +965,14 @@ body.custom-cursor-active [role="button"] {
   border-radius: var(--radius-md);
   vertical-align: middle;
 }
+.nav-cta > span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
 .nav-cta svg {
+  display: block;
+  flex-shrink: 0;
   transition: transform .25s var(--ease-out);
 }
 /* Suppress the inherited translateY(-1px) lift from .btn-primary:hover —
