@@ -954,24 +954,18 @@ body.custom-cursor-active [role="button"] {
   display: none;
   align-items: center;
   justify-content: center;
+  align-self: center;
   gap: 0.45rem;
   height: 40px;
   min-height: 0;
-  padding: 0 1.1rem;
+  padding-block: 0;
+  padding-inline: 1.1rem;
   font-size: 0.875rem;
   line-height: 1;
   border-radius: var(--radius-md);
-}
-.nav-cta > span {
-  display: inline-block;
-  line-height: 1;
-  /* Lexend's em box sits slightly above optical center; nudge down so the
-     glyphs align with the icon and surrounding nav links. */
-  transform: translateY(1px);
+  vertical-align: middle;
 }
 .nav-cta svg {
-  display: block;
-  flex-shrink: 0;
   transition: transform .25s var(--ease-out);
 }
 /* Suppress the inherited translateY(-1px) lift from .btn-primary:hover —
@@ -982,6 +976,12 @@ body.custom-cursor-active [role="button"] {
 .nav-cta:hover svg { transform: translateX(3px); }
 @media (min-width: 1024px) {
   .nav-cta { display: inline-flex; }
+}
+/* When the navbar collapses on scroll the bar shrinks from 4.5rem → 4rem;
+   shrink the CTA in lock-step so it stays optically centered instead of
+   appearing to "rise" toward the top edge. */
+.nav-root[data-scrolled="true"] .nav-cta {
+  height: 36px;
 }
 
 /* Burger button (mobile) */
