@@ -8492,7 +8492,7 @@ a.contact-info-label:hover {
   transition: transform 400ms var(--ease-out);
 }
 .g4-card:hover .g4-phone-img,
-.g4-phone-link:hover .g4-phone-img { transform: scale(1.04); }
+.g4-phone-link:hover .g4-phone-img { transform: scale(1.015); }
 
 /* gradient overlay */
 .g4-phone-overlay {
