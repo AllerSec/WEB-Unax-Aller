@@ -66,15 +66,15 @@ export default function Navbar({ locale }: Props) {
             const tl = gsap.timeline({
               defaults: { ease: "power3.out", duration: 0.55 },
             });
-            tl.from(logo, { autoAlpha: 0, y: -8, duration: 0.5 })
+            tl.from(logo, { autoAlpha: 0, y: -8, duration: 0.5, clearProps: "transform" })
               .from(
                 links,
-                { autoAlpha: 0, y: -10, stagger: 0.06 },
+                { autoAlpha: 0, y: -10, stagger: 0.06, clearProps: "transform" },
                 "<0.1"
               )
               .from(
                 actions,
-                { autoAlpha: 0, y: -8, stagger: 0.05 },
+                { autoAlpha: 0, y: -8, stagger: 0.05, clearProps: "transform" },
                 "<0.05"
               );
           }
