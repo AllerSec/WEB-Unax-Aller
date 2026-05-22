@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,6 +14,80 @@ export interface Gallery4Item {
   mobileVideo?: string;
   accent: string;
   meta: string;
+}
+
+// Lazy phone preview: shows the poster image until the slot is BOTH
+// in the viewport AND the user prefers motion. Only then does it
+// mount the <video> element. Pauses + unloads when the slot scrolls
+// out so we don't decode 3 H.264 streams in parallel — which was the
+// source of the desktop hitching the user reported.
+function PhonePreview({ item }: { item: Gallery4Item }) {
+  const slotRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [shouldMountVideo, setShouldMountVideo] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const reducedMotion = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
+
+  useEffect(() => {
+    if (!item.mobileVideo || reducedMotion) return;
+    const el = slotRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        const visible = entry.isIntersecting && entry.intersectionRatio > 0.5;
+        setIsVisible(visible);
+        if (visible) setShouldMountVideo(true);
+      },
+      { threshold: [0, 0.5, 1] }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [item.mobileVideo, reducedMotion]);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (isVisible) {
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [isVisible, shouldMountVideo]);
+
+  return (
+    <div ref={slotRef} className="g4-phone-screen">
+      {item.mobileVideo && shouldMountVideo && !reducedMotion ? (
+        <video
+          ref={videoRef}
+          src={item.mobileVideo}
+          poster={item.mobileImage}
+          className="g4-phone-img"
+          loop
+          muted
+          playsInline
+          preload="none"
+          aria-label={`Vídeo móvil de ${item.title}`}
+        />
+      ) : (
+        <Image
+          src={item.mobileImage}
+          alt={`Captura móvil de ${item.title}`}
+          width={390}
+          height={820}
+          className="g4-phone-img"
+          sizes="280px"
+          priority={false}
+        />
+      )}
+    </div>
+  );
 }
 
 export interface Gallery4Props {
@@ -106,31 +180,7 @@ const Gallery4 = ({
               <div className="g4-card group">
                 <Link href={item.href} className="g4-phone-link" aria-label={`Ver caso de estudio: ${item.title}`}>
                   <div className="g4-phone-frame">
-                    <div className="g4-phone-screen">
-                      {item.mobileVideo ? (
-                        <video
-                          src={item.mobileVideo}
-                          poster={item.mobileImage}
-                          className="g4-phone-img"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="metadata"
-                          aria-label={`Vídeo móvil de ${item.title}`}
-                        />
-                      ) : (
-                        <Image
-                          src={item.mobileImage}
-                          alt={`Captura móvil de ${item.title}`}
-                          width={390}
-                          height={820}
-                          className="g4-phone-img"
-                          sizes="280px"
-                          priority={false}
-                        />
-                      )}
-                    </div>
+                    <PhonePreview item={item} />
                     <div
                       className="g4-phone-overlay"
                       style={{ background: `linear-gradient(to top, ${item.accent}77 0%, ${item.accent}2b 40%, transparent 70%)` }}
