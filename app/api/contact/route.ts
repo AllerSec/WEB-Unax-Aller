@@ -32,7 +32,14 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const { name, email, phone, countryCode, locale } = body;
+    const { name, email, phone, countryCode, locale, hp } = body;
+
+    // Honeypot: real form fields hp stays empty. Spambots that scrape the
+    // DOM will fill every field they find. Accept silently so the bot
+    // thinks it worked and stops retrying.
+    if (typeof hp === "string" && hp.trim().length > 0) {
+      return NextResponse.json({ ok: true });
+    }
 
     if (!name || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -78,6 +85,7 @@ export async function POST(req: NextRequest) {
         phone,
         countryCode,
         locale,
+        ip,
       });
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
