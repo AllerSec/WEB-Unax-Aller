@@ -354,13 +354,12 @@ export default async function HomePage({ params }: Props) {
           </AnimatedSection>
           <div className="lp-steps">
             {([
-              { n: "01", title: "Miro tu zona contigo", desc: "Antes de nada te enseño qué competidores tuyos están saliendo primero en Google Maps en tu zona y por qué. Es gratis y no tienes que firmar nada." },
-              { n: "02", title: "Hablamos 30 minutos", desc: "Por teléfono o por videollamada. Me cuentas tu negocio, de dónde te llegan ahora los clientes y a quién quieres atraer." },
-              { n: "03", title: "Si encaja, lo cerramos", desc: "Contrato simple a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota no se pasa hasta que tu web esté publicada." },
-              { n: "04", title: "Te enseño el diseño", desc: "Logo, colores y cómo se va a ver la web. Te paso los avances por WhatsApp y vamos ajustando hasta que te guste." },
-              { n: "05", title: "Monto la web", desc: "Programo todo desde cero, sin plantillas. Va rápida en el móvil, te dejo lista la ficha de Google Maps y un sistema para pedir reseñas a tus clientes." },
-              { n: "06", title: "La ponemos en marcha", desc: "Entre 7 y 10 días desde que cerramos. Subimos la web, configuramos dominio, Google Search Console y Analytics, y te enseño cómo va el tráfico las primeras semanas." },
-              { n: "07", title: "Después, tú me escribes", desc: "Cambios de texto, fotos, precios, horarios o añadir un servicio… me mandas un WhatsApp y lo hago yo. Sin formularios ni tickets." },
+              { n: "01", title: "Te paso una propuesta", desc: "Antes de firmar nada, te paso una propuesta para que veas cómo quedaría tu web: estructura, diseño y enfoque. Si no te convence, ahí se queda y no me debes un euro." },
+              { n: "02", title: "Cerramos sin desembolso", desc: "Contrato a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota de 149€ no se cobra hasta que tu web esté publicada." },
+              { n: "03", title: "Diseño que validas tú", desc: "Tipografía, colores y maquetas reales. Te paso avances por WhatsApp y vamos ajustando hasta que te guste de verdad." },
+              { n: "04", title: "Tu web, programada a mano", desc: "Sin plantillas y sin WordPress. Rápida en móvil, Lighthouse 95+, ficha de Google Maps y sistema de reseñas listos para captar clientes." },
+              { n: "05", title: "Online en 7–10 días", desc: "Subimos la web, configuramos dominio, Search Console y Analytics. Te enseño el tráfico real las primeras semanas para que veas lo que entra." },
+              { n: "06", title: "Cambios por WhatsApp", desc: "Textos, fotos, precios, horarios, un servicio nuevo… me escribes y lo hago yo. Sin formularios, sin tickets, sin facturas extra." },
             ] as { n: string; title: string; desc: string }[]).map((step, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="lp-step">
@@ -392,12 +391,33 @@ export default async function HomePage({ params }: Props) {
               {
                 icon: (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M12 5.5c-1.5-1-3-1.5-4.5-1.5C5 4 3 6 3 9c0 2 .5 3.5 1.5 6 .8 2 1.2 4.5 2.5 4.5 1.2 0 1.5-1.5 2-3 .3-1 .8-1.5 2-1.5h2c1.2 0 1.7.5 2 1.5.5 1.5.8 3 2 3 1.3 0 1.7-2.5 2.5-4.5 1-2.5 1.5-4 1.5-6 0-3-2-5-4.5-5-1.5 0-3 .5-4.5 1.5Z" />
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
                   </svg>
                 ),
-                title: "Clínicas dentales, fisio, estética",
-                desc: "Pacientes que comparan 3 clínicas antes de pedir cita. Tu web tiene que generar confianza: fotos reales del equipo, reseñas visibles, información clara de servicios y cita previa fácil.",
-                tags: ["Reseñas", "Confianza", "Cita previa"],
+                title: "Salud y bienestar",
+                desc: "Ópticas, farmacias, clínicas dentales, fisio, podología, estética, peluquerías, veterinarias. Negocios donde el cliente compara antes de entrar y la confianza lo es todo.",
+                tags: ["Reseñas", "Cita previa", "Confianza"],
+              },
+              {
+                icon: (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M3 9h18l-1.5 10.5a2 2 0 0 1-2 1.5h-11a2 2 0 0 1-2-1.5L3 9Z" />
+                    <path d="M8 9V6a4 4 0 0 1 8 0v3" />
+                  </svg>
+                ),
+                title: "Comercio local",
+                desc: "Tiendas de barrio, moda, joyería, decoración, alimentación, librerías, floristerías, papelerías. Tu escaparate digital cuando la tienda está cerrada.",
+                tags: ["Catálogo", "SEO local", "WhatsApp"],
+              },
+              {
+                icon: (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
+                  </svg>
+                ),
+                title: "Automoción y oficios",
+                desc: "Talleres mecánicos, neumáticos, chapa y pintura, fontaneros, electricistas, reformas, cerrajeros, climatización, jardinería. Quien necesita ayuda urgente llama al primero que le inspira confianza.",
+                tags: ["Llamada directa", "Urgencias", "Presupuesto"],
               },
               {
                 icon: (
@@ -406,38 +426,20 @@ export default async function HomePage({ params }: Props) {
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                   </svg>
                 ),
-                title: "Asesorías y despachos profesionales",
-                desc: "Abogados, gestorías, consultorías, ingenierías. Servicios con ticket alto donde el cliente compara online antes de levantar el teléfono. Web seria, áreas de práctica claras y formulario cualificado.",
-                tags: ["Confianza", "Áreas", "Leads"],
+                title: "Servicios profesionales",
+                desc: "Asesorías, gestorías, abogados, despachos, consultorías, ingenierías, arquitectos, academias, autoescuelas. Servicios con ticket alto donde el cliente compara online antes de llamar.",
+                tags: ["Autoridad", "Áreas", "Leads"],
               },
               {
                 icon: (
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-                    <path d="M17 18h1" />
-                    <path d="M12 18h1" />
-                    <path d="M7 18h1" />
+                    <path d="M2 20h20" />
+                    <path d="M4 20V10l5 4V10l5 4V6l5 4v10" />
                   </svg>
                 ),
-                title: "Industria y servicios técnicos B2B",
-                desc: "Pequeñas industrias y proveedores B2B de los polígonos del País Vasco y Navarra. Quien decide la compra compara catálogos por la noche desde el móvil. Web seria, capacidades técnicas claras y cotización rápida.",
-                tags: ["Catálogo", "Capacidades", "Cotización"],
-              },
-              {
-                icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M3 21h18" />
-                    <path d="M5 21V7l8-4v18" />
-                    <path d="M19 21V11l-6-4" />
-                    <path d="M9 9v.01" />
-                    <path d="M9 12v.01" />
-                    <path d="M9 15v.01" />
-                    <path d="M9 18v.01" />
-                  </svg>
-                ),
-                title: "Inmobiliarias premium",
-                desc: "Inmobiliarias de obra nueva, vivienda de alto standing y locales comerciales en País Vasco y Navarra. Operaciones de ticket alto donde la marca, las fotos profesionales y un buscador de propiedades rápido marcan la diferencia entre llamar a tu oficina o a la del vecino.",
-                tags: ["Marca", "Listings", "Leads"],
+                title: "Industria y B2B local",
+                desc: "Pequeñas industrias de polígono, talleres de fabricación, proveedores B2B, distribución, almacenes. Capacidad técnica, certificaciones visibles y cotización seria.",
+                tags: ["Catálogo", "Multiidioma", "Cotización"],
               },
             ] as { icon: React.ReactNode; title: string; desc: string; tags: string[] }[]).map((s, i) => (
               <AnimatedSection key={i} delay={i * 0.08}>

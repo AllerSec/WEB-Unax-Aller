@@ -71,7 +71,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://images.pexels.com",
               "media-src 'self'",
-              "connect-src 'self'",
+              "connect-src 'self' https://api.web3forms.com",
               "frame-ancestors 'none'",
             ].join("; "),
           },

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import ProjectTypeSelector, { type ProjectType } from "@/components/services/ProjectTypeSelector";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 // Cache the rendered HTML on the CDN for 1h. Content changes ship via
@@ -42,22 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-interface Service {
-  id: string;
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  bullets: string[];
-}
-
-function ServiceIcon({ path }: { path: React.ReactNode }) {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      {path}
-    </svg>
-  );
-}
-
 const VALID_FROM = new Date().toISOString().slice(0, 10);
 const PRICE_VALID_UNTIL = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
   .toISOString()
@@ -67,53 +52,6 @@ export default async function ServiciosPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
   const t = await getTranslations({ locale, namespace: "services" });
-
-  const services: Service[] = [
-    {
-      id: "local-business",
-      icon: <ServiceIcon path={<><path d="M3 9l1-5h16l1 5"/><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M9 21V13h6v8"/></>} />,
-      title: t("localBusiness.title"),
-      description: t("localBusiness.description"),
-      bullets: locale === "es"
-        ? ["Diseño cuidado que da imagen profesional", "Optimizada para que aparezcas en Google Maps", "Pensada para móvil de arriba a abajo", "Información clara: horarios, contacto, servicios"]
-        : locale === "en"
-        ? ["Careful design that gives a professional image", "Optimised so you show up on Google Maps", "Built mobile-first from top to bottom", "Clear info: hours, contact, services"]
-        : ["Diseinu zaindua, irudi profesionala ematen duena", "Google Maps-en ager zaitezen optimizatua", "Mugikorrerako lehenik pentsatua, goitik behera", "Informazio argia: ordutegia, kontaktua, zerbitzuak"],
-    },
-    {
-      id: "clinic",
-      icon: <ServiceIcon path={<><path d="M12 4v16M4 12h16"/><rect x="3" y="3" width="18" height="18" rx="2"/></>} />,
-      title: t("clinic.title"),
-      description: t("clinic.description"),
-      bullets: locale === "es"
-        ? ["Identidad visual que transmite confianza", "Servicios y precios claros, sin letra pequeña", "Sistema de citas online si lo necesitas", "Política de privacidad y RGPD bien hechos"]
-        : locale === "en"
-        ? ["Visual identity that builds trust", "Clear services and pricing, no small print", "Online booking system if you need one", "Proper privacy policy and GDPR"]
-        : ["Konfiantza ematen duen identitate bisuala", "Zerbitzu eta prezio argiak, letra txikirik gabe", "Online hitzorduen sistema behar baduzu", "Pribatutasun-politika eta DBEO ondo eginak"],
-    },
-    {
-      id: "multilingual",
-      icon: <ServiceIcon path={<><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></>} />,
-      title: t("multilingual.title"),
-      description: t("multilingual.description"),
-      bullets: locale === "es"
-        ? ["Hasta 4 idiomas: euskera, castellano, inglés, francés", "URLs separadas y hreflang correcto", "Estructura preparada para muchas subpáginas", "SEO técnico para posicionar en cada mercado"]
-        : locale === "en"
-        ? ["Up to 4 languages: Basque, Spanish, English, French", "Separate URLs and proper hreflang", "Architecture ready for many subpages", "Technical SEO that ranks in each market"]
-        : ["4 hizkuntzatara arte: euskara, gaztelania, ingelesa, frantsesa", "URL bereiziak eta hreflang zuzena", "Azpiorri askotarako prestatutako egitura", "Merkatu bakoitzean posizionatzeko SEO teknikoa"],
-    },
-    {
-      id: "redesign",
-      icon: <ServiceIcon path={<><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></>} />,
-      title: t("redesign.title"),
-      description: t("redesign.description"),
-      bullets: locale === "es"
-        ? ["Auditoría de tu web actual antes de empezar", "Mantenemos lo que sí funciona", "Migración limpia sin perder posicionamiento", "Web nueva, rápida y bien hecha"]
-        : locale === "en"
-        ? ["Audit of your current site before we start", "We keep what already works", "Clean migration without losing rankings", "A new site that's fast and well built"]
-        : ["Zure egungo webgunearen auditoria hasi aurretik", "Funtzionatzen duena mantentzen dugu", "Migrazio garbia, posizionamendua galdu gabe", "Webgune berria, azkarra eta ondo egina"],
-    },
-  ];
 
   const faqItems = locale === "es"
     ? [
@@ -141,32 +79,29 @@ export default async function ServiciosPage({ params }: Props) {
 
   const howToSteps = locale === "es"
     ? [
-        { name: "1. Hablamos", text: "Una llamada de 30 minutos por teléfono o videollamada. Me cuentas qué hace tu negocio, a quién quieres atraer y de dónde te llegan ahora los clientes. Pregunto mucho." },
-        { name: "2. Te enseño una propuesta", text: "Antes de pedirte que firmes nada, te paso una propuesta visual: cómo veo tu web, la dirección de diseño y la estructura. Si no te encaja, ahí acaba y no me debes nada." },
-        { name: "3. Si te gusta, firmamos", text: "Contrato simple a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota de 149€ no se pasa hasta que la web esté publicada." },
-        { name: "4. Diseño final", text: "Ya con el proyecto en marcha cerramos los detalles: tipografía, paleta, jerarquía, microcopys. Te paso avances por WhatsApp y vamos ajustando hasta que te guste de verdad." },
-        { name: "5. Desarrollo", text: "Programo la web a mano, sin plantillas. SEO técnico, multi-idioma si lo necesitas y rápida en móvil. Ficha de Google Maps y sistema de reseñas configurados." },
-        { name: "6. Pruebas y lanzamiento", text: "Pruebo en dispositivos reales, paso Lighthouse con Performance, Accessibility y SEO por encima de 95 y valido los datos estructurados. Subimos la web, configuramos dominio, Search Console y Analytics. En 7-10 días desde la firma, viva." },
-        { name: "7. Cambios por WhatsApp", text: "Después, los 149€/mes cubren hosting, dominio, SSL y los cambios menores cada mes. Me escribes por WhatsApp y lo hago yo: sin formularios, sin tickets." },
+        { name: "1. Te enseño una propuesta", text: "Antes de pedirte que firmes nada, te paso una propuesta visual: cómo veo tu web, la dirección de diseño y la estructura. Si no te encaja, ahí acaba y no me debes nada." },
+        { name: "2. Si te gusta, firmamos", text: "Contrato simple a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota de 149€ no se pasa hasta que la web esté publicada." },
+        { name: "3. Diseño final", text: "Ya con el proyecto en marcha cerramos los detalles: tipografía, paleta, jerarquía, microcopys. Te paso avances por WhatsApp y vamos ajustando hasta que te guste de verdad." },
+        { name: "4. Desarrollo", text: "Programo la web a mano, sin plantillas. SEO técnico, multi-idioma si lo necesitas y rápida en móvil. Ficha de Google Maps y sistema de reseñas configurados." },
+        { name: "5. Pruebas y lanzamiento", text: "Pruebo en dispositivos reales, paso Lighthouse con Performance, Accessibility y SEO por encima de 95 y valido los datos estructurados. Subimos la web, configuramos dominio, Search Console y Analytics. En 7-10 días desde la firma, viva." },
+        { name: "6. Cambios por WhatsApp", text: "Después, los 149€/mes cubren hosting, dominio, SSL y los cambios menores cada mes. Me escribes por WhatsApp y lo hago yo: sin formularios, sin tickets." },
       ]
     : locale === "en"
     ? [
-        { name: "1. We talk", text: "A 30-minute phone or video call. You tell me what your business does, who you want to attract and where clients come from today. I ask a lot." },
-        { name: "2. I show you a proposal", text: "Before I ask you to sign anything, I send you a visual proposal: how I picture your site, the design direction and the structure. If it doesn't click, that's the end of it and you owe me nothing." },
-        { name: "3. If you like it, we sign", text: "A simple 12-month contract with a 30-day guarantee. €0 to sign. The first €149 fee doesn't kick in until the site is published." },
-        { name: "4. Final design", text: "With the project underway we lock in the details: type, palette, hierarchy, microcopy. I send progress over WhatsApp and we adjust until you actually like it." },
-        { name: "5. Development", text: "I code the site by hand, no templates. Technical SEO, multi-language if you need it and fast on mobile. Google Maps profile and reviews system set up." },
-        { name: "6. Testing and launch", text: "I test on real devices, run Lighthouse with Performance, Accessibility and SEO above 95, and validate structured data. We push the site, set up the domain, Search Console and Analytics. 7-10 days from signing and it's live." },
-        { name: "7. Changes over WhatsApp", text: "After that, €149/month covers hosting, domain, SSL and minor changes every month. You message me on WhatsApp and I do it: no forms, no tickets." },
+        { name: "1. I show you a proposal", text: "Before I ask you to sign anything, I send you a visual proposal: how I picture your site, the design direction and the structure. If it doesn't click, that's the end of it and you owe me nothing." },
+        { name: "2. If you like it, we sign", text: "A simple 12-month contract with a 30-day guarantee. €0 to sign. The first €149 fee doesn't kick in until the site is published." },
+        { name: "3. Final design", text: "With the project underway we lock in the details: type, palette, hierarchy, microcopy. I send progress over WhatsApp and we adjust until you actually like it." },
+        { name: "4. Development", text: "I code the site by hand, no templates. Technical SEO, multi-language if you need it and fast on mobile. Google Maps profile and reviews system set up." },
+        { name: "5. Testing and launch", text: "I test on real devices, run Lighthouse with Performance, Accessibility and SEO above 95, and validate structured data. We push the site, set up the domain, Search Console and Analytics. 7-10 days from signing and it's live." },
+        { name: "6. Changes over WhatsApp", text: "After that, €149/month covers hosting, domain, SSL and minor changes every month. You message me on WhatsApp and I do it: no forms, no tickets." },
       ]
     : [
-        { name: "1. Hitz egiten dugu", text: "30 minutuko deia edo bideodeia. Zure negozioak zer egiten duen, nor erakarri nahi duzun eta gaur egun bezeroak nondik datozkizun kontatzen didazu." },
-        { name: "2. Proposamen bat erakusten dizut", text: "Ezer sinatu aurretik, proposamen bisual bat bidaltzen dizut: zure weba nola ikusten dudan, diseinu-norabidea eta egitura. Egokitzen ez bazaizu, hor amaitzen da eta ez didazu ezer zor." },
-        { name: "3. Gustatzen bazaizu, sinatzen dugu", text: "12 hilabeteko kontratu sinplea, 30 eguneko bermearekin. 0€ sinatzean. Lehen 149€-ko kuota ez da pasatzen weba argitaratu arte." },
-        { name: "4. Azken diseinua", text: "Proiektua martxan dugula, xehetasunak ixten ditugu: tipografia, paleta, hierarkia, mikrokopya. Aurrerapenak WhatsApp bidez bidaltzen dizkizut eta benetan gustatu arte doitzen ditugu." },
-        { name: "5. Garapena", text: "Weba eskuz programatzen dut, txantiloirik gabe. SEO teknikoa, eleaniztasuna behar baduzu eta mugikorrean azkar. Google Maps fitxa eta iritzi-sistema prest." },
-        { name: "6. Probak eta abiaraztea", text: "Benetako gailuetan probatzen dut, Lighthouse 95etik gora Performance, Accessibility eta SEO-n, eta datu egituratuak baliozkotzen ditut. Weba igotzen dugu, domeinua, Search Console eta Analytics konfiguratzen ditugu. Sinatu eta 7-10 egunera martxan." },
-        { name: "7. Aldaketak WhatsApp bidez", text: "Ondoren, 149€/hil hosting-a, domeinua, SSL eta hileko aldaketa txikiak dira. WhatsApp idazten didazu eta nik egiten dut: formulariorik gabe, ticketsik gabe." },
+        { name: "1. Proposamen bat erakusten dizut", text: "Ezer sinatu aurretik, proposamen bisual bat bidaltzen dizut: zure weba nola ikusten dudan, diseinu-norabidea eta egitura. Egokitzen ez bazaizu, hor amaitzen da eta ez didazu ezer zor." },
+        { name: "2. Gustatzen bazaizu, sinatzen dugu", text: "12 hilabeteko kontratu sinplea, 30 eguneko bermearekin. 0€ sinatzean. Lehen 149€-ko kuota ez da pasatzen weba argitaratu arte." },
+        { name: "3. Azken diseinua", text: "Proiektua martxan dugula, xehetasunak ixten ditugu: tipografia, paleta, hierarkia, mikrokopya. Aurrerapenak WhatsApp bidez bidaltzen dizkizut eta benetan gustatu arte doitzen ditugu." },
+        { name: "4. Garapena", text: "Weba eskuz programatzen dut, txantiloirik gabe. SEO teknikoa, eleaniztasuna behar baduzu eta mugikorrean azkar. Google Maps fitxa eta iritzi-sistema prest." },
+        { name: "5. Probak eta abiaraztea", text: "Benetako gailuetan probatzen dut, Lighthouse 95etik gora Performance, Accessibility eta SEO-n, eta datu egituratuak baliozkotzen ditut. Weba igotzen dugu, domeinua, Search Console eta Analytics konfiguratzen ditugu. Sinatu eta 7-10 egunera martxan." },
+        { name: "6. Aldaketak WhatsApp bidez", text: "Ondoren, 149€/hil hosting-a, domeinua, SSL eta hileko aldaketa txikiak dira. WhatsApp idazten didazu eta nik egiten dut: formulariorik gabe, ticketsik gabe." },
       ];
 
   const comparisonRows = locale === "es"
@@ -202,17 +137,291 @@ export default async function ServiciosPage({ params }: Props) {
         { feature: "Lighthouse 95+", agency: "Arraroa", unax: "Bermatua" },
       ];
 
-  const SERVICE_ACCENTS: Record<string, string> = {
-    "local-business": "#dc2626",
-    "clinic": "#0369A1",
-    "multilingual": "#047857",
-    "redesign": "#a16207",
-  };
-  const SERVICE_ORDERS = ["01", "02", "03", "04"];
+  const projectTypes: ProjectType[] = [
+    {
+      id: "salud",
+      accent: "#0369A1",
+      shortLabel:
+        locale === "es" ? "Salud y bienestar"
+        : locale === "en" ? "Health & wellness"
+        : "Osasuna eta ongizatea",
+      label:
+        locale === "es" ? "Salud y bienestar"
+        : locale === "en" ? "Health & wellness"
+        : "Osasuna eta ongizatea",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+        </svg>
+      ),
+      question:
+        locale === "es" ? "Salud y bienestar"
+        : locale === "en" ? "Health & wellness"
+        : "Osasuna eta ongizatea",
+      intro:
+        locale === "es"
+          ? "Ópticas, farmacias, clínicas dentales, fisio, podología, estética, peluquerías, veterinarias. Negocios donde el cliente compara antes de entrar y la confianza lo es todo."
+          : locale === "en"
+          ? "Opticians, pharmacies, dental clinics, physio, podiatry, aesthetics, hair salons, vets. Businesses where customers compare before stepping in and trust is everything."
+          : "Optikak, farmaziak, klinika dentalak, fisio, podologia, estetika, ile-apaindegiak, albaitariak. Bezeroek sartu aurretik konparatzen duten negozioak, non konfiantza dena den.",
+      bullets:
+        locale === "es"
+          ? [
+              "Diseño cuidado que transmite profesionalidad",
+              "Optimizada para Google Maps de tu ciudad",
+              "Reseñas de Google embebidas para reforzar confianza",
+              "Información clara: horarios, servicios, precios",
+              "Cita previa integrada si la necesitas",
+            ]
+          : locale === "en"
+          ? [
+              "Polished design that signals professionalism",
+              "Optimised for Google Maps in your city",
+              "Embedded Google reviews to build trust",
+              "Clear info: hours, services, pricing",
+              "Online booking integrated if you need it",
+            ]
+          : [
+              "Diseinu zaindua, profesionaltasuna adierazten duena",
+              "Zure herriko Google Maps-erako optimizatua",
+              "Google iritziak txertatuta konfiantza indartzeko",
+              "Informazio argia: ordutegia, zerbitzuak, prezioak",
+              "Online hitzordua integratuta behar baduzu",
+            ],
+    },
+    {
+      id: "comercio",
+      accent: "#dc2626",
+      shortLabel:
+        locale === "es" ? "Comercio local"
+        : locale === "en" ? "Local retail"
+        : "Tokiko merkataritza",
+      label:
+        locale === "es" ? "Comercio local"
+        : locale === "en" ? "Local retail"
+        : "Tokiko merkataritza",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 9h18l-1.5 10.5a2 2 0 0 1-2 1.5h-11a2 2 0 0 1-2-1.5L3 9Z" />
+          <path d="M8 9V6a4 4 0 0 1 8 0v3" />
+        </svg>
+      ),
+      question:
+        locale === "es" ? "Comercio local"
+        : locale === "en" ? "Local retail"
+        : "Tokiko merkataritza",
+      intro:
+        locale === "es"
+          ? "Tiendas de barrio, moda, joyería, decoración, alimentación, librerías, floristerías, papelerías. Tu escaparate digital cuando la tienda está cerrada."
+          : locale === "en"
+          ? "Neighbourhood shops, fashion, jewellery, decor, food, bookshops, florists, stationery. Your digital storefront when the shop is closed."
+          : "Auzoko dendak, moda, bitxitegia, dekorazioa, elikadura, liburu-dendak, lore-dendak, papertegiak. Zure erakusleiho digitala denda itxita dagoenean.",
+      bullets:
+        locale === "es"
+          ? [
+              "Catálogo visual con tus productos destacados",
+              "SEO local para aparecer en tu barrio o pueblo",
+              "Móvil primero: el cliente te busca desde el sofá",
+              "WhatsApp y teléfono visibles en cada página",
+              "Integración con Google Maps y reseñas",
+            ]
+          : locale === "en"
+          ? [
+              "Visual catalogue with your featured products",
+              "Local SEO so you show up in your neighbourhood",
+              "Mobile-first — customers search from the sofa",
+              "WhatsApp and phone visible on every page",
+              "Google Maps and reviews integration",
+            ]
+          : [
+              "Katalogo bisuala produktu nabarmenduekin",
+              "Tokiko SEOa zure auzoan agertzeko",
+              "Mugikorra lehenik: bezeroak sofatik bilatzen zaitu",
+              "WhatsApp eta telefonoa orri bakoitzean ikusgai",
+              "Google Maps eta iritziekin integrazioa",
+            ],
+    },
+    {
+      id: "automocion",
+      accent: "#047857",
+      shortLabel:
+        locale === "es" ? "Automoción y oficios"
+        : locale === "en" ? "Automotive & trades"
+        : "Automozioa eta lanbideak",
+      label:
+        locale === "es" ? "Automoción y oficios"
+        : locale === "en" ? "Automotive & trades"
+        : "Automozioa eta lanbideak",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
+        </svg>
+      ),
+      question:
+        locale === "es" ? "Automoción y oficios"
+        : locale === "en" ? "Automotive & trades"
+        : "Automozioa eta lanbideak",
+      intro:
+        locale === "es"
+          ? "Talleres mecánicos, neumáticos, chapa y pintura, fontaneros, electricistas, reformas, cerrajeros, climatización, jardinería. Quien necesita ayuda urgente busca y llama al primero que le inspira confianza."
+          : locale === "en"
+          ? "Mechanics, tyres, bodywork, plumbers, electricians, renovations, locksmiths, HVAC, gardening. People who need urgent help call the first business that earns their trust."
+          : "Tailerrak, pneumatikoak, txapa eta pintura, iturginak, elektrikariak, erreformak, sarrailariak, klimatizazioa, lorezaintza. Premiazko laguntza behar duenak konfiantza ematen dion lehenari deitzen dio.",
+      bullets:
+        locale === "es"
+          ? [
+              "Llamada directa en un toque desde el móvil",
+              "Servicios y zonas que cubres bien explicados",
+              "Casos antes/después y trabajos reales",
+              "SEO local para urgencias en tu comarca",
+              "Formulario de presupuesto rápido",
+            ]
+          : locale === "en"
+          ? [
+              "Tap-to-call straight from mobile",
+              "Services and coverage areas clearly explained",
+              "Before/after cases and real jobs",
+              "Local SEO for urgent calls in your area",
+              "Quick quote form",
+            ]
+          : [
+              "Mugikorretik zuzeneko deia ukitu batean",
+              "Zerbitzuak eta estaltzen dituzun eremuak ondo azalduta",
+              "Aurretik/ondoren kasuak eta benetako lanak",
+              "Tokiko SEOa zure eskualdeko presetarako",
+              "Aurrekontu azkarrerako formularioa",
+            ],
+    },
+    {
+      id: "profesionales",
+      accent: "#1d4ed8",
+      shortLabel:
+        locale === "es" ? "Servicios profesionales"
+        : locale === "en" ? "Professional services"
+        : "Zerbitzu profesionalak",
+      label:
+        locale === "es" ? "Servicios profesionales"
+        : locale === "en" ? "Professional services"
+        : "Zerbitzu profesionalak",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M3 10h18" />
+          <path d="M8 4v4M16 4v4" />
+        </svg>
+      ),
+      question:
+        locale === "es" ? "Servicios profesionales"
+        : locale === "en" ? "Professional services"
+        : "Zerbitzu profesionalak",
+      intro:
+        locale === "es"
+          ? "Asesorías, gestorías, abogados, despachos, consultorías, ingenierías, arquitectos, academias, autoescuelas. Servicios con ticket alto donde el cliente compara online antes de llamar."
+          : locale === "en"
+          ? "Accountants, lawyers, firms, consultancies, engineering, architects, academies, driving schools. High-ticket services where clients compare online before they call."
+          : "Aholkularitzak, kudeaketak, abokatuak, bulegoak, kontsultoretzak, ingeniaritzak, arkitektoak, akademiak, autoeskolak. Tiket altuko zerbitzuak, non bezeroak online konparatzen duten deitu aurretik.",
+      bullets:
+        locale === "es"
+          ? [
+              "Identidad sobria que transmite autoridad",
+              "Áreas de práctica y servicios claros",
+              "Equipo visible con foto y especialidad",
+              "Formulario cualificado que filtra leads serios",
+              "Política de privacidad y RGPD impecables",
+            ]
+          : locale === "en"
+          ? [
+              "Restrained identity that signals authority",
+              "Clear practice areas and services",
+              "Visible team with photo and specialty",
+              "Qualifying form that filters serious leads",
+              "Spotless privacy policy and GDPR",
+            ]
+          : [
+              "Identitate neurritua, autoritatea adierazten duena",
+              "Jarduera-arlo eta zerbitzu argiak",
+              "Ekipo ikusgaia argazkiarekin eta espezialitatearekin",
+              "Lead serioak iragazten dituen formularioa",
+              "Pribatutasun-politika eta DBEO akatsik gabeak",
+            ],
+    },
+    {
+      id: "industria",
+      accent: "#a16207",
+      shortLabel:
+        locale === "es" ? "Industria y B2B"
+        : locale === "en" ? "Industry & B2B"
+        : "Industria eta B2B",
+      label:
+        locale === "es" ? "Industria y B2B local"
+        : locale === "en" ? "Local industry & B2B"
+        : "Tokiko industria eta B2B",
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M2 20h20" />
+          <path d="M4 20V10l5 4V10l5 4V6l5 4v10" />
+        </svg>
+      ),
+      question:
+        locale === "es" ? "Industria y B2B"
+        : locale === "en" ? "Industry & B2B"
+        : "Industria eta B2B",
+      intro:
+        locale === "es"
+          ? "Pequeñas industrias de polígono, talleres de fabricación, proveedores B2B, distribución, almacenes. Capacidad técnica, certificaciones visibles y un formulario de cotización serio."
+          : locale === "en"
+          ? "Small industrial estate businesses, manufacturing workshops, B2B suppliers, distribution, warehouses. Technical capability, visible certifications and a serious quote form."
+          : "Poligonoetako industria txikiak, fabrikazio-tailerrak, B2B hornitzaileak, banaketa, biltegiak. Gaitasun teknikoa, ziurtagiri ikusgaiak eta aurrekontu serio baterako formularioa.",
+      bullets:
+        locale === "es"
+          ? [
+              "Hasta 4 idiomas: euskera, castellano, inglés, francés",
+              "Estructura para catálogo técnico y muchas subpáginas",
+              "Certificaciones y casos de éxito destacados",
+              "SEO técnico para posicionar en cada mercado",
+              "Formulario de cotización con datos cualificadores",
+            ]
+          : locale === "en"
+          ? [
+              "Up to 4 languages: Basque, Spanish, English, French",
+              "Architecture for technical catalogue and many subpages",
+              "Certifications and case studies highlighted",
+              "Technical SEO that ranks in each market",
+              "Quote form with qualifying data",
+            ]
+          : [
+              "4 hizkuntzatara arte: euskara, gaztelania, ingelesa, frantsesa",
+              "Katalogo teknikorako eta azpiorri ugarirako egitura",
+              "Ziurtagiriak eta arrakasta-kasuak nabarmenduta",
+              "Merkatu bakoitzean posizionatzeko SEO teknikoa",
+              "Datu kualifikatzaileak dituen aurrekontu-formularioa",
+            ],
+    },
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      ...projectTypes.map((pt) => ({
+        "@type": "Service",
+        "@id": `https://unaxaller.com/${locale}/servicios#${pt.id}`,
+        provider: { "@id": "https://unaxaller.com/#business" },
+        name: pt.label,
+        description: pt.intro,
+        serviceType: pt.label,
+        url: `https://unaxaller.com/${locale}/servicios#${pt.id}`,
+        areaServed: [
+          { "@type": "AdministrativeArea", name: "Gipuzkoa" },
+          { "@type": "AdministrativeArea", name: "País Vasco" },
+          { "@type": "AdministrativeArea", name: "Navarra" },
+        ],
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "EUR",
+          price: "149",
+          availability: "https://schema.org/InStock",
+        },
+      })),
       {
         "@type": "Service",
         "@id": `https://unaxaller.com/${locale}/servicios#service`,
@@ -252,10 +461,10 @@ export default async function ServiciosPage({ params }: Props) {
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: locale === "es" ? "Servicios de Diseño Web" : locale === "en" ? "Web Design Services" : "Web Diseinu Zerbitzuak",
-          itemListElement: services.map((s, i) => ({
+          itemListElement: projectTypes.map((pt, i) => ({
             "@type": "Offer",
             position: i + 1,
-            itemOffered: { "@type": "Service", name: s.title, description: s.description, serviceType: s.title },
+            itemOffered: { "@type": "Service", name: pt.label, description: pt.intro, serviceType: pt.label },
           })),
         },
       },
@@ -354,6 +563,43 @@ export default async function ServiciosPage({ params }: Props) {
         .svc-cta-section .btn-secondary { background:transparent;color:#fff;border-color:rgba(255,255,255,.25); }
         .svc-cta-section .btn-secondary:hover { background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5);color:#fff;transform:translateY(-2px); }
         .svc-cta-section .btn-secondary:active { transform:translateY(0);background:rgba(255,255,255,.12); }
+
+        /* ── Project type selector (quiz-style tabs) ── */
+        .svc-quiz { max-width:1120px;margin:0 auto; }
+        .svc-quiz-header { text-align:center;margin-bottom:var(--space-8); }
+        .svc-quiz-eyebrow { font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--color-ink-muted);margin:0 0 var(--space-3); }
+        .svc-quiz-question { font-family:var(--font-serif);font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:500;line-height:1.15;color:var(--color-ink);margin:0;letter-spacing:-.01em; }
+
+        .svc-quiz-tablist { display:grid;grid-template-columns:repeat(5,1fr);gap:var(--space-3);margin-bottom:var(--space-8); }
+        @media(max-width:1100px){ .svc-quiz-tablist{grid-template-columns:repeat(3,1fr);gap:var(--space-2)} }
+        @media(max-width:720px){ .svc-quiz-tablist{grid-template-columns:repeat(2,1fr)} }
+        @media(max-width:480px){ .svc-quiz-tablist{grid-template-columns:1fr} }
+
+        .svc-quiz-tab { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;min-height:96px;padding:1rem .75rem;background:#fff;border:1px solid rgba(2,6,23,.1);border-radius:var(--radius-xl);cursor:pointer;font-family:var(--font-sans);font-size:var(--text-sm);font-weight:500;color:var(--color-ink-muted);text-align:center;line-height:1.25;transition:transform .2s var(--ease-out),border-color .2s var(--ease-out),box-shadow .2s var(--ease-out),color .2s var(--ease-out),background .2s var(--ease-out); }
+        .svc-quiz-tab:hover { transform:translateY(-1px);border-color:rgba(2,6,23,.18);color:var(--color-ink);box-shadow:0 6px 18px -8px rgba(2,6,23,.12); }
+        .svc-quiz-tab[data-active="true"] { background:var(--color-ink);color:#fff;border-color:var(--color-ink);box-shadow:0 8px 22px -10px rgba(2,6,23,.45); }
+        .svc-quiz-tab[data-active="true"] .svc-quiz-tab-icon { background:color-mix(in srgb,var(--svc-accent,#dc2626) 35%,transparent);color:#fff; }
+        .svc-quiz-tab-icon { display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--radius-full);background:color-mix(in srgb,var(--svc-accent,#dc2626) 12%,transparent);color:var(--svc-accent,#dc2626);transition:background .2s var(--ease-out),color .2s var(--ease-out); }
+        .svc-quiz-tab-label { font-weight:600;font-size:.875rem; }
+
+        .svc-quiz-panels { position:relative; }
+        .svc-quiz-panel { background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:var(--radius-2xl);padding:clamp(1.5rem,3vw,2.5rem);position:relative;overflow:hidden;animation:svcFadeUp .35s cubic-bezier(.16,1,.3,1) both; }
+        .svc-quiz-panel::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--svc-accent,#dc2626);opacity:.9; }
+        .svc-quiz-panel[hidden] { display:none; }
+        .svc-quiz-panel-head { display:flex;align-items:center;gap:.85rem;margin-bottom:var(--space-4); }
+        .svc-quiz-panel-icon { display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:var(--radius-lg);background:color-mix(in srgb,var(--svc-accent,#dc2626) 14%,transparent);color:var(--svc-accent,#dc2626);flex-shrink:0; }
+        .svc-quiz-panel-title { font-family:var(--font-serif);font-size:clamp(1.25rem,2.4vw,1.75rem);font-weight:500;color:var(--color-ink);margin:0;line-height:1.2; }
+        .svc-quiz-panel-intro { font-family:var(--font-sans);font-size:clamp(.95rem,1.4vw,1.0625rem);line-height:1.65;color:var(--color-ink-muted);margin:0 0 var(--space-6);max-width:68ch; }
+
+        .svc-quiz-bullets { list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-3) var(--space-5); }
+        @media(max-width:680px){ .svc-quiz-bullets{grid-template-columns:1fr} }
+        .svc-quiz-bullet { display:flex;align-items:flex-start;gap:.65rem;font-family:var(--font-sans);font-size:var(--text-sm);line-height:1.55;color:var(--color-ink); }
+        .svc-quiz-bullet-check { display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:var(--radius-full);background:color-mix(in srgb,var(--svc-accent,#dc2626) 14%,transparent);color:var(--svc-accent,#dc2626);flex-shrink:0;margin-top:1px; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .svc-quiz-tab,.svc-quiz-panel { animation:none;transition:none; }
+          .svc-quiz-tab:hover { transform:none; }
+        }
       `}</style>
 
       <script
@@ -400,36 +646,18 @@ export default async function ServiciosPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── BENTO GRID DE SERVICIOS ── */}
+      {/* ── SELECTOR POR TIPO DE NEGOCIO ── */}
       <AnimatedSection>
-        <section aria-labelledby="services-grid-title" style={{ paddingBlock: "var(--space-16)" }}>
+        <section
+          aria-labelledby="services-grid-title"
+          style={{ paddingBlock: "var(--space-16)" }}
+        >
           <div className="container-xl">
-            <h2 id="services-grid-title" className="section-heading" style={{ marginBottom: "var(--space-10)" }}>
-              {locale === "es" ? "Cuatro tipos de proyecto" : locale === "en" ? "Four project types" : "Lau proiektu mota"}
-            </h2>
-            <div className="svc-bento">
-              {services.map((svc, idx) => (
-                <article
-                  key={svc.id}
-                  id={svc.id}
-                  className="svc-card"
-                  style={{ ["--svc-accent" as string]: SERVICE_ACCENTS[svc.id] }}
-                >
-                  <span className="svc-card-order" aria-hidden="true">{SERVICE_ORDERS[idx]}</span>
-                  <div className="svc-icon-wrap" aria-hidden="true">{svc.icon}</div>
-                  <h3 className="svc-card-title">{svc.title}</h3>
-                  <p className="svc-card-desc">{svc.description}</p>
-                  <ul className="svc-bullets">
-                    {svc.bullets.map((b, bi) => (
-                      <li key={bi} className="svc-bullet">
-                        <span className="svc-bullet-check" aria-hidden="true">✓</span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
+            <ProjectTypeSelector
+              types={projectTypes}
+              locale={locale}
+              headingId="services-grid-title"
+            />
           </div>
         </section>
       </AnimatedSection>

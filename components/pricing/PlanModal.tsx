@@ -160,27 +160,30 @@ export default function PlanModal({ plan, onClose, locale }: Props) {
       aria-describedby={descId}
     >
       <div ref={panelRef} className="plan-modal-panel">
+        <button
+          ref={closeBtnRef}
+          onClick={handleClose}
+          className="plan-modal-close focusable"
+          type="button"
+          aria-label={l.close}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
         <div className="plan-modal-header">
-          <div>
-            <p className="plan-modal-header-subtitle">{plan.subtitle}</p>
-            <h2 id={titleId} className="plan-modal-header-title">{plan.name}</h2>
-            <p id={descId} className="plan-modal-header-meta">
-              <span className="plan-modal-header-meta-price">{l.from} {plan.price}</span>
-              {" · "}{plan.description}
-            </p>
+          <p className="plan-modal-header-subtitle">{plan.subtitle}</p>
+          <h2 id={titleId} className="plan-modal-header-title">{plan.name}</h2>
+        </div>
+
+        <div className="plan-modal-value">
+          <div className="plan-modal-value-price">
+            <span className="plan-modal-value-amount">{plan.price}</span>
+            <span className="plan-modal-value-unit">{locale === "es" ? "todo incluido" : locale === "en" ? "all-inclusive" : "dena barne"}</span>
           </div>
-          <button
-            ref={closeBtnRef}
-            onClick={handleClose}
-            className="plan-modal-close focusable"
-            type="button"
-            aria-label={l.close}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
+          <p id={descId} className="plan-modal-value-desc">{plan.description}</p>
         </div>
 
         <div className="plan-modal-body">
@@ -204,69 +207,6 @@ export default function PlanModal({ plan, onClose, locale }: Props) {
             </ul>
           </section>
 
-          <section aria-labelledby="plan-modal-process-heading">
-            <h3 id="plan-modal-process-heading" className="plan-modal-section-title">
-              {l.process}
-            </h3>
-            <ol className="plan-modal-process-list">
-              {plan.process.map((p, i) => (
-                <li key={i} className="plan-modal-process-item">
-                  <span className="plan-modal-process-number" aria-hidden="true">{i + 1}</span>
-                  <div>
-                    <p className="plan-modal-process-step">{p.step}</p>
-                    <p className="plan-modal-process-desc">{p.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          {plan.clients.length > 0 && (
-            <section aria-labelledby="plan-modal-clients-heading">
-              <h3 id="plan-modal-clients-heading" className="plan-modal-section-title">
-                {l.clients}
-              </h3>
-              <div
-                className="plan-modal-clients-grid"
-                data-cols={plan.clients.length === 1 ? "1" : "2"}
-              >
-                {plan.clients.map((client) => (
-                  <a
-                    key={client.domain}
-                    href={`https://${client.domain}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="plan-modal-client focusable"
-                    aria-label={`${l.visitSite} — ${client.name}`}
-                  >
-                    <div className="plan-modal-client-screenshot-wrap">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={`https://api.microlink.io?url=https://${client.domain}&screenshot=true&meta=false&embed=screenshot.url`}
-                        alt={`Captura de pantalla de ${client.name}`}
-                        className="plan-modal-client-screenshot"
-                        loading="lazy"
-                      />
-                      <div className="plan-modal-client-overlay" aria-hidden="true">
-                        <span className="plan-modal-client-visit-pill">
-                          {l.visitSite}
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                    <div className="plan-modal-client-info">
-                      <p className="plan-modal-client-name">{client.name}</p>
-                      <p className="plan-modal-client-meta">{client.type} · {client.domain}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </section>
-          )}
         </div>
 
         <div className="plan-modal-footer">

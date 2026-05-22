@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -28,13 +29,9 @@ export default async function LangLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      {/* Sync html[lang] with the active locale without hydration mismatch */}
-      <script
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: `document.documentElement.lang="${locale}";try{if(sessionStorage.getItem("ua-visited"))document.documentElement.classList.add("ua-loader-skip")}catch(e){}`,
-        }}
-      />
+      <Script id="ua-lang-sync" strategy="beforeInteractive">
+        {`document.documentElement.lang="${locale}";try{if(sessionStorage.getItem("ua-visited"))document.documentElement.classList.add("ua-loader-skip")}catch(e){}`}
+      </Script>
       <a href="#main-content" className="skip-link focusable">
         {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : "Edukira joan"}
       </a>

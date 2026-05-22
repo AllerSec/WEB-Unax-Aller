@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import gsap from "gsap";
 import type { Locale } from "@/lib/i18n/config";
 
 type Props = { locale: Locale };
@@ -91,18 +92,29 @@ export default function ContactForm({ locale }: Props) {
     setStatus("sending");
 
     try {
-      const res = await fetch("/api/contact", {
+      const fullPhone = `${country.dial} ${form.phone.trim()}`;
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
+          access_key: "5da5f440-2ca9-42c4-acac-912138bd599f",
+          subject: `Nuevo lead web - ${form.name}`,
+          from_name: "unaxaller.com",
+          replyto: form.email,
           name: form.name,
           email: form.email,
-          phone: `${country.dial} ${form.phone.trim()}`,
-          countryCode: country.code,
+          phone: fullPhone,
+          whatsapp: `https://wa.me/${fullPhone.replace(/\D/g, "")}`,
+          country: country.code,
           locale,
+          botcheck: "",
         }),
       });
-      if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
         setStatus("success");
       } else {
         setStatus("error");
@@ -127,19 +139,7 @@ export default function ContactForm({ locale }: Props) {
   };
 
   if (status === "success") {
-    return (
-      <div className="contact-success" role="status" aria-live="polite">
-        <div className="contact-success-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <h3 className="contact-success-title">
-          {locale === "es" ? "¡Mensaje enviado!" : locale === "en" ? "Message sent!" : "Mezua bidalia!"}
-        </h3>
-        <p className="contact-success-message">{t("success")}</p>
-      </div>
-    );
+    return <SuccessState locale={locale} message={t("success")} />;
   }
 
   return (
@@ -325,5 +325,80 @@ export default function ContactForm({ locale }: Props) {
         </p>
       )}
     </form>
+  );
+}
+
+function SuccessState({ locale, message }: { locale: Locale; message: string }) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
+  const checkRef = useRef<SVGPolylineElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const messageRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    const icon = iconRef.current;
+    const check = checkRef.current;
+    const title = titleRef.current;
+    const msg = messageRef.current;
+    if (!root || !icon || !check || !title || !msg) return;
+
+    const length = check.getTotalLength();
+
+    const mm = gsap.matchMedia();
+    mm.add(
+      { reduceMotion: "(prefers-reduced-motion: reduce)" },
+      (ctx) => {
+        const reduce = ctx.conditions?.reduceMotion;
+
+        gsap.set(check, {
+          strokeDasharray: length,
+          strokeDashoffset: reduce ? 0 : length,
+        });
+        gsap.set([icon, title, msg], { autoAlpha: 0 });
+        gsap.set(icon, { scale: reduce ? 1 : 0, transformOrigin: "50% 50%" });
+        gsap.set([title, msg], { y: reduce ? 0 : 12 });
+
+        if (reduce) {
+          gsap.set([icon, title, msg], { autoAlpha: 1 });
+          return;
+        }
+
+        const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+        tl.to(icon, {
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.55,
+          ease: "back.out(2)",
+        })
+          .to(
+            check,
+            { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" },
+            "-=0.15"
+          )
+          .to(
+            [title, msg],
+            { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.08 },
+            "-=0.25"
+          );
+      },
+      root
+    );
+
+    return () => mm.revert();
+  }, []);
+
+  return (
+    <div ref={rootRef} className="contact-success" role="status" aria-live="polite">
+      <div ref={iconRef} className="contact-success-icon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline ref={checkRef} points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+      <h3 ref={titleRef} className="contact-success-title">
+        {locale === "es" ? "¡Mensaje enviado!" : locale === "en" ? "Message sent!" : "Mezua bidalia!"}
+      </h3>
+      <p ref={messageRef} className="contact-success-message">{message}</p>
+    </div>
   );
 }

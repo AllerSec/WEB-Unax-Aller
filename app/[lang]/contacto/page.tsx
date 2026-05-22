@@ -178,6 +178,94 @@ export default async function ContactoPage({ params }: Props) {
         </div>
       </section>
 
+      <section
+        className="contact-whatsapp-hero"
+        aria-label={
+          locale === "es"
+            ? "Contacto rápido por WhatsApp"
+            : locale === "en"
+            ? "Quick contact via WhatsApp"
+            : "Kontaktu azkarra WhatsApp bidez"
+        }
+      >
+        <div className="container-xl">
+          <div className="contact-wa-card">
+            <div className="contact-wa-badge" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16.003 3C9.374 3 4 8.373 4 14.999c0 2.385.703 4.604 1.91 6.467L4 29l7.728-1.886a11.96 11.96 0 0 0 4.275.781h.005C22.628 27.895 28 22.522 28 15.896 28 12.741 26.747 9.77 24.5 7.523A11.83 11.83 0 0 0 16.003 3Zm.002 21.81h-.004a9.91 9.91 0 0 1-5.05-1.382l-.362-.215-4.187 1.022 1.038-4.083-.236-.378a9.85 9.85 0 0 1-1.51-5.275c0-5.448 4.434-9.882 9.886-9.882 2.638 0 5.118 1.029 6.984 2.897a9.83 9.83 0 0 1 2.892 6.99c-.002 5.45-4.436 9.882-9.451 9.882Zm5.42-7.395c-.297-.149-1.758-.868-2.03-.967-.272-.099-.47-.149-.668.149-.198.297-.766.967-.94 1.166-.173.198-.347.223-.644.074-.297-.148-1.255-.462-2.39-1.475-.883-.788-1.48-1.76-1.654-2.057-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.496.099-.198.05-.372-.025-.52-.074-.149-.668-1.611-.915-2.205-.241-.58-.486-.501-.668-.51l-.57-.011a1.1 1.1 0 0 0-.793.372c-.272.298-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.073.149.198 2.095 3.202 5.078 4.49.71.306 1.262.488 1.694.625.711.226 1.359.194 1.871.118.571-.085 1.758-.719 2.006-1.414.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347Z"/>
+              </svg>
+            </div>
+
+            <div className="contact-wa-body">
+              <span className="contact-wa-eyebrow">
+                {locale === "es"
+                  ? "Forma más rápida"
+                  : locale === "en"
+                  ? "Fastest way"
+                  : "Modu azkarrena"}
+              </span>
+              <h2 className="contact-wa-title">
+                {locale === "es"
+                  ? "Escríbeme por WhatsApp"
+                  : locale === "en"
+                  ? "Message me on WhatsApp"
+                  : "Idatzi WhatsApp bidez"}
+              </h2>
+              <p className="contact-wa-subtitle">
+                {locale === "es"
+                  ? "Respondo el mismo día."
+                  : locale === "en"
+                  ? "Same-day reply."
+                  : "Egun berean erantzuten dizut."}
+              </p>
+            </div>
+
+            <a
+              href={`https://wa.me/34620909916?text=${encodeURIComponent(
+                locale === "es"
+                  ? "Hola Unax, me gustaría hablar sobre un proyecto web."
+                  : locale === "en"
+                  ? "Hi Unax, I'd like to talk about a web project."
+                  : "Kaixo Unax, web proiektu bati buruz hitz egin nahi nuke."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-wa-cta focusable"
+              aria-label={
+                locale === "es"
+                  ? "Abrir conversación de WhatsApp con Unax Aller"
+                  : locale === "en"
+                  ? "Open WhatsApp chat with Unax Aller"
+                  : "Ireki WhatsApp txata Unax Allerrekin"
+              }
+            >
+              <span>
+                {locale === "es"
+                  ? "Abrir WhatsApp"
+                  : locale === "en"
+                  ? "Open WhatsApp"
+                  : "Ireki WhatsApp"}
+              </span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+
+          <div className="contact-wa-divider" aria-hidden="true">
+            <span className="contact-wa-divider-line" />
+            <span className="contact-wa-divider-text">
+              {locale === "es"
+                ? "o si prefieres, escríbeme aquí"
+                : locale === "en"
+                ? "or if you prefer, write to me here"
+                : "edo nahiago baduzu, idatzi hemen"}
+            </span>
+            <span className="contact-wa-divider-line" />
+          </div>
+        </div>
+      </section>
+
       <section aria-label="Contact form">
         <div className="container-xl">
           <div className="contact-grid">
