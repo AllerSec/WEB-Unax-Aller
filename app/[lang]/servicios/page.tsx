@@ -80,7 +80,7 @@ export default async function ServiciosPage({ params }: Props) {
   const howToSteps = locale === "es"
     ? [
         { name: "1. Te enseño una propuesta", text: "Antes de pedirte que firmes nada, te paso una propuesta visual: cómo veo tu web, la dirección de diseño y la estructura. Si no te encaja, ahí acaba y no me debes nada." },
-        { name: "2. Si te gusta, firmamos", text: "Contrato simple a 12 meses con 30 días de garantía. 0€ al firmar. La primera cuota de 149€ no se pasa hasta que la web esté publicada." },
+        { name: "2. Si te gusta, firmamos", text: "Sin permanencia: solo un mínimo de 3 meses de activación y luego cancelas cuando quieras. 30 días de garantía. 0€ al firmar. La primera cuota de 149€ no se pasa hasta que la web esté publicada." },
         { name: "3. Diseño final", text: "Ya con el proyecto en marcha cerramos los detalles: tipografía, paleta, jerarquía, microcopys. Te paso avances por WhatsApp y vamos ajustando hasta que te guste de verdad." },
         { name: "4. Desarrollo", text: "Programo la web a mano, sin plantillas. SEO técnico, multi-idioma si lo necesitas y rápida en móvil. Ficha de Google Maps y sistema de reseñas configurados." },
         { name: "5. Pruebas y lanzamiento", text: "Pruebo en dispositivos reales, paso Lighthouse con Performance, Accessibility y SEO por encima de 95 y valido los datos estructurados. Subimos la web, configuramos dominio, Search Console y Analytics. En 7-10 días desde la firma, viva." },
@@ -89,7 +89,7 @@ export default async function ServiciosPage({ params }: Props) {
     : locale === "en"
     ? [
         { name: "1. I show you a proposal", text: "Before I ask you to sign anything, I send you a visual proposal: how I picture your site, the design direction and the structure. If it doesn't click, that's the end of it and you owe me nothing." },
-        { name: "2. If you like it, we sign", text: "A simple 12-month contract with a 30-day guarantee. €0 to sign. The first €149 fee doesn't kick in until the site is published." },
+        { name: "2. If you like it, we sign", text: "No lock-in: just a 3-month minimum activation, then cancel whenever you want. 30-day guarantee. €0 to sign. The first €149 fee doesn't kick in until the site is published." },
         { name: "3. Final design", text: "With the project underway we lock in the details: type, palette, hierarchy, microcopy. I send progress over WhatsApp and we adjust until you actually like it." },
         { name: "4. Development", text: "I code the site by hand, no templates. Technical SEO, multi-language if you need it and fast on mobile. Google Maps profile and reviews system set up." },
         { name: "5. Testing and launch", text: "I test on real devices, run Lighthouse with Performance, Accessibility and SEO above 95, and validate structured data. We push the site, set up the domain, Search Console and Analytics. 7-10 days from signing and it's live." },
@@ -97,7 +97,7 @@ export default async function ServiciosPage({ params }: Props) {
       ]
     : [
         { name: "1. Proposamen bat erakusten dizut", text: "Ezer sinatu aurretik, proposamen bisual bat bidaltzen dizut: zure weba nola ikusten dudan, diseinu-norabidea eta egitura. Egokitzen ez bazaizu, hor amaitzen da eta ez didazu ezer zor." },
-        { name: "2. Gustatzen bazaizu, sinatzen dugu", text: "12 hilabeteko kontratu sinplea, 30 eguneko bermearekin. 0€ sinatzean. Lehen 149€-ko kuota ez da pasatzen weba argitaratu arte." },
+        { name: "2. Gustatzen bazaizu, sinatzen dugu", text: "Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa eta gero nahi duzunean baja eman. 30 eguneko bermea. 0€ sinatzean. Lehen 149€-ko kuota ez da pasatzen weba argitaratu arte." },
         { name: "3. Azken diseinua", text: "Proiektua martxan dugula, xehetasunak ixten ditugu: tipografia, paleta, hierarkia, mikrokopya. Aurrerapenak WhatsApp bidez bidaltzen dizkizut eta benetan gustatu arte doitzen ditugu." },
         { name: "4. Garapena", text: "Weba eskuz programatzen dut, txantiloirik gabe. SEO teknikoa, eleaniztasuna behar baduzu eta mugikorrean azkar. Google Maps fitxa eta iritzi-sistema prest." },
         { name: "5. Probak eta abiaraztea", text: "Benetako gailuetan probatzen dut, Lighthouse 95etik gora Performance, Accessibility eta SEO-n, eta datu egituratuak baliozkotzen ditut. Weba igotzen dugu, domeinua, Search Console eta Analytics konfiguratzen ditugu. Sinatu eta 7-10 egunera martxan." },
@@ -705,7 +705,7 @@ export default async function ServiciosPage({ params }: Props) {
                     <th>
                       {locale === "es" ? "Agencia tradicional" : locale === "en" ? "Traditional agency" : "Agentzia tradizionala"}
                     </th>
-                    <th className="svc-col-unax-head">Unax · Renting Web</th>
+                    <th className="svc-col-unax-head">Unax · Todo Incluido</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -778,7 +778,7 @@ export default async function ServiciosPage({ params }: Props) {
               {locale === "es" ? "Pedir auditoría gratis →" : locale === "en" ? "Request free audit →" : "Doako auditoria eskatu →"}
             </Link>
             <a
-              href="https://wa.me/34620909926"
+              href="https://wa.me/34620909916"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary btn-lg focusable"

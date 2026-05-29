@@ -60,7 +60,7 @@ export default async function Image() {
           marginBottom: 48,
           fontFamily: 'sans-serif',
         }}>
-          149€/mes · 0€ inicial · 30 días de garantía · 12 meses
+          149€/mes · 0€ inicial · 30 días de garantía · sin permanencia
         </div>
 
         {/* Bottom bar */}

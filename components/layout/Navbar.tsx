@@ -128,55 +128,38 @@ export default function Navbar({ locale }: Props) {
     { scope: navRef }
   );
 
-  // ─── Mobile menu: open/close with reversible timeline ───
-  const menuTl = useRef<gsap.core.Timeline | null>(null);
-
+  // ─── Mobile menu: visibility is driven purely by CSS via the data-open
+  // attribute. GSAP only adds an optional stagger on the links *when opening*.
+  // It must NEVER set visibility/autoAlpha on the panel: an inline
+  // visibility:hidden would beat the CSS open-state and leave the menu stuck
+  // closed if GSAP failed to init (the production mobile bug). ───
   useGSAP(
     () => {
+      if (!menuOpen) return;
       const panel = mobilePanelRef.current;
       if (!panel) return;
+
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) return;
 
       const items = panel.querySelectorAll<HTMLElement>(
         ".nav-mobile-link, .nav-mobile-cta"
       );
-
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      gsap.set(panel, { autoAlpha: 0 });
-      gsap.set(items, { autoAlpha: 0, y: 12 });
-
-      const tl = gsap.timeline({
-        paused: true,
-        defaults: { ease: "power3.out" },
-      });
-      tl.to(panel, { autoAlpha: 1, duration: reduce ? 0.01 : 0.25 })
-        .to(
-          items,
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: reduce ? 0.01 : 0.4,
-            stagger: reduce ? 0 : 0.045,
-          },
-          "<0.05"
-        );
-
-      menuTl.current = tl;
-      return () => {
-        tl.kill();
-        menuTl.current = null;
-      };
+      gsap.fromTo(
+        items,
+        { autoAlpha: 0, y: 12 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.4,
+          stagger: 0.045,
+          ease: "power3.out",
+          clearProps: "transform,opacity,visibility",
+        }
+      );
     },
-    { scope: mobilePanelRef, dependencies: [] }
+    { scope: mobilePanelRef, dependencies: [menuOpen] }
   );
-
-  // Play / reverse the menu timeline when open state changes
-  useEffect(() => {
-    const tl = menuTl.current;
-    if (!tl) return;
-    if (menuOpen) tl.play();
-    else tl.reverse();
-  }, [menuOpen]);
 
   // Body scroll lock when mobile menu is open
   useEffect(() => {
@@ -394,6 +377,7 @@ export default function Navbar({ locale }: Props) {
                     data-active={active ? "true" : "false"}
                     aria-current={active ? "page" : undefined}
                     tabIndex={menuOpen ? 0 : -1}
+                    onClick={() => setMenuOpen(false)}
                   >
                     <span className="nav-mobile-link-text">{link.label}</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -406,6 +390,7 @@ export default function Navbar({ locale }: Props) {
                 href={`/${locale}/contacto`}
                 className="btn btn-primary btn-block nav-mobile-cta"
                 tabIndex={menuOpen ? 0 : -1}
+                onClick={() => setMenuOpen(false)}
               >
                 {t("consultaGratuita")}
               </Link>

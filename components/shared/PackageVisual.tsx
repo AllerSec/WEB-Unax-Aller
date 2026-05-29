@@ -188,7 +188,7 @@ export default function PackageVisual({ locale }: Props) {
         .pv-equals-strike { color:rgba(255, 255, 255, 0.4); text-decoration:line-through; font-size:0.9em; margin-right:var(--space-2); font-weight:400; }
       `}</style>
 
-      <div className="pv-grid" role="list" aria-label={locale === "es" ? "Servicios incluidos en el Renting Web" : locale === "en" ? "Services included in Web Renting" : "Web Errentariak barne hartzen dituen zerbitzuak"}>
+      <div className="pv-grid" role="list" aria-label={locale === "es" ? "Servicios incluidos en el plan Todo Incluido" : locale === "en" ? "Services included in the All-Inclusive plan" : "Dena Barne planak barne hartzen dituen zerbitzuak"}>
         {items.map((it) => (
           <div key={it.label} className="pv-tile" role="listitem">
             <span className="pv-icon" aria-hidden="true">{ICONS[it.icon]}</span>

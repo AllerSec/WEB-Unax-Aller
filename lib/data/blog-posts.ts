@@ -607,7 +607,7 @@ Lo que no entra ahí suele ser la trampa de muchos presupuestos "completos".
 
 ## Mi experiencia real
 
-En mi caso he dejado el modelo del pago único. Hoy trabajo con Renting Web: 0€ al firmar, 149€/mes con permanencia de 12 meses y todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp).
+En mi caso ofrezco dos caminos. El más elegido es el plan Todo Incluido: 0€ al firmar, 149€/mes sin permanencia (cancelas cuando quieras) y todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp). Y si prefieres tenerla en propiedad, también puedes comprarla en un pago único de 1.500€.
 
 ¿Por qué cambié el modelo? Porque la mayoría de negocios locales no quieren soltar 2.000€ de golpe por una web, pero sí pagan una cuota mensual fija sin problema, como hacen con el gestor, el seguro o el teléfono. Y porque a la agencia tradicional le interesa que la web se quede vieja para venderte una nueva: a mí, no. Mientras pagues tu cuota, yo trabajo para que tu web siga viva, rápida y arriba en Google.
 
@@ -643,7 +643,7 @@ When you hire a freelance web designer, a reasonable price includes:
 
 ## My real experience
 
-I've moved away from the one-off pricing model. Today I work with Web Renting: €0 to sign, €149/month with a 12-month commitment and everything included (design, hosting, domain, Google Maps, reviews and WhatsApp support).
+In my case I offer two routes. The most popular is the All-Inclusive plan: €0 to sign, €149/month with no lock-in (cancel whenever you want) and everything included (design, hosting, domain, Google Maps, reviews and WhatsApp support). And if you'd rather own it, you can also buy it for a one-off €1,500.
 
 Why did I change? Because most local businesses don't want to drop €2,000 in one go on a website but happily pay a fixed monthly fee like they do for the accountant, insurance or phone bill. And because the traditional agency profits from your site getting old so they can sell you a new one — I don't. As long as you pay your fee, I keep your site alive, fast and ranking on Google.
 
@@ -660,7 +660,7 @@ I've seen clients arrive from websites that cost €2,000 from an agency and too
 
 ## Nire benetako esperientzia
 
-Ordainketa bakarreko eredua utzi nuen. Gaur Web Errentamenduarekin lan egiten dut: 0€ sinatzean, 149€/hil 12 hilabeteko iraupenarekin eta dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza).
+Bi bide eskaintzen ditut. Ohikoena Dena Barne plana da: 0€ sinatzean, 149€/hil iraupenik gabe (nahi duzunean baja eman) eta dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Eta jabetzan nahiago baduzu, 1.500€-ko ordainketa bakarrean ere eros dezakezu.
 
 Zergatik aldatu nuen? Tokiko negozio gehienek ez baitute 2.000€ batera ordaindu nahi web batengatik, baina hileko kuota finkoa erraz ordaintzen dute, kontulariarena, aseguruarena edo telefonoarena bezala. Eta agentzia tradizionalari weba zahartzea komeni zaio berri bat saltzeko — niri ez. Zure kuota ordaintzen duzun bitartean, ni arduratzen naiz zure weba bizirik, azkar eta Googlen gora egotea.`,
     },
@@ -697,8 +697,8 @@ Zergatik aldatu nuen? Tokiko negozio gehienek ez baitute 2.000€ batera ordaind
           a: "El SEO técnico sí: velocidad, meta tags, Schema.org, URLs limpias, hreflang entre idiomas. Y, dentro de la cuota mensual, vigilo tu ficha de Google Maps cada mes para que la competencia no te adelante. El SEO orgánico a largo plazo (contenidos, backlinks) es otro trabajo aparte porque requiere meses de seguimiento.",
         },
         {
-          q: "¿Qué diferencia hay entre una web de 500€ y una con Renting Web?",
-          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. Con Renting Web tienes diseño hecho a mano para tu negocio, optimizada para móvil y Google, soporte real por WhatsApp y la tranquilidad de que cada mes hay alguien vigilando que sigas saliendo arriba. Los detalles marcan la diferencia en cómo te perciben tus clientes y en cuánto conviertes.",
+          q: "¿Qué diferencia hay entre una web de 500€ y el plan Todo Incluido?",
+          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. Con el plan Todo Incluido tienes diseño hecho a mano para tu negocio, optimizada para móvil y Google, soporte real por WhatsApp y la tranquilidad de que cada mes hay alguien vigilando que sigas saliendo arriba. Los detalles marcan la diferencia en cómo te perciben tus clientes y en cuánto conviertes.",
         },
         {
           q: "¿Cuánto tarda el proyecto?",
@@ -1171,7 +1171,7 @@ Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu
 
 ## Lo que ofrece un freelance (como yo)
 
-- **Sin desembolso inicial:** en mi caso, Renting Web son 0€ al firmar y 149€/mes todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp). Donde una agencia te pide 2.500-5.000€ de golpe, aquí lo metes en la contabilidad como una cuota más.
+- **Sin desembolso inicial:** en mi caso, el plan Todo Incluido son 0€ al firmar y 149€/mes sin permanencia, todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp). Donde una agencia te pide 2.500-5.000€ de golpe, aquí lo metes en la contabilidad como una cuota más.
 - **Comunicación directa:** hablas con quien hace el trabajo. Sin intermediarios ni "te pasamos con tu gestor".
 - **Flexibilidad:** proyectos adaptados, no paquetes cerrados.
 - **Implicación personal:** mi reputación depende de cada proyecto.
@@ -1206,7 +1206,7 @@ Mira: cartera, casos reales, reseñas, comunicación inicial. Ahí está la señ
 
 ## What a freelancer offers (like me)
 
-- **No upfront cost:** in my case, Web Renting is €0 to sign and €149/month all-inclusive (design, hosting, domain, Google Maps, reviews and WhatsApp support). Where an agency asks for €2,500-5,000 upfront, here it goes in the books as another monthly subscription.
+- **No upfront cost:** in my case, the All-Inclusive plan is €0 to sign and €149/month with no lock-in, all-inclusive (design, hosting, domain, Google Maps, reviews and WhatsApp support). Where an agency asks for €2,500-5,000 upfront, here it goes in the books as another monthly subscription.
 - **Direct communication:** you talk to the person doing the work.
 - **Flexibility:** adapted projects, not closed packages.
 - **Personal stake:** my reputation depends on every project.
@@ -1241,7 +1241,7 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
 
 ## Freelance batek eskaintzen duena
 
-- **Hasierako kosturik gabe:** nire kasuan, Web Errentamendua 0€ sinatzean eta 149€/hil dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Agentziak 2.500-5.000€ batera eskatzen dituen lekuan, hemen beste hileko kuota bat besterik ez da.
+- **Hasierako kosturik gabe:** nire kasuan, Dena Barne plana 0€ sinatzean eta 149€/hil iraupenik gabe, dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Agentziak 2.500-5.000€ batera eskatzen dituen lekuan, hemen beste hileko kuota bat besterik ez da.
 - **Komunikazio zuzena:** lana egiten duenarekin hitz egiten duzu.
 - **Malgutasuna:** moldatutako proiektuak.
 

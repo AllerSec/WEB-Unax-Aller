@@ -17,7 +17,7 @@
     subtitlePost: ". 0€ al firmar.",
     cta: "Pedir auditoría gratis",
     cta2: "Ver cómo funciona",
-    badge: "Renting Web · Gipuzkoa",
+    badge: "Tu web sin complicaciones · Gipuzkoa",
     scrollHint: "Ver cómo funciona",
     availability: "Próximas plazas: junio 2026",
   },
@@ -63,7 +63,7 @@
     steps: [
       { number: "01", title: "Auditoría gratis", desc: "Te enseño qué competidores tuyos salen primero en Google Maps en tu zona y por qué." },
       { number: "02", title: "Llamada de 30 min", desc: "Por teléfono o un café. Cómo llegan ahora tus clientes y a quién quieres atraer." },
-      { number: "03", title: "Firmamos sin pagar nada", desc: "0€ al firmar. Permanencia 12 meses, 30 días de garantía. La primera cuota cuando esté lista." },
+      { number: "03", title: "Firmamos sin pagar nada", desc: "0€ al firmar. Sin permanencia (mínimo 3 meses de activación), 30 días de garantía. La primera cuota cuando esté lista." },
       { number: "04", title: "Tu sistema está vivo", desc: "Web + Google Maps + reseñas. WhatsApp directo para cambios siempre que necesites." },
     ],
     cta: "Empezar con auditoría gratis",
@@ -87,23 +87,23 @@
     ],
   },
   pricing: {
-    title: "Renting Web — 149€/mes, 0€ al firmar",
+    title: "Todo Incluido — 149€/mes, 0€ al firmar",
     subtitle:
-      "Cuota fija todo incluido. Sin desembolso inicial. 30 días de garantía. Permanencia 12 meses.",
+      "Cuota fija todo incluido. Sin desembolso inicial. 30 días de garantía. Sin permanencia.",
     from: "Cuota fija",
     month: "/mes",
     popular: "0€ inicial",
     cta: "Empezar sin pagar nada",
     ctaContact: "Pedir auditoría",
     notePrice:
-      "Cuota bloqueada durante los 12 meses contratados. Después, sigues mes a mes sin permanencia. Cualquier subida futura solo afecta a clientes nuevos.",
+      "Sin permanencia: solo un mínimo de 3 meses de activación y cancelas cuando quieras. Tu cuota queda bloqueada — las subidas futuras solo afectan a clientes nuevos.",
     plans: [
       {
-        name: "Renting Web",
+        name: "Todo Incluido",
         subtitle: "Tu web profesional sin pagar nada al empezar",
         price: "149€/mes",
         description:
-          "0€ al firmar. 149€/mes durante 12 meses. 30 días de garantía de devolución. Todo incluido: diseño, hosting, Google Maps, reseñas y soporte por WhatsApp.",
+          "0€ al firmar. 149€/mes sin permanencia. 30 días de garantía de devolución. Todo incluido: diseño, hosting, Google Maps, reseñas y soporte por WhatsApp.",
         features: [
           "Diseño profesional a medida para tu negocio",
           "Hasta 5 secciones (inicio, servicios, sobre ti, contacto, reseñas)",
@@ -123,7 +123,7 @@
     profile: {
       name: "Unax Aller Fernández",
       location: "Irun, Gipuzkoa · País Vasco",
-      role: "Renting Web para negocios locales del País Vasco y Navarra",
+      role: "Webs para negocios locales del País Vasco y Navarra",
       education: "Grado en Ingeniería Informática — Universidad Alfonso X el Sabio",
       linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
       languages: "Español (nativo) · Francés (bilingüe) · Inglés (profesional) · Euskera (básico)",
@@ -220,7 +220,7 @@
     info: {
       location: "Irun, Gipuzkoa · País Vasco",
       email: "contacto@unaxaller.com",
-      phone: "+34 620 90 99 26",
+      phone: "+34 620 90 99 16",
       response: "Respuesta en < 24h",
       availability: "Lun – Vie · 9:00 – 18:00",
     },
@@ -275,16 +275,16 @@
       { q: "¿Incluye el mantenimiento?", a: "Sí. Los 149€/mes ya incluyen hosting, dominio, SSL, soporte por WhatsApp y cambios menores cada mes (textos, fotos, precios, horarios, añadir un servicio…). Sin facturas extra." },
       { q: "¿Puedo pedir cambios cuando quiera?", a: "Sí. Durante el desarrollo hay rondas de revisión sin coste. Después del lanzamiento, los cambios menores entran en la cuota mensual: me los mandas al WhatsApp y los hago." },
       { q: "¿Trabajas solo con empresas de Gipuzkoa?", a: "No. Trabajo con negocios profesionales en todo el País Vasco y Navarra — Bilbao, Donostia, Vitoria, Pamplona, comarcas y polígonos industriales. También atiendo La Rioja y Cantabria. La cercanía digital pesa más que la geográfica: nos vemos por WhatsApp y videollamada, y visitas presenciales cuando el proyecto lo merece." },
-      { q: "¿Qué pasa si quiero dejar el servicio?", a: "Durante los 12 meses iniciales tienes que cumplir el contrato. A partir de ahí, sigues mes a mes sin permanencia: solo avisar. El dominio lo registro a tu nombre y te lo llevas. La ficha de Google Maps y tus reseñas también se quedan contigo porque son de tu negocio. Lo único que se apaga es la web, igual que el software del taller o la tarifa del móvil: pagas cuota, tienes servicio." },
+      { q: "¿Qué pasa si quiero dejar el servicio?", a: "Sin permanencia: solo pido un mínimo de 3 meses de activación (alta de dominio, SEO local y ficha de Google). A partir del cuarto mes cancelas cuando quieras, solo avisar. El dominio lo registro a tu nombre y te lo llevas. La ficha de Google Maps y tus reseñas también se quedan contigo porque son de tu negocio. Lo único que se apaga es la web, igual que el software del taller o la tarifa del móvil: pagas cuota, tienes servicio." },
     ],
   },
   faqPrecios: {
-    title: "Preguntas sobre el Renting Web",
+    title: "Preguntas sobre el plan Todo Incluido",
     items: [
       { q: "¿Por qué 149€/mes y no un pago único?", a: "Porque la mayoría de negocios locales no quieren soltar 2.000€ o 3.000€ de golpe por una web. Una cuota fija mensual entra en la contabilidad como un gasto más, igual que el gestor o el seguro. Y la web empieza a trabajar para ti desde el día uno." },
       { q: "¿Hay costes ocultos?", a: "No. Los 149€/mes ya cubren diseño, programación, dominio, hosting, SSL, Google Maps, sistema de reseñas, soporte por WhatsApp y cambios menores cada mes. Sin facturas extra." },
       { q: "¿Y si no me convence el resultado?", a: "Tienes 30 días desde el lanzamiento para reclamar la devolución de lo pagado, sin tener que dar explicaciones. Si no te gusta, no pagas más." },
-      { q: "¿Qué pasa al terminar los 12 meses?", a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados; las subidas futuras solo afectan a nuevos clientes." },
+      { q: "¿Tengo que comprometerme a algún tiempo mínimo?", a: "Sin permanencia anual. El único compromiso es un mínimo de 3 meses de activación, que cubre el alta del dominio, el SEO local y la ficha de Google. A partir del cuarto mes cancelas cuando quieras. Tu cuota queda bloqueada — las subidas futuras solo afectan a nuevos clientes." },
       { q: "¿Puedo tener una auditoría gratis antes?", a: "Sí. Antes de firmar te enseño qué competidores tuyos están saliendo primero en Google Maps en tu zona y por qué — con datos, no con palabrería. Si te encajan los números, firmamos." },
     ],
   },

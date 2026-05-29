@@ -12,19 +12,19 @@ const ROWS_BY_LOCALE: Record<"es" | "en" | "eu", Row[]> = {
     { bad: true, who: "Agencia local", detail: "2.500–5.000€ inicial · cambios siempre aparte · pagas y rezas" },
     { bad: true, who: "Wix / Squarespace", detail: "Lenta · plantilla genérica · te quedas sin web si dejas de pagar" },
     { bad: true, who: "Sin web (sólo Google Maps)", detail: "Ficha sin optimizar · sin reseñas · te ven, pero no te llaman" },
-    { bad: false, who: "Renting Web · Unax", detail: "0€ inicial · 149€/mes todo incluido · cambios al WhatsApp" },
+    { bad: false, who: "Todo Incluido · Unax", detail: "0€ inicial · 149€/mes todo incluido · cambios al WhatsApp" },
   ],
   en: [
     { bad: true, who: "Local agency", detail: "€2,500–5,000 upfront · changes always extra · pay and pray" },
     { bad: true, who: "Wix / Squarespace", detail: "Slow · generic template · lose your site if you stop paying" },
     { bad: true, who: "No website (Google Maps only)", detail: "Listing not optimized · no reviews · they see you but don't call" },
-    { bad: false, who: "Renting Web · Unax", detail: "€0 upfront · €149/month all-in · changes by WhatsApp" },
+    { bad: false, who: "All-Inclusive · Unax", detail: "€0 upfront · €149/month all-in · changes by WhatsApp" },
   ],
   eu: [
     { bad: true, who: "Tokiko agentzia", detail: "2.500–5.000€ hasieran · aldaketak beti aparte · ordaindu eta otoitz egin" },
     { bad: true, who: "Wix / Squarespace", detail: "Geldoa · txantiloi generikoa · webgunea galtzen duzu ordaintzeari uzten badiozu" },
     { bad: true, who: "Webgunerik ez (Google Maps soilik)", detail: "Fitxa optimizatu gabe · iritzirik ez · ikusten zaituzte baina ez dizute deitzen" },
-    { bad: false, who: "Renting Web · Unax", detail: "0€ hasieran · 149€/hilean dena barne · aldaketak WhatsApp-etik" },
+    { bad: false, who: "Dena Barne · Unax", detail: "0€ hasieran · 149€/hilean dena barne · aldaketak WhatsApp-etik" },
   ],
 };
 

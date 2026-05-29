@@ -17,7 +17,7 @@
     subtitlePost: ". 0€ sinatzean.",
     cta: "Doako auditoria eskatu",
     cta2: "Nola funtzionatzen duen ikusi",
-    badge: "Web Errentaria · Gipuzkoa",
+    badge: "Zure weba arazorik gabe · Gipuzkoa",
     scrollHint: "Nola funtzionatzen duen",
     availability: "Hurrengo lekuak: 2026ko ekaina",
   },
@@ -63,7 +63,7 @@
     steps: [
       { number: "01", title: "Doako auditoria", desc: "Zure eremuan zein lehiakide ageri den lehenengo Google Maps-en erakusten dizut, eta zergatik." },
       { number: "02", title: "30 minutuko deia", desc: "Telefonoz edo kafe baten inguruan. Nola iristen zaizkizun bezeroak orain eta nor erakarri nahi duzun." },
-      { number: "03", title: "0€ ordaindu gabe sinatzen dugu", desc: "0€ sinatzean. 12 hilabeteko iraupena, 30 eguneko bermea. Lehen kuota weba prest dagoenean kobratuko da." },
+      { number: "03", title: "0€ ordaindu gabe sinatzen dugu", desc: "0€ sinatzean. Iraupenik gabe (3 hilabeteko gutxieneko aktibazioa), 30 eguneko bermea. Lehen kuota weba prest dagoenean kobratuko da." },
       { number: "04", title: "Zure sistema bizirik dago", desc: "Weba + Google Maps + iritziak. WhatsApp zuzena aldaketetarako, behar duzunean." },
     ],
     cta: "Hasi doako auditoriarekin",
@@ -87,23 +87,23 @@
     ],
   },
   pricing: {
-    title: "Web Errentaria — 149€/hilean, 0€ sinatzean",
+    title: "Dena Barne — 149€/hilean, 0€ sinatzean",
     subtitle:
-      "Kuota finkoa dena barne. Hasierako desenbolsorik gabe. 30 eguneko bermea. 12 hilabeteko iraupena.",
+      "Kuota finkoa dena barne. Hasierako desenbolsorik gabe. 30 eguneko bermea. Iraupenik gabe.",
     from: "Kuota finkoa",
     month: "/hil",
     popular: "0€ hasieran",
     cta: "Hasi ezer ordaindu gabe",
     ctaContact: "Auditoria eskatu",
     notePrice:
-      "Kuota 12 hilabetez blokeatuta. Ondoren, hilez hile iraupenik gabe. Etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
+      "Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez, eta gero nahi duzunean baja eman. Zure kuota blokeatuta dago — etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
     plans: [
       {
-        name: "Web Errentaria",
+        name: "Dena Barne",
         subtitle: "Zure web profesionala hasieran ezer ordaindu gabe",
         price: "149€/hil",
         description:
-          "0€ sinatzean. 149€/hilean 12 hilabetez. 30 eguneko itzulketa bermea. Dena barne: diseinua, hostinga, Google Maps, iritziak eta WhatsApp laguntza.",
+          "0€ sinatzean. 149€/hilean iraupenik gabe. 30 eguneko itzulketa bermea. Dena barne: diseinua, hostinga, Google Maps, iritziak eta WhatsApp laguntza.",
         features: [
           "Zure negoziorako diseinu profesional pertsonalizatua",
           "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
@@ -220,7 +220,7 @@
     info: {
       location: "Irun, Gipuzkoa · Euskal Herria",
       email: "contacto@unaxaller.com",
-      phone: "+34 620 90 99 26",
+      phone: "+34 620 90 99 16",
       response: "Erantzuna < 24h",
       availability: "Al – Or · 9:00 – 18:00",
     },
@@ -274,16 +274,16 @@
       { q: "Mantentze-lana sartzen al da?", a: "Bai. 149€/hilean barne sartzen dira hostinga, domeinua, SSL, WhatsApp laguntza eta hileroko aldaketa txikiak (testuak, argazkiak, prezioak, ordutegiak, zerbitzu berria…)." },
       { q: "Edozein momentuan aldaketak eska ditzaket?", a: "Bai. Garapenean berrikuspen txandak doan dira. Abian jarri ondoren, aldaketa txikiak hileko kuotaren barruan daude: WhatsAppera bidaltzen dizkidazu eta egiten ditut." },
       { q: "Gipuzkoako enpresekin bakarrik lan egiten duzu?", a: "Ez. Euskal Herri eta Nafarroa osoko negozio profesionalekin lan egiten dut — Bilbo, Donostia, Gasteiz, Iruñea, eskualdeak eta poligonoak. Errioxa eta Kantabria ere bai. Hurbiltasun digitala geografikoa baino garrantzitsuagoa da: WhatsApp eta bideo-deiekin lan egiten dugu, eta proiektuak merezi duenean bisita presentzialak." },
-      { q: "Zer gertatzen da zerbitzua utzi nahi badut?", a: "Hasierako 12 hilabetetan kontratua bete behar duzu. Ondoren, hilez hile iraupenik gabe — abisatu besterik ez. Domeinua zure izenean dago eta zurekin daramazu joaten bazara." },
+      { q: "Zer gertatzen da zerbitzua utzi nahi badut?", a: "Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez dut eskatzen (domeinuaren alta, tokiko SEOa eta Google fitxa). Laugarren hilabetetik aurrera nahi duzunean baja eman — abisatu besterik ez. Domeinua zure izenean dago eta zurekin daramazu joaten bazara." },
     ],
   },
   faqPrecios: {
-    title: "Web Errentariari buruzko galderak",
+    title: "Dena Barne planari buruzko galderak",
     items: [
       { q: "Zergatik 149€/hilean ordainketa bakar baten ordez?", a: "Tokiko negozio gehienek ez dute 2.000€ edo 3.000€ batera ordaindu nahi web batengatik. Hileko kuota finkoa kontabilitatean beste edozein gastu bezala sartzen da — eta weba lehen egunetik zure alde lanean hasten da." },
       { q: "Ezkutuko kosturik al dago?", a: "Ez. 149€/hilean barne sartzen dira diseinua, programazioa, domeinua, hostinga, SSL, Google Maps, iritzien sistema, WhatsApp laguntza eta hileroko aldaketa txikiak." },
       { q: "Eta emaitza gustatzen ez bazait?", a: "30 egun dituzu abian jartzen denetik ordaindutakoa itzultzeko inolako azalpenik eman gabe. Ez baduzu konbentzitzen, ez duzu gehiago ordainduko." },
-      { q: "Zer gertatzen da 12 hilabete amaitu ondoren?", a: "Hilez hile jarraitzen duzu iraupenik gabe. Kuota 12 hilabetez blokeatuta dago; etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie." },
+      { q: "Gutxieneko eperen batera konprometitu behar dut?", a: "Urteko iraupenik gabe. Konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da: domeinuaren alta, tokiko SEOa eta Google fitxa estaltzen ditu. Laugarren hilabetetik aurrera nahi duzunean baja ematen duzu. Zure kuota blokeatuta dago; etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie." },
       { q: "Aurrez doako auditoria bat egin al dezaket?", a: "Bai. Sinatu aurretik erakusten dizut zein lehiakide ageri den lehenengo Google Maps-en zure eremuan eta zergatik — datuekin, hitz hutsekin ez. Zenbakiek funtzionatzen badute, sinatzen dugu." },
     ],
   },

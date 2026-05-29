@@ -17,7 +17,7 @@
     subtitlePost: ". €0 to sign.",
     cta: "Request a free audit",
     cta2: "See how it works",
-    badge: "Web Renting · Gipuzkoa",
+    badge: "Your site, hassle-free · Gipuzkoa",
     scrollHint: "See how it works",
     availability: "Next slots: June 2026",
   },
@@ -63,7 +63,7 @@
     steps: [
       { number: "01", title: "Free audit", desc: "I show you which competitors of yours rank first on Google Maps in your area, and why." },
       { number: "02", title: "30-minute call", desc: "By phone or over coffee. How your customers reach you today and who you want to attract." },
-      { number: "03", title: "We sign with €0 upfront", desc: "€0 to sign. 12-month term, 30-day money-back guarantee. First fee charged when the site is live." },
+      { number: "03", title: "We sign with €0 upfront", desc: "€0 to sign. No lock-in (3-month minimum activation), 30-day money-back guarantee. First fee charged when the site is live." },
       { number: "04", title: "Your system is live", desc: "Site + Google Maps + reviews. Direct WhatsApp for changes whenever you need them." },
     ],
     cta: "Start with a free audit",
@@ -87,23 +87,23 @@
     ],
   },
   pricing: {
-    title: "Web Renting — €149/mo, €0 to sign",
+    title: "All-Inclusive — €149/mo, €0 to sign",
     subtitle:
-      "Flat fee, everything included. No upfront cost. 30-day money-back guarantee. 12-month minimum term.",
+      "Flat fee, everything included. No upfront cost. 30-day money-back guarantee. No lock-in.",
     from: "Flat fee",
     month: "/mo",
     popular: "€0 upfront",
     cta: "Start with €0 upfront",
     ctaContact: "Request audit",
     notePrice:
-      "Fee locked for the 12 months you signed up for. After that, month-to-month with no lock-in. Any future raises only apply to new clients.",
+      "No lock-in: just a 3-month minimum activation, then cancel whenever you want. Your fee stays locked — any future raises only apply to new clients.",
     plans: [
       {
-        name: "Web Renting",
+        name: "All-Inclusive",
         subtitle: "Your professional site with no upfront payment",
         price: "€149/mo",
         description:
-          "€0 to sign. €149/month for 12 months. 30-day money-back guarantee. All-in: design, hosting, Google Maps, reviews and WhatsApp support.",
+          "€0 to sign. €149/month with no lock-in. 30-day money-back guarantee. All-in: design, hosting, Google Maps, reviews and WhatsApp support.",
         features: [
           "Professional custom design built around your business",
           "Up to 5 sections (home, services, about, contact, reviews)",
@@ -220,7 +220,7 @@
     info: {
       location: "Irun, Gipuzkoa · Basque Country",
       email: "contacto@unaxaller.com",
-      phone: "+34 620 90 99 26",
+      phone: "+34 620 90 99 16",
       response: "Response in < 24h",
       availability: "Mon – Fri · 9:00 – 18:00",
     },
@@ -274,16 +274,16 @@
       { q: "Does it include maintenance?", a: "Yes. €149/month already covers hosting, domain, SSL, WhatsApp support and monthly minor changes (text, photos, prices, hours, adding a service…). No extra invoices." },
       { q: "Can I request changes whenever I want?", a: "Yes. During development, revision rounds are included. After launch, minor changes are part of the monthly fee — you send them via WhatsApp and I do them." },
       { q: "Do you only work with Gipuzkoa businesses?", a: "No. I work with professional businesses across the Basque Country and Navarra — Bilbao, Donostia, Vitoria, Pamplona, plus smaller towns and industrial estates. La Rioja and Cantabria too. Digital closeness matters more than geographic: we work over WhatsApp and video, with in-person visits when the project warrants it." },
-      { q: "What if I want to leave the service?", a: "During the initial 12 months you have to fulfil the contract. After that, month-to-month with no lock-in — just let me know. The domain is in your name and you take it with you if you leave." },
+      { q: "What if I want to leave the service?", a: "No lock-in: I only ask for a 3-month minimum activation (domain setup, local SEO and the Google profile). From the fourth month you cancel whenever you want — just let me know. The domain is in your name and you take it with you if you leave." },
     ],
   },
   faqPrecios: {
-    title: "Web Renting questions",
+    title: "All-Inclusive plan questions",
     items: [
       { q: "Why €149/month instead of a one-off payment?", a: "Most local businesses don't want to drop €2,000 or €3,000 in one go on a website. A flat monthly fee sits in the books like any operating cost — and the site starts working for you from day one." },
       { q: "Are there hidden costs?", a: "No. €149/month already covers design, development, domain, hosting, SSL, Google Maps, reviews system, WhatsApp support and monthly minor changes. No extra invoices." },
       { q: "What if I'm not convinced by the result?", a: "You have 30 days from launch to ask for a full refund, no explanation required. If you don't like it, you stop paying." },
-      { q: "What happens after the 12 months?", a: "Month-to-month with no lock-in. The fee is locked for the 12 months you signed up for; future increases only apply to new clients." },
+      { q: "Do I have to commit to any minimum period?", a: "No annual lock-in. The only commitment is a 3-month minimum activation, covering domain setup, local SEO and the Google profile. From the fourth month you cancel whenever you want. Your fee stays locked; future increases only apply to new clients." },
       { q: "Can I get a free audit first?", a: "Yes. Before signing I show you which competitors of yours rank first on Google Maps in your area and why — with data, not buzzwords. If the numbers work, we sign." },
     ],
   },

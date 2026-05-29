@@ -25,11 +25,11 @@ const lexend = Lexend({
 export const metadata: Metadata = {
   metadataBase: new URL("https://unaxaller.com"),
   title: {
-    default: "Unax Aller — Renting Web para negocio local · 149€/mes",
+    default: "Unax Aller — Web para negocio local · 149€/mes, 0€ inicial",
     template: "%s | Unax Aller",
   },
   description:
-    "Renting Web para negocios profesionales del País Vasco y Navarra: 149€/mes, 0€ inicial, 30 días de garantía. Todo incluido — web, Google Maps, reseñas, soporte WhatsApp.",
+    "Web profesional para negocios del País Vasco y Navarra: 149€/mes todo incluido, 0€ inicial, sin permanencia y 30 días de garantía. Web, Google Maps, reseñas y soporte WhatsApp.",
   applicationName: "Unax Aller",
   authors: [{ name: "Unax Aller Fernández", url: "https://unaxaller.com" }],
   creator: "Unax Aller Fernández",
@@ -61,15 +61,15 @@ export const metadata: Metadata = {
     alternateLocale: ["en_GB", "eu_ES"],
     url: "https://unaxaller.com",
     siteName: "Unax Aller",
-    title: "Unax Aller — Renting Web para negocio local · 149€/mes",
+    title: "Unax Aller — Web para negocio local · 149€/mes, 0€ inicial",
     description:
-      "Renting Web para negocios del País Vasco y Navarra. 149€/mes, 0€ inicial, 30 días de garantía. Todo incluido.",
+      "Web para negocios del País Vasco y Navarra. 149€/mes todo incluido, 0€ inicial, sin permanencia y 30 días de garantía.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unax Aller — Renting Web · 149€/mes, 0€ inicial",
+    title: "Unax Aller — Web para negocio local · 149€/mes, 0€ inicial",
     description:
-      "Renting Web para negocios profesionales: web, Google Maps, reseñas, soporte por WhatsApp. Todo incluido.",
+      "Web para negocios profesionales: 149€/mes todo incluido, sin permanencia. Web, Google Maps, reseñas y soporte por WhatsApp.",
     creator: "@unaxaller",
   },
   manifest: "/manifest.webmanifest",

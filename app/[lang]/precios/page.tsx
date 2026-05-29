@@ -19,14 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Renting Web — 149€/mes, 0€ inicial · Unax Aller",
-    en: "Web Renting — €149/month, €0 upfront · Unax Aller",
-    eu: "Web Errentaria — 149€/hilean, 0€ hasieran · Unax Aller",
+    es: "Precios — Web para negocio local · 149€/mes, 0€ inicial · Unax Aller",
+    en: "Pricing — Web for local business · €149/month, €0 upfront · Unax Aller",
+    eu: "Prezioak — Web tokiko negoziorako · 149€/hilean, 0€ hasieran · Unax Aller",
   };
   const descriptions: Record<string, string> = {
-    es: "Tu web profesional sin pagar nada al empezar. 149€/mes durante 12 meses con todo incluido: diseño a medida, Google Maps optimizado, reseñas, dominio, hosting y soporte por WhatsApp. 30 días de garantía.",
-    en: "Your professional website with no upfront cost. €149/month for 12 months — custom design, Google Maps optimization, reviews system, domain, hosting and WhatsApp support all included. 30-day money-back guarantee.",
-    eu: "Zure web profesionala hasieran ezer ordaindu gabe. 149€/hilean 12 hilabetez dena barne: neurrira egindako diseinua, Google Maps optimizatua, iritziak, domeinua, hostinga eta WhatsApp bidezko laguntza. 30 eguneko bermea.",
+    es: "Tu web profesional sin pagar nada al empezar. 149€/mes sin permanencia con todo incluido: diseño a medida, Google Maps optimizado, reseñas, dominio, hosting y soporte por WhatsApp. 0€ inicial y 30 días de garantía.",
+    en: "Your professional website with no upfront cost. €149/month with no lock-in — custom design, Google Maps optimization, reviews system, domain, hosting and WhatsApp support all included. €0 upfront and a 30-day money-back guarantee.",
+    eu: "Zure web profesionala hasieran ezer ordaindu gabe. 149€/hilean iraupenik gabe dena barne: neurrira egindako diseinua, Google Maps optimizatua, iritziak, domeinua, hostinga eta WhatsApp bidezko laguntza. 0€ hasieran eta 30 eguneko bermea.",
   };
 
   const title = titles[locale];
@@ -55,31 +55,31 @@ export default async function PreciosPage({ params }: Props) {
 
   const faqItems = locale === "es"
     ? [
-        { q: "¿Por qué 149€ al mes y no un pago único?", a: "Porque la mayoría de negocios locales no quieren soltar 2.000€ o 3.000€ de golpe por una web. Una cuota fija mensual entra en la contabilidad como un gasto más, igual que el gestor, el seguro o el teléfono. Y la web empieza a trabajar para ti desde el primer día, no cuando tengas dinero ahorrado." },
-        { q: "¿Qué pasa cuando terminan los 12 meses?", a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados y, si decides irte, solo tienes que avisar. El dominio te lo llevas a tu nombre y tu ficha de Google Maps con las reseñas sigue siendo de tu negocio. La web se apaga porque va sobre mis servidores: funciona mientras mantengas la cuota, como el software del taller o la tarifa del móvil." },
-        { q: "¿Y si no me gusta el resultado?", a: "Tienes 30 días desde el lanzamiento para devolver lo pagado sin tener que dar explicaciones. Si no te convence cómo ha quedado, no pagas más." },
-        { q: "¿Hay algún coste oculto?", a: "No. Los 149€/mes ya incluyen diseño, programación, dominio, hosting, SSL, optimización de Google Maps, sistema de reseñas, soporte por WhatsApp y cambios menores cada mes. Sin facturas extra." },
-        { q: "¿Qué incluyen exactamente los cambios mensuales?", a: "Cambios de texto, fotos, precios, horarios, añadir un servicio nuevo, ajustar la ficha de Google… todo lo que un negocio necesita ir actualizando. Si pides un rediseño completo a los 6 meses, eso se cotiza aparte." },
-        { q: "¿La web es mía o tuya?", a: "El dominio lo registro a tu nombre desde el primer día y es tuyo siempre. La web (el código y el hosting) va sobre mi sistema, igual que el programa que usas para facturar en el taller o el teléfono de empresa: pagas la cuota y te desentiendes de todo. Yo me encargo de que funcione, tú te encargas de tu negocio. Si te das de baja, el dominio y tu ficha de Google Maps con las reseñas se quedan contigo; la web se apaga." },
+        { q: "¿Cuál de los tres planes me conviene?", a: "La mayoría elige Todo Incluido (0€ al empezar, 149€/mes) porque no suelta dinero de golpe y se desentiende de todo: web, hosting, Google Maps, reseñas y cambios cubiertos. El pago único (1.500€) es para quien prefiere tenerla en propiedad desde el principio. El \"solo web\" (1.300€) existe para quien quiere únicamente el código y se ocupa él del hosting, el dominio y el mantenimiento — la mayoría descarta esa opción en cuanto ve todo lo que tiene que gestionar por su cuenta." },
+        { q: "¿Por qué Todo Incluido sale más a cuenta que el pago único?", a: "Porque en el pago único sueltas 1.500€ de golpe y, a partir del primer año, el hosting, el dominio, el mantenimiento y cada cambio van por tu cuenta o se presupuestan aparte. En Todo Incluido empiezas con 0€, todo queda cubierto mientras la uses y, si no funciona, te vas sin permanencia. Una cuota fija como la del gestor — y la web empieza a trabajar desde el primer día, no cuando tengas el dinero ahorrado." },
+        { q: "¿Qué incluyen exactamente los cambios ilimitados?", a: "Cambios de contenido: textos, fotos, precios, horarios, añadir un servicio o ajustar la ficha de Google. Todo lo que un negocio necesita ir actualizando, el mismo día y por WhatsApp. No incluye rediseñar de cero toda la estructura de la web — eso ya es un proyecto nuevo y se cotiza aparte. El día a día de tu negocio está cubierto sin facturas extra." },
+        { q: "¿Y si no me gusta el resultado? ¿Me quedo la web gratis?", a: "Tienes 30 días desde el lanzamiento para que te devuelva cada euro, sin dar explicaciones. Pero la garantía es de devolución del dinero, no una web gratis: si pides el reembolso, te devuelvo lo pagado y la web se apaga. Es justo para los dos. Si lo que quieres es tenerla en propiedad, esa es la opción de pago único." },
+        { q: "¿Y si dentro de un tiempo me canso de pagar la cuota?", a: "No estás atrapado en ningún contrato largo. El plan Todo Incluido es sin permanencia: el único compromiso es un mínimo de 3 meses de activación (para dar de alta el dominio, montar el SEO local y la ficha de Google); a partir del cuarto mes cancelas cuando quieras, solo avisando. Y si en algún momento quieres comprar la web para tenerla en propiedad y dejar de pagar cuota, pagas la diferencia hasta el pago único (1.500€) y el código pasa a ser tuyo. El dominio y tu ficha de Google con las reseñas son tuyos desde el primer día en cualquier caso." },
+        { q: "¿La web es mía o tuya?", a: "El dominio lo registro a tu nombre desde el primer día y es tuyo siempre. En Todo Incluido, el código y el hosting van sobre mi sistema, igual que el programa de facturación del taller o el teléfono de empresa: pagas la cuota y te desentiendes de todo. Si te das de baja, el dominio y tu ficha de Google Maps con las reseñas se quedan contigo y la web se apaga. Si quieres el código en propiedad, lo tienes con el pago único o comprándola más adelante." },
         { q: "¿Cuándo está lista la web?", a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida." },
       ]
     : locale === "en"
     ? [
-        { q: "Why €149/month instead of a one-off payment?", a: "Most local businesses don't want to drop €2,000 or €3,000 in one go on a website. A flat monthly fee sits in the books like any other operating cost — accountant, insurance, phone bill. And the site starts working for you from day one, not when you've saved up." },
-        { q: "What happens after the 12 months?", a: "You continue month-to-month with no lock-in. The fee is locked for the 12 months you signed up for. If at some point you decide to leave, you just let me know. No surprises." },
-        { q: "What if I don't like the result?", a: "You have 30 days from launch to ask for a full refund, no explanation required. If you're not convinced, you stop paying." },
-        { q: "Are there any hidden costs?", a: "No. €149/month already covers design, development, domain, hosting, SSL, Google Maps optimization, reviews system, WhatsApp support and monthly minor changes. No extra invoices." },
-        { q: "What exactly is included in the monthly changes?", a: "Text edits, photo swaps, prices, opening hours, adding a new service, tweaking the Google profile… anything a normal business needs to keep up to date. A full redesign at month 6 is quoted separately." },
-        { q: "Is the website mine or yours?", a: "The domain is registered in your name from day one. If you leave, you take the domain. Only the hosting and the code stay tied to the service." },
+        { q: "Which of the three plans is right for me?", a: "Most pick All-Inclusive (€0 to start, €149/month) because they'd rather not pay a lump sum and want everything handled: site, hosting, Google Maps, reviews and changes all covered. The one-off purchase (€1,500) is for those who prefer to own it from the start. The \"web only\" option (€1,300) is for someone who just wants the code and will sort out hosting, domain and maintenance themselves — most rule that out as soon as they see how much they'd have to manage alone." },
+        { q: "Why does All-Inclusive work out better than the one-off?", a: "Because with the one-off you pay €1,500 up front and, after the first year, hosting, domain, maintenance and every change are on you or quoted separately. With All-Inclusive you start at €0, everything stays covered for as long as you use it, and if it doesn't work you leave with no lock-in. A flat fee like your accountant — and the site starts working from day one, not when you've saved up." },
+        { q: "What exactly is included in the unlimited changes?", a: "Content changes: text, photos, prices, opening hours, adding a service or tweaking the Google profile. Anything a business needs to keep current, same day and over WhatsApp. It doesn't cover redesigning the whole site structure from scratch — that's a new project, quoted separately. Your day-to-day is covered with no extra invoices." },
+        { q: "What if I don't like the result? Do I keep the site for free?", a: "You have 30 days from launch to get every euro back, no explanation required. But it's a money-back guarantee, not a free site: if you ask for the refund, I return what you paid and the site switches off. It's fair both ways. If what you want is to own it, that's the one-off option." },
+        { q: "What if I get tired of paying the fee down the line?", a: "You're not trapped in any long contract. The All-Inclusive plan has no lock-in: the only commitment is a 3-month minimum activation (to register the domain, set up local SEO and the Google profile); from the fourth month you cancel whenever you want, just by letting me know. And if at some point you want to own the site and stop paying, you pay the difference up to the one-off price (€1,500) and the code becomes yours. The domain and your Google listing with the reviews are yours from day one either way." },
+        { q: "Is the website mine or yours?", a: "The domain is registered in your name from day one and is always yours. On All-Inclusive, the code and hosting run on my system — like the workshop's invoicing software or the company phone: you pay the fee and don't have to think about it. If you leave, the domain and your Google listing with the reviews stay with you and the site switches off. If you want to own the code, you get it with the one-off purchase or by buying it later." },
         { q: "How fast is the site ready?", a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start immediately." },
       ]
     : [
-        { q: "Zergatik 149€/hilean ordainketa bakar baten ordez?", a: "Tokiko negozio gehienek ez dute 2.000€ edo 3.000€ batera ordaindu nahi web batengatik. Hileko kuota finkoa kontabilitatean beste edozein gastu bezala sartzen da. Eta weba lehen egunetik zure alde lanean hasten da." },
-        { q: "Zer gertatzen da 12 hilabete amaitu ondoren?", a: "Hilez hile jarraitzen duzu iraupenik gabe. Kuota 12 hilabetez blokeatuta dago. Joatea erabakitzen baduzu, abisatu besterik ez duzu egin behar." },
-        { q: "Eta emaitza gustatzen ez bazait?", a: "30 egun dituzu abian jartzen denetik ordaindutakoa itzultzeko inolako azalpenik eman gabe." },
-        { q: "Ezkutuko kosturik al dago?", a: "Ez. 149€/hilean barne sartzen dira diseinua, programazioa, domeinua, hostinga, SSL, Google Maps optimizatua, iritzien sistema, WhatsApp laguntza eta hileroko aldaketa txikiak." },
-        { q: "Zer dira zehazki hileko aldaketak?", a: "Testuak, argazkiak, prezioak, ordutegiak, zerbitzu berriak gehitu, Google fitxa egokitu… negozio batek eguneratu behar duen guztia." },
-        { q: "Weba nirea da edo zurea?", a: "Domeinua zure izenean erregistratzen da lehen egunetik. Joaten bazara, domeinua eramaten duzu." },
+        { q: "Hiru planetatik zein komeni zait?", a: "Gehienek Dena Barne aukeratzen dute (0€ hasieran, 149€/hilean), dirua batera ez botatzeagatik eta dena kudeatuta nahi dutelako: weba, hostinga, Google Maps, iritziak eta aldaketak estalita. Ordainketa bakarra (1.500€) hasieratik jabetzan nahi duenarentzat da. \"Web soila\" aukera (1.300€) kodea bakarrik nahi duenarentzat da, hostinga, domeinua eta mantentzea berak kudeatzen dituela — gehienek aukera hori baztertzen dute bakarrik zenbat kudeatu behar duten ikusi orduko." },
+        { q: "Zergatik komeni da Dena Barne ordainketa bakarra baino gehiago?", a: "Ordainketa bakarrean 1.500€ batera ordaintzen dituzulako eta, lehen urtetik aurrera, hostinga, domeinua, mantentzea eta aldaketa bakoitza zure kontura edo aparte aurrekontatuta doazelako. Dena Barnen 0€-rekin hasten zara, dena estalita geratzen da erabiltzen duzun bitartean eta, funtzionatzen ez badu, iraupenik gabe joaten zara. Gestorearena bezalako kuota finkoa — eta weba lehen egunetik lanean hasten da." },
+        { q: "Zer dira zehazki aldaketa mugagabeak?", a: "Edukiaren aldaketak: testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat gehitu edo Google fitxa egokitu. Negozio batek eguneratu behar duen guztia, egun berean eta WhatsApp bidez. Ez du barne hartzen web osoaren egitura zerotik birdiseinatzea — hori proiektu berria da eta aparte aurrekontatzen da. Zure eguneroko jarduna estalita dago faktura gehigarririk gabe." },
+        { q: "Eta emaitza gustatzen ez bazait? Weba doan geratzen zait?", a: "30 egun dituzu abian jartzen denetik euro bakoitza itzul diezazudan, azalpenik eman gabe. Baina dirua itzultzeko bermea da, ez web doakoa: itzulketa eskatzen baduzu, ordaindutakoa itzultzen dizut eta weba itzaltzen da. Bidezkoa da bientzat. Jabetzan nahi baduzu, hori da ordainketa bakarreko aukera." },
+        { q: "Eta denborarekin kuota ordaintzeaz nekatzen banaiz?", a: "Ez zaude kontratu luze batean harrapatuta. Dena Barne plana iraupenik gabekoa da: konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da (domeinua altan emateko, tokiko SEOa eta Google fitxa muntatzeko); laugarren hilabetetik aurrera nahi duzunean baja ematen duzu, abisatuz besterik ez. Eta noizbait weba jabetzan hartu eta ordaintzeari utzi nahi badiozu, ordainketa bakarrerainoko aldea ordaintzen duzu (1.500€) eta kodea zurea bihurtzen da. Domeinua eta zure iritziak dituen Google fitxa zureak dira lehen egunetik edozein kasutan." },
+        { q: "Weba nirea da edo zurea?", a: "Domeinua zure izenean erregistratzen da lehen egunetik eta beti zurea da. Dena Barnen, kodea eta hostinga nire sisteman doaz — tailerreko fakturazio-softwarea edo enpresako telefonoa bezala: kuota ordaintzen duzu eta ez duzu ezertan pentsatu behar. Joaten bazara, domeinua eta zure iritziak dituen Google fitxa zurekin geratzen dira eta weba itzaltzen da. Kodea jabetzan nahi baduzu, ordainketa bakarrarekin edo gero erosita lortzen duzu." },
         { q: "Noiz dago weba prest?", a: "7 eta 10 egun artean sinatzen dugun unetik. Hasierako desenbolsorik ez dagoenez, berehala has gaitezke." },
       ];
 
@@ -174,20 +174,20 @@ export default async function PreciosPage({ params }: Props) {
         { who: "Agencia local", price: "2.500 € – 5.000 € inicial", note: "Pagas todo de golpe. Mantenimiento y cambios, aparte.", highlight: false },
         { who: "Plantilla WordPress", price: "400 € – 800 €", note: "Plantilla genérica. Nada de SEO local. Sin soporte.", highlight: false },
         { who: "Wix / Squarespace", price: "200 € – 500 €/año", note: "Te quedas sin la web cuando dejas de pagar. Lenta en móvil.", highlight: false },
-        { who: "Renting Web (Unax)", price: "0 € inicial + 149 €/mes", note: "Sin desembolso. Todo incluido. Soporte por WhatsApp.", highlight: true },
+        { who: "Todo Incluido (Unax)", price: "0 € inicial + 149 €/mes", note: "Sin desembolso. Todo incluido. Soporte por WhatsApp.", highlight: true },
       ]
     : locale === "en"
     ? [
         { who: "Local agency", price: "€2,500 – €5,000 upfront", note: "You pay everything in one go. Maintenance and changes are extra.", highlight: false },
         { who: "WordPress template", price: "€400 – €800", note: "Generic template. No local SEO. No support.", highlight: false },
         { who: "Wix / Squarespace", price: "€200 – €500/year", note: "You lose the site when you stop paying. Slow on mobile.", highlight: false },
-        { who: "Web Renting (Unax)", price: "€0 upfront + €149/mo", note: "No upfront cost. Everything included. WhatsApp support.", highlight: true },
+        { who: "All-Inclusive (Unax)", price: "€0 upfront + €149/mo", note: "No upfront cost. Everything included. WhatsApp support.", highlight: true },
       ]
     : [
         { who: "Tokiko agentzia", price: "2.500 € – 5.000 € hasieran", note: "Dena batera ordaintzen duzu. Mantentze-lana eta aldaketak, aparte.", highlight: false },
         { who: "WordPress txantiloia", price: "400 € – 800 €", note: "Txantiloi generikoa. Tokiko SEO eta laguntzarik gabe.", highlight: false },
         { who: "Wix / Squarespace", price: "200 € – 500 €/urte", note: "Ordaintzeari uzten diozunean, weba galtzen duzu.", highlight: false },
-        { who: "Web Errentaria (Unax)", price: "0 € hasieran + 149 €/hilean", note: "Hasierako kosturik gabe. Dena barne. WhatsApp laguntza.", highlight: true },
+        { who: "Dena Barne (Unax)", price: "0 € hasieran + 149 €/hilean", note: "Hasierako kosturik gabe. Dena barne. WhatsApp laguntza.", highlight: true },
       ];
 
   const jsonLd = {
@@ -205,22 +205,22 @@ export default async function PreciosPage({ params }: Props) {
       {
         "@type": "Service",
         "@id": `https://unaxaller.com/${locale}/precios#product`,
-        name: locale === "es" ? "Renting Web — Cuota mensual todo incluido" : locale === "en" ? "Web Renting — All-inclusive monthly fee" : "Web Errentaria — Hileko kuota dena barne",
+        name: locale === "es" ? "Web para negocio local — Cuota mensual todo incluido" : locale === "en" ? "Web for local business — All-inclusive monthly fee" : "Web tokiko negoziorako — Hileko kuota dena barne",
         serviceType: locale === "es" ? "Web subscription for local business" : locale === "en" ? "Web subscription for local business" : "Web subscription for local business",
         description: locale === "es"
-          ? "Web profesional para negocios locales con cuota mensual todo incluido: diseño, hosting, dominio, SEO local, Google Business Profile, sistema de reseñas y soporte por WhatsApp. 0€ inicial. 30 días de garantía de devolución. Permanencia 12 meses con cuota bloqueada. Valor del sistema el primer año: más de 6.700€."
+          ? "Web profesional para negocios locales con cuota mensual todo incluido: diseño, hosting, dominio, SEO local, Google Business Profile, sistema de reseñas y soporte por WhatsApp. 0€ inicial. 30 días de garantía de devolución. Sin permanencia (mínimo de 3 meses de activación), cuota bloqueada. Valor del sistema el primer año: más de 6.700€."
           : locale === "en"
-          ? "Professional website for local businesses with an all-inclusive monthly fee: design, hosting, domain, local SEO, Google Business Profile, reviews system and WhatsApp support. €0 upfront. 30-day money-back guarantee. 12-month price-locked term. First-year system value: over €6,700."
-          : "Tokiko negozioentzako web profesionala hileko kuota guztiarekin: diseinua, hostinga, domeinua, tokiko SEOa, Google Business Profile, iritzien sistema eta WhatsApp laguntza. 0€ hasieran. 30 eguneko itzulketa bermea. 12 hilabeteko iraupena kuota blokeatuta.",
+          ? "Professional website for local businesses with an all-inclusive monthly fee: design, hosting, domain, local SEO, Google Business Profile, reviews system and WhatsApp support. €0 upfront. 30-day money-back guarantee. No lock-in (3-month minimum activation), price locked. First-year system value: over €6,700."
+          : "Tokiko negozioentzako web profesionala hileko kuota guztiarekin: diseinua, hostinga, domeinua, tokiko SEOa, Google Business Profile, iritzien sistema eta WhatsApp laguntza. 0€ hasieran. 30 eguneko itzulketa bermea. Iraupenik gabe (3 hilabeteko gutxieneko aktibazioa), kuota blokeatuta.",
         provider: { "@id": "https://unaxaller.com/#business" },
         brand: { "@id": "https://unaxaller.com/#business" },
-        category: locale === "es" ? "Diseño Web Renting" : locale === "en" ? "Web Renting" : "Web Errentaria",
+        category: locale === "es" ? "Diseño web para negocio local" : locale === "en" ? "Web design for local business" : "Web diseinua tokiko negoziorako",
         image: `https://unaxaller.com/${locale}/opengraph-image`,
         // The 9 line items that make up the bundle — gives Google explicit
         // visibility into what the cuota covers.
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: locale === "es" ? "Lo que incluye el Renting Web" : locale === "en" ? "What Web Renting includes" : "Zer barne hartzen duen Web Errentariak",
+          name: locale === "es" ? "Lo que incluye el plan Todo Incluido" : locale === "en" ? "What the All-Inclusive plan includes" : "Zer barne hartzen duen Dena Barne planak",
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Diseño web profesional a medida" : locale === "en" ? "Custom professional web design" : "Web diseinu profesional pertsonalizatua" }, price: "1500", priceCurrency: "EUR" },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Optimización móvil completa" : locale === "en" ? "Full mobile optimization" : "Mugikorrerako optimizazio osoa" }, price: "400", priceCurrency: "EUR" },
@@ -244,7 +244,6 @@ export default async function PreciosPage({ params }: Props) {
             priceCurrency: "EUR",
             unitCode: "MON",
             referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" },
-            billingDuration: { "@type": "QuantitativeValue", value: 18, unitCode: "MON" },
           },
           // 30-day money-back guarantee — schema.org property that surfaces in
           // some Google rich results and is read by AI search engines.
@@ -387,26 +386,26 @@ export default async function PreciosPage({ params }: Props) {
               ]}
             />
             <p className="lp-eyebrow" style={{ marginTop: "var(--space-6)" }}>
-              {locale === "es" ? "Renting Web" : locale === "en" ? "Web Renting" : "Web Errentaria"}
+              {locale === "es" ? "Tu web sin complicaciones" : locale === "en" ? "Your site, hassle-free" : "Zure weba arazorik gabe"}
             </p>
             <h1 className="page-hero-title" style={{ fontFamily: "var(--font-serif)" }}>
               {locale === "es"
-                ? "Tu web profesional. Sin pagar 2.000€ de golpe."
+                ? "Una web. Tres formas de pagarla."
                 : locale === "en"
-                ? "Your professional site. Without paying €2,000 upfront."
-                : "Zure web profesionala. 2.000€ batera ordaindu gabe."}
+                ? "One website. Three ways to pay for it."
+                : "Web bat. Ordaintzeko hiru modu."}
             </h1>
             <p className="page-hero-subtitle">
               {locale === "es"
-                ? "149€/mes, 0€ al firmar, 30 días de garantía. Una cuota fija como la del gestor — y tu web empieza a traer clientes desde el primer día."
+                ? "La mayoría elige Todo Incluido: 149€/mes, 0€ al empezar y 30 días de garantía. Menos de 5€ al día — y un solo cliente nuevo al mes ya la paga."
                 : locale === "en"
-                ? "€149/month, €0 to sign, 30-day money-back guarantee. A flat fee like your accountant — and your site starts bringing in clients from day one."
-                : "149€/hilean, 0€ sinatzean, 30 eguneko bermea. Gestorearena bezalako kuota finkoa — eta webak lehen egunetik bezeroak ekartzen ditu."}
+                ? "Most pick All-Inclusive: €149/month, €0 to start and a 30-day money-back guarantee. Less than €5 a day — and one new client a month already covers it."
+                : "Gehienek Dena Barne aukeratzen dute: 149€/hilean, 0€ hasieran eta 30 eguneko bermea. Egunean 5€ baino gutxiago — eta hilean bezero berri bat nahikoa da ordaintzeko."}
             </p>
             <div className="prc-chips">
               <span className="prc-chip prc-chip--accent">{locale === "es" ? "149€/mes · 0€ inicial" : locale === "en" ? "€149/mo · €0 upfront" : "149€/hil · 0€ hasieran"}</span>
               <span className="prc-chip">{locale === "es" ? "30 días garantía" : locale === "en" ? "30-day guarantee" : "30 eguneko bermea"}</span>
-              <span className="prc-chip">{locale === "es" ? "Permanencia 12 meses" : locale === "en" ? "12-month term" : "12 hilabete iraupena"}</span>
+              <span className="prc-chip">{locale === "es" ? "Sin permanencia" : locale === "en" ? "No lock-in" : "Iraupenik gabe"}</span>
               <span className="prc-chip">{locale === "es" ? "Cambios mensuales incluidos" : locale === "en" ? "Monthly changes included" : "Hileko aldaketak barne"}</span>
             </div>
             <div className="prc-progress-bar-wrap" aria-hidden="true">
@@ -573,7 +572,7 @@ export default async function PreciosPage({ params }: Props) {
               {locale === "es" ? "Pedir auditoría gratis →" : locale === "en" ? "Request free audit →" : "Doako auditoria eskatu →"}
             </Link>
             <a
-              href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20el%20Renting%20Web%20de%20149%E2%82%AC%2Fmes"
+              href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20el%20plan%20Todo%20Incluido%20de%20149%E2%82%AC%2Fmes"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary btn-lg focusable"

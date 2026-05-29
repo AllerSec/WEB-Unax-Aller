@@ -471,7 +471,7 @@ export function getCityLandingContent(
       } con negocios locales de ${city} y ${region}. Te monto la web, la ficha de Google Maps y un sistema de reseñas${
         sectors ? ` pensado para ${sectors}` : ""
       } por 149€/mes — sin pagar nada al firmar.`,
-      benefitsTitle: `Por qué los negocios de ${city} eligen el Renting Web`,
+      benefitsTitle: `Por qué los negocios de ${city} eligen el plan Todo Incluido`,
       benefits: [
         {
           title: "Conozco el mercado de " + city,
@@ -489,7 +489,7 @@ export function getCityLandingContent(
         },
         {
           title: "0€ al firmar, 30 días de garantía",
-          desc: "Renting Web por 149€/mes durante 12 meses. No pagas nada al firmar. Si en los primeros 30 días no estás conforme, devolución completa sin preguntas.",
+          desc: "Plan Todo Incluido por 149€/mes sin permanencia. No pagas nada al firmar. Si en los primeros 30 días no estás conforme, devolución completa sin preguntas.",
         },
       ],
       faqTitle: `Preguntas frecuentes para negocios en ${city}`,
@@ -502,7 +502,7 @@ export function getCityLandingContent(
         },
         {
           q: `¿Cuánto cuesta una web para un negocio de ${city}?`,
-          a: "149€/mes durante 12 meses, con 0€ al firmar. Incluye diseño a medida, hosting, dominio, ficha de Google Business Profile optimizada para tu zona, sistema de reseñas, soporte por WhatsApp y cambios mensuales. Sin facturas extra.",
+          a: "149€/mes sin permanencia, con 0€ al firmar. Incluye diseño a medida, hosting, dominio, ficha de Google Business Profile optimizada para tu zona, sistema de reseñas, soporte por WhatsApp y cambios mensuales. Sin facturas extra.",
         },
         {
           q: `¿Cuándo está lista la web?`,
@@ -517,8 +517,8 @@ export function getCityLandingContent(
           a: "Sí, hasta 4 idiomas (euskera, castellano, inglés y francés) sin coste extra. En zonas con turismo francés es muy útil. Estudié en Francia hasta los 15, así que el francés lo trabajo igual de fino que el resto.",
         },
         {
-          q: "¿Qué pasa al terminar los 12 meses?",
-          a: "Sigues mes a mes sin permanencia. La cuota queda bloqueada durante los 12 meses contratados; cualquier subida futura solo afecta a nuevos clientes. Si quieres irte, solo avisar: el dominio te lo llevas a tu nombre y tu ficha de Google Maps con las reseñas sigue siendo de tu negocio. La web va sobre mis servidores, así que funciona mientras mantengas la cuota — igual que el software del taller o la tarifa del móvil.",
+          q: "¿Tengo que comprometerme a algún tiempo mínimo?",
+          a: "Sin permanencia anual. El único compromiso es un mínimo de 3 meses de activación (alta de dominio, SEO local y ficha de Google); a partir del cuarto mes cancelas cuando quieras. La cuota queda bloqueada y cualquier subida futura solo afecta a nuevos clientes. Si quieres irte, solo avisar: el dominio te lo llevas a tu nombre y tu ficha de Google Maps con las reseñas sigue siendo de tu negocio. La web va sobre mis servidores, así que funciona mientras mantengas la cuota — igual que el software del taller o la tarifa del móvil.",
         },
       ],
       ctaTitle: `¿Tienes un negocio en ${city}?`,
@@ -538,7 +538,7 @@ export function getCityLandingContent(
       } working with local businesses in ${city} and ${region}. I set up your website, your Google Maps profile and a reviews system${
         sectors ? ` built for ${sectors}` : ""
       } for €149/month — with no upfront payment.`,
-      benefitsTitle: `Why ${city} businesses choose Web Renting`,
+      benefitsTitle: `Why ${city} businesses choose the All-Inclusive plan`,
       benefits: [
         {
           title: `I know the ${city} market`,
@@ -556,7 +556,7 @@ export function getCityLandingContent(
         },
         {
           title: "€0 to sign, 30-day money-back",
-          desc: "Web Renting at €149/month for 12 months. €0 to sign. If in the first 30 days you're not happy, full refund, no questions asked.",
+          desc: "All-Inclusive plan at €149/month for 12 months. €0 to sign. If in the first 30 days you're not happy, full refund, no questions asked.",
         },
       ],
       faqTitle: `Frequently asked questions for ${city} businesses`,
@@ -584,8 +584,8 @@ export function getCityLandingContent(
           a: "Yes, up to 4 languages (Basque, Spanish, English, French) at no extra cost. In tourist areas with French visitors it makes a real difference. I studied in France until I was 15.",
         },
         {
-          q: "What happens after the 12 months?",
-          a: "Month-to-month with no lock-in. The fee stays locked for the 12 months you signed up for; any future increases only apply to new clients.",
+          q: "Do I have to commit to any minimum period?",
+          a: "No annual lock-in. The only commitment is a 3-month minimum activation (domain setup, local SEO and the Google profile); from the fourth month you cancel whenever you want. The fee stays locked and any future increases only apply to new clients.",
         },
       ],
       ctaTitle: `Have a business in ${city}?`,
@@ -607,7 +607,7 @@ export function getCityLandingContent(
     } ${cityIn} eta ${region}ko tokiko negozioekin. Weba, Google Maps fitxa eta iritzien sistema jartzen dizkizut${
       sectors ? ` (${sectors})` : ""
     } 149€/hilean — hasieran ezer ordaindu gabe.`,
-    benefitsTitle: `Zergatik aukeratzen duten ${city}ko negozioek Web Errentaria`,
+    benefitsTitle: `Zergatik aukeratzen duten ${city}ko negozioek Dena Barne plana`,
     benefits: [
       {
         title: `${city}ko merkatua ezagutzen dut`,
@@ -625,7 +625,7 @@ export function getCityLandingContent(
       },
       {
         title: "0€ sinatzean, 30 eguneko bermea",
-        desc: "Web Errentaria 149€/hilean 12 hilabetez. 0€ sinatzean. Lehen 30 egunetan pozik ez bazaude, dirua osorik itzultzen dizut.",
+        desc: "Dena Barne plana 149€/hilean iraupenik gabe. 0€ sinatzean. Lehen 30 egunetan pozik ez bazaude, dirua osorik itzultzen dizut.",
       },
     ],
     faqTitle: `${city}ko negozioentzat galdera ohikoak`,
@@ -638,7 +638,7 @@ export function getCityLandingContent(
       },
       {
         q: `Zenbat kostatzen da web bat ${city}ko negozio batentzat?`,
-        a: "149€/hilean 12 hilabetez, 0€ sinatzean. Neurrizko diseinua, hostinga, domeinua, zure eremurako optimizatutako Google Business Profile fitxa, iritzien sistema, WhatsApp laguntza eta hileko aldaketak barne. Faktura gehigarririk gabe.",
+        a: "149€/hilean iraupenik gabe, 0€ sinatzean. Neurrizko diseinua, hostinga, domeinua, zure eremurako optimizatutako Google Business Profile fitxa, iritzien sistema, WhatsApp laguntza eta hileko aldaketak barne. Faktura gehigarririk gabe.",
       },
       {
         q: "Noiz dago weba prest?",
@@ -653,8 +653,8 @@ export function getCityLandingContent(
         a: "Bai, 4 hizkuntzatara arte (euskara, gaztelania, ingelesa, frantsesa) kosturik gabe. Frantses turismoa duten eremuetan oso baliagarria da.",
       },
       {
-        q: "Zer gertatzen da 12 hilabete amaitu ondoren?",
-        a: "Hilez hile iraupenik gabe. Kuota 12 hilabetez blokeatuta dago; etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
+        q: "Gutxieneko eperen batera konprometitu behar dut?",
+        a: "Urteko iraupenik gabe. Konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da (domeinuaren alta, tokiko SEOa eta Google fitxa); laugarren hilabetetik aurrera nahi duzunean baja ematen duzu. Kuota blokeatuta dago eta etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
       },
     ],
     ctaTitle: `${cityIn} negozioa al duzu?`,

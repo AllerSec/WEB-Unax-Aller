@@ -4,7 +4,7 @@ import AnimatedSection from "@/components/shared/AnimatedSection";
 import SectionDivider from "@/components/shared/SectionDivider";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import FounderPhoto from "@/components/home/FounderPhoto";
-import PricingCards from "@/components/pricing/PricingCards";
+import PricingCard from "@/components/ui/pricing-card";
 import ProjectsBoard from "@/components/home/ProjectsBoard";
 import SocialProof from "@/components/home/SocialProof";
 import Testimonials from "@/components/home/Testimonials";
@@ -200,7 +200,7 @@ export default function CityLanding({
 
       {/* 4. Pricing */}
       <div className="surface-alt">
-        <PricingCards locale={locale} headingLevel="h2" />
+        <PricingCard locale={locale} headingLevel="h2" />
       </div>
 
       <SectionDivider background="var(--color-bg)" />

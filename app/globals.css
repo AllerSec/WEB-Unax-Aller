@@ -991,8 +991,8 @@ body.custom-cursor-active [role="button"] {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: 1px solid rgba(2, 6, 23, 0.08);
   border-radius: var(--radius-md);
@@ -1023,7 +1023,10 @@ body.custom-cursor-active [role="button"] {
 .nav-burger[data-open="true"] .nav-burger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-burger[data-open="true"] .nav-burger-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile panel — full-height drawer */
+/* Mobile panel — full-height drawer.
+   Visibility is owned by CSS via [data-open] so the menu opens even if GSAP
+   never initialises (the prod mobile bug was GSAP writing inline
+   visibility:hidden, which CSS could not override). */
 .nav-mobile {
   position: fixed;
   top: 3.75rem;
@@ -1033,10 +1036,18 @@ body.custom-cursor-active [role="button"] {
   z-index: calc(var(--z-sticky, 100) - 1);
   pointer-events: none;
   visibility: hidden;
+  opacity: 0;
+  transition: opacity .28s var(--ease-out), visibility 0s linear .28s;
 }
 .nav-mobile[data-open="true"] {
   pointer-events: auto;
   visibility: visible;
+  opacity: 1;
+  transition: opacity .28s var(--ease-out), visibility 0s linear 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-mobile { transition: visibility 0s linear .01s; }
+  .nav-mobile[data-open="true"] { transition: visibility 0s linear 0s; }
 }
 @media (min-width: 768px) {
   .nav-mobile { top: 4.5rem; }

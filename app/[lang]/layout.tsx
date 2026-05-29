@@ -1,4 +1,3 @@
-import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -28,9 +27,16 @@ export default async function LangLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <Script id="ua-lang-sync" strategy="beforeInteractive">
-        {`document.documentElement.lang="${locale}"`}
-      </Script>
+      {/* Root <html lang> is statically "es"; this server-rendered inline
+          script corrects it to the active locale before paint, without the
+          client-inert <Script> warning that next/script triggers in a nested
+          body. */}
+      <script
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang=${JSON.stringify(locale)}`,
+        }}
+      />
       <a href="#main-content" className="skip-link focusable">
         {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : "Edukira joan"}
       </a>

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
   const title = "Web para negocio local · 149€/mes, 0€ inicial · Unax Aller";
   const description =
-    "Renting Web para negocios de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (web, Google Maps, reseñas, hosting, soporte WhatsApp). 0€ al firmar y 30 días de garantía. Pensado para clínicas, despachos, industria B2B y comercio profesional.";
+    "Web para negocios de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (web, Google Maps, reseñas, hosting, soporte WhatsApp). 0€ al firmar, sin permanencia y 30 días de garantía. Pensado para clínicas, despachos, industria B2B y comercio profesional.";
   return {
     title,
     description,
@@ -57,7 +57,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         url: "https://unaxaller.com",
         name: "Unax Aller",
         description:
-          "Renting Web para negocios locales de Gipuzkoa, Bizkaia y Navarra. Cuota mensual todo incluido, sin pago inicial.",
+          "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra. Cuota mensual todo incluido, sin pago inicial y sin permanencia.",
         publisher: { "@id": "https://unaxaller.com/#business" },
         inLanguage: ["es-ES", "en-GB", "eu-ES"],
         // SearchAction removed: the blog index doesn't accept ?q= queries,
@@ -71,7 +71,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         name: "Unax Aller Fernández",
         givenName: "Unax",
         familyName: "Aller Fernández",
-        jobTitle: "Renting Web para negocios locales",
+        jobTitle: "Diseño de webs para negocios locales",
         url: `https://unaxaller.com/${locale}/sobre-nosotros`,
         image: "https://unaxaller.com/images/founder-unax.webp",
         email: "contacto@unaxaller.com",
@@ -84,7 +84,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
           "SEO local",
           "Captación de reseñas",
           "Webs para pymes",
-          "Renting Web",
+          "Web para negocio local todo incluido",
           "WhatsApp Business",
         ],
         alumniOf: {
@@ -108,7 +108,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://unaxaller.com/#business",
-        name: "Unax Aller — Renting Web para negocios locales",
+        name: "Unax Aller — Webs para negocios locales",
         legalName: "Unax Aller Fernández",
         url: "https://unaxaller.com",
         logo: {
@@ -119,7 +119,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         },
         image: "https://unaxaller.com/images/founder-unax.webp",
         description:
-          "Renting Web para negocios locales de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (diseño, hosting, dominio, Google Maps, reseñas, soporte WhatsApp). 0€ al firmar.",
+          "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (diseño, hosting, dominio, Google Maps, reseñas, soporte WhatsApp). 0€ al firmar y sin permanencia.",
         founder: { "@id": "https://unaxaller.com/#person" },
         knowsLanguage: ["es", "eu", "en", "fr"],
         inLanguage: ["es", "en", "eu"],
@@ -162,9 +162,9 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "Renting Web para negocio local",
+          name: "Web para negocio local todo incluido",
           itemListElement: [
-            { "@type": "Offer", priceCurrency: "EUR", price: "149", itemOffered: { "@type": "Service", name: "Renting Web — cuota mensual todo incluido" } },
+            { "@type": "Offer", priceCurrency: "EUR", price: "149", itemOffered: { "@type": "Service", name: "Plan Todo Incluido — cuota mensual todo incluido" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Optimización de Google Business Profile" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema de captación de reseñas" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO local para Gipuzkoa" } },
@@ -428,15 +428,8 @@ export default async function HomePage({ params }: Props) {
         />
       </AnimatedSection>
 
-      {/* ── 8. PRECIOS ── */}
+      {/* ── 8. PRECIOS — 3 planes, Todo Incluido como opción estrella ── */}
       <section id="precios" aria-label={copy.pricing.ariaLabel}>
-        <div className="container-xl">
-          <AnimatedSection>
-            <div className="lp-section-header">
-              <span className="lp-eyebrow">{copy.pricing.eyebrow}</span>
-            </div>
-          </AnimatedSection>
-        </div>
         <PricingCard locale={locale} headingLevel="h2" />
       </section>
 

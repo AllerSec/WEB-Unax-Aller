@@ -13,7 +13,7 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
   const labels =
     locale === "es"
       ? {
-          eyebrow: "La garantía Renting Web",
+          eyebrow: "La garantía Todo Incluido",
           title: "Tres promesas por escrito. Sin letra pequeña.",
           pillars: [
             {
@@ -23,19 +23,19 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
             },
             {
               big: "30 días",
-              small: "de devolución",
-              desc: "Si en los primeros 30 días no estás conforme con cómo ha quedado, te devuelvo lo pagado. Sin preguntas, sin papeleo.",
+              small: "y te devuelvo el dinero",
+              desc: "Si en los primeros 30 días no estás conforme, te devuelvo cada euro y apagamos la web. Sin preguntas y sin riesgo para ti.",
             },
             {
-              big: "12 meses",
-              small: "con cuota bloqueada",
-              desc: "149€/mes durante 12 meses, sin subidas. Después, sigues mes a mes. Cualquier cambio futuro solo afecta a clientes nuevos.",
+              big: "Sin",
+              small: "permanencia",
+              desc: "Cancela cuando quieras (solo pido un mínimo de 3 meses de activación para el alta, SEO y Google). Tu cuota de 149€ queda bloqueada: las subidas futuras solo afectan a clientes nuevos.",
             },
           ],
         }
       : locale === "en"
       ? {
-          eyebrow: "The Web Renting guarantee",
+          eyebrow: "The All-Inclusive guarantee",
           title: "Three promises in writing. No fine print.",
           pillars: [
             {
@@ -45,18 +45,18 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
             },
             {
               big: "30 days",
-              small: "money-back",
-              desc: "If within the first 30 days you're not happy with the result, I refund what you've paid. No questions, no paperwork.",
+              small: "and I refund you",
+              desc: "If within the first 30 days you're not happy, I refund every euro and we switch the site off. No questions, no risk to you.",
             },
             {
-              big: "12 months",
-              small: "price-locked",
-              desc: "€149/month for 12 months, no increases. After that, month-to-month. Any future change only applies to new clients.",
+              big: "No",
+              small: "lock-in",
+              desc: "Cancel whenever you want (I only ask for a 3-month minimum activation for setup, SEO and Google). Your €149 fee stays locked: future increases only apply to new clients.",
             },
           ],
         }
       : {
-          eyebrow: "Web Errentaria bermea",
+          eyebrow: "Dena Barne bermea",
           title: "Hiru promesa idatziz. Letra txikirik gabe.",
           pillars: [
             {
@@ -66,13 +66,13 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
             },
             {
               big: "30 egun",
-              small: "itzulketa",
-              desc: "Lehen 30 egunetan pozik ez bazaude, ordaindutakoa itzultzen dizut. Galderarik gabe, paperik gabe.",
+              small: "eta dirua itzultzen dizut",
+              desc: "Lehen 30 egunetan pozik ez bazaude, euro bakoitza itzultzen dizut eta weba itzaltzen dugu. Galderarik gabe eta arriskurik gabe zuretzat.",
             },
             {
-              big: "12 hilabete",
-              small: "kuota blokeatuta",
-              desc: "149€/hilean 12 hilabetez, igoerarik gabe. Ondoren, hilez hile. Etorkizuneko aldaketak bezero berriei bakarrik aplikatuko zaizkie.",
+              big: "Iraupenik",
+              small: "gabe",
+              desc: "Nahi duzunean baja eman (3 hilabeteko gutxieneko aktibazioa besterik ez dut eskatzen: alta, SEO eta Google). Zure 149€-ko kuota blokeatuta dago: etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
             },
           ],
         };

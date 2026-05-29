@@ -51,7 +51,7 @@ export default async function PaisVascoPage({ params }: Props) {
     ? [
         {
           q: `¿Cuánto cuesta una web profesional en el ${regionName}?`,
-          a: "Trabajo con un modelo de Renting Web: 0€ al firmar y una cuota fija de 149€/mes con permanencia de 12 meses. Incluye diseño a medida, SEO técnico, Lighthouse 95+, hosting, dominio, ficha de Google Maps optimizada, sistema de reseñas y soporte directo por WhatsApp. Sin desembolso inicial y sin facturas extra cada mes.",
+          a: "Mi plan más elegido es Todo Incluido: 0€ al firmar y una cuota fija de 149€/mes sin permanencia (solo un mínimo de 3 meses de activación). Incluye diseño a medida, SEO técnico, Lighthouse 95+, hosting, dominio, ficha de Google Maps optimizada, sistema de reseñas y soporte directo por WhatsApp. Sin desembolso inicial y sin facturas extra cada mes. Si prefieres tenerla en propiedad, también puedes comprarla en un pago único de 1.500€.",
         },
         {
           q: "¿Puedes trabajar en Bilbao, Donostia y Vitoria?",
@@ -71,14 +71,14 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "¿Qué incluye la cuota mensual?",
-          a: "Los 149€/mes incluyen hosting, dominio, SSL, ficha de Google Maps vigilada cada mes, sistema de reseñas, soporte por WhatsApp y los cambios menores cada mes (textos, fotos, precios, horarios, añadir un servicio). Sin facturas extra. Tras los 12 meses de permanencia, sigues mes a mes sin compromiso.",
+          a: "Los 149€/mes incluyen hosting, dominio, SSL, ficha de Google Maps vigilada cada mes, sistema de reseñas, soporte por WhatsApp y los cambios menores cada mes (textos, fotos, precios, horarios, añadir un servicio). Sin facturas extra. Sin permanencia: solo un mínimo de 3 meses de activación y cancelas cuando quieras.",
         },
       ]
     : locale === "en"
     ? [
         {
           q: `How much does a professional website cost in the ${regionName}?`,
-          a: "I work on a Web Renting model: €0 to sign and a fixed €149/month fee with a 12-month commitment. It includes custom design, technical SEO, Lighthouse 95+, hosting, domain, optimized Google Maps profile, reviews system and direct WhatsApp support. No upfront cost and no extra invoices each month.",
+          a: "My most popular plan is All-Inclusive: €0 to sign and a fixed €149/month fee with no lock-in (just a 3-month minimum activation). It includes custom design, technical SEO, Lighthouse 95+, hosting, domain, optimized Google Maps profile, reviews system and direct WhatsApp support. No upfront cost and no extra invoices each month. If you'd rather own it outright, you can also buy it for a one-off €1,500.",
         },
         {
           q: "Can you work in Bilbao, Donostia and Vitoria?",
@@ -98,13 +98,13 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "What does the monthly fee include?",
-          a: "The €149/month covers hosting, domain, SSL, a Google Maps profile monitored every month, reviews system, WhatsApp support and the minor changes each month (text, photos, prices, hours, adding a service). No extra invoices. After the 12-month commitment, you continue month to month with no lock-in.",
+          a: "The €149/month covers hosting, domain, SSL, a Google Maps profile monitored every month, reviews system, WhatsApp support and the minor changes each month (text, photos, prices, hours, adding a service). No extra invoices. No lock-in: just a 3-month minimum activation and you cancel whenever you want.",
         },
       ]
     : [
         {
           q: `Zenbat kostatzen da web profesional bat ${regionName}n?`,
-          a: "Web Errentamendu eredu batekin lan egiten dut: 0€ sinatzean eta 149€/hil kuota finkoa, 12 hilabeteko iraupenarekin. Diseinu pertsonalizatua, SEO teknikoa, Lighthouse 95+, hosting-a, domeinua, Google Maps fitxa optimizatua, iritzi-sistema eta WhatsApp bidezko zuzeneko laguntza barne. Hasierako kosturik gabe eta hileko faktura gehigarririk gabe.",
+          a: "Nire plan ohikoena Dena Barne da: 0€ sinatzean eta 149€/hil kuota finkoa, iraupenik gabe (3 hilabeteko gutxieneko aktibazioa besterik ez). Diseinu pertsonalizatua, SEO teknikoa, Lighthouse 95+, hosting-a, domeinua, Google Maps fitxa optimizatua, iritzi-sistema eta WhatsApp bidezko zuzeneko laguntza barne. Hasierako kosturik gabe eta hileko faktura gehigarririk gabe. Jabetzan nahiago baduzu, 1.500€-ko ordainketa bakarrean ere eros dezakezu.",
         },
         {
           q: "Bilbon, Donostian eta Gasteizen egin dezakezu lan?",
@@ -124,7 +124,7 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "Zer dakar hileko kuotak?",
-          a: "149€/hilek hosting-a, domeinua, SSL, hilero zaindutako Google Maps fitxa, iritzi-sistema, WhatsApp bidezko laguntza eta hileko aldaketa txikiak (testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat eranstea) hartzen ditu. Faktura gehigarririk gabe. 12 hilabeteko iraupenaren ondoren, hilez hile jarraitzen duzu konpromisorik gabe.",
+          a: "149€/hilek hosting-a, domeinua, SSL, hilero zaindutako Google Maps fitxa, iritzi-sistema, WhatsApp bidezko laguntza eta hileko aldaketa txikiak (testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat eranstea) hartzen ditu. Faktura gehigarririk gabe. Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez eta gero nahi duzunean baja eman.",
         },
       ];
 

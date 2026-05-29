@@ -1,12 +1,30 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-const IconCheck = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>;
-const IconArrowRight = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>;
-const IconSparkles = () => <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z"/><path d="M19 15l.75 2.25L22 18l-2.25.75L19 21l-.75-2.25L16 18l2.25-.75L19 15z"/><path d="M5 19l.5 1.5L7 21l-1.5.5L5 23l-.5-1.5L3 21l1.5-.5L5 19z"/></svg>;
-import { Separator } from "@/components/ui/separator";
 import type { Locale } from "@/lib/i18n/config";
 import PlanModal, { type PlanDetail } from "@/components/pricing/PlanModal";
+import { buildPlans, planCopy } from "@/lib/i18n/pricing-copy";
+
+const IconCheck = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+const IconDash = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12" />
+  </svg>
+);
+const IconArrowRight = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+);
+const IconSparkles = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+    <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5L12 2z" />
+  </svg>
+);
 
 interface PricingCardProps {
   locale: Locale;
@@ -23,219 +41,169 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsInView(true); observer.disconnect(); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
       { rootMargin: "-80px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const plan: PlanDetail = {
-    name: locale === "es" ? "Renting Web" : locale === "en" ? "Web Renting" : "Web Errentaria",
-    subtitle: locale === "es" ? "Tu web profesional sin pagar nada al empezar" : locale === "en" ? "Your professional site with no upfront payment" : "Zure web profesionala hasieran ezer ordaindu gabe",
-    price: locale === "en" ? "€149/mo" : "149€/mes",
-    description:
-      locale === "es"
-        ? "0€ al firmar. Cuota fija de 149€/mes con permanencia de 12 meses y 30 días de garantía. Mientras mantengas tu cuota: web online, posicionamiento en Google Maps vigilado y soporte total por WhatsApp."
-        : locale === "en"
-        ? "€0 to sign. Fixed €149/month with a 12-month commitment and a 30-day money-back guarantee. While your subscription is active: site online, Google Maps ranking watched and full WhatsApp support."
-        : "0€ sinatzean. 149€/hileko kuota finkoa, 12 hilabeteko iraupenarekin eta 30 eguneko bermearekin. Kuota mantentzen duzun bitartean: weba sarean, Google Maps posizionamendua zaindua eta WhatsApp bidezko laguntza osoa.",
-    popular: true,
-    features:
-      locale === "es"
-        ? [
-            "Diseño profesional a medida para tu negocio",
-            "Hasta 5 secciones (inicio, servicios, sobre ti, contacto, reseñas)",
-            "Optimizada para móvil — la mayoría de tus clientes te buscan desde el teléfono",
-            "Ficha de Google Maps optimizada y vigilada cada mes para que no te adelante la competencia",
-            "Sistema automático para conseguir reseñas de 5 estrellas",
-            "Soporte directo por WhatsApp: cambios de precios, fotos u horarios el mismo día",
-          ]
-        : locale === "en"
-        ? [
-            "Professional custom design built around your business",
-            "Up to 5 sections (home, services, about, contact, reviews)",
-            "Mobile-optimized — most of your customers search from a phone",
-            "Google Maps profile optimized and monitored every month so competitors don't overtake you",
-            "Automatic system to bring in 5-star reviews",
-            "Direct WhatsApp support: price, photo or hours changes same day",
-          ]
-        : [
-            "Zure negoziorako diseinu profesional pertsonalizatua",
-            "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
-            "Mugikorrerako optimizatua — bezero gehienek mugikorretik bilatzen zaituzte",
-            "Google Maps fitxa optimizatua eta hilero zainduta, lehiakideek aurrera ez zaitzaten",
-            "5 izarreko iritziak lortzeko sistema automatikoa",
-            "WhatsApp bidezko laguntza zuzena: prezio, argazki edo ordutegi aldaketak egunean bertan",
-          ],
-    deliverables: [
-      locale === "es" ? "Dominio propio y hosting incluidos (sin facturas extra)" : locale === "en" ? "Own domain & hosting included (no extra invoices)" : "Domeinu propioa eta hostinga barne (faktura gehigarririk gabe)",
-      locale === "es" ? "Ficha de Google Business Profile lista para captar llamadas" : locale === "en" ? "Google Business Profile set up to capture phone calls" : "Google Business Profile fitxa deiak hartzeko prest",
-      locale === "es" ? "Certificado SSL y velocidad optimizada" : locale === "en" ? "SSL certificate and speed optimization" : "SSL ziurtagiria eta abiadura optimizatua",
-      locale === "es" ? "Cambios menores cada mes sin coste extra" : locale === "en" ? "Minor changes every month at no extra cost" : "Aldaketa txikiak hilero kostu gehigarririk gabe",
-    ],
-    process: [
-      {
-        step: locale === "es" ? "Llamada de 30 minutos" : locale === "en" ? "30-minute call" : "30 minutuko deia",
-        desc: locale === "es" ? "Me cuentas tu negocio, qué clientes quieres atraer y qué hace tu competencia." : locale === "en" ? "You tell me about your business, the clients you want and what your competition does." : "Zure negozioa, nahi dituzun bezeroak eta lehiakideen lana kontatzen dizkidazu.",
-      },
-      {
-        step: locale === "es" ? "Auditoría de tu competencia" : locale === "en" ? "Competitor audit" : "Lehiakideen auditoria",
-        desc: locale === "es" ? "Te enseño quién te está quitando llamadas en Google y por qué." : locale === "en" ? "I show you who's taking your calls on Google and why." : "Googlen deiak nork kentzen dizkizun eta zergatik erakusten dizut.",
-      },
-      {
-        step: locale === "es" ? "Web lista en 7–10 días" : locale === "en" ? "Site live in 7–10 days" : "Weba 7–10 egunean prest",
-        desc: locale === "es" ? "La diseño, la programo y la subo. Pruebas reales en móvil antes de lanzar." : locale === "en" ? "I design, build and launch it. Real mobile tests before going live." : "Diseinatu, programatu eta jartzen dut. Mugikorreko proba errealak abiatu aurretik.",
-      },
-      {
-        step: locale === "es" ? "Acompañamiento continuo" : locale === "en" ? "Ongoing support" : "Etengabeko laguntza",
-        desc: locale === "es" ? "WhatsApp directo conmigo. Cambios menores, hosting y dominio incluidos." : locale === "en" ? "Direct WhatsApp with me. Minor changes, hosting and domain included." : "Nirekin WhatsApp zuzena. Aldaketa txikiak, hostinga eta domeinua barne.",
-      },
-    ],
-    clients: [
-      { name: "Farmacia Fernández Bera", url: "https://farmaciafernandezbera.com", domain: "farmaciafernandezbera.com", type: locale === "es" ? "Farmacia · Bera" : locale === "en" ? "Pharmacy · Bera" : "Farmazia · Bera" },
-      { name: "Motos Arretxe", url: "https://motosarretxe.com", domain: "motosarretxe.com", type: locale === "es" ? "Taller y concesionario · Irun" : locale === "en" ? "Workshop & dealer · Irun" : "Tailerra eta kontzesionarioa · Irun" },
-      { name: "Anaka Óptica", url: "https://anakaoptica.com", domain: "anakaoptica.com", type: locale === "es" ? "Óptica · Irun" : locale === "en" ? "Optician · Irun" : "Optika · Irun" },
-    ],
-  };
-
-  const ctaLabel = locale === "es" ? "Empezar sin pagar nada" : locale === "en" ? "Start with €0 upfront" : "Hasi ezer ordaindu gabe";
-  const detailLabel = locale === "es" ? "Ver todo lo que incluye" : locale === "en" ? "See everything included" : "Sartzen den guztia ikusi";
-  const fromLabel = locale === "es" ? "Cuota fija" : locale === "en" ? "Flat fee" : "Kuota finkoa";
-  const popularLabel = locale === "es" ? "0€ inicial" : locale === "en" ? "€0 upfront" : "0€ hasieran";
-  const noteLabel =
-    locale === "es"
-      ? "Permanencia 12 meses. Garantía de devolución 30 días sin preguntas. Cuota bloqueada durante los 12 meses; futuros cambios solo afectan a nuevos clientes."
-      : locale === "en"
-      ? "12-month minimum term. 30-day no-questions-asked money-back guarantee. Price locked for 12 months; any future increases only apply to new clients."
-      : "12 hilabeteko iraupena. 30 eguneko itzulketa bermea galderarik gabe. Kuota 12 hilabetez blokeatuta; etorkizuneko aldaketak bezero berriei bakarrik aplikatuko zaizkie.";
+  const c = planCopy(locale);
+  const plans = buildPlans(locale);
 
   return (
     <>
       <style>{`
-        .pc-section{padding:clamp(4rem,8vw,7rem) 0;background:var(--color-bg)}
-        .pc-card-wrap{max-width:920px;margin:0 auto}
-        .pc-card{position:relative;display:grid;grid-template-columns:1fr 1fr;border-radius:var(--radius-2xl);background:#FFFFFF;border:1px solid var(--color-line);box-shadow:var(--shadow-lg);overflow:hidden}
-        @media(max-width:640px){.pc-card{grid-template-columns:1fr}}
-        .pc-badge{position:absolute;top:var(--space-5);right:var(--space-5);display:inline-flex;align-items:center;gap:var(--space-1);padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:var(--color-primary);color:#FFFFFF;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-        .pc-left{display:flex;flex-direction:column;padding:clamp(1.5rem,4vw,2.5rem);border-right:1px solid var(--color-line)}
-        @media(max-width:640px){.pc-left{border-right:none;border-bottom:1px solid var(--color-line)}}
-        .pc-header{margin-bottom:var(--space-6);padding-right:clamp(0px,5vw,3rem)}
-        .pc-subtitle{font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent);margin:0 0 var(--space-2)}
-        .pc-name{font-family:var(--font-serif);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:500;line-height:var(--lh-tight);letter-spacing:-.02em;color:var(--color-ink);margin:0 0 var(--space-3)}
-        .pc-description{font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-relaxed);color:var(--color-ink-muted);margin:0}
-        .pc-sep{background:var(--color-line)!important;margin-bottom:var(--space-6)}
-        .pc-features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--space-3)}
-        .pc-feature{display:flex;align-items:flex-start;gap:var(--space-3);font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-normal);color:var(--color-ink-soft)}
-        .pc-check{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--color-success-bg);color:var(--color-success);margin-top:.05em}
-        .pc-right{display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,4vw,2.5rem);gap:var(--space-6);background:var(--color-bg-muted)}
-        .pc-price-block{text-align:center}
-        .pc-from{font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink-muted);margin:0 0 var(--space-1)}
-        .pc-price{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,3.75rem);font-weight:500;line-height:1;letter-spacing:-.03em;color:var(--color-primary);margin:0;font-variant-numeric:tabular-nums}
-        .pc-price-note{font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);margin:var(--space-1) 0 0}
-        .pc-value-strip{display:flex;justify-content:center;align-items:center;gap:var(--space-3);padding:var(--space-2) var(--space-4);background:var(--color-success-bg);border:1px solid var(--color-success);border-radius:var(--radius-full);margin:0 auto;font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-success);flex-wrap:wrap;justify-content:center;text-align:center;font-weight:600}
-        .pc-value-strip strong{color:var(--color-success);font-weight:800}
-        .pc-actions{display:flex;flex-direction:column;gap:var(--space-3)}
-        .pc-cta-primary{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:48px;padding:0 var(--space-6);border-radius:var(--radius-lg);background:var(--color-accent);color:#FFFFFF;font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;text-decoration:none;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out);box-shadow:var(--shadow-sm)}
-        .pc-cta-primary:hover{background:var(--color-accent-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
-        .pc-cta-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 var(--space-6);border-radius:var(--radius-lg);background:#FFFFFF;color:var(--color-ink-soft);border:1px solid var(--color-line-strong);font-family:var(--font-sans);font-size:var(--text-sm);font-weight:500;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out)}
-        .pc-cta-secondary:hover{background:var(--color-bg);color:var(--color-primary);border-color:var(--color-primary)}
-        .pc-clients{display:flex;flex-direction:column;gap:var(--space-2);border-top:1px solid var(--color-line);padding-top:var(--space-4)}
-        .pc-client{display:flex;align-items:center;gap:var(--space-2);font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-muted)}
-        .pc-client-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--color-success);flex-shrink:0}
-        .pc-note{text-align:center;margin-top:var(--space-5);font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);line-height:var(--lh-relaxed);max-width:720px;margin-left:auto;margin-right:auto}
-        .pc-animate{opacity:0;transform:translateY(24px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
-        .pc-animate.in-view{opacity:1;transform:translateY(0)}
-        .pc-feature-animate{opacity:0;transform:translateY(16px);transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1)}
-        .pc-feature-animate.in-view{opacity:1;transform:translateY(0)}
+        .pt-section{padding:clamp(3rem,7vw,6rem) 0;background:var(--color-bg)}
+        .pt-head{text-align:center;max-width:680px;margin:0 auto clamp(2rem,4vw,3rem)}
+        .pt-head-eyebrow{font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent);margin:0 0 var(--space-3)}
+        .pt-head-title{font-family:var(--font-serif);font-size:clamp(1.6rem,3.6vw,2.5rem);font-weight:500;line-height:var(--lh-tight);letter-spacing:-.02em;color:var(--color-ink);margin:0 0 var(--space-3)}
+        .pt-head-sub{font-family:var(--font-sans);font-size:var(--text-md);line-height:var(--lh-relaxed);color:var(--color-ink-muted);margin:0}
+
+        .pt-grid{display:grid;grid-template-columns:1fr 1.18fr 1fr;gap:var(--space-4);max-width:1080px;margin:0 auto;align-items:stretch}
+        @media(max-width:960px){.pt-grid{grid-template-columns:1fr;gap:var(--space-5);max-width:520px}}
+
+        .pt-card{position:relative;display:flex;flex-direction:column;background:#FFFFFF;border:1px solid var(--color-line);border-radius:var(--radius-2xl);padding:clamp(1.5rem,3vw,2rem) clamp(1.25rem,2.5vw,1.75rem);transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out),border-color .25s var(--ease-out)}
+        .pt-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-line-strong)}
+        .pt-card--star{border:2px solid var(--color-accent);box-shadow:var(--shadow-lg);background:linear-gradient(180deg,#fff 0%,#fff 70%,color-mix(in srgb,var(--color-accent) 4%,#fff) 100%)}
+        .pt-card--star:hover{box-shadow:0 20px 44px rgba(3,105,161,.18),0 6px 14px rgba(15,23,42,.06)}
+        @media(min-width:961px){.pt-card--star{transform:translateY(-12px)}.pt-card--star:hover{transform:translateY(-15px)}}
+        .pt-card--decoy{background:var(--color-bg-muted);opacity:.92}
+
+        .pt-ribbon{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:var(--space-1);padding:var(--space-1) var(--space-4);border-radius:var(--radius-full);background:var(--color-accent);color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 12px rgba(3,105,161,.3)}
+
+        .pt-name{font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin:var(--space-2) 0 var(--space-2)}
+        .pt-card--decoy .pt-name{color:var(--color-ink-subtle)}
+        .pt-tagline{font-family:var(--font-serif);font-size:var(--text-lg);font-weight:500;line-height:var(--lh-tight);color:var(--color-ink);margin:0 0 var(--space-4);min-height:2.6em}
+
+        .pt-price-block{margin-bottom:var(--space-1)}
+        .pt-price{display:flex;align-items:baseline;gap:.3rem;font-family:var(--font-serif);color:var(--color-primary);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+        .pt-price-num{font-size:clamp(2.25rem,5vw,3rem);font-weight:500}
+        .pt-price-unit{font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--color-ink-muted)}
+        .pt-price-upfront{font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--color-success);margin:var(--space-2) 0 0;display:flex;align-items:center;gap:.4rem}
+        .pt-price-upfront--muted{color:var(--color-ink-subtle);font-weight:500}
+        .pt-price-note{font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);margin:var(--space-1) 0 0}
+
+        .pt-reframe{margin:var(--space-4) 0;padding:var(--space-3) var(--space-4);border-radius:var(--radius-lg);background:var(--color-success-bg);border:1px solid color-mix(in srgb,var(--color-success) 30%,transparent);font-family:var(--font-sans);font-size:var(--text-xs);line-height:var(--lh-normal);color:var(--color-success);font-weight:600}
+
+        .pt-sep{height:1px;background:var(--color-line);margin:var(--space-4) 0}
+
+        .pt-features{list-style:none;padding:0;margin:0 0 var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);flex:1}
+        .pt-feature{display:flex;align-items:flex-start;gap:var(--space-2);font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-normal);color:var(--color-ink-soft)}
+        .pt-feature--off{color:var(--color-ink-subtle)}
+        .pt-feature-ic{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;margin-top:.05em}
+        .pt-feature-ic--yes{background:var(--color-success-bg);color:var(--color-success)}
+        .pt-feature-ic--no{background:rgba(2,6,23,.05);color:var(--color-ink-subtle)}
+
+        .pt-actions{display:flex;flex-direction:column;gap:var(--space-2);margin-top:auto}
+        .pt-cta{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:48px;padding:0 var(--space-5);border-radius:var(--radius-lg);font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;text-decoration:none;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+        .pt-cta--primary{background:var(--color-accent);color:#fff;box-shadow:var(--shadow-sm)}
+        .pt-cta--primary:hover{background:var(--color-accent-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+        .pt-cta--ghost{background:#fff;color:var(--color-ink-soft);border:1px solid var(--color-line-strong)}
+        .pt-cta--ghost:hover{background:var(--color-bg);color:var(--color-accent);border-color:var(--color-accent)}
+        .pt-detail{appearance:none;background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;color:var(--color-ink-muted);text-decoration:underline;text-underline-offset:3px;padding:var(--space-2);transition:color var(--dur-fast) var(--ease-out)}
+        .pt-detail:hover{color:var(--color-accent)}
+
+        .pt-note{text-align:center;margin:clamp(2rem,4vw,3rem) auto 0;max-width:760px;font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);line-height:var(--lh-relaxed)}
+        .pt-note strong{color:var(--color-ink-muted)}
+
+        .pt-anim{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+        .pt-anim.in-view{opacity:1;transform:translateY(0)}
+        @media(prefers-reduced-motion:reduce){.pt-anim{transition:none;opacity:1;transform:none}.pt-card,.pt-card:hover{transition:none}}
       `}</style>
-      <section
-        ref={ref}
-        className="pc-section"
-        aria-labelledby="pc-title"
-      >
+
+      <section ref={ref} className="pt-section" aria-labelledby="pt-title">
         <div className="container-xl">
-          <div className={`pc-animate pc-card-wrap${isInView ? " in-view" : ""}`}>
-            <div className="pc-card">
-              <div className="pc-badge">
-                <IconSparkles />
-                {popularLabel}
-              </div>
+          <div className="pt-head">
+            <p className="pt-head-eyebrow">{c.eyebrow}</p>
+            <HeadingTag id="pt-title" className="pt-head-title">
+              {c.title}
+            </HeadingTag>
+            <p className="pt-head-sub">{c.subtitle}</p>
+          </div>
 
-              <div className="pc-left">
-                <div className="pc-header">
-                  <p className="pc-subtitle">{plan.subtitle}</p>
-                  <HeadingTag id="pc-title" className="pc-name">{plan.name}</HeadingTag>
-                  <p className="pc-description">{plan.description}</p>
-                </div>
+          <div className="pt-grid">
+            {plans.map((p, idx) => (
+              <article
+                key={p.id}
+                className={`pt-anim pt-card pt-card--${p.variant}${isInView ? " in-view" : ""}`}
+                style={{ transitionDelay: isInView ? `${idx * 90}ms` : "0ms" }}
+                aria-label={p.name}
+              >
+                {p.variant === "star" && (
+                  <span className="pt-ribbon">
+                    <IconSparkles />
+                    {c.recommended}
+                  </span>
+                )}
 
-                <Separator className="pc-sep" />
+                <p className="pt-name">{p.name}</p>
+                <p className="pt-tagline">{p.tagline}</p>
 
-                <ul className="pc-features" aria-label="Incluido en el plan">
-                  {plan.features.map((f, i) => (
-                    <li
-                      key={i}
-                      className={`pc-feature-animate pc-feature${isInView ? " in-view" : ""}`}
-                      style={{ transitionDelay: isInView ? `${i * 80}ms` : "0ms" }}
-                    >
-                      <span className="pc-check" aria-hidden="true">
+                <div className="pt-price-block">
+                  <div className="pt-price">
+                    <span className="pt-price-num">{p.priceNum}</span>
+                    {p.priceUnit && <span className="pt-price-unit">{p.priceUnit}</span>}
+                  </div>
+                  <p className={`pt-price-upfront${p.upfrontMuted ? " pt-price-upfront--muted" : ""}`}>
+                    {!p.upfrontMuted && (
+                      <span className="pt-feature-ic pt-feature-ic--yes" aria-hidden="true">
                         <IconCheck />
                       </span>
-                      <span>{f}</span>
+                    )}
+                    {p.upfront}
+                  </p>
+                  {p.priceNote && <p className="pt-price-note">{p.priceNote}</p>}
+                </div>
+
+                {p.reframe && <p className="pt-reframe">{p.reframe}</p>}
+
+                <div className="pt-sep" aria-hidden="true" />
+
+                <ul className="pt-features">
+                  {p.features.map((f, i) => (
+                    <li key={i} className={`pt-feature${f.on ? "" : " pt-feature--off"}`}>
+                      <span
+                        className={`pt-feature-ic pt-feature-ic--${f.on ? "yes" : "no"}`}
+                        aria-hidden="true"
+                      >
+                        {f.on ? <IconCheck /> : <IconDash />}
+                      </span>
+                      <span>{f.label}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
 
-              <div className="pc-right">
-                <div className="pc-price-block">
-                  <p className="pc-from">{fromLabel}</p>
-                  <p className="pc-price">{plan.price}</p>
-                  <p className="pc-price-note">
-                    {locale === "es" ? "IVA no inc. · 12 meses" : locale === "en" ? "VAT excl. · 12 months" : "BEZ kanpo · 12 hilabete"}
-                  </p>
-                </div>
-
-                <div className="pc-value-strip" aria-label={locale === "es" ? "Valor incluido el primer año" : locale === "en" ? "First-year value" : "Lehen urteko balioa"}>
-                  <span>
-                    {locale === "es"
-                      ? <>Valor del sistema primer año: <strong>6.700€+</strong></>
-                      : locale === "en"
-                      ? <>First-year system value: <strong>€6,700+</strong></>
-                      : <>Lehen urteko sistemaren balioa: <strong>6.700€+</strong></>}
-                  </span>
-                </div>
-
-                <div className="pc-actions">
+                <div className="pt-actions">
                   <a
-                    href={`/${locale}/contacto`}
-                    className="pc-cta-primary focusable"
+                    href={`https://wa.me/34620909916?text=${encodeURIComponent(p.whatsapp)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`pt-cta pt-cta--${p.variant === "star" ? "primary" : "ghost"} focusable`}
                   >
-                    {ctaLabel}
-                    <IconArrowRight />
+                    {p.cta}
+                    {p.variant === "star" && <IconArrowRight />}
                   </a>
-                  <button
-                    type="button"
-                    onClick={() => setActivePlan(plan)}
-                    className="pc-cta-secondary focusable"
-                  >
-                    {detailLabel}
-                  </button>
+                  {p.detail && (
+                    <button
+                      type="button"
+                      className="pt-detail focusable"
+                      onClick={() => setActivePlan(p.detail!)}
+                    >
+                      {c.seeDetail}
+                    </button>
+                  )}
                 </div>
-
-                <div className="pc-clients">
-                  {plan.clients.map((c) => (
-                    <div key={c.domain} className="pc-client">
-                      <span className="pc-client-dot" aria-hidden="true" />
-                      <span className="pc-client-name">{c.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <p className="pc-note">{noteLabel}</p>
+              </article>
+            ))}
           </div>
+
+          <p className="pt-note">{c.note}</p>
         </div>
       </section>
 
