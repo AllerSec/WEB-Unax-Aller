@@ -18,8 +18,8 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
           pillars: [
             {
               big: "0€",
-              small: "al firmar",
-              desc: "No pagas nada para empezar. La primera cuota se cobra el día que la web está viva — no antes.",
+              small: "hasta que esté viva",
+              desc: "No pagas nada para empezar, y la primera cuota no se cobra hasta que tu web está publicada y funcionando. Si no llega a estar online, no pagas.",
             },
             {
               big: "30 días",
@@ -40,8 +40,8 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
           pillars: [
             {
               big: "€0",
-              small: "to sign",
-              desc: "Pay nothing to start. The first fee is charged the day your site goes live — not before.",
+              small: "until it's live",
+              desc: "Pay nothing to start, and the first fee isn't charged until your site is published and running. If it never goes live, you don't pay.",
             },
             {
               big: "30 days",
@@ -61,8 +61,8 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
           pillars: [
             {
               big: "0€",
-              small: "sinatzean",
-              desc: "Ez duzu ezer ordaintzen hasteko. Lehen kuota webgunea bizirik dagoen egunean kobratzen da, ez lehenago.",
+              small: "bizirik egon arte",
+              desc: "Ez duzu ezer ordaintzen hasteko, eta lehen kuota ez da kobratzen zure weba argitaratu eta martxan egon arte. Sarean jartzen ez bada, ez duzu ordaintzen.",
             },
             {
               big: "30 egun",
