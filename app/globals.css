@@ -997,6 +997,10 @@ body.custom-cursor-active [role="button"] {
   border: 1px solid rgba(2, 6, 23, 0.08);
   border-radius: var(--radius-md);
   cursor: pointer;
+  /* iOS: kill the 300ms tap delay and the grey flash that makes the tap feel
+     "lost" if the menu animation is mid-transition. */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: background-color .2s var(--ease-out), border-color .2s var(--ease-out);
 }
 .nav-burger:hover {
@@ -1024,36 +1028,31 @@ body.custom-cursor-active [role="button"] {
 .nav-burger[data-open="true"] .nav-burger-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile panel — full-height drawer.
-   Visibility is owned by CSS via [data-open] so the menu opens even if GSAP
-   never initialises (the prod mobile bug was GSAP writing inline
-   visibility:hidden, which CSS could not override). */
+   Visibility is owned by CSS via [data-open]. Closed state uses `display:none`
+   to avoid the iOS Safari bug where a `visibility:hidden` + `opacity:0`
+   element under a `backdrop-filter` ancestor intercepts the first tap during
+   its visibility transition (prevented the burger from opening on iPhone). */
 .nav-mobile {
+  display: none;
   position: fixed;
   top: 3.75rem;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: calc(var(--z-sticky, 100) - 1);
-  pointer-events: none;
-  visibility: hidden;
   opacity: 0;
-  transition: opacity .28s var(--ease-out), visibility 0s linear .28s;
+  transition: opacity .28s var(--ease-out);
 }
 .nav-mobile[data-open="true"] {
-  pointer-events: auto;
-  visibility: visible;
+  display: block;
   opacity: 1;
-  transition: opacity .28s var(--ease-out), visibility 0s linear 0s;
-}
-@media (prefers-reduced-motion: reduce) {
-  .nav-mobile { transition: visibility 0s linear .01s; }
-  .nav-mobile[data-open="true"] { transition: visibility 0s linear 0s; }
 }
 @media (min-width: 768px) {
   .nav-mobile { top: 4.5rem; }
 }
 @media (min-width: 1024px) {
-  .nav-mobile { display: none; }
+  .nav-mobile,
+  .nav-mobile[data-open="true"] { display: none; }
 }
 .nav-mobile-inner {
   height: 100%;
@@ -1083,6 +1082,8 @@ body.custom-cursor-active [role="button"] {
   text-decoration: none;
   border-radius: var(--radius-lg);
   border-bottom: 1px solid rgba(2, 6, 23, 0.06);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   transition: background-color .2s var(--ease-out), color .2s var(--ease-out), padding-left .25s var(--ease-out);
 }
 .nav-mobile-link svg {

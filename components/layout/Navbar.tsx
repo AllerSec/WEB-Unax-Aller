@@ -172,9 +172,12 @@ export default function Navbar({ locale }: Props) {
     }
   }, [menuOpen]);
 
-  // Click-outside + Esc handler
+  // Click-outside + Esc handler. Only attaches while something is open so the
+  // listener can't race with the burger tap on iOS (registering after the tap
+  // that opens the menu means the same tap can never close it).
   useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
+    if (!menuOpen && !langOpen) return;
+    const handlePointer = (e: PointerEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setLangOpen(false);
         setMenuOpen(false);
@@ -186,13 +189,13 @@ export default function Navbar({ locale }: Props) {
         setMenuOpen(false);
       }
     };
-    document.addEventListener("click", handleClick);
+    document.addEventListener("pointerdown", handlePointer);
     document.addEventListener("keydown", handleKey);
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener("pointerdown", handlePointer);
       document.removeEventListener("keydown", handleKey);
     };
-  }, []);
+  }, [menuOpen, langOpen]);
 
   // Close menus on route change (React's prop-derived state pattern)
   const [lastPathname, setLastPathname] = useState(pathname);
