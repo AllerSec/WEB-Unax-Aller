@@ -984,7 +984,11 @@ body.custom-cursor-active [role="button"] {
   height: 32px;
 }
 
-/* Burger button (mobile) */
+/* Burger button (mobile).
+   SAFETY: the burger is the only way to navigate on mobile, so it MUST stay
+   interactive even if a JS animation library (GSAP entrance timeline) gets
+   killed mid-tween by React StrictMode and leaves inline `visibility:hidden`
+   on the element. We force it visible against any inline style. */
 .nav-burger {
   display: inline-flex;
   flex-direction: column;
@@ -997,6 +1001,8 @@ body.custom-cursor-active [role="button"] {
   border: 1px solid rgba(2, 6, 23, 0.08);
   border-radius: var(--radius-md);
   cursor: pointer;
+  visibility: visible !important;
+  opacity: 1 !important;
   /* iOS: kill the 300ms tap delay and the grey flash that makes the tap feel
      "lost" if the menu animation is mid-transition. */
   touch-action: manipulation;
