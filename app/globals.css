@@ -7962,7 +7962,15 @@ a.contact-info-label:hover {
   width: 100%;
   min-height: 100svh;
   overflow: hidden;
-  background: #020d04;
+  /* Static fallback background. On mobile (no WebGL canvas) this IS the hero
+     backdrop, so it's a rich navy→blueprint gradient that mirrors the shader's
+     average palette. On desktop the live canvas paints over it. Cheap radial
+     glows give depth without any JS. */
+  background:
+    radial-gradient(120% 90% at 18% 8%, rgba(56, 110, 190, 0.30) 0%, rgba(2, 6, 23, 0) 55%),
+    radial-gradient(100% 80% at 88% 22%, rgba(96, 165, 250, 0.18) 0%, rgba(2, 6, 23, 0) 50%),
+    radial-gradient(140% 120% at 50% 120%, rgba(2, 8, 28, 0.95) 0%, rgba(2, 6, 23, 0) 60%),
+    linear-gradient(165deg, #061024 0%, #04122b 45%, #020a18 100%);
   display: flex;
   align-items: center;
   justify-content: center;

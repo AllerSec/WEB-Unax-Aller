@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/lib/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
@@ -22,6 +22,12 @@ export default async function LangLayout({ children, params }: Props) {
   if (!routing.locales.includes(locale)) {
     notFound();
   }
+
+  // Enable static rendering. Without this, next-intl reads the locale from
+  // headers() which forces EVERY /[lang]/* route to render dynamically
+  // (high TTFB + Cache-Control:no-store that kills the bfcache). Must be
+  // called before any next-intl API (getMessages below).
+  setRequestLocale(locale);
 
   const messages = await getMessages({ locale });
 

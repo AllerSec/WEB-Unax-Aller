@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 
 interface HeroProps {
@@ -85,11 +85,12 @@ void main(void){
   O=vec4(col,1.);
 }`;
 
-function useShaderCanvas() {
+function useShaderCanvas(enabled: boolean) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
+    if (!enabled) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -194,7 +195,7 @@ function useShaderCanvas() {
       stop();
       gl.deleteProgram(prog);
     };
-  }, []);
+  }, [enabled]);
 
   return canvasRef;
 }
@@ -202,12 +203,27 @@ function useShaderCanvas() {
 export function AnimatedShaderHero({
   trustBadge, headline, subtitle, buttons, className = "",
 }: HeroProps) {
-  const canvasRef = useShaderCanvas();
+  // The WebGL shader is the single biggest mobile perf cost (≈2.5 s of JS,
+  // blocks LCP). On phones / coarse pointers we skip it entirely and rely on
+  // the static gradient background (.sh + .sh__veil), which reads fine at small
+  // sizes. Desktop keeps the live shader. We gate on a post-mount state so the
+  // server markup is identical (no hydration mismatch) and the LCP text never
+  // waits on WebGL.
+  const [enableShader, setEnableShader] = useState(false);
+  useEffect(() => {
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    const small = window.matchMedia("(max-width: 1023px)").matches;
+    setEnableShader(!coarse && !small);
+  }, []);
+
+  const canvasRef = useShaderCanvas(enableShader);
 
   return (
     <section className={`sh ${className}`} aria-labelledby="hero-h1">
-      {/* WebGL background */}
-      <canvas ref={canvasRef} className="sh__canvas" aria-hidden="true" />
+      {/* WebGL background — desktop only; mobile uses the static gradient bg */}
+      {enableShader && (
+        <canvas ref={canvasRef} className="sh__canvas" aria-hidden="true" />
+      )}
 
       {/* Gradient veil — keeps text readable while shader shows through */}
       <div className="sh__veil" aria-hidden="true" />

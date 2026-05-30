@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import Image from "next/image";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -190,6 +191,9 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
 export default async function HomePage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
+  // Enable static rendering for this page (see layout note). Must precede any
+  // next-intl API used by child Server Components.
+  setRequestLocale(locale);
   const copy = HOME_COPY[locale];
 
   return (
