@@ -1046,7 +1046,14 @@ body.custom-cursor-active [role="button"] {
   top: 3.75rem;
   left: 0;
   right: 0;
-  bottom: 0;
+  /* Height MUST be explicit. iOS WebKit does NOT resolve a fixed element's
+     height from top + bottom:0 when the containing block is the viewport and
+     an ancestor establishes a backdrop-filter stacking context — it collapses
+     to height:0, so the panel opens but is invisible ("burger does nothing").
+     100dvh accounts for the iOS Safari toolbar; 100vh is the fallback.
+     Keep the subtracted offset in sync with `top` at every breakpoint. */
+  height: calc(100vh - 3.75rem);
+  height: calc(100dvh - 3.75rem);
   z-index: calc(var(--z-sticky, 100) - 1);
   opacity: 0;
   transition: opacity .28s var(--ease-out);
@@ -1056,7 +1063,11 @@ body.custom-cursor-active [role="button"] {
   opacity: 1;
 }
 @media (min-width: 768px) {
-  .nav-mobile { top: 4.5rem; }
+  .nav-mobile {
+    top: 4.5rem;
+    height: calc(100vh - 4.5rem);
+    height: calc(100dvh - 4.5rem);
+  }
 }
 @media (min-width: 1024px) {
   .nav-mobile,
