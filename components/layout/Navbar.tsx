@@ -60,10 +60,14 @@ export default function Navbar({ locale }: Props) {
     return "/" + segments.join("/") || `/${target}`;
   };
 
-  // ─── Entrance + scroll state + underline hovers ────────────────────────
-  // `clearProps: "all"` is critical: it wipes inline visibility/opacity so a
-  // StrictMode-driven cleanup mid-tween can never leave the burger at
-  // `visibility:hidden` (silent tap-handler kill on mobile).
+  // ─── Scroll state + entrance + underline hovers ────────────────────────
+  // HARD RULE: this hook NEVER animates `.nav-actions` (lang, CTA, burger).
+  // Those are critical controls — if Safari with Reduce Protections /
+  // Cross-Site Tracking blocks GSAP mid-init (matchMedia eval failure,
+  // StrictMode double-cleanup, anti-fingerprinting), the burger must still
+  // be visible and tappable. Animation = polish; nav = must-work.
+  // We also animate ONLY `y` + `opacity`, never `autoAlpha`/`visibility`:
+  // a stuck `opacity:0` is recoverable via CSS; `visibility:hidden` is not.
   useGSAP(() => {
     const nav = navRef.current;
     if (!nav) return;
@@ -74,65 +78,55 @@ export default function Navbar({ locale }: Props) {
       onLeaveBack: () => nav.setAttribute("data-scrolled", "false"),
     });
 
-    const mm = gsap.matchMedia();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const logo = nav.querySelector(".nav-logo");
+    const links = nav.querySelectorAll<HTMLElement>(".nav-links .nav-link");
 
-    mm.add(
-      { reduceMotion: "(prefers-reduced-motion: reduce)" },
-      (ctx) => {
-        const reduceMotion = ctx.conditions?.reduceMotion;
-        const logo = nav.querySelector(".nav-logo");
-        const links = nav.querySelectorAll<HTMLElement>(".nav-links .nav-link");
-        const actions = nav.querySelectorAll<HTMLElement>(".nav-actions > *");
+    if (!reduce) {
+      gsap.timeline({ defaults: { ease: "power3.out", duration: 0.55, clearProps: "all" } })
+        .from(logo,  { opacity: 0, y: -8, duration: 0.5 })
+        .from(links, { opacity: 0, y: -10, stagger: 0.06 }, "<0.1");
+    }
 
-        if (reduceMotion) {
-          gsap.set([logo, links, actions], { clearProps: "all" });
-        } else {
-          gsap.timeline({ defaults: { ease: "power3.out", duration: 0.55, clearProps: "all" } })
-            .from(logo,    { autoAlpha: 0, y: -8, duration: 0.5 })
-            .from(links,   { autoAlpha: 0, y: -10, stagger: 0.06 }, "<0.1")
-            .from(actions, { autoAlpha: 0, y: -8,  stagger: 0.05 }, "<0.05");
-        }
-
-        const cleanups: Array<() => void> = [];
-        links.forEach((link) => {
-          const underline = link.querySelector<HTMLElement>(".nav-link-underline");
-          if (!underline) return;
-          gsap.set(underline, {
-            scaleX: link.dataset.active === "true" ? 1 : 0,
-            transformOrigin: "left center",
-          });
-          const tween = gsap.quickTo(underline, "scaleX", { duration: 0.35, ease: "power3.out" });
-          const enter = () => { tween(1); };
-          const leave = () => {
-            if (link.dataset.active === "true") return;
-            gsap.to(underline, {
-              scaleX: 0,
-              duration: 0.25,
-              ease: "power2.in",
-              transformOrigin: "right center",
-              onComplete: () => { gsap.set(underline, { transformOrigin: "left center" }); },
-            });
-          };
-          link.addEventListener("mouseenter", enter);
-          link.addEventListener("focus", enter);
-          link.addEventListener("mouseleave", leave);
-          link.addEventListener("blur", leave);
-          cleanups.push(() => {
-            link.removeEventListener("mouseenter", enter);
-            link.removeEventListener("focus", enter);
-            link.removeEventListener("mouseleave", leave);
-            link.removeEventListener("blur", leave);
-          });
+    const cleanups: Array<() => void> = [];
+    links.forEach((link) => {
+      const underline = link.querySelector<HTMLElement>(".nav-link-underline");
+      if (!underline) return;
+      gsap.set(underline, {
+        scaleX: link.dataset.active === "true" ? 1 : 0,
+        transformOrigin: "left center",
+      });
+      const tween = gsap.quickTo(underline, "scaleX", { duration: 0.35, ease: "power3.out" });
+      const enter = () => { tween(1); };
+      const leave = () => {
+        if (link.dataset.active === "true") return;
+        gsap.to(underline, {
+          scaleX: 0,
+          duration: 0.25,
+          ease: "power2.in",
+          transformOrigin: "right center",
+          onComplete: () => { gsap.set(underline, { transformOrigin: "left center" }); },
         });
-        return () => cleanups.forEach((fn) => fn());
-      }
-    );
+      };
+      link.addEventListener("mouseenter", enter);
+      link.addEventListener("focus", enter);
+      link.addEventListener("mouseleave", leave);
+      link.addEventListener("blur", leave);
+      cleanups.push(() => {
+        link.removeEventListener("mouseenter", enter);
+        link.removeEventListener("focus", enter);
+        link.removeEventListener("mouseleave", leave);
+        link.removeEventListener("blur", leave);
+      });
+    });
 
-    return () => mm.revert();
+    return () => cleanups.forEach((fn) => fn());
   }, { scope: navRef });
 
   // ─── Mobile menu open animation (stagger on links) ─────────────────────
-  // Visibility itself is owned by CSS via [data-open]; GSAP only adds polish.
+  // CSS [data-open] owns visibility; GSAP only adds opacity/y polish. We use
+  // `opacity` not `autoAlpha` so a frozen mid-tween can't leave links at
+  // `visibility:hidden` (silent tap-kill) under Safari anti-fingerprinting.
   useGSAP(() => {
     if (!menuOpen) return;
     const panel = mobilePanelRef.current;
@@ -141,8 +135,8 @@ export default function Navbar({ locale }: Props) {
 
     gsap.fromTo(
       panel.querySelectorAll<HTMLElement>(".nav-mobile-link, .nav-mobile-cta"),
-      { autoAlpha: 0, y: 12 },
-      { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.045, ease: "power3.out", clearProps: "all" }
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.4, stagger: 0.045, ease: "power3.out", clearProps: "all" }
     );
   }, { scope: mobilePanelRef, dependencies: [menuOpen] });
 
