@@ -5,7 +5,8 @@ import SectionDivider from "@/components/shared/SectionDivider";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import FounderPhoto from "@/components/home/FounderPhoto";
 import PricingCard from "@/components/ui/pricing-card";
-import ProjectsBoard from "@/components/home/ProjectsBoard";
+import { Gallery4 } from "@/components/ui/gallery4";
+import { galleryItems } from "@/lib/i18n/home-copy";
 import SocialProof from "@/components/home/SocialProof";
 import Testimonials from "@/components/home/Testimonials";
 import { cityLandings, type LocaleKey } from "@/lib/data/city-landings";
@@ -34,6 +35,11 @@ export interface CityLandingProps {
   distanceFromIrunKm?: number;
   localTouches?: string[];
   nearbyCitySlugs?: string[];
+  /** Pre-resolved "related" links. Used by sector landings (which link to
+   *  other sectors, not cities). Takes precedence over nearbyCitySlugs. */
+  nearbyLinks?: { href: string; name: string; region: string }[];
+  /** Heading for the "related" section. Defaults to the cities wording. */
+  nearbyTitleOverride?: string;
 }
 
 // Decorative icon glyph for each benefit slot — keeps the "why local" grid
@@ -49,12 +55,23 @@ export default function CityLanding({
   distanceFromIrunKm,
   localTouches,
   nearbyCitySlugs,
+  nearbyLinks,
+  nearbyTitleOverride,
 }: CityLandingProps) {
   const url = `https://unaxaller.com/${locale}/${slug}`;
 
-  const nearby = (nearbyCitySlugs ?? [])
-    .map((s) => cityLandings.find((c) => c.slug === s))
-    .filter((c): c is NonNullable<typeof c> => Boolean(c));
+  // Sector pages pass pre-resolved nearbyLinks; city pages pass slugs we resolve
+  // against the city dataset. Normalize both to {href, name, region}.
+  const nearby = nearbyLinks
+    ? nearbyLinks
+    : (nearbyCitySlugs ?? [])
+        .map((s) => cityLandings.find((c) => c.slug === s))
+        .filter((c): c is NonNullable<typeof c> => Boolean(c))
+        .map((c) => ({
+          href: `/${locale}/${c.slug}`,
+          name: c.cityNames[locale],
+          region: c.regionNames[locale],
+        }));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -191,9 +208,27 @@ export default function CityLanding({
         </section>
       </AnimatedSection>
 
-      {/* 3. Projects board — front and centre */}
+      {/* 3. Projects — same mobile carousel as the home page (real screenshots
+          + video), with internal links to each project case for SEO. */}
       <AnimatedSection>
-        <ProjectsBoard locale={locale} />
+        <Gallery4
+          locale={locale}
+          title={
+            locale === "es"
+              ? "Proyectos realizados"
+              : locale === "en"
+              ? "Projects delivered"
+              : "Egindako proiektuak"
+          }
+          description={
+            locale === "es"
+              ? "Webs reales para negocios reales del País Vasco y Navarra. Cada proyecto a medida, entregado en 1–2 semanas."
+              : locale === "en"
+              ? "Real websites for real businesses in the Basque Country and Navarre. Each one custom, delivered in 1–2 weeks."
+              : "Webgune errealak Euskal Herriko eta Nafarroako benetako negozioentzat. Bakoitza neurrira, 1–2 astetan."
+          }
+          items={galleryItems(locale)}
+        />
       </AnimatedSection>
 
       <SectionDivider background="var(--color-bg)" />
@@ -310,13 +345,13 @@ export default function CityLanding({
           <div className="container-xl">
             <div className="city-section-inner">
               <AnimatedSection>
-                <h2 id="city-nearby-title" className="section-heading">{nearbyTitle}</h2>
+                <h2 id="city-nearby-title" className="section-heading">{nearbyTitleOverride ?? nearbyTitle}</h2>
                 <ul className="city-nearby-list" role="list">
                   {nearby.map((c) => (
-                    <li key={c.slug}>
-                      <Link href={`/${locale}/${c.slug}`} className="city-nearby-chip focusable">
-                        <span className="city-nearby-chip-name">{c.cityNames[locale]}</span>
-                        <span className="city-nearby-chip-region">{c.regionNames[locale]}</span>
+                    <li key={c.href}>
+                      <Link href={c.href} className="city-nearby-chip focusable">
+                        <span className="city-nearby-chip-name">{c.name}</span>
+                        <span className="city-nearby-chip-region">{c.region}</span>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>

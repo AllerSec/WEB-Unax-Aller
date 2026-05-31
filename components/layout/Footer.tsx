@@ -73,6 +73,7 @@ export default function Footer({ locale }: Props) {
   ];
 
   const cityLinks = [
+    { href: `/${locale}/disenador-web-irun`, label: "Irun" },
     { href: `/${locale}/disenador-web-pais-vasco`, label: locale === "eu" ? "Euskal Herria" : "País Vasco" },
     { href: `/${locale}/disenador-web-donostia`, label: locale === "eu" ? "Donostia" : "Donostia-San Sebastián" },
     { href: `/${locale}/disenador-web-bilbao`, label: locale === "eu" ? "Bilbo" : "Bilbao" },
@@ -93,6 +94,32 @@ export default function Footer({ locale }: Props) {
 
   const cityPrefix =
     locale === "es" ? "Diseñador web " : locale === "en" ? "Web designer " : "Web diseinatzailea ";
+
+  const sectorLinks = [
+    {
+      href: `/${locale}/web-para-clinicas`,
+      label: locale === "es" ? "clínicas y salud" : locale === "en" ? "clinics & health" : "klinikak eta osasuna",
+    },
+    {
+      href: `/${locale}/web-para-hosteleria`,
+      label: locale === "es" ? "bares y restaurantes" : locale === "en" ? "bars & restaurants" : "tabernak eta jatetxeak",
+    },
+    {
+      href: `/${locale}/web-para-comercio`,
+      label: locale === "es" ? "comercios y tiendas" : locale === "en" ? "shops & retail" : "merkataritza eta dendak",
+    },
+    {
+      href: `/${locale}/web-para-industria`,
+      label: locale === "es" ? "talleres e industria" : locale === "en" ? "workshops & industry" : "tailerrak eta industria",
+    },
+    {
+      href: `/${locale}/web-para-despachos`,
+      label: locale === "es" ? "despachos profesionales" : locale === "en" ? "professional firms" : "bulego profesionalak",
+    },
+  ];
+
+  const sectorPrefix =
+    locale === "es" ? "Web para " : locale === "en" ? "Websites for " : "Weba: ";
 
   return (
     <footer
@@ -224,6 +251,26 @@ export default function Footer({ locale }: Props) {
                 <Link href={c.href} className="site-footer-city-link focusable">
                   {cityPrefix}
                   {c.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="site-footer-cities">
+          <h2 className="site-footer-heading">
+            {locale === "es"
+              ? "Diseño web por sectores"
+              : locale === "en"
+              ? "Web design by sector"
+              : "Web diseinua sektorez"}
+          </h2>
+          <ul className="site-footer-city-list">
+            {sectorLinks.map((s) => (
+              <li key={s.href}>
+                <Link href={s.href} className="site-footer-city-link focusable">
+                  {sectorPrefix}
+                  {s.label}
                 </Link>
               </li>
             ))}

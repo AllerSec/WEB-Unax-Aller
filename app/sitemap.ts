@@ -13,6 +13,7 @@ const staticRoutes = [
   { path: "/contacto", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/proyectos", priority: 0.95, changeFrequency: "monthly" as const },
   { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
+  { path: "/disenador-web-irun", priority: 0.95, changeFrequency: "monthly" as const },
   { path: "/disenador-web-donostia", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/disenador-web-bilbao", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/disenador-web-vitoria", priority: 0.9, changeFrequency: "monthly" as const },
@@ -29,6 +30,12 @@ const staticRoutes = [
   { path: "/disenador-web-zarautz", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/disenador-web-getxo", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/disenador-web-bermeo", priority: 0.8, changeFrequency: "monthly" as const },
+  // Sector landings
+  { path: "/web-para-clinicas", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/web-para-hosteleria", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/web-para-comercio", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/web-para-industria", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/web-para-despachos", priority: 0.9, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

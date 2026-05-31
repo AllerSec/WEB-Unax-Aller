@@ -96,17 +96,16 @@ export default function Navbar({ locale }: Props) {
         scaleX: link.dataset.active === "true" ? 1 : 0,
         transformOrigin: "left center",
       });
-      const tween = gsap.quickTo(underline, "scaleX", { duration: 0.35, ease: "power3.out" });
+      // ONE quickTo drives both directions. Mixing a quickTo (enter) with a
+      // separate gsap.to (leave) — and flipping transformOrigin between them —
+      // let the two tweens fight over scaleX on rapid enter/leave, leaving the
+      // underline stuck at scaleX:1 (the "hover won't clear" bug). A single
+      // quickTo with a fixed origin always honours the latest target.
+      const tween = gsap.quickTo(underline, "scaleX", { duration: 0.3, ease: "power3.out" });
       const enter = () => { tween(1); };
       const leave = () => {
         if (link.dataset.active === "true") return;
-        gsap.to(underline, {
-          scaleX: 0,
-          duration: 0.25,
-          ease: "power2.in",
-          transformOrigin: "right center",
-          onComplete: () => { gsap.set(underline, { transformOrigin: "left center" }); },
-        });
+        tween(0);
       };
       link.addEventListener("mouseenter", enter);
       link.addEventListener("focus", enter);

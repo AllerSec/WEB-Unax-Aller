@@ -14,18 +14,21 @@ const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu", { name: string; url: string;
     { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Irun" },
     { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Óptica · Irun" },
     { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "IA · Irun" },
+    { name: "Tecmac", url: "https://tecmac.es", sector: "Industria · Navarra" },
   ],
   en: [
     { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Pharmacy · Bera" },
     { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motorbikes · Irun" },
     { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optician · Irun" },
     { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "AI · Irun" },
+    { name: "Tecmac", url: "https://tecmac.es", sector: "Industry · Navarre" },
   ],
   eu: [
     { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmazia · Bera" },
     { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motorrak · Irun" },
     { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optika · Irun" },
     { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "AA · Irun" },
+    { name: "Tecmac", url: "https://tecmac.es", sector: "Industria · Nafarroa" },
   ],
 };
 

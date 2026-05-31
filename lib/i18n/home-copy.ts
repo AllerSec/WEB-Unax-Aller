@@ -86,7 +86,7 @@ export type HomeCopy = {
   };
 };
 
-const galleryItems = (locale: HomeLocale): GalleryItem[] => {
+export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
   const t = (es: string, en: string, eu: string) =>
     locale === "es" ? es : locale === "en" ? en : eu;
   return [

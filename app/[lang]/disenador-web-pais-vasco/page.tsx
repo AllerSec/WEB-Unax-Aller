@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import SocialProof from "@/components/home/SocialProof";
+import Testimonials from "@/components/home/Testimonials";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 // Cache the rendered HTML on the CDN for 1h. Content changes ship via
@@ -44,6 +47,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PaisVascoPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
+  // Enable static rendering (see home/layout note) — must precede next-intl APIs
+  // used by the SocialProof / Testimonials child components below.
+  setRequestLocale(locale);
 
   const regionName = locale === "eu" ? "Euskal Herria" : "País Vasco";
 
@@ -242,7 +248,7 @@ export default async function PaisVascoPage({ params }: Props) {
 
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-6"
-            style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
+            style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
           >
             {locale === "es"
               ? `Diseñador web en el ${regionName}`
@@ -252,7 +258,7 @@ export default async function PaisVascoPage({ params }: Props) {
           </h1>
           <p
             className="text-lg md:text-xl leading-relaxed mb-10"
-            style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}
+            style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)" }}
           >
             {locale === "es"
               ? `Soy Unax Aller, diseñador web freelance basado en Irun con clientes en Bizkaia, Gipuzkoa y Álava. Creo webs trilingües (castellano, inglés y euskera) que posicionan en Google y convierten visitantes en clientes.`
@@ -263,7 +269,7 @@ export default async function PaisVascoPage({ params }: Props) {
           <Link
             href={`/${locale}/contacto`}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-            style={{ backgroundColor: "var(--color-ink)", color: "var(--color-bg)", fontFamily: "Manrope, sans-serif" }}
+            style={{ backgroundColor: "var(--color-ink)", color: "var(--color-bg)", fontFamily: "var(--font-sans)" }}
           >
             {locale === "es" ? "Solicitar presupuesto gratis" : locale === "en" ? "Request a free quote" : "Doako aurrekontua eskatu"}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -278,7 +284,7 @@ export default async function PaisVascoPage({ params }: Props) {
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-8"
-              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
+              style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
             >
               {locale === "es"
                 ? `¿Por qué un diseñador local del ${regionName}?`
@@ -295,11 +301,11 @@ export default async function PaisVascoPage({ params }: Props) {
                 >
                   <h3
                     className="text-lg font-medium mb-2"
-                    style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
+                    style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)" }}>
                     {item.desc}
                   </p>
                 </div>
@@ -314,7 +320,7 @@ export default async function PaisVascoPage({ params }: Props) {
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-8"
-              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
+              style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
             >
               {locale === "es"
                 ? "Cubro las tres capitales vascas"
@@ -332,19 +338,19 @@ export default async function PaisVascoPage({ params }: Props) {
                 >
                   <div
                     className="text-xs uppercase tracking-widest mb-2"
-                    style={{ color: "var(--color-accent)", fontFamily: "Manrope, sans-serif" }}
+                    style={{ color: "var(--color-accent)", fontFamily: "var(--font-sans)" }}
                   >
                     {c.region}
                   </div>
                   <div
                     className="text-xl font-medium"
-                    style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
+                    style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
                   >
                     {c.name}
                   </div>
                   <div
                     className="text-sm mt-2"
-                    style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}
+                    style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)" }}
                   >
                     {locale === "es"
                       ? `Ver servicios para ${c.name}`
@@ -359,12 +365,17 @@ export default async function PaisVascoPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Social proof — real Basque clients + testimonials. Same components the
+          city landings use, so País Vasco carries the same trust weight. */}
+      <SocialProof />
+      <Testimonials />
+
       <section className="py-20 md:py-28" style={{ backgroundColor: "var(--color-bg-muted)" }}>
         <div className="container-xl max-w-3xl">
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-8"
-              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
+              style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
             >
               {locale === "es" ? "Preguntas frecuentes" : locale === "en" ? "Frequently asked questions" : "Ohiko galderak"}
             </h2>
@@ -377,7 +388,7 @@ export default async function PaisVascoPage({ params }: Props) {
                 >
                   <summary
                     className="cursor-pointer text-base font-medium list-none flex items-start justify-between gap-4"
-                    style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-ink)" }}
+                    style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
                   >
                     <span>{item.q}</span>
                     <span
@@ -390,7 +401,7 @@ export default async function PaisVascoPage({ params }: Props) {
                   </summary>
                   <p
                     className="text-sm leading-relaxed mt-3"
-                    style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}
+                    style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)" }}
                   >
                     {item.a}
                   </p>
@@ -406,7 +417,7 @@ export default async function PaisVascoPage({ params }: Props) {
           <AnimatedSection>
             <h2
               className="text-2xl md:text-3xl font-light mb-6"
-              style={{ fontFamily: "Fraunces, Georgia, serif", color: "var(--color-accent)" }}
+              style={{ fontFamily: "var(--font-serif)", color: "var(--color-accent)" }}
             >
               {locale === "es"
                 ? `¿Tienes un negocio en el ${regionName}?`
@@ -414,13 +425,13 @@ export default async function PaisVascoPage({ params }: Props) {
                 ? `Have a business in the ${regionName}?`
                 : `${regionName}n negozioa al duzu?`}
             </h2>
-            <p className="mb-8 text-sm" style={{ color: "var(--color-ink-muted)", fontFamily: "Manrope, sans-serif" }}>
+            <p className="mb-8 text-sm" style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)" }}>
               {locale === "es" ? "Consulta gratuita de 30 minutos. Sin compromiso." : locale === "en" ? "Free 30-minute consultation. No commitment." : "30 minutuko doako kontsulta. Konpromisorik gabe."}
             </p>
             <Link
               href={`/${locale}/contacto`}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
-              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-accent-contrast)", fontFamily: "Manrope, sans-serif" }}
+              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-accent-contrast)", fontFamily: "var(--font-sans)" }}
             >
               {locale === "es" ? "Hablar con Unax" : locale === "en" ? "Talk to Unax" : "Unaxekin hitz egin"}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">

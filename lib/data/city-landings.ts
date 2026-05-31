@@ -19,6 +19,36 @@ export interface CityLandingDef {
 
 export const cityLandings: CityLandingDef[] = [
   {
+    // Home turf — no distanceFromIrunKm so the auto-generated copy never says
+    // "from Irun (0 km away)". This is the strongest local page on the site.
+    slug: "disenador-web-irun",
+    cityNames: { es: "Irun", en: "Irun", eu: "Irun" },
+    regionNames: { es: "Gipuzkoa", en: "Gipuzkoa", eu: "Gipuzkoa" },
+    sectors: {
+      es: "comercio, hostelería, clínicas, despachos profesionales e industria fronteriza",
+      en: "retail, hospitality, clinics, professional practices and cross-border industry",
+      eu: "merkataritza, ostalaritza, klinikak, bulego profesionalak eta mugako industria",
+    },
+    localTouches: {
+      es: [
+        "Irun es mi ciudad: trabajo aquí cada día y conozco el terreno de primera mano. Sé cómo se mueve el comercio de la calle Mayor y el centro, la hostelería del casco viejo, las clínicas y despachos de la zona de Anaka y Behobia, y la industria de los polígonos de Ventas y Araso. No es teoría — son negocios que veo cuando salgo a la calle.",
+        "Irun tiene una ventaja única: es frontera. Mucho cliente francés cruza para comer, comprar o ir al dentista, y casi nadie tiene la web preparada para captarlo. Por eso en los proyectos de Irun cuido especialmente el bilingüismo castellano/euskera/francés y el SEO local que pesca tanto en «dentista Irun» como en «dentiste Irun». Esa esquina la trabajan muy pocos, y es dinero que está ahí.",
+        "Para SEO local cubro búsquedas tipo «diseñador web Irun», «hacer página web Irun», «web para negocio Irun», además de las de cada sector y barrio. Te monto la ficha de Google Business Profile bien configurada, con reseñas recientes y la zona de servicio que llega hasta Hondarribia, Hendaya y el Bidasoa. Estoy aquí al lado: la reunión la tomamos tomando un café, no por videollamada.",
+      ],
+      en: [
+        "Irun is my city: I work here every day and know the ground first-hand. I understand the retail on Calle Mayor and the centre, the hospitality of the old town, the clinics and practices around Anaka and Behobia, and the industry in the Ventas and Araso estates. It's not theory — these are businesses I see when I walk out the door.",
+        "Irun has a unique advantage: it's a border town. Plenty of French customers cross over to eat, shop or see the dentist, and almost nobody has a website set up to capture them. That's why in Irun projects I pay special attention to Spanish/Basque/French multilingual and the local SEO that catches both «dentista Irun» and «dentiste Irun». Very few work that angle — and it's money sitting on the table.",
+        "For local SEO I cover searches like «web designer Irun», «build a website Irun», «website for my Irun business», plus the per-sector and per-neighbourhood ones. I set up your Google Business Profile properly, with recent reviews and a service area reaching Hondarribia, Hendaye and the Bidasoa. I'm right here: we meet over coffee, not a video call.",
+      ],
+      eu: [
+        "Irun nire hiria da: hemen lan egiten dut egunero eta lurraldea lehen eskutik ezagutzen dut. Kale Nagusiko eta erdialdeko merkataritza, alde zaharreko ostalaritza, Anaka eta Behobiako klinikak eta bulegoak, eta Ventas eta Arasoko poligonoetako industria ezagutzen ditut. Ez da teoria — kalera ateratzean ikusten ditudan negozioak dira.",
+        "Irunek abantaila berezia du: muga da. Frantses bezero asko zeharkatzen du jatera, erostera edo dentistara joatera, eta ia inork ez du weba prest haiek harrapatzeko. Horregatik Iruneko proiektuetan gaztelania/euskara/frantses eleaniztasuna eta «dentista Irun» nahiz «dentiste Irun» harrapatzen dituen tokiko SEOa zaintzen ditut bereziki.",
+        "Tokiko SEO lanetan «web diseinatzaile Irun», «web orria egin Irun», «Iruneko negoziorako weba» bezalako bilaketak lantzen ditut. Zure Google Business Profile fitxa ondo konfiguratzen dizut, azken iritziekin eta Hondarribia, Hendaia eta Bidasoaraino iristen den zerbitzu-eremuarekin. Hemen bertan nago: kafe bat hartuz egiten dugu bilera, ez bideo-deiz.",
+      ],
+    },
+    nearbyCities: ["disenador-web-hondarribia", "disenador-web-errenteria", "disenador-web-donostia"],
+  },
+  {
     slug: "disenador-web-bilbao",
     cityNames: { es: "Bilbao", en: "Bilbao", eu: "Bilbo" },
     regionNames: { es: "Bizkaia", en: "Bizkaia", eu: "Bizkaia" },
@@ -132,7 +162,7 @@ export const cityLandings: CityLandingDef[] = [
         "5 km-ra egotea aurrez aurreko bilerak kafea bezain errazak izatea esan nahi du. Aldaketa bat zuzenean ikusi nahi baduzu, goizez pasatzen naiz eta zure pantailan ikusten dugu elkarrekin.",
       ],
     },
-    nearbyCities: ["disenador-web-donostia", "disenador-web-errenteria"],
+    nearbyCities: ["disenador-web-irun", "disenador-web-donostia", "disenador-web-errenteria"],
   },
   {
     slug: "disenador-web-errenteria",
@@ -148,17 +178,20 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Errenteria es ciudad de tamaño medio con un peso industrial fuerte: polígonos como Lintzirin, Galtzaraborda y Masti han crecido mucho en los últimos años. Trabajo con talleres, distribuidores, comercios del centro junto al ayuntamiento y restaurantes que abastecen al barrio.",
         "Aquí la web tiene que pesar poco y cargar bien en cualquier móvil. Mucha consulta llega desde el coche o desde la furgoneta de un cliente buscando un proveedor. Lo importante es que en 3 segundos sepa: qué haces, dónde estás y cómo te contacta. Eso es lo que monto.",
+        "Errenteria está a 15 km de Irun, prácticamente al lado: la reunión inicial la hacemos en persona sin problema. En SEO local cubro «diseñador web Errenteria», «página web taller Errenteria» y las búsquedas por sector y polígono (Lintzirin, Galtzaraborda, Masti), y te dejo la ficha de Google bien configurada para que el cliente que busca proveedor en la zona te llame a ti el primero.",
       ],
       en: [
         "Errenteria is a mid-sized town with strong industrial presence: estates like Lintzirin, Galtzaraborda and Masti have grown a lot in recent years. I work with workshops, distributors, retailers in the centre near the town hall and restaurants serving the neighbourhood.",
         "The site has to be lightweight and load well on any mobile. Much of the lookup happens from a car or a client's van searching for a supplier. What matters is that in 3 seconds they know: what you do, where you are and how to reach you. That's what I build.",
+        "Errenteria is 15 km from Irun, practically next door: we hold the initial meeting in person without a problem. For local SEO I cover «web designer Errenteria», «Errenteria workshop website» and per-sector and per-estate searches (Lintzirin, Galtzaraborda, Masti), and I leave your Google profile set up so the client looking for a supplier in the area calls you first.",
       ],
       eu: [
         "Errenteria tamaina ertaineko hiria da industria-pisu handiarekin: Lintzirin, Galtzaraborda eta Mastiren bezalako poligonoak asko hazi dira azken urteetan. Tailerrekin, banatzaileekin, udaletxe inguruko erdialdeko dendekin eta auzoa hornitzen duten jatetxeekin lan egiten dut.",
         "Hemen webak gutxi pisatu eta edozein mugikorrean ondo kargatu behar du. Kontsulta asko kotxetik edo bezeroaren furgonetatik etortzen dira hornitzaile bila. Garrantzitsuena hauxe da: 3 segundoan jakin behar dute zer egiten duzun, non zauden eta nola kontaktatu. Hori da egiten dudana.",
+        "Errenteria Iruneik 15 km-ra dago, ia ondoan: hasierako bilera aurrez aurre egiten dugu arazorik gabe. Tokiko SEO lanetan «web diseinatzaile Errenteria», «Errenteriako tailer web orria» eta sektore eta poligonoetako bilaketak lantzen ditut (Lintzirin, Galtzaraborda, Masti), eta zure Google fitxa ondo konfiguratuta uzten dut inguruan hornitzaile bila dabilen bezeroak zuri lehena deitzeko.",
       ],
     },
-    nearbyCities: ["disenador-web-donostia", "disenador-web-hondarribia", "disenador-web-lasarte"],
+    nearbyCities: ["disenador-web-irun", "disenador-web-hondarribia", "disenador-web-donostia"],
   },
   {
     slug: "disenador-web-lasarte",
@@ -174,14 +207,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Lasarte-Oria es ciudad pequeña con tirón comercial propio: la zona del Hipódromo, el comercio del centro, los polígonos junto a la N-1 y los servicios profesionales. Trabajo con negocios locales que necesitan posicionar en su nicho sin competir directamente con Donostia.",
         "Aquí veo a menudo negocios familiares de segunda o tercera generación que están dando el salto digital. La web tiene que respetar lo que ya funciona offline: el boca a boca, la confianza del barrio. Por eso pongo testimonios, fotos reales del local y todo lo que ayude a transmitir ese «aquí me conocen».",
+        "Estoy a 28 km de Irun, así que la reunión inicial la hacemos en persona sin problema. Para SEO local cubro búsquedas tipo «diseñador web Lasarte», «hacer página web Lasarte-Oria» y las de cada sector, y configuro tu ficha de Google Business Profile con la zona de servicio de Lasarte-Oria y alrededores. El objetivo es claro: que cuando alguien busque tu servicio, salgas el primero.",
       ],
       en: [
         "Lasarte-Oria is a small town with its own commercial pull: the Racecourse area, town centre retail, industrial estates along the N-1 and professional services. I work with local businesses that need to rank in their niche without going head-to-head with Donostia.",
         "I often see family businesses on their second or third generation making the digital leap. The website has to respect what already works offline: word of mouth, neighbourhood trust. That's why I include real testimonials, photos of the actual premises and everything that conveys that «people here know me» feel.",
+        "I'm 28 km from Irun, so we can hold the initial meeting in person without a problem. For local SEO I cover searches like «web designer Lasarte», «build a website Lasarte-Oria» and the per-sector ones, and I set up your Google Business Profile with the Lasarte-Oria service area. The goal is clear: when someone searches for your service, you show up first.",
       ],
       eu: [
         "Lasarte-Oria hiri txikia da bere merkataritza eraginkortasunarekin: Hipodromoa, erdialdeko merkataritza, N-1 ondoko poligonoak eta zerbitzu profesionalak. Beren nitxoan posizionatu behar duten tokiko negozioekin lan egiten dut, Donostiarekin zuzenean lehiatu gabe.",
         "Hemen sarritan ikusten ditut bigarren edo hirugarren belaunaldiko familia negozioak jauzi digitala egiten. Webak offline funtzionatzen duena errespetatu behar du: ahoz ahokoa, auzoaren konfiantza. Horregatik testigantza errealak, lokalaren argazki errealak eta «hemen ezagutzen naute» sentsazioa transmititzen duen guztia jartzen dut.",
+        "Iruneik 28 km-ra nago, beraz hasierako bilera aurrez aurre egin dezakegu lasai. Tokiko SEO lanetan «web diseinatzaile Lasarte», «web orria egin Lasarte-Oria» eta sektore bakoitzeko bilaketak lantzen ditut, eta Google Business Profile fitxa Lasarte-Oria eta inguruko zerbitzu-eremuarekin konfiguratzen dut. Helburua argia da: norbaitek zure zerbitzua bilatzen duenean, zu agertzea lehena.",
       ],
     },
     nearbyCities: ["disenador-web-donostia", "disenador-web-tolosa", "disenador-web-errenteria"],
@@ -200,14 +236,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Eibar es un caso particular: industria histórica de armería y máquina-herramienta con empresas conocidas en todo el mundo. Los clientes industriales aquí saben mucho de lo suyo y necesitan webs que comuniquen capacidad técnica, no marketing vacío. Trabajo con talleres del centro, empresas familiares de los polígonos de Azitain y Matsaria, y comercio especializado.",
         "Para webs B2B industriales pongo el foco en: catálogo claro con descarga de fichas técnicas, sección de capacidades de mecanizado o procesos, formularios de cotización rápidos, y certificaciones visibles. La estética es seria pero moderna, sin caer en el cliché de la web industrial gris de los 2000.",
+        "Eibar está a 65 km de Irun: combino una visita inicial con seguimiento por videollamada y WhatsApp, y la web la entrego igual de fina. En SEO local cubro «diseñador web Eibar», «página web empresa Eibar» y búsquedas por sector industrial, además de afinar tu ficha de Google para que aparezcas cuando un comprador o distribuidor busca proveedor en la comarca del Deba.",
       ],
       en: [
         "Eibar is a particular case: historical gunsmithing and machine-tool industry with companies known worldwide. Industrial clients here know their stuff and need websites that communicate technical capability, not empty marketing. I work with central workshops, family companies in the Azitain and Matsaria estates, and specialised retail.",
         "For industrial B2B sites I focus on: clear catalogue with datasheet downloads, machining or process capabilities section, fast quote forms, and visible certifications. The aesthetic is serious but modern, without falling into the cliché of the grey 2000s industrial site.",
+        "Eibar is 65 km from Irun: I combine an initial visit with video and WhatsApp follow-up, and deliver the site just as polished. For local SEO I cover «web designer Eibar», «company website Eibar» and industrial-sector searches, plus tuning your Google profile so you show up when a buyer or distributor looks for a supplier in the Deba valley.",
       ],
       eu: [
         "Eibar kasu berezia da: historikoa den armagintza eta makina-erreminta industria mundu osoan ezagunak diren enpresekin. Hemengo industria-bezeroek beren gauzak ondo dakizkite eta gaitasun teknikoa transmititzen duen weba behar dute, ez marketing hutsa. Erdialdeko tailerrekin, Azitain eta Matsariako poligonoetako familia-enpresekin eta merkataritza espezializatuarekin lan egiten dut.",
         "B2B web industrialetarako honako hauetan jartzen dut arreta: katalogo argia fitxa teknikoen deskargarekin, mekanizazio edo prozesu gaitasunen atala, kotizazio formulario azkarrak, eta ikus daitezkeen ziurtagiriak. Estetika serioa baina modernoa da, 2000ko web industrial grisaren klixean erori gabe.",
+        "Eibar Iruneik 65 km-ra dago: hasierako bisita bat bideo-dei eta WhatsApp jarraipenarekin konbinatzen dut, eta weba berdin fina entregatzen dut. Tokiko SEO lanetan «web diseinatzaile Eibar», «enpresa web orria Eibar» eta industria-sektoreko bilaketak lantzen ditut, eta zure Google fitxa afintzen dut Debako bailaran hornitzaile bila dabilen erosle edo banatzaileak zu aurkitzeko.",
       ],
     },
     nearbyCities: ["disenador-web-bilbao", "disenador-web-tolosa", "disenador-web-vitoria"],
@@ -226,14 +265,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Tolosa es ciudad con personalidad fuerte: industria papelera histórica, mercado del sábado que mueve a toda la comarca, gastronomía con denominación propia (alubias, txuletas a la parrilla) y un comercio tradicional que ha sabido modernizarse. Trabajo con asadores y restaurantes, comercios del centro y empresas industriales del Apatta y Usabal.",
         "Aquí el público mezcla local fiel con turistas que vienen por la gastronomía. La web tiene que servir a los dos: información clara para quien ya conoce y va a reservar, y contexto suficiente para quien busca «dónde comer alubias en Tolosa» y entra desde Google.",
+        "Estoy a 42 km de Irun, en la misma N-1: las reuniones presenciales son fáciles. En SEO local trabajo «diseñador web Tolosa», «página web restaurante Tolosa» y las búsquedas de cada sector, y te dejo la ficha de Google Business Profile optimizada para que captes tanto al cliente de la comarca del Tolosaldea como al turista gastronómico que decide en el móvil dónde reservar.",
       ],
       en: [
         "Tolosa is a town with strong personality: historic paper industry, Saturday market that draws the whole region, gastronomy with its own designation (alubias beans, grill txuletas) and traditional retail that has managed to modernise. I work with steakhouses and restaurants, town centre retailers and industrial companies in Apatta and Usabal.",
         "The audience here mixes loyal locals with tourists coming for the food. The site has to serve both: clear info for those who already know and want to book, and enough context for someone searching «where to eat alubias in Tolosa» landing from Google.",
+        "I'm 42 km from Irun on the same N-1, so in-person meetings are easy. For local SEO I work «web designer Tolosa», «restaurant website Tolosa» and the per-sector searches, and I leave your Google Business Profile optimized so you capture both the Tolosaldea regional customer and the food tourist deciding on their phone where to book.",
       ],
       eu: [
         "Tolosa nortasun handiko hiria da: historikoa den paper industria, eskualde osoa erakartzen duen larunbateko azoka, izen propio duen gastronomia (babarrunak, txuletak parrillan) eta modernizatzen jakin duen merkataritza tradizionala. Asadoreekin eta jatetxeekin, erdialdeko dendekin eta Apatta eta Usabaleko industria-enpresekin lan egiten dut.",
         "Hemen ikusleak tokiko fidela eta gastronomiarako etortzen diren turistak nahasten ditu. Webak biei zerbitzatu behar die: informazio argia ezagutzen duenarentzat eta erreserba egin nahi duenarentzat, eta «non jan babarrunak Tolosan» bilatzen duenarentzat testuingurua nahikoa.",
+        "Iruneik 42 km-ra nago, N-1 berean: aurrez aurreko bilerak errazak dira. Tokiko SEO lanetan «web diseinatzaile Tolosa», «jatetxe web orria Tolosa» eta sektore bakoitzeko bilaketak lantzen ditut, eta zure Google Business Profile fitxa optimizatuta uzten dizut, Tolosaldeko bezeroa nahiz mugikorrean non erreserbatu erabakitzen duen turista gastronomikoa harrapatzeko.",
       ],
     },
     nearbyCities: ["disenador-web-donostia", "disenador-web-lasarte", "disenador-web-eibar"],
@@ -252,14 +294,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Pamplona es capital con tejido empresarial fuerte: industria automoción y agroalimentaria en los polígonos de Landaben, Mutilva, Imárcoain y Cordovilla, comercio premium en el Casco Antiguo y Carlos III, y servicios profesionales en Iturrama y Ermitagaña. Trabajo con clientes que necesitan webs serias para B2B y otras más cercanas para tienda y servicio.",
         "Aquí lo importante es entender que mucho cliente potencial busca en San Fermín o cuando viene de paso desde el resto de España y Francia. La web tiene que cargar rápido en cualquier conexión y servir bien el bilingüismo es/eu (en muchos casos también francés). Configuro Google Business Profile con áreas de servicio y SEO local pegado al barrio.",
+        "Pamplona está a 80 km de Irun: arrancamos con videollamada y nos vemos en persona cuando el proyecto lo pide. En SEO local cubro «diseñador web Pamplona», «hacer página web Iruñea» y las búsquedas por sector y barrio (Iturrama, Ermitagaña, Casco Antiguo, los polígonos). El objetivo: que cuando un cliente busque tu servicio en su zona de Pamplona, tu negocio sea el primero que ve.",
       ],
       en: [
         "Pamplona is a capital with a strong business fabric: automotive and agri-food industry in Landaben, Mutilva, Imárcoain and Cordovilla industrial estates, premium retail in the Old Town and Carlos III, and professional services in Iturrama and Ermitagaña. I work with clients who need serious B2B sites and others closer to retail and service.",
         "What matters here is understanding that many potential clients search during San Fermín or as they pass through from the rest of Spain and France. The site has to load fast on any connection and serve es/eu bilingual properly (often French too). I set up Google Business Profile with service areas and local SEO pegged to the neighbourhood.",
+        "Pamplona is 80 km from Irun: we start with a video call and meet in person when the project calls for it. For local SEO I cover «web designer Pamplona», «build a website Iruñea» and the per-sector and per-neighbourhood searches (Iturrama, Ermitagaña, Old Town, the industrial estates). The goal: when a client searches for your service in their part of Pamplona, your business is the first they see.",
       ],
       eu: [
         "Iruñea hiriburua da enpresa-egitura sendoa duena: automozio eta nekazaritza-elikagaien industria Landaben, Mutiloa, Imarkoain eta Cordovillako poligonoetan, merkataritza premium-a Alde Zaharrean eta Karlos III.an, eta zerbitzu profesionalak Iturramen eta Ermitaganan. B2B web serioak behar dituzten bezeroekin eta merkataritza eta zerbitzurako gertukoagoekin lan egiten dut.",
         "Hemen garrantzitsuena ulertzea da bezero potentzial askok San Ferminetan edo Espainia eta Frantziatik pasatzean bilatzen dutela. Webak edozein konexioan azkar kargatu behar du eta es/eu elebitasuna ondo zerbitzatu (askotan frantsesa ere bai). Google Business Profile zerbitzu eremuekin eta auzoari lotutako tokiko SEOa konfiguratzen ditut.",
+        "Iruñea Iruneik 80 km-ra dago: bideo-deiarekin hasten gara eta aurrez aurre elkartzen gara proiektuak eskatzen duenean. Tokiko SEO lanetan «web diseinatzaile Iruñea», «web orria egin Iruñea» eta sektore eta auzoetako bilaketak lantzen ditut (Iturrama, Ermitagaña, Alde Zaharra, poligonoak). Helburua: bezero batek bere Iruñeko auzoan zure zerbitzua bilatzen duenean, zure negozioa lehena izatea.",
       ],
     },
     nearbyCities: ["disenador-web-donostia", "disenador-web-vitoria", "disenador-web-logrono"],
@@ -278,14 +323,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Logroño y La Rioja viven del vino y la gastronomía: bodegas de Haro y la Rioja Alta, restaurantes y bares de la calle Laurel y San Juan, y todo el ecosistema enoturístico que mueve a visitantes del norte de España, Francia y Reino Unido. Las webs aquí tienen que oler a tierra y vino, no parecer una plantilla genérica.",
         "Para bodegas trabajo experiencia visual fuerte (fotografía propia, ecommerce sencillo en algunos casos, integración con plataformas como Vivino o Vinissimus si conviene) y SEO local más SEO en mercados internacionales. Para hostelería de Laurel/San Juan, móvil rápido y reservas claras. La web la adapto a quién va a comprar.",
+        "Logroño está lejos de Irun (180 km), así que el proyecto lo llevo en remoto con la misma exigencia: videollamadas, WhatsApp en el día a día y entrega impecable. En SEO local trabajo «diseñador web Logroño», «página web bodega Rioja» y las búsquedas enoturísticas en varios idiomas, y dejo tu ficha de Google preparada para que el visitante que llega de fuera te encuentre el primero.",
       ],
       en: [
         "Logroño and La Rioja live on wine and food: wineries in Haro and La Rioja Alta, restaurants and bars in Calle Laurel and San Juan, and the whole wine-tourism ecosystem drawing visitors from northern Spain, France and the UK. Sites here have to smell of earth and wine, not look like a generic template.",
         "For wineries I work strong visual experience (own photography, simple ecommerce in some cases, integration with platforms like Vivino or Vinissimus if appropriate) and local SEO plus international SEO. For Laurel/San Juan hospitality, fast mobile and clear bookings. I adapt the site to who's going to buy.",
+        "Logroño is far from Irun (180 km), so I run the project remotely with the same standards: video calls, WhatsApp day-to-day and impeccable delivery. For local SEO I work «web designer Logroño», «Rioja winery website» and multilingual wine-tourism searches, and I leave your Google profile ready so the visitor arriving from elsewhere finds you first.",
       ],
       eu: [
         "Logroño eta Errioxa ardo eta gastronomiari esker bizi dira: Haro eta Errioxa Garaiko upategiak, Laurel eta San Juan kaleko jatetxe eta tabernak, eta enoturismoaren ekosistema osoa, Espainiar iparraldeko, Frantziako eta Erresuma Batuko bisitariak erakartzen dituena. Hemengo webek lurra eta ardoa usaindu behar dute, ez plantilla generiko bat eman.",
         "Upategientzat esperientzia bisual sendoa lantzen dut (argazki propioak, ekomertzio sinplea kasu batzuetan, Vivino edo Vinissimus bezalako plataformekin integrazioa egokia bada) eta tokiko SEOa nazioarteko merkatuetako SEOa gehiago. Laurel/San Juango ostalaritzarako, mugikor azkarra eta erreserba argiak. Weba erosiko duenari egokitzen diot.",
+        "Logroño Iruneik urrun dago (180 km), beraz proiektua urrunetik eramaten dut exijentzia berarekin: bideo-deiak, WhatsApp egunerokoan eta entrega akasgabea. Tokiko SEO lanetan «web diseinatzaile Logroño», «Errioxako upategi web orria» eta hizkuntza askotako enoturismo bilaketak lantzen ditut, eta zure Google fitxa prest uzten dut kanpotik datorren bisitariak zu lehena aurkitzeko.",
       ],
     },
     nearbyCities: ["disenador-web-pamplona", "disenador-web-vitoria"],
@@ -304,14 +352,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Santander es ciudad costera con un peso turístico fuerte y vida residencial premium en El Sardinero, Centro y Pedreña. Hoteles, restaurantes y comercio se mezclan con servicios profesionales y bufetes en el centro, y empresas industriales en los polígonos de Raos y Candina. Cada cliente espera un nivel distinto.",
         "El reto aquí es la temporada: la web tiene que aguantar el pico de tráfico de verano sin caerse y dar respuesta rápida a quien busca «hotel en Santander», «restaurante en El Sardinero» o «notario en Santander» desde el móvil. Lo monto rápido para móvil y con la ficha de Google bien afinada para tu zona.",
+        "Santander está a 200 km de Irun, así que trabajamos en remoto sin que se note en el resultado: videollamadas, WhatsApp directo y una web entregada con el mismo mimo que si estuviera al lado. En SEO local cubro «diseñador web Santander», «página web hotel Santander» y las búsquedas por barrio (El Sardinero, Centro, Puertochico), para que captes al turista y al cliente local que deciden en el móvil.",
       ],
       en: [
         "Santander is a coastal city with a strong tourism weight and premium residential life in El Sardinero, the centre and Pedreña. Hotels, restaurants and retail mix with professional services and law firms in the centre, and industrial companies in the Raos and Candina estates. Each client expects a different level.",
         "The challenge here is seasonality: the site has to handle the summer traffic peak without falling over and respond fast to people searching «hotel Santander», «restaurant El Sardinero» or «notary Santander» from mobile. I build it fast on mobile and with the Google profile finely tuned to your area.",
+        "Santander is 200 km from Irun, so we work remotely without it showing in the result: video calls, direct WhatsApp and a site delivered with the same care as if I were next door. For local SEO I cover «web designer Santander», «Santander hotel website» and per-neighbourhood searches (El Sardinero, Centro, Puertochico), so you capture both the tourist and the local client deciding on their phone.",
       ],
       eu: [
         "Santander kostaldeko hiria da turismo pisu handiarekin eta El Sardinero, Erdialde eta Pedreñako bizitza erresidentzial premiumarekin. Hotelak, jatetxeak eta merkataritza zerbitzu profesionalekin eta erdialdeko bulegoekin nahasten dira, baita Raos eta Candinako poligonoetako industria-enpresekin ere. Bezero bakoitzak maila desberdina espero du.",
         "Hemengo erronka denboraldikotasuna da: webak udako trafiko-puntua eutsi behar du erori gabe eta «Santander hotela», «El Sardineroko jatetxea» edo «Santander notarioa» mugikorretik bilatzen duenari azkar erantzun. Mugikorrerako azkar eta zure eremurako ondo afinatutako Google fitxarekin egiten dut.",
+        "Santander Iruneik 200 km-ra dago, beraz urrunetik lan egiten dugu emaitzan nabaritu gabe: bideo-deiak, WhatsApp zuzena eta ondoan banengo bezain arretaz entregatutako weba. Tokiko SEO lanetan «web diseinatzaile Santander», «Santander hotel web orria» eta auzoetako bilaketak lantzen ditut (El Sardinero, Erdialdea, Puertochico), turista nahiz mugikorrean erabakitzen duen tokiko bezeroa harrapatzeko.",
       ],
     },
     nearbyCities: ["disenador-web-bilbao"],
@@ -330,14 +381,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Pasaia tiene cuatro distritos con personalidad muy distinta: Antxo, San Pedro, Donibane y Trintxerpe. La actividad gira alrededor del puerto: industria naval, pesca, logística y un comercio asociado. Trabajo con empresas portuarias, restaurantes con vistas a la bahía y comercios de barrio.",
         "Aquí muchos clientes son B2B portuarios: necesitan webs serias en es/en con catálogo, capacidades técnicas y formularios cualificados. Otros son hosteleros buscando turistas que llegan en barco desde Donostia, y necesitan reservas claras y bilingüismo es/eu/en/fr. El mismo proyecto, dos enfoques.",
+        "Pasaia está a 18 km de Irun: prácticamente al lado, reuniones presenciales sin problema. En SEO local cubro «diseñador web Pasaia», «página web empresa Pasaia» y las búsquedas por distrito (Antxo, Trintxerpe, Donibane, San Pedro) y sector, y te dejo la ficha de Google bien configurada para que el cliente de la bahía te encuentre el primero.",
       ],
       en: [
         "Pasaia has four districts with very different personalities: Antxo, San Pedro, Donibane and Trintxerpe. Activity revolves around the port: naval industry, fishing, logistics and associated retail. I work with port companies, restaurants with bay views and neighbourhood retailers.",
         "Many clients here are port B2B: they need serious es/en sites with catalogue, technical capabilities and qualified forms. Others are hospitality businesses targeting tourists arriving by boat from Donostia, and need clear bookings and es/eu/en/fr multilingual. Same project, two approaches.",
+        "Pasaia is 18 km from Irun: practically next door, in-person meetings no problem. For local SEO I cover «web designer Pasaia», «company website Pasaia» and the per-district (Antxo, Trintxerpe, Donibane, San Pedro) and per-sector searches, and I leave your Google profile set up so the bay-area customer finds you first.",
       ],
       eu: [
         "Pasaiak lau auzo ditu nortasun oso desberdinekoak: Antxo, San Pedro, Donibane eta Trintxerpe. Jarduera portuaren inguruan dabil: ontzi-industria, arrantza, logistika eta merkataritza erlazionatua. Portu-enpresekin, badiarako bistak dituzten jatetxeekin eta auzoko dendekin lan egiten dut.",
         "Hemen bezero asko portuko B2B dira: katalogoa, gaitasun teknikoak eta formulario kualifikatuak dituzten es/en web serioak behar dituzte. Beste batzuk Donostiatik itsasontziz iristen diren turistei begira dauden ostalaritza-negozioak dira, eta erreserba argiak eta es/eu/en/fr eleaniztasuna behar dute. Proiektu bera, bi ikuspegi.",
+        "Pasaia Iruneik 18 km-ra dago: ia ondoan, aurrez aurreko bilerak arazorik gabe. Tokiko SEO lanetan «web diseinatzaile Pasaia», «enpresa web orria Pasaia» eta auzoetako (Antxo, Trintxerpe, Donibane, San Pedro) eta sektoreko bilaketak lantzen ditut, eta zure Google fitxa ondo konfiguratuta uzten dut badiako bezeroak zu lehena aurkitzeko.",
       ],
     },
     nearbyCities: ["disenador-web-donostia", "disenador-web-errenteria", "disenador-web-hondarribia"],
@@ -356,14 +410,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Zarautz vive del surf, la playa más larga de Gipuzkoa, una hostelería de altura (con restaurante 3 estrellas Michelin incluido) y un comercio premium que sabe que el cliente medio aquí tiene poder adquisitivo. Trabajo con surf shops, restaurantes y casas de huéspedes del centro y la zona de la playa.",
         "El SEO local pesa fuerte porque la búsqueda «restaurante Zarautz», «hotel Zarautz playa» o «clase de surf Zarautz» se decide en los primeros 3 resultados. Para conseguirlo combino una ficha de Google Business Profile muy bien optimizada con una web rápida en móvil y un sistema de reseñas que mantiene tu negocio activo en el mapa.",
+        "Estoy a 36 km de Irun, en la misma costa: subir a Zarautz para una reunión es un plan, no un problema. Como mucho cliente llega en temporada desde fuera, cuido el bilingüismo es/eu/en/fr y el móvil impecable, para que el visitante que busca dónde comer o dónde dormir te encuentre el primero y reserve sin fricción.",
       ],
       en: [
         "Zarautz lives on surfing, the longest beach in Gipuzkoa, top-tier hospitality (with a 3-Michelin-star restaurant included) and premium retail that knows the average client here has buying power. I work with surf shops, restaurants and guesthouses in the centre and the beach area.",
         "Local SEO matters a lot here because searches like «Zarautz restaurant», «Zarautz beach hotel» or «Zarautz surf class» are decided in the first 3 results. To get there I combine a very well-optimized Google Business Profile with a fast mobile site and a reviews system that keeps your business active on the map.",
+        "I'm 36 km from Irun, on the same coast: driving up to Zarautz for a meeting is a plan, not a problem. Since many clients arrive in season from elsewhere, I look after es/eu/en/fr multilingual and impeccable mobile, so the visitor searching where to eat or sleep finds you first and books without friction.",
       ],
       eu: [
         "Zarautz surf-aren, Gipuzkoako hondartza luzeenaren, maila handiko ostalaritzaren (3 izar Michelin duen jatetxe bat barne) eta hemengo bezero ertainak erosteko ahalmena duela dakien merkataritza premium baten bidez bizi da. Erdialdeko eta hondartza inguruko surf-dendekin, jatetxeekin eta ostatuekin lan egiten dut.",
         "Tokiko SEOk pisu handia du, «Zarautz jatetxea», «Zarautz hondartza hotela» edo «Zarautz surf eskola» bilaketak lehen 3 emaitzetan erabakitzen direlako. Lortzeko, oso ondo optimizatutako Google Business Profile, mugikorrean azkarra den web bat eta zure negozioa mapan aktibo mantentzen duen iritzien sistema konbinatzen ditut.",
+        "Iruneik 36 km-ra nago, kostalde berean: Zarautzera bilera baterako igotzea plana da, ez arazoa. Bezero asko denboraldian kanpotik iristen direnez, es/eu/en/fr eleaniztasuna eta mugikor akasgabea zaintzen ditut, non jan edo non lo egin bilatzen duen bisitariak zu lehena aurkitu eta marruskadurarik gabe erreserba dezan.",
       ],
     },
     nearbyCities: ["disenador-web-donostia", "disenador-web-tolosa", "disenador-web-lasarte"],
@@ -382,14 +439,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Getxo es uno de los municipios con mayor poder adquisitivo del País Vasco: Neguri, Algorta, Las Arenas. La clientela aquí espera marcas cuidadas, atención personalizada y webs que respeten la elegancia residencial del municipio. Trabajo con clínicas, despachos profesionales, restaurantes y comercio premium.",
         "Para clínicas y despachos pongo el foco en confianza visual (fotografía profesional, certificaciones visibles) y formulario de cita rápido. Para hostelería de Algorta y Las Arenas, móvil impecable y reservas integradas. La estética siempre cuidada, sin caer en el cliché de la web «de postín» que se ve recargada.",
+        "Getxo está a 130 km de Irun: el proyecto lo llevo combinando videollamada y alguna visita puntual a Bizkaia cuando merece la pena. En SEO local cubro «diseñador web Getxo», «página web clínica Getxo» y las búsquedas por zona (Neguri, Algorta, Las Arenas), para que cuando un cliente de alto poder adquisitivo busque tu servicio, tu negocio sea el que transmite más confianza y sale el primero.",
       ],
       en: [
         "Getxo is one of the highest-purchasing-power municipalities in the Basque Country: Neguri, Algorta, Las Arenas. Clients here expect refined brands, personalised attention and sites that respect the residential elegance of the municipality. I work with clinics, professional firms, restaurants and premium retail.",
         "For clinics and firms I focus on visual trust (professional photography, visible certifications) and a fast booking form. For hospitality in Algorta and Las Arenas, impeccable mobile and integrated bookings. The aesthetic always refined, without falling into the cliché of the «posh» site that ends up overwrought.",
+        "Getxo is 130 km from Irun: I run the project combining video calls and the occasional visit to Bizkaia when it's worth it. For local SEO I cover «web designer Getxo», «Getxo clinic website» and per-area searches (Neguri, Algorta, Las Arenas), so when a high-purchasing-power client searches for your service, your business is the one that conveys the most trust and shows up first.",
       ],
       eu: [
         "Getxo Euskal Herriko erosteko ahalmen handiena duen udalerrietako bat da: Neguri, Algorta, Areeta. Hemengo bezeroek marka zainduak, arreta pertsonalizatua eta udalerriaren dotorezia erresidentziala errespetatzen duten webguneak espero dituzte. Klinikekin, bulego profesionalekin, jatetxeekin eta merkataritza premium-arekin lan egiten dut.",
         "Klinika eta bulegoetarako konfiantza bisualean jartzen dut arreta (argazki profesionalak, ziurtagiri ikusgarriak) eta hitzordu formulario azkarra. Algorta eta Areetako ostalaritzarako, mugikor akasgabea eta integratutako erreserbak. Estetika beti zaindua, web «dotore» kargatuegiaren klixean erori gabe.",
+        "Getxo Iruneik 130 km-ra dago: proiektua bideo-deia eta noizbehinkako Bizkaiako bisitaren bidez eramaten dut, merezi duenean. Tokiko SEO lanetan «web diseinatzaile Getxo», «Getxo klinika web orria» eta eremuetako bilaketak lantzen ditut (Neguri, Algorta, Areeta), erosteko ahalmen handiko bezero batek zure zerbitzua bilatzean, zure negozioa konfiantza gehien transmititzen duena eta lehena agertzen dena izateko.",
       ],
     },
     nearbyCities: ["disenador-web-bilbao", "disenador-web-bermeo"],
@@ -408,14 +468,17 @@ export const cityLandings: CityLandingDef[] = [
       es: [
         "Bermeo es puerto pesquero histórico de Bizkaia, con conservas, gastronomía marinera y un turismo creciente que llega por el Urdaibai y la costa. Trabajo con conserveras, restaurantes del puerto, hoteles boutique y empresas pesqueras que necesitan presencia digital seria.",
         "Para conserveras y pesca: webs B2B con ecommerce sencillo, certificaciones de origen visibles y sección de proceso de elaboración (es lo que más valor añade). Para hostelería: móvil rápido y bilingüismo es/eu/en/fr. El cliente que viene a Bermeo espera autenticidad, y la web la transmite.",
+        "Bermeo está a 145 km de Irun: trabajo en remoto con videollamada y WhatsApp, y la entrega es igual de cuidada. En SEO local cubro «diseñador web Bermeo», «página web conservera» y las búsquedas del turismo de Urdaibai, para que tanto el comprador B2B como el visitante que llega por la costa te encuentren el primero y vean a un negocio serio detrás.",
       ],
       en: [
         "Bermeo is a historic Bizkaia fishing port with canned goods, seafood gastronomy and growing tourism arriving via Urdaibai and the coast. I work with canneries, port restaurants, boutique hotels and fishing companies that need a serious digital presence.",
         "For canneries and fishing: B2B sites with simple ecommerce, visible origin certifications and a production process section (it's what adds most value). For hospitality: fast mobile and es/eu/en/fr multilingual. The visitor coming to Bermeo expects authenticity, and the site has to convey it.",
+        "Bermeo is 145 km from Irun: I work remotely with video calls and WhatsApp, and delivery is just as careful. For local SEO I cover «web designer Bermeo», «cannery website» and Urdaibai tourism searches, so both the B2B buyer and the visitor arriving along the coast find you first and see a serious business behind it.",
       ],
       eu: [
         "Bermeo Bizkaiko historiako arrantza-portua da, kontserbak, itsas-gastronomia eta Urdaibai eta kostaldetik iristen den turismo gero eta handiagoarekin. Kontserba-fabrikekin, portuko jatetxeekin, hotel boutikekin eta presentzia digital serioa behar duten arrantza-enpresekin lan egiten dut.",
         "Kontserba eta arrantzarako: B2B webguneak ekomertzio sinplearekin, jatorri-ziurtagiri ikusgaiekin eta elaborazio-prozesuaren atalarekin (gehien balio eransten duena). Ostalaritzarako: mugikor azkarra eta es/eu/en/fr eleaniztasuna. Bermeora etortzen den bezeroak benetakotasuna espero du, eta webak hori transmititu behar du.",
+        "Bermeo Iruneik 145 km-ra dago: urrunetik lan egiten dut bideo-dei eta WhatsApp bidez, eta entrega berdin zaindua da. Tokiko SEO lanetan «web diseinatzaile Bermeo», «kontserba-fabrika web orria» eta Urdaibaiko turismo bilaketak lantzen ditut, B2B erosleak nahiz kostaldetik iristen den bisitariak zu lehena aurkitu eta atzean negozio serioa ikus dezaten.",
       ],
     },
     nearbyCities: ["disenador-web-bilbao", "disenador-web-getxo"],
@@ -524,7 +587,7 @@ export function getCityLandingContent(
       ctaTitle: `¿Tienes un negocio en ${city}?`,
       ctaSub: "Auditoría gratuita: te enseño quién te está quitando llamadas en Google y por qué. Sin compromiso.",
       ctaBtn: "Hablar con Unax",
-      quoteBtn: "Pedir auditoría gratis",
+      quoteBtn: "Ver cómo quedaría mi web (gratis)",
     };
   }
 
@@ -591,7 +654,7 @@ export function getCityLandingContent(
       ctaTitle: `Have a business in ${city}?`,
       ctaSub: "Free audit: I show you who's taking calls from you on Google and why. No commitment.",
       ctaBtn: "Talk to Unax",
-      quoteBtn: "Request a free audit",
+      quoteBtn: "See how my site would look (free)",
     };
   }
 
@@ -660,7 +723,7 @@ export function getCityLandingContent(
     ctaTitle: `${cityIn} negozioa al duzu?`,
     ctaSub: "Doako auditoria: Googlen nork kentzen dizkizun deiak eta zergatik erakusten dizut. Konpromisorik gabe.",
     ctaBtn: "Unaxekin hitz egin",
-    quoteBtn: "Doako auditoria eskatu",
+    quoteBtn: "Ikusi nire weba nola geratuko litzatekeen (doan)",
   };
 }
 

@@ -74,7 +74,7 @@ export default function NotFound() {
         <span
           className="text-[120px] md:text-[180px] font-light leading-none select-none"
           style={{
-            fontFamily: "Fraunces, Georgia, serif",
+            fontFamily: "var(--font-serif)",
             color: "var(--color-line-strong)",
             display: "block",
           }}
@@ -105,7 +105,7 @@ export default function NotFound() {
       <h1
         className="nf-title text-2xl md:text-3xl font-light mb-4"
         style={{
-          fontFamily: "Fraunces, Georgia, serif",
+          fontFamily: "var(--font-serif)",
           color: "var(--color-ink)",
           opacity: 0,
         }}
@@ -117,7 +117,7 @@ export default function NotFound() {
         className="nf-sub text-base mb-8 max-w-md"
         style={{
           color: "var(--color-ink-muted)",
-          fontFamily: "Manrope, sans-serif",
+          fontFamily: "var(--font-sans)",
           opacity: 0,
         }}
       >
@@ -131,7 +131,7 @@ export default function NotFound() {
           style={{
             backgroundColor: "var(--color-ink)",
             color: "var(--color-bg)",
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "var(--font-sans)",
           }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -145,7 +145,7 @@ export default function NotFound() {
           style={{
             border: "1.5px solid var(--color-line-strong)",
             color: "var(--color-ink)",
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "var(--font-sans)",
           }}
         >
           {l.contact}
