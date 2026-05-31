@@ -140,7 +140,7 @@ export default async function ProjectsBoard({ locale }: Props) {
                     <Link
                       href={`/${locale}/proyectos/${project.slug}`}
                       className="polaroid-photo focusable"
-                      aria-label={`${project.name} — ${t("aboutTitle")}`}
+                      aria-label={`${project.name}: ${t("aboutTitle")}`}
                     >
                       <Image
                         src={project.cover}

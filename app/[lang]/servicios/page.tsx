@@ -63,7 +63,7 @@ export default async function ServiciosPage({ params }: Props) {
       ]
     : locale === "en"
     ? [
-        { q: "How long until my site goes live?", a: "Between 7 and 10 days from the day we sign. What usually slows things down is waiting on your copy or photos — the sooner I get them, the sooner the site is live." },
+        { q: "How long until my site goes live?", a: "Between 7 and 10 days from the day we sign. What usually slows things down is waiting on your copy or photos. The sooner I get them, the sooner the site is live." },
         { q: "What do I need to provide to get started?", a: "Just enough: tell me what your business does, who you want to attract and, if you have them handy, logo and photos. If you don't have good photos, we'll sort it." },
         { q: "Does it include maintenance after launch?", a: "Yes. The €149/month already covers hosting, domain, SSL, WhatsApp support and minor changes every month (copy, photos, prices, hours, adding a service). No extra invoices." },
         { q: "Can I request changes during the project?", a: "Yes. While I build it I send you progress over WhatsApp and we adjust until it fits. After launch, minor changes are included in the monthly fee." },
@@ -229,7 +229,7 @@ export default async function ServiciosPage({ params }: Props) {
           ? [
               "Visual catalogue with your featured products",
               "Local SEO so you show up in your neighbourhood",
-              "Mobile-first — customers search from the sofa",
+              "Mobile-first: customers search from the sofa",
               "WhatsApp and phone visible on every page",
               "Google Maps and reviews integration",
             ]

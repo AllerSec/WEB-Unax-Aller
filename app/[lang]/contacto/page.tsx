@@ -16,9 +16,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Contacto — Agenda tu Consulta Gratuita",
-    en: "Contact — Book Your Free Consultation",
-    eu: "Kontaktua — Doako Kontsulta Antolatu",
+    es: "Contacto: Agenda tu Consulta Gratuita",
+    en: "Contact: Book Your Free Consultation",
+    eu: "Kontaktua: Doako Kontsulta Antolatu",
   };
   const descriptions: Record<string, string> = {
     es: "Cuéntanos tu proyecto. Respondemos en menos de 24 horas con una propuesta inicial gratuita. Diseño y desarrollo web premium.",
@@ -103,14 +103,14 @@ export default async function ContactoPage({ params }: Props) {
     "@graph": [
       {
         "@type": "ContactPage",
-        name: "Contacto — Unax Aller",
+        name: "Contacto, Unax Aller",
         url: `https://unaxaller.com/${locale}/contacto`,
         mainEntity: { "@id": "https://unaxaller.com/#business" },
       },
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://unaxaller.com/#business",
-        name: "Unax Aller — Diseñador Web",
+        name: "Unax Aller, Diseñador Web",
         email: "contacto@unaxaller.com",
         telephone: "+34620909916",
         url: "https://unaxaller.com",

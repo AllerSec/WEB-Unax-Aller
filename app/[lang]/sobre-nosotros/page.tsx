@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Sobre Mí — Diseñador Web en Irun, Gipuzkoa",
-    en: "About Me — Web Designer in Irun, Basque Country",
-    eu: "Ni buruz — Web Diseinatzailea Irunen, Gipuzkoan",
+    es: "Sobre Mí: Diseñador Web en Irun, Gipuzkoa",
+    en: "About Me: Web Designer in Irun, Basque Country",
+    eu: "Ni buruz: Web Diseinatzailea Irunen, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
     es: "Soy Unax Aller, diseñador web freelance en Irun, Gipuzkoa. Ingeniería informática en la UAX, 4 idiomas y webs a medida para negocios del País Vasco.",
@@ -298,10 +298,10 @@ export default async function SobreNosotrosPage({ params }: Props) {
                 year: "2023",
                 title: locale === "es" ? "Ingeniería Informática" : locale === "en" ? "Computer Engineering" : "Informatika Ingeniaritza",
                 desc: locale === "es"
-                  ? "Empecé la carrera de Ingeniería Informática en la UAX. Por el camino, intercambios internacionales y una temporada de trabajo en el extranjero — adaptarse a entornos nuevos rápido y sin miedo, en inglés real, no de examen."
+                  ? "Empecé la carrera de Ingeniería Informática en la UAX. Por el camino, intercambios internacionales y una temporada de trabajo en el extranjero: adaptarse a entornos nuevos rápido y sin miedo, en inglés real, no de examen."
                   : locale === "en"
-                  ? "Started a Computer Engineering degree at UAX. Along the way, international exchanges and a stint working abroad — adapting to new environments fast and without fear, in real English, not exam English."
-                  : "Informatika Ingeniaritza karrera hasi nuen UAX-en. Bidean, nazioarteko trukeak eta atzerrian lan-tarte bat — ingurune berrietara azkar eta beldurrik gabe egokitzea, benetako ingelesez, ez azterketakoa.",
+                  ? "Started a Computer Engineering degree at UAX. Along the way, international exchanges and a stint working abroad: adapting to new environments fast and without fear, in real English, not exam English."
+                  : "Informatika Ingeniaritza karrera hasi nuen UAX-en. Bidean, nazioarteko trukeak eta atzerrian lan-tarte bat: ingurune berrietara azkar eta beldurrik gabe egokitzea, benetako ingelesez, ez azterketakoa.",
               },
               {
                 year: "2024",

@@ -140,7 +140,7 @@ export default async function PaisVascoPage({ params }: Props) {
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://unaxaller.com/#business",
-        name: "Unax Aller — Diseñador Web",
+        name: "Unax Aller · Diseñador Web",
         url: "https://unaxaller.com",
         areaServed: [
           { "@type": "AdministrativeArea", name: regionName },
@@ -194,14 +194,14 @@ export default async function PaisVascoPage({ params }: Props) {
 
   const benefits = locale === "es"
     ? [
-        { title: "Trilingüe de serie", desc: "Entrego tu web en castellano, inglés y euskera. Sin plugins frágiles, con URLs localizadas y hreflang correcto." },
-        { title: "SEO para el mercado vasco", desc: "Optimización para búsquedas en Euskadi, Google Maps y Google Business Profile en las tres provincias." },
-        { title: "Cercanía real", desc: "Estoy en Irun. Puedo desplazarme a Bilbao, Donostia o Vitoria cuando tu proyecto lo necesite." },
-        { title: "Hecho a mano, sin plantillas", desc: "Web a medida en Next.js, no una plantilla de WordPress. Rápida en móvil, Lighthouse 95+ y SEO técnico bien resuelto desde el día 1." },
+        { title: "Hasta cuatro idiomas, bien hechos", desc: "Castellano, euskera, inglés y francés con URLs separadas y hreflang correcto, no un plugin que traduce a medias. En zona de frontera, el francés capta clientes que el resto deja escapar." },
+        { title: "SEO para el mercado vasco", desc: "Te posiciono en las búsquedas de tu zona y tu sector, y te dejo la ficha de Google Business Profile montada en cualquiera de las tres provincias." },
+        { title: "Hablas siempre conmigo", desc: "Estoy en Irun. Si el proyecto lo pide me desplazo a Bilbao, Donostia o Vitoria; el resto lo llevamos por WhatsApp y videollamada, directo conmigo." },
+        { title: "Hecho a mano, no una plantilla", desc: "Web a medida en Next.js, no un tema de WordPress que va lento. Rápida en el móvil y con el SEO técnico bien resuelto desde el primer día." },
       ]
     : locale === "en"
     ? [
-        { title: "Trilingual out of the box", desc: "I deliver your site in Spanish, English and Basque. No fragile plugins — localized URLs and proper hreflang." },
+        { title: "Trilingual out of the box", desc: "I deliver your site in Spanish, English and Basque. No fragile plugins: localized URLs and proper hreflang." },
         { title: "SEO for the Basque market", desc: "Optimization for searches across the Basque Country, Google Maps and Google Business Profile in all three provinces." },
         { title: "Real proximity", desc: "I'm based in Irun. I can travel to Bilbao, Donostia or Vitoria whenever your project needs it." },
         { title: "Hand-built, no templates", desc: "Custom Next.js site, not a WordPress theme. Fast on mobile, Lighthouse 95+ and technical SEO solved properly from day one." },
@@ -251,7 +251,7 @@ export default async function PaisVascoPage({ params }: Props) {
             style={{ fontFamily: "var(--font-serif)", color: "var(--color-ink)" }}
           >
             {locale === "es"
-              ? `Diseñador web en el ${regionName}`
+              ? `Tu web en el ${regionName}, lista para que te encuentren`
               : locale === "en"
               ? `Web designer in the ${regionName}`
               : `Web diseinatzailea ${regionName}n`}
@@ -261,7 +261,7 @@ export default async function PaisVascoPage({ params }: Props) {
             style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)" }}
           >
             {locale === "es"
-              ? `Soy Unax Aller, diseñador web freelance basado en Irun con clientes en Bizkaia, Gipuzkoa y Álava. Creo webs trilingües (castellano, inglés y euskera) que posicionan en Google y convierten visitantes en clientes.`
+              ? `Soy Unax Aller, diseñador web freelance en Irun. Trabajo con negocios de Bizkaia, Gipuzkoa y Álava, y una ventaja juega a tu favor que casi nadie aprovecha: estamos en zona de frontera, y monto las webs en castellano, euskera, inglés y francés para que también te encuentre el cliente que cruza desde Francia. Webs rápidas en el móvil, que salen en Google y hacen sonar el teléfono, por 149€/mes, sin pagar nada al firmar.`
               : locale === "en"
               ? `I'm Unax Aller, a freelance web designer based in Irun with clients in Bizkaia, Gipuzkoa and Álava. I build trilingual websites (Spanish, English and Basque) that rank on Google and convert visitors into clients.`
               : `Unax Aller naiz, Irunen oinarritutako web diseinatzaile freelancea, Bizkaia, Gipuzkoa eta Arabako bezeroekin. Hiru hizkuntzatako webguneak egiten ditut (gaztelania, ingelesa eta euskara) Googlen agertu eta bisitariak bezero bihurtzen dituztenak.`}

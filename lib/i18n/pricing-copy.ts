@@ -45,10 +45,10 @@ export function planCopy(locale: Locale): Copy {
       eyebrow: "Transparent pricing",
       title: "One website. Three ways to pay for it.",
       subtitle:
-        "Same hand-built site in every plan. The difference is who looks after it and how you pay. Most businesses pick All-Inclusive — nothing upfront, and I take care of everything for as long as you use it.",
+        "Same hand-built site in every plan. The difference is who looks after it and how you pay. Most businesses pick All-Inclusive: nothing upfront, and I take care of everything for as long as you use it.",
       recommended: "Recommended",
       seeDetail: "See everything included",
-      note: "All plans include the exact site you saw in the demo. VAT not included. The All-Inclusive plan runs on my system: while your subscription is active you keep the site online, the Google Maps ranking watched and same-day WhatsApp support. No lock-in — the only commitment is a 3-month minimum activation period (it covers domain setup, local SEO and the Google profile); from the fourth month you cancel whenever you want. “Unlimited changes” means content (text, photos, prices, hours) — not a full structural redesign.",
+      note: "All plans include the exact site you saw in the demo. VAT not included. The All-Inclusive plan runs on my system: while your subscription is active you keep the site online, the Google Maps ranking watched and same-day WhatsApp support. No lock-in: the only commitment is a 3-month minimum activation period (it covers domain setup, local SEO and the Google profile); from the fourth month you cancel whenever you want. “Unlimited changes” means content (text, photos, prices, hours), not a full structural redesign.",
     };
   }
   if (locale === "eu") {
@@ -56,10 +56,10 @@ export function planCopy(locale: Locale): Copy {
       eyebrow: "Prezio gardena",
       title: "Web bat. Ordaintzeko hiru modu.",
       subtitle:
-        "Eskuz egindako web bera plan guztietan. Aldea da nork zaintzen duen eta nola ordaintzen duzun. Negozio gehienek Dena Barne aukeratzen dute — ezer aurreratu gabe, eta nik dena zaintzen dut erabiltzen duzun bitartean.",
+        "Eskuz egindako web bera plan guztietan. Aldea da nork zaintzen duen eta nola ordaintzen duzun. Negozio gehienek Dena Barne aukeratzen dute: ezer aurreratu gabe, eta nik dena zaintzen dut erabiltzen duzun bitartean.",
       recommended: "Gomendatua",
       seeDetail: "Sartzen den guztia ikusi",
-      note: "Plan guztiek demoan ikusi duzun web bera dute. BEZ kanpo. Dena Barne plana nire sisteman doa: kuota mantentzen duzun bitartean weba sarean, Google Maps posizioa zainduta eta egun bereko WhatsApp laguntza dituzu. Iraupenik gabe — konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da (domeinuaren altak, tokiko SEOak eta Google fitxak estaltzen ditu); laugarren hilabetetik aurrera nahi duzunean baja ematen duzu. “Aldaketa mugagabeak” edukia da (testua, argazkiak, prezioak, ordutegiak) — ez egitura osoaren birdiseinua.",
+      note: "Plan guztiek demoan ikusi duzun web bera dute. BEZ kanpo. Dena Barne plana nire sisteman doa: kuota mantentzen duzun bitartean weba sarean, Google Maps posizioa zainduta eta egun bereko WhatsApp laguntza dituzu. Iraupenik gabe: konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da (domeinuaren altak, tokiko SEOak eta Google fitxak estaltzen ditu); laugarren hilabetetik aurrera nahi duzunean baja ematen duzu. “Aldaketa mugagabeak” edukia da (testua, argazkiak, prezioak, ordutegiak), ez egitura osoaren birdiseinua.",
     };
   }
   return {
@@ -69,7 +69,7 @@ export function planCopy(locale: Locale): Copy {
       "La misma web programada a mano en los tres planes. Lo que cambia es quién se encarga de ella y cómo pagas. La mayoría elige Todo Incluido: no pagas nada al empezar y yo me ocupo de todo mientras la uses.",
     recommended: "Recomendado",
     seeDetail: "Ver todo lo que incluye",
-    note: "Los tres planes incluyen la misma web que has visto en la demo. IVA no incluido. El plan Todo Incluido va sobre mi sistema: mientras mantengas la cuota, tu web sigue online, tu posición en Google Maps vigilada y el soporte por WhatsApp el mismo día. Sin permanencia — el único compromiso es un mínimo de 3 meses de activación (cubre el alta de dominio, el SEO local y la ficha de Google); a partir del cuarto mes cancelas cuando quieras. “Cambios ilimitados” se refiere a contenido (textos, fotos, precios, horarios), no a un rediseño estructural completo.",
+    note: "Los tres planes incluyen la misma web que has visto en la demo. IVA no incluido. El plan Todo Incluido va sobre mi sistema: mientras mantengas la cuota, tu web sigue online, tu posición en Google Maps vigilada y el soporte por WhatsApp el mismo día. Sin permanencia: el único compromiso es un mínimo de 3 meses de activación (cubre el alta de dominio, el SEO local y la ficha de Google); a partir del cuarto mes cancelas cuando quieras. “Cambios ilimitados” se refiere a contenido (textos, fotos, precios, horarios), no a un rediseño estructural completo.",
   };
 }
 
@@ -133,7 +133,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           features: [
             "Professional custom design built around your business",
             "Up to 5 sections (home, services, about, contact, reviews)",
-            "Mobile-optimized — most of your customers search from a phone",
+            "Mobile-optimized: most of your customers search from a phone",
             "Google Maps profile optimized and monitored every month",
             "Automatic system to bring in 5-star reviews",
             "Same-day WhatsApp support for price, photo or hours changes",
@@ -142,7 +142,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
             "Domain & hosting included (no extra invoices)",
             "Google Business Profile set up to capture phone calls",
             "SSL certificate and speed optimization",
-            "Unlimited content changes — no extra cost",
+            "Unlimited content changes, no extra cost",
           ],
           process: [],
           clients,
@@ -161,7 +161,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           { label: "Domain + hosting the first year", on: true },
           { label: "Changes after delivery quoted separately", on: false },
           { label: "No included WhatsApp support", on: false },
-          { label: "No monthly fee — you pay once", on: true },
+          { label: "No monthly fee, you pay once", on: true },
         ],
         cta: "Ask about buying outright",
         whatsapp: "Hi Unax, I'm interested in the €1,500 one-off website",
@@ -220,7 +220,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           features: [
             "Zure negoziorako diseinu profesional pertsonalizatua",
             "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
-            "Mugikorrerako optimizatua — bezero gehienek mugikorretik bilatzen zaituzte",
+            "Mugikorrerako optimizatua: bezero gehienek mugikorretik bilatzen zaituzte",
             "Google Maps fitxa optimizatua eta hilero zainduta",
             "5 izarreko iritziak lortzeko sistema automatikoa",
             "Egun bereko WhatsApp laguntza prezio, argazki edo ordutegi aldaketetarako",
@@ -229,7 +229,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
             "Domeinua eta hostinga barne (faktura gehigarririk gabe)",
             "Google Business Profile fitxa deiak hartzeko prest",
             "SSL ziurtagiria eta abiadura optimizatua",
-            "Edukiaren aldaketa mugagabeak — kostu gehigarririk gabe",
+            "Edukiaren aldaketa mugagabeak, kostu gehigarririk gabe",
           ],
           process: [],
           clients,
@@ -248,7 +248,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           { label: "Domeinua + hostinga lehen urtean", on: true },
           { label: "Entregaren ondorengo aldaketak aparte", on: false },
           { label: "WhatsApp laguntza barne gabe", on: false },
-          { label: "Hileko kuotarik gabe — behin ordaintzen duzu", on: true },
+          { label: "Hileko kuotarik gabe, behin ordaintzen duzu", on: true },
         ],
         cta: "Erosteari buruz galdetu",
         whatsapp: "Kaixo Unax, 1.500€-ko ordainketa bakarreko weba interesatzen zait",
@@ -307,7 +307,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
         features: [
           "Diseño profesional a medida para tu negocio",
           "Hasta 5 secciones (inicio, servicios, sobre ti, contacto, reseñas)",
-          "Optimizada para móvil — la mayoría de tus clientes te buscan desde el teléfono",
+          "Optimizada para móvil: la mayoría de tus clientes te buscan desde el teléfono",
           "Ficha de Google Maps optimizada y vigilada cada mes",
           "Sistema automático para conseguir reseñas de 5 estrellas",
           "Soporte por WhatsApp el mismo día: precios, fotos u horarios",
@@ -316,7 +316,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           "Dominio propio y hosting incluidos (sin facturas extra)",
           "Ficha de Google Business Profile lista para captar llamadas",
           "Certificado SSL y velocidad optimizada",
-          "Cambios de contenido ilimitados — sin coste extra",
+          "Cambios de contenido ilimitados, sin coste extra",
         ],
         process: [],
         clients,
@@ -335,7 +335,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
         { label: "Dominio + hosting el primer año", on: true },
         { label: "Cambios tras la entrega se presupuestan aparte", on: false },
         { label: "Sin soporte por WhatsApp incluido", on: false },
-        { label: "Sin cuota mensual — lo pagas una vez", on: true },
+        { label: "Sin cuota mensual, lo pagas una vez", on: true },
       ],
       cta: "Preguntar por la compra",
       whatsapp: "Hola Unax, me interesa la web a pago único por 1.500€",

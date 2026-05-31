@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Unax Aller — Web para negocio local",
+    name: "Unax Aller: Web para negocio local",
     short_name: "Unax Aller",
     description: "Web para negocios profesionales del País Vasco y Navarra: 149€/mes todo incluido, 0€ inicial, sin permanencia y 30 días de garantía.",
     start_url: "/es",

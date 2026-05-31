@@ -71,7 +71,7 @@ Para eso no hace falta montar una astronave. De hecho, cuanto más simple, más 
 
 Depende mucho del negocio. Un restaurante pequeño en Irun sí le interesa saber si la web le está llegando gente. En cambio, una empresa de ingeniería con la que he trabajado tiene la web más como carta de presentación, olvidada: no le hace falta analítica, y se lo digo.
 
-Pregunto siempre antes de entregar. Si el cliente quiere ver los datos él mismo, se lo monto, dejo el panel listo y le enseño a mirarlo en cinco minutos. Supone esfuerzo extra, claro, así que cobro un pequeño suplemento — nada caro, pero algo, porque el tiempo es tiempo.
+Pregunto siempre antes de entregar. Si el cliente quiere ver los datos él mismo, se lo monto, dejo el panel listo y le enseño a mirarlo en cinco minutos. Supone esfuerzo extra, claro, así que cobro un pequeño suplemento (nada caro, pero algo), porque el tiempo es tiempo.
 
 Para un negocio pequeño, directo a lo gratis y fácil. Si ya hablamos de una empresa más grande que necesite algo más completo y bonito, entonces sí miramos Plausible u otra cosa de pago. Pero la regla por defecto: simple, sin coste para el cliente, sin complicaciones.
 
@@ -115,13 +115,13 @@ You don't need a spaceship for that. In fact, the simpler it is, the more likely
 
 It depends a lot on the business. A small restaurant in Irun does want to know if the site is bringing in people. On the other hand, an engineering company I've worked with has its site more as a business card, forgotten: no need for analytics, and I tell them straight.
 
-I always ask before delivery. If the client wants to see the data themselves, I set it up, leave the dashboard ready and show them how to read it in five minutes. That's extra effort, so I charge a small fee — nothing pricey, but something, because time is time.
+I always ask before delivery. If the client wants to see the data themselves, I set it up, leave the dashboard ready and show them how to read it in five minutes. That's extra effort, so I charge a small fee (nothing pricey, but something), because time is time.
 
 For a small business, straight to free and easy. For a larger company that needs something more complete and polished, then yes, we look at Plausible or another paid option. But the default rule: simple, no cost for the client, no complications.
 
 ## My advice if you already have Google Analytics installed
 
-Remove it. Now. It's costing your site speed and that shows up in rankings, which is what ultimately matters. If you need to know about your visits, put any of the others — they work just fine for what you do. But Google, that Google, out.`,
+Remove it. Now. It's costing your site speed and that shows up in rankings, which is what ultimately matters. If you need to know about your visits, put any of the others: they work just fine for what you do. But Google, that Google, out.`,
       eu: `Nire bezero guztiei Google Analytics jartzera nindoan, defektuz. Aste honetan bertan hasi behar nuen. Orduan kasu bakoitzean benetan zentzua zuen berrikustera jarri nintzen, GA4 eta DBEOari buruz gauza arraroak irakurri nituelako. Hona hemen iritsi naizen ondorioa.
 
 ![Analitika panela grafikoekin pantaila batean](https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200)
@@ -159,13 +159,13 @@ Horretarako ez duzu astronabea behar. Izan ere, zenbat eta sinpleagoa izan, jabe
 
 Negozioaren araberakoa da. Iruneko jatetxe txiki batek jakin nahi du weba jendea ekartzen ari den. Aldiz, ingeniaritza enpresa batek, nirekin lan egin duen bat, weba aurkezpen-txartel gisa du, ahaztuta: ez du analitikarik behar, eta horrela esaten diot.
 
-Entregatu aurretik beti galdetzen dut. Bezeroak berak datuak ikusi nahi baditu, muntatzen diot, panela prest uzten dut eta bost minututan erakusten diot. Hori lan gehigarria da, beraz, gain-kostu txiki bat kobratzen dut — ez garestia, baina zerbait, denbora denbora delako.
+Entregatu aurretik beti galdetzen dut. Bezeroak berak datuak ikusi nahi baditu, muntatzen diot, panela prest uzten dut eta bost minututan erakusten diot. Hori lan gehigarria da, beraz, gain-kostu txiki bat kobratzen dut (ez garestia, baina zerbait), denbora denbora delako.
 
 Negozio txikiarentzat, zuzenean doakora eta errazera. Zerbait osoagoa eta politagoa behar duen enpresa handiago batez ari bagara, orduan bai, Plausible edo beste ordainpeko aukera bat begiratzen dugu. Baina defektuzko araua: sinplea, bezeroari kosturik gabe, korapilorik gabe.
 
 ## Nire aholkua jada Google Analytics jarrita baduzu
 
-Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean nabaritzen da, azken finean garrantzitsuena dena. Zure bisitei buruz jakin behar baduzu, jarri besteren bat — primeran funtzionatzen dute egiten duzunerako. Baina Google, Google hori, kanpora.`,
+Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean nabaritzen da, azken finean garrantzitsuena dena. Zure bisitei buruz jakin behar baduzu, jarri besteren bat: primeran funtzionatzen dute egiten duzunerako. Baina Google, Google hori, kanpora.`,
     },
     tags: ["Google Analytics", "analítica web", "privacidad", "rendimiento web"],
     keywords: {
@@ -197,11 +197,11 @@ Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean n
         },
         {
           q: "¿Qué alternativa gratis recomiendas para un autónomo o comercio pequeño?",
-          a: "Cloudflare Web Analytics si ya usas Cloudflare como CDN — se activa en un clic, no requiere banner de cookies y da los datos básicos que necesitas. Si no, Umami (gratis auto-alojado) también funciona muy bien. Ambas cumplen RGPD sin complicaciones y no ralentizan la web.",
+          a: "Cloudflare Web Analytics si ya usas Cloudflare como CDN: se activa en un clic, no requiere banner de cookies y da los datos básicos que necesitas. Si no, Umami (gratis auto-alojado) también funciona muy bien. Ambas cumplen RGPD sin complicaciones y no ralentizan la web.",
         },
         {
           q: "¿Plausible de 9€/mes merece la pena?",
-          a: "Para negocios pequeños, no — con lo gratis sobra. Plausible merece la pena si tienes varios sitios, quieres reportes por email, un panel más pulido o simplemente prefieres apoyar herramientas independientes frente a Google. Para una empresa mediana que mira analítica cada semana, es una opción muy decente.",
+          a: "Para negocios pequeños, no, con lo gratis sobra. Plausible merece la pena si tienes varios sitios, quieres reportes por email, un panel más pulido o simplemente prefieres apoyar herramientas independientes frente a Google. Para una empresa mediana que mira analítica cada semana, es una opción muy decente.",
         },
         {
           q: "Si quito Google Analytics, ¿pierdo datos históricos?",
@@ -232,7 +232,7 @@ Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean n
 
 ## Yo compro en Namecheap y me quedo tranquilo
 
-Los .com los saca por lo mínimo que se puede pagar al año, unos 10€. No te meten productos por defecto en el carrito, la renovación no se dispara al segundo año y el panel es sencillo. Obviamente el precio final depende del dominio — los .io, .ai y los de moda cuestan más — pero para un .com o .es de negocio normal, Namecheap sale bien de precio y sin letra pequeña absurda.
+Los .com los saca por lo mínimo que se puede pagar al año, unos 10€. No te meten productos por defecto en el carrito, la renovación no se dispara al segundo año y el panel es sencillo. Obviamente el precio final depende del dominio (los .io, .ai y los de moda cuestan más), pero para un .com o .es de negocio normal, Namecheap sale bien de precio y sin letra pequeña absurda.
 
 No cobran por nada. Ni soy embajador ni me llevan comisión. Simplemente es lo que uso y lo que recomiendo después de comparar bastante.
 
@@ -269,7 +269,7 @@ Compra en un sitio barato y honesto (Namecheap, Porkbun, Cloudflare Registrar ta
 
 ## I buy at Namecheap and sleep well
 
-They sell .com domains at close to the minimum, around €10/year. No products sneaked into your cart, renewal doesn't explode in year two and the dashboard is simple. The final price obviously depends on the domain — .io, .ai and trendy TLDs cost more — but for a regular business .com or .es, Namecheap is fair-priced and without absurd fine print.
+They sell .com domains at close to the minimum, around €10/year. No products sneaked into your cart, renewal doesn't explode in year two and the dashboard is simple. The final price obviously depends on the domain (.io, .ai and trendy TLDs cost more), but for a regular business .com or .es, Namecheap is fair-priced and without absurd fine print.
 
 I don't get a commission. I'm not an ambassador. It's just what I use and recommend after comparing a fair bit.
 
@@ -306,7 +306,7 @@ Buy at a cheap, honest registrar (Namecheap, Porkbun, Cloudflare Registrar works
 
 ## Nik Namecheap-en erosten dut eta lasai
 
-.com domeinuak ordaintzen den gutxienaren inguruan saltzen dituzte, 10€ urteko gutxi gorabehera. Ez dizute ezer ezkutuan sartzen saskian, berritzea ez da bigarren urtean lehertzen eta panela erraza da. Azken prezioa domeinuaren araberakoa da, jakina — .io, .ai eta modako TLDak garestiagoak dira — baina negozio arrunteko .com edo .es baterako, Namecheap prezio egokian dago eta letra txiki absurdurik gabe.
+.com domeinuak ordaintzen den gutxienaren inguruan saltzen dituzte, 10€ urteko gutxi gorabehera. Ez dizute ezer ezkutuan sartzen saskian, berritzea ez da bigarren urtean lehertzen eta panela erraza da. Azken prezioa domeinuaren araberakoa da, jakina (.io, .ai eta modako TLDak garestiagoak dira), baina negozio arrunteko .com edo .es baterako, Namecheap prezio egokian dago eta letra txiki absurdurik gabe.
 
 Ez didate komisiorik ematen. Ez naiz enbaxadorea. Erabiltzen dudana eta konparatu ondoren gomendatzen dudana besterik ez da.
 
@@ -328,7 +328,7 @@ Hiru gauza dira benetan garrantzitsuak:
 
 ## Garrantzitsuena: domeinuak ZURE izenean egon behar du
 
-Hau da domeinuen gaiaren alderdirik arduratzen nauena gehien. Zortea izan dut: beste informatikari batzuen bidetik datozen bezeroek garbi iritsi dira — sarbideak, DNS, ostalaritza, titulartasun garbia. Profesionalak izan diren ordezkapenak.
+Hau da domeinuen gaiaren alderdirik arduratzen nauena gehien. Zortea izan dut: beste informatikari batzuen bidetik datozen bezeroek garbi iritsi dira: sarbideak, DNS, ostalaritza, titulartasun garbia. Profesionalak izan diren ordezkapenak.
 
 Baina aurkakoen istorioak entzun ditut. Agentziek edo "ordenagailuekin dabilen lehengusuak" domeinua beren izenean erosten dute, ez bezeroarenean. Bezeroak hornitzailez aldatu nahi duen egunean, domeinua ez da berea. Benetako drama da.
 
@@ -438,7 +438,7 @@ Una web hecha a medida con código limpio no tiene 40 piezas móviles. Tiene las
 
 Para no ser injusto: si vas a publicar un blog con 3 artículos por semana y necesitas mil autores con permisos, o si montas una tienda muy compleja con variantes infinitas, WordPress o WooCommerce encajan. Tienen su sitio.
 
-Pero para la mayoría — autónomo, pyme, comercio local, profesional con una landing decente y formulario de contacto — es matar moscas a cañonazos. Y al cañonazo se le cae el mantenimiento encima.`,
+Pero para la mayoría (autónomo, pyme, comercio local, profesional con una landing decente y formulario de contacto) es matar moscas a cañonazos. Y al cañonazo se le cae el mantenimiento encima.`,
       en: `Right now I'm building a website for a client who came from a badly done WordPress. Very, very badly done. The moment I took a look, the conversation was won. Not because I was selling smoke, but because what was there didn't hold up.
 
 ![Laptop with code on a workbench](https://images.pexels.com/photos/4792287/pexels-photo-4792287.jpeg?auto=compress&cs=tinysrgb&w=1200)
@@ -455,7 +455,7 @@ Sure it's free. Like a second-hand car delivered in pieces is free. Then you ass
 
 With WordPress you pay somewhere else:
 - **Decent hosting:** the €2/month plans crash constantly
-- **Premium plugins:** forms, SEO, security, caching — €200-400/year easily
+- **Premium plugins:** forms, SEO, security, caching: €200-400/year easily
 - **A decent theme:** €60-80 if you want something not stuck in 2015
 - **Your time:** hours fighting updates that break the site
 - **The day something fails:** paying someone urgently, which costs a lot
@@ -480,7 +480,7 @@ A custom-built site with clean code doesn't have 40 moving parts. It has the one
 
 To be fair: if you're publishing a blog with three articles a week and need a thousand authors with permissions, or running a very complex shop with endless variants, WordPress or WooCommerce fit. They have their place.
 
-But for most cases — freelancer, SME, local shop, professional with a decent landing and a contact form — it's using a cannon to kill a fly. And the cannon comes with maintenance on top.`,
+But for most cases (freelancer, SME, local shop, professional with a decent landing and a contact form) it's using a cannon to kill a fly. And the cannon comes with maintenance on top.`,
       eu: `Orain bertan bezero bati weba garatzen ari natzaio, oso gaizki egindako WordPress batetik zetorrena. Oso-oso gaizki eginda. Webari gainbegiratu bat eman nionean, elkarrizketa irabazita nuen. Ez ketarik saltzen nengoelako, baizik eta bertan zegoenak ez zuelako zutik eusten.
 
 ![Pantaila kodearekin eta ordenagailu eramangarri bat lan-mahaian](https://images.pexels.com/photos/4792287/pexels-photo-4792287.jpeg?auto=compress&cs=tinysrgb&w=1200)
@@ -497,7 +497,7 @@ Doan da, bai. Auto zahar bat piezetan doan jasotzea bezala. Gero muntatu behar d
 
 WordPress-ekin beste nonbaitean ordaintzen duzu:
 - **Ostalaritza duina:** 2€/hilabeteko planak etengabe erortzen dira
-- **Plugin premium-ak:** formularioa, SEOa, segurtasuna, cachea — 200-400€/urteko erraz
+- **Plugin premium-ak:** formularioa, SEOa, segurtasuna, cachea: 200-400€/urteko erraz
 - **Gai duina:** 60-80€ 2015ekoa ez den zerbait nahi baduzu
 - **Zure denbora:** eguneraketak weba hausten dituztenekin borrokan
 - **Zerbait huts egiten duen eguna:** norbaiti premiaz ordaintzea, garestia da
@@ -522,7 +522,7 @@ Kode garbiz egindako web batek ez ditu 40 pieza mugikor. Behar dituzunak ditu, b
 
 Bidezkoa izateko: astean hiru artikuluko bloga argitaratzen baduzu eta mila egile behar badituzu baimenekin, edo denda oso konplexua muntatzen baduzu aldaera infinituekin, WordPress edo WooCommerce egokitzen dira.
 
-Baina kasu gehienetan — autonomoa, ETEa, tokiko denda, lege-sarbidea eta kontaktu-formulario duin bat nahi duen profesionala — eulia kanoiekin hiltzea da. Eta kanoiak mantentze-lana dakar gainera.`,
+Baina kasu gehienetan (autonomoa, ETEa, tokiko denda, lege-sarbidea eta kontaktu-formulario duin bat nahi duen profesionala) eulia kanoiekin hiltzea da. Eta kanoiak mantentze-lana dakar gainera.`,
     },
     tags: ["WordPress", "diseño web", "DIY", "mantenimiento web"],
     keywords: {
@@ -645,7 +645,7 @@ When you hire a freelance web designer, a reasonable price includes:
 
 In my case I offer two routes. The most popular is the All-Inclusive plan: €0 to sign, €149/month with no lock-in (cancel whenever you want) and everything included (design, hosting, domain, Google Maps, reviews and WhatsApp support). And if you'd rather own it, you can also buy it for a one-off €1,500.
 
-Why did I change? Because most local businesses don't want to drop €2,000 in one go on a website but happily pay a fixed monthly fee like they do for the accountant, insurance or phone bill. And because the traditional agency profits from your site getting old so they can sell you a new one — I don't. As long as you pay your fee, I keep your site alive, fast and ranking on Google.
+Why did I change? Because most local businesses don't want to drop €2,000 in one go on a website but happily pay a fixed monthly fee like they do for the accountant, insurance or phone bill. And because the traditional agency profits from your site getting old so they can sell you a new one. I don't. As long as you pay your fee, I keep your site alive, fast and ranking on Google.
 
 I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality. Transparency does.`,
       eu: `2026an, Espainian webgune baten prezioa izugarri aldatzen da proiektu motaren eta nork egiten duen arabera.
@@ -662,7 +662,7 @@ I've seen clients arrive from websites that cost €2,000 from an agency and too
 
 Bi bide eskaintzen ditut. Ohikoena Dena Barne plana da: 0€ sinatzean, 149€/hil iraupenik gabe (nahi duzunean baja eman) eta dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Eta jabetzan nahiago baduzu, 1.500€-ko ordainketa bakarrean ere eros dezakezu.
 
-Zergatik aldatu nuen? Tokiko negozio gehienek ez baitute 2.000€ batera ordaindu nahi web batengatik, baina hileko kuota finkoa erraz ordaintzen dute, kontulariarena, aseguruarena edo telefonoarena bezala. Eta agentzia tradizionalari weba zahartzea komeni zaio berri bat saltzeko — niri ez. Zure kuota ordaintzen duzun bitartean, ni arduratzen naiz zure weba bizirik, azkar eta Googlen gora egotea.`,
+Zergatik aldatu nuen? Tokiko negozio gehienek ez baitute 2.000€ batera ordaindu nahi web batengatik, baina hileko kuota finkoa erraz ordaintzen dute, kontulariarena, aseguruarena edo telefonoarena bezala. Eta agentzia tradizionalari weba zahartzea komeni zaio berri bat saltzeko: niri ez. Zure kuota ordaintzen duzun bitartean, ni arduratzen naiz zure weba bizirik, azkar eta Googlen gora egotea.`,
     },
     tags: ["precios", "diseño web", "España", "freelance"],
     keywords: {
@@ -895,7 +895,7 @@ Los problemas más comunes y sus soluciones:
 
 ## Mi enfoque
 
-Todas las webs que entrego tienen Lighthouse 95+ y Core Web Vitals en verde. No es opcional — es el estándar mínimo.`,
+Todas las webs que entrego tienen Lighthouse 95+ y Core Web Vitals en verde. No es opcional: es el estándar mínimo.`,
       en: `Google has used Core Web Vitals as a ranking factor since 2021. In 2026 they remain one of the most important indicators for ranking well.
 
 ## What are Core Web Vitals?
@@ -971,7 +971,7 @@ Todas las webs que entrego tienen Lighthouse 95+ y Core Web Vitals en verde. No 
 2. **Categoría primaria:** la más específica que describa tu negocio
 3. **Área de servicio:** Irun, Hondarribia, Fuenterrabía, Behobia, Oiartzun
 4. **Publicar 1 post/semana** en el perfil (ofertas, novedades, fotos)
-5. **Pedir reseñas** a clientes contentos — plantilla por WhatsApp el mismo día de la compra
+5. **Pedir reseñas** a clientes contentos: plantilla por WhatsApp el mismo día de la compra
 6. **En la web:** Schema LocalBusiness, página de contacto con dirección y mapa, contenido que mencione barrios concretos
 
 ## Señales extra que marcan diferencia
@@ -1004,7 +1004,7 @@ Con estos ingredientes bien hechos, pasas del puesto 30 al top 3 en 3-6 meses. N
 2. **Primary category:** the most specific one that describes your business
 3. **Service area:** Irun, Hondarribia, Fuenterrabía, Behobia, Oiartzun
 4. **Publish 1 post/week** on the profile (offers, news, photos)
-5. **Ask for reviews** from happy customers — WhatsApp template same day as purchase
+5. **Ask for reviews** from happy customers: WhatsApp template same day as purchase
 6. **On the site:** LocalBusiness Schema, contact page with address and map, content mentioning specific districts
 
 ## Extra signals that make a difference
@@ -1061,7 +1061,7 @@ Osagai hauek ondo eginda, 30. postutik top 3-era igarotzen zara 3-6 hilabetetan.
       eu: "Nola egin hiru hizkuntzatako weba (gaztelania, ingelesa, euskara) URL egokiekin, hreflangekin eta benetan itzulitako edukiarekin.",
     },
     content: {
-      es: `En el País Vasco, muchos negocios necesitan web en castellano, euskera e inglés. La mayoría lo hace mal — plugin de traducción automática, URLs rotas, penalización SEO. Así se hace bien.
+      es: `En el País Vasco, muchos negocios necesitan web en castellano, euskera e inglés. La mayoría lo hace mal: plugin de traducción automática, URLs rotas, penalización SEO. Así se hace bien.
 
 ## Los tres errores típicos
 
@@ -1092,7 +1092,7 @@ Osagai hauek ondo eginda, 30. postutik top 3-era igarotzen zara 3-6 hilabetetan.
 Cada idioma compite por sus keywords. "Diseñador web Irun" (es), "web designer Irun" (en), "web diseinatzailea Irunen" (eu). Son búsquedas distintas con competencia distinta.
 
 Una web trilingüe bien hecha te da 3 veces más superficie de ataque en Google. Una mal hecha te penaliza en las 3.`,
-      en: `In the Basque Country, many businesses need websites in Spanish, Basque and English. Most do it wrong — auto-translation plugin, broken URLs, SEO penalty. Here's how to do it right.
+      en: `In the Basque Country, many businesses need websites in Spanish, Basque and English. Most do it wrong: auto-translation plugin, broken URLs, SEO penalty. Here's how to do it right.
 
 ## The three typical mistakes
 
@@ -1119,7 +1119,7 @@ Una web trilingüe bien hecha te da 3 veces más superficie de ataque en Google.
 - **Euskera batua:** use the standard, not dialects, unless your audience is very local.
 
 A well-done trilingual website gives you 3× more Google attack surface. A badly-done one penalises you in all three.`,
-      eu: `Euskal Herrian, negozio askok web gaztelaniaz, euskaraz eta ingelesez behar dute. Gehienek gaizki egiten dute — itzulpen automatikoko plugina, URL hautsiak, SEO zigorra. Honela egiten da ondo.
+      eu: `Euskal Herrian, negozio askok web gaztelaniaz, euskaraz eta ingelesez behar dute. Gehienek gaizki egiten dute: itzulpen automatikoko plugina, URL hautsiak, SEO zigorra. Honela egiten da ondo.
 
 ## Hiru akats tipikoak
 
@@ -1295,17 +1295,17 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
 
 **WordPress** es un CMS que nació en 2003 para gestionar blogs. Hoy tiene el 43% de internet. El problema es que ese número incluye webs abandonadas, hackeadas, lentas y mantenidas con plantillas de hace cinco años. No es una medalla.
 
-**Next.js** es un framework de React creado en 2016 por Vercel. Nació para aplicaciones web modernas: rápidas, seguras, con SSR (server-side rendering) y generación estática. No tiene panel de administración por defecto — es código, no clicks.
+**Next.js** es un framework de React creado en 2016 por Vercel. Nació para aplicaciones web modernas: rápidas, seguras, con SSR (server-side rendering) y generación estática. No tiene panel de administración por defecto: es código, no clicks.
 
 ## Rendimiento: diferencia real
 
 Una web en Next.js bien hecha carga en menos de 1 segundo. En WordPress, depende de cuántos plugins tienes, qué hosting usas, si tienes caché bien configurada, si el theme está optimizado... Con WordPress, Lighthouse 95+ es un proyecto; con Next.js, es el punto de partida.
 
-Los Core Web Vitals (LCP, CLS, INP) que Google usa para posicionar tienen una correlación directa con la tecnología. No es que WordPress no pueda llegar a verde — puede, con trabajo. Pero Next.js llega ahí por diseño.
+Los Core Web Vitals (LCP, CLS, INP) que Google usa para posicionar tienen una correlación directa con la tecnología. No es que WordPress no pueda llegar a verde: puede, con trabajo. Pero Next.js llega ahí por diseño.
 
 ## SEO: el mito de "WordPress es mejor para SEO"
 
-Esto es falso y se repite mucho. WordPress tiene Yoast o RankMath, que son herramientas SEO muy completas. Pero el SEO técnico de base — URLs limpias, sitemap, hreflang, metadatos correctos — se hace igual de bien en Next.js. Y las métricas de velocidad que afectan al posicionamiento, mejor.
+Esto es falso y se repite mucho. WordPress tiene Yoast o RankMath, que son herramientas SEO muy completas. Pero el SEO técnico de base (URLs limpias, sitemap, hreflang, metadatos correctos) se hace igual de bien en Next.js. Y las métricas de velocidad que afectan al posicionamiento, mejor.
 
 Lo que WordPress tiene a su favor en SEO: es más fácil para alguien sin conocimientos técnicos subir contenido, actualizar el blog y gestionar textos. Si tu estrategia de contenido la lleva alguien del equipo sin perfil técnico, WordPress facilita ese flujo.
 
@@ -1314,7 +1314,7 @@ Lo que WordPress tiene a su favor en SEO: es más fácil para alguien sin conoci
 **WordPress:**
 - Hosting decente: 10–30€/mes (el barato de 2€ te da problemas)
 - Theme premium: 60–80€ (único, pero hay que renovar)
-- Plugins esenciales: formulario, SEO, seguridad, caché — fácil 150–300€/año
+- Plugins esenciales: formulario, SEO, seguridad, caché, fácil 150–300€/año
 - Actualizaciones que rompen cosas: cada 3–6 meses aparece alguna
 - Desarrollador de urgencia cuando algo falla: 50–150€/hora
 
@@ -1328,19 +1328,19 @@ A largo plazo, Next.js sale más barato si sumas todo. A corto plazo, WordPress 
 
 ## Cuándo tiene sentido WordPress
 
-Tiene sentido si necesitas un CMS potente para gestionar contenido sin depender de un desarrollador. Una revista online, un e-commerce con WooCommerce, un directorio de empresas — ahí WordPress brilla. También si ya lo conoces bien, tienes un desarrollador de confianza y no quieres cambiar de herramienta.
+Tiene sentido si necesitas un CMS potente para gestionar contenido sin depender de un desarrollador. Una revista online, un e-commerce con WooCommerce, un directorio de empresas: ahí WordPress brilla. También si ya lo conoces bien, tienes un desarrollador de confianza y no quieres cambiar de herramienta.
 
 No tiene sentido para una web corporativa o de servicios donde el contenido cambia poco. Ahí pagas el precio del CMS sin aprovechar sus ventajas.
 
 ## Cuándo tiene sentido Next.js
 
-Para la mayoría de webs de negocio local, clínicas, profesionales, empresas de servicios. Proyectos donde la velocidad, el SEO técnico, el multi-idioma y la seguridad importan. Si la web va a estar bastante estática — home, servicios, precios, contacto — Next.js es la opción que envejece mejor.
+Para la mayoría de webs de negocio local, clínicas, profesionales, empresas de servicios. Proyectos donde la velocidad, el SEO técnico, el multi-idioma y la seguridad importan. Si la web va a estar bastante estática (home, servicios, precios, contacto) Next.js es la opción que envejece mejor.
 
 También para proyectos con multi-idioma serio. Con next-intl o next-i18next, el hreflang, las URLs por idioma y los metadatos por locale se configuran de forma limpia desde el principio. Con WordPress necesitas plugins que a veces se pelean entre sí.
 
 ## Mi postura honesta
 
-Yo uso Next.js para todos mis clientes. No porque sea una moda, sino porque lo que me piden — velocidad, posicionamiento, multi-idioma, diseño a medida — lo resuelve mejor. Las webs que entrego tienen Lighthouse 95+ de salida, sin pelear con plugins ni con el tema que se actualiza solo un martes.
+Yo uso Next.js para todos mis clientes. No porque sea una moda, sino porque lo que me piden (velocidad, posicionamiento, multi-idioma, diseño a medida) lo resuelve mejor. Las webs que entrego tienen Lighthouse 95+ de salida, sin pelear con plugins ni con el tema que se actualiza solo un martes.
 
 Si alguien me pide un e-commerce con 500 productos y un equipo de marketing que sube contenido cada día, lo hablo. Quizá WordPress o Shopify tiene más sentido ahí. Pero para la web de un médico, un taller, una consultora o una clínica, Next.js gana sin discusión.`,
       en: `Ask any agency what to use for your website and 80% will say WordPress without thinking. Ask a modern developer and they'll say Next.js. Neither will explain the why honestly. I will.
@@ -1349,17 +1349,17 @@ Si alguien me pide un e-commerce con 500 productos y un equipo de marketing que 
 
 **WordPress** is a CMS born in 2003 to manage blogs. Today it powers 43% of the internet. The problem is that number includes abandoned, hacked, slow sites maintained with five-year-old templates. Not a medal.
 
-**Next.js** is a React framework created in 2016 by Vercel. Born for modern web apps: fast, secure, with SSR and static generation. No admin panel by default — it's code, not clicks.
+**Next.js** is a React framework created in 2016 by Vercel. Born for modern web apps: fast, secure, with SSR and static generation. No admin panel by default: it's code, not clicks.
 
 ## Performance: the real difference
 
 A well-built Next.js site loads in under 1 second. WordPress depends on how many plugins you have, what hosting, whether cache is set up right, whether the theme is optimised... With WordPress, Lighthouse 95+ is a project; with Next.js, it's the starting point.
 
-The Core Web Vitals Google uses for ranking have a direct correlation with technology. It's not that WordPress can't reach green — it can, with work. But Next.js gets there by design.
+The Core Web Vitals Google uses for ranking have a direct correlation with technology. It's not that WordPress can't reach green: it can, with work. But Next.js gets there by design.
 
 ## SEO: the myth that "WordPress is better for SEO"
 
-This is false and repeated constantly. WordPress has Yoast or RankMath, which are solid SEO tools. But the underlying technical SEO — clean URLs, sitemap, hreflang, correct metadata — works just as well in Next.js. And the speed metrics that affect ranking, better.
+This is false and repeated constantly. WordPress has Yoast or RankMath, which are solid SEO tools. But the underlying technical SEO (clean URLs, sitemap, hreflang, correct metadata) works just as well in Next.js. And the speed metrics that affect ranking, better.
 
 Where WordPress has an advantage in SEO: it's easier for someone without technical knowledge to upload content, update the blog and manage text. If your content strategy is run by a non-technical team member, WordPress makes that flow easier.
 
@@ -1368,7 +1368,7 @@ Where WordPress has an advantage in SEO: it's easier for someone without technic
 **WordPress:**
 - Decent hosting: €10–30/month (the cheap €2 option causes problems)
 - Premium theme: €60–80 (one-off, but needs renewal)
-- Essential plugins: contact form, SEO, security, cache — easily €150–300/year
+- Essential plugins: contact form, SEO, security, cache, easily €150–300/year
 - Updates that break things: every 3–6 months something breaks
 - Emergency developer when something fails: €50–150/hour
 
@@ -1382,19 +1382,19 @@ Long-term, Next.js works out cheaper when you add everything up. Short-term, Wor
 
 ## When WordPress makes sense
 
-It makes sense when you need a powerful CMS to manage content without depending on a developer. An online magazine, a WooCommerce e-commerce, a business directory — WordPress shines there. Also if you know it well, have a trusted developer and don't want to switch tools.
+It makes sense when you need a powerful CMS to manage content without depending on a developer. An online magazine, a WooCommerce e-commerce, a business directory: WordPress shines there. Also if you know it well, have a trusted developer and don't want to switch tools.
 
 It doesn't make sense for a corporate or service website where content rarely changes. There you pay the CMS price without using its advantages.
 
 ## When Next.js makes sense
 
-For most local business websites, clinics, professionals, service companies. Projects where speed, technical SEO, multi-language and security matter. If the site will be fairly static — home, services, pricing, contact — Next.js ages better.
+For most local business websites, clinics, professionals, service companies. Projects where speed, technical SEO, multi-language and security matter. If the site will be fairly static (home, services, pricing, contact) Next.js ages better.
 
 Also for projects with serious multi-language needs. With next-intl, hreflang, per-language URLs and per-locale metadata are set up cleanly from the start. With WordPress you need plugins that sometimes fight each other.
 
 ## My honest take
 
-I use Next.js for all my clients. Not because it's fashionable, but because what they ask for — speed, ranking, multi-language, custom design — it resolves better. The sites I deliver have Lighthouse 95+ out of the box, without fighting plugins or a theme that auto-updates itself on a Tuesday.
+I use Next.js for all my clients. Not because it's fashionable, but because what they ask for (speed, ranking, multi-language, custom design) it resolves better. The sites I deliver have Lighthouse 95+ out of the box, without fighting plugins or a theme that auto-updates itself on a Tuesday.
 
 If someone asks me for an e-commerce with 500 products and a marketing team uploading content daily, I'll discuss it. Maybe WordPress or Shopify makes more sense there. But for a doctor's site, a workshop, a consultancy or a clinic, Next.js wins without argument.`,
       eu: `Edozein agentziari galdetu zer erabili zure webgunean eta %80k WordPress esango dizu pentsatu gabe. Garatzaile moderno bati galdetu eta Next.js esango dizu. Inork ez dizu azalpena emango zintzotasunez. Nik bai.
@@ -1403,7 +1403,7 @@ If someone asks me for an e-commerce with 500 products and a marketing team uplo
 
 **WordPress** 2003an blog-ak kudeatzeko jaio zen CMS bat da. Gaur egun interneten %43 hartzen du. Arazoa da zenbaki hori utzia, hackeatu, motel eta bost urteko txantiloiekin mantendutako webguneak barne hartzen dituela. Ez da domina bat.
 
-**Next.js** Vercel-ek 2016an sortutako React framework bat da. Web aplikazio modernoentzat jaioa: azkarrak, seguruak, SSR eta sorkuntza estatikoarekin. Ez du administrazio-panelik defektuz — kodea da, ez klikak.
+**Next.js** Vercel-ek 2016an sortutako React framework bat da. Web aplikazio modernoentzat jaioa: azkarrak, seguruak, SSR eta sorkuntza estatikoarekin. Ez du administrazio-panelik defektuz: kodea da, ez klikak.
 
 ## Errendimendua: benetako aldea
 
@@ -1413,11 +1413,11 @@ Googlek rankeatzerakoan erabiltzen dituen Core Web Vitals-ek (LCP, CLS, INP) zuz
 
 ## SEO: "WordPress SEOrako hobea da" mitoa
 
-Hau faltsua da eta asko errepikatu egiten da. WordPressen Yoast edo RankMath daude, SEO tresna oso osoak. Baina oinarrizko SEO teknikoa — URL garbiak, sitemap, hreflang, metadatu zuzenak — Next.js-en berdin egiten da. Eta rankeatzeari eragiten dioten abiadura metrikak, hobeto.
+Hau faltsua da eta asko errepikatu egiten da. WordPressen Yoast edo RankMath daude, SEO tresna oso osoak. Baina oinarrizko SEO teknikoa (URL garbiak, sitemap, hreflang, metadatu zuzenak) Next.js-en berdin egiten da. Eta rankeatzeari eragiten dioten abiadura metrikak, hobeto.
 
 ## Noiz du zentzua WordPressek
 
-Zentzua du garatzaile batean oinarritu gabe edukia kudeatzeko CMS indartsua behar duzunean. Online aldizkari bat, WooCommerce e-commerce bat, enpresa-direktorio bat — WordPress hor distira egiten du.
+Zentzua du garatzaile batean oinarritu gabe edukia kudeatzeko CMS indartsua behar duzunean. Online aldizkari bat, WooCommerce e-commerce bat, enpresa-direktorio bat: WordPress hor distira egiten du.
 
 Ez du zentzua edukia gutxitan aldatzen den web korporatiborako edo zerbitzu-webgunearentzat.
 
@@ -1427,7 +1427,7 @@ Tokiko negozio-webgune gehienentzat, klinikak, profesionalak, zerbitzu-enpresak.
 
 ## Nire iritzi zintzoa
 
-Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskatzen didatena — abiadura, posizionamendua, hizkuntza anitza, neurrizko diseinua — hobeto ebazten duelako. Entregatzen ditudan webguneak Lighthouse 95+ dituzte hasieratik, pluginekin edo asteartean bere kabuz eguneratzen den theme batekin borrokatu gabe.`,
+Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskatzen didatena (abiadura, posizionamendua, hizkuntza anitza, neurrizko diseinua) hobeto ebazten duelako. Entregatzen ditudan webguneak Lighthouse 95+ dituzte hasieratik, pluginekin edo asteartean bere kabuz eguneratzen den theme batekin borrokatu gabe.`,
     },
     tags: ["WordPress", "Next.js", "tecnología web", "rendimiento web", "SEO"],
     keywords: {
@@ -1458,11 +1458,11 @@ Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskat
         },
         {
           q: "¿Se puede hacer SEO igual de bien en Next.js que en WordPress?",
-          a: "Sí. El SEO técnico — hreflang, sitemaps, metadatos por página, URLs limpias — se implementa perfectamente en Next.js. La diferencia es que en WordPress necesitas plugins para eso; en Next.js va integrado. Y la velocidad, que Google usa como factor de ranking, es superior en Next.js.",
+          a: "Sí. El SEO técnico (hreflang, sitemaps, metadatos por página, URLs limpias) se implementa perfectamente en Next.js. La diferencia es que en WordPress necesitas plugins para eso; en Next.js va integrado. Y la velocidad, que Google usa como factor de ranking, es superior en Next.js.",
         },
         {
           q: "¿Puedo gestionar el contenido yo mismo con Next.js?",
-          a: "En el modelo que uso yo, los textos e imágenes se cambian pidiéndome a mí — no hay panel de administración. Para muchos negocios eso es suficiente: el contenido cambia poco y prefieren no lidiar con sistemas que no conocen. Si necesitas gestión autónoma de contenido, existen soluciones (Sanity, Contentful, Notion como CMS) pero añaden complejidad y coste.",
+          a: "En el modelo que uso yo, los textos e imágenes se cambian pidiéndome a mí: no hay panel de administración. Para muchos negocios eso es suficiente: el contenido cambia poco y prefieren no lidiar con sistemas que no conocen. Si necesitas gestión autónoma de contenido, existen soluciones (Sanity, Contentful, Notion como CMS) pero añaden complejidad y coste.",
         },
         {
           q: "¿Por qué no usas WordPress si tiene más cuota de mercado?",
@@ -1476,7 +1476,7 @@ Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskat
         },
         {
           q: "Can SEO be done just as well in Next.js as in WordPress?",
-          a: "Yes. Technical SEO — hreflang, sitemaps, per-page metadata, clean URLs — is implemented perfectly in Next.js. The difference is that in WordPress you need plugins for that; in Next.js it's built in. And the speed Google uses as a ranking factor is better in Next.js.",
+          a: "Yes. Technical SEO (hreflang, sitemaps, per-page metadata, clean URLs) is implemented perfectly in Next.js. The difference is that in WordPress you need plugins for that; in Next.js it's built in. And the speed Google uses as a ranking factor is better in Next.js.",
         },
         {
           q: "Why don't you use WordPress if it has more market share?",
@@ -1500,7 +1500,7 @@ Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskat
       eu: "Hortz-klinikaren, fisioterapiaren edo estetikaren webguneak zer behar duen konfiantza sortzeko, Googlen agertzeko eta bisitaldiak hitzorduetan bihurtzeko.",
     },
     content: {
-      es: `La web de una clínica no es como la de una tienda. Aquí no vendes un producto — convences a alguien de que le vas a poner las manos encima, a veces literalmente. La confianza lo es todo. Y la mayoría de webs de clínicas fallan exactamente en eso.
+      es: `La web de una clínica no es como la de una tienda. Aquí no vendes un producto: convences a alguien de que le vas a poner las manos encima, a veces literalmente. La confianza lo es todo. Y la mayoría de webs de clínicas fallan exactamente en eso.
 
 ![Recepción de clínica limpia y bien iluminada](https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1200)
 
@@ -1529,15 +1529,15 @@ Lo que genera confianza en una web de clínica:
 
 **Antes y después (si aplica).** En estética dental o cirugía estética, los casos antes/después son el argumento más potente. Con consentimiento, claro.
 
-**Política de privacidad real.** No el texto genérico del plugin. Una que explique cómo se manejan los datos de salud — porque son datos sensibles bajo el RGPD y la ley española tiene requisitos específicos para centros sanitarios.
+**Política de privacidad real.** No el texto genérico del plugin. Una que explique cómo se manejan los datos de salud, porque son datos sensibles bajo el RGPD y la ley española tiene requisitos específicos para centros sanitarios.
 
 ## SEO para clínicas: lo que funciona en 2026
 
 Una clínica local compite en búsquedas como "dentista en Irun", "fisioterapeuta Hondarribia" o "clínica estética Donostia". Para ganar esas búsquedas:
 
-**Google Business Profile optimizado.** Categoría correcta (no "clínica" genérico — "Clínica dental", "Centro de fisioterapia"). Fotos reales del local. Respuesta a todas las reseñas. Publicaciones semanales con ofertas o noticias.
+**Google Business Profile optimizado.** Categoría correcta (no "clínica" genérico, sino "Clínica dental", "Centro de fisioterapia"). Fotos reales del local. Respuesta a todas las reseñas. Publicaciones semanales con ofertas o noticias.
 
-**Schema LocalBusiness y MedicalOrganization.** Los datos estructurados le dicen a Google qué tipo de centro eres, tu especialidad, tu zona de servicio. Muchas webs de clínicas no lo tienen — es una ventaja directa para quien lo implementa.
+**Schema LocalBusiness y MedicalOrganization.** Los datos estructurados le dicen a Google qué tipo de centro eres, tu especialidad, tu zona de servicio. Muchas webs de clínicas no lo tienen: es una ventaja directa para quien lo implementa.
 
 **Páginas por servicio.** Una página por tratamiento con contenido real: en qué consiste, cuánto dura, qué resultados esperar, preguntas frecuentes, precio orientativo. No una lista. Una página.
 
@@ -1556,7 +1556,7 @@ Cuando hago la web de una clínica, pienso en el paciente que llega con una duda
 Lo habitual que configuro: página de inicio con foto real del equipo arriba del pliegue, sección de servicios con página individual por tratamiento, precios orientativos, sección de equipo con datos de cada profesional, reseñas de Google integradas, formulario de cita + link de WhatsApp, Schema MedicalOrganization y LocalBusiness, política de privacidad adaptada a datos de salud.
 
 El resultado: una clínica que aparece en Google para sus búsquedas locales y que convierte esas visitas en citas reales.`,
-      en: `A clinic's website isn't like a shop's. You're not selling a product — you're convincing someone to let you put your hands on them, sometimes literally. Trust is everything. And most clinic websites fail at exactly that.
+      en: `A clinic's website isn't like a shop's. You're not selling a product: you're convincing someone to let you put your hands on them, sometimes literally. Trust is everything. And most clinic websites fail at exactly that.
 
 ![Clean, well-lit clinic reception](https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1200)
 
@@ -1585,15 +1585,15 @@ What builds trust on a clinic website:
 
 **Before and after (if applicable).** In dental or cosmetic aesthetics, before/after cases are the most powerful argument. With consent, of course.
 
-**Real privacy policy.** Not the generic plugin text. One that explains how health data is handled — because it's sensitive data under GDPR and Spanish law has specific requirements for healthcare centres.
+**Real privacy policy.** Not the generic plugin text. One that explains how health data is handled, because it's sensitive data under GDPR and Spanish law has specific requirements for healthcare centres.
 
 ## SEO for clinics: what works in 2026
 
 A local clinic competes on searches like "dentist in Irun", "physio Hondarribia" or "aesthetic clinic Donostia". To win those searches:
 
-**Optimised Google Business Profile.** Correct category (not generic "clinic" — "Dental clinic", "Physiotherapy centre"). Real photos of the premises. Response to all reviews. Weekly posts with offers or news.
+**Optimised Google Business Profile.** Correct category (not generic "clinic", but "Dental clinic", "Physiotherapy centre"). Real photos of the premises. Response to all reviews. Weekly posts with offers or news.
 
-**LocalBusiness and MedicalOrganization schema.** Structured data tells Google what type of centre you are, your specialty, your service area. Many clinic websites don't have this — it's a direct advantage for whoever implements it.
+**LocalBusiness and MedicalOrganization schema.** Structured data tells Google what type of centre you are, your specialty, your service area. Many clinic websites don't have this: it's a direct advantage for whoever implements it.
 
 **A page per service.** One page per treatment with real content: what it involves, how long it takes, what results to expect, FAQs, indicative price. Not a list. A page.
 
@@ -1612,7 +1612,7 @@ When I build a clinic's website, I think about the patient who arrives with a do
 The usual setup: home page with real team photo above the fold, services section with individual pages per treatment, indicative prices, team section with each professional's details, integrated Google reviews, booking form + WhatsApp link, MedicalOrganization and LocalBusiness schema, privacy policy adapted to health data.
 
 The result: a clinic that appears on Google for its local searches and converts those visits into real appointments.`,
-      eu: `Klinikaren webgunea ez da denda baten modukoa. Ez duzu produkturik saltzen — norbaiti eskuak gainean jartzea konbentzitzen duzu, batzuetan literalki. Konfiantza dena da. Eta kliniken web gehienek horretan huts egiten dute.
+      eu: `Klinikaren webgunea ez da denda baten modukoa. Ez duzu produkturik saltzen: norbaiti eskuak gainean jartzea konbentzitzen duzu, batzuetan literalki. Konfiantza dena da. Eta kliniken web gehienek horretan huts egiten dute.
 
 ![Harrera garbi eta ondo argiztatua](https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1200)
 
@@ -1688,7 +1688,7 @@ Emaitza: bere tokiko bilaketetan Googlen agertzen den eta bisita horiek benetako
         },
         {
           q: "¿Puedo poner precios en la web de mi clínica?",
-          a: "Sí, y es muy recomendable. Los precios — aunque sean orientativos — eliminan una barrera de entrada importante: el miedo a pedir presupuesto. Una clínica que pone sus precios visibles transmite transparencia. Si hay mucha variabilidad (cada caso es diferente), pon rangos o precios de consulta inicial.",
+          a: "Sí, y es muy recomendable. Los precios (aunque sean orientativos) eliminan una barrera de entrada importante: el miedo a pedir presupuesto. Una clínica que pone sus precios visibles transmite transparencia. Si hay mucha variabilidad (cada caso es diferente), pon rangos o precios de consulta inicial.",
         },
         {
           q: "¿Qué diferencia un formulario de cita que convierte del que no convierte?",
@@ -1696,7 +1696,7 @@ Emaitza: bere tokiko bilaketetan Googlen agertzen den eta bisita horiek benetako
         },
         {
           q: "¿Cuánto tiempo tarda Google en posicionar una clínica nueva?",
-          a: "Con Google Business Profile optimizado, reseñas constantes y Schema correcto, una clínica nueva puede aparecer en los primeros resultados locales en 2-4 meses. El SEO orgánico (posición en resultados de búsqueda sin Maps) tarda más — 4-8 meses para términos competitivos en ciudades como Donostia o Bilbao.",
+          a: "Con Google Business Profile optimizado, reseñas constantes y Schema correcto, una clínica nueva puede aparecer en los primeros resultados locales en 2-4 meses. El SEO orgánico (posición en resultados de búsqueda sin Maps) tarda más: 4-8 meses para términos competitivos en ciudades como Donostia o Bilbao.",
         },
       ],
       en: [
@@ -1706,7 +1706,7 @@ Emaitza: bere tokiko bilaketetan Googlen agertzen den eta bisita horiek benetako
         },
         {
           q: "Can I put prices on my clinic's website?",
-          a: "Yes, and it's highly recommended. Prices — even indicative ones — remove an important barrier: the fear of asking for a quote. A clinic that shows its prices visibly communicates transparency.",
+          a: "Yes, and it's highly recommended. Prices (even indicative ones) remove an important barrier: the fear of asking for a quote. A clinic that shows its prices visibly communicates transparency.",
         },
         {
           q: "What differentiates a booking form that converts from one that doesn't?",

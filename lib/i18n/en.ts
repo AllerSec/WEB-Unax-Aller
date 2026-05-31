@@ -11,9 +11,9 @@
   hero: {
     title: "More calls for your local business. For €149/month.",
     subtitle:
-      "Your professional website, your Google Maps profile optimized and a system to collect reviews — all included. €0 to sign. 30-day money-back guarantee.",
+      "Your professional website, your Google Maps profile optimized and a system to collect reviews, all included. €0 to sign. 30-day money-back guarantee.",
     subtitlePre:
-      "Your professional website, your Google Maps profile and a reviews system — all included for",
+      "Your professional website, your Google Maps profile and a reviews system, all included for",
     subtitlePost: ". €0 to sign.",
     cta: "Request a free audit",
     cta2: "See how it works",
@@ -74,20 +74,20 @@
     items: [
       {
         quote:
-          "Impeccable attention and advice. A great professional — very serious work. Thank you!",
+          "Impeccable attention and advice. A great professional, very serious work. Thank you!",
         author: "Motos Arretxe SL",
         role: "Google review",
       },
       {
         quote:
-          "As a pharmacist I really value details and patience. The site turned out clear, intuitive, professional and very easy to use — exactly what I needed to convey trust. The treatment was close and efficient at every step. Highly recommended.",
+          "As a pharmacist I really value details and patience. The site turned out clear, intuitive, professional and very easy to use: exactly what I needed to convey trust. The treatment was close and efficient at every step. Highly recommended.",
         author: "Aranzazu Fernández Díez",
         role: "Pharmacist · Google review",
       },
     ],
   },
   pricing: {
-    title: "All-Inclusive — €149/mo, €0 to sign",
+    title: "All-Inclusive: €149/mo, €0 to sign",
     subtitle:
       "Flat fee, everything included. No upfront cost. 30-day money-back guarantee. No lock-in.",
     from: "Flat fee",
@@ -96,7 +96,7 @@
     cta: "Start with €0 upfront",
     ctaContact: "Request audit",
     notePrice:
-      "No lock-in: just a 3-month minimum activation, then cancel whenever you want. Your fee stays locked — any future raises only apply to new clients.",
+      "No lock-in: just a 3-month minimum activation, then cancel whenever you want. Your fee stays locked: any future raises only apply to new clients.",
     plans: [
       {
         name: "All-Inclusive",
@@ -107,7 +107,7 @@
         features: [
           "Professional custom design built around your business",
           "Up to 5 sections (home, services, about, contact, reviews)",
-          "Mobile-optimized — most customers search from a phone",
+          "Mobile-optimized: most customers search from a phone",
           "Shows on Google Maps with your profile properly set up",
           "System to bring in more 5-star reviews",
           "Direct WhatsApp support and monthly changes included",
@@ -124,7 +124,7 @@
       name: "Unax Aller Fernández",
       location: "Irun, Gipuzkoa · Basque Country",
       role: "Freelance Web Designer & Developer",
-      education: "BSc Computer Engineering — Universidad Alfonso X el Sabio",
+      education: "BSc Computer Engineering, Universidad Alfonso X el Sabio",
       linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
       languages: "Spanish (native) · French (bilingual) · English (professional) · Basque (basic)",
       bio: "Computer Engineering student and freelance. I build websites for businesses and clinics in the Basque Country with real professionalism and real drive, no need to be an agency. I studied in France until I was 15, did Erasmus, and worked in the US this summer. Stepping out of my comfort zone took most of the fear away and gave me a lot of energy to keep learning.",
@@ -187,7 +187,7 @@
     eyebrow: "Work",
     title: "Hand-built websites for real clients.",
     subtitle:
-      "Every site is coded from scratch with the user in mind. Here are some recent cases — feel free to visit them.",
+      "Every site is coded from scratch with the user in mind. Here are some recent cases. Feel free to visit them.",
     sectorLabel: "Sector",
     cityLabel: "Location",
     yearLabel: "Year",
@@ -269,22 +269,22 @@
   faqServicios: {
     title: "Frequently asked questions",
     items: [
-      { q: "How fast is the website ready?", a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start immediately — you don't have to save up." },
+      { q: "How fast is the website ready?", a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start immediately, you don't have to save up." },
       { q: "What do I need to provide to get started?", a: "Just tell me about your business, the customers you want to attract, and share your logo and photos if you have them. If you don't have professional photos, I'll guide you." },
       { q: "Does it include maintenance?", a: "Yes. €149/month already covers hosting, domain, SSL, WhatsApp support and monthly minor changes (text, photos, prices, hours, adding a service…). No extra invoices." },
-      { q: "Can I request changes whenever I want?", a: "Yes. During development, revision rounds are included. After launch, minor changes are part of the monthly fee — you send them via WhatsApp and I do them." },
-      { q: "Do you only work with Gipuzkoa businesses?", a: "No. I work with professional businesses across the Basque Country and Navarra — Bilbao, Donostia, Vitoria, Pamplona, plus smaller towns and industrial estates. La Rioja and Cantabria too. Digital closeness matters more than geographic: we work over WhatsApp and video, with in-person visits when the project warrants it." },
-      { q: "What if I want to leave the service?", a: "No lock-in: I only ask for a 3-month minimum activation (domain setup, local SEO and the Google profile). From the fourth month you cancel whenever you want — just let me know. The domain is in your name and you take it with you if you leave." },
+      { q: "Can I request changes whenever I want?", a: "Yes. During development, revision rounds are included. After launch, minor changes are part of the monthly fee: you send them via WhatsApp and I do them." },
+      { q: "Do you only work with Gipuzkoa businesses?", a: "No. I work with professional businesses across the Basque Country and Navarra: Bilbao, Donostia, Vitoria, Pamplona, plus smaller towns and industrial estates. La Rioja and Cantabria too. Digital closeness matters more than geographic: we work over WhatsApp and video, with in-person visits when the project warrants it." },
+      { q: "What if I want to leave the service?", a: "No lock-in: I only ask for a 3-month minimum activation (domain setup, local SEO and the Google profile). From the fourth month you cancel whenever you want, just let me know. The domain is in your name and you take it with you if you leave." },
     ],
   },
   faqPrecios: {
     title: "All-Inclusive plan questions",
     items: [
-      { q: "Why €149/month instead of a one-off payment?", a: "Most local businesses don't want to drop €2,000 or €3,000 in one go on a website. A flat monthly fee sits in the books like any operating cost — and the site starts working for you from day one." },
+      { q: "Why €149/month instead of a one-off payment?", a: "Most local businesses don't want to drop €2,000 or €3,000 in one go on a website. A flat monthly fee sits in the books like any operating cost, and the site starts working for you from day one." },
       { q: "Are there hidden costs?", a: "No. €149/month already covers design, development, domain, hosting, SSL, Google Maps, reviews system, WhatsApp support and monthly minor changes. No extra invoices." },
       { q: "What if I'm not convinced by the result?", a: "You have 30 days from launch to ask for a full refund, no explanation required. If you don't like it, you stop paying." },
       { q: "Do I have to commit to any minimum period?", a: "No annual lock-in. The only commitment is a 3-month minimum activation, covering domain setup, local SEO and the Google profile. From the fourth month you cancel whenever you want. Your fee stays locked; future increases only apply to new clients." },
-      { q: "Can I get a free audit first?", a: "Yes. Before signing I show you which competitors of yours rank first on Google Maps in your area and why — with data, not buzzwords. If the numbers work, we sign." },
+      { q: "Can I get a free audit first?", a: "Yes. Before signing I show you which competitors of yours rank first on Google Maps in your area and why, with data, not buzzwords. If the numbers work, we sign." },
     ],
   },
 };

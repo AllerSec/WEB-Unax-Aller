@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return {};
 
   const titles: Record<LocaleKey, string> = {
-    es: `${project.name} — Proyecto de Diseño Web | Unax Aller`,
-    en: `${project.name} — Web Design Case Study | Unax Aller`,
-    eu: `${project.name} — Web Diseinu Proiektua | Unax Aller`,
+    es: `${project.name}: Proyecto de Diseño Web | Unax Aller`,
+    en: `${project.name}: Web Design Case Study | Unax Aller`,
+    eu: `${project.name}: Web Diseinu Proiektua | Unax Aller`,
   };
 
   return {

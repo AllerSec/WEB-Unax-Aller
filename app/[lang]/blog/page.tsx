@@ -50,7 +50,7 @@ export default async function BlogPage({ params }: Props) {
     "@graph": [
       {
         "@type": "Blog",
-        name: locale === "es" ? "Blog — Unax Aller" : locale === "en" ? "Blog — Unax Aller" : "Bloga — Unax Aller",
+        name: locale === "es" ? "Blog · Unax Aller" : locale === "en" ? "Blog · Unax Aller" : "Bloga · Unax Aller",
         url: `https://unaxaller.com/${locale}/blog`,
         author: { "@id": "https://unaxaller.com/#person" },
         publisher: { "@id": "https://unaxaller.com/#business" },

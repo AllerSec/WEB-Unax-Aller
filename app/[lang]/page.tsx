@@ -109,7 +109,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://unaxaller.com/#business",
-        name: "Unax Aller — Webs para negocios locales",
+        name: "Unax Aller · Webs para negocios locales",
         legalName: "Unax Aller Fernández",
         url: "https://unaxaller.com",
         logo: {
@@ -165,7 +165,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
           "@type": "OfferCatalog",
           name: "Web para negocio local todo incluido",
           itemListElement: [
-            { "@type": "Offer", priceCurrency: "EUR", price: "149", itemOffered: { "@type": "Service", name: "Plan Todo Incluido — cuota mensual todo incluido" } },
+            { "@type": "Offer", priceCurrency: "EUR", price: "149", itemOffered: { "@type": "Service", name: "Plan Todo Incluido, cuota mensual todo incluido" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Optimización de Google Business Profile" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema de captación de reseñas" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO local para Gipuzkoa" } },

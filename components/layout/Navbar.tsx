@@ -174,7 +174,7 @@ export default function Navbar({ locale }: Props) {
     <header ref={navRef} className="nav-root" data-scrolled="false">
       <div className="container-xl">
         <div className="nav-bar">
-          <Link href={`/${locale}`} className="nav-logo focusable" aria-label="Unax Aller — Inicio">
+          <Link href={`/${locale}`} className="nav-logo focusable" aria-label="Unax Aller: Inicio">
             <Image
               src="/images/brand/logo-mark.webp"
               alt="Unax Aller"

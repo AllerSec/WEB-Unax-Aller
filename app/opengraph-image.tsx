@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs"
 import { join } from "node:path"
 
 export const runtime = "nodejs"
-export const alt = 'Unax Aller — Más llamadas para tu negocio local · 149€/mes'
+export const alt = 'Unax Aller: Más llamadas para tu negocio local · 149€/mes'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 

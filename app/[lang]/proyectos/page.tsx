@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as LocaleKey;
 
   const titles: Record<LocaleKey, string> = {
-    es: "Proyectos — Webs reales hechas por Unax Aller",
-    en: "Work — Real websites built by Unax Aller",
-    eu: "Proiektuak — Unax Allerrek egindako benetako webguneak",
+    es: "Proyectos: Webs reales hechas por Unax Aller",
+    en: "Work: Real websites built by Unax Aller",
+    eu: "Proiektuak: Unax Allerrek egindako benetako webguneak",
   };
   const descriptions: Record<LocaleKey, string> = {
     es: "Proyectos de diseño y desarrollo web hechos a mano para clientes reales del País Vasco y Navarra: farmacia, motos, óptica, agencia de IA. Visítalos.",

@@ -132,7 +132,7 @@ export default function Footer({ locale }: Props) {
             <Link
               href={`/${locale}`}
               className="site-footer-logo focusable"
-              aria-label="Unax Aller — Inicio"
+              aria-label="Unax Aller, Inicio"
             >
               <Image
                 src="/images/brand/logo-lockup.webp"

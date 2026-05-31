@@ -11,9 +11,9 @@
   hero: {
     title: "Dei gehiago zure tokiko negoziorako. 149€/hilean.",
     subtitle:
-      "Zure web profesionala, zure Google Maps fitxa optimizatua eta iritziak biltzeko sistema — dena barne. 0€ sinatzean. 30 eguneko itzulketa bermea.",
+      "Zure web profesionala, zure Google Maps fitxa optimizatua eta iritziak biltzeko sistema, dena barne. 0€ sinatzean. 30 eguneko itzulketa bermea.",
     subtitlePre:
-      "Zure web profesionala, zure Google Maps fitxa eta iritzien sistema — dena barne ",
+      "Zure web profesionala, zure Google Maps fitxa eta iritzien sistema, dena barne ",
     subtitlePost: ". 0€ sinatzean.",
     cta: "Doako auditoria eskatu",
     cta2: "Nola funtzionatzen duen ikusi",
@@ -80,14 +80,14 @@
       },
       {
         quote:
-          "Botikari gisa, xehetasunak eta pazientzia asko baloratzen ditut. Webgunea argia, intuitiboa, profesionala eta erabiltzeko erraza geratu da — konfiantza transmititzeko behar nuena. Tratua gertukoa eta eraginkorra izan da une oro. Oso-oso gomendagarria.",
+          "Botikari gisa, xehetasunak eta pazientzia asko baloratzen ditut. Webgunea argia, intuitiboa, profesionala eta erabiltzeko erraza geratu da: konfiantza transmititzeko behar nuena. Tratua gertukoa eta eraginkorra izan da une oro. Oso-oso gomendagarria.",
         author: "Aranzazu Fernández Díez",
         role: "Botikaria · Googleko iritzia",
       },
     ],
   },
   pricing: {
-    title: "Dena Barne — 149€/hilean, 0€ sinatzean",
+    title: "Dena Barne: 149€/hilean, 0€ sinatzean",
     subtitle:
       "Kuota finkoa dena barne. Hasierako desenbolsorik gabe. 30 eguneko bermea. Iraupenik gabe.",
     from: "Kuota finkoa",
@@ -96,7 +96,7 @@
     cta: "Hasi ezer ordaindu gabe",
     ctaContact: "Auditoria eskatu",
     notePrice:
-      "Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez, eta gero nahi duzunean baja eman. Zure kuota blokeatuta dago — etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
+      "Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez, eta gero nahi duzunean baja eman. Zure kuota blokeatuta dago: etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
     plans: [
       {
         name: "Dena Barne",
@@ -107,7 +107,7 @@
         features: [
           "Zure negoziorako diseinu profesional pertsonalizatua",
           "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
-          "Mugikorrerako optimizatua — bezero gehienek mugikorretik bilatzen zaituzte",
+          "Mugikorrerako optimizatua: bezero gehienek mugikorretik bilatzen zaituzte",
           "Google Maps-en agertzen da fitxa ondo konfiguratuta",
           "5 izarreko iritzi gehiago lortzeko sistema",
           "WhatsApp bidezko zuzeneko laguntza eta hileko aldaketak barne",
@@ -124,7 +124,7 @@
       name: "Unax Aller Fernández",
       location: "Irun, Gipuzkoa · Euskal Herria",
       role: "Web Diseinatzaile eta Garatzaile Freelance",
-      education: "Informatika Ingeniaritzako Gradua — Universidad Alfonso X el Sabio",
+      education: "Informatika Ingeniaritzako Gradua, Universidad Alfonso X el Sabio",
       linkedin: "https://linkedin.com/in/unax-aller-8479b428b",
       languages: "Gaztelania (natiboa) · Frantsesa (elebiduna) · Ingelesa (profesionala) · Euskara (oinarrizkoa)",
       bio: "Informatika Ingeniaritzako ikaslea eta freelancea. Euskal Herriko enpresentzat eta klinikentzat webguneak egiten ditut profesionaltasun handiarekin eta gogo biziarekin, agentzia bat izan beharrik gabe. 15 urte bete arte Frantzian ikasi nuen, Erasmusa egin nuen, eta uda honetan AEBetan lan egin dut. Eroso egoteko gunetik ateratzeak ia beldur guztiak kendu dizkit eta ikasten jarraitzeko gogo handia eman dit.",
@@ -187,7 +187,7 @@
     eyebrow: "Proiektuak",
     title: "Eskuz egindako webguneak, benetako bezeroentzat.",
     subtitle:
-      "Web bakoitza zerotik programatzen dut, erabiltzailea pentsatuta. Hona hemen azken kasu batzuk — bisitatu eta egiaztatu.",
+      "Web bakoitza zerotik programatzen dut, erabiltzailea pentsatuta. Hona hemen azken kasu batzuk: bisitatu eta egiaztatu.",
     sectorLabel: "Sektorea",
     cityLabel: "Kokalekua",
     yearLabel: "Urtea",
@@ -273,18 +273,18 @@
       { q: "Zer eman behar dut hasteko?", a: "Zure negozioa, zein bezero erakarri nahi dituzun eta logoa eta argazkiak kontatzea besterik ez. Argazki profesionalik ez baduzu, gida emango dizut." },
       { q: "Mantentze-lana sartzen al da?", a: "Bai. 149€/hilean barne sartzen dira hostinga, domeinua, SSL, WhatsApp laguntza eta hileroko aldaketa txikiak (testuak, argazkiak, prezioak, ordutegiak, zerbitzu berria…)." },
       { q: "Edozein momentuan aldaketak eska ditzaket?", a: "Bai. Garapenean berrikuspen txandak doan dira. Abian jarri ondoren, aldaketa txikiak hileko kuotaren barruan daude: WhatsAppera bidaltzen dizkidazu eta egiten ditut." },
-      { q: "Gipuzkoako enpresekin bakarrik lan egiten duzu?", a: "Ez. Euskal Herri eta Nafarroa osoko negozio profesionalekin lan egiten dut — Bilbo, Donostia, Gasteiz, Iruñea, eskualdeak eta poligonoak. Errioxa eta Kantabria ere bai. Hurbiltasun digitala geografikoa baino garrantzitsuagoa da: WhatsApp eta bideo-deiekin lan egiten dugu, eta proiektuak merezi duenean bisita presentzialak." },
-      { q: "Zer gertatzen da zerbitzua utzi nahi badut?", a: "Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez dut eskatzen (domeinuaren alta, tokiko SEOa eta Google fitxa). Laugarren hilabetetik aurrera nahi duzunean baja eman — abisatu besterik ez. Domeinua zure izenean dago eta zurekin daramazu joaten bazara." },
+      { q: "Gipuzkoako enpresekin bakarrik lan egiten duzu?", a: "Ez. Euskal Herri eta Nafarroa osoko negozio profesionalekin lan egiten dut: Bilbo, Donostia, Gasteiz, Iruñea, eskualdeak eta poligonoak. Errioxa eta Kantabria ere bai. Hurbiltasun digitala geografikoa baino garrantzitsuagoa da: WhatsApp eta bideo-deiekin lan egiten dugu, eta proiektuak merezi duenean bisita presentzialak." },
+      { q: "Zer gertatzen da zerbitzua utzi nahi badut?", a: "Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez dut eskatzen (domeinuaren alta, tokiko SEOa eta Google fitxa). Laugarren hilabetetik aurrera nahi duzunean baja eman: abisatu besterik ez. Domeinua zure izenean dago eta zurekin daramazu joaten bazara." },
     ],
   },
   faqPrecios: {
     title: "Dena Barne planari buruzko galderak",
     items: [
-      { q: "Zergatik 149€/hilean ordainketa bakar baten ordez?", a: "Tokiko negozio gehienek ez dute 2.000€ edo 3.000€ batera ordaindu nahi web batengatik. Hileko kuota finkoa kontabilitatean beste edozein gastu bezala sartzen da — eta weba lehen egunetik zure alde lanean hasten da." },
+      { q: "Zergatik 149€/hilean ordainketa bakar baten ordez?", a: "Tokiko negozio gehienek ez dute 2.000€ edo 3.000€ batera ordaindu nahi web batengatik. Hileko kuota finkoa kontabilitatean beste edozein gastu bezala sartzen da, eta weba lehen egunetik zure alde lanean hasten da." },
       { q: "Ezkutuko kosturik al dago?", a: "Ez. 149€/hilean barne sartzen dira diseinua, programazioa, domeinua, hostinga, SSL, Google Maps, iritzien sistema, WhatsApp laguntza eta hileroko aldaketa txikiak." },
       { q: "Eta emaitza gustatzen ez bazait?", a: "30 egun dituzu abian jartzen denetik ordaindutakoa itzultzeko inolako azalpenik eman gabe. Ez baduzu konbentzitzen, ez duzu gehiago ordainduko." },
       { q: "Gutxieneko eperen batera konprometitu behar dut?", a: "Urteko iraupenik gabe. Konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da: domeinuaren alta, tokiko SEOa eta Google fitxa estaltzen ditu. Laugarren hilabetetik aurrera nahi duzunean baja ematen duzu. Zure kuota blokeatuta dago; etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie." },
-      { q: "Aurrez doako auditoria bat egin al dezaket?", a: "Bai. Sinatu aurretik erakusten dizut zein lehiakide ageri den lehenengo Google Maps-en zure eremuan eta zergatik — datuekin, hitz hutsekin ez. Zenbakiek funtzionatzen badute, sinatzen dugu." },
+      { q: "Aurrez doako auditoria bat egin al dezaket?", a: "Bai. Sinatu aurretik erakusten dizut zein lehiakide ageri den lehenengo Google Maps-en zure eremuan eta zergatik: datuekin, hitz hutsekin ez. Zenbakiek funtzionatzen badute, sinatzen dugu." },
     ],
   },
 };

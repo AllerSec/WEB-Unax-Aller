@@ -25,7 +25,7 @@ const lexend = Lexend({
 export const metadata: Metadata = {
   metadataBase: new URL("https://unaxaller.com"),
   title: {
-    default: "Unax Aller — Web para negocio local · 149€/mes, 0€ inicial",
+    default: "Unax Aller: Web para negocio local · 149€/mes, 0€ inicial",
     template: "%s | Unax Aller",
   },
   description:
@@ -61,13 +61,13 @@ export const metadata: Metadata = {
     alternateLocale: ["en_GB", "eu_ES"],
     url: "https://unaxaller.com",
     siteName: "Unax Aller",
-    title: "Unax Aller — Web para negocio local · 149€/mes, 0€ inicial",
+    title: "Unax Aller: Web para negocio local · 149€/mes, 0€ inicial",
     description:
       "Web para negocios del País Vasco y Navarra. 149€/mes todo incluido, 0€ inicial, sin permanencia y 30 días de garantía.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unax Aller — Web para negocio local · 149€/mes, 0€ inicial",
+    title: "Unax Aller: Web para negocio local · 149€/mes, 0€ inicial",
     description:
       "Web para negocios profesionales: 149€/mes todo incluido, sin permanencia. Web, Google Maps, reseñas y soporte por WhatsApp.",
     creator: "@unaxaller",
