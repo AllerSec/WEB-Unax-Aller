@@ -1,5 +1,6 @@
 ﻿import type { Metadata, Viewport } from "next";
 import { Source_Serif_4, Lexend } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 // Trust & Authority typography stack — Source Serif 4 (display) + Lexend (UI).
@@ -93,6 +94,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">{children}</body>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-LY57EXKHP3" strategy="afterInteractive" />
+      <Script id="ga4-init" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LY57EXKHP3');
+      `}</Script>
     </html>
   );
 }
