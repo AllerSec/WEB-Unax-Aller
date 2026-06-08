@@ -32,6 +32,9 @@ const nextConfig: NextConfig = {
       { source: "/proyectos/:slug", destination: "/es/proyectos/:slug", permanent: true },
       { source: "/blog", destination: "/es/blog", permanent: true },
       { source: "/blog/:slug", destination: "/es/blog/:slug", permanent: true },
+      // /colabora was removed — redirect to contact page
+      { source: "/colabora", destination: "/es/contacto", permanent: true },
+      { source: "/:lang/colabora", destination: "/:lang/contacto", permanent: true },
       // Old /casos/ paths → /proyectos/
       { source: "/casos/:slug", destination: "/es/proyectos/:slug", permanent: true },
       { source: "/:lang/casos/:slug", destination: "/:lang/proyectos/:slug", permanent: true },

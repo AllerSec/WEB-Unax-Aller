@@ -5,6 +5,10 @@ export const runtime = "nodejs";
 export const size = ogSize;
 export const contentType = ogContentType;
 
+export function generateStaticParams() {
+  return [{ lang: 'es' }, { lang: 'en' }, { lang: 'eu' }]
+}
+
 type Props = { params: Promise<{ lang: string }> };
 
 export default async function Image({ params }: Props) {

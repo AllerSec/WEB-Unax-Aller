@@ -1,9 +1,14 @@
-import { getBlogPostBySlug } from "@/lib/data/blog-posts";
+import { getBlogPostBySlug, blogPosts } from "@/lib/data/blog-posts";
 import { renderOgImage, ogSize, ogContentType } from "@/lib/og-image";
 
 export const runtime = "nodejs";
 export const size = ogSize;
 export const contentType = ogContentType;
+
+export function generateStaticParams() {
+  const locales = ['es', 'en', 'eu']
+  return locales.flatMap((lang) => blogPosts.map((p) => ({ lang, slug: p.slug })))
+}
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 

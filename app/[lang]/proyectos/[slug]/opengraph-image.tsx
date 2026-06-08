@@ -5,6 +5,11 @@ export const runtime = "nodejs";
 export const size = ogSize;
 export const contentType = ogContentType;
 
+export function generateStaticParams() {
+  const locales = ['es', 'en', 'eu']
+  return locales.flatMap((lang) => projects.map((p) => ({ lang, slug: p.slug })))
+}
+
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export default async function Image({ params }: Props) {
