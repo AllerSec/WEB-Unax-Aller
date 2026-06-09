@@ -38,12 +38,6 @@ export default function Testimonials() {
       role: t("items.3.role"),
       logo: null,
     },
-    {
-      quote: t("items.4.quote"),
-      author: t("items.4.author"),
-      role: t("items.4.role"),
-      logo: null,
-    },
   ];
 
   useGSAP(

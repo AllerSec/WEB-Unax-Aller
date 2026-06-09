@@ -1,12 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-05-27.dahlia",
-});
-
 export async function POST(req: NextRequest) {
   try {
+    const secretKey = process.env.STRIPE_SECRET_KEY;
+    const priceId = process.env.STRIPE_PRICE_ID;
+
+    if (!secretKey || !priceId) {
+      console.error("Stripe checkout is missing STRIPE_SECRET_KEY or STRIPE_PRICE_ID");
+      return NextResponse.json(
+        { error: "Stripe no esta configurado" },
+        { status: 500 }
+      );
+    }
+
+    const stripe = new Stripe(secretKey, {
+      apiVersion: "2026-05-27.dahlia",
+    });
+
     const body = await req.json();
     const { businessName, address, sector, email, phone } = body;
 
@@ -24,7 +35,7 @@ export async function POST(req: NextRequest) {
       payment_method_types: ["card"],
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_ID!,
+          price: priceId,
           quantity: 1,
         },
       ],
