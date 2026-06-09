@@ -29,10 +29,8 @@ export async function POST(req: NextRequest) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
       console.log("New checkout completed:", {
+        session: session.id,
         customer: session.customer,
-        email: session.customer_email,
-        businessName: session.metadata?.businessName,
-        phone: session.metadata?.phone,
         subscription: session.subscription,
       });
       break;
