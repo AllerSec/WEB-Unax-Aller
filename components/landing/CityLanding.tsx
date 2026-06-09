@@ -100,6 +100,28 @@ export default function CityLanding({
         })),
       },
       {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: content.heroTitle,
+        description: content.intro,
+        provider: { "@id": "https://unaxaller.com/#business" },
+        areaServed: { "@type": "AdministrativeArea", name: "País Vasco" },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "EUR",
+          price: "149",
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: "149",
+            priceCurrency: "EUR",
+            billingDuration: "P1M",
+            referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" },
+          },
+          availability: "https://schema.org/InStock",
+          seller: { "@id": "https://unaxaller.com/#business" },
+        },
+      },
+      {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: content.breadcrumbHome, item: `https://unaxaller.com/${locale}` },

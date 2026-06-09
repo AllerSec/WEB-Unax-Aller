@@ -84,6 +84,24 @@
         author: "Aranzazu Fernández Díez",
         role: "Botikaria · Googleko iritzia",
       },
+      {
+        quote:
+          "Webgune zaharra ez zen Googlen agertzen eta ez zuen gure enpresaren irudia transmititzen. Bi astetara Unaxek web moderno, azkar eta ondo posizionatua eman zigun. Bezero berriak dagoeneko bertatik iristen zaizkigu.",
+        author: "Anaka Optica",
+        role: "Optika · Irun",
+      },
+      {
+        quote:
+          "Oso profesionala eta eraginkorra. Epeak bete zituen, dena argi azaldu zigun eta emaitza gure itxaropenak gainditu zituen. Gure webguneak orain industria sektoreak eskatzen duen serialtasuna transmititzen du.",
+        author: "Tecmac",
+        role: "Industria · Nafarroa",
+      },
+      {
+        quote:
+          "Diseinua eta SEO ulertzen dituen norbait behar genuen. Unaxek biak menperatzen ditu. VirtuoSolve-ren webgunea nahi genuen bezala geratu da: modernoa, azkarra eta tokiko bilaketetan ondo posizionatua.",
+        author: "VirtuoSolve",
+        role: "AA Agentzia · Donostia",
+      },
     ],
   },
   pricing: {

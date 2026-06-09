@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import ContactForm from "./ContactForm";
+import WhatsAppCapture from "./WhatsAppCapture";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
@@ -220,36 +221,7 @@ export default async function ContactoPage({ params }: Props) {
               </p>
             </div>
 
-            <a
-              href={`https://wa.me/34620909916?text=${encodeURIComponent(
-                locale === "es"
-                  ? "Hola Unax, me gustaría hablar sobre un proyecto web."
-                  : locale === "en"
-                  ? "Hi Unax, I'd like to talk about a web project."
-                  : "Kaixo Unax, web proiektu bati buruz hitz egin nahi nuke."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-wa-cta focusable"
-              aria-label={
-                locale === "es"
-                  ? "Abrir conversación de WhatsApp con Unax Aller"
-                  : locale === "en"
-                  ? "Open WhatsApp chat with Unax Aller"
-                  : "Ireki WhatsApp txata Unax Allerrekin"
-              }
-            >
-              <span>
-                {locale === "es"
-                  ? "Abrir WhatsApp"
-                  : locale === "en"
-                  ? "Open WhatsApp"
-                  : "Ireki WhatsApp"}
-              </span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </a>
+            <WhatsAppCapture locale={locale} />
           </div>
 
           <div className="contact-wa-divider" aria-hidden="true">
@@ -271,6 +243,52 @@ export default async function ContactoPage({ params }: Props) {
           <div className="contact-grid">
             <AnimatedSection>
               <div className="contact-what-happens">
+                {/* Trust signals first — reduce objections before asking for commitment */}
+                <div className="contact-trust contact-trust--top">
+                  <h2 className="contact-trust-heading">
+                    {locale === "es"
+                      ? "¿Por qué elegirnos?"
+                      : locale === "en"
+                      ? "Why choose us?"
+                      : "Zergatik aukeratu?"}
+                  </h2>
+                  <ul className="contact-trust-list">
+                    {(locale === "es"
+                      ? [
+                          "Respuesta el mismo día por WhatsApp",
+                          "0€ al firmar · cuota fija de 149€/mes",
+                          "30 días de garantía desde el lanzamiento",
+                          "Cambios al WhatsApp incluidos cada mes",
+                        ]
+                      : locale === "en"
+                      ? [
+                          "Same-day reply over WhatsApp",
+                          "€0 to sign · fixed €149/month",
+                          "30-day guarantee from launch",
+                          "Monthly changes over WhatsApp included",
+                        ]
+                      : [
+                          "Egun bereko erantzuna WhatsApp bidez",
+                          "0€ sinatzean · 149€/hil kuota finkoa",
+                          "30 eguneko bermea abiarazi eta gero",
+                          "Hileroko aldaketak WhatsApp bidez barne",
+                        ]
+                    ).map((item, i) => (
+                      <li key={i} className="contact-trust-item">
+                        <svg
+                          className="contact-trust-check"
+                          width="14" height="14" viewBox="0 0 24 24"
+                          fill="none" stroke="currentColor" strokeWidth="2.5"
+                          aria-hidden="true"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <h2 className="contact-what-title">
                   {locale === "es" ? "¿Qué pasa cuando contactas?" : locale === "en" ? "What happens when you get in touch?" : "Zer gertatzen da kontaktuan jartzen zarenean?"}
                 </h2>
@@ -315,51 +333,6 @@ export default async function ContactoPage({ params }: Props) {
                     )}
                   </div>
                 ))}
-              </div>
-
-              <div className="contact-trust">
-                <h2 className="contact-trust-heading">
-                  {locale === "es"
-                    ? "¿Por qué elegirnos?"
-                    : locale === "en"
-                    ? "Why choose us?"
-                    : "Zergatik aukeratu?"}
-                </h2>
-                <ul className="contact-trust-list">
-                  {(locale === "es"
-                    ? [
-                        "Respuesta el mismo día por WhatsApp",
-                        "0€ al firmar · cuota fija de 149€/mes",
-                        "30 días de garantía desde el lanzamiento",
-                        "Cambios al WhatsApp incluidos cada mes",
-                      ]
-                    : locale === "en"
-                    ? [
-                        "Same-day reply over WhatsApp",
-                        "€0 to sign · fixed €149/month",
-                        "30-day guarantee from launch",
-                        "Monthly changes over WhatsApp included",
-                      ]
-                    : [
-                        "Egun bereko erantzuna WhatsApp bidez",
-                        "0€ sinatzean · 149€/hil kuota finkoa",
-                        "30 eguneko bermea abiarazi eta gero",
-                        "Hileroko aldaketak WhatsApp bidez barne",
-                      ]
-                  ).map((item, i) => (
-                    <li key={i} className="contact-trust-item">
-                      <svg
-                        className="contact-trust-check"
-                        width="14" height="14" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" strokeWidth="2.5"
-                        aria-hidden="true"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </aside>
           </div>

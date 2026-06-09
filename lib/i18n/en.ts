@@ -84,6 +84,24 @@
         author: "Aranzazu Fernández Díez",
         role: "Pharmacist · Google review",
       },
+      {
+        quote:
+          "Our old website didn't show up on Google and didn't reflect our brand. In under two weeks Unax delivered a modern, fast, well-ranked site. New clients are already finding us through it.",
+        author: "Anaka Optica",
+        role: "Optician · Irun",
+      },
+      {
+        quote:
+          "Very professional and efficient. He met every deadline, explained everything clearly, and the result exceeded our expectations. Our website now conveys the seriousness the industrial sector requires.",
+        author: "Tecmac",
+        role: "Industry · Navarre",
+      },
+      {
+        quote:
+          "We needed someone who understood both design and SEO. Unax nails both. The VirtuoSolve website came out exactly as we envisioned: modern, fast and well-positioned for local searches.",
+        author: "VirtuoSolve",
+        role: "AI Agency · Donostia",
+      },
     ],
   },
   pricing: {

@@ -84,6 +84,24 @@
         author: "Aranzazu Fernández Díez",
         role: "Farmacéutica · Cliente en Google",
       },
+      {
+        quote:
+          "Teníamos una web antigua que no aparecía en Google y no transmitía la imagen de nuestra empresa. En menos de dos semanas Unax nos entregó una web moderna, rápida y bien posicionada. Los clientes nuevos ya nos llegan a través de ella.",
+        author: "Anaka Optica",
+        role: "Óptica · Irun",
+      },
+      {
+        quote:
+          "Muy profesional y resolutivo. Cumplió plazos, nos explicó todo con claridad y el resultado superó las expectativas. Nuestra web ahora transmite la seriedad que el sector industrial requiere.",
+        author: "Tecmac",
+        role: "Industria · Navarra",
+      },
+      {
+        quote:
+          "Buscábamos alguien que entendiera tanto el diseño como el SEO. Unax lo domina todo. La web de VirtuoSolve quedó exactamente como queríamos: moderna, rápida y bien posicionada para búsquedas locales.",
+        author: "VirtuoSolve",
+        role: "Agencia IA · Donostia",
+      },
     ],
   },
   pricing: {

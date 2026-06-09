@@ -26,6 +26,24 @@ export default function Testimonials() {
       role: t("items.1.role"),
       logo: "/images/testimonials/farmacia-fernandez-bera.webp",
     },
+    {
+      quote: t("items.2.quote"),
+      author: t("items.2.author"),
+      role: t("items.2.role"),
+      logo: null,
+    },
+    {
+      quote: t("items.3.quote"),
+      author: t("items.3.author"),
+      role: t("items.3.role"),
+      logo: null,
+    },
+    {
+      quote: t("items.4.quote"),
+      author: t("items.4.author"),
+      role: t("items.4.role"),
+      logo: null,
+    },
   ];
 
   useGSAP(

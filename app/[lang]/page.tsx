@@ -147,6 +147,13 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
           },
         ],
         slogan: "Más llamadas para tu negocio local · 149€/mes, 0€ inicial",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          reviewCount: "23",
+          bestRating: "5",
+          worstRating: "1",
+        },
         sameAs: [
           "https://linkedin.com/in/unax-aller-8479b428b",
           "https://instagram.com/unaxaller",
@@ -165,7 +172,24 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
           "@type": "OfferCatalog",
           name: "Web para negocio local todo incluido",
           itemListElement: [
-            { "@type": "Offer", priceCurrency: "EUR", price: "149", itemOffered: { "@type": "Service", name: "Plan Todo Incluido, cuota mensual todo incluido" } },
+            {
+              "@type": "Offer",
+              priceCurrency: "EUR",
+              price: "149",
+              availability: "https://schema.org/InStock",
+              priceSpecification: {
+                "@type": "UnitPriceSpecification",
+                price: "149",
+                priceCurrency: "EUR",
+                billingDuration: "P1M",
+                referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" },
+              },
+              itemOffered: {
+                "@type": "Service",
+                name: "Plan Todo Incluido",
+                description: "Web profesional, Google Maps optimizado, captación de reseñas, hosting, dominio y soporte WhatsApp. 0€ al firmar.",
+              },
+            },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Optimización de Google Business Profile" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistema de captación de reseñas" } },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO local para Gipuzkoa" } },
