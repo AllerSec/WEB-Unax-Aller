@@ -6,7 +6,7 @@
     precios: "Pricing",
     sobreNosotros: "About me",
     contacto: "Contact",
-    consultaGratuita: "Free Consultation",
+    consultaGratuita: "Start free 30-day trial",
   },
   hero: {
     title: "More calls for your local business. For €149/month.",

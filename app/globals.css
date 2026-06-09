@@ -962,36 +962,62 @@ body.custom-cursor-active [role="button"] {
 
 /* CTA button (uses .btn-primary base) */
 .nav-cta {
+  position: relative;
   display: none;
   align-items: center;
   justify-content: center;
   align-self: center;
   gap: 0.45rem;
-  height: 36px;
+  height: 38px;
   min-height: 0;
   padding-block: 0;
-  padding-inline: 1rem;
-  font-size: 0.875rem;
+  padding-inline: 1.1rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
   line-height: 1;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   vertical-align: middle;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 60%, #1d4ed8 100%) !important;
+  box-shadow: 0 0 0 0 rgba(3,105,161,0), 0 4px 16px rgba(3,105,161,0.4), inset 0 1px 0 rgba(255,255,255,0.18) !important;
+  transition: transform 180ms var(--ease-out), box-shadow 250ms var(--ease-out) !important;
+  animation: cta-pulse-ring 3s ease-out 2s infinite;
+  white-space: nowrap;
+}
+.nav-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  border-radius: inherit;
+  animation: cta-shimmer 3.5s ease-in-out 3s infinite;
+  pointer-events: none;
 }
 .nav-cta svg {
   transition: transform .25s var(--ease-out);
+  flex-shrink: 0;
 }
 /* Suppress the inherited translateY(-1px) lift from .btn-primary:hover —
    it pops the CTA out of the navbar's baseline. Keep only the icon nudge. */
 .nav-cta:hover {
-  transform: none;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 0 0 0 rgba(3,105,161,0), 0 8px 24px rgba(3,105,161,0.5), inset 0 1px 0 rgba(255,255,255,0.22) !important;
+  animation: none;
 }
 .nav-cta:hover svg { transform: translateX(3px); }
+.nav-cta:active { transform: scale(0.98) !important; }
 @media (min-width: 1024px) {
   .nav-cta { display: inline-flex; }
 }
 /* When the navbar collapses on scroll the bar shrinks; nudge the CTA to
    stay in sync. */
 .nav-root[data-scrolled="true"] .nav-cta {
-  height: 32px;
+  height: 34px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-cta, .nav-cta::before { animation: none; }
 }
 
 /* Burger button (mobile). Visibility safety net is on `.nav-actions > *`. */
@@ -8318,6 +8344,28 @@ a.contact-info-label:hover {
   background-size: 100% 0.18em;
   background-position: 0 88%;
   padding-inline: 0.1em;
+}
+/* "40 llamadas" — ámbar de alerta, diferenciado del rojo del entorno */
+.lp-pain-highlight--alert {
+  color: #f59e0b;
+  background-image: linear-gradient(transparent 58%, rgba(245,158,11,0.25) 58%);
+  padding-inline: 0.25em;
+  border-radius: 3px;
+}
+@keyframes pain-alert-pulse {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(245,158,11,0.0);
+    color: #f59e0b;
+  }
+  50% {
+    text-shadow: 0 0 22px rgba(245,158,11,0.9), 0 0 40px rgba(245,158,11,0.4);
+    color: #fbbf24;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lp-pain-highlight--alert {
+    animation: pain-alert-pulse 1.6s ease-in-out infinite;
+  }
 }
 .lp-pain-inner {
   display: grid;

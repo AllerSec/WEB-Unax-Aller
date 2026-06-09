@@ -6,7 +6,7 @@
     precios: "Precios",
     sobreNosotros: "Sobre mí",
     contacto: "Contacto",
-    consultaGratuita: "Consulta Gratuita",
+    consultaGratuita: "Prueba gratis 30 días",
   },
   hero: {
     title: "Más llamadas para tu negocio local. Por 149€/mes.",

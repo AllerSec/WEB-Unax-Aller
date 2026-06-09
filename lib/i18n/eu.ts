@@ -6,7 +6,7 @@
     precios: "Prezioak",
     sobreNosotros: "Ni buruz",
     contacto: "Kontaktua",
-    consultaGratuita: "Doako kontsulta",
+    consultaGratuita: "30 eguneko proba doan",
   },
   hero: {
     title: "Dei gehiago zure tokiko negoziorako. 149€/hilean.",

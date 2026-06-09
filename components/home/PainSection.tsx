@@ -109,28 +109,26 @@ export default function PainSection() {
         "-=0.35"
       );
 
-      // Luz intermitente de advertencia en "40 llamadas al mes"
+      // Flash de entrada en "40 llamadas" — 3 destellos rápidos en ámbar,
+      // luego el CSS animation se encarga del pulso continuo.
       const alertHighlight = root.querySelector<HTMLElement>(".lp-pain-highlight--alert");
       if (alertHighlight) {
         tl.add(() => {
-          gsap.to(alertHighlight, {
-            "--alert-opacity": 0.15,
-            textShadow: "0 0 18px rgba(220,38,38,0.9), 0 0 36px rgba(220,38,38,0.5)",
-            duration: 0.12,
-            repeat: 2,
-            yoyo: true,
-            ease: "power2.inOut",
-            onComplete: () => {
-              // tras los 3 parpadeos rápidos, pulso lento continuo
-              gsap.to(alertHighlight, {
-                textShadow: "0 0 12px rgba(220,38,38,0.7), 0 0 28px rgba(220,38,38,0.35)",
-                duration: 0.9,
-                repeat: -1,
-                yoyo: true,
-                ease: "sine.inOut",
-              });
-            },
-          });
+          gsap.fromTo(
+            alertHighlight,
+            { textShadow: "0 0 0px rgba(245,158,11,0)" },
+            {
+              textShadow: "0 0 24px rgba(245,158,11,1), 0 0 48px rgba(245,158,11,0.5)",
+              duration: 0.1,
+              repeat: 3,
+              yoyo: true,
+              ease: "power2.inOut",
+              onComplete: () => {
+                // El CSS animation pain-alert-pulse toma el relevo desde aquí
+                gsap.set(alertHighlight, { clearProps: "textShadow" });
+              },
+            }
+          );
         }, "-=0.1");
       }
 
