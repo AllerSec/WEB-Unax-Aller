@@ -87,20 +87,20 @@ export default async function PreciosPage({ params }: Props) {
     ? [
         { icon: "smartphone", title: "Diseño a medida", desc: "Pensado para que un cliente entre desde el móvil y, en 3 segundos, sepa qué haces y cómo llamarte." },
         { icon: "map-pin", title: "Google Maps optimizado", desc: "Tu ficha de Google Business Profile bien configurada para que aparezcas cuando alguien busque tu servicio cerca." },
-        { icon: "star", title: "Sistema de reseñas", desc: "Las reseñas de 5 estrellas son lo que más mueve la aguja en negocio local. Te monto el sistema para conseguirlas." },
+        { icon: "star", title: "Sistema de reseñas", desc: "Enlace directo a tu ficha de Google para que tus clientes dejen reseña con un clic, QR imprimible para el mostrador, y tu perfil de Google optimizado para que puntúen mejor." },
         { icon: "message-circle", title: "WhatsApp directo", desc: "Cuando necesites cambiar precios, horarios, fotos o lo que sea: WhatsApp y listo. Sin tickets ni esperas." },
       ]
     : locale === "en"
     ? [
         { icon: "smartphone", title: "Custom design", desc: "Built so a customer landing from mobile knows what you do and how to call you in 3 seconds." },
         { icon: "map-pin", title: "Optimized Google Maps", desc: "Your Google Business Profile properly set up to show when someone searches for your service nearby." },
-        { icon: "star", title: "Reviews system", desc: "5-star reviews move the needle most in local business. I set up the system to bring them in." },
+        { icon: "star", title: "Reviews system", desc: "Direct link to your Google profile so customers leave a review in one tap, printable QR for the counter, and your Google profile optimized to rank better." },
         { icon: "message-circle", title: "Direct WhatsApp", desc: "When you need to change prices, hours, photos or anything: WhatsApp and done. No tickets, no waiting." },
       ]
     : [
         { icon: "smartphone", title: "Neurrizko diseinua", desc: "Mugikorretik datorren bezeroak 3 segundotan jakin behar du zer egiten duzun eta nola deitu." },
         { icon: "map-pin", title: "Google Maps optimizatua", desc: "Zure Google Business Profile ondo konfiguratuta inguruan zerbitzua bilatzean ager dadin." },
-        { icon: "star", title: "Iritzien sistema", desc: "5 izarreko iritziak dira tokiko negozioan gehien mugitzen dutenak. Sistema jartzen dizut horiek lortzeko." },
+        { icon: "star", title: "Iritzien sistema", desc: "Zuzeneko esteka zure Google fitxara bezeroak klik batez iritzia utz dezan, mostradorerakotxo QR inprimagarria, eta zure Google profila hobeto puntuatzeko optimizatua." },
         { icon: "message-circle", title: "Zuzeneko WhatsApp", desc: "Prezioak, ordutegiak, argazkiak aldatu behar duzunean: WhatsApp eta listo. Tiketik gabe." },
       ];
 

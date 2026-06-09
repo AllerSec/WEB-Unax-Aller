@@ -803,7 +803,7 @@ body.custom-cursor-active [role="button"] {
 .nav-links {
   display: none;
   align-items: center;
-  gap: 2px;
+  gap: 0;
   justify-content: center;
 }
 @media (min-width: 1024px) {
@@ -827,7 +827,7 @@ body.custom-cursor-active [role="button"] {
   color: rgba(2, 6, 23, 0.62);
   text-decoration: none;
   border-radius: var(--radius-md);
-  transition: color .18s var(--ease-out), background-color .18s var(--ease-out);
+  transition: color .15s var(--ease-out), background-color .15s var(--ease-out);
   letter-spacing: -0.005em;
 }
 .nav-link:hover {
@@ -4172,67 +4172,10 @@ a.contact-info-label:hover {
   color: var(--color-accent);
 }
 
-/* WhatsApp email-capture row */
+/* WhatsApp CTA */
 .contact-wa-capture {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
   align-items: flex-start;
-}
-
-.contact-wa-capture-row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  width: 100%;
-  flex-wrap: wrap;
-}
-
-.contact-wa-email-input {
-  flex: 1 1 200px;
-  min-width: 180px;
-  min-height: 48px;
-  border: 1.5px solid rgba(2, 6, 23, 0.12);
-  border-radius: var(--radius-lg);
-  padding: 0 var(--space-4);
-  font-size: var(--text-sm);
-  color: var(--color-ink);
-  background: rgba(255, 255, 255, 0.08);
-  transition: border-color var(--dur-base) var(--ease-out);
-}
-
-.contact-wa-email-input::placeholder {
-  color: var(--color-ink-subtle);
-}
-
-.contact-wa-email-input:focus-visible {
-  border-color: var(--color-accent);
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
-
-.contact-wa-skip {
-  font-size: var(--text-xs);
-  color: var(--color-ink-subtle);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color var(--dur-fast) var(--ease-out);
-}
-
-.contact-wa-skip:hover {
-  color: var(--color-ink-muted);
-}
-
-@media (max-width: 600px) {
-  .contact-wa-capture-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .contact-wa-email-input {
-    min-width: unset;
-    width: 100%;
-  }
 }
 
 .contact-form {

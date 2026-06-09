@@ -96,12 +96,6 @@
         author: "Tecmac",
         role: "Industria · Nafarroa",
       },
-      {
-        quote:
-          "Diseinua eta SEO ulertzen dituen norbait behar genuen. Unaxek biak menperatzen ditu. VirtuoSolve-ren webgunea nahi genuen bezala geratu da: modernoa, azkarra eta tokiko bilaketetan ondo posizionatua.",
-        author: "VirtuoSolve",
-        role: "AA Agentzia · Donostia",
-      },
     ],
   },
   pricing: {

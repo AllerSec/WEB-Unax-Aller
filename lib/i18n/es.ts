@@ -96,12 +96,6 @@
         author: "Tecmac",
         role: "Industria · Navarra",
       },
-      {
-        quote:
-          "Buscábamos alguien que entendiera tanto el diseño como el SEO. Unax lo domina todo. La web de VirtuoSolve quedó exactamente como queríamos: moderna, rápida y bien posicionada para búsquedas locales.",
-        author: "VirtuoSolve",
-        role: "Agencia IA · Donostia",
-      },
     ],
   },
   pricing: {

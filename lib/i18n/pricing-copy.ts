@@ -135,7 +135,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
             "Up to 5 sections (home, services, about, contact, reviews)",
             "Mobile-optimized: most of your customers search from a phone",
             "Google Maps profile optimized and monitored every month",
-            "Automatic system to bring in 5-star reviews",
+            "Reviews system: direct link, printable QR and optimized Google profile",
             "Same-day WhatsApp support for price, photo or hours changes",
           ],
           deliverables: [
@@ -222,7 +222,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
             "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
             "Mugikorrerako optimizatua: bezero gehienek mugikorretik bilatzen zaituzte",
             "Google Maps fitxa optimizatua eta hilero zainduta",
-            "5 izarreko iritziak lortzeko sistema automatikoa",
+            "Iritzi sistema: zuzeneko esteka, QR inprimagarria eta Google profil optimizatua",
             "Egun bereko WhatsApp laguntza prezio, argazki edo ordutegi aldaketetarako",
           ],
           deliverables: [
@@ -309,7 +309,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           "Hasta 5 secciones (inicio, servicios, sobre ti, contacto, reseñas)",
           "Optimizada para móvil: la mayoría de tus clientes te buscan desde el teléfono",
           "Ficha de Google Maps optimizada y vigilada cada mes",
-          "Sistema automático para conseguir reseñas de 5 estrellas",
+          "Sistema de reseñas: enlace directo, QR imprimible y perfil de Google optimizado",
           "Soporte por WhatsApp el mismo día: precios, fotos u horarios",
         ],
         deliverables: [

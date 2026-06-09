@@ -8,7 +8,7 @@ interface HeroProps {
   headline: { line1: string; line2: string };
   subtitle: string;
   buttons?: {
-    primary?: { text: string; href?: string };
+    primary?: { text: string; href?: string; onClick?: () => void };
     secondary?: { text: string; href?: string };
   };
   className?: string;
@@ -253,16 +253,30 @@ export function AnimatedShaderHero({
         {buttons && (
           <div className="sh__ctas">
             {buttons.primary && (
-              <Link
-                href={buttons.primary.href ?? "/es/contacto"}
-                className="sh__btn-primary"
-              >
-                {buttons.primary.text}
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
+              buttons.primary.onClick ? (
+                <button
+                  type="button"
+                  className="sh__btn-primary"
+                  onClick={buttons.primary.onClick}
+                >
+                  {buttons.primary.text}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              ) : (
+                <Link
+                  href={buttons.primary.href ?? "/es/contacto"}
+                  className="sh__btn-primary"
+                >
+                  {buttons.primary.text}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              )
             )}
             {buttons.secondary && (
               <Link

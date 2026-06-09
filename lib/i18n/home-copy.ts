@@ -169,11 +169,11 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
 export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
   es: {
     hero: {
-      trustBadge: "0€ al firmar · 30 días de garantía · 149€/mes sin permanencia",
+      trustBadge: "Prueba gratis 30 días · 149€/mes · Cancela cuando quieras",
       headlineLine1: "Más llamadas para",
       headlineLine2: "tu negocio local",
       subtitle: "Tu web profesional, tu ficha de Google Maps y un sistema de reseñas, todo incluido por 149€ al mes. No pagas nada al firmar. 30 días para probarlo y devolverlo sin preguntas. Pensado para clínicas, despachos profesionales, industria B2B y comercio especializado en Gipuzkoa, Bizkaia y Navarra.",
-      primaryCta: "Pedir auditoría gratis",
+      primaryCta: "Prueba gratis 30 días →",
       secondaryCta: "Ver cómo funciona",
     },
     mockups: {
@@ -185,7 +185,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       bullets: [
         "Ficha de Google Business Profile bien configurada",
         "Web rápida, móvil-first, con botón de llamada visible",
-        "Sistema de reseñas activo para mantenerte arriba",
+        "Sistema de reseñas: enlace directo, QR para el mostrador y perfil de Google optimizado",
       ],
       ariaLabel: "Cómo se ve el resultado",
     },
@@ -248,10 +248,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       ],
     },
     finalCta: {
-      badge: "Auditoría gratis · Sin firmar nada",
-      title: "¿Cuántas llamadas estás perdiendo?",
-      sub: "Te enseño en 30 minutos qué competidores tuyos en tu pueblo o ciudad están saliendo primero en Google y por qué. Sin compromiso, sin firmar nada. Y si quieres después arrancamos con 0€ al firmar.",
-      primaryCta: "Pedir auditoría gratis",
+      badge: "Prueba gratis 30 días · Cancela cuando quieras",
+      title: "Empieza hoy. Pagas en 30 días.",
+      sub: "Rellena tus datos, pon la tarjeta y arrancamos. Tu web estará online en 7–10 días. Si en los primeros 30 días no ves el resultado, te devuelvo cada euro sin preguntas.",
+      primaryCta: "Prueba gratis 30 días →",
       whatsappCta: "WhatsApp directo",
       whatsappMessage: "Hola Unax, me interesa el plan Todo Incluido de 149€/mes para mi negocio",
       reassurance: "0€ al firmar · 30 días de garantía · Sin permanencia, cancela cuando quieras · Hablas siempre conmigo",
@@ -277,7 +277,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       bullets: [
         "Properly configured Google Business Profile",
         "Fast, mobile-first website with a visible call button",
-        "Active review system to keep you on top",
+        "Reviews system: direct link, printable QR for the counter and optimized Google profile",
       ],
       ariaLabel: "What the result looks like",
     },
@@ -340,10 +340,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       ],
     },
     finalCta: {
-      badge: "Free audit · No contract",
-      title: "How many calls are you losing?",
-      sub: "In 30 minutes I'll show you which competitors in your town or city are ranking first on Google and why. No commitment, no signature. And if you want to start, we kick off with €0 down.",
-      primaryCta: "Request a free audit",
+      badge: "30-day free trial · Cancel anytime",
+      title: "Start today. Pay in 30 days.",
+      sub: "Fill in your details, add your card and we get going. Your site will be live in 7–10 days. If in the first 30 days you don't see results, I refund every euro, no questions asked.",
+      primaryCta: "Start free 30-day trial →",
       whatsappCta: "Direct WhatsApp",
       whatsappMessage: "Hi Unax, I'm interested in the €149/month All-Inclusive plan for my business",
       reassurance: "€0 to sign · 30-day guarantee · No lock-in, cancel whenever you want · You always talk to me",
@@ -369,7 +369,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       bullets: [
         "Ondo konfiguratutako Google Business Profile fitxa",
         "Web azkarra, mobile-first, dei-botoi ikusgaiarekin",
-        "Iritzi sistema aktiboa goian mantentzeko",
+        "Iritzi sistema: zuzeneko esteka, mostradorerakotxo QR inprimagarria eta Google profil optimizatua",
       ],
       ariaLabel: "Nolakoa den emaitza",
     },
@@ -432,10 +432,10 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       ],
     },
     finalCta: {
-      badge: "Auditoria doan · Ezer sinatu gabe",
-      title: "Zenbat dei ari zara galtzen?",
-      sub: "30 minututan erakutsiko dizut zure herrian edo hirian zein lehiakide ari diren Googlen lehenengo ateratzen eta zergatik. Konpromisorik gabe, ezer sinatu gabe. Eta nahi baduzu gero 0€-rekin hasten gara sinatzean.",
-      primaryCta: "Eskatu auditoria doan",
+      badge: "30 eguneko doako proba · Nahi duzunean baja",
+      title: "Hasi gaur. Ordaindu 30 egunetan.",
+      sub: "Bete datuak, jarri txartela eta hasten gara. Zure weba 7–10 egunetan online egongo da. Lehen 30 egunetan emaitzarik ikusten ez baduzu, euro bakoitza itzultzen dizut galderarik gabe.",
+      primaryCta: "30 eguneko doako proba →",
       whatsappCta: "WhatsApp zuzena",
       whatsappMessage: "Kaixo Unax, nire negoziorako 149€/hileko Dena Barne plana interesgarria zait",
       reassurance: "0€ sinatzean · 30 eguneko bermea · Iraupenik gabe, nahi duzunean baja eman · Beti nirekin hitz egiten duzu",

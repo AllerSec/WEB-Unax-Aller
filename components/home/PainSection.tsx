@@ -109,6 +109,31 @@ export default function PainSection() {
         "-=0.35"
       );
 
+      // Luz intermitente de advertencia en "40 llamadas al mes"
+      const alertHighlight = root.querySelector<HTMLElement>(".lp-pain-highlight--alert");
+      if (alertHighlight) {
+        tl.add(() => {
+          gsap.to(alertHighlight, {
+            "--alert-opacity": 0.15,
+            textShadow: "0 0 18px rgba(220,38,38,0.9), 0 0 36px rgba(220,38,38,0.5)",
+            duration: 0.12,
+            repeat: 2,
+            yoyo: true,
+            ease: "power2.inOut",
+            onComplete: () => {
+              // tras los 3 parpadeos rápidos, pulso lento continuo
+              gsap.to(alertHighlight, {
+                textShadow: "0 0 12px rgba(220,38,38,0.7), 0 0 28px rgba(220,38,38,0.35)",
+                duration: 0.9,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+              });
+            },
+          });
+        }, "-=0.1");
+      }
+
       rows.forEach((row, i) => {
         const isGood = row.classList.contains("lp-pain-row--good");
         const icon = row.querySelector<HTMLElement>(".lp-pain-icon");
@@ -155,7 +180,7 @@ export default function PainSection() {
           <span className="lp-eyebrow">{copy.eyebrow}</span>
           <h2 id="lp-pain-title" className="lp-section-title">
             {copy.titleA} <span className="lp-pain-highlight">{copy.titleHighlight1}</span> {copy.titleB}{" "}
-            <span className="lp-pain-highlight">{copy.titleHighlight2}</span>.
+            <span className="lp-pain-highlight lp-pain-highlight--alert">{copy.titleHighlight2}</span>.
             <br />
             {copy.titleC}
           </h2>

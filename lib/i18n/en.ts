@@ -96,12 +96,6 @@
         author: "Tecmac",
         role: "Industry · Navarre",
       },
-      {
-        quote:
-          "We needed someone who understood both design and SEO. Unax nails both. The VirtuoSolve website came out exactly as we envisioned: modern, fast and well-positioned for local searches.",
-        author: "VirtuoSolve",
-        role: "AI Agency · Donostia",
-      },
     ],
   },
   pricing: {

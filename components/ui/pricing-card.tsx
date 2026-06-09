@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
 import PlanModal, { type PlanDetail } from "@/components/pricing/PlanModal";
+import CheckoutModal from "@/components/pricing/CheckoutModal";
 import { buildPlans, planCopy } from "@/lib/i18n/pricing-copy";
 
 const IconCheck = () => (
@@ -53,6 +54,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
     return () => observer.disconnect();
   }, []);
 
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
   const c = planCopy(locale);
   const plans = buildPlans(locale);
 
@@ -180,15 +182,25 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
                 </ul>
 
                 <div className="pt-actions">
-                  <a
-                    href={`https://wa.me/34620909916?text=${encodeURIComponent(p.whatsapp)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`pt-cta pt-cta--${p.variant === "star" ? "primary" : "ghost"} focusable`}
-                  >
-                    {p.cta}
-                    {p.variant === "star" && <IconArrowRight />}
-                  </a>
+                  {p.variant === "star" ? (
+                    <button
+                      type="button"
+                      className="pt-cta pt-cta--primary focusable"
+                      onClick={() => setCheckoutOpen(true)}
+                    >
+                      {p.cta}
+                      <IconArrowRight />
+                    </button>
+                  ) : (
+                    <a
+                      href={`https://wa.me/34620909916?text=${encodeURIComponent(p.whatsapp)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pt-cta pt-cta--ghost focusable"
+                    >
+                      {p.cta}
+                    </a>
+                  )}
                   {p.detail && (
                     <button
                       type="button"
@@ -208,6 +220,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
       </section>
 
       <PlanModal plan={activePlan} onClose={() => setActivePlan(null)} locale={locale} />
+      <CheckoutModal open={checkoutOpen} onClose={() => setCheckoutOpen(false)} locale={locale} />
     </>
   );
 }
