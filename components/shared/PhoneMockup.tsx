@@ -53,7 +53,7 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
           width:280px;
           height:560px;
           border-radius:38px;
-          background:linear-gradient(160deg, #1E293B, #0F172A);
+          background:linear-gradient(160deg, #262626, #0A0A0A);
           padding:10px;
           box-shadow:
             0 30px 60px -20px rgba(15,23,42,0.45),
@@ -63,7 +63,7 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
         }
         .pm-notch {
           position:absolute; top:14px; left:50%; transform:translateX(-50%);
-          width:90px; height:22px; background:#020617; border-radius:14px;
+          width:90px; height:22px; background:#0A0A0A; border-radius:14px;
           z-index:3;
         }
         .pm-screen {
@@ -77,18 +77,18 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
         /* SITE variant */
         .pm-site-hero {
           padding:42px 18px 18px;
-          background:linear-gradient(160deg, #1E293B 0%, #0F172A 100%);
+          background:linear-gradient(160deg, #262626 0%, #0A0A0A 100%);
           color:#FFFFFF;
           text-align:center;
         }
         .pm-site-brand { font-family:var(--font-serif); font-size:20px; font-weight:700; margin:0 0 4px; letter-spacing:-0.02em; }
-        .pm-site-tagline { font-size:11px; color:#94A3B8; margin:0 0 14px; }
+        .pm-site-tagline { font-size:11px; color:#A3A3A3; margin:0 0 14px; }
         .pm-site-cta {
           display:inline-flex; align-items:center; gap:6px;
-          background:#0369A1; color:#FFFFFF;
+          background:#171717; color:#FFFFFF;
           padding:9px 18px; border-radius:999px;
           font-size:12px; font-weight:700;
-          box-shadow:0 8px 20px rgba(3,105,161,0.35);
+          box-shadow:0 8px 20px rgba(10,10,10,0.35);
         }
         .pm-site-body { padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; }
         .pm-site-stat { display:flex; justify-content:space-between; align-items:center; padding:10px 12px; background:var(--color-bg-muted); border-radius:10px; font-size:11px; }
@@ -103,7 +103,7 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
         /* MAPS variant */
         .pm-maps-bar { display:flex; align-items:center; gap:6px; padding:32px 12px 8px; background:var(--color-bg-muted); }
         .pm-maps-search { flex:1; display:flex; align-items:center; gap:6px; background:#FFFFFF; border:1px solid var(--color-line); border-radius:999px; padding:6px 10px; font-size:11px; color:var(--color-ink-muted); }
-        .pm-maps-hero { position:relative; flex:1; background:linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 50%, #93C5FD 100%); overflow:hidden; }
+        .pm-maps-hero { position:relative; flex:1; background:linear-gradient(135deg, #F0F0F0 0%, #E5E5E5 50%, #D4D4D4 100%); overflow:hidden; }
         .pm-maps-hero::before {
           content:""; position:absolute; inset:0;
           background-image:
@@ -120,16 +120,16 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
         }
         .pm-maps-pin {
           position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
-          width:36px; height:36px; border-radius:50% 50% 50% 0; background:#0369A1;
+          width:36px; height:36px; border-radius:50% 50% 50% 0; background:#171717;
           rotate:-45deg;
-          box-shadow:0 8px 18px rgba(3,105,161,0.50);
+          box-shadow:0 8px 18px rgba(10,10,10,0.50);
           display:flex; align-items:center; justify-content:center;
         }
         .pm-maps-pin::after { content:""; width:14px; height:14px; border-radius:50%; background:#FFFFFF; rotate:45deg; }
         .pm-maps-pulse {
           position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
           width:36px; height:36px; border-radius:50%;
-          border:3px solid #0369A1;
+          border:3px solid #171717;
           animation:pm-maps-pulse 2s ease-out infinite;
         }
         @keyframes pm-maps-pulse {
@@ -143,7 +143,7 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
         .pm-maps-open { color:#047857; font-weight:600; }
         .pm-maps-actions { display:flex; gap:6px; }
         .pm-maps-btn { flex:1; display:flex; align-items:center; justify-content:center; gap:4px; padding:7px 8px; border-radius:8px; font-size:11px; font-weight:600; }
-        .pm-maps-btn--primary { background:#0369A1; color:#FFFFFF; }
+        .pm-maps-btn--primary { background:#171717; color:#FFFFFF; }
         .pm-maps-btn--secondary { background:var(--color-bg-muted); color:var(--color-ink); border:1px solid var(--color-line); }
       `}</style>
 

@@ -5,21 +5,21 @@ interface GuaranteeBlockProps {
   variant?: "default" | "compact";
 }
 
-// Three-pillar guarantee that has to feel impossible to ignore: no upfront
-// payment, money-back window, and price-lock during the commitment. Reused on
-// the home page and the pricing page so the message gets repeated without
+// Three-pillar guarantee that has to feel impossible to ignore: one-off price,
+// money-back window, and the site being theirs (no monthly fees). Reused on the
+// home page and the pricing page so the message gets repeated without
 // duplicating markup.
 export default function GuaranteeBlock({ locale, variant = "default" }: GuaranteeBlockProps) {
   const labels =
     locale === "es"
       ? {
-          eyebrow: "La garantía Todo Incluido",
+          eyebrow: "La garantía",
           title: "Tres promesas por escrito. Sin letra pequeña.",
           pillars: [
             {
-              big: "0€",
-              small: "hasta que esté viva",
-              desc: "No pagas nada para empezar, y la primera cuota no se cobra hasta que tu web está publicada y funcionando. Si no llega a estar online, no pagas.",
+              big: "1.300€",
+              small: "un solo pago",
+              desc: "Un pago único, más IVA, con el primer año de mantenimiento incluido. Sin cuotas mensuales colgando. A partir del año 2, solo 600€/año para tenerla cuidada.",
             },
             {
               big: "30 días",
@@ -27,21 +27,21 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
               desc: "Si en los primeros 30 días no estás conforme, te devuelvo cada euro y apagamos la web. Sin preguntas y sin riesgo para ti.",
             },
             {
-              big: "Sin",
-              small: "permanencia",
-              desc: "Cancela cuando quieras (solo pido un mínimo de 3 meses de activación para el alta, SEO y Google). Tu cuota de 149€ queda bloqueada: las subidas futuras solo afectan a clientes nuevos.",
+              big: "Tuya",
+              small: "desde el primer día",
+              desc: "El dominio se registra a tu nombre y la web es tuya tras el pago, no la alquilas. Tu ficha de Google y tus reseñas se quedan siempre contigo.",
             },
           ],
         }
       : locale === "en"
       ? {
-          eyebrow: "The All-Inclusive guarantee",
+          eyebrow: "The guarantee",
           title: "Three promises in writing. No fine print.",
           pillars: [
             {
-              big: "€0",
-              small: "until it's live",
-              desc: "Pay nothing to start, and the first fee isn't charged until your site is published and running. If it never goes live, you don't pay.",
+              big: "€1,300",
+              small: "one single payment",
+              desc: "A one-off payment, plus VAT, with the first year of maintenance included. No monthly fees hanging over you. From year 2, just €600/year to keep it looked after.",
             },
             {
               big: "30 days",
@@ -49,20 +49,20 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
               desc: "If within the first 30 days you're not happy, I refund every euro and we switch the site off. No questions, no risk to you.",
             },
             {
-              big: "No",
-              small: "lock-in",
-              desc: "Cancel whenever you want (I only ask for a 3-month minimum activation for setup, SEO and Google). Your €149 fee stays locked: future increases only apply to new clients.",
+              big: "Yours",
+              small: "from day one",
+              desc: "The domain is registered in your name and the site is yours after payment — you don't rent it. Your Google listing and reviews always stay with you.",
             },
           ],
         }
       : {
-          eyebrow: "Dena Barne bermea",
+          eyebrow: "Bermea",
           title: "Hiru promesa idatziz. Letra txikirik gabe.",
           pillars: [
             {
-              big: "0€",
-              small: "bizirik egon arte",
-              desc: "Ez duzu ezer ordaintzen hasteko, eta lehen kuota ez da kobratzen zure weba argitaratu eta martxan egon arte. Sarean jartzen ez bada, ez duzu ordaintzen.",
+              big: "1.300€",
+              small: "ordainketa bakarra",
+              desc: "Ordainketa bakarra, gehi BEZ, lehen urteko mantentze-lana barne. Hilero zintzilik dauden kuotarik gabe. 2. urtetik aurrera, 600€/urteko bakarrik zainduta edukitzeko.",
             },
             {
               big: "30 egun",
@@ -70,9 +70,9 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
               desc: "Lehen 30 egunetan pozik ez bazaude, euro bakoitza itzultzen dizut eta weba itzaltzen dugu. Galderarik gabe eta arriskurik gabe zuretzat.",
             },
             {
-              big: "Iraupenik",
-              small: "gabe",
-              desc: "Nahi duzunean baja eman (3 hilabeteko gutxieneko aktibazioa besterik ez dut eskatzen: alta, SEO eta Google). Zure 149€-ko kuota blokeatuta dago: etorkizuneko igoerak bezero berriei bakarrik aplikatuko zaizkie.",
+              big: "Zurea",
+              small: "lehen egunetik",
+              desc: "Domeinua zure izenean erregistratzen da eta weba zurea da ordainketaren ondoren, ez duzu alokatzen. Zure Google fitxa eta iritziak beti zurekin geratzen dira.",
             },
           ],
         };

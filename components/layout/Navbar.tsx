@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { localeNames, type Locale } from "@/lib/i18n/config";
+import CheckoutModal from "@/components/pricing/CheckoutModal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -35,6 +36,7 @@ export default function Navbar({ locale }: Props) {
   const mobilePanelRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   const labels = NAV_LABELS[locale];
   const closeAll = () => { setMenuOpen(false); setLangOpen(false); };
@@ -250,10 +252,14 @@ export default function Navbar({ locale }: Props) {
               )}
             </div>
 
-            <Link href={`/${locale}/contacto`} className="btn btn-primary btn-sm nav-cta">
+            <button
+              type="button"
+              className="btn btn-primary btn-sm nav-cta"
+              onClick={() => { closeAll(); setCheckoutOpen(true); }}
+            >
               <span>{t("consultaGratuita")}</span>
               <ArrowRight />
-            </Link>
+            </button>
 
             <button
               type="button"
@@ -298,17 +304,19 @@ export default function Navbar({ locale }: Props) {
                 </Link>
               );
             })}
-            <Link
-              href={`/${locale}/contacto`}
+            <button
+              type="button"
               className="btn btn-primary btn-block nav-mobile-cta"
               tabIndex={menuOpen ? 0 : -1}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => { setMenuOpen(false); setCheckoutOpen(true); }}
             >
               {t("consultaGratuita")}
-            </Link>
+            </button>
           </nav>
         </div>
       </div>
+
+      <CheckoutModal open={checkoutOpen} onClose={() => setCheckoutOpen(false)} locale={locale} />
     </header>
   );
 }

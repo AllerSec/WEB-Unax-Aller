@@ -54,15 +54,15 @@ export default function GoogleMapsMock({ locale }: Props) {
         .gmm-search svg { color:var(--color-ink-muted); flex-shrink:0; }
         .gmm-row { display:flex; align-items:flex-start; gap:12px; padding:14px; border-bottom:1px solid var(--color-line); position:relative; }
         .gmm-row:last-child { border-bottom:none; }
-        .gmm-row--you { background:linear-gradient(180deg, rgba(3,105,161,0.06) 0%, rgba(3,105,161,0.02) 100%); }
+        .gmm-row--you { background:linear-gradient(180deg, rgba(10,10,10,0.06) 0%, rgba(10,10,10,0.02) 100%); }
         .gmm-pin { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; flex-shrink:0; font-family:var(--font-serif); font-size:14px; font-weight:700; color:#FFFFFF; }
-        .gmm-pin--1 { background:#0369A1; box-shadow:0 0 0 4px rgba(3,105,161,0.18); }
-        .gmm-pin--2 { background:#94A3B8; }
-        .gmm-pin--3 { background:#CBD5E1; color:var(--color-ink); }
+        .gmm-pin--1 { background:#171717; box-shadow:0 0 0 4px rgba(10,10,10,0.18); }
+        .gmm-pin--2 { background:#A3A3A3; }
+        .gmm-pin--3 { background:#D4D4D4; color:var(--color-ink); }
         .gmm-content { flex:1; min-width:0; }
         .gmm-name { font-size:14px; font-weight:600; color:var(--color-ink); line-height:1.2; margin-bottom:3px; display:flex; align-items:center; gap:6px; }
         .gmm-meta { font-size:12px; color:var(--color-ink-muted); line-height:1.4; }
-        .gmm-badge { position:absolute; top:14px; right:14px; background:#0369A1; color:#FFFFFF; font-size:10px; font-weight:700; padding:3px 8px; border-radius:999px; letter-spacing:0.04em; text-transform:uppercase; }
+        .gmm-badge { position:absolute; top:14px; right:14px; background:#171717; color:#FFFFFF; font-size:10px; font-weight:700; padding:3px 8px; border-radius:999px; letter-spacing:0.04em; text-transform:uppercase; }
         .gmm-call { display:inline-flex; align-items:center; gap:4px; margin-top:6px; color:var(--color-accent); font-size:12px; font-weight:600; }
         .gmm-pulse { position:absolute; left:8px; top:8px; width:8px; height:8px; border-radius:50%; background:#10B981; box-shadow:0 0 0 0 rgba(16,185,129,0.6); animation:gmm-live 2s ease-out infinite; }
         @keyframes gmm-live {

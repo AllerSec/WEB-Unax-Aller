@@ -50,7 +50,7 @@ export default function Hero({ locale }: Props) {
       const setFinalPrice = () => {
         const priceEl = subtitle?.querySelector<HTMLSpanElement>(".hero-price");
         if (!priceEl) return;
-        const formatted = (1500).toLocaleString(locale === "en" ? "en-US" : "es-ES");
+        const formatted = (1300).toLocaleString(locale === "en" ? "en-US" : "es-ES");
         priceEl.textContent = locale === "en" ? `€${formatted}` : `${formatted}€`;
       };
 
@@ -113,7 +113,7 @@ export default function Hero({ locale }: Props) {
           .to(
             priceCounter,
             {
-              v: 1500,
+              v: 1300,
               duration: 1,
               ease: "power2.out",
               snap: { v: 1 },
@@ -260,7 +260,7 @@ export default function Hero({ locale }: Props) {
           },
           "<"
         )
-        // Count-up the price from 0 → 1500, in sync with the subtitle reveal
+        // Count-up the price from 0 → 1300, in sync with the subtitle reveal
         .to(
           priceCounterDesktop,
           {
@@ -476,8 +476,8 @@ export default function Hero({ locale }: Props) {
 
           <p ref={subtitleRef} className="hero-subtitle">
             {t("subtitlePre")}{" "}
-            <span className="hero-price" data-price-value="149">
-              {locale === "en" ? "€149/mo" : "149€/mes"}
+            <span className="hero-price" data-price-value="1300">
+              {locale === "en" ? "€1,300" : "1.300€"}
             </span>
             {t("subtitlePost")}
           </p>

@@ -26,8 +26,8 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
     (
       <div
         style={{
-          background: "#0F172A",
-          backgroundImage: "radial-gradient(ellipse at top left, #1E293B 0%, #0F172A 60%)",
+          background: "#0A0A0A",
+          backgroundImage: "radial-gradient(ellipse at top left, #262626 0%, #0A0A0A 60%)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -35,7 +35,7 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
           alignItems: "flex-start",
           justifyContent: "flex-end",
           padding: "80px",
-          fontFamily: "Georgia, serif",
+          fontFamily: "sans-serif",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -52,7 +52,7 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
         {eyebrow && (
           <div
             style={{
-              color: "#7DD3FC",
+              color: "#D4D4D4",
               fontSize: 18,
               fontFamily: "sans-serif",
               letterSpacing: 3,
@@ -70,7 +70,7 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
             flexWrap: "wrap",
             color: "#FFFFFF",
             fontSize: 52,
-            fontWeight: 400,
+            fontWeight: 600,
             lineHeight: 1.1,
             marginBottom: 16,
             maxWidth: 900,
@@ -78,11 +78,11 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
           }}
         >
           <span>{line1}&nbsp;</span>
-          <span style={{ fontStyle: "italic", color: "#7DD3FC" }}>{line2}</span>
+          <span style={{ color: "#A3A3A3" }}>{line2}</span>
         </div>
         <div
           style={{
-            color: "#94A3B8",
+            color: "#A3A3A3",
             fontSize: 20,
             fontFamily: "sans-serif",
             marginBottom: 48,
@@ -91,10 +91,10 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
           {subtitle}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ width: 48, height: 2, backgroundColor: "#0369A1" }} />
+          <div style={{ width: 48, height: 2, backgroundColor: "#525252" }} />
           <span
             style={{
-              color: "#7DD3FC",
+              color: "#D4D4D4",
               fontSize: 14,
               fontFamily: "sans-serif",
               letterSpacing: 3,
@@ -128,9 +128,9 @@ export function renderCityOgImage({ cityName, regionName, locale }: CityOgOption
     eu: `${cityName}n`,
   };
   const subtitleMap: Record<string, string> = {
-    es: `149€/mes · 0€ inicial · unaxaller.com`,
-    en: `€149/month · €0 upfront · unaxaller.com`,
-    eu: `149€/hilean · 0€ hasieran · unaxaller.com`,
+    es: `1.300€ · 1er año incluido · unaxaller.com`,
+    en: `€1,300 · first year included · unaxaller.com`,
+    eu: `1.300€ · 1. urtea barne · unaxaller.com`,
   };
   return renderOgImage({
     eyebrow: locale === "es" ? "Ciudad" : locale === "en" ? "Location" : "Hiria",

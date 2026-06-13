@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Unax Aller: Web para negocio local",
     short_name: "Unax Aller",
-    description: "Web para negocios profesionales del País Vasco y Navarra: 149€/mes todo incluido, 0€ inicial, sin permanencia y 30 días de garantía.",
+    description: "Web para negocios profesionales del País Vasco y Navarra: pago único de 1.300€ + IVA con el primer año incluido y 30 días de garantía.",
     start_url: "/es",
     scope: "/",
     display: "standalone",

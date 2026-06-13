@@ -24,9 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Euskal Herrian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios del País Vasco: Bizkaia, Gipuzkoa y Álava. Webs a medida con SEO local, trilingüe (es/en/eu) y rendimiento. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
-    en: "Freelance web designer for Basque Country businesses: Bizkaia, Gipuzkoa and Álava. Custom trilingual websites (es/en/eu) with local SEO and performance. No upfront cost: €0 to sign, €149/month.",
-    eu: "Web diseinatzaile freelance Euskal Herriko negozioetarako: Bizkaia, Gipuzkoa eta Araba. Hiru hizkuntzatan (es/en/eu) eta SEO lokalarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
+    es: "Diseñador web freelance para negocios del País Vasco: Bizkaia, Gipuzkoa y Álava. Webs a medida con SEO local, trilingüe (es/en/eu) y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
+    en: "Freelance web designer for Basque Country businesses: Bizkaia, Gipuzkoa and Álava. Custom trilingual websites (es/en/eu) with local SEO and performance. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Euskal Herriko negozioetarako: Bizkaia, Gipuzkoa eta Araba. Hiru hizkuntzatan (es/en/eu) eta SEO lokalarekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];
@@ -57,7 +57,7 @@ export default async function PaisVascoPage({ params }: Props) {
     ? [
         {
           q: `¿Cuánto cuesta una web profesional en el ${regionName}?`,
-          a: "Mi plan más elegido es Todo Incluido: 0€ al firmar y una cuota fija de 149€/mes sin permanencia (solo un mínimo de 3 meses de activación). Incluye diseño a medida, SEO técnico, Lighthouse 95+, hosting, dominio, ficha de Google Maps optimizada, sistema de reseñas y soporte directo por WhatsApp. Sin desembolso inicial y sin facturas extra cada mes. Si prefieres tenerla en propiedad, también puedes comprarla en un pago único de 1.500€.",
+          a: "Es un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido. Incluye diseño a medida, SEO técnico, Lighthouse 95+, hosting, dominio, ficha de Google Maps optimizada, sistema de reseñas y soporte directo por WhatsApp. La web es tuya, sin cuotas mensuales. A partir del segundo año, el mantenimiento es de 600€/año.",
         },
         {
           q: "¿Puedes trabajar en Bilbao, Donostia y Vitoria?",
@@ -73,18 +73,18 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "¿En cuánto tiempo estará lista la web?",
-          a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida.",
+          a: "En una semana desde que cerramos el pago. Arrancamos enseguida.",
         },
         {
           q: "¿Qué incluye la cuota mensual?",
-          a: "Los 149€/mes incluyen hosting, dominio, SSL, ficha de Google Maps vigilada cada mes, sistema de reseñas, soporte por WhatsApp y los cambios menores cada mes (textos, fotos, precios, horarios, añadir un servicio). Sin facturas extra. Sin permanencia: solo un mínimo de 3 meses de activación y cancelas cuando quieras.",
+          a: "El primer año incluye hosting, dominio, SSL, ficha de Google Maps vigilada, sistema de reseñas, soporte por WhatsApp y los cambios de contenido (textos, fotos, precios, horarios, añadir un servicio). A partir del segundo año, el mantenimiento es de 600€/año (unos 50€/mes, facturado una vez al año). Sin facturas extra.",
         },
       ]
     : locale === "en"
     ? [
         {
           q: `How much does a professional website cost in the ${regionName}?`,
-          a: "My most popular plan is All-Inclusive: €0 to sign and a fixed €149/month fee with no lock-in (just a 3-month minimum activation). It includes custom design, technical SEO, Lighthouse 95+, hosting, domain, optimized Google Maps profile, reviews system and direct WhatsApp support. No upfront cost and no extra invoices each month. If you'd rather own it outright, you can also buy it for a one-off €1,500.",
+          a: "It's a one-off €1,300 + VAT, with the first year of maintenance included. It covers custom design, technical SEO, Lighthouse 95+, hosting, domain, optimized Google Maps profile, reviews system and direct WhatsApp support. The site is yours, with no monthly fees. From the second year, maintenance is €600/year.",
         },
         {
           q: "Can you work in Bilbao, Donostia and Vitoria?",
@@ -100,17 +100,17 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "How long will the website take?",
-          a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start straight away.",
+          a: "In a week from closing the payment. Since there's no upfront cost, we can start straight away.",
         },
         {
           q: "What does the monthly fee include?",
-          a: "The €149/month covers hosting, domain, SSL, a Google Maps profile monitored every month, reviews system, WhatsApp support and the minor changes each month (text, photos, prices, hours, adding a service). No extra invoices. No lock-in: just a 3-month minimum activation and you cancel whenever you want.",
+          a: "The first year includes hosting, domain, SSL, a monitored Google Maps profile, reviews system, WhatsApp support and content changes (text, photos, prices, hours, adding a service). From the second year, maintenance is €600/year (around €50/month, billed once a year). No extra invoices.",
         },
       ]
     : [
         {
           q: `Zenbat kostatzen da web profesional bat ${regionName}n?`,
-          a: "Nire plan ohikoena Dena Barne da: 0€ sinatzean eta 149€/hil kuota finkoa, iraupenik gabe (3 hilabeteko gutxieneko aktibazioa besterik ez). Diseinu pertsonalizatua, SEO teknikoa, Lighthouse 95+, hosting-a, domeinua, Google Maps fitxa optimizatua, iritzi-sistema eta WhatsApp bidezko zuzeneko laguntza barne. Hasierako kosturik gabe eta hileko faktura gehigarririk gabe. Jabetzan nahiago baduzu, 1.500€-ko ordainketa bakarrean ere eros dezakezu.",
+          a: "1.300€ + BEZ ordainketa bakarra da, lehen urteko mantentze-lana barne. Diseinu pertsonalizatua, SEO teknikoa, Lighthouse 95+, hosting-a, domeinua, Google Maps fitxa optimizatua, iritzi-sistema eta WhatsApp bidezko zuzeneko laguntza barne. Weba zurea da, hileko kuotarik gabe. Bigarren urtetik aurrera, mantentze-lana 600€/urteko da.",
         },
         {
           q: "Bilbon, Donostian eta Gasteizen egin dezakezu lan?",
@@ -126,11 +126,11 @@ export default async function PaisVascoPage({ params }: Props) {
         },
         {
           q: "Zenbat denboran egongo da prest?",
-          a: "Sinatu eta 7-10 egunera. Hasierako kosturik ez dagoenez, berehala hasi gaitezke.",
+          a: "Aste batean sinatu eta gero. Hasierako kosturik ez dagoenez, berehala hasi gaitezke.",
         },
         {
           q: "Zer dakar hileko kuotak?",
-          a: "149€/hilek hosting-a, domeinua, SSL, hilero zaindutako Google Maps fitxa, iritzi-sistema, WhatsApp bidezko laguntza eta hileko aldaketa txikiak (testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat eranstea) hartzen ditu. Faktura gehigarririk gabe. Iraupenik gabe: 3 hilabeteko gutxieneko aktibazioa besterik ez eta gero nahi duzunean baja eman.",
+          a: "Lehen urteak hosting-a, domeinua, SSL, zaindutako Google Maps fitxa, iritzi-sistema, WhatsApp laguntza eta edukiaren aldaketak (testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat eranstea) hartzen ditu. Bigarren urtetik aurrera, mantentze-lana 600€/urteko da (50€/hilean inguru, urtean behin fakturatua). Faktura gehigarririk gabe.",
         },
       ];
 
@@ -261,7 +261,7 @@ export default async function PaisVascoPage({ params }: Props) {
             style={{ color: "var(--color-ink-muted)", fontFamily: "var(--font-sans)" }}
           >
             {locale === "es"
-              ? `Soy Unax Aller, diseñador web freelance en Irun. Trabajo con negocios de Bizkaia, Gipuzkoa y Álava, y una ventaja juega a tu favor que casi nadie aprovecha: estamos en zona de frontera, y monto las webs en castellano, euskera, inglés y francés para que también te encuentre el cliente que cruza desde Francia. Webs rápidas en el móvil, que salen en Google y hacen sonar el teléfono, por 149€/mes, sin pagar nada al firmar.`
+              ? `Soy Unax Aller, diseñador web freelance en Irun. Trabajo con negocios de Bizkaia, Gipuzkoa y Álava, y una ventaja juega a tu favor que casi nadie aprovecha: estamos en zona de frontera, y monto las webs en castellano, euskera, inglés y francés para que también te encuentre el cliente que cruza desde Francia. Webs rápidas en el móvil, que salen en Google y hacen sonar el teléfono, por un pago único de 1.300€ + IVA, con el primer año incluido.`
               : locale === "en"
               ? `I'm Unax Aller, a freelance web designer based in Irun with clients in Bizkaia, Gipuzkoa and Álava. I build trilingual websites (Spanish, English and Basque) that rank on Google and convert visitors into clients.`
               : `Unax Aller naiz, Irunen oinarritutako web diseinatzaile freelancea, Bizkaia, Gipuzkoa eta Arabako bezeroekin. Hiru hizkuntzatako webguneak egiten ditut (gaztelania, ingelesa eta euskara) Googlen agertu eta bisitariak bezero bihurtzen dituztenak.`}

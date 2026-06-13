@@ -19,14 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Precios: Web para negocio local · 149€/mes, 0€ inicial · Unax Aller",
-    en: "Pricing: Web for local business · €149/month, €0 upfront · Unax Aller",
-    eu: "Prezioak: Web tokiko negoziorako · 149€/hilean, 0€ hasieran · Unax Aller",
+    es: "Precios: Web para negocio local · 1.300€ pago único · Unax Aller",
+    en: "Pricing: Web for local business · €1,300 one-off · Unax Aller",
+    eu: "Prezioak: Web tokiko negoziorako · 1.300€ ordainketa bakarra · Unax Aller",
   };
   const descriptions: Record<string, string> = {
-    es: "Tu web profesional sin pagar nada al empezar. 149€/mes sin permanencia con todo incluido: diseño a medida, Google Maps optimizado, reseñas, dominio, hosting y soporte por WhatsApp. 0€ inicial y 30 días de garantía.",
-    en: "Your professional website with no upfront cost. €149/month with no lock-in: custom design, Google Maps optimization, reviews system, domain, hosting and WhatsApp support all included. €0 upfront and a 30-day money-back guarantee.",
-    eu: "Zure web profesionala hasieran ezer ordaindu gabe. 149€/hilean iraupenik gabe dena barne: neurrira egindako diseinua, Google Maps optimizatua, iritziak, domeinua, hostinga eta WhatsApp bidezko laguntza. 0€ hasieran eta 30 eguneko bermea.",
+    es: "Tu web profesional por un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido: diseño a medida, Google Maps optimizado, reseñas, dominio, hosting y soporte por WhatsApp. A partir del año 2, 600€/año. 30 días de garantía.",
+    en: "Your professional website for a one-off €1,300 + VAT, with the first year of maintenance included: custom design, Google Maps optimization, reviews system, domain, hosting and WhatsApp support. From year 2, €600/year. 30-day money-back guarantee.",
+    eu: "Zure web profesionala 1.300€ + BEZ ordainketa bakarrean, lehen urteko mantentze-lana barne: neurrira egindako diseinua, Google Maps optimizatua, iritziak, domeinua, hostinga eta WhatsApp laguntza. 2. urtetik, 600€/urteko. 30 eguneko bermea.",
   };
 
   const title = titles[locale];
@@ -55,32 +55,32 @@ export default async function PreciosPage({ params }: Props) {
 
   const faqItems = locale === "es"
     ? [
-        { q: "¿Cuál de los tres planes me conviene?", a: "La mayoría elige Todo Incluido (0€ al empezar, 149€/mes) porque no suelta dinero de golpe y se desentiende de todo: web, hosting, Google Maps, reseñas y cambios cubiertos. El pago único (1.500€) es para quien prefiere tenerla en propiedad desde el principio. El \"solo web\" (1.300€) existe para quien quiere únicamente el código y se ocupa él del hosting, el dominio y el mantenimiento. La mayoría descarta esa opción en cuanto ve todo lo que tiene que gestionar por su cuenta." },
-        { q: "¿Por qué Todo Incluido sale más a cuenta que el pago único?", a: "Porque en el pago único sueltas 1.500€ de golpe y, a partir del primer año, el hosting, el dominio, el mantenimiento y cada cambio van por tu cuenta o se presupuestan aparte. En Todo Incluido empiezas con 0€, todo queda cubierto mientras la uses y, si no funciona, te vas sin permanencia. Una cuota fija como la del gestor, y la web empieza a trabajar desde el primer día, no cuando tengas el dinero ahorrado." },
-        { q: "¿Qué incluyen exactamente los cambios ilimitados?", a: "Cambios de contenido: textos, fotos, precios, horarios, añadir un servicio o ajustar la ficha de Google. Todo lo que un negocio necesita ir actualizando, el mismo día y por WhatsApp. No incluye rediseñar de cero toda la estructura de la web. Eso ya es un proyecto nuevo y se cotiza aparte. El día a día de tu negocio está cubierto sin facturas extra." },
-        { q: "¿Y si no me gusta el resultado? ¿Me quedo la web gratis?", a: "Tienes 30 días desde el lanzamiento para que te devuelva cada euro, sin dar explicaciones. Pero la garantía es de devolución del dinero, no una web gratis: si pides el reembolso, te devuelvo lo pagado y la web se apaga. Es justo para los dos. Si lo que quieres es tenerla en propiedad, esa es la opción de pago único." },
-        { q: "¿Y si dentro de un tiempo me canso de pagar la cuota?", a: "No estás atrapado en ningún contrato largo. El plan Todo Incluido es sin permanencia: el único compromiso es un mínimo de 3 meses de activación (para dar de alta el dominio, montar el SEO local y la ficha de Google); a partir del cuarto mes cancelas cuando quieras, solo avisando. Funciona como cualquier servicio: mientras mantienes la cuota, yo me encargo de todo y tu web sigue trabajando; si la dejas, se apaga. El dominio y tu ficha de Google con las reseñas son tuyos desde el primer día y te los llevas. Si lo que buscas es tener el código en propiedad desde el principio, para eso está el plan de pago único." },
-        { q: "¿La web es mía o tuya?", a: "El dominio lo registro a tu nombre desde el primer día y es tuyo siempre. En Todo Incluido, el código y el hosting van sobre mi sistema, igual que el programa de facturación del taller o el teléfono de empresa: pagas la cuota y te desentiendes de todo. Si te das de baja, el dominio y tu ficha de Google Maps con las reseñas se quedan contigo y la web se apaga. Si quieres el código en propiedad, para eso está el plan de pago único." },
-        { q: "¿Cuándo está lista la web?", a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida." },
+        { q: "¿Qué incluye exactamente el pago de 1.300€?", a: "Toda la web programada a mano, lista para captar clientes desde el móvil: diseño a medida, hasta 5 secciones, ficha de Google Maps optimizada y sistema de reseñas. Y el primer año de mantenimiento entero: dominio, hosting, los cambios de contenido que necesites y soporte por WhatsApp el mismo día. Es un pago único, más IVA. No hay cuota mensual." },
+        { q: "¿Y a partir del segundo año qué pago?", a: "600€ al año (unos 50€/mes, pero se factura una vez al año, no mes a mes). Eso mantiene tu web online, el dominio renovado a tu nombre, las copias de seguridad al día y tu ficha de Google cuidada. Es lo que cuesta que la web siga viva y trabajando, sin que tú tengas que ocuparte de nada técnico." },
+        { q: "¿Por qué un pago único y no una cuota mensual?", a: "Porque para la mayoría de negocios la web es algo que se hace una vez y luego se olvida que está ahí, trabajando en segundo plano. No tiene sentido pagar una cuota cada mes por algo que ya está hecho. Pagas una vez, la tienes, y solo renuevas el mantenimiento una vez al año. Sin recibos colgando cada mes." },
+        { q: "¿Qué incluyen los cambios de contenido del primer año?", a: "Textos, fotos, precios, horarios, añadir un servicio o ajustar la ficha de Google. Todo lo que un negocio necesita ir actualizando, el mismo día y por WhatsApp. No incluye rediseñar de cero toda la estructura de la web: eso ya es un proyecto nuevo y se cotiza aparte. El día a día de tu negocio está cubierto sin facturas extra." },
+        { q: "¿Y si no me gusta el resultado?", a: "Tienes 30 días desde el lanzamiento para que te devuelva cada euro, sin dar explicaciones. Es una garantía de devolución del dinero: si pides el reembolso, te devuelvo lo pagado y la web se apaga. Es justo para los dos." },
+        { q: "¿La web es mía?", a: "Sí. El dominio se registra a tu nombre desde el primer día y es tuyo siempre. La web es tuya tras el pago, no la alquilas. El mantenimiento anual es para tenerla online y cuidada, pero la propiedad es tuya desde que la entrego, con tu ficha de Google y tus reseñas incluidas." },
+        { q: "¿Cuándo está lista la web?", a: "En una semana desde que cerramos el pago. Arrancamos enseguida." },
       ]
     : locale === "en"
     ? [
-        { q: "Which of the three plans is right for me?", a: "Most pick All-Inclusive (€0 to start, €149/month) because they'd rather not pay a lump sum and want everything handled: site, hosting, Google Maps, reviews and changes all covered. The one-off purchase (€1,500) is for those who prefer to own it from the start. The \"web only\" option (€1,300) is for someone who just wants the code and will sort out hosting, domain and maintenance themselves. Most rule that out as soon as they see how much they'd have to manage alone." },
-        { q: "Why does All-Inclusive work out better than the one-off?", a: "Because with the one-off you pay €1,500 up front and, after the first year, hosting, domain, maintenance and every change are on you or quoted separately. With All-Inclusive you start at €0, everything stays covered for as long as you use it, and if it doesn't work you leave with no lock-in. A flat fee like your accountant, and the site starts working from day one, not when you've saved up." },
-        { q: "What exactly is included in the unlimited changes?", a: "Content changes: text, photos, prices, opening hours, adding a service or tweaking the Google profile. Anything a business needs to keep current, same day and over WhatsApp. It doesn't cover redesigning the whole site structure from scratch. That's a new project, quoted separately. Your day-to-day is covered with no extra invoices." },
-        { q: "What if I don't like the result? Do I keep the site for free?", a: "You have 30 days from launch to get every euro back, no explanation required. But it's a money-back guarantee, not a free site: if you ask for the refund, I return what you paid and the site switches off. It's fair both ways. If what you want is to own it, that's the one-off option." },
-        { q: "What if I get tired of paying the fee down the line?", a: "You're not trapped in any long contract. The All-Inclusive plan has no lock-in: the only commitment is a 3-month minimum activation (to register the domain, set up local SEO and the Google profile); from the fourth month you cancel whenever you want, just by letting me know. It works like any service: while you keep the subscription, I handle everything and your site keeps working; if you stop, it switches off. The domain and your Google listing with the reviews are yours from day one and you take them with you. If what you want is to own the code from the start, that's what the one-off plan is for." },
-        { q: "Is the website mine or yours?", a: "The domain is registered in your name from day one and is always yours. On All-Inclusive, the code and hosting run on my system, like the workshop's invoicing software or the company phone: you pay the fee and don't have to think about it. If you leave, the domain and your Google listing with the reviews stay with you and the site switches off. If you want to own the code, that's what the one-off plan is for." },
-        { q: "How fast is the site ready?", a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start immediately." },
+        { q: "What exactly does the €1,300 cover?", a: "The whole hand-built site, ready to capture customers from a phone: custom design, up to 5 sections, optimized Google Maps profile and reviews system. Plus the entire first year of maintenance: domain, hosting, the content changes you need and same-day WhatsApp support. It's a one-off payment, plus VAT. There's no monthly fee." },
+        { q: "And from the second year, what do I pay?", a: "€600 a year (around €50/month, but billed once a year, not month by month). That keeps your site online, the domain renewed in your name, backups up to date and your Google profile looked after. It's what it costs to keep the site alive and working, without you having to handle anything technical." },
+        { q: "Why a one-off payment and not a monthly fee?", a: "Because for most businesses the website is something you build once and then forget is there, working in the background. There's no point paying a fee every month for something that's already done. You pay once, you own it, and you only renew the maintenance once a year. No invoices hanging over you every month." },
+        { q: "What do the first-year content changes include?", a: "Text, photos, prices, opening hours, adding a service or tweaking the Google profile. Anything a business needs to keep current, same day and over WhatsApp. It doesn't cover redesigning the whole site structure from scratch: that's a new project, quoted separately. Your day-to-day is covered with no extra invoices." },
+        { q: "What if I don't like the result?", a: "You have 30 days from launch to get every euro back, no explanation required. It's a money-back guarantee: if you ask for the refund, I return what you paid and the site switches off. It's fair both ways." },
+        { q: "Is the website mine?", a: "Yes. The domain is registered in your name from day one and is always yours. The site is yours after payment — you don't rent it. The annual maintenance keeps it online and looked after, but ownership is yours from the moment I hand it over, with your Google listing and reviews included." },
+        { q: "How fast is the site ready?", a: "In a week from closing the payment. We start right away." },
       ]
     : [
-        { q: "Hiru planetatik zein komeni zait?", a: "Gehienek Dena Barne aukeratzen dute (0€ hasieran, 149€/hilean), dirua batera ez botatzeagatik eta dena kudeatuta nahi dutelako: weba, hostinga, Google Maps, iritziak eta aldaketak estalita. Ordainketa bakarra (1.500€) hasieratik jabetzan nahi duenarentzat da. \"Web soila\" aukera (1.300€) kodea bakarrik nahi duenarentzat da, hostinga, domeinua eta mantentzea berak kudeatzen dituela. Gehienek aukera hori baztertzen dute bakarrik zenbat kudeatu behar duten ikusi orduko." },
-        { q: "Zergatik komeni da Dena Barne ordainketa bakarra baino gehiago?", a: "Ordainketa bakarrean 1.500€ batera ordaintzen dituzulako eta, lehen urtetik aurrera, hostinga, domeinua, mantentzea eta aldaketa bakoitza zure kontura edo aparte aurrekontatuta doazelako. Dena Barnen 0€-rekin hasten zara, dena estalita geratzen da erabiltzen duzun bitartean eta, funtzionatzen ez badu, iraupenik gabe joaten zara. Gestorearena bezalako kuota finkoa, eta weba lehen egunetik lanean hasten da." },
-        { q: "Zer dira zehazki aldaketa mugagabeak?", a: "Edukiaren aldaketak: testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat gehitu edo Google fitxa egokitu. Negozio batek eguneratu behar duen guztia, egun berean eta WhatsApp bidez. Ez du barne hartzen web osoaren egitura zerotik birdiseinatzea. Hori proiektu berria da eta aparte aurrekontatzen da. Zure eguneroko jarduna estalita dago faktura gehigarririk gabe." },
-        { q: "Eta emaitza gustatzen ez bazait? Weba doan geratzen zait?", a: "30 egun dituzu abian jartzen denetik euro bakoitza itzul diezazudan, azalpenik eman gabe. Baina dirua itzultzeko bermea da, ez web doakoa: itzulketa eskatzen baduzu, ordaindutakoa itzultzen dizut eta weba itzaltzen da. Bidezkoa da bientzat. Jabetzan nahi baduzu, hori da ordainketa bakarreko aukera." },
-        { q: "Eta denborarekin kuota ordaintzeaz nekatzen banaiz?", a: "Ez zaude kontratu luze batean harrapatuta. Dena Barne plana iraupenik gabekoa da: konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da (domeinua altan emateko, tokiko SEOa eta Google fitxa muntatzeko); laugarren hilabetetik aurrera nahi duzunean baja ematen duzu, abisatuz besterik ez. Edozein zerbitzu bezala funtzionatzen du: kuota mantentzen duzun bitartean, nik dena kudeatzen dut eta zure webak lanean jarraitzen du; uzten baduzu, itzaltzen da. Domeinua eta zure iritziak dituen Google fitxa zureak dira lehen egunetik eta zurekin eramaten dituzu. Kodea hasieratik jabetzan izan nahi baduzu, horretarako dago ordainketa bakarreko plana." },
-        { q: "Weba nirea da edo zurea?", a: "Domeinua zure izenean erregistratzen da lehen egunetik eta beti zurea da. Dena Barnen, kodea eta hostinga nire sisteman doaz, tailerreko fakturazio-softwarea edo enpresako telefonoa bezala: kuota ordaintzen duzu eta ez duzu ezertan pentsatu behar. Joaten bazara, domeinua eta zure iritziak dituen Google fitxa zurekin geratzen dira eta weba itzaltzen da. Kodea jabetzan nahi baduzu, horretarako dago ordainketa bakarreko plana." },
-        { q: "Noiz dago weba prest?", a: "7 eta 10 egun artean sinatzen dugun unetik. Hasierako desenbolsorik ez dagoenez, berehala has gaitezke." },
+        { q: "Zer barne hartzen du zehazki 1.300€-ko ordainketak?", a: "Eskuz egindako web osoa, mugikorretik bezeroak harrapatzeko prest: neurrira egindako diseinua, 5 atal arte, Google Maps fitxa optimizatua eta iritzi sistema. Eta lehen urteko mantentze-lan osoa: domeinua, hostinga, behar dituzun edukiaren aldaketak eta egun bereko WhatsApp laguntza. Ordainketa bakarra da, gehi BEZ. Ez dago hileko kuotarik." },
+        { q: "Eta bigarren urtetik aurrera zer ordaintzen dut?", a: "600€ urtean (50€/hilean inguru, baina urtean behin fakturatzen da, ez hilez hil). Horrek zure weba sarean mantentzen du, domeinua zure izenean berrituta, segurtasun-kopiak egunean eta zure Google fitxa zainduta. Weba bizirik eta lanean jarraitzeko kostua da, zuk ezer tekniko egin behar izan gabe." },
+        { q: "Zergatik ordainketa bakarra eta ez hileko kuota?", a: "Negozio gehienentzat weba behin egiten den eta gero hor dagoela ahazten den zerbait delako, atzeko planoan lanean. Ez du zentzurik dagoeneko eginda dagoen zerbaitengatik hilero kuota bat ordaintzeak. Behin ordaintzen duzu, zurea da, eta mantentze-lana urtean behin bakarrik berritzen duzu. Hilero zintzilik dauden ordainagiririk gabe." },
+        { q: "Zer barne hartzen dute lehen urteko edukiaren aldaketek?", a: "Testuak, argazkiak, prezioak, ordutegiak, zerbitzu bat gehitu edo Google fitxa egokitu. Negozio batek eguneratu behar duen guztia, egun berean eta WhatsApp bidez. Ez du barne hartzen web osoaren egitura zerotik birdiseinatzea: hori proiektu berria da eta aparte aurrekontatzen da. Zure eguneroko jarduna estalita dago faktura gehigarririk gabe." },
+        { q: "Eta emaitza gustatzen ez bazait?", a: "30 egun dituzu abian jartzen denetik euro bakoitza itzul diezazudan, azalpenik eman gabe. Dirua itzultzeko bermea da: itzulketa eskatzen baduzu, ordaindutakoa itzultzen dizut eta weba itzaltzen da. Bidezkoa da bientzat." },
+        { q: "Weba nirea da?", a: "Bai. Domeinua zure izenean erregistratzen da lehen egunetik eta beti zurea da. Weba zurea da ordainketaren ondoren, ez duzu alokatzen. Urteko mantentze-lana sarean eta zainduta edukitzeko da, baina jabetza zurea da entregatzen dudanetik, zure Google fitxa eta iritziekin barne." },
+        { q: "Noiz dago weba prest?", a: "Aste batean ordainketa ixten dugunetik. Berehala hasten gara." },
       ];
 
   const includesItems = locale === "es"
@@ -132,7 +132,7 @@ export default async function PreciosPage({ params }: Props) {
   };
 
   // Desglose exacto del valor del sistema — los 9 ítems que el cliente
-  // recibe el primer año. Total bruto: 6.770€. Lo paga por 149€×12 = 1.788€.
+  // recibe el primer año. Total bruto: 6.770€. Lo paga por 1.300€ (pago único).
   const valueBreakdown = locale === "es"
     ? [
         { label: "Diseño web profesional a medida", value: "1.500€", unit: "una vez" },
@@ -171,23 +171,23 @@ export default async function PreciosPage({ params }: Props) {
 
   const marketRows = locale === "es"
     ? [
-        { who: "Agencia local", price: "2.500 € – 5.000 € inicial", note: "Pagas todo de golpe. Mantenimiento y cambios, aparte.", highlight: false },
+        { who: "Agencia local", price: "2.500 € – 5.000 € inicial", note: "Solo el diseño. Mantenimiento y cambios, siempre aparte.", highlight: false },
         { who: "Plantilla WordPress", price: "400 € – 800 €", note: "Plantilla genérica. Nada de SEO local. Sin soporte.", highlight: false },
         { who: "Wix / Squarespace", price: "200 € – 500 €/año", note: "Te quedas sin la web cuando dejas de pagar. Lenta en móvil.", highlight: false },
-        { who: "Todo Incluido (Unax)", price: "0 € inicial + 149 €/mes", note: "Sin desembolso. Todo incluido. Soporte por WhatsApp.", highlight: true },
+        { who: "Tu web (Unax)", price: "1.300 € · 1er año incluido", note: "Pago único. Primer año entero resuelto. Luego 600 €/año.", highlight: true },
       ]
     : locale === "en"
     ? [
-        { who: "Local agency", price: "€2,500 – €5,000 upfront", note: "You pay everything in one go. Maintenance and changes are extra.", highlight: false },
+        { who: "Local agency", price: "€2,500 – €5,000 upfront", note: "Design only. Maintenance and changes, always extra.", highlight: false },
         { who: "WordPress template", price: "€400 – €800", note: "Generic template. No local SEO. No support.", highlight: false },
         { who: "Wix / Squarespace", price: "€200 – €500/year", note: "You lose the site when you stop paying. Slow on mobile.", highlight: false },
-        { who: "All-Inclusive (Unax)", price: "€0 upfront + €149/mo", note: "No upfront cost. Everything included. WhatsApp support.", highlight: true },
+        { who: "Your site (Unax)", price: "€1,300 · first year included", note: "One-off payment. Whole first year solved. Then €600/year.", highlight: true },
       ]
     : [
-        { who: "Tokiko agentzia", price: "2.500 € – 5.000 € hasieran", note: "Dena batera ordaintzen duzu. Mantentze-lana eta aldaketak, aparte.", highlight: false },
+        { who: "Tokiko agentzia", price: "2.500 € – 5.000 € hasieran", note: "Diseinua bakarrik. Mantentze-lana eta aldaketak, beti aparte.", highlight: false },
         { who: "WordPress txantiloia", price: "400 € – 800 €", note: "Txantiloi generikoa. Tokiko SEO eta laguntzarik gabe.", highlight: false },
         { who: "Wix / Squarespace", price: "200 € – 500 €/urte", note: "Ordaintzeari uzten diozunean, weba galtzen duzu.", highlight: false },
-        { who: "Dena Barne (Unax)", price: "0 € hasieran + 149 €/hilean", note: "Hasierako kosturik gabe. Dena barne. WhatsApp laguntza.", highlight: true },
+        { who: "Zure weba (Unax)", price: "1.300 € · 1. urtea barne", note: "Ordainketa bakarra. Lehen urte osoa konponduta. Gero 600 €/urteko.", highlight: true },
       ];
 
   const jsonLd = {
@@ -205,22 +205,22 @@ export default async function PreciosPage({ params }: Props) {
       {
         "@type": "Service",
         "@id": `https://unaxaller.com/${locale}/precios#product`,
-        name: locale === "es" ? "Web para negocio local: Cuota mensual todo incluido" : locale === "en" ? "Web for local business: All-inclusive monthly fee" : "Web tokiko negoziorako: Hileko kuota dena barne",
-        serviceType: locale === "es" ? "Web subscription for local business" : locale === "en" ? "Web subscription for local business" : "Web subscription for local business",
+        name: locale === "es" ? "Web para negocio local: pago único con primer año incluido" : locale === "en" ? "Web for local business: one-off payment, first year included" : "Web tokiko negoziorako: ordainketa bakarra, lehen urtea barne",
+        serviceType: locale === "es" ? "Web design for local business" : locale === "en" ? "Web design for local business" : "Web design for local business",
         description: locale === "es"
-          ? "Web profesional para negocios locales con cuota mensual todo incluido: diseño, hosting, dominio, SEO local, Google Business Profile, sistema de reseñas y soporte por WhatsApp. 0€ inicial. 30 días de garantía de devolución. Sin permanencia (mínimo de 3 meses de activación), cuota bloqueada. Valor del sistema el primer año: más de 6.700€."
+          ? "Web profesional para negocios locales por un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido: diseño, hosting, dominio, SEO local, Google Business Profile, sistema de reseñas y soporte por WhatsApp. A partir del segundo año, mantenimiento de 600€/año. 30 días de garantía de devolución. Valor del sistema el primer año: más de 6.700€."
           : locale === "en"
-          ? "Professional website for local businesses with an all-inclusive monthly fee: design, hosting, domain, local SEO, Google Business Profile, reviews system and WhatsApp support. €0 upfront. 30-day money-back guarantee. No lock-in (3-month minimum activation), price locked. First-year system value: over €6,700."
-          : "Tokiko negozioentzako web profesionala hileko kuota guztiarekin: diseinua, hostinga, domeinua, tokiko SEOa, Google Business Profile, iritzien sistema eta WhatsApp laguntza. 0€ hasieran. 30 eguneko itzulketa bermea. Iraupenik gabe (3 hilabeteko gutxieneko aktibazioa), kuota blokeatuta.",
+          ? "Professional website for local businesses for a one-off €1,300 + VAT, with the first year of maintenance included: design, hosting, domain, local SEO, Google Business Profile, reviews system and WhatsApp support. From the second year, €600/year maintenance. 30-day money-back guarantee. First-year system value: over €6,700."
+          : "Tokiko negozioentzako web profesionala 1.300€ + BEZ ordainketa bakarrean, lehen urteko mantentze-lana barne: diseinua, hostinga, domeinua, tokiko SEOa, Google Business Profile, iritzien sistema eta WhatsApp laguntza. Bigarren urtetik, 600€/urteko mantentze-lana. 30 eguneko itzulketa bermea.",
         provider: { "@id": "https://unaxaller.com/#business" },
         brand: { "@id": "https://unaxaller.com/#business" },
         category: locale === "es" ? "Diseño web para negocio local" : locale === "en" ? "Web design for local business" : "Web diseinua tokiko negoziorako",
         image: `https://unaxaller.com/${locale}/opengraph-image`,
         // The 9 line items that make up the bundle — gives Google explicit
-        // visibility into what the cuota covers.
+        // visibility into what the one-off price covers the first year.
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: locale === "es" ? "Lo que incluye el plan Todo Incluido" : locale === "en" ? "What the All-Inclusive plan includes" : "Zer barne hartzen duen Dena Barne planak",
+          name: locale === "es" ? "Lo que incluye el primer año" : locale === "en" ? "What's included the first year" : "Lehen urtean barne dagoena",
           itemListElement: [
             { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Diseño web profesional a medida" : locale === "en" ? "Custom professional web design" : "Web diseinu profesional pertsonalizatua" }, price: "1500", priceCurrency: "EUR" },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Optimización móvil completa" : locale === "en" ? "Full mobile optimization" : "Mugikorrerako optimizazio osoa" }, price: "400", priceCurrency: "EUR" },
@@ -237,13 +237,12 @@ export default async function PreciosPage({ params }: Props) {
           "@type": "Offer",
           "@id": `https://unaxaller.com/${locale}/precios#offer`,
           priceCurrency: "EUR",
-          price: "149",
+          price: "1300",
           priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "149",
+            "@type": "PriceSpecification",
+            price: "1300",
             priceCurrency: "EUR",
-            unitCode: "MON",
-            referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" },
+            valueAddedTaxIncluded: false,
           },
           // 30-day money-back guarantee — schema.org property that surfaces in
           // some Google rich results and is read by AI search engines.
@@ -309,51 +308,51 @@ export default async function PreciosPage({ params }: Props) {
         .prc-hero-mark { position:absolute;top:-6rem;right:-6rem;width:520px;height:auto;opacity:.05;pointer-events:none;user-select:none;transform:rotate(-8deg); }
         @media(max-width:768px){ .prc-hero-mark{width:320px;top:-3rem;right:-4rem;opacity:.06} }
         .prc-hero-inner { position:relative;z-index:1;animation:prcFadeUp 0.7s cubic-bezier(.16,1,.3,1) both;max-width:780px; }
-        .prc-chip { display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(2, 6, 23, .12);color:var(--color-ink);border-radius:var(--radius-full);padding:.35rem .85rem;font-size:var(--text-xs);font-family:var(--font-sans);font-weight:500;animation:prcChipIn .6s cubic-bezier(.16,1,.3,1) .3s both;box-shadow:0 1px 2px rgba(2,6,23,.04); }
+        .prc-chip { display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(10, 10, 10, .12);color:var(--color-ink);border-radius:var(--radius-full);padding:.35rem .85rem;font-size:var(--text-xs);font-family:var(--font-sans);font-weight:500;animation:prcChipIn .6s cubic-bezier(.16,1,.3,1) .3s both;box-shadow:0 1px 2px rgba(2,6,23,.04); }
         .prc-chip--accent { background:var(--color-ink);color:#fff;border-color:var(--color-ink); }
         .prc-chips { display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-6); }
-        .prc-progress-bar-wrap { width:100%;height:2px;background:rgba(3, 105, 161, .08);border-radius:var(--radius-full);overflow:hidden;margin-top:var(--space-10); }
+        .prc-progress-bar-wrap { width:100%;height:2px;background:rgba(10, 10, 10, .08);border-radius:var(--radius-full);overflow:hidden;margin-top:var(--space-10); }
         .prc-progress-bar { height:100%;background:linear-gradient(to right,var(--color-success),var(--color-accent),transparent);border-radius:var(--radius-full);animation:prcProgressBar 1.2s ease-out .4s both;width:0%; }
         .prc-includes-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4); }
         @media(max-width:640px){ .prc-includes-grid{grid-template-columns:1fr} }
-        .prc-include-item { position:relative;background:#fff;border:1px solid rgba(2, 6, 23, .08);border-radius:var(--radius-xl);padding:1.75rem;display:flex;flex-direction:column;gap:var(--space-3);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;overflow:hidden; }
-        .prc-include-item::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#dc2626;opacity:.85; }
-        .prc-include-item:hover { transform:translateY(-2px);border-color:rgba(2, 6, 23, .15);box-shadow:0 12px 32px rgba(2,6,23,.08); }
-        .prc-include-icon { display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:var(--radius-lg);background:color-mix(in srgb,#dc2626 10%,transparent);color:#dc2626;margin-bottom:var(--space-1);transition:transform .25s var(--ease-out),background-color .25s var(--ease-out); }
-        .prc-include-item:hover .prc-include-icon { transform:scale(1.08) rotate(-3deg);background:color-mix(in srgb,#dc2626 16%,transparent); }
+        .prc-include-item { position:relative;background:#fff;border:1px solid rgba(10, 10, 10, .08);border-radius:var(--radius-xl);padding:1.75rem;display:flex;flex-direction:column;gap:var(--space-3);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;overflow:hidden; }
+        .prc-include-item::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#0A0A0A;opacity:.85; }
+        .prc-include-item:hover { transform:translateY(-2px);border-color:rgba(10, 10, 10, .15);box-shadow:0 12px 32px rgba(2,6,23,.08); }
+        .prc-include-icon { display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:var(--radius-lg);background:color-mix(in srgb,#0A0A0A 10%,transparent);color:#0A0A0A;margin-bottom:var(--space-1);transition:transform .25s var(--ease-out),background-color .25s var(--ease-out); }
+        .prc-include-item:hover .prc-include-icon { transform:scale(1.08) rotate(-3deg);background:color-mix(in srgb,#0A0A0A 16%,transparent); }
         .prc-include-title { font-family:var(--font-sans);font-size:var(--text-md);font-weight:600;color:var(--color-ink); }
         .prc-include-desc { font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink-muted);line-height:var(--lh-relaxed); }
         .prc-value-section { background:var(--color-bg-alt);padding-block:var(--space-16); }
         .prc-value-intro { text-align:center;color:var(--color-ink-muted);font-family:var(--font-sans);font-size:var(--text-md);max-width:640px;margin:0 auto var(--space-8);line-height:var(--lh-relaxed); }
         .prc-value-grid { display:flex;flex-direction:column;gap:var(--space-2);max-width:720px;margin:0 auto; }
-        .prc-value-row { display:grid;grid-template-columns:1fr auto auto;gap:var(--space-4);align-items:center;padding:1rem 1.25rem;border-radius:var(--radius-lg);border:1px solid rgba(3, 105, 161, .10);background:var(--color-bg-alt);font-family:var(--font-sans);font-size:var(--text-sm); }
+        .prc-value-row { display:grid;grid-template-columns:1fr auto auto;gap:var(--space-4);align-items:center;padding:1rem 1.25rem;border-radius:var(--radius-lg);border:1px solid rgba(10, 10, 10, .10);background:var(--color-bg-alt);font-family:var(--font-sans);font-size:var(--text-sm); }
         @media(max-width:640px){ .prc-value-row{grid-template-columns:1fr auto;gap:var(--space-2) var(--space-3)} .prc-value-unit{grid-column:1 / -1;font-size:var(--text-xs);color:var(--color-ink-subtle);margin-top:-.25rem} }
         .prc-value-label { color:var(--color-ink); }
         .prc-value-amount { color:var(--color-ink-muted);font-variant-numeric:tabular-nums;font-weight:600; }
         .prc-value-unit { color:var(--color-ink-subtle);font-size:var(--text-xs);text-align:right;min-width:5rem; }
-        .prc-value-total { display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:1.25rem;border-radius:var(--radius-lg);background:linear-gradient(90deg,rgba(4, 120, 87, .10),rgba(3, 105, 161, .06));border:1px solid rgba(4, 120, 87, .25);font-family:var(--font-sans);font-size:var(--text-md);margin-top:var(--space-3); }
+        .prc-value-total { display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:1.25rem;border-radius:var(--radius-lg);background:linear-gradient(90deg,rgba(4, 120, 87, .10),rgba(10, 10, 10, .06));border:1px solid rgba(4, 120, 87, .25);font-family:var(--font-sans);font-size:var(--text-md);margin-top:var(--space-3); }
         .prc-value-total-num { color:var(--color-success);font-weight:700;font-size:var(--text-lg);font-variant-numeric:tabular-nums }
         .prc-value-vs { text-align:center;margin-top:var(--space-4);font-family:var(--font-sans);font-size:var(--text-sm);color:var(--color-ink-muted);line-height:var(--lh-relaxed); }
         .prc-value-vs strong { color:var(--color-success) }
         .prc-market-section { background:var(--color-bg);padding-block:var(--space-16); }
         .prc-market-grid { display:flex;flex-direction:column;gap:var(--space-2); }
-        .prc-market-row { display:grid;grid-template-columns:1fr 1fr 2fr;gap:var(--space-4);align-items:center;padding:1rem 1.25rem;border-radius:var(--radius-lg);border:1px solid rgba(3, 105, 161, .10);background:var(--color-bg-alt);font-family:var(--font-sans);font-size:var(--text-sm); }
+        .prc-market-row { display:grid;grid-template-columns:1fr 1fr 2fr;gap:var(--space-4);align-items:center;padding:1rem 1.25rem;border-radius:var(--radius-lg);border:1px solid rgba(10, 10, 10, .10);background:var(--color-bg-alt);font-family:var(--font-sans);font-size:var(--text-sm); }
         @media(max-width:640px){ .prc-market-row{grid-template-columns:1fr;gap:var(--space-1)} }
-        .prc-market-row--highlight { background:linear-gradient(90deg,rgba(4, 120, 87, .06) 0%,rgba(3, 105, 161, .04) 100%);border-color:rgba(3, 105, 161, .2);border-left:3px solid var(--color-success); }
+        .prc-market-row--highlight { background:linear-gradient(90deg,rgba(4, 120, 87, .06) 0%,rgba(10, 10, 10, .04) 100%);border-color:rgba(10, 10, 10, .2);border-left:3px solid var(--color-success); }
         .prc-market-who { color:var(--color-ink);font-weight:600; }
         .prc-market-price { color:var(--color-ink-muted); }
         .prc-market-row--highlight .prc-market-price { color:var(--color-success);font-weight:700; }
-        .prc-market-note { color:rgba(2, 6, 23, .40);font-size:var(--text-xs); }
+        .prc-market-note { color:rgba(10, 10, 10, .40);font-size:var(--text-xs); }
         .prc-faq-section { background:var(--color-bg-alt);padding-block:var(--space-16); }
         .prc-cta-section { background:var(--color-ink);color:#fff;padding-block:var(--space-16);text-align:center;position:relative;overflow:hidden; }
         .prc-cta-section::before { content:'';position:absolute;top:-6rem;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(220,38,38,.12) 0%,transparent 60%);pointer-events:none; }
         .prc-cta-inner { position:relative;z-index:1; }
-        .prc-cta-section .lp-eyebrow { color:#dc2626; }
+        .prc-cta-section .lp-eyebrow { color:#0A0A0A; }
         .prc-cta-section h2 { color:#fff;font-family:var(--font-serif); }
         .prc-cta-section .prc-cta-lead { color:rgba(255,255,255,.72); }
         .prc-cta-footnote { margin-top:var(--space-4);font-family:var(--font-sans);font-size:var(--text-xs);color:rgba(255,255,255,.5); }
         /* Button overrides for dark CTA section */
-        .prc-cta-section .btn-primary { background:#dc2626;color:#fff;border-color:#dc2626;box-shadow:0 8px 24px rgba(220,38,38,.35); }
+        .prc-cta-section .btn-primary { background:#0A0A0A;color:#fff;border-color:#0A0A0A;box-shadow:0 8px 24px rgba(220,38,38,.35); }
         .prc-cta-section .btn-primary:hover { background:#ef4444;border-color:#ef4444;box-shadow:0 12px 32px rgba(220,38,38,.45);transform:translateY(-2px); }
         .prc-cta-section .btn-primary:active { transform:translateY(0); }
         .prc-cta-section .btn-secondary { background:transparent;color:#fff;border-color:rgba(255,255,255,.25); }
@@ -390,23 +389,23 @@ export default async function PreciosPage({ params }: Props) {
             </p>
             <h1 className="page-hero-title" style={{ fontFamily: "var(--font-serif)" }}>
               {locale === "es"
-                ? "Una web. Tres formas de pagarla."
+                ? "Tu web trabajando, aunque tú te olvides de ella."
                 : locale === "en"
-                ? "One website. Three ways to pay for it."
-                : "Web bat. Ordaintzeko hiru modu."}
+                ? "Your website, working while you forget it's there."
+                : "Zure weba lanean, ahaztu zaizun arren."}
             </h1>
             <p className="page-hero-subtitle">
               {locale === "es"
-                ? "La mayoría elige Todo Incluido: 149€/mes, 0€ al empezar y 30 días de garantía. Menos de 5€ al día, y un solo cliente nuevo al mes ya la paga."
+                ? "La hago una vez y queda lista para que te encuentren en Google. Un pago de 1.300€ + IVA, con el primer año entero resuelto. Y 30 días de garantía."
                 : locale === "en"
-                ? "Most pick All-Inclusive: €149/month, €0 to start and a 30-day money-back guarantee. Less than €5 a day, and one new client a month already covers it."
-                : "Gehienek Dena Barne aukeratzen dute: 149€/hilean, 0€ hasieran eta 30 eguneko bermea. Egunean 5€ baino gutxiago, eta hilean bezero berri bat nahikoa da ordaintzeko."}
+                ? "I build it once and it stays ready for people to find you on Google. A one-off €1,300 + VAT, with the whole first year solved. And a 30-day money-back guarantee."
+                : "Behin egiten dut eta prest geratzen da jendeak Google-n aurki zaitzan. 1.300€ + BEZ ordainketa bakarra, lehen urte osoa konponduta. Eta 30 eguneko bermea."}
             </p>
             <div className="prc-chips">
-              <span className="prc-chip prc-chip--accent">{locale === "es" ? "149€/mes · 0€ inicial" : locale === "en" ? "€149/mo · €0 upfront" : "149€/hil · 0€ hasieran"}</span>
+              <span className="prc-chip prc-chip--accent">{locale === "es" ? "1.300€ · pago único" : locale === "en" ? "€1,300 · one-off" : "1.300€ · ordainketa bakarra"}</span>
+              <span className="prc-chip">{locale === "es" ? "1er año incluido" : locale === "en" ? "First year included" : "1. urtea barne"}</span>
               <span className="prc-chip">{locale === "es" ? "30 días garantía" : locale === "en" ? "30-day guarantee" : "30 eguneko bermea"}</span>
-              <span className="prc-chip">{locale === "es" ? "Sin permanencia" : locale === "en" ? "No lock-in" : "Iraupenik gabe"}</span>
-              <span className="prc-chip">{locale === "es" ? "Cambios mensuales incluidos" : locale === "en" ? "Monthly changes included" : "Hileko aldaketak barne"}</span>
+              <span className="prc-chip">{locale === "es" ? "Sin cuotas mensuales" : locale === "en" ? "No monthly fees" : "Hileko kuotarik gabe"}</span>
             </div>
             <div className="prc-progress-bar-wrap" aria-hidden="true">
               <div className="prc-progress-bar" />
@@ -453,18 +452,18 @@ export default async function PreciosPage({ params }: Props) {
             </p>
             <h2 id="value-title" className="section-heading" style={{ marginBottom: "var(--space-6)", textAlign: "center" }}>
               {locale === "es"
-                ? "Más de 6.700€ de servicios. Por 149€ al mes."
+                ? "Más de 6.700€ de servicios. Por 1.300€, una vez."
                 : locale === "en"
-                ? "Over €6,700 in services. For €149/month."
-                : "6.700€-tik gorako zerbitzuak. 149€/hileko."}
+                ? "Over €6,700 in services. For €1,300, once."
+                : "6.700€-tik gorako zerbitzuak. 1.300€, behin."}
             </h2>
             <PackageVisual locale={locale} />
             <p className="prc-value-intro">
               {locale === "es"
-                ? "Gracias a las herramientas que uso a puerta cerrada, el tiempo de desarrollo se ha reducido muchísimo. Eso me permite ofrecerte el sistema completo por una cuota fija accesible, y a ti, contratar a profesional sin tener que ahorrar 3.000€ antes."
+                ? "Gracias a las herramientas que uso a puerta cerrada, el tiempo de desarrollo se ha reducido muchísimo. Eso me permite ofrecerte el sistema completo por un pago único accesible, y a ti, tener una web profesional sin pagar lo que cobra una agencia."
                 : locale === "en"
-                ? "Thanks to the tools I use behind the scenes, development time has dropped a lot. That lets me offer the full system for an accessible flat fee, and you, hire a professional without having to save €3,000 first."
-                : "Atea itxita erabiltzen ditudan tresnei esker, garatzeko denbora asko murriztu da. Horri esker, sistema osoa kuota finko eskuragarrian eskaini diezazuket, eta zuk, profesional bat kontratatu 3.000€ aurreztu behar izan gabe."}
+                ? "Thanks to the tools I use behind the scenes, development time has dropped a lot. That lets me offer the full system for an accessible one-off payment, and you, get a professional website without paying what an agency charges."
+                : "Atea itxita erabiltzen ditudan tresnei esker, garatzeko denbora asko murriztu da. Horri esker, sistema osoa ordainketa bakar eskuragarrian eskaini diezazuket, eta zuk, web profesional bat eduki agentzia batek kobratzen duena ordaindu gabe."}
             </p>
             <div className="prc-value-grid">
               {valueBreakdown.map((row, i) => (
@@ -484,10 +483,10 @@ export default async function PreciosPage({ params }: Props) {
               </div>
               <p className="prc-value-vs">
                 {locale === "es"
-                  ? <>Tú pagas <strong>149€ × 12 = 1.788€</strong> el primer año. Te ahorras casi 5.000€ y empiezas sin desembolsar ni un euro.</>
+                  ? <>Tú pagas <strong>1.300€ una vez</strong>, con el primer año entero incluido. Te ahorras más de 5.000€ frente a lo que cobra una agencia. A partir del año 2, solo 600€/año.</>
                   : locale === "en"
-                  ? <>You pay <strong>€149 × 12 = €1,788</strong> the first year. You save nearly €5,000 and start without spending a single euro.</>
-                  : <>Zuk <strong>149€ × 12 = 1.788€</strong> ordaintzen duzu lehen urtean. Ia 5.000€ aurrezten dituzu eta euro bat ere gastatu gabe hasten zara.</>}
+                  ? <>You pay <strong>€1,300 once</strong>, with the whole first year included. You save over €5,000 versus what an agency charges. From year 2, just €600/year.</>
+                  : <>Zuk <strong>1.300€ behin</strong> ordaintzen duzu, lehen urte osoa barne. 5.000€ baino gehiago aurrezten dituzu agentzia batek kobratzen duenaren aldean. 2. urtetik, 600€/urteko bakarrik.</>}
               </p>
             </div>
           </div>
@@ -572,7 +571,7 @@ export default async function PreciosPage({ params }: Props) {
               {locale === "es" ? "Pedir auditoría gratis →" : locale === "en" ? "Request free audit →" : "Doako auditoria eskatu →"}
             </Link>
             <a
-              href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20el%20plan%20Todo%20Incluido%20de%20149%E2%82%AC%2Fmes"
+              href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20la%20web%20de%201.300%E2%82%AC%20con%20el%20primer%20a%C3%B1o%20incluido"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary btn-lg focusable"

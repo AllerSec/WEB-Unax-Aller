@@ -22,9 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzaile eta Garatzailea Irunen, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance en Irun. Webs a medida para comercios, hostelería, clínicas y despachos de Irun, Hondarribia y el Bidasoa, con SEO local y Google Maps. 0€ inicial, 149€/mes.",
-    en: "Freelance web designer in Irun. Custom websites for shops, hospitality, clinics and practices in Irun, Hondarribia and the Bidasoa, with local SEO and Google Maps. €0 upfront, €149/month.",
-    eu: "Web diseinatzaile freelance Irunen. Neurrizko webguneak Irun, Hondarribia eta Bidasoako merkataritza, ostalaritza eta klinikentzat, tokiko SEO eta Google Maps-ekin. 0€ hasieran, 149€/hil.",
+    es: "Diseñador web freelance en Irun. Webs a medida para comercios, hostelería, clínicas y despachos de Irun, Hondarribia y el Bidasoa, con SEO local y Google Maps. Pago único de 1.300€ + IVA, primer año incluido.",
+    en: "Freelance web designer in Irun. Custom websites for shops, hospitality, clinics and practices in Irun, Hondarribia and the Bidasoa, with local SEO and Google Maps. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Irunen. Neurrizko webguneak Irun, Hondarribia eta Bidasoako merkataritza, ostalaritza eta klinikentzat, tokiko SEO eta Google Maps-ekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];

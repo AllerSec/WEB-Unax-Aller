@@ -69,25 +69,31 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
 
         .pt-grid{display:grid;grid-template-columns:1fr 1.18fr 1fr;gap:var(--space-4);max-width:1080px;margin:0 auto;align-items:stretch}
         @media(max-width:960px){.pt-grid{grid-template-columns:1fr;gap:var(--space-5);max-width:520px}}
+        /* Single-plan layout: one centered card, comfortable reading width */
+        .pt-grid--single{grid-template-columns:1fr;max-width:560px}
+        @media(min-width:961px){.pt-grid--single .pt-card--star{transform:none}.pt-grid--single .pt-card--star:hover{transform:translateY(-3px)}}
 
         .pt-card{position:relative;display:flex;flex-direction:column;background:#FFFFFF;border:1px solid var(--color-line);border-radius:var(--radius-2xl);padding:clamp(1.5rem,3vw,2rem) clamp(1.25rem,2.5vw,1.75rem);transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out),border-color .25s var(--ease-out)}
         .pt-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-line-strong)}
         .pt-card--star{border:2px solid var(--color-accent);box-shadow:var(--shadow-lg);background:linear-gradient(180deg,#fff 0%,#fff 70%,color-mix(in srgb,var(--color-accent) 4%,#fff) 100%)}
-        .pt-card--star:hover{box-shadow:0 20px 44px rgba(3,105,161,.18),0 6px 14px rgba(15,23,42,.06)}
+        .pt-card--star:hover{box-shadow:0 20px 44px rgba(10,10,10,.18),0 6px 14px rgba(15,23,42,.06)}
         @media(min-width:961px){.pt-card--star{transform:translateY(-12px)}.pt-card--star:hover{transform:translateY(-15px)}}
         .pt-card--decoy{background:var(--color-bg-muted);opacity:.92}
 
-        .pt-ribbon{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:var(--space-1);padding:var(--space-1) var(--space-4);border-radius:var(--radius-full);background:var(--color-accent);color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 12px rgba(3,105,161,.3)}
+        .pt-ribbon{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:var(--space-1);padding:var(--space-1) var(--space-4);border-radius:var(--radius-full);background:var(--color-accent);color:#fff;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:0 4px 12px rgba(10,10,10,.3)}
 
         .pt-name{font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent);margin:var(--space-2) 0 var(--space-2)}
         .pt-card--decoy .pt-name{color:var(--color-ink-subtle)}
         .pt-tagline{font-family:var(--font-serif);font-size:var(--text-lg);font-weight:500;line-height:var(--lh-tight);color:var(--color-ink);margin:0 0 var(--space-4);min-height:2.6em}
 
         .pt-price-block{margin-bottom:var(--space-1)}
+        .pt-price-strike{display:flex;align-items:baseline;gap:.5rem;margin:0 0 var(--space-1);font-family:var(--font-sans);flex-wrap:wrap}
+        .pt-price-strike-num{font-size:var(--text-lg);font-weight:600;color:var(--color-ink-subtle);text-decoration:line-through;text-decoration-color:var(--color-accent);font-variant-numeric:tabular-nums}
+        .pt-price-strike-label{font-size:var(--text-xs);color:var(--color-ink-subtle)}
         .pt-price{display:flex;align-items:baseline;gap:.3rem;font-family:var(--font-serif);color:var(--color-primary);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
         .pt-price-num{font-size:clamp(2.25rem,5vw,3rem);font-weight:500}
         .pt-price-unit{font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--color-ink-muted)}
-        .pt-price-upfront{font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--color-success);margin:var(--space-2) 0 0;display:flex;align-items:center;gap:.4rem}
+        .pt-price-upfront{font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--color-success);margin:var(--space-3) 0 0;display:flex;align-items:flex-start;gap:.4rem;line-height:var(--lh-normal)}
         .pt-price-upfront--muted{color:var(--color-ink-subtle);font-weight:500}
         .pt-price-note{font-family:var(--font-sans);font-size:var(--text-xs);color:var(--color-ink-subtle);margin:var(--space-1) 0 0}
 
@@ -129,7 +135,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
             <p className="pt-head-sub">{c.subtitle}</p>
           </div>
 
-          <div className="pt-grid">
+          <div className={`pt-grid${plans.length === 1 ? " pt-grid--single" : ""}`}>
             {plans.map((p, idx) => (
               <article
                 key={p.id}
@@ -137,7 +143,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
                 style={{ transitionDelay: isInView ? `${idx * 90}ms` : "0ms" }}
                 aria-label={p.name}
               >
-                {p.variant === "star" && (
+                {p.variant === "star" && plans.length > 1 && (
                   <span className="pt-ribbon">
                     <IconSparkles />
                     {c.recommended}
@@ -148,19 +154,25 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
                 <p className="pt-tagline">{p.tagline}</p>
 
                 <div className="pt-price-block">
+                  {p.strikePrice && (
+                    <p className="pt-price-strike">
+                      <span className="pt-price-strike-num">{p.strikePrice}</span>
+                      <span className="pt-price-strike-label">{c.strikeLabel}</span>
+                    </p>
+                  )}
                   <div className="pt-price">
                     <span className="pt-price-num">{p.priceNum}</span>
                     {p.priceUnit && <span className="pt-price-unit">{p.priceUnit}</span>}
+                    {p.upfront && <span className="pt-price-unit">{p.upfront}</span>}
                   </div>
-                  <p className={`pt-price-upfront${p.upfrontMuted ? " pt-price-upfront--muted" : ""}`}>
-                    {!p.upfrontMuted && (
+                  {p.priceNote && (
+                    <p className="pt-price-upfront">
                       <span className="pt-feature-ic pt-feature-ic--yes" aria-hidden="true">
                         <IconCheck />
                       </span>
-                    )}
-                    {p.upfront}
-                  </p>
-                  {p.priceNote && <p className="pt-price-note">{p.priceNote}</p>}
+                      <span>{p.priceNote}</span>
+                    </p>
+                  )}
                 </div>
 
                 {p.reframe && <p className="pt-reframe">{p.reframe}</p>}

@@ -256,22 +256,22 @@ export default async function ContactoPage({ params }: Props) {
                     {(locale === "es"
                       ? [
                           "Respuesta el mismo día por WhatsApp",
-                          "0€ al firmar · cuota fija de 149€/mes",
+                          "1.300€ pago único · 1er año incluido",
                           "30 días de garantía desde el lanzamiento",
-                          "Cambios al WhatsApp incluidos cada mes",
+                          "Cambios al WhatsApp incluidos el primer año",
                         ]
                       : locale === "en"
                       ? [
                           "Same-day reply over WhatsApp",
-                          "€0 to sign · fixed €149/month",
+                          "€1,300 one-off · first year included",
                           "30-day guarantee from launch",
-                          "Monthly changes over WhatsApp included",
+                          "First-year changes over WhatsApp included",
                         ]
                       : [
                           "Egun bereko erantzuna WhatsApp bidez",
-                          "0€ sinatzean · 149€/hil kuota finkoa",
+                          "1.300€ ordainketa bakarra · 1. urtea barne",
                           "30 eguneko bermea abiarazi eta gero",
-                          "Hileroko aldaketak WhatsApp bidez barne",
+                          "Lehen urteko aldaketak WhatsApp bidez barne",
                         ]
                     ).map((item, i) => (
                       <li key={i} className="contact-trust-item">

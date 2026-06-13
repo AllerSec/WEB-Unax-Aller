@@ -607,9 +607,9 @@ Lo que no entra ahí suele ser la trampa de muchos presupuestos "completos".
 
 ## Mi experiencia real
 
-En mi caso ofrezco dos caminos. El más elegido es el plan Todo Incluido: 0€ al firmar, 149€/mes sin permanencia (cancelas cuando quieras) y todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp). Y si prefieres tenerla en propiedad, también puedes comprarla en un pago único de 1.500€.
+En mi caso es un solo camino, claro: un pago único de 1.300€ + IVA con el primer año de mantenimiento incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp). La web es tuya, sin cuotas mensuales colgando. A partir del segundo año, solo 600€/año para tenerla online y cuidada.
 
-¿Por qué cambié el modelo? Porque la mayoría de negocios locales no quieren soltar 2.000€ de golpe por una web, pero sí pagan una cuota mensual fija sin problema, como hacen con el gestor, el seguro o el teléfono. Y porque a la agencia tradicional le interesa que la web se quede vieja para venderte una nueva: a mí, no. Mientras pagues tu cuota, yo trabajo para que tu web siga viva, rápida y arriba en Google.
+¿Por qué este modelo y no una cuota cada mes? Porque para la mayoría de negocios locales la web se hace una vez y luego trabaja en segundo plano: no tiene sentido pagar todos los meses por algo que ya está hecho. Pagas una vez, la tienes en propiedad, y solo renuevas el mantenimiento una vez al año. Y donde una agencia te cobra 2.500-5.000€ solo por el diseño, aquí lo tienes con el primer año entero resuelto.
 
 He tenido clientes que llegaron huyendo de webs por las que pagaron 2.000€ a una agencia y que tardaban ocho segundos en cargar. El precio no garantiza calidad. La transparencia sí.
 
@@ -643,9 +643,9 @@ When you hire a freelance web designer, a reasonable price includes:
 
 ## My real experience
 
-In my case I offer two routes. The most popular is the All-Inclusive plan: €0 to sign, €149/month with no lock-in (cancel whenever you want) and everything included (design, hosting, domain, Google Maps, reviews and WhatsApp support). And if you'd rather own it, you can also buy it for a one-off €1,500.
+In my case it's one clear route: a one-off €1,300 + VAT with the first year of maintenance included (design, hosting, domain, Google Maps, reviews and WhatsApp support). The site is yours, with no monthly fees hanging over you. From the second year, just €600/year to keep it online and looked after.
 
-Why did I change? Because most local businesses don't want to drop €2,000 in one go on a website but happily pay a fixed monthly fee like they do for the accountant, insurance or phone bill. And because the traditional agency profits from your site getting old so they can sell you a new one. I don't. As long as you pay your fee, I keep your site alive, fast and ranking on Google.
+Why this model and not a fee every month? Because for most local businesses the website is built once and then works in the background: there's no point paying every month for something that's already done. You pay once, you own it, and you only renew the maintenance once a year. And where an agency charges €2,500-5,000 just for the design, here you get it with the whole first year solved.
 
 I've seen clients arrive from websites that cost €2,000 from an agency and took 8 seconds to load. Price doesn't guarantee quality. Transparency does.`,
       eu: `2026an, Espainian webgune baten prezioa izugarri aldatzen da proiektu motaren eta nork egiten duen arabera.
@@ -660,9 +660,9 @@ I've seen clients arrive from websites that cost €2,000 from an agency and too
 
 ## Nire benetako esperientzia
 
-Bi bide eskaintzen ditut. Ohikoena Dena Barne plana da: 0€ sinatzean, 149€/hil iraupenik gabe (nahi duzunean baja eman) eta dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Eta jabetzan nahiago baduzu, 1.500€-ko ordainketa bakarrean ere eros dezakezu.
+Bide argi bakarra eskaintzen dut: 1.300€ + BEZ ordainketa bakarra, lehen urteko mantentze-lana barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Weba zurea da, hileko kuotarik gabe. Bigarren urtetik aurrera, 600€/urteko bakarrik sarean eta zainduta edukitzeko.
 
-Zergatik aldatu nuen? Tokiko negozio gehienek ez baitute 2.000€ batera ordaindu nahi web batengatik, baina hileko kuota finkoa erraz ordaintzen dute, kontulariarena, aseguruarena edo telefonoarena bezala. Eta agentzia tradizionalari weba zahartzea komeni zaio berri bat saltzeko: niri ez. Zure kuota ordaintzen duzun bitartean, ni arduratzen naiz zure weba bizirik, azkar eta Googlen gora egotea.`,
+Zergatik eredu hau eta ez hileko kuota? Tokiko negozio gehienentzat weba behin egiten delako eta gero atzeko planoan lan egiten duelako: ez du zentzurik dagoeneko eginda dagoenagatik hilero ordaintzeak. Behin ordaintzen duzu, zurea da, eta mantentze-lana urtean behin bakarrik berritzen duzu. Eta agentzia batek diseinuagatik bakarrik 2.500-5.000€ kobratzen dituen lekuan, hemen lehen urte osoa konponduta daukazu.`,
     },
     tags: ["precios", "diseño web", "España", "freelance"],
     keywords: {
@@ -685,97 +685,26 @@ Zergatik aldatu nuen? Tokiko negozio gehienek ez baitute 2.000€ batera ordaind
           a: "El rango normal va de 0€ (Wix o Squarespace) a 10.000€ o más en desarrollo a medida. Para un negocio pequeño o mediano, lo razonable con un freelance está entre 800€ y 3.000€. Por debajo de 800€ lo más probable es una plantilla sin trabajo real; por encima de 5.000€ ya estás pagando estructura de agencia.",
         },
         {
-          q: "¿Por qué cobras 149€/mes en vez de un pago único?",
-          a: "Porque la mayoría de negocios locales no quieren soltar 2.000€ o 3.000€ de golpe por una web. Una cuota fija mensual entra en la contabilidad como un gasto más, igual que el gestor, el seguro o el teléfono. Y la web empieza a trabajar para ti desde el primer día, no cuando tengas dinero ahorrado.",
+          q: "¿Por qué un pago único en vez de una cuota mensual?",
+          a: "Porque para la mayoría de negocios locales la web se hace una vez y luego trabaja en segundo plano. No tiene sentido pagar una cuota cada mes por algo que ya está hecho. Pagas una vez (1.300€ + IVA, con el primer año incluido), la tienes en propiedad, y solo renuevas el mantenimiento una vez al año.",
         },
         {
           q: "¿Qué pasa con el dominio y el hosting?",
-          a: "Los registro a tu nombre desde el primer día. El dominio es tuyo siempre y, si en algún momento decides irte, te lo llevas. El hosting va sobre mis servidores y por eso está incluido en los 149€/mes: yo me encargo de que tu web funcione siempre, tú te encargas de tu negocio.",
+          a: "Los registro a tu nombre desde el primer día. El dominio es tuyo siempre. El hosting está incluido el primer año dentro del pago, y a partir del segundo año entra en el mantenimiento anual de 600€: yo me encargo de que tu web funcione siempre, tú te encargas de tu negocio.",
         },
         {
           q: "¿El SEO está incluido en el precio?",
-          a: "El SEO técnico sí: velocidad, meta tags, Schema.org, URLs limpias, hreflang entre idiomas. Y, dentro de la cuota mensual, vigilo tu ficha de Google Maps cada mes para que la competencia no te adelante. El SEO orgánico a largo plazo (contenidos, backlinks) es otro trabajo aparte porque requiere meses de seguimiento.",
+          a: "El SEO técnico sí: velocidad, meta tags, Schema.org, URLs limpias, hreflang entre idiomas. Y, dentro del mantenimiento, vigilo tu ficha de Google Maps para que la competencia no te adelante. El SEO orgánico a largo plazo (contenidos, backlinks) es otro trabajo aparte porque requiere meses de seguimiento.",
         },
         {
-          q: "¿Qué diferencia hay entre una web de 500€ y el plan Todo Incluido?",
-          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. Con el plan Todo Incluido tienes diseño hecho a mano para tu negocio, optimizada para móvil y Google, soporte real por WhatsApp y la tranquilidad de que cada mes hay alguien vigilando que sigas saliendo arriba. Los detalles marcan la diferencia en cómo te perciben tus clientes y en cuánto conviertes.",
+          q: "¿Qué diferencia hay entre una web de 500€ y la tuya?",
+          a: "A 500€ lo normal es recibir una plantilla adaptada, sin diseño propio, cargando pesada y con SEO de serie. Aquí tienes diseño hecho a mano para tu negocio, optimizada para móvil y Google, soporte real por WhatsApp y la tranquilidad de que hay alguien vigilando que sigas saliendo arriba. Los detalles marcan la diferencia en cómo te perciben tus clientes y en cuánto conviertes.",
         },
         {
           q: "¿Cuánto tarda el proyecto?",
-          a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida. Lo que más alarga el plazo suele ser esperar tus textos o fotos.",
+          a: "En una semana desde que cerramos el pago. Lo que más alarga el plazo suele ser esperar tus textos o fotos.",
         },
       ],
-    },
-  },
-  {
-    slug: "disenador-web-freelance-vs-agencia",
-    publishedAt: "2026-03-25",
-    readingTime: 5,
-    titles: {
-      es: "Freelance vs Agencia: ¿A quién contratar para tu web en 2026?",
-      en: "Freelancer vs Agency: Who to hire for your website in 2026?",
-      eu: "Freelance vs Agentzia: Nori kontratatu zure weba 2026an?",
-    },
-    descriptions: {
-      es: "Comparativa honesta entre contratar un diseñador web freelance o una agencia. Pros, contras y cuándo elegir cada opción.",
-      en: "Honest comparison between hiring a freelance web designer or an agency. Pros, cons and when to choose each.",
-      eu: "Diseinu web freelance bat edo agentzia bat kontratatu arteko konparaketa zintzoa.",
-    },
-    content: {
-      es: `Cuando necesitas una web, la pregunta habitual es: ¿freelance o agencia? La respuesta depende de tu proyecto, presupuesto y forma de trabajar.
-
-## Ventajas de contratar un freelance
-
-- **Comunicación directa:** hablas con quien hace el trabajo, sin intermediarios
-- **Precio más competitivo:** sin estructura de empresa que repercutir en el presupuesto
-- **Flexibilidad:** más adaptable a cambios durante el proyecto
-- **Especialización:** un buen freelance suele ser mejor en su especialidad que un generalista de agencia
-
-## Ventajas de una agencia
-
-- **Equipo completo:** diseñador, desarrollador, SEO, redactor bajo el mismo techo
-- **Proyectos grandes:** más capacidad para proyectos complejos o urgentes
-- **Respaldo:** si una persona enferma, el proyecto no se para
-
-## ¿Cuándo elegir freelance?
-
-Para negocios pequeños y medianos (tienda local, profesional autónomo, startup en fase inicial) el freelance suele ser la mejor opción. El proyecto es más personal, el precio más justo y la atención más cuidada.
-
-## Mi enfoque como freelance en Irun
-
-Trabajo directamente contigo desde el primer mensaje hasta la entrega. Conozco el mercado local del País Vasco y puedo hacer tu web en español, inglés y euskera.`,
-      en: `When you need a website, the usual question is: freelancer or agency? The answer depends on your project, budget and working style.
-
-## Advantages of hiring a freelancer
-
-- **Direct communication:** you talk to the person doing the work, no intermediaries
-- **More competitive price:** no company structure to pass on to the budget
-- **Flexibility:** more adaptable to changes during the project
-- **Specialisation:** a good freelancer is usually better in their specialty than an agency generalist
-
-## When to choose a freelancer?
-
-For small and medium businesses (local shop, self-employed professional, early-stage startup) a freelancer is usually the best option.`,
-      eu: `Web bat behar duzunean, ohiko galdera da: freelance ala agentzia? Erantzuna zure proiektuaren, aurrekontuaren eta lan egiteko moduaren araberakoa da.
-
-## Freelance bat kontratatzeko abantailak
-
-- **Komunikazio zuzena:** lana egiten duenarekin hitz egiten duzu, bitartekorik gabe
-- **Prezio lehikorragoa:** aurrekontuan islatzen den enpresa egitura gabe
-
-## Noiz aukeratu freelance bat?
-
-Enpresa txiki eta ertainentzat (denda lokala, autonomo profesionala, hasierako startup) freelancea da normalean aukera onena.`,
-    },
-    tags: ["freelance", "agencia", "diseño web", "comparativa"],
-    keywords: {
-      es: [
-        "freelance vs agencia diseño web",
-        "diseñador web freelance España",
-        "contratar diseñador web",
-      ],
-      en: ["freelancer vs agency web design", "freelance web designer Spain"],
-      eu: ["freelance vs agentzia web diseinua"],
     },
   },
   {
@@ -1171,7 +1100,7 @@ Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu
 
 ## Lo que ofrece un freelance (como yo)
 
-- **Sin desembolso inicial:** en mi caso, el plan Todo Incluido son 0€ al firmar y 149€/mes sin permanencia, todo incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp). Donde una agencia te pide 2.500-5.000€ de golpe, aquí lo metes en la contabilidad como una cuota más.
+- **Un solo pago, sin cuotas:** en mi caso son 1.300€ + IVA con el primer año de mantenimiento incluido (diseño, hosting, dominio, Google Maps, reseñas y soporte por WhatsApp), y la web es tuya. Donde una agencia te pide 2.500-5.000€ solo por el diseño, aquí lo tienes con el primer año entero resuelto. A partir del segundo año, solo 600€/año.
 - **Comunicación directa:** hablas con quien hace el trabajo. Sin intermediarios ni "te pasamos con tu gestor".
 - **Flexibilidad:** proyectos adaptados, no paquetes cerrados.
 - **Implicación personal:** mi reputación depende de cada proyecto.
@@ -1206,7 +1135,7 @@ Mira: cartera, casos reales, reseñas, comunicación inicial. Ahí está la señ
 
 ## What a freelancer offers (like me)
 
-- **No upfront cost:** in my case, the All-Inclusive plan is €0 to sign and €149/month with no lock-in, all-inclusive (design, hosting, domain, Google Maps, reviews and WhatsApp support). Where an agency asks for €2,500-5,000 upfront, here it goes in the books as another monthly subscription.
+- **One payment, no fees:** in my case it's €1,300 + VAT with the first year of maintenance included (design, hosting, domain, Google Maps, reviews and WhatsApp support), and the site is yours. Where an agency asks €2,500-5,000 just for the design, here you get it with the whole first year solved. From the second year, just €600/year.
 - **Direct communication:** you talk to the person doing the work.
 - **Flexibility:** adapted projects, not closed packages.
 - **Personal stake:** my reputation depends on every project.
@@ -1241,7 +1170,7 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
 
 ## Freelance batek eskaintzen duena
 
-- **Hasierako kosturik gabe:** nire kasuan, Dena Barne plana 0€ sinatzean eta 149€/hil iraupenik gabe, dena barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Agentziak 2.500-5.000€ batera eskatzen dituen lekuan, hemen beste hileko kuota bat besterik ez da.
+- **Ordainketa bat, kuotarik gabe:** nire kasuan 1.300€ + BEZ, lehen urteko mantentze-lana barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza), eta weba zurea da. Agentziak diseinuagatik bakarrik 2.500-5.000€ eskatzen dituen lekuan, hemen lehen urte osoa konponduta daukazu. Bigarren urtetik aurrera, 600€/urteko bakarrik.
 - **Komunikazio zuzena:** lana egiten duenarekin hitz egiten duzu.
 - **Malgutasuna:** moldatutako proiektuak.
 

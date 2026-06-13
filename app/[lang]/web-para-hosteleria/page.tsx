@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: `${name}entzako web diseinua · Unax Aller`,
   };
   const descriptions: Record<string, string> = {
-    es: `Diseñador web freelance especializado en ${name}. Webs a medida con SEO local, Google Maps y reseñas para conseguir más clientes. 0€ inicial, 149€/mes.`,
-    en: `Freelance web designer specialised in ${name}. Custom websites with local SEO, Google Maps and reviews to win more clients. €0 upfront, €149/month.`,
-    eu: `${name}etan espezializatutako web diseinatzaile freelancea. Neurrizko webguneak tokiko SEO, Google Maps eta iritziekin bezero gehiago lortzeko. 0€ hasieran, 149€/hil.`,
+    es: `Diseñador web freelance especializado en ${name}. Webs a medida con SEO local, Google Maps y reseñas para conseguir más clientes. Pago único de 1.300€ + IVA, primer año incluido.`,
+    en: `Freelance web designer specialised in ${name}. Custom websites with local SEO, Google Maps and reviews to win more clients. One-off €1,300 + VAT, first year included.`,
+    eu: `${name}etan espezializatutako web diseinatzaile freelancea. Neurrizko webguneak tokiko SEO, Google Maps eta iritziekin bezero gehiago lortzeko. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.`,
   };
   return {
     title: titles[locale],

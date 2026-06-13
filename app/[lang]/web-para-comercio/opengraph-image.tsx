@@ -20,6 +20,6 @@ export default async function Image({ params }: Props) {
     eyebrow: locale === "es" ? "Diseño web por sector" : locale === "en" ? "Web design by sector" : "Web diseinua sektorez",
     line1: locale === "es" ? "Webs para" : locale === "en" ? "Websites for" : "Weba:",
     line2: name,
-    subtitle: locale === "es" ? "0€ inicial · 149€/mes · unaxaller.com" : locale === "en" ? "€0 upfront · €149/mo · unaxaller.com" : "0€ hasieran · 149€/hil · unaxaller.com",
+    subtitle: locale === "es" ? "1.300€ · 1er año incluido · unaxaller.com" : locale === "en" ? "€1,300 · first year included · unaxaller.com" : "1.300€ · 1. urtea barne · unaxaller.com",
   });
 }

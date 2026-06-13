@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Getxon, Bizkaian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para clínicas, despachos profesionales y comercio premium de Getxo, Algorta y Las Arenas. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
-    en: "Freelance web designer for clinics, professional firms and premium retail in Getxo, Algorta and Las Arenas. No upfront cost: €0 to sign, €149/month.",
-    eu: "Web diseinatzaile freelance Getxo, Algorta eta Areetako klinika, bulego profesional eta merkataritza premium-arentzat. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
+    es: "Diseñador web freelance para clínicas, despachos profesionales y comercio premium de Getxo, Algorta y Las Arenas. Pago único de 1.300€ + IVA, con el primer año incluido.",
+    en: "Freelance web designer for clinics, professional firms and premium retail in Getxo, Algorta and Las Arenas. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Getxo, Algorta eta Areetako klinika, bulego profesional eta merkataritza premium-arentzat. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];

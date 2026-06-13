@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Lasarte-Orian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Lasarte-Oria. A 28 km de Irun. Webs a medida, SEO local y rendimiento. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
-    en: "Freelance web designer for businesses in Lasarte-Oria. 28 km from Irun. Custom websites, local SEO and performance. No upfront cost: €0 to sign, €149/month.",
-    eu: "Web diseinatzaile freelance Lasarte-Oriako negozioetarako. Iruntik 28 kmra. Neurrizko webguneak. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
+    es: "Diseñador web freelance para negocios de Lasarte-Oria. A 28 km de Irun. Webs a medida, SEO local y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
+    en: "Freelance web designer for businesses in Lasarte-Oria. 28 km from Irun. Custom websites, local SEO and performance. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Lasarte-Oriako negozioetarako. Iruntik 28 kmra. Neurrizko webguneak. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];

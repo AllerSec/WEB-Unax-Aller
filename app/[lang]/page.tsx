@@ -27,9 +27,9 @@ type Props = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
-  const title = "Web para negocio local · 149€/mes, 0€ inicial · Unax Aller";
+  const title = "Web para negocio local · 1.300€, 1er año incluido · Unax Aller";
   const description =
-    "Web para negocios de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (web, Google Maps, reseñas, hosting, soporte WhatsApp). 0€ al firmar, sin permanencia y 30 días de garantía. Pensado para clínicas, despachos, industria B2B y comercio profesional.";
+    "Web para negocios de Gipuzkoa, Bizkaia y Navarra: pago único de 1.300€ + IVA con el primer año incluido (web, Google Maps, reseñas, hosting, soporte WhatsApp) y 30 días de garantía. Pensado para clínicas, despachos, industria B2B y comercio profesional.";
   return {
     title,
     description,
@@ -58,7 +58,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         url: "https://unaxaller.com",
         name: "Unax Aller",
         description:
-          "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra. Cuota mensual todo incluido, sin pago inicial y sin permanencia.",
+          "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra. Pago único con el primer año de mantenimiento incluido.",
         publisher: { "@id": "https://unaxaller.com/#business" },
         inLanguage: ["es-ES", "en-GB", "eu-ES"],
         // SearchAction removed: the blog index doesn't accept ?q= queries,
@@ -120,7 +120,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
         },
         image: "https://unaxaller.com/images/founder-unax.webp",
         description:
-          "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra: 149€/mes con todo incluido (diseño, hosting, dominio, Google Maps, reseñas, soporte WhatsApp). 0€ al firmar y sin permanencia.",
+          "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra: pago único de 1.300€ + IVA con el primer año incluido (diseño, hosting, dominio, Google Maps, reseñas, soporte WhatsApp).",
         founder: { "@id": "https://unaxaller.com/#person" },
         knowsLanguage: ["es", "eu", "en", "fr"],
         inLanguage: ["es", "en", "eu"],
@@ -146,7 +146,7 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
             closes: "18:00",
           },
         ],
-        slogan: "Más llamadas para tu negocio local · 149€/mes, 0€ inicial",
+        slogan: "Más llamadas para tu negocio local · 1.300€, 1er año incluido",
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "4.9",
@@ -175,19 +175,18 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
             {
               "@type": "Offer",
               priceCurrency: "EUR",
-              price: "149",
+              price: "1300",
               availability: "https://schema.org/InStock",
               priceSpecification: {
-                "@type": "UnitPriceSpecification",
-                price: "149",
+                "@type": "PriceSpecification",
+                price: "1300",
                 priceCurrency: "EUR",
-                billingDuration: "P1M",
-                referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" },
+                valueAddedTaxIncluded: false,
               },
               itemOffered: {
                 "@type": "Service",
-                name: "Plan Todo Incluido",
-                description: "Web profesional, Google Maps optimizado, captación de reseñas, hosting, dominio y soporte WhatsApp. 0€ al firmar.",
+                name: "Web para negocio local",
+                description: "Web profesional, Google Maps optimizado, captación de reseñas, hosting, dominio y soporte WhatsApp. Pago único con el primer año incluido.",
               },
             },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Optimización de Google Business Profile" } },
@@ -264,7 +263,14 @@ export default async function HomePage({ params }: Props) {
                 <p className="lp-body">{copy.mockups.body}</p>
                 <ul className="lp-mockups-list">
                   {copy.mockups.bullets.map((b) => (
-                    <li key={b}><span aria-hidden="true">✓</span> {b}</li>
+                    <li key={b}>
+                      <span aria-hidden="true">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </span>{" "}
+                      {b}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -375,13 +381,35 @@ export default async function HomePage({ params }: Props) {
           </AnimatedSection>
           <div className="lp-steps">
             {copy.process.steps.map((step, i) => (
-              <AnimatedSection key={i} delay={i * 0.05}>
+              <AnimatedSection key={i} delay={i * 0.07}>
                 <div className="lp-step">
-                  <span className="lp-step-number" aria-hidden="true">{step.n}</span>
+                  <div className="lp-step-icon" aria-hidden="true">
+                    {i === 0 && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                      </svg>
+                    )}
+                    {i === 1 && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/>
+                      </svg>
+                    )}
+                    {i === 2 && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                    )}
+                    {i === 3 && (
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                      </svg>
+                    )}
+                  </div>
                   <div className="lp-step-content">
                     <h3 className="lp-step-title">{step.title}</h3>
                     <p className="lp-step-desc">{step.desc}</p>
                   </div>
+                  <span className="lp-step-number" aria-hidden="true">{step.n}</span>
                 </div>
               </AnimatedSection>
             ))}
@@ -459,7 +487,7 @@ export default async function HomePage({ params }: Props) {
         />
       </AnimatedSection>
 
-      {/* ── 8. PRECIOS — 3 planes, Todo Incluido como opción estrella ── */}
+      {/* ── 8. PRECIOS — plan único: 1.300€ pago único, primer año incluido ── */}
       <section id="precios" aria-label={copy.pricing.ariaLabel}>
         <PricingCard locale={locale} headingLevel="h2" />
       </section>

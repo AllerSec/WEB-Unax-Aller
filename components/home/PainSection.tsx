@@ -12,19 +12,19 @@ const ROWS_BY_LOCALE: Record<"es" | "en" | "eu", Row[]> = {
     { bad: true, who: "Agencia local", detail: "2.500–5.000€ inicial · cambios siempre aparte · pagas y rezas" },
     { bad: true, who: "Wix / Squarespace", detail: "Lenta · plantilla genérica · te quedas sin web si dejas de pagar" },
     { bad: true, who: "Sin web (sólo Google Maps)", detail: "Ficha sin optimizar · sin reseñas · te ven, pero no te llaman" },
-    { bad: false, who: "Todo Incluido · Unax", detail: "0€ inicial · 149€/mes todo incluido · cambios al WhatsApp" },
+    { bad: false, who: "Tu web · Unax", detail: "1.300€ pago único · 1er año incluido · cambios al WhatsApp" },
   ],
   en: [
     { bad: true, who: "Local agency", detail: "€2,500–5,000 upfront · changes always extra · pay and pray" },
     { bad: true, who: "Wix / Squarespace", detail: "Slow · generic template · lose your site if you stop paying" },
     { bad: true, who: "No website (Google Maps only)", detail: "Listing not optimized · no reviews · they see you but don't call" },
-    { bad: false, who: "All-Inclusive · Unax", detail: "€0 upfront · €149/month all-in · changes by WhatsApp" },
+    { bad: false, who: "Your site · Unax", detail: "€1,300 one-off · first year included · changes by WhatsApp" },
   ],
   eu: [
     { bad: true, who: "Tokiko agentzia", detail: "2.500–5.000€ hasieran · aldaketak beti aparte · ordaindu eta otoitz egin" },
     { bad: true, who: "Wix / Squarespace", detail: "Geldoa · txantiloi generikoa · webgunea galtzen duzu ordaintzeari uzten badiozu" },
     { bad: true, who: "Webgunerik ez (Google Maps soilik)", detail: "Fitxa optimizatu gabe · iritzirik ez · ikusten zaituzte baina ez dizute deitzen" },
-    { bad: false, who: "Dena Barne · Unax", detail: "0€ hasieran · 149€/hilean dena barne · aldaketak WhatsApp-etik" },
+    { bad: false, who: "Zure weba · Unax", detail: "1.300€ ordainketa bakarra · 1. urtea barne · aldaketak WhatsApp-etik" },
   ],
 };
 
@@ -109,29 +109,6 @@ export default function PainSection() {
         "-=0.35"
       );
 
-      // Flash de entrada en "40 llamadas" — 3 destellos rápidos en ámbar,
-      // luego el CSS animation se encarga del pulso continuo.
-      const alertHighlight = root.querySelector<HTMLElement>(".lp-pain-highlight--alert");
-      if (alertHighlight) {
-        tl.add(() => {
-          gsap.fromTo(
-            alertHighlight,
-            { textShadow: "0 0 0px rgba(245,158,11,0)" },
-            {
-              textShadow: "0 0 24px rgba(245,158,11,1), 0 0 48px rgba(245,158,11,0.5)",
-              duration: 0.1,
-              repeat: 3,
-              yoyo: true,
-              ease: "power2.inOut",
-              onComplete: () => {
-                // El CSS animation pain-alert-pulse toma el relevo desde aquí
-                gsap.set(alertHighlight, { clearProps: "textShadow" });
-              },
-            }
-          );
-        }, "-=0.1");
-      }
-
       rows.forEach((row, i) => {
         const isGood = row.classList.contains("lp-pain-row--good");
         const icon = row.querySelector<HTMLElement>(".lp-pain-icon");
@@ -190,8 +167,16 @@ export default function PainSection() {
               key={row.who}
               className={`lp-pain-row${row.bad ? " lp-pain-row--bad" : " lp-pain-row--good"}`}
             >
-              <span className={`lp-pain-icon${row.bad ? "" : " lp-pain-icon--good"}`}>
-                {row.bad ? "✗" : "✓"}
+              <span className={`lp-pain-icon${row.bad ? "" : " lp-pain-icon--good"}`} aria-hidden="true">
+                {row.bad ? (
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                )}
               </span>
               <div>
                 <strong>{row.who}</strong>

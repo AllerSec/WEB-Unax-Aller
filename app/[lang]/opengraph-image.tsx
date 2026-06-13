@@ -14,9 +14,9 @@ export default async function Image({ params }: Props) {
   const { lang } = await params
 
   const subtitles: Record<string, string> = {
-    es: '149€/mes · 0€ inicial · 30 días de garantía · unaxaller.com',
-    en: '€149/month · €0 upfront · 30-day guarantee · unaxaller.com',
-    eu: '149€/hilean · 0€ hasieran · 30 eguneko bermea · unaxaller.com',
+    es: '1.300€ · 1er año incluido · 30 días de garantía · unaxaller.com',
+    en: '€1,300 · first year included · 30-day guarantee · unaxaller.com',
+    eu: '1.300€ · 1. urtea barne · 30 eguneko bermea · unaxaller.com',
   }
 
   const titles: Record<string, { line1: string; line2: string }> = {
@@ -32,8 +32,8 @@ export default async function Image({ params }: Props) {
   return new ImageResponse(
     (
       <div style={{
-        background: '#0F172A',
-        backgroundImage: 'radial-gradient(ellipse at top left, #1E293B 0%, #0F172A 60%)',
+        background: '#0A0A0A',
+        backgroundImage: 'radial-gradient(ellipse at top left, #262626 0%, #0A0A0A 60%)',
         width: '100%',
         height: '100%',
         display: 'flex',
@@ -41,7 +41,7 @@ export default async function Image({ params }: Props) {
         alignItems: 'flex-start',
         justifyContent: 'flex-end',
         padding: '80px',
-        fontFamily: 'Georgia, serif',
+        fontFamily: 'sans-serif',
       }}>
         <div style={{
           display: 'flex',
@@ -49,21 +49,21 @@ export default async function Image({ params }: Props) {
           justifyContent: 'center',
           width: 72, height: 72,
           borderRadius: 16,
-          backgroundColor: '#0369A1',
+          backgroundColor: '#171717',
           marginBottom: 40,
         }}>
           <span style={{ color: '#FFFFFF', fontSize: 28, fontWeight: 600 }}>UA</span>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', color: '#FFFFFF', fontSize: 52, fontWeight: 400, lineHeight: 1.1, marginBottom: 16, maxWidth: 700, letterSpacing: '-0.02em' }}>
           <span>{title.line1}&nbsp;</span>
-          <span style={{ fontStyle: 'italic', color: '#7DD3FC' }}>{title.line2}</span>
+          <span style={{ color: '#A3A3A3' }}>{title.line2}</span>
         </div>
-        <div style={{ color: '#94A3B8', fontSize: 20, fontFamily: 'sans-serif', marginBottom: 48 }}>
+        <div style={{ color: '#A3A3A3', fontSize: 20, fontFamily: 'sans-serif', marginBottom: 48 }}>
           {subtitle}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ width: 48, height: 2, backgroundColor: '#0369A1' }} />
-          <span style={{ color: '#7DD3FC', fontSize: 14, fontFamily: 'sans-serif', letterSpacing: 3, textTransform: 'uppercase' }}>
+          <div style={{ width: 48, height: 2, backgroundColor: '#171717' }} />
+          <span style={{ color: '#D4D4D4', fontSize: 14, fontFamily: 'sans-serif', letterSpacing: 3, textTransform: 'uppercase' }}>
             unaxaller.com
           </span>
         </div>

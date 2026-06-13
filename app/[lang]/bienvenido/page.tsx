@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "¡Bienvenido! Tu prueba ha comenzado · Unax Aller",
+  title: "¡Bienvenido! Arrancamos con tu web · Unax Aller",
   robots: { index: false, follow: false },
 };
 
@@ -63,7 +63,7 @@ export default async function BienvenidoPage({ params }: Props) {
           font-family: var(--font-serif, Georgia, serif);
           font-size: clamp(1.6rem, 4vw, 2.2rem);
           font-weight: 500;
-          color: #020617;
+          color: #0A0A0A;
           letter-spacing: -.025em;
           line-height: 1.2;
           margin: 0 0 .75rem;
@@ -95,7 +95,7 @@ export default async function BienvenidoPage({ params }: Props) {
           gap: .875rem;
           font-family: var(--font-sans, system-ui, sans-serif);
           font-size: .9rem;
-          color: #020617;
+          color: #0A0A0A;
           line-height: 1.5;
         }
         .bv-step-num {
@@ -103,7 +103,7 @@ export default async function BienvenidoPage({ params }: Props) {
           width: 26px;
           height: 26px;
           border-radius: 50%;
-          background: #0369a1;
+          background: #171717;
           color: #fff;
           font-size: .75rem;
           font-weight: 700;
@@ -115,7 +115,7 @@ export default async function BienvenidoPage({ params }: Props) {
         .bv-step-text strong {
           display: block;
           font-weight: 600;
-          color: #020617;
+          color: #0A0A0A;
           margin-bottom: .15rem;
         }
         .bv-step-text span {
@@ -167,7 +167,7 @@ export default async function BienvenidoPage({ params }: Props) {
         }
         .bv-btn-back:hover {
           border-color: rgba(2,6,23,.25);
-          color: #020617;
+          color: #0A0A0A;
           background: rgba(2,6,23,.03);
         }
         .bv-footnote {
@@ -199,10 +199,10 @@ export default async function BienvenidoPage({ params }: Props) {
           </h1>
           <p className="bv-subtitle">
             {locale === "eu"
-              ? "Zure 30 eguneko doako proba hasi da. Orain zure webarekin hasten gara."
+              ? "Ordainketa jaso dut. Orain zure webarekin hasten gara, eta 30 eguneko itzulketa-bermea duzu."
               : locale === "en"
-              ? "Your 30-day free trial has started. Now let's get your website built."
-              : "Tu prueba gratuita de 30 días ha comenzado. Ahora arrancamos con tu web."}
+              ? "I've received your payment. Now let's get your website built — and you have a 30-day money-back guarantee."
+              : "He recibido tu pago. Ahora arrancamos con tu web, y tienes 30 días de garantía de devolución."}
           </p>
 
           {/* Próximos pasos */}
@@ -241,7 +241,7 @@ export default async function BienvenidoPage({ params }: Props) {
               <span className="bv-step-num" aria-hidden="true">3</span>
               <div className="bv-step-text">
                 <strong>
-                  {locale === "eu" ? "7–10 egunetan online" : locale === "en" ? "Live in 7–10 days" : "Online en 7–10 días"}
+                  {locale === "eu" ? "Aste batean online" : locale === "en" ? "Live in a week" : "Online en una semana"}
                 </strong>
                 <span>
                   {locale === "eu"
@@ -257,7 +257,7 @@ export default async function BienvenidoPage({ params }: Props) {
           {/* Acciones */}
           <div className="bv-actions">
             <a
-              href="https://wa.me/34620909916?text=Hola%20Unax%2C%20acabo%20de%20empezar%20la%20prueba%20gratuita"
+              href="https://wa.me/34620909916?text=Hola%20Unax%2C%20acabo%20de%20contratar%20mi%20web"
               target="_blank"
               rel="noopener noreferrer"
               className="bv-btn-wa"
@@ -274,10 +274,10 @@ export default async function BienvenidoPage({ params }: Props) {
 
           <p className="bv-footnote">
             {locale === "eu"
-              ? "30 egunetan kobratzen ez da ezer. Gustuko ez baduzu, euro bakoitza itzultzen dizut."
+              ? "30 eguneko itzulketa-bermea. Gustuko ez baduzu, euro bakoitza itzultzen dizut."
               : locale === "en"
-              ? "Nothing charged for 30 days. Not happy? Full refund, no questions asked."
-              : "Nada se cobra durante 30 días. ¿No te convence? Te devuelvo cada euro, sin preguntas."}
+              ? "30-day money-back guarantee. Not happy? Full refund, no questions asked."
+              : "30 días de garantía de devolución. ¿No te convence? Te devuelvo cada euro, sin preguntas."}
           </p>
         </div>
       </main>

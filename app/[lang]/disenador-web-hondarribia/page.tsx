@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Hondarribian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Hondarribia. A 5 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
-    en: "Freelance web designer for businesses in Hondarribia. 5 km from Irun. Custom websites with local SEO, premium design and performance. No upfront cost: €0 to sign, €149/month.",
-    eu: "Web diseinatzaile freelance Hondarribiko negozioetarako. Iruntik 5 kmra. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
+    es: "Diseñador web freelance para negocios de Hondarribia. A 5 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
+    en: "Freelance web designer for businesses in Hondarribia. 5 km from Irun. Custom websites with local SEO, premium design and performance. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Hondarribiko negozioetarako. Iruntik 5 kmra. Neurrizko webguneak SEO lokalarekin, diseinu premiuma eta errendimenduarekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];

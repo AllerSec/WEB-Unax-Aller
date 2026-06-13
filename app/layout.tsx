@@ -1,36 +1,32 @@
 ﻿import type { Metadata, Viewport } from "next";
-import { Source_Serif_4, Lexend } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-// Trust & Authority typography stack — Source Serif 4 (display) + Lexend (UI).
-// Lexend is engineered for readability and works well in legal, healthcare and
-// B2B contexts; Source Serif 4 gives the display headlines a classy gravitas
-// without the playful curves of Fraunces.
-const sourceSerif = Source_Serif_4({
+// Polar/monochrome typography stack — Inter (UI + display) + Geist Mono
+// (labels, eyebrows, data). Single neutral sans keeps the whole site in the
+// crisp editorial register of the monochrome design system.
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-source-serif",
+  variable: "--font-inter",
   display: "swap",
-  style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
 });
 
-const lexend = Lexend({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-lexend",
+  variable: "--font-geist-mono",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://unaxaller.com"),
   title: {
-    default: "Unax Aller: Web para negocio local · 149€/mes, 0€ inicial",
+    default: "Unax Aller: Web para negocio local · 1.300€, 1er año incluido",
     template: "%s | Unax Aller",
   },
   description:
-    "Web profesional para negocios del País Vasco y Navarra: 149€/mes todo incluido, 0€ inicial, sin permanencia y 30 días de garantía. Web, Google Maps, reseñas y soporte WhatsApp.",
+    "Web profesional para negocios del País Vasco y Navarra: pago único de 1.300€ + IVA con el primer año incluido y 30 días de garantía. Web, Google Maps, reseñas y soporte WhatsApp.",
   applicationName: "Unax Aller",
   authors: [{ name: "Unax Aller Fernández", url: "https://unaxaller.com" }],
   creator: "Unax Aller Fernández",
@@ -62,22 +58,22 @@ export const metadata: Metadata = {
     alternateLocale: ["en_GB", "eu_ES"],
     url: "https://unaxaller.com",
     siteName: "Unax Aller",
-    title: "Unax Aller: Web para negocio local · 149€/mes, 0€ inicial",
+    title: "Unax Aller: Web para negocio local · 1.300€, 1er año incluido",
     description:
-      "Web para negocios del País Vasco y Navarra. 149€/mes todo incluido, 0€ inicial, sin permanencia y 30 días de garantía.",
+      "Web para negocios del País Vasco y Navarra. Pago único de 1.300€ + IVA con el primer año incluido y 30 días de garantía.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Unax Aller: Web para negocio local · 149€/mes, 0€ inicial",
+    title: "Unax Aller: Web para negocio local · 1.300€, 1er año incluido",
     description:
-      "Web para negocios profesionales: 149€/mes todo incluido, sin permanencia. Web, Google Maps, reseñas y soporte por WhatsApp.",
+      "Web para negocios profesionales: pago único de 1.300€ + IVA, primer año incluido. Web, Google Maps, reseñas y soporte por WhatsApp.",
     creator: "@unaxaller",
   },
   manifest: "/manifest.webmanifest",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0F172A",
+  themeColor: "#0A0A0A",
   colorScheme: "light",
 };
 
@@ -89,7 +85,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${sourceSerif.variable} ${lexend.variable}`}
+      className={`${inter.variable} ${geistMono.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

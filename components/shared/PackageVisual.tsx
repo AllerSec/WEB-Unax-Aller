@@ -127,7 +127,7 @@ export default function PackageVisual({ locale }: Props) {
         @media(max-width:520px){ .pv-grid{ grid-template-columns:repeat(2, 1fr); } }
         .pv-tile {
           background:#FFFFFF;
-          border:1px solid rgba(2, 6, 23, 0.08);
+          border:1px solid rgba(10, 10, 10, 0.08);
           border-radius:var(--radius-lg);
           padding:var(--space-4);
           text-align:left;
@@ -138,16 +138,16 @@ export default function PackageVisual({ locale }: Props) {
         }
         .pv-tile:hover {
           transform:translateY(-3px);
-          border-color:rgba(2, 6, 23, 0.16);
-          box-shadow:0 12px 32px rgba(2, 6, 23, 0.08);
+          border-color:rgba(10, 10, 10, 0.16);
+          box-shadow:0 12px 32px rgba(10, 10, 10, 0.08);
         }
-        .pv-tile:hover .pv-icon { background:color-mix(in srgb, #dc2626 16%, transparent); transform:scale(1.05) rotate(-3deg); }
+        .pv-tile:hover .pv-icon { background:color-mix(in srgb, #0A0A0A 16%, transparent); transform:scale(1.05) rotate(-3deg); }
         .pv-icon {
           display:inline-flex; align-items:center; justify-content:center;
           width:40px; height:40px;
           border-radius:var(--radius-md);
-          background:color-mix(in srgb, #dc2626 10%, transparent);
-          color:#dc2626;
+          background:color-mix(in srgb, #0A0A0A 10%, transparent);
+          color:#0A0A0A;
           transition:background-color .25s var(--ease-out), transform .25s var(--ease-out);
         }
         .pv-label { font-family:var(--font-sans); font-size:13px; font-weight:600; color:var(--color-ink); line-height:1.3; }
@@ -158,7 +158,7 @@ export default function PackageVisual({ locale }: Props) {
           width:46px; height:46px; border-radius:50%;
           background:var(--color-ink);
           color:#FFFFFF;
-          box-shadow:0 12px 28px rgba(2, 6, 23, 0.25);
+          box-shadow:0 12px 28px rgba(10, 10, 10, 0.25);
           animation:pv-bob 2.4s ease-in-out infinite;
         }
         @media (prefers-reduced-motion: reduce) { .pv-arrow { animation:none; } }
@@ -173,7 +173,7 @@ export default function PackageVisual({ locale }: Props) {
           background:var(--color-ink);
           color:#FFFFFF;
           border-radius:var(--radius-xl);
-          box-shadow:0 12px 40px rgba(2, 6, 23, 0.18);
+          box-shadow:0 12px 40px rgba(10, 10, 10, 0.18);
           position:relative;
           overflow:hidden;
         }
@@ -188,7 +188,7 @@ export default function PackageVisual({ locale }: Props) {
         .pv-equals-strike { color:rgba(255, 255, 255, 0.4); text-decoration:line-through; font-size:0.9em; margin-right:var(--space-2); font-weight:400; }
       `}</style>
 
-      <div className="pv-grid" role="list" aria-label={locale === "es" ? "Servicios incluidos en el plan Todo Incluido" : locale === "en" ? "Services included in the All-Inclusive plan" : "Dena Barne planak barne hartzen dituen zerbitzuak"}>
+      <div className="pv-grid" role="list" aria-label={locale === "es" ? "Servicios incluidos el primer año" : locale === "en" ? "Services included the first year" : "Lehen urtean barne dauden zerbitzuak"}>
         {items.map((it) => (
           <div key={it.label} className="pv-tile" role="listitem">
             <span className="pv-icon" aria-hidden="true">{ICONS[it.icon]}</span>
@@ -208,7 +208,7 @@ export default function PackageVisual({ locale }: Props) {
         </span>
         <span className="pv-equals-value">
           <span className="pv-equals-strike">{locale === "en" ? "€6,770" : "6.770€"}</span>
-          {locale === "en" ? "€149/mo" : "149€/mes"}
+          {locale === "en" ? "€1,300" : "1.300€"}
         </span>
       </div>
     </>

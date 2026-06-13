@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Tolosan, Gipuzkoan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para negocios de Tolosa: gastronomía, industria papelera, comercio y servicios. Webs a medida, SEO local. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
-    en: "Freelance web designer for Tolosa businesses: gastronomy, paper industry, retail and services. Custom websites, local SEO. No upfront cost: €0 to sign, €149/month.",
-    eu: "Web diseinatzaile freelance Tolosako negozioetarako: gastronomia, paper industria, merkataritza eta zerbitzuak. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
+    es: "Diseñador web freelance para negocios de Tolosa: gastronomía, industria papelera, comercio y servicios. Webs a medida, SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",
+    en: "Freelance web designer for Tolosa businesses: gastronomy, paper industry, retail and services. Custom websites, local SEO. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Tolosako negozioetarako: gastronomia, paper industria, merkataritza eta zerbitzuak. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];

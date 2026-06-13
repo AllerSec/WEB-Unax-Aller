@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     eu: "Web Diseinatzailea Santanderren, Kantabrian",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance para hoteles, restaurantes y negocios de Santander y Cantabria. Webs a medida con SEO local. Sin pagar nada al empezar: 0€ inicial y 149€/mes.",
-    en: "Freelance web designer for hotels, restaurants and businesses in Santander and Cantabria. Custom websites with local SEO. No upfront cost: €0 to sign, €149/month.",
-    eu: "Web diseinatzaile freelance Santander eta Kantabriako hotel, jatetxe eta negozioetarako. Neurrizko webguneak SEO lokalarekin. Hasieran ezer ordaindu gabe: 0€ eta 149€/hil.",
+    es: "Diseñador web freelance para hoteles, restaurantes y negocios de Santander y Cantabria. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",
+    en: "Freelance web designer for hotels, restaurants and businesses in Santander and Cantabria. Custom websites with local SEO. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Santander eta Kantabriako hotel, jatetxe eta negozioetarako. Neurrizko webguneak SEO lokalarekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];

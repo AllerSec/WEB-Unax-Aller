@@ -49,7 +49,7 @@ export default function HeroBackground() {
     // Higher opacity — gives liquid glass something real to distort
     const colors = [
       "rgba(180, 205, 184, 0.10)", // salvia luminoso
-      "rgba(208, 233, 212, 0.08)", // salvia más claro
+      "rgba(229, 229, 229, 0.08)", // salvia más claro
       "rgba(27, 48, 34, 0.55)",    // verde medio profundo (blob denso)
       "rgba(236, 231, 214, 0.05)", // crema sutil
       "rgba(54, 76, 60, 0.40)",    // verde bosque
@@ -377,9 +377,9 @@ export default function HeroBackground() {
           mouse.x, mouse.y, 100,
           mouse.x, mouse.y, 200
         );
-        ringGrad.addColorStop(0, "rgba(208, 233, 212, 0)");
-        ringGrad.addColorStop(0.5, `rgba(208, 233, 212, ${shimmerPhase})`);
-        ringGrad.addColorStop(1, "rgba(208, 233, 212, 0)");
+        ringGrad.addColorStop(0, "rgba(229, 229, 229, 0)");
+        ringGrad.addColorStop(0.5, `rgba(229, 229, 229, ${shimmerPhase})`);
+        ringGrad.addColorStop(1, "rgba(229, 229, 229, 0)");
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, 200, 0, Math.PI * 2);
         ctx.fillStyle = ringGrad;

@@ -109,13 +109,12 @@ export default function CityLanding({
         offers: {
           "@type": "Offer",
           priceCurrency: "EUR",
-          price: "149",
+          price: "1300",
           priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: "149",
+            "@type": "PriceSpecification",
+            price: "1300",
             priceCurrency: "EUR",
-            billingDuration: "P1M",
-            referenceQuantity: { "@type": "QuantitativeValue", value: "1", unitCode: "MON" },
+            valueAddedTaxIncluded: false,
           },
           availability: "https://schema.org/InStock",
           seller: { "@id": "https://unaxaller.com/#business" },

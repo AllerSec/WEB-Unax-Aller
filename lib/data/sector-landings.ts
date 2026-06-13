@@ -37,7 +37,7 @@ export const sectorLandings: SectorLandingDef[] = [
       es: [
         "Un paciente con una muela rota a las nueve de la noche no llama: coge el móvil y busca «dentista cerca de mí» o «urgencias dental Irun». En tres segundos decide a quién llama, y lo decide mirando reseñas, fotos del centro y si puede pedir cita sin tener que esperar a mañana para que le cojan el teléfono. Si tu clínica de Anaka o Behobia no sale en ese momento, o sale con una web lenta de hace años, el paciente ya está marcando el número del de al lado.",
         "Por eso, en las clínicas, lo que de verdad decide el primer contacto no es «una web bonita»: son fotos reales del equipo y de la consulta (no banco de imágenes), tu colegiación a la vista, la cita online sin fricción y, sobre todo, la ficha de Google bien cuidada, con reseñas recientes y horarios al día. Y aquí hay un detalle que casi nadie de la zona trabaja: el paciente francés cruza la frontera para ir al dentista y busca desde Google Maps en Francia. Configuro tu ficha y tu SEO para que aparezcas tanto en «dentista Irun» como en «dentiste Irun», esa búsqueda con pacientes detrás que la competencia tiene abandonada.",
-        "Y lo que una clínica no puede tener flojo, lo dejo cerrado: aviso legal y política de privacidad bien hechos (datos de salud, que son sensibles), formularios que piden lo justo y carga rápida en el móvil, porque casi toda búsqueda de salud sale del teléfono. Todo dentro del plan de 149€/mes, sin soltar un euro el día que firmamos. Estoy en Irun, así que si quieres nos vemos en persona en lugar de por videollamada.",
+        "Y lo que una clínica no puede tener flojo, lo dejo cerrado: aviso legal y política de privacidad bien hechos (datos de salud, que son sensibles), formularios que piden lo justo y carga rápida en el móvil, porque casi toda búsqueda de salud sale del teléfono. Todo por un pago único de 1.300€ + IVA, con el primer año incluido. Estoy en Irun, así que si quieres nos vemos en persona en lugar de por videollamada.",
       ],
       en: [
         "A clinic sells trust above all. The patient searching «dentist near me» or «physio in my town» decides in seconds, looking at reviews, photos of the centre and whether they can book without calling. Your site has to convey professionalism and cleanliness from the first screen.",
@@ -64,7 +64,7 @@ export const sectorLandings: SectorLandingDef[] = [
       es: [
         "Son las dos menos cuarto, una pareja de Hendaya acaba de aparcar en el centro de Irun y busca en el móvil «restaurant Irun» o «où manger près de moi». En tres segundos eligen entre tu bar y el de la esquina, y deciden por las fotos y las reseñas que salen en Google Maps. Si tu local no aparece ahí (o aparece con una foto borrosa de 2019 y la carta en un PDF que no se abre en el teléfono) acabas de perder esa mesa sin enterarte.",
         "En Irun el casco viejo y el Paseo Colón se llenan de cliente francés que cruza la frontera a comer, y casi ningún bar de la zona tiene la web preparada para pescarlo. Por eso monto webs que cargan rápido en el móvil. La carta siempre al día, en castellano y francés, que aquí pesa. Fotos de los platos hechas como Dios manda, no con flash ni del 2019. La reserva a un toque y el enlace directo para llegar desde Hondarribia, Hendaya o el otro lado del Bidasoa. Y te dejo la ficha de Google a punto para que salgas el primero cuando alguien busca dónde comer en Irun, no en la página tres.",
-        "El francés lo trabajo igual de fino que el resto (estudié en Francia hasta los 15), así que el menú que el cliente de Hendaya entiende a la primera no es un traductor automático cutre: es la diferencia entre que entre o siga de largo hacia el siguiente bar. Todo por 149€/mes, sin pagar nada al firmar. Tú a llenar mesas; de que Google te encuentre me ocupo yo.",
+        "El francés lo trabajo igual de fino que el resto (estudié en Francia hasta los 15), así que el menú que el cliente de Hendaya entiende a la primera no es un traductor automático cutre: es la diferencia entre que entre o siga de largo hacia el siguiente bar. Todo por un pago único de 1.300€ + IVA, con el primer año incluido. Tú a llenar mesas; de que Google te encuentre me ocupo yo.",
       ],
       en: [
         "In hospitality the search is decided on mobile and at mealtime: «restaurant near me», «where to eat tonight», «set menu in my town». Whoever ranks first on Google Maps with good photos and recent reviews gets the table. If your site is slow or looks bad on the phone, the customer is already looking at the place next door.",
@@ -91,7 +91,7 @@ export const sectorLandings: SectorLandingDef[] = [
       es: [
         "Un cliente está parado delante de tu escaparate en la calle Mayor, saca el móvil y busca «¿abren los lunes?». Si no te encuentra en diez segundos, da media vuelta y se mete en la tienda de al lado. Esa es la pelea real del comercio de Irun, en la calle Mayor o en plena Avenida de Iparralde: no peleas contra una web gigante, peleas contra el que ya está a treinta metros de tu puerta y se va porque tu horario, tu dirección o lo que vendes no salen claros en Google.",
         "Por eso, para comercios del centro peatonal y de toda la ciudad, monto la web alrededor de eso: escaparate visual de lo que tienes, horario y ubicación que se ven sin buscar, botón de WhatsApp para preguntar «¿te queda mi talla?» sin sentirse comprometido. Y la ficha de Google afinada con reseñas para que aparezcas alto cuando alguien busca cerca de Luis de Uranzu o San Marcial. Si vender online tiene sentido para ti, monto una tienda sencilla; si no, la web trabaja para meter gente por la puerta, que es donde tú ganas dinero.",
-        "Y hay una esquina que en Irun casi nadie aprovecha: el cliente francés que cruza la frontera a comprar. Preparo la web para que también te encuentre quien busca en su idioma desde Hendaya, no solo el de aquí. Todo dentro del plan de 149€/mes, sin soltar un euro el día que firmamos: empiezas a captar clientes antes de pagar la primera cuota.",
+        "Y hay una esquina que en Irun casi nadie aprovecha: el cliente francés que cruza la frontera a comprar. Preparo la web para que también te encuentre quien busca en su idioma desde Hendaya, no solo el de aquí. Todo por un pago único de 1.300€ + IVA, con el primer año incluido y la web en propiedad.",
       ],
       en: [
         "Local retail competes with Amazon and the big chains, but it has something they don't: closeness and personal service. Your site doesn't need to be a mega online store; it needs that when someone searches «your product + your town» they find you, know what you sell, your hours and how to get there, and feel there are real people behind it.",
@@ -118,7 +118,7 @@ export const sectorLandings: SectorLandingDef[] = [
       es: [
         "Los polígonos de Ventas y Araso, en Irun, están llenos de naves de mecanizado, calderería y distribución donde el trabajo es de primera y la web parece de 2009, si es que la tienen. Y el problema es real: el responsable de compras que busca proveedor en Google no pide tres referencias antes de entrar; abre tu página, ve una web vieja y cierra. Ni te llama. Has perdido un pedido que ni sabías que existía, y el de al lado se lo lleva por tener la web decente.",
         "En Irun esto pesa el doble, porque media clientela cruza el Bidasoa: empresas francesas que buscan «usinage Irun» o «sous-traitance frontière» y necesitan entender qué haces sin traductor. Por eso te monto la web en castellano y francés, con el catálogo de procesos y capacidades claro, las fichas técnicas descargables, las certificaciones donde se ven y un formulario de cotización que te llega con los datos que necesitas para presupuestar, no un «hola, info». Y en Google peleo por las búsquedas que convierten en tu nicho (mecanizado, soldadura, calderería, distribución), las dos o tres al mes que son un pedido de verdad y no un curioso.",
-        "Estoy en Irun, al lado de los polígonos, así que si el proyecto lo pide la primera reunión la hacemos en tu nave, viendo las máquinas, en lugar de por videollamada. Y la pagas a 149€/mes sin soltar un euro el día que firmamos: empiezas a pagar cuando la web ya está trayéndote peticiones de presupuesto.",
+        "Estoy en Irun, al lado de los polígonos, así que si el proyecto lo pide la primera reunión la hacemos en tu nave, viendo las máquinas, en lugar de por videollamada. Un pago único de 1.300€ + IVA, con el primer año incluido: la web es tuya, sin cuotas cada mes.",
       ],
       en: [
         "In industry and B2B the client doesn't buy on impulse: they compare, request quotes and weigh up track record. The buyer or purchasing manager looking for a supplier on Google lands on your site and decides in 10 seconds whether you look serious. An outdated site leaves you out even if your work is excellent.",
@@ -145,7 +145,7 @@ export const sectorLandings: SectorLandingDef[] = [
       es: [
         "Le acaban de notificar una inspección de Hacienda, o le ha llegado una carta de despido, y son las once de la noche. Lo primero que hace no es llamar a nadie: busca «asesoría fiscal urgente Irun» o «abogado laboralista Irun» en el móvil. En esos diez segundos decide a quién confía el problema, mirando quién aparece primero, qué reseñas tiene y si da la sensación de que controla. Si tu despacho no sale ahí, ni existes para ese cliente.",
         "Y en Irun el partido se juega en dos frentes. Por un lado, Donostia a 21 km copa muchas búsquedas y se lleva clientes que tienes al lado de casa, en Anaka, Behobia o el centro. Por otro, está la frontera: cantidad de pymes y particulares franceses cruzan el Bidasoa con dudas fiscales, laborales o mercantiles de los dos lados, y casi ningún despacho de Irun tiene la web preparada para pescar el «cabinet fiscal Irun» o el «avocat frontalier». Esa esquina la trabajan muy pocos, y es trabajo recurrente y bien pagado que está ahí parado.",
-        "Para despachos monto webs sobrias y rápidas. Los servicios y especialidades quedan bien jerarquizados, con una página de equipo que pone la trayectoria y la colegiación a la vista, y cada área explicada como se la cuentas al cliente en la primera reunión, sin que tenga que ser jurista para entenderla. El formulario filtra antes de que suene el teléfono: te ahorra las llamadas que no van a ningún lado y te deja solo las que pueden acabar en encargo. El SEO local lo afino para tu especialidad y tu zona. Y en castellano y francés si te interesa el cliente de enfrente, porque ahí está quien va a contratar de verdad. Mejor diez visitas que necesitan exactamente lo que haces que mil que pasaban por ahí. Todo por 149€/mes y sin soltar un euro el día que firmamos.",
+        "Para despachos monto webs sobrias y rápidas. Los servicios y especialidades quedan bien jerarquizados, con una página de equipo que pone la trayectoria y la colegiación a la vista, y cada área explicada como se la cuentas al cliente en la primera reunión, sin que tenga que ser jurista para entenderla. El formulario filtra antes de que suene el teléfono: te ahorra las llamadas que no van a ningún lado y te deja solo las que pueden acabar en encargo. El SEO local lo afino para tu especialidad y tu zona. Y en castellano y francés si te interesa el cliente de enfrente, porque ahí está quien va a contratar de verdad. Mejor diez visitas que necesitan exactamente lo que haces que mil que pasaban por ahí. Todo por un pago único de 1.300€ + IVA, con el primer año incluido.",
       ],
       en: [
         "A firm (lawyer, accountant, consultancy, architect) sells judgment and trust. The client searching «employment lawyer in my city» or «tax advisor nearby» wants to see experience, specialism and a personal approach before picking up the phone. A clean, well-built site positions you as the professional worth calling.",
@@ -178,8 +178,8 @@ export function getSectorLandingContent(
       breadcrumbHome: "Inicio",
       breadcrumbHere: `Web para ${sector}`,
       heroTitle: `Webs para ${sector} que traen clientes`,
-      intro: `Soy Unax Aller, diseñador web freelance en Irun. Monto webs para ${sector}: rápidas en móvil, con la ficha de Google Maps optimizada y un sistema de reseñas que hace que ${noun} salga el primero cuando alguien busca tu servicio. Por 149€/mes, sin pagar nada al firmar.`,
-      benefitsTitle: `Por qué ${sector} eligen el plan Todo Incluido`,
+      intro: `Soy Unax Aller, diseñador web freelance en Irun. Monto webs para ${sector}: rápidas en móvil, con la ficha de Google Maps optimizada y un sistema de reseñas que hace que ${noun} salga el primero cuando alguien busca tu servicio. Por un pago único de 1.300€ + IVA, con el primer año incluido.`,
+      benefitsTitle: `Por qué ${sector} eligen tu web`,
       benefits: [
         {
           title: "Conozco tu sector",
@@ -194,19 +194,19 @@ export function getSectorLandingContent(
           desc: "Hablas siempre conmigo, no con un gestor de cuentas. Cambios mensuales por WhatsApp directo, respuesta el mismo día.",
         },
         {
-          title: "0€ al firmar, 30 días de garantía",
-          desc: "Plan Todo Incluido por 149€/mes sin permanencia. No pagas nada al firmar. Si en los primeros 30 días no estás conforme, devolución completa sin preguntas.",
+          title: "Pago único, 30 días de garantía",
+          desc: "Un pago de 1.300€ + IVA con el primer año incluido. La web es tuya, sin cuotas mensuales. Si en los primeros 30 días no estás conforme, devolución completa sin preguntas.",
         },
       ],
       faqTitle: `Preguntas frecuentes sobre webs para ${sector}`,
       faq: [
         {
           q: `¿Cuánto cuesta una web para ${noun}?`,
-          a: "149€/mes sin permanencia, con 0€ al firmar. Incluye diseño a medida, hosting, dominio, ficha de Google Business Profile optimizada, sistema de reseñas, soporte por WhatsApp y cambios mensuales. Sin facturas extra.",
+          a: "1.300€ + IVA, pago único, con el primer año de mantenimiento incluido (diseño a medida, hosting, dominio, ficha de Google Business Profile optimizada, sistema de reseñas, soporte por WhatsApp y cambios). A partir del segundo año, 600€/año. Sin facturas extra.",
         },
         {
           q: "¿Cuándo está lista la web?",
-          a: "Entre 7 y 10 días desde que firmamos. Como no hay desembolso inicial, podemos arrancar enseguida.",
+          a: "En una semana desde que cerramos el pago. Arrancamos enseguida.",
         },
         {
           q: `¿Cómo me ayuda a conseguir más clientes?`,
@@ -217,8 +217,8 @@ export function getSectorLandingContent(
           a: "Sí, hasta 4 idiomas (euskera, castellano, inglés y francés) sin coste extra. En zonas con turismo francés es muy útil.",
         },
         {
-          q: "¿Tengo que comprometerme a algún tiempo mínimo?",
-          a: "Sin permanencia anual. Solo un mínimo de 3 meses de activación (alta de dominio, SEO local y ficha de Google); a partir del cuarto mes cancelas cuando quieras. El dominio te lo llevas a tu nombre y tu ficha de Google con las reseñas sigue siendo de tu negocio.",
+          q: "¿La web es mía?",
+          a: "Sí. El dominio se registra a tu nombre desde el primer día y la web es tuya tras el pago, no la alquilas. Tu ficha de Google con las reseñas sigue siendo de tu negocio. El mantenimiento anual solo sirve para tenerla online y cuidada.",
         },
       ],
       ctaTitle: `¿Tienes ${noun}?`,
@@ -233,8 +233,8 @@ export function getSectorLandingContent(
       breadcrumbHome: "Home",
       breadcrumbHere: `Websites for ${sector}`,
       heroTitle: `Websites for ${sector} that bring in clients`,
-      intro: `I'm Unax Aller, a freelance web designer in Irun. I build websites for ${sector}: fast on mobile, with an optimized Google Maps profile and a reviews system that makes ${noun} show up first when someone searches for your service. For €149/month, with no upfront payment.`,
-      benefitsTitle: `Why ${sector} choose the All-Inclusive plan`,
+      intro: `I'm Unax Aller, a freelance web designer in Irun. I build websites for ${sector}: fast on mobile, with an optimized Google Maps profile and a reviews system that makes ${noun} show up first when someone searches for your service. For a one-off €1,300 + VAT, with the first year included.`,
+      benefitsTitle: `Why ${sector} choose your website`,
       benefits: [
         {
           title: "I know your sector",
@@ -249,19 +249,19 @@ export function getSectorLandingContent(
           desc: "You always talk to me, not an account manager. Monthly changes via direct WhatsApp, same-day reply.",
         },
         {
-          title: "€0 to sign, 30-day money-back",
-          desc: "All-Inclusive plan at €149/month with no lock-in. €0 to sign. If in the first 30 days you're not happy, full refund, no questions asked.",
+          title: "One-off payment, 30-day money-back",
+          desc: "A one-off €1,300 + VAT with the first year included. The site is yours, with no monthly fees. If in the first 30 days you're not happy, full refund, no questions asked.",
         },
       ],
       faqTitle: `Frequently asked questions about websites for ${sector}`,
       faq: [
         {
           q: `How much does a website cost for ${noun}?`,
-          a: "€149/month with no lock-in, and €0 to sign. Includes custom design, hosting, domain, optimized Google Business Profile, reviews system, WhatsApp support and monthly changes. No extra invoices.",
+          a: "€1,300 + VAT, paid once, with the first year of maintenance included (custom design, hosting, domain, optimized Google Business Profile, reviews system, WhatsApp support and changes). From the second year, €600/year. No extra invoices.",
         },
         {
           q: "How fast is the site ready?",
-          a: "Between 7 and 10 days from signing. Since there's no upfront cost, we can start straight away.",
+          a: "In a week from closing the payment. We start straight away.",
         },
         {
           q: "How does this help me get more clients?",
@@ -272,8 +272,8 @@ export function getSectorLandingContent(
           a: "Yes, up to 4 languages (Basque, Spanish, English, French) at no extra cost. In areas with French tourism it makes a real difference.",
         },
         {
-          q: "Do I have to commit to any minimum period?",
-          a: "No annual lock-in. Just a 3-month minimum activation (domain setup, local SEO and the Google profile); from the fourth month you cancel whenever you want. You keep the domain in your name and your Google profile with its reviews stays with your business.",
+          q: "Is the website mine?",
+          a: "Yes. The domain is registered in your name from day one and the site is yours after payment — you don't rent it. Your Google profile with its reviews stays with your business. The annual maintenance just keeps it online and looked after.",
         },
       ],
       ctaTitle: `Run ${noun}?`,
@@ -287,8 +287,8 @@ export function getSectorLandingContent(
     breadcrumbHome: "Hasiera",
     breadcrumbHere: `${sector}entzako weba`,
     heroTitle: `${sector}entzako webak, bezeroak ekartzen dituztenak`,
-    intro: `Unax Aller naiz, web diseinatzaile freelancea Irunen. ${sector}entzako webak egiten ditut: mugikorrean azkarrak, Google Maps fitxa optimizatuarekin eta ${noun} lehena agertzea lortzen duen iritzi-sistemarekin norbaitek zure zerbitzua bilatzean. 149€/hil, sinatzean ezer ordaindu gabe.`,
-    benefitsTitle: `Zergatik aukeratzen duten ${sector}ek Dena Barne plana`,
+    intro: `Unax Aller naiz, web diseinatzaile freelancea Irunen. ${sector}entzako webak egiten ditut: mugikorrean azkarrak, Google Maps fitxa optimizatuarekin eta ${noun} lehena agertzea lortzen duen iritzi-sistemarekin norbaitek zure zerbitzua bilatzean. 1.300€ + BEZ ordainketa bakarrean, lehen urtea barne.`,
+    benefitsTitle: `Zergatik aukeratzen duten ${sector}ek zure weba`,
     benefits: [
       {
         title: "Zure sektorea ezagutzen dut",
@@ -303,19 +303,19 @@ export function getSectorLandingContent(
         desc: "Beti nirekin hitz egiten duzu, ez kontu-kudeatzaile batekin. Hileko aldaketak WhatsApp zuzenez, egun bereko erantzuna.",
       },
       {
-        title: "0€ sinatzean, 30 eguneko bermea",
-        desc: "Dena Barne plana 149€/hil, iraupenik gabe. Sinatzean ez duzu ezer ordaintzen. Lehen 30 egunetan pozik ez bazaude, itzulketa osoa galderarik gabe.",
+        title: "Ordainketa bakarra, 30 eguneko bermea",
+        desc: "1.300€ + BEZ ordainketa bakarra, lehen urtea barne. Weba zurea da, hileko kuotarik gabe. Lehen 30 egunetan pozik ez bazaude, itzulketa osoa galderarik gabe.",
       },
     ],
     faqTitle: `${sector}entzako webei buruzko ohiko galderak`,
     faq: [
       {
         q: `Zenbat kostatzen da ${noun}rentzako web bat?`,
-        a: "149€/hil iraupenik gabe, 0€ sinatzean. Diseinu pertsonalizatua, hosting-a, domeinua, Google Business Profile optimizatua, iritzi-sistema, WhatsApp laguntza eta hileko aldaketak barne. Faktura gehigarririk gabe.",
+        a: "1.300€ + BEZ, ordainketa bakarra, lehen urteko mantentze-lana barne (diseinu pertsonalizatua, hosting-a, domeinua, Google Business Profile optimizatua, iritzi-sistema, WhatsApp laguntza eta aldaketak). Bigarren urtetik aurrera, 600€/urteko. Faktura gehigarririk gabe.",
       },
       {
         q: "Noiz egongo da prest weba?",
-        a: "Sinatu eta 7-10 egunera. Hasierako kosturik ez dagoenez, berehala hasi gaitezke.",
+        a: "Aste batean ordainketa ixten dugunetik. Berehala hasten gara.",
       },
       {
         q: "Nola laguntzen dit bezero gehiago lortzen?",
@@ -326,8 +326,8 @@ export function getSectorLandingContent(
         a: "Bai, 4 hizkuntzatara arte (euskara, gaztelania, ingelesa eta frantsesa) kosturik gabe. Frantses turismoa duten eremuetan oso erabilgarria da.",
       },
       {
-        q: "Gutxieneko denbora batera konprometitu behar dut?",
-        a: "Urteko iraupenik gabe. 3 hilabeteko gutxieneko aktibazioa besterik ez (domeinua, tokiko SEOa eta Google fitxa); laugarren hilabetetik nahi duzunean baja ematen duzu. Domeinua zure izenean eramaten duzu eta zure Google fitxa iritziekin zure negoziorena izaten jarraitzen du.",
+        q: "Weba nirea da?",
+        a: "Bai. Domeinua zure izenean erregistratzen da lehen egunetik eta weba zurea da ordainketaren ondoren, ez duzu alokatzen. Zure Google fitxa iritziekin zure negoziorena izaten jarraitzen du. Urteko mantentze-lanak sarean eta zainduta edukitzeko balio du.",
       },
     ],
     ctaTitle: `${noun} al duzu?`,

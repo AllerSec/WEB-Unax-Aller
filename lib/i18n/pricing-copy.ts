@@ -1,12 +1,11 @@
-// Pricing copy for the 3-tier offer (Plan Todo Incluido / Pago único / Solo web).
-// Structured around the Hormozi + behavioural-psychology playbook:
-//   · Anchoring  — the one-off price (1.500€) sits ABOVE ~10 months of renting,
-//     so the monthly plan no longer looks like "the expensive one".
-//   · Zero-price — "0€ hoy" headlines the star plan.
-//   · Decoy      — "Solo web" (1.300€, nothing included) makes the all-in plan
-//     obviously better; nobody is meant to pick it.
-//   · Mental accounting — "menos de 5€ al día" reframe on the star plan.
-//   · Paradox of choice — exactly 3 options, one flagged "Recomendado".
+// Pricing copy for the single-plan offer.
+//   · One website, one price: 1.300€ + IVA, paid once.
+//   · First year of maintenance (domain, hosting, support, changes) included.
+//   · From year 2: 600€/year (≈50€/month) to keep it online and looked after.
+//   · Anchor is UPWARD now: a local agency charges 2.500–5.000€ just for the
+//     design, so 1.300€ with the first year solved reads as a deal.
+//   · Hook turns the owner's real objection ("they forget they even have a
+//     website") into the promise: it works while you forget about it.
 
 import type { Locale } from "@/lib/i18n/config";
 import type { PlanDetail } from "@/components/pricing/PlanModal";
@@ -18,6 +17,7 @@ export type PricingPlan = {
   variant: "default" | "star" | "decoy";
   name: string;
   tagline: string;
+  strikePrice?: string;
   priceNum: string;
   priceUnit?: string;
   upfront: string;
@@ -37,39 +37,43 @@ type Copy = {
   recommended: string;
   seeDetail: string;
   note: string;
+  strikeLabel: string;
 };
 
 export function planCopy(locale: Locale): Copy {
   if (locale === "en") {
     return {
-      eyebrow: "Transparent pricing",
-      title: "One website. Three ways to pay for it.",
+      eyebrow: "One price, no surprises",
+      title: "Your website, working while you forget it's there.",
       subtitle:
-        "Same hand-built site in every plan. The difference is who looks after it and how you pay. Most businesses pick All-Inclusive: nothing upfront, and I take care of everything for as long as you use it.",
-      recommended: "Recommended",
+        "I build it once and it stays ready for people to find you on Google. One payment of €1,300 + VAT, with the whole first year looked after.",
+      recommended: "What you pay",
+      strikeLabel: "in real value the first year",
       seeDetail: "See everything included",
-      note: "All plans include the exact site you saw in the demo. VAT not included. The All-Inclusive plan runs on my system: while your subscription is active you keep the site online, the Google Maps ranking watched and same-day WhatsApp support. No lock-in: the only commitment is a 3-month minimum activation period (it covers domain setup, local SEO and the Google profile); from the fourth month you cancel whenever you want. “Unlimited changes” means content (text, photos, prices, hours), not a full structural redesign.",
+      note: "Price shown is €1,300 + VAT, paid once. It includes the first year of maintenance: domain, hosting, content changes and WhatsApp support. From the second year, maintenance is €600/year (≈€50/month, billed yearly) to keep the site online, the domain renewed and your Google profile looked after. The domain is registered in your name and is yours from day one. 30-day money-back guarantee from launch.",
     };
   }
   if (locale === "eu") {
     return {
-      eyebrow: "Prezio gardena",
-      title: "Web bat. Ordaintzeko hiru modu.",
+      eyebrow: "Prezio bat, sorpresarik gabe",
+      title: "Zure weba lanean, ahaztu zaizun arren.",
       subtitle:
-        "Eskuz egindako web bera plan guztietan. Aldea da nork zaintzen duen eta nola ordaintzen duzun. Negozio gehienek Dena Barne aukeratzen dute: ezer aurreratu gabe, eta nik dena zaintzen dut erabiltzen duzun bitartean.",
-      recommended: "Gomendatua",
+        "Behin egiten dut eta prest geratzen da jendeak Google-n aurki zaitzan. 1.300€ + BEZ ordainketa bakarrean, lehen urte osoa zainduta.",
+      recommended: "Zer ordaintzen duzun",
+      strikeLabel: "balio erreala lehen urtean",
       seeDetail: "Sartzen den guztia ikusi",
-      note: "Plan guztiek demoan ikusi duzun web bera dute. BEZ kanpo. Dena Barne plana nire sisteman doa: kuota mantentzen duzun bitartean weba sarean, Google Maps posizioa zainduta eta egun bereko WhatsApp laguntza dituzu. Iraupenik gabe: konpromiso bakarra 3 hilabeteko gutxieneko aktibazioa da (domeinuaren altak, tokiko SEOak eta Google fitxak estaltzen ditu); laugarren hilabetetik aurrera nahi duzunean baja ematen duzu. “Aldaketa mugagabeak” edukia da (testua, argazkiak, prezioak, ordutegiak), ez egitura osoaren birdiseinua.",
+      note: "Erakutsitako prezioa 1.300€ + BEZ da, behin ordaindua. Lehen urteko mantentze-lana barne dauka: domeinua, hostinga, edukiaren aldaketak eta WhatsApp laguntza. Bigarren urtetik aurrera, mantentze-lana 600€/urteko da (≈50€/hilean, urtero fakturatua) weba sarean, domeinua berrituta eta zure Google fitxa zainduta edukitzeko. Domeinua zure izenean erregistratzen da eta zurea da lehen egunetik. 30 eguneko itzulketa-bermea abian jartzen denetik.",
     };
   }
   return {
-    eyebrow: "Precio transparente",
-    title: "Una web. Tres formas de pagarla.",
+    eyebrow: "Un precio, sin sorpresas",
+    title: "Tu web trabajando, aunque tú te olvides de ella.",
     subtitle:
-      "La misma web programada a mano en los tres planes. Lo que cambia es quién se encarga de ella y cómo pagas. La mayoría elige Todo Incluido: no pagas nada al empezar y yo me ocupo de todo mientras la uses.",
-    recommended: "Recomendado",
+      "La hago una vez y queda lista para que te encuentren en Google. Un pago de 1.300€ + IVA, con el primer año entero resuelto.",
+    recommended: "Lo que pagas",
+    strikeLabel: "en valor real el primer año",
     seeDetail: "Ver todo lo que incluye",
-    note: "Los tres planes incluyen la misma web que has visto en la demo. IVA no incluido. El plan Todo Incluido va sobre mi sistema: mientras mantengas la cuota, tu web sigue online, tu posición en Google Maps vigilada y el soporte por WhatsApp el mismo día. Sin permanencia: el único compromiso es un mínimo de 3 meses de activación (cubre el alta de dominio, el SEO local y la ficha de Google); a partir del cuarto mes cancelas cuando quieras. “Cambios ilimitados” se refiere a contenido (textos, fotos, precios, horarios), no a un rediseño estructural completo.",
+    note: "El precio que ves es 1.300€ + IVA, pagados una vez. Incluye el primer año de mantenimiento: dominio, hosting, cambios de contenido y soporte por WhatsApp. A partir del segundo año, el mantenimiento es de 600€/año (≈50€/mes, facturado una vez al año) para tener la web online, el dominio renovado y tu ficha de Google cuidada. El dominio se registra a tu nombre y es tuyo desde el primer día. 30 días de garantía de devolución desde el lanzamiento.",
   };
 }
 
@@ -85,86 +89,50 @@ export function buildPlans(locale: Locale): PricingPlan[] {
   if (locale === "en") {
     return [
       {
-        id: "starter",
-        variant: "default",
-        name: "Web only",
-        tagline: "Just the site. You handle the rest.",
-        priceNum: "€1,300",
-        upfront: "One-off · no support afterwards",
-        upfrontMuted: true,
-        priceNote: "You arrange your own hosting, domain and changes.",
-        features: [
-          { label: "The hand-built site, delivered once", on: true },
-          { label: "You sort out hosting & domain yourself", on: false },
-          { label: "No monthly changes", on: false },
-          { label: "No WhatsApp support", on: false },
-          { label: "No Google Maps setup or review system", on: false },
-        ],
-        cta: "Ask about this option",
-        whatsapp: "Hi Unax, I'm interested in the €1,300 web-only option",
-      },
-      {
-        id: "all-inclusive",
+        id: "web",
         variant: "star",
-        name: "All-Inclusive",
-        tagline: "Nothing upfront. I take care of everything.",
-        priceNum: "€149",
-        priceUnit: "/month",
-        upfront: "€0 to start today",
-        priceNote: "No lock-in · cancel whenever you want · 30-day money-back guarantee",
-        reframe: "Less than €5 a day. One new client a month and it has paid for itself.",
+        name: "Your website, done",
+        tagline: "You pay once. The first year, you don't touch a thing.",
+        strikePrice: "€6,770",
+        priceNum: "€1,300",
+        upfront: "+ VAT · paid once",
+        priceNote: "First year of maintenance included. From year 2: €600/year (≈€50/month).",
+        reframe: "A local agency charges €2,500–5,000 just for the design. Here you get it with the whole first year solved.",
         features: [
-          { label: "The hand-built site, live in 7–10 days", on: true },
-          { label: "Domain + hosting included for as long as you use it", on: true },
-          { label: "Unlimited content changes (text, photos, prices, hours)", on: true },
-          { label: "Same-day WhatsApp support", on: true },
+          { label: "Hand-built site, live in a week", on: true },
+          { label: "Custom design built to capture from a phone", on: true },
           { label: "Google Maps profile + 5-star review system", on: true },
-          { label: "No lock-in: cancel whenever you want", on: true },
+          { label: "Domain + hosting included the first year", on: true },
+          { label: "Content changes included the first year (text, photos, prices, hours)", on: true },
+          { label: "Same-day WhatsApp support", on: true },
+          { label: "The site is yours. No monthly fees.", on: true },
         ],
-        cta: "Start with €0 today",
-        whatsapp: "Hi Unax, I'm interested in the All-Inclusive plan (€149/month, €0 upfront)",
+        cta: "I want my website →",
+        whatsapp: "Hi Unax, I'm interested in the website (€1,300 + VAT, first year included)",
         detail: {
-          name: "All-Inclusive",
-          subtitle: "Your professional site with no upfront payment",
-          price: "€149/mo",
+          name: "Your website, done",
+          subtitle: "One payment, with the first year looked after",
+          price: "€1,300 + VAT",
           description:
-            "€0 to start. Fixed €149/month with no lock-in: cancel whenever you want. 30-day money-back guarantee. While your subscription is active: site online, Google Maps ranking watched and full same-day WhatsApp support.",
+            "Paid once. Includes the first year of maintenance: domain, hosting, content changes and same-day WhatsApp support. From the second year, maintenance is €600/year (≈€50/month) to keep it online and looked after. The domain is yours from day one. 30-day money-back guarantee.",
           popular: true,
           features: [
             "Professional custom design built around your business",
             "Up to 5 sections (home, services, about, contact, reviews)",
             "Mobile-optimized: most of your customers search from a phone",
-            "Google Maps profile optimized and monitored every month",
+            "Google Maps profile optimized to capture phone calls",
             "Reviews system: direct link, printable QR and optimized Google profile",
-            "Same-day WhatsApp support for price, photo or hours changes",
+            "Same-day WhatsApp support the first year for price, photo or hours changes",
           ],
           deliverables: [
-            "Domain & hosting included (no extra invoices)",
-            "Google Business Profile set up to capture phone calls",
+            "Domain registered in your name (yours from day one)",
+            "Hosting included the first year (no extra invoices)",
             "SSL certificate and speed optimization",
-            "Unlimited content changes, no extra cost",
+            "Content changes included the first year",
           ],
           process: [],
           clients,
         },
-      },
-      {
-        id: "one-off",
-        variant: "default",
-        name: "One-off purchase",
-        tagline: "The site is yours forever, in one payment.",
-        priceNum: "€1,500",
-        upfront: "Paid once · first year managed",
-        priceNote: "Domain + hosting included the first year.",
-        features: [
-          { label: "The hand-built site, yours to own", on: true },
-          { label: "Domain + hosting the first year", on: true },
-          { label: "Changes after delivery quoted separately", on: false },
-          { label: "No included WhatsApp support", on: false },
-          { label: "No monthly fee, you pay once", on: true },
-        ],
-        cta: "Ask about buying outright",
-        whatsapp: "Hi Unax, I'm interested in the €1,500 one-off website",
       },
     ];
   }
@@ -172,86 +140,50 @@ export function buildPlans(locale: Locale): PricingPlan[] {
   if (locale === "eu") {
     return [
       {
-        id: "starter",
-        variant: "decoy",
-        name: "Web soila",
-        tagline: "Weba bakarrik. Gainerakoa zuk.",
-        priceNum: "1.300€",
-        upfront: "Behin · gero laguntzarik gabe",
-        upfrontMuted: true,
-        priceNote: "Hostinga, domeinua eta aldaketak zuk antolatzen dituzu.",
-        features: [
-          { label: "Eskuz egindako weba, behin entregatua", on: true },
-          { label: "Hostinga eta domeinua zuk kudeatzen dituzu", on: false },
-          { label: "Hileko aldaketarik ez", on: false },
-          { label: "WhatsApp laguntzarik ez", on: false },
-          { label: "Google Maps eta iritzi sistemarik ez", on: false },
-        ],
-        cta: "Aukera honi buruz galdetu",
-        whatsapp: "Kaixo Unax, 1.300€-ko web soilaren aukera interesatzen zait",
-      },
-      {
-        id: "all-inclusive",
+        id: "web",
         variant: "star",
-        name: "Dena Barne",
-        tagline: "Ezer aurreratu gabe. Nik dena zaintzen dut.",
-        priceNum: "149€",
-        priceUnit: "/hilean",
-        upfront: "0€ gaur hasteko",
-        priceNote: "Iraupenik gabe · nahi duzunean baja eman · 30 eguneko bermea",
-        reframe: "Egunean 5€ baino gutxiago. Hilean bezero berri bat eta ordainduta dago.",
+        name: "Zure weba, eginda",
+        tagline: "Behin ordaintzen duzu. Lehen urtean, ez duzu ezer ukitzen.",
+        strikePrice: "6.770€",
+        priceNum: "1.300€",
+        upfront: "+ BEZ · behin ordaindua",
+        priceNote: "Lehen urteko mantentze-lana barne. 2. urtetik: 600€/urteko (≈50€/hilean).",
+        reframe: "Tokiko agentzia batek 2.500–5.000€ kobratzen ditu diseinuagatik bakarrik. Hemen lehen urte osoa konponduta daukazu.",
         features: [
-          { label: "Eskuz egindako weba, 7–10 egunean sarean", on: true },
-          { label: "Domeinua + hostinga barne erabiltzen duzun bitartean", on: true },
-          { label: "Edukiaren aldaketa mugagabeak (testua, argazkiak, prezioak)", on: true },
-          { label: "Egun bereko WhatsApp laguntza", on: true },
+          { label: "Eskuz egindako weba, aste batean sarean", on: true },
+          { label: "Mugikorretik harrapatzeko neurrira egindako diseinua", on: true },
           { label: "Google Maps fitxa + 5 izarreko iritzi sistema", on: true },
-          { label: "Iraupenik gabe: nahi duzunean baja eman", on: true },
+          { label: "Domeinua + hostinga barne lehen urtean", on: true },
+          { label: "Edukiaren aldaketak barne lehen urtean (testua, argazkiak, prezioak, ordutegiak)", on: true },
+          { label: "Egun bereko WhatsApp laguntza", on: true },
+          { label: "Weba zurea da. Hileko kuotarik gabe.", on: true },
         ],
-        cta: "Hasi 0€-rekin gaur",
-        whatsapp: "Kaixo Unax, Dena Barne plana interesatzen zait (149€/hilean, 0€ hasieran)",
+        cta: "Nire weba nahi dut →",
+        whatsapp: "Kaixo Unax, weba interesatzen zait (1.300€ + BEZ, lehen urtea barne)",
         detail: {
-          name: "Dena Barne",
-          subtitle: "Zure web profesionala hasieran ezer ordaindu gabe",
-          price: "149€/hilean",
+          name: "Zure weba, eginda",
+          subtitle: "Ordainketa bakarra, lehen urtea zainduta",
+          price: "1.300€ + BEZ",
           description:
-            "0€ hasieran. 149€/hileko kuota finkoa, iraupenik gabe: nahi duzunean baja eman. 30 eguneko bermea. Kuota mantentzen duzun bitartean: weba sarean, Google Maps posizioa zainduta eta egun bereko WhatsApp laguntza osoa.",
+            "Behin ordaindua. Lehen urteko mantentze-lana barne dauka: domeinua, hostinga, edukiaren aldaketak eta egun bereko WhatsApp laguntza. Bigarren urtetik aurrera, mantentze-lana 600€/urteko da (≈50€/hilean) sarean eta zainduta edukitzeko. Domeinua zurea da lehen egunetik. 30 eguneko itzulketa-bermea.",
           popular: true,
           features: [
             "Zure negoziorako diseinu profesional pertsonalizatua",
             "5 atal arte (hasiera, zerbitzuak, zuri buruz, harremana, iritziak)",
             "Mugikorrerako optimizatua: bezero gehienek mugikorretik bilatzen zaituzte",
-            "Google Maps fitxa optimizatua eta hilero zainduta",
+            "Google Maps fitxa optimizatua deiak hartzeko",
             "Iritzi sistema: zuzeneko esteka, QR inprimagarria eta Google profil optimizatua",
-            "Egun bereko WhatsApp laguntza prezio, argazki edo ordutegi aldaketetarako",
+            "Egun bereko WhatsApp laguntza lehen urtean prezio, argazki edo ordutegi aldaketetarako",
           ],
           deliverables: [
-            "Domeinua eta hostinga barne (faktura gehigarririk gabe)",
-            "Google Business Profile fitxa deiak hartzeko prest",
+            "Domeinua zure izenean erregistratua (zurea lehen egunetik)",
+            "Hostinga barne lehen urtean (faktura gehigarririk gabe)",
             "SSL ziurtagiria eta abiadura optimizatua",
-            "Edukiaren aldaketa mugagabeak, kostu gehigarririk gabe",
+            "Edukiaren aldaketak barne lehen urtean",
           ],
           process: [],
           clients,
         },
-      },
-      {
-        id: "one-off",
-        variant: "default",
-        name: "Ordainketa bakarra",
-        tagline: "Weba zurea betiko, ordainketa batean.",
-        priceNum: "1.500€",
-        upfront: "Behin ordaindua · lehen urtea kudeatua",
-        priceNote: "Domeinua + hostinga barne lehen urtean.",
-        features: [
-          { label: "Eskuz egindako weba, zurea izateko", on: true },
-          { label: "Domeinua + hostinga lehen urtean", on: true },
-          { label: "Entregaren ondorengo aldaketak aparte", on: false },
-          { label: "WhatsApp laguntza barne gabe", on: false },
-          { label: "Hileko kuotarik gabe, behin ordaintzen duzu", on: true },
-        ],
-        cta: "Erosteari buruz galdetu",
-        whatsapp: "Kaixo Unax, 1.500€-ko ordainketa bakarreko weba interesatzen zait",
       },
     ];
   }
@@ -259,86 +191,50 @@ export function buildPlans(locale: Locale): PricingPlan[] {
   // es (default)
   return [
     {
-      id: "starter",
-      variant: "decoy",
-      name: "Solo web",
-      tagline: "Solo la web. Tú te buscas el resto.",
-      priceNum: "1.300€",
-      upfront: "Pago único · sin soporte después",
-      upfrontMuted: true,
-      priceNote: "Tú te ocupas de hosting, dominio y cambios.",
-      features: [
-        { label: "La web programada a mano, entregada una vez", on: true },
-        { label: "Hosting y dominio los gestionas tú", on: false },
-        { label: "Sin cambios mensuales", on: false },
-        { label: "Sin soporte por WhatsApp", on: false },
-        { label: "Sin Google Maps ni sistema de reseñas", on: false },
-      ],
-      cta: "Preguntar por esta opción",
-      whatsapp: "Hola Unax, me interesa la opción de solo web por 1.300€",
-    },
-    {
-      id: "all-inclusive",
+      id: "web",
       variant: "star",
-      name: "Todo Incluido",
-      tagline: "0€ al empezar. Yo me encargo de todo.",
-      priceNum: "149€",
-      priceUnit: "/mes",
-      upfront: "0€ para empezar hoy",
-      priceNote: "Sin permanencia · cancela cuando quieras · 30 días de garantía",
-      reframe: "Menos de 5€ al día. Un solo cliente nuevo al mes y ya está pagada.",
+      name: "Tu web, hecha",
+      tagline: "Pagas una vez. El primer año, no tocas nada.",
+      strikePrice: "6.770€",
+      priceNum: "1.300€",
+      upfront: "+ IVA · pago único",
+      priceNote: "Primer año de mantenimiento incluido. A partir del año 2: 600€/año (≈50€/mes).",
+      reframe: "Una agencia cobra 2.500–5.000€ solo por el diseño. Aquí la tienes con el primer año entero resuelto.",
       features: [
-        { label: "La web programada a mano, online en 7–10 días", on: true },
-        { label: "Dominio + hosting incluidos mientras la uses", on: true },
-        { label: "Cambios de contenido ilimitados (textos, fotos, precios, horarios)", on: true },
-        { label: "Soporte por WhatsApp el mismo día", on: true },
+        { label: "La web programada a mano, online en una semana", on: true },
+        { label: "Diseño a medida pensado para captar desde el móvil", on: true },
         { label: "Ficha de Google Maps + sistema de reseñas 5★", on: true },
-        { label: "Sin permanencia: cancela cuando quieras", on: true },
+        { label: "Dominio + hosting incluidos el primer año", on: true },
+        { label: "Cambios de contenido incluidos el primer año (textos, fotos, precios, horarios)", on: true },
+        { label: "Soporte por WhatsApp el mismo día", on: true },
+        { label: "La web es tuya. Sin cuotas mensuales.", on: true },
       ],
-      cta: "Empezar con 0€ hoy",
-      whatsapp: "Hola Unax, me interesa el plan Todo Incluido (149€/mes, 0€ inicial)",
+      cta: "Quiero mi web →",
+      whatsapp: "Hola Unax, me interesa la web (1.300€ + IVA, primer año incluido)",
       detail: {
-        name: "Todo Incluido",
-        subtitle: "Tu web profesional sin pagar nada al empezar",
-        price: "149€/mes",
+        name: "Tu web, hecha",
+        subtitle: "Un solo pago, con el primer año resuelto",
+        price: "1.300€ + IVA",
         description:
-          "0€ al firmar. Cuota fija de 149€/mes sin permanencia: cancela cuando quieras. 30 días de garantía. Mientras mantengas tu cuota: web online, posicionamiento en Google Maps vigilado y soporte total por WhatsApp el mismo día.",
+          "Pago único. Incluye el primer año de mantenimiento: dominio, hosting, cambios de contenido y soporte por WhatsApp el mismo día. A partir del segundo año, el mantenimiento es de 600€/año (≈50€/mes) para tenerla online y cuidada. El dominio es tuyo desde el primer día. 30 días de garantía de devolución.",
         popular: true,
         features: [
           "Diseño profesional a medida para tu negocio",
           "Hasta 5 secciones (inicio, servicios, sobre ti, contacto, reseñas)",
           "Optimizada para móvil: la mayoría de tus clientes te buscan desde el teléfono",
-          "Ficha de Google Maps optimizada y vigilada cada mes",
+          "Ficha de Google Maps optimizada para captar llamadas",
           "Sistema de reseñas: enlace directo, QR imprimible y perfil de Google optimizado",
-          "Soporte por WhatsApp el mismo día: precios, fotos u horarios",
+          "Soporte por WhatsApp el mismo día el primer año: precios, fotos u horarios",
         ],
         deliverables: [
-          "Dominio propio y hosting incluidos (sin facturas extra)",
-          "Ficha de Google Business Profile lista para captar llamadas",
+          "Dominio registrado a tu nombre (tuyo desde el primer día)",
+          "Hosting incluido el primer año (sin facturas extra)",
           "Certificado SSL y velocidad optimizada",
-          "Cambios de contenido ilimitados, sin coste extra",
+          "Cambios de contenido incluidos el primer año",
         ],
         process: [],
         clients,
       },
-    },
-    {
-      id: "one-off",
-      variant: "default",
-      name: "Pago único",
-      tagline: "La web es tuya para siempre, de una vez.",
-      priceNum: "1.500€",
-      upfront: "Se paga una vez · primer año gestionado",
-      priceNote: "Dominio + hosting incluidos el primer año.",
-      features: [
-        { label: "La web programada a mano, tuya en propiedad", on: true },
-        { label: "Dominio + hosting el primer año", on: true },
-        { label: "Cambios tras la entrega se presupuestan aparte", on: false },
-        { label: "Sin soporte por WhatsApp incluido", on: false },
-        { label: "Sin cuota mensual, lo pagas una vez", on: true },
-      ],
-      cta: "Preguntar por la compra",
-      whatsapp: "Hola Unax, me interesa la web a pago único por 1.500€",
     },
   ];
 }
