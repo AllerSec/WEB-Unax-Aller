@@ -483,6 +483,64 @@ export const cityLandings: CityLandingDef[] = [
     },
     nearbyCities: ["disenador-web-bilbao", "disenador-web-getxo"],
   },
+  {
+    slug: "disenador-web-bera",
+    cityNames: { es: "Bera", en: "Bera", eu: "Bera" },
+    regionNames: { es: "Navarra", en: "Navarre", eu: "Nafarroa" },
+    distanceFromIrunKm: 16,
+    sectors: {
+      es: "comercio, hostelería, industria del valle e turismo de montaña",
+      en: "retail, hospitality, valley industry and mountain tourism",
+      eu: "merkataritza, ostalaritza, haraneko industria eta mendi-turismoa",
+    },
+    localTouches: {
+      es: [
+        "Bera es la primera de las Cinco Villas del Bidasoa subiendo desde la frontera, y eso le da una ventaja que casi nadie aprovecha: por aquí pasa mucho francés que cruza por Dantxarinea o baja de Sara y Ainhoa a comer, comprar o repostar. Cuando esa gente saca el móvil y busca dónde parar, el que sale primero en Google se lleva la visita. Trabajo con el comercio del centro, la hostelería de la plaza y los caseríos y negocios del valle que viven tanto del vecino como del que llega de paso.",
+        "Aquí la web tiene que hablar varios idiomas de verdad. Bera es zona euskaldun, el cliente local busca en euskera y en castellano, y el de Francia busca en francés sin pensárselo. Casi ningún negocio de la zona tiene la web preparada para los tres, y ahí se escapan clientes cada semana. Por eso monto las webs en castellano, euskera, inglés y francés, con URLs separadas y hreflang bien hecho, no un plugin que traduce a medias. Y rápida en el móvil, porque la mayoría de esas búsquedas se hacen desde el coche o caminando por la calle.",
+        "Estoy en Irun, a 16 km por la N-121-A, así que si el proyecto lo pide nos vemos en persona sin que sea ninguna odisea; el resto lo llevamos por WhatsApp y videollamada. Trabajo el SEO local de «diseñador web Bera», «página web negocio Bera» y las búsquedas de tu sector, y te dejo la ficha de Google Business Profile montada con la zona de servicio del Bidasoa y las Cinco Villas. Todo por un pago único de 1.300€ + IVA, con el primer año incluido y la web en propiedad.",
+      ],
+      en: [
+        "Bera is the first of the Cinco Villas in the Bidasoa valley coming up from the border, and that gives it an edge almost nobody uses: plenty of French visitors cross through Dantxarinea or come down from Sare and Ainhoa to eat, shop or fill up. When they pull out their phone to find somewhere to stop, whoever ranks first on Google gets the visit. I work with town-centre retail, the hospitality around the square and the valley businesses that live off both the neighbour and the passer-by.",
+        "Here the website genuinely has to speak several languages. Bera is a Basque-speaking area: the local client searches in Basque and Spanish, and the French visitor searches in French without a second thought. Almost no local business has a site ready for all three, and that's where clients slip away every week. That's why I build sites in Spanish, Basque, English and French, with separate URLs and proper hreflang, not a half-baked translation plugin. And fast on mobile, because most of those searches happen from the car or walking down the street.",
+        "I'm based in Irun, 16 km away on the N-121-A, so if the project calls for it we meet in person without it being a trek; the rest we handle over WhatsApp and video call. For local SEO I work «web designer Bera», «Bera business website» and your sector searches, and I set up your Google Business Profile with the Bidasoa and Cinco Villas service area. All for a one-off €1,300 + VAT, with the first year included and the site yours to keep.",
+      ],
+      eu: [
+        "Bera Bidasoako Bortzirietako lehena da mugatik gora, eta horrek ia inork aprobetxatzen ez duen abantaila ematen dio: hemendik frantses asko pasatzen da, Dantxarineatik zeharkatuz edo Sara eta Ainhoatik jaitsiz, jatera, erostera edo erregaia hartzera. Jende horrek mugikorra ateratzen duenean non gelditu bilatzeko, Googlen lehena agertzen denak eramaten du bisita. Erdialdeko merkataritzarekin, plazako ostalaritzarekin eta auzokoaz nahiz bidean datorrenaz bizi diren haraneko baserri eta negozioekin lan egiten dut.",
+        "Hemen webak benetan hizkuntza bat baino gehiago hitz egin behar du. Bera euskalduna da: bertako bezeroak euskaraz eta gaztelaniaz bilatzen du, eta Frantziakoak frantsesez bilatzen du pentsatu gabe. Inguruko ia negoziorik ez du weba hiru hizkuntzetarako prest, eta hor astero ihes egiten dute bezeroek. Horregatik gaztelaniaz, euskaraz, ingelesez eta frantsesez egiten ditut webguneak, URL bereiziekin eta hreflang ondo eginekin, ez erdizka itzultzen duen plugin batekin. Eta mugikorrean azkar, bilaketa horietako gehienak kotxetik edo kalean oinez egiten direlako.",
+        "Irunen nago, 16 km-ra N-121-A errepidetik, beraz proiektuak hala eskatzen badu aurrez aurre elkartzen gara arazorik gabe; gainerakoa WhatsApp eta bideo-deiz. Tokiko SEO lanetan «web diseinatzaile Bera», «Berako negozio web orria» eta zure sektoreko bilaketak lantzen ditut, eta zure Google Business Profile fitxa Bidasoa eta Bortzirietako zerbitzu-eremuarekin konfiguratzen dut. Dena 1.300€ + BEZ ordainketa bakarrean, lehen urtea barne eta weba zurea.",
+      ],
+    },
+    nearbyCities: ["disenador-web-lesaka", "disenador-web-irun", "disenador-web-hondarribia"],
+  },
+  {
+    slug: "disenador-web-lesaka",
+    cityNames: { es: "Lesaka", en: "Lesaka", eu: "Lesaka" },
+    regionNames: { es: "Navarra", en: "Navarre", eu: "Nafarroa" },
+    distanceFromIrunKm: 20,
+    sectors: {
+      es: "industria, comercio, hostelería y turismo rural",
+      en: "industry, retail, hospitality and rural tourism",
+      eu: "industria, merkataritza, ostalaritza eta landa-turismoa",
+    },
+    localTouches: {
+      es: [
+        "Lesaka es de las Cinco Villas del Bidasoa con más peso industrial: hay empresas en los polígonos de la zona que llevan años fabricando y vendiendo fuera, y aun así, cuando un comprador nuevo busca proveedor en Google, no aparecen. Lo he visto en otros valles iguales: capacidad técnica de sobra, pero una web de hace diez años o directamente ninguna. Y el cliente que necesita un proveedor ya no pregunta en el bar, lo busca desde el móvil. Esa es la fuga real aquí, y no es de máquina, es de presencia.",
+        "Pero Lesaka no es solo industria. Está el comercio y la hostelería del casco, con sus casas blasonadas y el río cruzando el pueblo, y el turismo rural que sube a hacer rutas por la zona y por Peñas de Aia. Cada uno necesita una web distinta: a la empresa del polígono le monto una web seria en castellano e inglés, con sus capacidades técnicas claras y un formulario que traiga peticiones reales; al bar, la casa rural o el comercio les monto algo rápido en el móvil, con reservas a un toque y la web en castellano, euskera, inglés y francés, porque por el Bidasoa entra cliente francés todo el año.",
+        "Estoy en Irun, a 20 km por la N-121-A, así que la primera reunión la podemos tener en tu local o tu nave en lugar de por videollamada; el día a día lo llevamos por WhatsApp. Trabajo el SEO local de «diseñador web Lesaka», «página web empresa Lesaka» y las búsquedas de tu sector y de las Cinco Villas, y te dejo la ficha de Google afinada para que te encuentre tanto el comprador de fuera como el visitante que recorre el valle. Un pago único de 1.300€ + IVA, con el primer año incluido: la web es tuya, sin cuotas cada mes.",
+      ],
+      en: [
+        "Lesaka is one of the Cinco Villas in the Bidasoa with the strongest industrial weight: there are companies in the local estates that have spent years manufacturing and selling abroad, and yet, when a new buyer looks for a supplier on Google, they don't show up. I've seen it in valleys just like this one: plenty of technical capability, but a ten-year-old website or none at all. And the client who needs a supplier no longer asks at the bar, they search from their phone. That's the real leak here, and it's not about the machinery, it's about presence.",
+        "But Lesaka isn't only industry. There's the retail and hospitality of the old town, with its crested houses and the river running through the village, and the rural tourism heading up to hike the area and Peñas de Aia. Each one needs a different site: for the estate company I build a serious es/en site, with clear technical capabilities and a form that brings real enquiries; for the bar, the rural guesthouse or the shop I build something fast on mobile, with one-tap bookings and the site in Spanish, Basque, English and French, because French clients come up the Bidasoa all year round.",
+        "I'm based in Irun, 20 km away on the N-121-A, so we can hold the first meeting at your premises or your unit instead of over video call; the day-to-day we handle over WhatsApp. For local SEO I work «web designer Lesaka», «Lesaka company website» and your sector and Cinco Villas searches, and I leave your Google profile tuned so both the outside buyer and the visitor touring the valley find you. A one-off €1,300 + VAT, with the first year included: the site is yours, no monthly fees.",
+      ],
+      eu: [
+        "Lesaka Bidasoako Bortzirietako industria-pisu handiena dutenetako bat da: inguruko poligonoetan urteak daramatzaten enpresak daude fabrikatzen eta kanpora saltzen, eta hala ere, erosle berri batek Googlen hornitzaile bila dabilenean, ez dira agertzen. Antzeko haranetan ikusi dut: gaitasun teknikoa soberan, baina duela hamar urteko weba edo bat ere ez. Eta hornitzaile bat behar duen bezeroak ez du jada tabernan galdetzen, mugikorretik bilatzen du. Hori da hemengo benetako ihesa, eta ez da makinarena, presentziarena baizik.",
+        "Baina Lesaka ez da industria soilik. Alde zaharreko merkataritza eta ostalaritza dago, bere etxe blasoidunekin eta herria zeharkatzen duen ibaiarekin, eta inguruan eta Aiako Harrian ibilbideak egitera igotzen den landa-turismoa. Bakoitzak web desberdina behar du: poligonoko enpresari es/en web serioa egiten diot, bere gaitasun teknikoak argi eta benetako eskaerak ekartzen dituen formulario batekin; tabernari, landetxeari edo dendari mugikorrean azkarra den zerbait egiten diet, ukitu bakarreko erreserbekin eta weba gaztelaniaz, euskaraz, ingelesez eta frantsesez, Bidasoatik frantses bezeroa urte osoan sartzen delako.",
+        "Irunen nago, 20 km-ra N-121-A errepidetik, beraz lehen bilera zure lokalean edo nabean egin dezakegu bideo-deiz beharrean; egunerokoa WhatsApp bidez. Tokiko SEO lanetan «web diseinatzaile Lesaka», «Lesakako enpresa web orria» eta zure sektoreko eta Bortzirietako bilaketak lantzen ditut, eta zure Google fitxa afinatuta uzten dut kanpoko erosleak nahiz harana ezagutzen duen bisitariak zu aurkitzeko. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne: weba zurea da, hileko kuotarik gabe.",
+      ],
+    },
+    nearbyCities: ["disenador-web-bera", "disenador-web-irun", "disenador-web-hondarribia"],
+  },
 ];
 
 function cityDeclEu(city: string): string {
@@ -528,8 +586,8 @@ export function getCityLandingContent(
     return {
       breadcrumbHome: "Inicio",
       breadcrumbHere: `Diseñador web ${city}`,
-      heroTitle: `Cuando alguien busca tu servicio en ${city}, ¿sales tú o el de al lado?`,
-      intro: `Soy Unax Aller, diseñador web freelance en Irun${
+      heroTitle: `Diseñador web en ${city}`,
+      intro: `Cuando alguien busca tu servicio en ${city}, ¿sales tú o el de al lado? Soy Unax Aller, diseñador web freelance en Irun${
         def.distanceFromIrunKm !== undefined ? ` (${distShort})` : ""
       }. Monto webs para negocios de ${city} y ${region} que cargan rápido en el móvil y salen en Google cuando un cliente busca${
         sectors ? ` ${sectors}` : " lo que ofreces"
@@ -595,8 +653,8 @@ export function getCityLandingContent(
     return {
       breadcrumbHome: "Home",
       breadcrumbHere: `Web designer ${city}`,
-      heroTitle: `More calls for your ${city} business`,
-      intro: `I'm Unax Aller, based in Irun${
+      heroTitle: `Web designer in ${city}`,
+      intro: `More calls for your ${city} business. I'm Unax Aller, a freelance web designer based in Irun${
         def.distanceFromIrunKm !== undefined ? ` (${distShort})` : ""
       } working with local businesses in ${city} and ${region}. I set up your website, your Google Maps profile and a reviews system${
         sectors ? ` built for ${sectors}` : ""
@@ -664,10 +722,10 @@ export function getCityLandingContent(
   return {
     breadcrumbHome: "Hasiera",
     breadcrumbHere: `Web diseinatzailea ${city}`,
-    heroTitle: `Dei gehiago zure ${city}ko negoziorako`,
-    intro: `Unax Aller naiz, Irunen lan egiten dut${
+    heroTitle: `Web diseinatzailea ${cityIn}`,
+    intro: `Dei gehiago zure ${city}ko negoziorako. Unax Aller naiz, web diseinatzaile freelancea Irunen${
       def.distanceFromIrunKm !== undefined ? ` (${distShort})` : ""
-    } ${cityIn} eta ${region}ko tokiko negozioekin. Weba, Google Maps fitxa eta iritzien sistema jartzen dizkizut${
+    }, ${cityIn} eta ${region}ko tokiko negozioekin lanean. Weba, Google Maps fitxa eta iritzien sistema jartzen dizkizut${
       sectors ? ` (${sectors})` : ""
     } 1.300€ + BEZ ordainketa bakarrean, lehen urtea barne.`,
     benefitsTitle: `Zergatik aukeratzen duten ${city}ko negozioek zure weba`,

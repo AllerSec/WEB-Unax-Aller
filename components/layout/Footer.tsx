@@ -90,6 +90,8 @@ export default function Footer({ locale }: Props) {
     { href: `/${locale}/disenador-web-eibar`, label: "Eibar" },
     { href: `/${locale}/disenador-web-getxo`, label: "Getxo" },
     { href: `/${locale}/disenador-web-bermeo`, label: "Bermeo" },
+    { href: `/${locale}/disenador-web-bera`, label: "Bera" },
+    { href: `/${locale}/disenador-web-lesaka`, label: "Lesaka" },
   ];
 
   const cityPrefix =

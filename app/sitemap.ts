@@ -30,6 +30,8 @@ const staticRoutes = [
   { path: "/disenador-web-zarautz", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/disenador-web-getxo", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/disenador-web-bermeo", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-bera", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/disenador-web-lesaka", priority: 0.8, changeFrequency: "monthly" as const },
   // Sector landings
   { path: "/web-para-clinicas", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/web-para-hosteleria", priority: 0.9, changeFrequency: "monthly" as const },

@@ -8,7 +8,7 @@ import { getCityLanding, getCityLandingContent } from "@/lib/data/city-landings"
 // new deploys (which bust the cache), so an hourly fallback is plenty.
 export const revalidate = 3600;
 
-const SLUG = "disenador-web-irun";
+const SLUG = "disenador-web-lesaka";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -17,14 +17,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Irun",
-    en: "Web Designer in Irun, Gipuzkoa",
-    eu: "Web Diseinatzailea Irunen",
+    es: "Diseñador Web en Lesaka",
+    en: "Web Designer in Lesaka, Navarre",
+    eu: "Web Diseinatzailea Lesakan",
   };
   const descriptions: Record<string, string> = {
-    es: "Diseñador web freelance en Irun. Webs a medida para comercios, hostelería, clínicas y despachos de Irun, Hondarribia y el Bidasoa, con SEO local y Google Maps. Pago único de 1.300€ + IVA, primer año incluido.",
-    en: "Freelance web designer in Irun. Custom websites for shops, hospitality, clinics and practices in Irun, Hondarribia and the Bidasoa, with local SEO and Google Maps. One-off €1,300 + VAT, first year included.",
-    eu: "Web diseinatzaile freelance Irunen. Neurrizko webguneak Irun, Hondarribia eta Bidasoako merkataritza, ostalaritza eta klinikentzat, tokiko SEO eta Google Maps-ekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    es: "Diseñador web freelance para negocios y empresas de Lesaka (Bidasoa, Navarra). A 20 km de Irun. Webs a medida con SEO local y Google Maps, en castellano, euskera, inglés y francés. Pago único de 1.300€ + IVA, primer año incluido.",
+    en: "Freelance web designer for businesses and companies in Lesaka (Bidasoa, Navarre). 20 km from Irun. Custom websites with local SEO and Google Maps, in Spanish, Basque, English and French. One-off €1,300 + VAT, first year included.",
+    eu: "Web diseinatzaile freelance Lesakako (Bidasoa, Nafarroa) negozio eta enpresentzat. Iruntik 20 kmra. Neurrizko webguneak tokiko SEO eta Google Maps-ekin, gaztelaniaz, euskaraz, ingelesez eta frantsesez. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
   };
 
   const title = titles[locale];
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function IrunPage({ params }: Props) {
+export default async function LesakaPage({ params }: Props) {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu";
   // Enable static rendering (see home/layout note) — must precede any next-intl API.

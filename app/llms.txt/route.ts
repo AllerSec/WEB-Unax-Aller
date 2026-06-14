@@ -43,6 +43,9 @@ const BODY = `# Unax Aller — Diseño y Desarrollo Web
 - [Diseñador web en Vitoria-Gasteiz](https://unaxaller.com/es/disenador-web-vitoria)
 - [Diseñador web en Pamplona](https://unaxaller.com/es/disenador-web-pamplona)
 - [Diseñador web en el País Vasco](https://unaxaller.com/es/disenador-web-pais-vasco)
+
+## Documento completo
+- [llms-full.txt](https://unaxaller.com/llms-full.txt): contenido completo de todas las landings por ciudad y por sector en un solo fichero.
 `;
 
 export const dynamic = "force-static";
