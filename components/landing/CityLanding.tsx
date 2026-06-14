@@ -164,7 +164,7 @@ export default function CityLanding({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
       {/* 1. Hero — title + intro + CTA. Distance pin moved to bottom of hero. */}

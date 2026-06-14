@@ -271,12 +271,13 @@ export default async function PreciosPage({ params }: Props) {
             { "@type": "AdministrativeArea", name: "País Vasco" },
           ],
         },
+        // Real Google Business Profile (jun 2026): 5,0 con 3 reseñas.
         aggregateRating: {
           "@type": "AggregateRating",
           ratingValue: "5",
           bestRating: "5",
-          ratingCount: "5",
-          reviewCount: "5",
+          ratingCount: "3",
+          reviewCount: "3",
         },
       },
       {
@@ -362,7 +363,7 @@ export default async function PreciosPage({ params }: Props) {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
 
       {/* ── HERO ── */}

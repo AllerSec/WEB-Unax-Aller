@@ -95,11 +95,27 @@ export default function SocialProof() {
         if (!numEl || !rawValue) return;
         // Ranges like "7–10", "7-10", "7‑10": leave the static value in place
         if (/[–—\-‑]/.test(rawValue)) return;
-        const raw = rawValue.replace(/[^0-9.]/g, "");
+        // Parse a localized number. A "." or "," is a thousands separator when
+        // it groups 3 digits (es/eu "1.300", en "1,300") and a decimal point
+        // otherwise ("1,3"). Without this, parseFloat("1.300") → 1.3, which
+        // rendered "1.300€" as "1.3€".
+        const numericPart = rawValue.replace(/[^0-9.,]/g, "");
+        const sepMatch = numericPart.match(/[.,](\d+)$/);
+        const isDecimal = sepMatch ? sepMatch[1].length <= 2 : false;
+        const raw = isDecimal
+          ? numericPart.replace(/[.,](?=\d+$)/, ".").replace(/[.,](?!\d*$)/g, "")
+          : numericPart.replace(/[.,]/g, "");
         const num = parseFloat(raw);
         if (isNaN(num)) return;
-        const suffix = rawValue.replace(/[0-9.]/g, "");
-        const isDecimal = raw.includes(".");
+        const suffix = rawValue.replace(/[0-9.,]/g, "");
+        const decimals = isDecimal ? sepMatch![1].length : 0;
+        const formatter = new Intl.NumberFormat(locale, {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+          // "always" so 4-digit values group too (es defaults to min2 grouping,
+          // which would render "1300€" and mismatch the static "1.300€").
+          useGrouping: "always",
+        });
         const counter = { val: 0 };
         gsap.fromTo(
           counter,
@@ -109,9 +125,7 @@ export default function SocialProof() {
             duration: 1.8,
             ease: "power2.out",
             onUpdate: () => {
-              numEl.textContent = isDecimal
-                ? counter.val.toFixed(1) + suffix
-                : Math.round(counter.val) + suffix;
+              numEl.textContent = formatter.format(counter.val) + suffix;
             },
           }
         );

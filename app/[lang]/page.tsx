@@ -48,7 +48,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function buildHomeJsonLd(locale: "es" | "en" | "eu") {
+function buildHomeJsonLd(
+  locale: "es" | "en" | "eu",
+  faqItems: { q: string; a: string }[]
+) {
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -147,10 +150,13 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
           },
         ],
         slogan: "Más llamadas para tu negocio local · 1.300€, 1er año incluido",
+        // Sincronizado con el Google Business Profile real (jun 2026):
+        // "Unax Aller - Diseño y Desarrollo Web" → 5,0 con 3 reseñas.
+        // NO inflar: un AggregateRating no verificable es riesgo de penalización.
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "23",
+          ratingValue: "5",
+          reviewCount: "3",
           bestRating: "5",
           worstRating: "1",
         },
@@ -183,10 +189,17 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
                 priceCurrency: "EUR",
                 valueAddedTaxIncluded: false,
               },
+              // Plazo de entrega real verificado: 1 semana (7 días).
+              deliveryLeadTime: {
+                "@type": "QuantitativeValue",
+                minValue: 5,
+                maxValue: 7,
+                unitCode: "DAY",
+              },
               itemOffered: {
                 "@type": "Service",
                 name: "Web para negocio local",
-                description: "Web profesional, Google Maps optimizado, captación de reseñas, hosting, dominio y soporte WhatsApp. Pago único con el primer año incluido.",
+                description: "Web profesional, Google Maps optimizado, captación de reseñas, hosting, dominio y soporte WhatsApp. Pago único con el primer año incluido. Entrega en una semana.",
               },
             },
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "Optimización de Google Business Profile" } },
@@ -194,6 +207,22 @@ function buildHomeJsonLd(locale: "es" | "en" | "eu") {
             { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO local para Gipuzkoa" } },
           ],
         },
+      },
+      {
+        // FAQPage generada desde el copy visible de la sección FAQ del home,
+        // para que Google/IA puedan extraer las respuestas. speakable apunta a
+        // los <details>/<summary> renderizados abajo (AEO / asistentes de voz).
+        "@type": "FAQPage",
+        "@id": `https://unaxaller.com/${locale}#faq`,
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: [".lp-faq-summary", ".lp-faq-answer"],
+        },
+        mainEntity: faqItems.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
       },
       {
         "@type": "BreadcrumbList",
@@ -221,11 +250,14 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      {/* JSON-LD — static server-generated data, no user input */}
+      {/* JSON-LD — static server-generated data. Escapamos "<" → < para
+          evitar inyección de etiquetas si el copy llegara a contenerlas. */}
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildHomeJsonLd(locale)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildHomeJsonLd(locale, copy.faq.items)).replace(/</g, "\\u003c"),
+        }}
       />
 
       {/* ── 1. HERO con shader animado ── */}
