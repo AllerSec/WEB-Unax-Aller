@@ -264,7 +264,7 @@ export default function Hero({ locale }: Props) {
         .to(
           priceCounterDesktop,
           {
-            v: 1500,
+            v: 1300,
             duration: 1.2,
             ease: "power2.out",
             snap: { v: 1 },

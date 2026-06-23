@@ -74,7 +74,7 @@ const ICONS: Record<IconKey, React.ReactNode> = {
 };
 
 // Hero-style visual showing the 9 services bundled into the monthly fee.
-// Designed to sit above the 6.700€ breakdown table and give the reader an
+// Designed to sit above the 6.170€ breakdown table and give the reader an
 // immediate sense of *how much* is in the package without reading numbers.
 export default function PackageVisual({ locale }: Props) {
   const items: { icon: IconKey; label: string; price: string }[] =
@@ -207,7 +207,7 @@ export default function PackageVisual({ locale }: Props) {
           {locale === "es" ? "Todo esto, por solo" : locale === "en" ? "All of it, for just" : "Hau guztia, hau bakarrik"}
         </span>
         <span className="pv-equals-value">
-          <span className="pv-equals-strike">{locale === "en" ? "€6,770" : "6.770€"}</span>
+          <span className="pv-equals-strike">{locale === "en" ? "€6,170" : "6.170€"}</span>
           {locale === "en" ? "€1,300" : "1.300€"}
         </span>
       </div>

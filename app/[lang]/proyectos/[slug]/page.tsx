@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/seo/Breadcrumbs";
+import ResultsVideo from "@/components/projects/ResultsVideo";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 import { projects, getProject } from "@/lib/data/projects";
 import type { LocaleKey } from "@/lib/data/city-landings";
@@ -236,6 +237,32 @@ export default async function ProjectDetailPage({ params }: Props) {
           </figure>
         </div>
       </section>
+
+      {project.results && (
+        <section
+          className="project-detail-results"
+          aria-label={locale === "es" ? "Resultados reales" : locale === "en" ? "Real results" : "Benetako emaitzak"}
+        >
+          <div className="container-xl">
+            <div className="project-results-card">
+              <div className="project-results-text">
+                <span className="project-detail-section-label">
+                  {locale === "es" ? "Resultados reales" : locale === "en" ? "Real results" : "Benetako emaitzak"}
+                </span>
+                <p className="project-results-headline">{project.results.headline[locale]}</p>
+                <p className="project-results-caption">{project.results.caption[locale]}</p>
+              </div>
+              <figure className="project-results-media">
+                <ResultsVideo
+                  src={project.results.video}
+                  poster={project.results.poster}
+                  label={project.results.headline[locale]}
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="project-detail-body" aria-label={t("aboutTitle")}>
         <div className="container-xl">

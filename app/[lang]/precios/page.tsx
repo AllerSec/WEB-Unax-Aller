@@ -132,7 +132,8 @@ export default async function PreciosPage({ params }: Props) {
   };
 
   // Desglose exacto del valor del sistema — los 9 ítems que el cliente
-  // recibe el primer año. Total bruto: 6.770€. Lo paga por 1.300€ (pago único).
+  // recibe el primer año. Total bruto: 6.170€ (suma exacta del desglose).
+  // Lo paga por 1.300€ (pago único).
   const valueBreakdown = locale === "es"
     ? [
         { label: "Diseño web profesional a medida", value: "1.500€", unit: "una vez" },
@@ -208,9 +209,9 @@ export default async function PreciosPage({ params }: Props) {
         name: locale === "es" ? "Web para negocio local: pago único con primer año incluido" : locale === "en" ? "Web for local business: one-off payment, first year included" : "Web tokiko negoziorako: ordainketa bakarra, lehen urtea barne",
         serviceType: locale === "es" ? "Web design for local business" : locale === "en" ? "Web design for local business" : "Web design for local business",
         description: locale === "es"
-          ? "Web profesional para negocios locales por un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido: diseño, hosting, dominio, SEO local, Google Business Profile, sistema de reseñas y soporte por WhatsApp. A partir del segundo año, mantenimiento de 600€/año. 30 días de garantía de devolución. Valor del sistema el primer año: más de 6.700€."
+          ? "Web profesional para negocios locales por un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido: diseño, hosting, dominio, SEO local, Google Business Profile, sistema de reseñas y soporte por WhatsApp. A partir del segundo año, mantenimiento de 600€/año. 30 días de garantía de devolución. Valor del sistema el primer año: 6.170€."
           : locale === "en"
-          ? "Professional website for local businesses for a one-off €1,300 + VAT, with the first year of maintenance included: design, hosting, domain, local SEO, Google Business Profile, reviews system and WhatsApp support. From the second year, €600/year maintenance. 30-day money-back guarantee. First-year system value: over €6,700."
+          ? "Professional website for local businesses for a one-off €1,300 + VAT, with the first year of maintenance included: design, hosting, domain, local SEO, Google Business Profile, reviews system and WhatsApp support. From the second year, €600/year maintenance. 30-day money-back guarantee. First-year system value: €6,170."
           : "Tokiko negozioentzako web profesionala 1.300€ + BEZ ordainketa bakarrean, lehen urteko mantentze-lana barne: diseinua, hostinga, domeinua, tokiko SEOa, Google Business Profile, iritzien sistema eta WhatsApp laguntza. Bigarren urtetik, 600€/urteko mantentze-lana. 30 eguneko itzulketa bermea.",
         provider: { "@id": "https://unaxaller.com/#business" },
         brand: { "@id": "https://unaxaller.com/#business" },
@@ -339,7 +340,7 @@ export default async function PreciosPage({ params }: Props) {
         .prc-market-grid { display:flex;flex-direction:column;gap:var(--space-2); }
         .prc-market-row { display:grid;grid-template-columns:1fr 1fr 2fr;gap:var(--space-4);align-items:center;padding:1rem 1.25rem;border-radius:var(--radius-lg);border:1px solid rgba(10, 10, 10, .10);background:var(--color-bg-alt);font-family:var(--font-sans);font-size:var(--text-sm); }
         @media(max-width:640px){ .prc-market-row{grid-template-columns:1fr;gap:var(--space-1)} }
-        .prc-market-row--highlight { background:linear-gradient(90deg,rgba(4, 120, 87, .06) 0%,rgba(10, 10, 10, .04) 100%);border-color:rgba(10, 10, 10, .2);border-left:3px solid var(--color-success); }
+        .prc-market-row--highlight { background:linear-gradient(90deg,rgba(4, 120, 87, .06) 0%,rgba(10, 10, 10, .04) 100%);border-color:rgba(4, 120, 87, .35); }
         .prc-market-who { color:var(--color-ink);font-weight:600; }
         .prc-market-price { color:var(--color-ink-muted); }
         .prc-market-row--highlight .prc-market-price { color:var(--color-success);font-weight:700; }
@@ -406,7 +407,7 @@ export default async function PreciosPage({ params }: Props) {
               <span className="prc-chip prc-chip--accent">{locale === "es" ? "1.300€ · pago único" : locale === "en" ? "€1,300 · one-off" : "1.300€ · ordainketa bakarra"}</span>
               <span className="prc-chip">{locale === "es" ? "1er año incluido" : locale === "en" ? "First year included" : "1. urtea barne"}</span>
               <span className="prc-chip">{locale === "es" ? "30 días garantía" : locale === "en" ? "30-day guarantee" : "30 eguneko bermea"}</span>
-              <span className="prc-chip">{locale === "es" ? "Sin cuotas mensuales" : locale === "en" ? "No monthly fees" : "Hileko kuotarik gabe"}</span>
+              <span className="prc-chip">{locale === "es" ? "Mantenimiento anual, no mensual" : locale === "en" ? "Yearly upkeep, not monthly" : "Mantentze-lana urtero, ez hilero"}</span>
             </div>
             <div className="prc-progress-bar-wrap" aria-hidden="true">
               <div className="prc-progress-bar" />
@@ -444,7 +445,7 @@ export default async function PreciosPage({ params }: Props) {
         </section>
       </AnimatedSection>
 
-      {/* ── DESGLOSE 6.700€ ── */}
+      {/* ── DESGLOSE 6.170€ ── */}
       <AnimatedSection>
         <section className="prc-value-section" aria-labelledby="value-title">
           <div className="container-xl">
@@ -453,10 +454,10 @@ export default async function PreciosPage({ params }: Props) {
             </p>
             <h2 id="value-title" className="section-heading" style={{ marginBottom: "var(--space-6)", textAlign: "center" }}>
               {locale === "es"
-                ? "Más de 6.700€ de servicios. Por 1.300€, una vez."
+                ? "6.170€ de servicios. Por 1.300€, una vez."
                 : locale === "en"
-                ? "Over €6,700 in services. For €1,300, once."
-                : "6.700€-tik gorako zerbitzuak. 1.300€, behin."}
+                ? "€6,170 in services. For €1,300, once."
+                : "6.170€ zerbitzu. 1.300€, behin."}
             </h2>
             <PackageVisual locale={locale} />
             <p className="prc-value-intro">
@@ -479,15 +480,15 @@ export default async function PreciosPage({ params }: Props) {
                   {locale === "es" ? "Valor total el primer año" : locale === "en" ? "Total first-year value" : "Lehen urteko balioa guztira"}
                 </span>
                 <span className="prc-value-total-num">
-                  {locale === "en" ? "€6,770+" : "6.770€+"}
+                  {locale === "en" ? "€6,170" : "6.170€"}
                 </span>
               </div>
               <p className="prc-value-vs">
                 {locale === "es"
-                  ? <>Tú pagas <strong>1.300€ una vez</strong>, con el primer año entero incluido. Te ahorras más de 5.000€ frente a lo que cobra una agencia. A partir del año 2, solo 600€/año.</>
+                  ? <>Tú pagas <strong>1.300€ una vez</strong>, con el primer año entero incluido: casi 4.900€ de diferencia frente a lo que cobra una agencia. A partir del año 2, solo 600€/año.</>
                   : locale === "en"
-                  ? <>You pay <strong>€1,300 once</strong>, with the whole first year included. You save over €5,000 versus what an agency charges. From year 2, just €600/year.</>
-                  : <>Zuk <strong>1.300€ behin</strong> ordaintzen duzu, lehen urte osoa barne. 5.000€ baino gehiago aurrezten dituzu agentzia batek kobratzen duenaren aldean. 2. urtetik, 600€/urteko bakarrik.</>}
+                  ? <>You pay <strong>€1,300 once</strong>, with the whole first year included: almost €4,900 less than what an agency charges. From year 2, just €600/year.</>
+                  : <>Zuk <strong>1.300€ behin</strong> ordaintzen duzu, lehen urte osoa barne: ia 4.900€-ko aldea agentzia batek kobratzen duenaren aldean. 2. urtetik, 600€/urteko bakarrik.</>}
               </p>
             </div>
           </div>

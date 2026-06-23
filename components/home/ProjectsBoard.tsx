@@ -17,6 +17,14 @@ const PERSONALITY: Record<
     badgeText: { es: string; en: string; eu: string };
   }
 > = {
+  boralan: {
+    tilt: 2,
+    pinX: "42%",
+    tapeCorner: "tr",
+    tapeAngle: -24,
+    captionStyle: "stencil",
+    badgeText: { es: "ALTURA", en: "CLIMB", eu: "ALTUERA" },
+  },
   "motos-arretxe": {
     tilt: -3,
     pinX: "18%",

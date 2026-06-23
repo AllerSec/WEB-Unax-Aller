@@ -57,7 +57,7 @@ export default async function BienvenidoPage({ params }: Props) {
           border-radius: 50%;
           background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
           margin-bottom: 1.75rem;
-          animation: bvCheckIn .55s cubic-bezier(.34,1.56,.64,1) .2s both, bvPulse 2.5s ease 1s infinite;
+          animation: bvCheckIn .55s cubic-bezier(.16,1,.3,1) .2s both, bvPulse 2.5s ease 1s infinite;
         }
         .bv-title {
           font-family: var(--font-serif, Georgia, serif);

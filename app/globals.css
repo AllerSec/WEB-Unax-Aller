@@ -75,7 +75,10 @@
   --color-ink: #0A0A0A;          /* Heading text — neutral-950 */
   --color-ink-soft: #171717;     /* Strong body — neutral-900 */
   --color-ink-muted: #525252;    /* Body / muted — neutral-600 */
-  --color-ink-subtle: #737373;   /* Subtle / meta — neutral-500 */
+  --color-ink-subtle: #6B6B6B;   /* Subtle / meta — darkened from neutral-500
+                                    (#737373) to clear AA (4.5:1) for normal text
+                                    on both #FFF (≈5.3:1) and bg-muted #F7F7F7
+                                    (≈5.0:1). #737373 fell to 4.43:1 on tint. */
   --color-accent: #171717;       /* CTA — ink (monochrome primary) */
   --color-accent-hover: #000000; /* CTA hover — pure black */
   --color-accent-soft: #171717;  /* Accent emphasis — ink. Historically a light
@@ -128,20 +131,28 @@
   /* Motion tokens */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-fast: 150ms;
   --dur-base: 220ms;
   --dur-slow: 320ms;
 
-  /* Z-index scale */
+  /* Media vivacity — un realce de saturación/contraste compartido por fotos y
+     vídeos para que todo el sitio respire con más color sin parecer falso. */
+  --media-vivacity: saturate(1.14) contrast(1.05);
+  --media-vivacity-hover: saturate(1.22) contrast(1.08);
+
+  /* Z-index scale — semantic layers, ordered. Never hard-code arbitrary
+     values (999/9999); every stacked element maps to one of these. */
   --z-base: 0;
   --z-raised: 10;
   --z-dropdown: 100;
   --z-sticky: 200;
+  --z-fab: 900;        /* Floating CTAs (WhatsApp) — above page, below overlays */
   --z-overlay: 1000;
   --z-modal: 1100;
   --z-toast: 1200;
-  --z-cursor: 9999;
+  --z-skiplink: 1300;  /* Keyboard skip link — must sit above modals/toasts */
+  --z-cursor: 9999;    /* Custom cursor — always topmost */
 
   /* Type scale (fluid but capped) */
   --text-xs: 0.75rem;     /* 12 */
@@ -235,7 +246,7 @@ body.custom-cursor-active [role="button"] {
   position: absolute;
   left: -9999px;
   top: 0;
-  z-index: 9999;
+  z-index: var(--z-skiplink);
   padding: var(--space-3) var(--space-4);
   background: var(--color-ink);
   color: var(--color-bg);
@@ -755,8 +766,7 @@ body.custom-cursor-active [role="button"] {
   transition:
     background-color .35s var(--ease-out),
     border-color .35s var(--ease-out),
-    box-shadow .35s var(--ease-out),
-    height .35s var(--ease-out);
+    box-shadow .35s var(--ease-out);
 }
 .nav-root[data-scrolled="true"] {
   background-color: rgba(255, 255, 255, 0.94);
@@ -846,6 +856,24 @@ body.custom-cursor-active [role="button"] {
   color: var(--color-ink);
   font-weight: 600;
 }
+/* Hit-area expander — lifts the tappable target to 44px (WCAG 2.5.5 AAA)
+   without changing the 36px visual height or the bar layout. Applied to the
+   desktop-only nav link + lang button (the narrowest targets); the CTA has
+   overflow:hidden for its shimmer so it can't host an overflowing hit-area,
+   and at 38px × wide it's already an easy target. Mobile uses the 44px burger
+   + 56px panel links. */
+.nav-link::after,
+.nav-lang-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 44px;
+  pointer-events: auto;
+}
+.nav-lang-btn { position: relative; }
 .nav-link-underline {
   position: absolute;
   left: 0.875rem;
@@ -1132,7 +1160,7 @@ body.custom-cursor-active [role="button"] {
   border-bottom: 1px solid rgba(10, 10, 10, 0.06);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color .2s var(--ease-out), color .2s var(--ease-out), padding-left .25s var(--ease-out);
+  transition: background-color .2s var(--ease-out), color .2s var(--ease-out), transform .25s var(--ease-out);
 }
 .nav-mobile-link svg {
   color: rgba(10, 10, 10, 0.25);
@@ -1140,7 +1168,7 @@ body.custom-cursor-active [role="button"] {
 }
 .nav-mobile-link:hover {
   background-color: rgba(10, 10, 10, 0.03);
-  padding-left: calc(var(--space-5) + 4px);
+  transform: translateX(4px);
 }
 .nav-mobile-link:hover svg {
   color: #0A0A0A;
@@ -1159,10 +1187,11 @@ body.custom-cursor-active [role="button"] {
 
 /* ═══════════════════════════════════════════════════════════════════
    FOOTER — light polar surface, WCAG-compliant contrast pairs
-   Base: var(--color-bg) (ink). Text palette tuned for ≥4.5:1:
-   - Primary on ink:    #ebebeb  (~12.9:1)
-   - Secondary on ink:  var(--color-ink-muted)  (~5.6:1)
-   - Tertiary on ink:   #8a8a8a  (~4.5:1, meta only)
+   Base: var(--color-bg) (white). All footer text uses tokens that clear AA
+   (≥4.5:1) on white:
+   - Primary:    var(--color-ink-soft)    #171717  (~17.9:1)
+   - Secondary:  var(--color-ink-muted)   #525252  (~7.8:1)
+   - Tertiary:   var(--color-ink-subtle)  #6B6B6B  (~5.3:1)
    ═══════════════════════════════════════════════════════════════════ */
 .site-footer {
   background-color: var(--color-bg);
@@ -1736,10 +1765,7 @@ body.custom-cursor-active [role="button"] {
   font-size: clamp(1.75rem, 7vw, 3rem);
   font-weight: 650;
   font-variant-numeric: tabular-nums;
-  background: linear-gradient(135deg, #0A0A0A 35%, #171717);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-ink);
   margin-bottom: var(--space-2);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -1913,7 +1939,7 @@ body.custom-cursor-active [role="button"] {
   position: fixed;
   right: 1.5rem;
   bottom: 1.5rem;
-  z-index: 9995;
+  z-index: var(--z-fab);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -5305,7 +5331,7 @@ a.contact-info-label:hover {
   border-top: 1px solid var(--color-line);
   text-decoration: none;
   color: inherit;
-  transition: transform var(--dur-base) var(--ease-out), padding-inline-start var(--dur-base) var(--ease-out);
+  transition: transform var(--dur-base) var(--ease-out);
 }
 
 .post-list-item:first-child {
@@ -5313,7 +5339,7 @@ a.contact-info-label:hover {
 }
 
 .post-list-item:hover {
-  padding-inline-start: var(--space-2);
+  transform: translateX(var(--space-2));
 }
 
 .post-list-item:hover .post-list-title {
@@ -6001,7 +6027,6 @@ a.contact-info-label:hover {
   padding: clamp(2rem, 3.5vw, 3rem);
   background: var(--color-bg-alt);
   border: 1px solid var(--color-line);
-  border-left: 3px solid var(--color-accent);
   border-radius: var(--radius-2xl);
   position: relative;
 }
@@ -6135,7 +6160,6 @@ a.contact-info-label:hover {
   padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.75rem, 3vw, 2.5rem) clamp(1.75rem, 3vw, 2.5rem) clamp(2.25rem, 4vw, 3rem);
   background: var(--color-bg-alt);
   border: 1px solid var(--color-line);
-  border-left: 3px solid var(--color-accent);
   border-radius: var(--radius-2xl);
   overflow: hidden;
   opacity: 0;
@@ -6682,7 +6706,7 @@ a.contact-info-label:hover {
   justify-content: center;
   opacity: 0;
   transform: translateY(30px) rotate(0deg);
-  animation: polaroid-drop 0.9s cubic-bezier(0.25, 1.2, 0.4, 1) forwards;
+  animation: polaroid-drop 0.9s var(--ease-out) forwards;
 }
 
 @keyframes polaroid-drop {
@@ -6707,7 +6731,7 @@ a.contact-info-label:hover {
     0 8px 16px rgba(0, 0, 0, 0.35),
     0 24px 48px rgba(0, 0, 0, 0.5);
   transform-origin: top center;
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+  transition: transform 0.5s var(--ease-out),
     box-shadow 0.5s var(--ease-out);
 }
 
@@ -6902,15 +6926,15 @@ a.contact-info-label:hover {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.8s var(--ease-out);
+  transition: transform 0.8s var(--ease-out), filter 0.4s var(--ease-out);
   display: block;
-  /* Subtle desaturation so the photo reads as "captured" */
-  filter: saturate(0.92) contrast(1.04);
+  /* Un punto más de color para que la foto destaque en el tablero */
+  filter: var(--media-vivacity);
 }
 
 .polaroid:hover .polaroid-photo-img {
   transform: scale(1.04);
-  filter: saturate(1.05) contrast(1.08);
+  filter: var(--media-vivacity-hover);
 }
 
 .polaroid-photo-glare {
@@ -7037,7 +7061,7 @@ a.contact-info-label:hover {
     0 4px 0 color-mix(in srgb, var(--p-accent) 50%, #000),
     0 12px 24px rgba(0, 0, 0, 0.45);
   transition:
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.3s var(--ease-out),
     box-shadow 0.3s var(--ease-out);
 }
 
@@ -7348,6 +7372,7 @@ a.contact-info-label:hover {
   height: auto;
   display: block;
   border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  filter: var(--media-vivacity);
 }
 
 /* Pushpin floating above the frame */
@@ -7447,7 +7472,7 @@ a.contact-info-label:hover {
     inset 0 0 0 2px color-mix(in srgb, var(--project-accent-ink) 8%, transparent),
     0 4px 0 color-mix(in srgb, var(--project-accent) 50%, #000),
     0 14px 26px rgba(0, 0, 0, 0.55);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s var(--ease-out);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
 
 .project-detail-cover-stamp:hover {
@@ -7568,7 +7593,6 @@ a.contact-info-label:hover {
   margin: 0;
   background: var(--color-bg-alt);
   border: 1px solid var(--color-line);
-  border-left: 3px solid var(--project-accent, var(--color-accent));
   border-radius: var(--radius-2xl);
   position: relative;
 }
@@ -7618,6 +7642,76 @@ a.contact-info-label:hover {
 }
 
 /* ─────────── Testimonial ─────────── */
+/* ── Sección de resultados reales (curva de métricas) ── */
+.project-detail-results {
+  padding: clamp(2rem, 4vw, 4rem) 0;
+}
+
+.project-results-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background:
+    radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--project-accent, var(--color-accent)) 16%, transparent), transparent 65%),
+    var(--color-bg-alt);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.project-results-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: var(--space-3) 0 var(--space-4);
+  color: var(--color-ink);
+  background: linear-gradient(
+    100deg,
+    var(--color-ink) 0%,
+    color-mix(in srgb, var(--project-accent, var(--color-accent)) 85%, var(--color-ink)) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-results-caption {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+  margin: 0;
+}
+
+.project-results-media {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--project-accent, var(--color-accent)) 30%, var(--color-line));
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--project-accent, var(--color-accent)) 18%, transparent);
+}
+
+.project-results-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Un toque de vida en la gráfica sin falsear los datos */
+  filter: saturate(1.12) contrast(1.04);
+}
+
+@media (max-width: 720px) {
+  .project-results-card {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+
 .project-detail-testimonial {
   padding: clamp(2rem, 4vw, 4rem) 0;
 }
@@ -8001,7 +8095,10 @@ a.contact-info-label:hover {
 .comparison-item-good svg { color: var(--color-success); flex-shrink: 0; margin-top: 3px; }
 
 /* === Timeline (About) === */
-.timeline { display: flex; flex-direction: column; padding-left: var(--space-4); border-left: 2px solid color-mix(in srgb, var(--color-accent) 30%, transparent); margin-top: var(--space-8); }
+/* Vertical rail drawn as a positioned 1px line (::before), not a border, so it
+   reads as a timeline spine rather than a side-tab accent. */
+.timeline { display: flex; flex-direction: column; padding-left: var(--space-4); margin-top: var(--space-8); position: relative; }
+.timeline::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
 .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: var(--space-6); padding-bottom: var(--space-8); position: relative; }
 .timeline-item::before { content: ""; position: absolute; left: calc(0px - var(--space-4) - 5px); top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-accent); }
 @media (max-width: 640px) { .timeline-item { grid-template-columns: 1fr; gap: var(--space-1); } }
@@ -8346,22 +8443,27 @@ a.contact-info-label:hover {
 .lp-pain-highlight {
   color: #ef4444;
   font-weight: 700;
-  background-image: linear-gradient(transparent 62%, rgba(239, 68, 68, 0.22) 62%);
+  /* Subrayado más presente para dar vida sin tocar el color del texto (mantiene
+     el contraste AA del glifo intacto). */
+  background-image: linear-gradient(transparent 60%, rgba(239, 68, 68, 0.32) 60%);
   background-repeat: no-repeat;
-  background-size: 100% 0.18em;
+  background-size: 100% 0.2em;
   background-position: 0 88%;
   padding-inline: 0.1em;
 }
 /* "40 llamadas" — ámbar de alerta, diferenciado del rojo del entorno */
 .lp-pain-highlight--alert {
-  color: #d97706;
+  /* #b45309 = 5.0:1 on white (AA for any size); pulse peaks at #d97706
+     (3.19:1, valid for this bold/large text). Avoids the old #f59e0b peak
+     that fell to ~2.3:1. */
+  color: #b45309;
   background-image: linear-gradient(transparent 55%, rgba(245,158,11,0.22) 55%);
   padding-inline: 0.25em;
   border-radius: 3px;
 }
 @keyframes pain-alert-pulse {
-  0%, 100% { color: #d97706; }
-  50%       { color: #f59e0b; }
+  0%, 100% { color: #b45309; }
+  50%       { color: #d97706; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .lp-pain-highlight--alert {
@@ -8378,8 +8480,9 @@ a.contact-info-label:hover {
 .lp-pain-text {
   display: flex;
   flex-direction: column;
-  padding-left: var(--space-6);
-  border-left: 4px solid #ef4444;
+  padding: var(--space-6);
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  background: rgba(239, 68, 68, 0.04);
 }
 .lp-pain-comparison { display: flex; flex-direction: column; gap: var(--space-3); }
 .lp-pain-row {
@@ -8962,10 +9065,11 @@ a.contact-info-label:hover {
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform 400ms var(--ease-out);
+  transition: transform 400ms var(--ease-out), filter 400ms var(--ease-out);
+  filter: var(--media-vivacity);
 }
 .g4-card:hover .g4-phone-img,
-.g4-phone-link:hover .g4-phone-img { transform: scale(1.015); }
+.g4-phone-link:hover .g4-phone-img { transform: scale(1.015); filter: var(--media-vivacity-hover); }
 
 /* gradient overlay */
 .g4-phone-overlay {

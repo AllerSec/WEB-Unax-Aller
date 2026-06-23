@@ -15,6 +15,7 @@ const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu", { name: string; url: string;
     { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Óptica · Irun" },
     { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "IA · Irun" },
     { name: "Tecmac", url: "https://tecmac.es", sector: "Industria · Navarra" },
+    { name: "Boralan", url: "https://boralan.eus", sector: "Forestal · Navarra" },
   ],
   en: [
     { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Pharmacy · Bera" },
@@ -22,6 +23,7 @@ const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu", { name: string; url: string;
     { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optician · Irun" },
     { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "AI · Irun" },
     { name: "Tecmac", url: "https://tecmac.es", sector: "Industry · Navarre" },
+    { name: "Boralan", url: "https://boralan.eus", sector: "Forestry · Navarre" },
   ],
   eu: [
     { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmazia · Bera" },
@@ -29,6 +31,7 @@ const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu", { name: string; url: string;
     { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Optika · Irun" },
     { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "AA · Irun" },
     { name: "Tecmac", url: "https://tecmac.es", sector: "Industria · Nafarroa" },
+    { name: "Boralan", url: "https://boralan.eus", sector: "Basoa · Nafarroa" },
   ],
 };
 

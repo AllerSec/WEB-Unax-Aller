@@ -91,6 +91,21 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
     locale === "es" ? es : locale === "en" ? en : eu;
   return [
     {
+      id: "boralan",
+      title: "Boralan",
+      description: t(
+        "Poda y tala en altura en Navarra. Web potente con acento naranja, catálogo de servicios y SEO local.",
+        "Tree-climbing pruning and felling in Navarre. Bold website with an orange accent, services catalogue and local SEO.",
+        "Altuera handiko inausketa eta moztea Nafarroan. Web indartsua laranja koloreko ukituarekin, zerbitzu katalogoa eta tokiko SEO."
+      ),
+      href: `/${locale}/proyectos/boralan`,
+      externalUrl: "https://boralan.eus",
+      mobileImage: "/images/projects/mobile-boralan.jpg",
+      mobileVideo: "/video/boralan.mp4",
+      accent: "#e8602c",
+      meta: t("Forestal · Navarra · 2026", "Forestry · Navarre · 2026", "Basoa · Nafarroa · 2026"),
+    },
+    {
       id: "farmacia-fernandez-bera",
       title: "Farmacia Fernández Bera",
       description: t(

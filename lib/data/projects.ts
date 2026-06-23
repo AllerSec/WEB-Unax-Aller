@@ -29,6 +29,20 @@ export type Project = {
     role: Record<LocaleKey, string>;
     rating: 1 | 2 | 3 | 4 | 5;
   };
+  /**
+   * Real, measurable results for this client — shown as a proof section on the
+   * detail page. Optional: only projects with verifiable data have it.
+   */
+  results?: {
+    /** Looping, muted video of the metric (e.g. Google Business analytics curve) */
+    video: string;
+    /** Poster frame shown before the video plays */
+    poster: string;
+    /** Headline stat per locale (e.g. "+332% en 3 meses") */
+    headline: Record<LocaleKey, string>;
+    /** Short caption explaining the metric and its source, per locale */
+    caption: Record<LocaleKey, string>;
+  };
   /** Path to the screenshot used on cards and detail hero */
   cover: string;
   /** Alt text per locale */
@@ -38,6 +52,68 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "boralan",
+    name: "Boralan",
+    tagline: {
+      es: "Web potente para una empresa de poda y tala en altura",
+      en: "Bold website for a tree-climbing pruning and felling company",
+      eu: "Web indartsua altuera handiko inausketa eta moztze enpresa batentzat",
+    },
+    sector: {
+      es: "Trabajos forestales y poda en altura",
+      en: "Forestry and tree climbing",
+      eu: "Baso-lanak eta altuera handiko inausketa",
+    },
+    city: "Navarra",
+    region: "Navarra",
+    year: 2026,
+    url: "https://boralan.eus",
+    tasks: {
+      es: [
+        "Diseño y desarrollo web a medida",
+        "Identidad visual potente con acento naranja",
+        "Catálogo de servicios de poda, tala y trepa",
+        "SEO local para trabajos forestales en Navarra",
+        "Adaptación móvil completa y carga rápida",
+      ],
+      en: [
+        "Custom web design and development",
+        "Bold visual identity with an orange accent",
+        "Catalogue of pruning, felling and climbing services",
+        "Local SEO for forestry work in Navarre",
+        "Full mobile adaptation and fast loading",
+      ],
+      eu: [
+        "Web diseinu eta garapen pertsonalizatua",
+        "Identitate bisual indartsua laranja koloreko ukituarekin",
+        "Inausketa, moztze eta igoera zerbitzuen katalogoa",
+        "Tokiko SEO baso-lanetarako Nafarroan",
+        "Mugikorrera moldatuta eta karga azkarra",
+      ],
+    },
+    description: {
+      es: [
+        "Boralan trabaja donde la maquinaria no llega: talas controladas y podas de grandes árboles en zonas inaccesibles, con técnicas de trepa y apeos controlados. Su web tenía que transmitir esa misma seguridad y oficio desde el primer segundo, no parecer una más del sector.",
+        "Diseñamos una experiencia con carácter: hero potente, acento naranja y una estructura clara por servicios. La web carga rápido, se ve perfecta en el móvil y aparece en las búsquedas de poda y tala en altura en Navarra.",
+      ],
+      en: [
+        "Boralan works where machinery can't reach: controlled felling and pruning of large trees in inaccessible areas, using rope-access and controlled rigging techniques. Their site had to convey that same safety and craft from the first second, not look like just another in the sector.",
+        "We designed an experience with character: a bold hero, an orange accent and a clear structure by service. The site loads fast, looks perfect on mobile and shows up in searches for tree climbing and felling in Navarre.",
+      ],
+      eu: [
+        "Boralanek makineria iristen ez den lekuan egiten du lan: zuhaitz handien moztze eta inausketa kontrolatuak iristen zailak diren guneetan, igoera eta apeo kontrolatuen teknikekin. Bere webak segurtasun eta ofizio bera transmititu behar zituen lehen segundotik, ez sektoreko beste bat ematea.",
+        "Nortasuna duen esperientzia diseinatu genuen: hero indartsua, laranja koloreko ukitua eta zerbitzuen araberako egitura argia. Weba azkar kargatzen da, mugikorrean ezin hobeto ikusten da eta Nafarroako altuera handiko inausketa eta moztze bilaketetan agertzen da.",
+      ],
+    },
+    cover: "/images/projects/boralan.avif",
+    coverAlt: {
+      es: "Captura de la web de Boralan diseñada por Unax Aller",
+      en: "Screenshot of the Boralan website designed by Unax Aller",
+      eu: "Unax Allerrek diseinatutako Boralan webaren irudia",
+    },
+    accent: { color: "#e8602c", ink: "#1a0d05" },
+  },
   {
     slug: "farmacia-fernandez-bera",
     name: "Farmacia Fernández Bera",
@@ -182,6 +258,20 @@ export const projects: Project[] = [
         eu: "Motoen kontzesionario eta tailerra Irunen",
       },
       rating: 5,
+    },
+    results: {
+      video: "/video/motos-arretxe-resultados.mp4",
+      poster: "/video/motos-arretxe-resultados-poster.jpg",
+      headline: {
+        es: "+332% de interacciones en Google en 3 meses",
+        en: "+332% Google interactions in 3 months",
+        eu: "%332 elkarrekintza gehiago Google-n 3 hilabetean",
+      },
+      caption: {
+        es: "Interacciones del perfil de empresa en Google: de 63 en enero a 272 en abril de 2026. Más de 1.000 interacciones acumuladas. Dato real del panel de Google Business de Motos Arretxe.",
+        en: "Google Business Profile interactions: from 63 in January to 272 in April 2026. Over 1,000 interactions in total. Real figure from Motos Arretxe's Google Business dashboard.",
+        eu: "Enpresa-profilaren elkarrekintzak Google-n: 63 urtarrilean, 272 2026ko apirilean. 1.000 elkarrekintza baino gehiago guztira. Motos Arretxeren Google Business paneleko benetako datua.",
+      },
     },
     cover: "/images/projects/motos-arretxe.avif",
     coverAlt: {
