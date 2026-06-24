@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/lib/i18n/config";
+import ResultsVideo from "@/components/projects/ResultsVideo";
 
 interface Props {
   locale: Locale;
@@ -59,6 +60,9 @@ export default function LiveCallCounter({ locale }: Props) {
           calls: "llamadas nuevas al mes",
           searches: "veces que tu negocio aparece en Google",
           reviews: "reseñas de 5 estrellas",
+          proofTitle: "Un caso real, en directo",
+          proofCaption:
+            "Interacciones del perfil de Motos Arretxe en Google: de 63 en enero a 272 en abril de 2026 (+332%). Más de 1.000 interacciones acumuladas. Captura real de su panel de Google Business.",
         }
       : locale === "en"
       ? {
@@ -66,12 +70,18 @@ export default function LiveCallCounter({ locale }: Props) {
           calls: "new calls per month",
           searches: "times your business shows on Google",
           reviews: "5-star reviews",
+          proofTitle: "A real case, live",
+          proofCaption:
+            "Motos Arretxe's Google profile interactions: from 63 in January to 272 in April 2026 (+332%). Over 1,000 interactions in total. Real capture from their Google Business dashboard.",
         }
       : {
           eyebrow: "Lehen hiruhilekoan bezeroek ikusten dutena",
           calls: "hileko dei berriak",
           searches: "Googlen agertzen den aldiak",
           reviews: "5 izarreko iritziak",
+          proofTitle: "Benetako kasu bat, zuzenean",
+          proofCaption:
+            "Motos Arretxeren Google profilaren elkarrekintzak: 63 urtarrilean, 272 2026ko apirilean (+%332). 1.000 elkarrekintza baino gehiago guztira. Bere Google Business paneleko benetako irudia.",
         };
 
   return (
@@ -98,6 +108,12 @@ export default function LiveCallCounter({ locale }: Props) {
         .lcc-live { display:inline-flex; align-items:center; gap:6px; font-size:11px; color:#047857; font-weight:600; margin-top:8px; }
         .lcc-live-dot { width:6px; height:6px; border-radius:50%; background:#10B981; animation:lcc-pulse 1.6s ease-in-out infinite; }
         @keyframes lcc-pulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.4; transform:scale(1.4); } }
+        .lcc-proof { display:grid; grid-template-columns:auto 1fr; gap:clamp(1rem,3vw,2rem); align-items:center; margin-top:clamp(1.5rem,3vw,2rem); padding-top:clamp(1.5rem,3vw,2rem); border-top:1px solid var(--color-line); }
+        @media(max-width:680px){ .lcc-proof{ grid-template-columns:1fr; } }
+        .lcc-proof-media { width:clamp(180px,40vw,260px); border-radius:var(--radius-lg); overflow:hidden; border:1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-line)); box-shadow:0 14px 36px color-mix(in srgb, var(--color-accent) 16%, transparent); }
+        .lcc-proof-media .project-results-video { width:100%; height:auto; display:block; }
+        .lcc-proof-title { font-family:var(--font-serif); font-size:clamp(1.1rem,2.4vw,1.4rem); font-weight:600; color:var(--color-primary); margin:0 0 var(--space-2); letter-spacing:-.02em; }
+        .lcc-proof-caption { font-family:var(--font-sans); font-size:var(--text-sm); line-height:1.55; color:var(--color-ink-muted); margin:0; }
       `}</style>
       <div ref={ref} className="lcc-wrap">
         <p className="lcc-eyebrow">{labels.eyebrow}</p>
@@ -117,6 +133,20 @@ export default function LiveCallCounter({ locale }: Props) {
           <div className="lcc-item">
             <p className="lcc-num">{reviews}<span className="lcc-num-plus">★</span></p>
             <p className="lcc-label">{labels.reviews}</p>
+          </div>
+        </div>
+
+        <div className="lcc-proof">
+          <figure className="lcc-proof-media">
+            <ResultsVideo
+              src="/video/motos-arretxe-resultados.mp4"
+              poster="/video/motos-arretxe-resultados-poster.jpg"
+              label={labels.proofCaption}
+            />
+          </figure>
+          <div>
+            <p className="lcc-proof-title">{labels.proofTitle}</p>
+            <p className="lcc-proof-caption">{labels.proofCaption}</p>
           </div>
         </div>
       </div>
