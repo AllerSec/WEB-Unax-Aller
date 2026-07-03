@@ -67,6 +67,15 @@ const labels: Record<Locale, {
     from: "Hasieratik",
     visitSite: "Webgunea ikusi",
   },
+  fr: {
+    includes: "Que comprend exactement ce plan ?",
+    process: "Processus de travail",
+    clients: "Projets réalisés avec ce plan",
+    cta: "Demander ce plan",
+    close: "Fermer",
+    from: "À partir de",
+    visitSite: "Voir le site",
+  },
 };
 
 const FOCUSABLE_SELECTOR =
@@ -181,7 +190,7 @@ export default function PlanModal({ plan, onClose, locale }: Props) {
         <div className="plan-modal-value">
           <div className="plan-modal-value-price">
             <span className="plan-modal-value-amount">{plan.price}</span>
-            <span className="plan-modal-value-unit">{locale === "es" ? "todo incluido" : locale === "en" ? "all-inclusive" : "dena barne"}</span>
+            <span className="plan-modal-value-unit">{locale === "es" ? "todo incluido" : locale === "en" ? "all-inclusive" : locale === "eu" ? "dena barne" : "tout compris"}</span>
           </div>
           <p id={descId} className="plan-modal-value-desc">{plan.description}</p>
         </div>

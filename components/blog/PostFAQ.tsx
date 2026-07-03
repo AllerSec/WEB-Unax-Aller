@@ -1,11 +1,12 @@
 import type { BlogPostFaq } from "@/lib/data/blog-posts";
 
-type Locale = "es" | "en" | "eu";
+type Locale = "es" | "en" | "eu" | "fr";
 
 const headings: Record<Locale, string> = {
   es: "Preguntas frecuentes",
   en: "Frequently asked questions",
   eu: "Maiz egiten diren galderak",
+  fr: "Questions fréquentes",
 };
 
 export default function PostFAQ({

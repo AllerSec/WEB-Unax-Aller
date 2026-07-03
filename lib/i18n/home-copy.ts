@@ -2,7 +2,7 @@
 // next-intl messages files) because each section is long-form prose and
 // editing it as TypeScript is faster than juggling nested JSON keys.
 
-export type HomeLocale = "es" | "en" | "eu";
+export type HomeLocale = "es" | "en" | "eu" | "fr";
 
 type ServiceCard = { title: string; desc: string; tags: [string, string, string] };
 type ProcessStep = { n: string; title: string; desc: string };
@@ -87,8 +87,8 @@ export type HomeCopy = {
 };
 
 export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
-  const t = (es: string, en: string, eu: string) =>
-    locale === "es" ? es : locale === "en" ? en : eu;
+  const t = (es: string, en: string, eu: string, fr: string) =>
+    locale === "es" ? es : locale === "en" ? en : locale === "eu" ? eu : fr;
   return [
     {
       id: "boralan",
@@ -96,14 +96,15 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
       description: t(
         "Poda y tala en altura en Navarra. Web potente con acento naranja, catálogo de servicios y SEO local.",
         "Tree-climbing pruning and felling in Navarre. Bold website with an orange accent, services catalogue and local SEO.",
-        "Altuera handiko inausketa eta moztea Nafarroan. Web indartsua laranja koloreko ukituarekin, zerbitzu katalogoa eta tokiko SEO."
+        "Altuera handiko inausketa eta moztea Nafarroan. Web indartsua laranja koloreko ukituarekin, zerbitzu katalogoa eta tokiko SEO.",
+        "Élagage et abattage en hauteur en Navarre. Site percutant à l'accent orange, catalogue de services et SEO local."
       ),
       href: `/${locale}/proyectos/boralan`,
       externalUrl: "https://boralan.eus",
       mobileImage: "/images/projects/mobile-boralan.jpg",
       mobileVideo: "/video/boralan.mp4",
       accent: "#e8602c",
-      meta: t("Forestal · Navarra · 2026", "Forestry · Navarre · 2026", "Basoa · Nafarroa · 2026"),
+      meta: t("Forestal · Navarra · 2026", "Forestry · Navarre · 2026", "Basoa · Nafarroa · 2026", "Forestier · Navarre · 2026"),
     },
     {
       id: "farmacia-fernandez-bera",
@@ -111,13 +112,14 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
       description: t(
         "Web clara e intuitiva para una farmacia de pueblo. SEO local optimizado para Bera y comarca.",
         "Clean, intuitive website for a village pharmacy. Local SEO tuned for Bera and its district.",
-        "Webgune argia eta intuitiboa herri-farmazia batentzat. Tokiko SEO Berarako eta inguruko herrietarako."
+        "Webgune argia eta intuitiboa herri-farmazia batentzat. Tokiko SEO Berarako eta inguruko herrietarako.",
+        "Site clair et intuitif pour une pharmacie de village. SEO local optimisé pour Bera et sa région."
       ),
       href: `/${locale}/proyectos/farmacia-fernandez-bera`,
       externalUrl: "https://farmaciafernandezbera.com",
       mobileImage: "/images/projects/mobile-farmacia-fernandez-bera.jpg",
       accent: "#c79a3a",
-      meta: t("Farmacia · Bera, Navarra · 2026", "Pharmacy · Bera, Navarre · 2026", "Farmazia · Bera, Nafarroa · 2026"),
+      meta: t("Farmacia · Bera, Navarra · 2026", "Pharmacy · Bera, Navarre · 2026", "Farmazia · Bera, Nafarroa · 2026", "Pharmacie · Bera, Navarre · 2026"),
     },
     {
       id: "motos-arretxe",
@@ -125,14 +127,15 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
       description: t(
         "Concesionario y taller de motos en Irun. Catálogo, cita previa y SEO local.",
         "Motorbike dealer and workshop in Irun. Catalogue, appointment booking and local SEO.",
-        "Motorren kontzesionarioa eta tailerra Irunen. Katalogoa, hitzordua eta tokiko SEO."
+        "Motorren kontzesionarioa eta tailerra Irunen. Katalogoa, hitzordua eta tokiko SEO.",
+        "Concession et atelier moto à Irun. Catalogue, prise de rendez-vous et SEO local."
       ),
       href: `/${locale}/proyectos/motos-arretxe`,
       externalUrl: "https://motosarretxe.com",
       mobileImage: "/images/projects/mobile-motos-arretxe.jpg",
       mobileVideo: "/video/motos-arretxe.mp4",
       accent: "#dc2626",
-      meta: t("Motos · Irun · 2026", "Motorbikes · Irun · 2026", "Motorrak · Irun · 2026"),
+      meta: t("Motos · Irun · 2026", "Motorbikes · Irun · 2026", "Motorrak · Irun · 2026", "Moto · Irun · 2026"),
     },
     {
       id: "anaka-optica",
@@ -140,13 +143,14 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
       description: t(
         "Web editorial para una óptica con personalidad. Galería de monturas y cita online.",
         "Editorial-style site for an optician with personality. Frame gallery and online booking.",
-        "Web editoriala nortasun handiko optika batentzat. Monturen galeria eta online hitzordua."
+        "Web editoriala nortasun handiko optika batentzat. Monturen galeria eta online hitzordua.",
+        "Site éditorial pour un opticien plein de caractère. Galerie de montures et rendez-vous en ligne."
       ),
       href: `/${locale}/proyectos/anaka-optica`,
       externalUrl: "https://anakaoptica.com",
       mobileImage: "/images/projects/mobile-anaka-optica.jpg",
       accent: "#f97316",
-      meta: t("Óptica · Irun · 2026", "Optician · Irun · 2026", "Optika · Irun · 2026"),
+      meta: t("Óptica · Irun · 2026", "Optician · Irun · 2026", "Optika · Irun · 2026", "Opticien · Irun · 2026"),
     },
     {
       id: "virtuosolve",
@@ -154,14 +158,15 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
       description: t(
         "Agencia de IA con web orientada a captación B2B. Micro-animaciones y SEO técnico.",
         "AI agency with a B2B-focused website. Micro-animations and technical SEO.",
-        "AA agentzia, B2B harrapaketara bideratutako webarekin. Mikro-animazioak eta SEO teknikoa."
+        "AA agentzia, B2B harrapaketara bideratutako webarekin. Mikro-animazioak eta SEO teknikoa.",
+        "Agence IA avec un site pensé pour la captation B2B. Micro-animations et SEO technique."
       ),
       href: `/${locale}/proyectos/virtuosolve`,
       externalUrl: "https://virtuosolve.com",
       mobileImage: "/images/projects/mobile-virtuosolve.jpg",
       mobileVideo: "/video/virtuosolve.mp4",
       accent: "#3b82f6",
-      meta: t("IA · Irun · 2026", "AI · Irun · 2026", "AA · Irun · 2026"),
+      meta: t("IA · Irun · 2026", "AI · Irun · 2026", "AA · Irun · 2026", "IA · Irun · 2026"),
     },
     {
       id: "tecmac",
@@ -169,14 +174,15 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
       description: t(
         "Ingeniería y servicios auxiliares de laminación para industrias siderúrgicas. Web técnica con más de 30 años de trayectoria.",
         "Engineering and auxiliary rolling services for steel industries. Technical site backed by 30+ years of track record.",
-        "Ingeniaritza eta laminazio-zerbitzu osagarriak siderurgia industrientzat. 30 urtetik gorako ibilbidea duen web teknikoa."
+        "Ingeniaritza eta laminazio-zerbitzu osagarriak siderurgia industrientzat. 30 urtetik gorako ibilbidea duen web teknikoa.",
+        "Ingénierie et services auxiliaires de laminage pour l'industrie sidérurgique. Site technique appuyé sur plus de 30 ans d'expérience."
       ),
       href: `/${locale}/proyectos/tecmac`,
       externalUrl: "https://tecmac.es",
       mobileImage: "/images/projects/mobile-tecmac.jpg",
       mobileVideo: "/video/tecmac.mp4",
       accent: "#ef4444",
-      meta: t("Industrial · Navarra · 2026", "Industrial · Navarre · 2026", "Industriala · Nafarroa · 2026"),
+      meta: t("Industrial · Navarra · 2026", "Industrial · Navarre · 2026", "Industriala · Nafarroa · 2026", "Industriel · Navarre · 2026"),
     },
   ];
 };
@@ -449,6 +455,96 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
       whatsappMessage: "Kaixo Unax, nire negoziorako 1.300€-ko weba interesatzen zait, lehen urtea barne",
       reassurance: "1.300€ + BEZ ordainketa bakarra · 1. urtea barne · 30 eguneko bermea · Beti nirekin hitz egiten duzu",
       ariaLabel: "Azken kontaktua",
+    },
+  },
+
+  fr: {
+    hero: {
+      trustBadge: "1 300 € paiement unique · 1ère année incluse · 30 jours de garantie",
+      headlineLine1: "Plus d'appels pour",
+      headlineLine2: "votre commerce local",
+      subtitle: "Votre site professionnel, votre fiche Google Maps et un système d'avis pour un paiement unique de 1 300 € + TVA, avec la première année de maintenance incluse. 30 jours pour l'essayer et le rembourser sans questions. Pensé pour les cliniques, cabinets professionnels, industrie B2B et commerce spécialisé du Gipuzkoa, de la Biscaye et de la Navarre.",
+      primaryCta: "Je veux mon site",
+      secondaryCta: "Voir comment ça marche",
+    },
+    mockups: {
+      eyebrow: "À quoi ressemble le résultat",
+      titleA: "Votre entreprise, ",
+      titleHighlight: "la première",
+      titleB: " quand quelqu'un recherche votre service dans votre ville.",
+      body: "Quand un patient recherche « dentiste dans votre ville » depuis son mobile, Google lui montre trois résultats avec photo, note et bouton d'appel direct. Celui qui sort en premier reçoit l'appel ; les deux autres attendent la prochaine tentative.",
+      bullets: [
+        "Fiche Google Business Profile bien configurée",
+        "Site rapide, pensé mobile en premier, avec bouton d'appel visible",
+        "Système d'avis : lien direct, QR pour le comptoir et profil Google optimisé",
+      ],
+      ariaLabel: "À quoi ressemble le résultat",
+    },
+    founder: {
+      eyebrow: "Qui est derrière",
+      title: "Bonjour, je suis Unax.",
+      bodyA: "Je travaille depuis Irun pour des entreprises du Pays basque et de Navarre : cliniques, cabinets professionnels, petite industrie et commerce à panier élevé. Quand vous appelez, vous me joignez directement. Quand vous avez besoin d'un changement, vous m'écrivez sur WhatsApp. C'est pour ça que je peux me permettre de signer avec vous",
+      bodyStrong: " en vous donnant 30 jours pour récupérer chaque euro si ça ne vous convainc pas",
+      bodyB: " : parce que je mets mon nom en jeu avec chaque entreprise qui entre.",
+      location: "Irun, Guipuscoa",
+      whatsapp: "WhatsApp direct : +34 620 90 99 16",
+      languages: "ES · EU · EN · FR",
+      reviews: "5,0 sur Google · livré en une semaine",
+      link: "Apprenez-en plus sur moi",
+      imageAlt: "Unax Aller, spécialiste des sites web pour commerces locaux au Pays basque et en Navarre",
+    },
+    counters: { ariaLabel: "Résultats mesurables" },
+    process: {
+      eyebrow: "Comment ça marche",
+      title: "De zéro à plus d'appels en une semaine",
+      subtitle: "Sans démarches préalables. Sans réunions interminables. Vous validez le paiement et on démarre.",
+      steps: [
+        { n: "01", title: "Je vous montre une proposition", desc: "Avant de payer quoi que ce soit, je vous envoie une proposition pour que vous voyiez à quoi ressemblerait votre site : structure, design et angle. Si ça ne vous convainc pas, on en reste là et vous ne me devez pas un euro." },
+        { n: "02", title: "On ajuste le site à votre goût", desc: "Typographie, couleurs et maquettes réelles. Je vous envoie les avancées par WhatsApp et on ajuste jusqu'à ce que ça vous plaise vraiment." },
+        { n: "03", title: "On publie votre site", desc: "Un paiement unique de 1 300 € + TVA, avec la première année de maintenance incluse. 30 jours de garantie satisfait ou remboursé. Le site est à vous, sans abonnement mensuel." },
+        { n: "04", title: "Modifications mois après mois", desc: "Textes, photos, prix, horaires, un nouveau service… vous m'écrivez et je m'en occupe. Sans formulaires, sans tickets, sans factures supplémentaires." },
+      ],
+    },
+    services: {
+      eyebrow: "Pour qui",
+      title: "Pensé pour les entreprises professionnelles du Pays basque et de Navarre",
+      cards: [
+        { title: "Santé et bien-être", desc: "Opticiens, pharmacies, cliniques dentaires, kinés, podologues, esthétique, coiffeurs, vétérinaires. Des entreprises où le client compare avant d'entrer et où la confiance est primordiale.", tags: ["Avis", "Rendez-vous", "Confiance"] },
+        { title: "Commerce local", desc: "Commerces de quartier, mode, bijouterie, décoration, alimentation, librairies, fleuristes, papeteries. Votre vitrine numérique quand le magasin est fermé.", tags: ["Catalogue", "SEO local", "WhatsApp"] },
+        { title: "Automobile et artisans", desc: "Garages mécaniques, pneumatiques, carrosserie et peinture, plombiers, électriciens, rénovations, serruriers, climatisation, jardinage. Qui a besoin d'aide en urgence appelle le premier qui inspire confiance.", tags: ["Appel direct", "Urgences", "Devis"] },
+        { title: "Services professionnels", desc: "Cabinets comptables, avocats, bureaux, consultants, ingénieries, architectes, académies, auto-écoles. Des services à panier élevé où le client compare en ligne avant d'appeler.", tags: ["Autorité", "Domaines", "Leads"] },
+        { title: "Industrie et B2B local", desc: "Petites industries de zones industrielles, ateliers de fabrication, fournisseurs B2B, distribution, entrepôts. Capacité technique, certifications visibles et devis sérieux.", tags: ["Catalogue", "Multilingue", "Devis"] },
+      ],
+      seeAll: "Voir tous les services",
+    },
+    gallery: {
+      title: "De vraies entreprises qui ont déjà leur site",
+      description: "Pharmacie à Bera, atelier moto à Irun, opticien à Irun, agence à Saint-Sébastien. Des entreprises qui appellent, écrivent et servent mieux depuis qu'elles ont leur système en ligne.",
+      items: galleryItems,
+    },
+    pricing: { eyebrow: "Prix transparent", ariaLabel: "Tarifs" },
+    faq: {
+      eyebrow: "Vos questions",
+      title: "Questions fréquentes",
+      items: [
+        { q: "Qu'est-ce qu'inclut le paiement de 1 300 € ?", a: "Tout le site codé à la main : design sur mesure, fiche Google Maps optimisée et système d'avis. Et toute la première année de maintenance : nom de domaine, hébergement, modifications de contenu et support WhatsApp. C'est un paiement unique, plus TVA. Le site est à vous et il n'y a pas d'abonnement mensuel. À partir de la deuxième année, la maintenance est de 600 €/an (environ 50 €/mois, facturé une fois par an)." },
+        { q: "Pourquoi un paiement unique et pas un abonnement mensuel ?", a: "Parce que pour la plupart des entreprises, le site se construit une fois puis fonctionne en arrière-plan. Cela n'a pas de sens de payer un abonnement chaque mois pour quelque chose qui est déjà fait. Vous payez une fois, vous en êtes propriétaire, et vous ne renouvelez la maintenance qu'une fois par an. Sans factures qui traînent chaque mois." },
+        { q: "Qu'incluent exactement les « modifications » de la première année ?", a: "Les modifications de contenu : textes, photos, prix, horaires, ajouter un service ou mettre à jour la fiche Google. Tout ce qu'une entreprise a besoin de mettre à jour, le jour même et par WhatsApp. Cela n'inclut pas de refaire entièrement la structure du site depuis zéro (c'est un nouveau projet, chiffré à part), mais le quotidien de votre entreprise est couvert sans factures supplémentaires." },
+        { q: "Si je demande le remboursement, est-ce que je garde le site gratuitement ?", a: "Les 30 jours sont une garantie de tranquillité, pas un site gratuit : si vous n'êtes pas satisfait, je vous rembourse chaque euro et le site est désactivé. C'est juste pour les deux parties : vous ne risquez pas votre argent et je n'offre pas un travail fait à la main." },
+        { q: "Le site m'appartient-il vraiment ?", a: "Oui. Le nom de domaine est enregistré à votre nom dès le premier jour et le site est à vous après paiement, vous ne le louez pas. La maintenance annuelle (600 €/an à partir de la deuxième année) sert uniquement à le garder en ligne et entretenu, mais la propriété est à vous dès la livraison, avec votre fiche Google et vos avis inclus." },
+        { q: "Ai-je besoin de connaissances en informatique ?", a: "Aucune. Vous me racontez ce que vous faites, qui vous voulez attirer et comment. Je m'occupe du reste : nom de domaine, hébergement, Google Maps, avis. Quand vous avez besoin d'un changement, vous m'écrivez sur WhatsApp." },
+        { q: "Comment savoir si ça va vraiment apporter des clients ?", a: "Avant de signer, je réalise un audit gratuit : je vous montre quels concurrents ressortent en premier dans votre zone, pourquoi, et combien d'appels ils reçoivent selon les estimations. Avec des données, pas des paroles en l'air." },
+      ],
+    },
+    finalCta: {
+      badge: "1 300 € paiement unique · 1ère année incluse · 30 jours de garantie",
+      title: "Commencez aujourd'hui. Votre site en une semaine.",
+      sub: "Remplissez vos coordonnées, effectuez le paiement et on démarre. Votre site sera en ligne en une semaine. Si dans les 30 premiers jours vous ne voyez pas de résultat, je vous rembourse chaque euro sans questions.",
+      primaryCta: "Je veux mon site",
+      whatsappCta: "WhatsApp direct",
+      whatsappMessage: "Bonjour Unax, je suis intéressé(e) par le site à 1 300 € avec la première année incluse pour mon entreprise",
+      reassurance: "Paiement unique 1 300 € + TVA · Première année incluse · 30 jours de garantie · Vous parlez toujours avec moi",
+      ariaLabel: "Contact final",
     },
   },
 };

@@ -3,7 +3,7 @@ import { blogPosts } from "@/lib/data/blog-posts";
 import { projects } from "@/lib/data/projects";
 
 const BASE_URL = "https://unaxaller.com";
-const LOCALES = ["es", "en", "eu"] as const;
+const LOCALES = ["es", "en", "eu", "fr"] as const;
 
 const staticRoutes = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },

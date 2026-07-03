@@ -65,6 +65,18 @@ export function planCopy(locale: Locale): Copy {
       note: "Erakutsitako prezioa 1.300€ + BEZ da, behin ordaindua. Lehen urteko mantentze-lana barne dauka: domeinua, hostinga, edukiaren aldaketak eta WhatsApp laguntza. Bigarren urtetik aurrera, mantentze-lana 600€/urteko da (≈50€/hilean, urtero fakturatua) weba sarean, domeinua berrituta eta zure Google fitxa zainduta edukitzeko. Domeinua zure izenean erregistratzen da eta zurea da lehen egunetik. 30 eguneko itzulketa-bermea abian jartzen denetik.",
     };
   }
+  if (locale === "fr") {
+    return {
+      eyebrow: "Un prix, sans surprises",
+      title: "Votre site qui travaille, même si vous l'oubliez.",
+      subtitle:
+        "Je le construis une fois et il reste prêt pour que les gens vous trouvent sur Google. Un paiement de 1 300 € + TVA, avec toute la première année réglée.",
+      recommended: "Ce que vous payez",
+      strikeLabel: "ce qu'une agence facturerait pour ça",
+      seeDetail: "Voir tout ce qui est inclus",
+      note: "Le prix affiché est 1 300 € + TVA, payés une fois. Il inclut la première année de maintenance : nom de domaine, hébergement, modifications de contenu et support WhatsApp. À partir de la deuxième année, la maintenance est de 600 €/an (≈50 €/mois, facturé une fois par an) pour garder le site en ligne, le domaine renouvelé et votre fiche Google entretenue. Le nom de domaine est enregistré à votre nom et est à vous dès le premier jour. 30 jours de garantie satisfait ou remboursé dès le lancement.",
+    };
+  }
   return {
     eyebrow: "Un precio, sin sorpresas",
     title: "Tu web trabajando, aunque tú te olvides de ella.",
@@ -78,9 +90,9 @@ export function planCopy(locale: Locale): Copy {
 }
 
 const CLIENTS = (locale: Locale) => [
-  { name: "Farmacia Fernández Bera", url: "https://farmaciafernandezbera.com", domain: "farmaciafernandezbera.com", type: locale === "es" ? "Farmacia · Bera" : locale === "en" ? "Pharmacy · Bera" : "Farmazia · Bera" },
-  { name: "Motos Arretxe", url: "https://motosarretxe.com", domain: "motosarretxe.com", type: locale === "es" ? "Taller y concesionario · Irun" : locale === "en" ? "Workshop & dealer · Irun" : "Tailerra eta kontzesionarioa · Irun" },
-  { name: "Anaka Óptica", url: "https://anakaoptica.com", domain: "anakaoptica.com", type: locale === "es" ? "Óptica · Irun" : locale === "en" ? "Optician · Irun" : "Optika · Irun" },
+  { name: "Farmacia Fernández Bera", url: "https://farmaciafernandezbera.com", domain: "farmaciafernandezbera.com", type: locale === "es" ? "Farmacia · Bera" : locale === "en" ? "Pharmacy · Bera" : locale === "eu" ? "Farmazia · Bera" : "Pharmacie · Bera" },
+  { name: "Motos Arretxe", url: "https://motosarretxe.com", domain: "motosarretxe.com", type: locale === "es" ? "Taller y concesionario · Irun" : locale === "en" ? "Workshop & dealer · Irun" : locale === "eu" ? "Tailerra eta kontzesionarioa · Irun" : "Atelier et concession · Irun" },
+  { name: "Anaka Óptica", url: "https://anakaoptica.com", domain: "anakaoptica.com", type: locale === "es" ? "Óptica · Irun" : locale === "en" ? "Optician · Irun" : locale === "eu" ? "Optika · Irun" : "Opticien · Irun" },
 ];
 
 export function buildPlans(locale: Locale): PricingPlan[] {
@@ -180,6 +192,57 @@ export function buildPlans(locale: Locale): PricingPlan[] {
             "Hostinga barne lehen urtean (faktura gehigarririk gabe)",
             "SSL ziurtagiria eta abiadura optimizatua",
             "Edukiaren aldaketak barne lehen urtean",
+          ],
+          process: [],
+          clients,
+        },
+      },
+    ];
+  }
+
+  if (locale === "fr") {
+    return [
+      {
+        id: "web",
+        variant: "star",
+        name: "Votre site, prêt",
+        tagline: "Vous payez une fois. La première année, vous ne touchez à rien.",
+        strikePrice: "6 170 €",
+        priceNum: "1 300 €",
+        upfront: "+ TVA · paiement unique",
+        priceNote: "Première année de maintenance incluse. À partir de l'année 2 : 600 €/an (≈50 €/mois).",
+        reframe: "Une agence locale facture 2 500–5 000 € rien que pour le design. Ici, vous avez toute la première année réglée.",
+        features: [
+          { label: "Site codé à la main, en ligne en une semaine", on: true },
+          { label: "Design sur mesure pensé pour capter depuis un mobile", on: true },
+          { label: "Fiche Google Maps + système d'avis 5 étoiles", on: true },
+          { label: "Nom de domaine + hébergement inclus la première année", on: true },
+          { label: "Modifications de contenu incluses la première année (textes, photos, prix, horaires)", on: true },
+          { label: "Support WhatsApp le jour même", on: true },
+          { label: "Le site est à vous. Sans abonnement mensuel — seulement la maintenance annuelle à partir de l'année 2.", on: true },
+        ],
+        cta: "Je veux mon site →",
+        whatsapp: "Bonjour Unax, je suis intéressé(e) par le site (1 300 € + TVA, première année incluse)",
+        detail: {
+          name: "Votre site, prêt",
+          subtitle: "Un seul paiement, avec la première année réglée",
+          price: "1 300 € + TVA",
+          description:
+            "Paiement unique. Inclut la première année de maintenance : nom de domaine, hébergement, modifications de contenu et support WhatsApp le jour même. À partir de la deuxième année, la maintenance est de 600 €/an (≈50 €/mois) pour le garder en ligne et entretenu. Le nom de domaine est à vous dès le premier jour. 30 jours de garantie satisfait ou remboursé.",
+          popular: true,
+          features: [
+            "Design professionnel sur mesure pour votre entreprise",
+            "Jusqu'à 5 sections (accueil, services, à propos, contact, avis)",
+            "Optimisé pour mobile : la plupart de vos clients vous cherchent depuis leur téléphone",
+            "Fiche Google Maps optimisée pour capter les appels",
+            "Système d'avis : lien direct, QR imprimable et profil Google optimisé",
+            "Support WhatsApp le jour même la première année pour les changements de prix, photos ou horaires",
+          ],
+          deliverables: [
+            "Nom de domaine enregistré à votre nom (à vous dès le premier jour)",
+            "Hébergement inclus la première année (sans factures supplémentaires)",
+            "Certificat SSL et vitesse optimisée",
+            "Modifications de contenu incluses la première année",
           ],
           process: [],
           clients,

@@ -10,7 +10,7 @@ type Props = { params: Promise<{ lang: string }> };
 
 export default async function BienvenidoPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   return (
     <>

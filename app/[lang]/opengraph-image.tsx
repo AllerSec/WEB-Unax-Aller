@@ -5,7 +5,7 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export function generateStaticParams() {
-  return [{ lang: 'es' }, { lang: 'en' }, { lang: 'eu' }]
+  return [{ lang: 'es' }, { lang: 'en' }, { lang: 'eu' }, { lang: 'fr' }]
 }
 
 type Props = { params: Promise<{ lang: string }> }
@@ -17,15 +17,17 @@ export default async function Image({ params }: Props) {
     es: '1.300€ · 1er año incluido · 30 días de garantía · unaxaller.com',
     en: '€1,300 · first year included · 30-day guarantee · unaxaller.com',
     eu: '1.300€ · 1. urtea barne · 30 eguneko bermea · unaxaller.com',
+    fr: '1 300 € · 1ère année incluse · garantie 30 jours · unaxaller.com',
   }
 
   const titles: Record<string, { line1: string; line2: string }> = {
     es: { line1: 'Más llamadas para tu', line2: 'negocio local' },
     en: { line1: 'More calls for your', line2: 'local business' },
     eu: { line1: 'Dei gehiago zure', line2: 'tokiko negoziorako' },
+    fr: { line1: 'Plus d’appels pour votre', line2: 'commerce local' },
   }
 
-  const safelang = ['es', 'en', 'eu'].includes(lang) ? lang : 'es'
+  const safelang = ['es', 'en', 'eu', 'fr'].includes(lang) ? lang : 'es'
   const title = titles[safelang]
   const subtitle = subtitles[safelang]
 

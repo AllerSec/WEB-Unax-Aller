@@ -23,7 +23,7 @@ export default function Footer({ locale }: Props) {
     { href: `/${locale}/contacto`, label: tNav("contacto") },
     {
       href: `/${locale}/blog`,
-      label: locale === "es" ? "Blog" : locale === "en" ? "Blog" : "Bloga",
+      label: locale === "es" ? "Blog" : locale === "en" ? "Blog" : locale === "eu" ? "Bloga" : "Blog",
     },
   ];
 
@@ -35,7 +35,9 @@ export default function Footer({ locale }: Props) {
           ? "Web para negocio local"
           : locale === "en"
           ? "Local business website"
-          : "Tokiko negoziorako weba",
+          : locale === "eu"
+          ? "Tokiko negoziorako weba"
+          : "Site pour commerce local",
     },
     {
       href: `/${locale}/servicios#clinic`,
@@ -44,7 +46,9 @@ export default function Footer({ locale }: Props) {
           ? "Web para clínica"
           : locale === "en"
           ? "Clinic website"
-          : "Klinikaren weba",
+          : locale === "eu"
+          ? "Klinikaren weba"
+          : "Site pour clinique",
     },
     {
       href: `/${locale}/servicios#multilingual`,
@@ -53,7 +57,9 @@ export default function Footer({ locale }: Props) {
           ? "Web multi-idioma"
           : locale === "en"
           ? "Multi-language website"
-          : "Web eleaniztuna",
+          : locale === "eu"
+          ? "Web eleaniztuna"
+          : "Site multilingue",
     },
     {
       href: `/${locale}/servicios#redesign`,
@@ -62,7 +68,9 @@ export default function Footer({ locale }: Props) {
           ? "Rediseño de web"
           : locale === "en"
           ? "Website redesign"
-          : "Webaren birdiseinua",
+          : locale === "eu"
+          ? "Webaren birdiseinua"
+          : "Refonte de site",
     },
   ];
 
@@ -95,38 +103,93 @@ export default function Footer({ locale }: Props) {
   ];
 
   const cityPrefix =
-    locale === "es" ? "Diseñador web " : locale === "en" ? "Web designer " : "Web diseinatzailea ";
+    locale === "es"
+      ? "Diseñador web "
+      : locale === "en"
+      ? "Web designer "
+      : locale === "eu"
+      ? "Web diseinatzailea "
+      : "Créateur de site web ";
 
   const sectorLinks = [
     {
       href: `/${locale}/web-para-clinicas`,
-      label: locale === "es" ? "clínicas y salud" : locale === "en" ? "clinics & health" : "klinikak eta osasuna",
+      label:
+        locale === "es"
+          ? "clínicas y salud"
+          : locale === "en"
+          ? "clinics & health"
+          : locale === "eu"
+          ? "klinikak eta osasuna"
+          : "cliniques et santé",
     },
     {
       href: `/${locale}/web-para-hosteleria`,
-      label: locale === "es" ? "bares y restaurantes" : locale === "en" ? "bars & restaurants" : "tabernak eta jatetxeak",
+      label:
+        locale === "es"
+          ? "bares y restaurantes"
+          : locale === "en"
+          ? "bars & restaurants"
+          : locale === "eu"
+          ? "tabernak eta jatetxeak"
+          : "bars et restaurants",
     },
     {
       href: `/${locale}/web-para-comercio`,
-      label: locale === "es" ? "comercios y tiendas" : locale === "en" ? "shops & retail" : "merkataritza eta dendak",
+      label:
+        locale === "es"
+          ? "comercios y tiendas"
+          : locale === "en"
+          ? "shops & retail"
+          : locale === "eu"
+          ? "merkataritza eta dendak"
+          : "commerces et boutiques",
     },
     {
       href: `/${locale}/web-para-industria`,
-      label: locale === "es" ? "talleres e industria" : locale === "en" ? "workshops & industry" : "tailerrak eta industria",
+      label:
+        locale === "es"
+          ? "talleres e industria"
+          : locale === "en"
+          ? "workshops & industry"
+          : locale === "eu"
+          ? "tailerrak eta industria"
+          : "ateliers et industrie",
     },
     {
       href: `/${locale}/web-para-despachos`,
-      label: locale === "es" ? "despachos profesionales" : locale === "en" ? "professional firms" : "bulego profesionalak",
+      label:
+        locale === "es"
+          ? "despachos profesionales"
+          : locale === "en"
+          ? "professional firms"
+          : locale === "eu"
+          ? "bulego profesionalak"
+          : "cabinets professionnels",
     },
   ];
 
   const sectorPrefix =
-    locale === "es" ? "Web para " : locale === "en" ? "Websites for " : "Weba: ";
+    locale === "es"
+      ? "Web para "
+      : locale === "en"
+      ? "Websites for "
+      : locale === "eu"
+      ? "Weba: "
+      : "Site pour ";
 
   return (
     <footer
       className="site-footer"
-      aria-label={locale === "es" ? "Pie de página" : locale === "en" ? "Footer" : "Orri-oina"}
+      aria-label={
+        locale === "es"
+          ? "Pie de página"
+          : locale === "en"
+          ? "Footer"
+          : locale === "eu"
+          ? "Orri-oina"
+          : "Pied de page"
+      }
     >
       <div className="container-xl site-footer-inner">
         <div className="site-footer-grid">
@@ -203,7 +266,13 @@ export default function Footer({ locale }: Props) {
 
           <div>
             <h2 className="site-footer-heading">
-              {locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua"}
+              {locale === "es"
+                ? "Contacto"
+                : locale === "en"
+                ? "Contact"
+                : locale === "eu"
+                ? "Kontaktua"
+                : "Contact"}
             </h2>
             <div className="site-footer-list">
               <a href="mailto:contacto@unaxaller.com" className="site-footer-link site-footer-link-icon focusable">
@@ -233,7 +302,9 @@ export default function Footer({ locale }: Props) {
                   ? "País Vasco, España"
                   : locale === "en"
                   ? "Basque Country, Spain"
-                  : "Euskal Herria, Espainia"}
+                  : locale === "eu"
+                  ? "Euskal Herria, Espainia"
+                  : "Pays basque, Espagne"}
               </div>
             </div>
           </div>
@@ -245,7 +316,9 @@ export default function Footer({ locale }: Props) {
               ? "Diseñador web en tu ciudad"
               : locale === "en"
               ? "Web designer in your city"
-              : "Web diseinatzailea zure hirian"}
+              : locale === "eu"
+              ? "Web diseinatzailea zure hirian"
+              : "Créateur de site web dans votre ville"}
           </h2>
           <ul className="site-footer-city-list">
             {cityLinks.map((c) => (
@@ -265,7 +338,9 @@ export default function Footer({ locale }: Props) {
               ? "Diseño web por sectores"
               : locale === "en"
               ? "Web design by sector"
-              : "Web diseinua sektorez"}
+              : locale === "eu"
+              ? "Web diseinua sektorez"
+              : "Création de site par secteur"}
           </h2>
           <ul className="site-footer-city-list">
             {sectorLinks.map((s) => (

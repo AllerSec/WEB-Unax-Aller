@@ -16,17 +16,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Precios: Web para negocio local · 1.300€ pago único · Unax Aller",
     en: "Pricing: Web for local business · €1,300 one-off · Unax Aller",
     eu: "Prezioak: Web tokiko negoziorako · 1.300€ ordainketa bakarra · Unax Aller",
+    fr: "Tarifs : Site pour commerce local · 1 300 € paiement unique · Unax Aller",
   };
   const descriptions: Record<string, string> = {
     es: "Tu web profesional por un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido: diseño a medida, Google Maps optimizado, reseñas, dominio, hosting y soporte por WhatsApp. A partir del año 2, 600€/año. 30 días de garantía.",
     en: "Your professional website for a one-off €1,300 + VAT, with the first year of maintenance included: custom design, Google Maps optimization, reviews system, domain, hosting and WhatsApp support. From year 2, €600/year. 30-day money-back guarantee.",
     eu: "Zure web profesionala 1.300€ + BEZ ordainketa bakarrean, lehen urteko mantentze-lana barne: neurrira egindako diseinua, Google Maps optimizatua, iritziak, domeinua, hostinga eta WhatsApp laguntza. 2. urtetik, 600€/urteko. 30 eguneko bermea.",
+    fr: "Votre site professionnel pour un paiement unique de 1 300 € + TVA, avec la première année de maintenance incluse : design sur mesure, Google Maps optimisé, avis, nom de domaine, hébergement et support WhatsApp. À partir de l'année 2, 600 €/an. Garantie 30 jours.",
   };
 
   const title = titles[locale];
@@ -51,7 +53,7 @@ const PRICE_VALID_UNTIL = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
 
 export default async function PreciosPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const faqItems = locale === "es"
     ? [
@@ -73,7 +75,8 @@ export default async function PreciosPage({ params }: Props) {
         { q: "Is the website mine?", a: "Yes. The domain is registered in your name from day one and is always yours. The site is yours after payment — you don't rent it. The annual maintenance keeps it online and looked after, but ownership is yours from the moment I hand it over, with your Google listing and reviews included." },
         { q: "How fast is the site ready?", a: "In a week from closing the payment. We start right away." },
       ]
-    : [
+    : locale === "eu"
+    ? [
         { q: "Zer barne hartzen du zehazki 1.300€-ko ordainketak?", a: "Eskuz egindako web osoa, mugikorretik bezeroak harrapatzeko prest: neurrira egindako diseinua, 5 atal arte, Google Maps fitxa optimizatua eta iritzi sistema. Eta lehen urteko mantentze-lan osoa: domeinua, hostinga, behar dituzun edukiaren aldaketak eta egun bereko WhatsApp laguntza. Ordainketa bakarra da, gehi BEZ. Ez dago hileko kuotarik." },
         { q: "Eta bigarren urtetik aurrera zer ordaintzen dut?", a: "600€ urtean (50€/hilean inguru, baina urtean behin fakturatzen da, ez hilez hil). Horrek zure weba sarean mantentzen du, domeinua zure izenean berrituta, segurtasun-kopiak egunean eta zure Google fitxa zainduta. Weba bizirik eta lanean jarraitzeko kostua da, zuk ezer tekniko egin behar izan gabe." },
         { q: "Zergatik ordainketa bakarra eta ez hileko kuota?", a: "Negozio gehienentzat weba behin egiten den eta gero hor dagoela ahazten den zerbait delako, atzeko planoan lanean. Ez du zentzurik dagoeneko eginda dagoen zerbaitengatik hilero kuota bat ordaintzeak. Behin ordaintzen duzu, zurea da, eta mantentze-lana urtean behin bakarrik berritzen duzu. Hilero zintzilik dauden ordainagiririk gabe." },
@@ -81,6 +84,15 @@ export default async function PreciosPage({ params }: Props) {
         { q: "Eta emaitza gustatzen ez bazait?", a: "30 egun dituzu abian jartzen denetik euro bakoitza itzul diezazudan, azalpenik eman gabe. Dirua itzultzeko bermea da: itzulketa eskatzen baduzu, ordaindutakoa itzultzen dizut eta weba itzaltzen da. Bidezkoa da bientzat." },
         { q: "Weba nirea da?", a: "Bai. Domeinua zure izenean erregistratzen da lehen egunetik eta beti zurea da. Weba zurea da ordainketaren ondoren, ez duzu alokatzen. Urteko mantentze-lana sarean eta zainduta edukitzeko da, baina jabetza zurea da entregatzen dudanetik, zure Google fitxa eta iritziekin barne." },
         { q: "Noiz dago weba prest?", a: "Aste batean ordainketa ixten dugunetik. Berehala hasten gara." },
+      ]
+    : [
+        { q: "Qu'est-ce que le paiement de 1 300 € couvre exactement ?", a: "Tout le site programmé à la main, prêt à capter des clients depuis un mobile : design sur mesure, jusqu'à 5 sections, fiche Google Maps optimisée et système d'avis. Et toute la première année de maintenance : nom de domaine, hébergement, les modifications de contenu dont vous avez besoin et un support WhatsApp le jour même. C'est un paiement unique, plus TVA. Pas d'abonnement mensuel." },
+        { q: "Et à partir de la deuxième année, je paie quoi ?", a: "600 € par an (environ 50 €/mois, mais facturé une fois par an, pas mois par mois). Cela maintient votre site en ligne, le nom de domaine renouvelé à votre nom, les sauvegardes à jour et votre fiche Google entretenue. C'est ce que coûte le fait de garder le site vivant et fonctionnel, sans que vous ayez à gérer quoi que ce soit de technique." },
+        { q: "Pourquoi un paiement unique et pas un abonnement mensuel ?", a: "Parce que pour la plupart des commerces, le site est quelque chose qu'on construit une fois puis qu'on oublie, pendant qu'il travaille en arrière-plan. Ça n'a pas de sens de payer un abonnement chaque mois pour quelque chose qui est déjà fait. Vous payez une fois, vous en êtes propriétaire, et vous ne renouvelez la maintenance qu'une fois par an. Sans factures qui tombent chaque mois." },
+        { q: "Qu'incluent les modifications de contenu de la première année ?", a: "Textes, photos, prix, horaires, ajout d'un service ou ajustement de la fiche Google. Tout ce qu'un commerce a besoin de tenir à jour, le jour même et par WhatsApp. Cela n'inclut pas de repenser toute la structure du site à zéro : c'est un nouveau projet, chiffré séparément. Votre quotidien est couvert, sans facture supplémentaire." },
+        { q: "Et si le résultat ne me plaît pas ?", a: "Vous avez 30 jours à partir du lancement pour que je vous rende chaque euro, sans justification. C'est une garantie satisfait ou remboursé : si vous demandez le remboursement, je vous rends ce que vous avez payé et le site est coupé. C'est équitable pour les deux parties." },
+        { q: "Le site est à moi ?", a: "Oui. Le nom de domaine est enregistré à votre nom dès le premier jour et reste toujours le vôtre. Le site est à vous après le paiement, vous ne le louez pas. La maintenance annuelle sert à le garder en ligne et entretenu, mais la propriété est à vous dès que je le livre, avec votre fiche Google et vos avis inclus." },
+        { q: "Quand le site est-il prêt ?", a: "Une semaine après la clôture du paiement. On démarre tout de suite." },
       ];
 
   const includesItems = locale === "es"
@@ -97,11 +109,18 @@ export default async function PreciosPage({ params }: Props) {
         { icon: "star", title: "Reviews system", desc: "Direct link to your Google profile so customers leave a review in one tap, printable QR for the counter, and your Google profile optimized to rank better." },
         { icon: "message-circle", title: "Direct WhatsApp", desc: "When you need to change prices, hours, photos or anything: WhatsApp and done. No tickets, no waiting." },
       ]
-    : [
+    : locale === "eu"
+    ? [
         { icon: "smartphone", title: "Neurrizko diseinua", desc: "Mugikorretik datorren bezeroak 3 segundotan jakin behar du zer egiten duzun eta nola deitu." },
         { icon: "map-pin", title: "Google Maps optimizatua", desc: "Zure Google Business Profile ondo konfiguratuta inguruan zerbitzua bilatzean ager dadin." },
         { icon: "star", title: "Iritzien sistema", desc: "Zuzeneko esteka zure Google fitxara bezeroak klik batez iritzia utz dezan, mostradorerakotxo QR inprimagarria, eta zure Google profila hobeto puntuatzeko optimizatua." },
         { icon: "message-circle", title: "Zuzeneko WhatsApp", desc: "Prezioak, ordutegiak, argazkiak aldatu behar duzunean: WhatsApp eta listo. Tiketik gabe." },
+      ]
+    : [
+        { icon: "smartphone", title: "Design sur mesure", desc: "Pensé pour qu'un client arrivant depuis son mobile sache en 3 secondes ce que vous faites et comment vous appeler." },
+        { icon: "map-pin", title: "Google Maps optimisé", desc: "Votre fiche Google Business Profile bien configurée pour apparaître quand quelqu'un cherche votre service à proximité." },
+        { icon: "star", title: "Système d'avis", desc: "Lien direct vers votre fiche Google pour que vos clients laissent un avis en un clic, QR imprimable pour le comptoir, et votre profil Google optimisé pour mieux être noté." },
+        { icon: "message-circle", title: "WhatsApp direct", desc: "Quand vous devez changer des prix, des horaires, des photos ou autre chose : WhatsApp et c'est réglé. Sans ticket ni attente." },
       ];
 
   // Lucide-style SVGs (stroke 1.75, 24x24). Keep them inline so they
@@ -158,7 +177,8 @@ export default async function PreciosPage({ params }: Props) {
         { label: "Monthly changes included", value: "€1,200", unit: "per year" },
         { label: "Reviews collection system", value: "€250", unit: "one-time" },
       ]
-    : [
+    : locale === "eu"
+    ? [
         { label: "Neurrira egindako web diseinu profesionala", value: "1.500€", unit: "behin" },
         { label: "Mugikorrerako optimizazio osoa", value: "400€", unit: "behin" },
         { label: "Tokiko SEO teknikoa", value: "900€", unit: "behin" },
@@ -168,6 +188,17 @@ export default async function PreciosPage({ params }: Props) {
         { label: "WhatsApp bidezko zuzeneko laguntza", value: "480€", unit: "urtero" },
         { label: "Hileko aldaketak", value: "1.200€", unit: "urtero" },
         { label: "Iritziak biltzeko sistema", value: "250€", unit: "behin" },
+      ]
+    : [
+        { label: "Design web professionnel sur mesure", value: "1 500 €", unit: "une fois" },
+        { label: "Optimisation mobile complète", value: "400 €", unit: "une fois" },
+        { label: "SEO local technique", value: "900 €", unit: "une fois" },
+        { label: "Google Business Profile optimisé", value: "600 €", unit: "une fois" },
+        { label: "Hébergement et nom de domaine", value: "240 €", unit: "par an" },
+        { label: "Maintenance technique", value: "600 €", unit: "par an" },
+        { label: "Support direct par WhatsApp", value: "480 €", unit: "par an" },
+        { label: "Modifications mensuelles incluses", value: "1 200 €", unit: "par an" },
+        { label: "Système de collecte d'avis", value: "250 €", unit: "une fois" },
       ];
 
   const marketRows = locale === "es"
@@ -184,11 +215,18 @@ export default async function PreciosPage({ params }: Props) {
         { who: "Wix / Squarespace", price: "€200 – €500/year", note: "You lose the site when you stop paying. Slow on mobile.", highlight: false },
         { who: "Your site (Unax)", price: "€1,300 · first year included", note: "One-off payment. Whole first year solved. Then €600/year.", highlight: true },
       ]
-    : [
+    : locale === "eu"
+    ? [
         { who: "Tokiko agentzia", price: "2.500 € – 5.000 € hasieran", note: "Diseinua bakarrik. Mantentze-lana eta aldaketak, beti aparte.", highlight: false },
         { who: "WordPress txantiloia", price: "400 € – 800 €", note: "Txantiloi generikoa. Tokiko SEO eta laguntzarik gabe.", highlight: false },
         { who: "Wix / Squarespace", price: "200 € – 500 €/urte", note: "Ordaintzeari uzten diozunean, weba galtzen duzu.", highlight: false },
         { who: "Zure weba (Unax)", price: "1.300 € · 1. urtea barne", note: "Ordainketa bakarra. Lehen urte osoa konponduta. Gero 600 €/urteko.", highlight: true },
+      ]
+    : [
+        { who: "Agence locale", price: "2 500 € – 5 000 € au départ", note: "Le design seulement. Maintenance et changements, toujours en plus.", highlight: false },
+        { who: "Template WordPress", price: "400 € – 800 €", note: "Template générique. Pas de SEO local. Pas de support.", highlight: false },
+        { who: "Wix / Squarespace", price: "200 € – 500 €/an", note: "Vous perdez le site quand vous arrêtez de payer. Lent sur mobile.", highlight: false },
+        { who: "Votre site (Unax)", price: "1 300 € · 1ère année incluse", note: "Paiement unique. Toute la première année résolue. Puis 600 €/an.", highlight: true },
       ];
 
   const jsonLd = {
@@ -197,7 +235,7 @@ export default async function PreciosPage({ params }: Props) {
       {
         "@type": "WebPage",
         "@id": `https://unaxaller.com/${locale}/precios#webpage`,
-        name: locale === "es" ? "Precios: Unax Aller" : locale === "en" ? "Pricing: Unax Aller" : "Prezioak: Unax Aller",
+        name: locale === "es" ? "Precios: Unax Aller" : locale === "en" ? "Pricing: Unax Aller" : locale === "eu" ? "Prezioak: Unax Aller" : "Prix : Unax Aller",
         url: `https://unaxaller.com/${locale}/precios`,
         inLanguage: locale,
         isPartOf: { "@id": "https://unaxaller.com/#website" },
@@ -206,32 +244,34 @@ export default async function PreciosPage({ params }: Props) {
       {
         "@type": "Service",
         "@id": `https://unaxaller.com/${locale}/precios#product`,
-        name: locale === "es" ? "Web para negocio local: pago único con primer año incluido" : locale === "en" ? "Web for local business: one-off payment, first year included" : "Web tokiko negoziorako: ordainketa bakarra, lehen urtea barne",
-        serviceType: locale === "es" ? "Web design for local business" : locale === "en" ? "Web design for local business" : "Web design for local business",
+        name: locale === "es" ? "Web para negocio local: pago único con primer año incluido" : locale === "en" ? "Web for local business: one-off payment, first year included" : locale === "eu" ? "Web tokiko negoziorako: ordainketa bakarra, lehen urtea barne" : "Site pour commerce local : paiement unique, première année incluse",
+        serviceType: locale === "es" ? "Web design for local business" : locale === "en" ? "Web design for local business" : locale === "eu" ? "Web design for local business" : "Web design for local business",
         description: locale === "es"
           ? "Web profesional para negocios locales por un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido: diseño, hosting, dominio, SEO local, Google Business Profile, sistema de reseñas y soporte por WhatsApp. A partir del segundo año, mantenimiento de 600€/año. 30 días de garantía de devolución. Valor del sistema el primer año: 6.170€."
           : locale === "en"
           ? "Professional website for local businesses for a one-off €1,300 + VAT, with the first year of maintenance included: design, hosting, domain, local SEO, Google Business Profile, reviews system and WhatsApp support. From the second year, €600/year maintenance. 30-day money-back guarantee. First-year system value: €6,170."
-          : "Tokiko negozioentzako web profesionala 1.300€ + BEZ ordainketa bakarrean, lehen urteko mantentze-lana barne: diseinua, hostinga, domeinua, tokiko SEOa, Google Business Profile, iritzien sistema eta WhatsApp laguntza. Bigarren urtetik, 600€/urteko mantentze-lana. 30 eguneko itzulketa bermea.",
+          : locale === "eu"
+          ? "Tokiko negozioentzako web profesionala 1.300€ + BEZ ordainketa bakarrean, lehen urteko mantentze-lana barne: diseinua, hostinga, domeinua, tokiko SEOa, Google Business Profile, iritzien sistema eta WhatsApp laguntza. Bigarren urtetik, 600€/urteko mantentze-lana. 30 eguneko itzulketa bermea."
+          : "Site professionnel pour commerces locaux pour un paiement unique de 1 300 € + TVA, avec la première année de maintenance incluse : design, hébergement, nom de domaine, SEO local, Google Business Profile, système d'avis et support WhatsApp. À partir de la deuxième année, maintenance de 600 €/an. Garantie satisfait ou remboursé de 30 jours. Valeur du système la première année : 6 170 €.",
         provider: { "@id": "https://unaxaller.com/#business" },
         brand: { "@id": "https://unaxaller.com/#business" },
-        category: locale === "es" ? "Diseño web para negocio local" : locale === "en" ? "Web design for local business" : "Web diseinua tokiko negoziorako",
+        category: locale === "es" ? "Diseño web para negocio local" : locale === "en" ? "Web design for local business" : locale === "eu" ? "Web diseinua tokiko negoziorako" : "Design web pour commerce local",
         image: `https://unaxaller.com/${locale}/opengraph-image`,
         // The 9 line items that make up the bundle — gives Google explicit
         // visibility into what the one-off price covers the first year.
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: locale === "es" ? "Lo que incluye el primer año" : locale === "en" ? "What's included the first year" : "Lehen urtean barne dagoena",
+          name: locale === "es" ? "Lo que incluye el primer año" : locale === "en" ? "What's included the first year" : locale === "eu" ? "Lehen urtean barne dagoena" : "Ce qui est inclus la première année",
           itemListElement: [
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Diseño web profesional a medida" : locale === "en" ? "Custom professional web design" : "Web diseinu profesional pertsonalizatua" }, price: "1500", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Optimización móvil completa" : locale === "en" ? "Full mobile optimization" : "Mugikorrerako optimizazio osoa" }, price: "400", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "SEO local técnico" : locale === "en" ? "Technical local SEO" : "Tokiko SEO teknikoa" }, price: "900", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Google Business Profile optimizado" : locale === "en" ? "Optimized Google Business Profile" : "Google Business Profile optimizatua" }, price: "600", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Hosting y dominio (1 año)" : locale === "en" ? "Hosting and domain (1 year)" : "Hostinga eta domeinua (1 urte)" }, price: "240", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Mantenimiento técnico (1 año)" : locale === "en" ? "Technical maintenance (1 year)" : "Mantentze-lan teknikoa (1 urte)" }, price: "600", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Soporte directo por WhatsApp (1 año)" : locale === "en" ? "Direct WhatsApp support (1 year)" : "WhatsApp bidezko zuzeneko laguntza (1 urte)" }, price: "480", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Cambios mensuales incluidos (1 año)" : locale === "en" ? "Monthly changes included (1 year)" : "Hileko aldaketak (1 urte)" }, price: "1200", priceCurrency: "EUR" },
-            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Sistema de captación de reseñas" : locale === "en" ? "Reviews collection system" : "Iritzien sistema" }, price: "250", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Diseño web profesional a medida" : locale === "en" ? "Custom professional web design" : locale === "eu" ? "Web diseinu profesional pertsonalizatua" : "Design web professionnel sur mesure" }, price: "1500", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Optimización móvil completa" : locale === "en" ? "Full mobile optimization" : locale === "eu" ? "Mugikorrerako optimizazio osoa" : "Optimisation mobile complète" }, price: "400", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "SEO local técnico" : locale === "en" ? "Technical local SEO" : locale === "eu" ? "Tokiko SEO teknikoa" : "SEO local technique" }, price: "900", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Google Business Profile optimizado" : locale === "en" ? "Optimized Google Business Profile" : locale === "eu" ? "Google Business Profile optimizatua" : "Google Business Profile optimisé" }, price: "600", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Hosting y dominio (1 año)" : locale === "en" ? "Hosting and domain (1 year)" : locale === "eu" ? "Hostinga eta domeinua (1 urte)" : "Hébergement et nom de domaine (1 an)" }, price: "240", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Mantenimiento técnico (1 año)" : locale === "en" ? "Technical maintenance (1 year)" : locale === "eu" ? "Mantentze-lan teknikoa (1 urte)" : "Maintenance technique (1 an)" }, price: "600", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Soporte directo por WhatsApp (1 año)" : locale === "en" ? "Direct WhatsApp support (1 year)" : locale === "eu" ? "WhatsApp bidezko zuzeneko laguntza (1 urte)" : "Support direct par WhatsApp (1 an)" }, price: "480", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Cambios mensuales incluidos (1 año)" : locale === "en" ? "Monthly changes included (1 year)" : locale === "eu" ? "Hileko aldaketak (1 urte)" : "Modifications mensuelles incluses (1 an)" }, price: "1200", priceCurrency: "EUR" },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: locale === "es" ? "Sistema de captación de reseñas" : locale === "en" ? "Reviews collection system" : locale === "eu" ? "Iritzien sistema" : "Système de collecte d'avis" }, price: "250", priceCurrency: "EUR" },
           ],
         },
         offers: {
@@ -293,8 +333,8 @@ export default async function PreciosPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? "Precios" : locale === "en" ? "Pricing" : "Prezioak", item: `https://unaxaller.com/${locale}/precios` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? "Precios" : locale === "en" ? "Pricing" : locale === "eu" ? "Prezioak" : "Prix", item: `https://unaxaller.com/${locale}/precios` },
         ],
       },
     ],
@@ -368,7 +408,7 @@ export default async function PreciosPage({ params }: Props) {
       />
 
       {/* ── HERO ── */}
-      <section className="prc-hero" aria-label={locale === "es" ? "Precios" : locale === "en" ? "Pricing" : "Prezioak"}>
+      <section className="prc-hero" aria-label={locale === "es" ? "Precios" : locale === "en" ? "Pricing" : locale === "eu" ? "Prezioak" : "Prix"}>
         <Image
           src="/images/brand/logo-mark.webp"
           alt=""
@@ -382,32 +422,36 @@ export default async function PreciosPage({ params }: Props) {
           <div className="prc-hero-inner">
             <Breadcrumbs
               items={[
-                { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
-                { name: locale === "es" ? "Precios" : locale === "en" ? "Pricing" : "Prezioak" },
+                { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", href: `/${locale}` },
+                { name: locale === "es" ? "Precios" : locale === "en" ? "Pricing" : locale === "eu" ? "Prezioak" : "Prix" },
               ]}
             />
             <p className="lp-eyebrow" style={{ marginTop: "var(--space-6)" }}>
-              {locale === "es" ? "Tu web sin complicaciones" : locale === "en" ? "Your site, hassle-free" : "Zure weba arazorik gabe"}
+              {locale === "es" ? "Tu web sin complicaciones" : locale === "en" ? "Your site, hassle-free" : locale === "eu" ? "Zure weba arazorik gabe" : "Votre site sans complications"}
             </p>
             <h1 className="page-hero-title" style={{ fontFamily: "var(--font-serif)" }}>
               {locale === "es"
                 ? "Tu web trabajando, aunque tú te olvides de ella."
                 : locale === "en"
                 ? "Your website, working while you forget it's there."
-                : "Zure weba lanean, ahaztu zaizun arren."}
+                : locale === "eu"
+                ? "Zure weba lanean, ahaztu zaizun arren."
+                : "Votre site qui travaille, même quand vous l'oubliez."}
             </h1>
             <p className="page-hero-subtitle">
               {locale === "es"
                 ? "La hago una vez y queda lista para que te encuentren en Google. Un pago de 1.300€ + IVA, con el primer año entero resuelto. Y 30 días de garantía."
                 : locale === "en"
                 ? "I build it once and it stays ready for people to find you on Google. A one-off €1,300 + VAT, with the whole first year solved. And a 30-day money-back guarantee."
-                : "Behin egiten dut eta prest geratzen da jendeak Google-n aurki zaitzan. 1.300€ + BEZ ordainketa bakarra, lehen urte osoa konponduta. Eta 30 eguneko bermea."}
+                : locale === "eu"
+                ? "Behin egiten dut eta prest geratzen da jendeak Google-n aurki zaitzan. 1.300€ + BEZ ordainketa bakarra, lehen urte osoa konponduta. Eta 30 eguneko bermea."
+                : "Je le construis une fois et il reste prêt pour qu'on vous trouve sur Google. Un paiement de 1 300 € + TVA, avec toute la première année réglée. Et une garantie satisfait ou remboursé de 30 jours."}
             </p>
             <div className="prc-chips">
-              <span className="prc-chip prc-chip--accent">{locale === "es" ? "1.300€ · pago único" : locale === "en" ? "€1,300 · one-off" : "1.300€ · ordainketa bakarra"}</span>
-              <span className="prc-chip">{locale === "es" ? "1er año incluido" : locale === "en" ? "First year included" : "1. urtea barne"}</span>
-              <span className="prc-chip">{locale === "es" ? "30 días garantía" : locale === "en" ? "30-day guarantee" : "30 eguneko bermea"}</span>
-              <span className="prc-chip">{locale === "es" ? "Mantenimiento anual, no mensual" : locale === "en" ? "Yearly upkeep, not monthly" : "Mantentze-lana urtero, ez hilero"}</span>
+              <span className="prc-chip prc-chip--accent">{locale === "es" ? "1.300€ · pago único" : locale === "en" ? "€1,300 · one-off" : locale === "eu" ? "1.300€ · ordainketa bakarra" : "1 300 € · paiement unique"}</span>
+              <span className="prc-chip">{locale === "es" ? "1er año incluido" : locale === "en" ? "First year included" : locale === "eu" ? "1. urtea barne" : "1ère année incluse"}</span>
+              <span className="prc-chip">{locale === "es" ? "30 días garantía" : locale === "en" ? "30-day guarantee" : locale === "eu" ? "30 eguneko bermea" : "Garantie 30 jours"}</span>
+              <span className="prc-chip">{locale === "es" ? "Mantenimiento anual, no mensual" : locale === "en" ? "Yearly upkeep, not monthly" : locale === "eu" ? "Mantentze-lana urtero, ez hilero" : "Maintenance annuelle, pas mensuelle"}</span>
             </div>
             <div className="prc-progress-bar-wrap" aria-hidden="true">
               <div className="prc-progress-bar" />
@@ -427,10 +471,10 @@ export default async function PreciosPage({ params }: Props) {
         <section aria-labelledby="includes-title" style={{ paddingBlock: "var(--space-16)" }}>
           <div className="container-xl">
             <p className="lp-eyebrow" style={{ marginBottom: "var(--space-3)" }}>
-              {locale === "es" ? "Lo que recibes" : locale === "en" ? "What you get" : "Zer jasotzen duzun"}
+              {locale === "es" ? "Lo que recibes" : locale === "en" ? "What you get" : locale === "eu" ? "Zer jasotzen duzun" : "Ce que vous recevez"}
             </p>
             <h2 id="includes-title" className="section-heading" style={{ marginBottom: "var(--space-10)" }}>
-              {locale === "es" ? "Cuatro cosas que mueven la aguja en negocio local" : locale === "en" ? "Four things that move the needle in local business" : "Tokiko negozioan eragiten duten lau gauza"}
+              {locale === "es" ? "Cuatro cosas que mueven la aguja en negocio local" : locale === "en" ? "Four things that move the needle in local business" : locale === "eu" ? "Tokiko negozioan eragiten duten lau gauza" : "Quatre choses qui font la différence pour un commerce local"}
             </h2>
             <div className="prc-includes-grid">
               {includesItems.map((item, i) => (
@@ -450,14 +494,16 @@ export default async function PreciosPage({ params }: Props) {
         <section className="prc-value-section" aria-labelledby="value-title">
           <div className="container-xl">
             <p className="lp-eyebrow" style={{ marginBottom: "var(--space-3)", textAlign: "center" }}>
-              {locale === "es" ? "Valor del sistema" : locale === "en" ? "System value" : "Sistemaren balioa"}
+              {locale === "es" ? "Valor del sistema" : locale === "en" ? "System value" : locale === "eu" ? "Sistemaren balioa" : "Valeur du système"}
             </p>
             <h2 id="value-title" className="section-heading" style={{ marginBottom: "var(--space-6)", textAlign: "center" }}>
               {locale === "es"
                 ? "6.170€ de servicios. Por 1.300€, una vez."
                 : locale === "en"
                 ? "€6,170 in services. For €1,300, once."
-                : "6.170€ zerbitzu. 1.300€, behin."}
+                : locale === "eu"
+                ? "6.170€ zerbitzu. 1.300€, behin."
+                : "6 170 € de services. Pour 1 300 €, une fois."}
             </h2>
             <PackageVisual locale={locale} />
             <p className="prc-value-intro">
@@ -465,7 +511,9 @@ export default async function PreciosPage({ params }: Props) {
                 ? "Gracias a las herramientas que uso a puerta cerrada, el tiempo de desarrollo se ha reducido muchísimo. Eso me permite ofrecerte el sistema completo por un pago único accesible, y a ti, tener una web profesional sin pagar lo que cobra una agencia."
                 : locale === "en"
                 ? "Thanks to the tools I use behind the scenes, development time has dropped a lot. That lets me offer the full system for an accessible one-off payment, and you, get a professional website without paying what an agency charges."
-                : "Atea itxita erabiltzen ditudan tresnei esker, garatzeko denbora asko murriztu da. Horri esker, sistema osoa ordainketa bakar eskuragarrian eskaini diezazuket, eta zuk, web profesional bat eduki agentzia batek kobratzen duena ordaindu gabe."}
+                : locale === "eu"
+                ? "Atea itxita erabiltzen ditudan tresnei esker, garatzeko denbora asko murriztu da. Horri esker, sistema osoa ordainketa bakar eskuragarrian eskaini diezazuket, eta zuk, web profesional bat eduki agentzia batek kobratzen duena ordaindu gabe."
+                : "Grâce aux outils que j'utilise en coulisses, le temps de développement a énormément baissé. Cela me permet de vous proposer le système complet pour un paiement unique accessible, et à vous, d'avoir un site professionnel sans payer ce que facture une agence."}
             </p>
             <div className="prc-value-grid">
               {valueBreakdown.map((row, i) => (
@@ -477,10 +525,10 @@ export default async function PreciosPage({ params }: Props) {
               ))}
               <div className="prc-value-total">
                 <span>
-                  {locale === "es" ? "Valor total el primer año" : locale === "en" ? "Total first-year value" : "Lehen urteko balioa guztira"}
+                  {locale === "es" ? "Valor total el primer año" : locale === "en" ? "Total first-year value" : locale === "eu" ? "Lehen urteko balioa guztira" : "Valeur totale la première année"}
                 </span>
                 <span className="prc-value-total-num">
-                  {locale === "en" ? "€6,170" : "6.170€"}
+                  {locale === "en" ? "€6,170" : locale === "fr" ? "6 170 €" : "6.170€"}
                 </span>
               </div>
               <p className="prc-value-vs">
@@ -488,7 +536,9 @@ export default async function PreciosPage({ params }: Props) {
                   ? <>Tú pagas <strong>1.300€ una vez</strong>, con el primer año entero incluido: casi 4.900€ de diferencia frente a lo que cobra una agencia. A partir del año 2, solo 600€/año.</>
                   : locale === "en"
                   ? <>You pay <strong>€1,300 once</strong>, with the whole first year included: almost €4,900 less than what an agency charges. From year 2, just €600/year.</>
-                  : <>Zuk <strong>1.300€ behin</strong> ordaintzen duzu, lehen urte osoa barne: ia 4.900€-ko aldea agentzia batek kobratzen duenaren aldean. 2. urtetik, 600€/urteko bakarrik.</>}
+                  : locale === "eu"
+                  ? <>Zuk <strong>1.300€ behin</strong> ordaintzen duzu, lehen urte osoa barne: ia 4.900€-ko aldea agentzia batek kobratzen duenaren aldean. 2. urtetik, 600€/urteko bakarrik.</>
+                  : <>Vous payez <strong>1 300 € une fois</strong>, avec toute la première année incluse : presque 4 900 € de différence par rapport à ce que facture une agence. À partir de l'année 2, seulement 600 €/an.</>}
               </p>
             </div>
           </div>
@@ -500,14 +550,16 @@ export default async function PreciosPage({ params }: Props) {
         <section className="prc-market-section" aria-labelledby="pricing-context-title">
           <div className="container-xl">
             <p className="lp-eyebrow" style={{ marginBottom: "var(--space-3)" }}>
-              {locale === "es" ? "Cómo se compara" : locale === "en" ? "How it compares" : "Nola konparatzen den"}
+              {locale === "es" ? "Cómo se compara" : locale === "en" ? "How it compares" : locale === "eu" ? "Nola konparatzen den" : "Comment ça se compare"}
             </p>
             <h2 id="pricing-context-title" className="section-heading" style={{ marginBottom: "var(--space-8)" }}>
               {locale === "es"
                 ? "Lo que cobran otros por lo mismo (o menos)"
                 : locale === "en"
                 ? "What others charge for the same (or less)"
-                : "Beste batzuk gauza beragatik (edo gutxiagogatik) zer kobratzen duten"}
+                : locale === "eu"
+                ? "Beste batzuk gauza beragatik (edo gutxiagogatik) zer kobratzen duten"
+                : "Ce que les autres facturent pour la même chose (ou moins)"}
             </h2>
             <div className="prc-market-grid">
               {marketRows.map((row, i) => (
@@ -524,11 +576,11 @@ export default async function PreciosPage({ params }: Props) {
 
       {/* ── FAQ ── */}
       <AnimatedSection>
-        <section className="prc-faq-section" aria-label={locale === "es" ? "Preguntas sobre el precio" : locale === "en" ? "Pricing questions" : "Prezioari buruzko galderak"}>
+        <section className="prc-faq-section" aria-label={locale === "es" ? "Preguntas sobre el precio" : locale === "en" ? "Pricing questions" : locale === "eu" ? "Prezioari buruzko galderak" : "Questions sur le prix"}>
           <div className="container-xl">
             <div className="faq-wrap">
               <h2 className="section-heading">
-                {locale === "es" ? "Preguntas sobre el precio" : locale === "en" ? "Pricing questions" : "Prezioari buruzko galderak"}
+                {locale === "es" ? "Preguntas sobre el precio" : locale === "en" ? "Pricing questions" : locale === "eu" ? "Prezioari buruzko galderak" : "Questions sur le prix"}
               </h2>
               <div className="faq-list">
                 {faqItems.map((item, i) => (
@@ -552,25 +604,29 @@ export default async function PreciosPage({ params }: Props) {
       <section className="prc-cta-section" aria-labelledby="cta-precios-title">
         <div className="container-xl prc-cta-inner">
           <p className="lp-eyebrow" style={{ marginBottom: "var(--space-4)" }}>
-            {locale === "es" ? "Sin firmar nada. Sin pagar nada." : locale === "en" ? "No paperwork. No upfront payment." : "Ezer sinatu gabe. Ezer ordaindu gabe."}
+            {locale === "es" ? "Sin firmar nada. Sin pagar nada." : locale === "en" ? "No paperwork. No upfront payment." : locale === "eu" ? "Ezer sinatu gabe. Ezer ordaindu gabe." : "Sans rien signer. Sans rien payer."}
           </p>
           <h2 id="cta-precios-title" className="section-heading" style={{ marginBottom: "var(--space-4)", maxWidth: "780px", marginInline: "auto" }}>
             {locale === "es"
               ? "Hablemos 30 minutos. Te enseño qué cambiarías."
               : locale === "en"
               ? "Let's talk for 30 minutes. I show you what to change."
-              : "30 minutuz hitz egin dezagun. Erakusten dizut zer aldatu."}
+              : locale === "eu"
+              ? "30 minutuz hitz egin dezagun. Erakusten dizut zer aldatu."
+              : "Parlons 30 minutes. Je vous montre ce que je changerais."}
           </h2>
           <p className="prc-cta-lead" style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-md)", marginBottom: "var(--space-8)", maxWidth: "640px", marginInline: "auto", lineHeight: "var(--lh-relaxed)" }}>
             {locale === "es"
               ? "Por teléfono o por un café. Te enseño cómo te está quitando llamadas tu competencia en Google y qué haría yo en tu sector."
               : locale === "en"
               ? "On the phone or over coffee. I show you how competitors are taking calls from you on Google and what I'd do in your sector."
-              : "Telefonoz edo kafe baten. Erakusten dizut lehiakideek nola kentzen dizkizuten deiak Googlen eta zer egingo nukeen zure sektorean."}
+              : locale === "eu"
+              ? "Telefonoz edo kafe baten. Erakusten dizut lehiakideek nola kentzen dizkizuten deiak Googlen eta zer egingo nukeen zure sektorean."
+              : "Par téléphone ou autour d'un café. Je vous montre comment vos concurrents vous prennent des appels sur Google et ce que je ferais dans votre secteur."}
           </p>
           <div style={{ display: "flex", gap: "var(--space-4)", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href={`/${locale}/contacto`} className="btn btn-primary btn-lg focusable">
-              {locale === "es" ? "Pedir auditoría gratis →" : locale === "en" ? "Request free audit →" : "Doako auditoria eskatu →"}
+              {locale === "es" ? "Pedir auditoría gratis →" : locale === "en" ? "Request free audit →" : locale === "eu" ? "Doako auditoria eskatu →" : "Demander un audit gratuit →"}
             </Link>
             <a
               href="https://wa.me/34620909916?text=Hola%20Unax%2C%20me%20interesa%20la%20web%20de%201.300%E2%82%AC%20con%20el%20primer%20a%C3%B1o%20incluido"
@@ -578,7 +634,7 @@ export default async function PreciosPage({ params }: Props) {
               rel="noopener noreferrer"
               className="btn btn-secondary btn-lg focusable"
             >
-              {locale === "es" ? "WhatsApp directo" : locale === "en" ? "WhatsApp direct" : "WhatsApp zuzena"}
+              {locale === "es" ? "WhatsApp directo" : locale === "en" ? "WhatsApp direct" : locale === "eu" ? "WhatsApp zuzena" : "WhatsApp direct"}
             </a>
           </div>
           <p className="prc-cta-footnote">
@@ -586,7 +642,9 @@ export default async function PreciosPage({ params }: Props) {
               ? "Sin compromiso · Respuesta el mismo día · Hablas siempre conmigo"
               : locale === "en"
               ? "No commitment · Same-day reply · You always talk to me"
-              : "Konpromisorik gabe · Egun bereko erantzuna · Beti nirekin hitz egiten duzu"}
+              : locale === "eu"
+              ? "Konpromisorik gabe · Egun bereko erantzuna · Beti nirekin hitz egiten duzu"
+              : "Sans engagement · Réponse le jour même · Vous parlez toujours avec moi"}
           </p>
         </div>
       </section>

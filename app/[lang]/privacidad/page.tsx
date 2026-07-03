@@ -10,12 +10,13 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Política de Privacidad",
     en: "Privacy Policy",
     eu: "Pribatutasun Politika",
+    fr: "Politique de Confidentialité",
   };
 
   return {
@@ -30,18 +31,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PrivacidadPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const title =
-    locale === "es" ? "Política de Privacidad" : locale === "en" ? "Privacy Policy" : "Pribatutasun Politika";
+    locale === "es" ? "Política de Privacidad" : locale === "en" ? "Privacy Policy" : locale === "eu" ? "Pribatutasun Politika" : "Politique de Confidentialité";
   const updatedLabel =
     locale === "es" ? "Última actualización: enero 2026" :
     locale === "en" ? "Last updated: January 2026" :
-    "Azken eguneraketa: 2026ko urtarrila";
+    locale === "eu" ? "Azken eguneraketa: 2026ko urtarrila" :
+    "Dernière mise à jour : janvier 2026";
   const backLabel =
-    locale === "es" ? "Volver al inicio" : locale === "en" ? "Back to home" : "Hasierara itzuli";
+    locale === "es" ? "Volver al inicio" : locale === "en" ? "Back to home" : locale === "eu" ? "Hasierara itzuli" : "Retour à l'accueil";
   const cookieLabel =
-    locale === "es" ? "Política de Cookies" : locale === "en" ? "Cookie Policy" : "Cookie Politika";
+    locale === "es" ? "Política de Cookies" : locale === "en" ? "Cookie Policy" : locale === "eu" ? "Cookie Politika" : "Politique de Cookies";
 
   return (
     <section className="legal-page" aria-labelledby="legal-title">
@@ -103,6 +105,29 @@ export default async function PrivacidadPage({ params }: Props) {
 
                 <h2>7. Cookieak</h2>
                 <p>Webgune honek funtzionamendurako beharrezkoak diren cookie teknikoak baino ez ditu erabiltzen. Ez dira cookie analitiko edo marketin-eko cookieak ezartzen zure baimenik gabe. Ikusi gure <Link href={`/${locale}/cookies`}>{cookieLabel}</Link>.</p>
+              </>
+            ) : locale === "fr" ? (
+              <>
+                <h2>1. Responsable du Traitement</h2>
+                <p>Unax Aller Fernández, avec l&apos;adresse e-mail contacto@unaxaller.com et domicilié au Pays basque, Espagne, est le responsable du traitement des données personnelles collectées via ce site web.</p>
+
+                <h2>2. Données que Nous Collectons</h2>
+                <p>Nous ne collectons que les données que vous nous fournissez volontairement via le formulaire de contact : nom, adresse e-mail, nom de l&apos;entreprise (facultatif) et le contenu de votre message.</p>
+
+                <h2>3. Finalité et Base Légale</h2>
+                <p>Vos données sont traitées pour répondre à votre demande (intérêt légitime, art. 6.1.f du RGPD) et, si vous le demandez, pour gérer la relation précontractuelle. Nous n&apos;utilisons pas vos données à des fins commerciales sans votre consentement exprès.</p>
+
+                <h2>4. Conservation des Données</h2>
+                <p>Nous conservons vos données pendant le temps nécessaire pour traiter votre demande et jusqu&apos;à 3 ans pour la correspondance commerciale, conformément aux délais de prescription applicables.</p>
+
+                <h2>5. Vos Droits</h2>
+                <p>Vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement, de limitation du traitement, de portabilité et d&apos;opposition. Pour les exercer, écrivez-nous à contacto@unaxaller.com. Vous pouvez également déposer une réclamation auprès de l&apos;Agence Espagnole de Protection des Données (AEPD) sur aepd.es.</p>
+
+                <h2>6. Tiers</h2>
+                <p>Nous pouvons utiliser Resend (service de livraison d&apos;e-mails) pour transférer les messages du formulaire de contact. Nous ne vendons ni ne partageons vos données avec des tiers à des fins commerciales.</p>
+
+                <h2>7. Cookies</h2>
+                <p>Ce site web utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie analytique ou marketing n&apos;est déposé sans votre consentement. Consultez notre <Link href={`/${locale}/cookies`}>{cookieLabel}</Link> pour plus d&apos;informations.</p>
               </>
             ) : (
               <>

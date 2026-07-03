@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Diseñador Web en Logroño, La Rioja",
     en: "Web Designer in Logroño, La Rioja",
     eu: "Web Diseinatzailea Logroñon, Errioxan",
+    fr: "Créateur de Site Web à Logroño, La Rioja",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para bodegas, hostelería y negocios de Logroño y La Rioja. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",
     en: "Freelance web designer for wineries, hospitality and businesses in Logroño and La Rioja. Custom websites with local SEO. One-off €1,300 + VAT, first year included.",
     eu: "Web diseinatzaile freelance Logroño eta Errioxako upategi, ostalaritza eta negozioetarako. Neurrizko webguneak SEO lokalarekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    fr: "Créateur de site web freelance pour les caves à vin, l'hôtellerie-restauration et les entreprises de Logroño et de La Rioja. Sites sur mesure avec SEO local. Paiement unique de 1 300 € + TVA, première année incluse.",
   };
 
   const title = titles[locale];
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LogronoPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getCityLanding(SLUG)!;
   const content = getCityLandingContent(def, locale);
 

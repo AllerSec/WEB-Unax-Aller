@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    alternateLocale: ["en_GB", "eu_ES"],
+    alternateLocale: ["en_GB", "eu_ES", "fr_FR"],
     url: "https://unaxaller.com",
     siteName: "Unax Aller",
     title: "Unax Aller: Web para negocio local · 1.300€, 1er año incluido",

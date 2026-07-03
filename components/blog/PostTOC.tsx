@@ -1,11 +1,12 @@
 import { extractHeadings } from "@/lib/utils";
 
-type Locale = "es" | "en" | "eu";
+type Locale = "es" | "en" | "eu" | "fr";
 
 const labels: Record<Locale, string> = {
   es: "Índice",
   en: "Contents",
   eu: "Aurkibidea",
+  fr: "Sommaire",
 };
 
 export default function PostTOC({

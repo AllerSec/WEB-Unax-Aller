@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu", { name: string; url: string; sector: string }[]> = {
+const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu" | "fr", { name: string; url: string; sector: string }[]> = {
   es: [
     { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Farmacia · Bera" },
     { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Irun" },
@@ -32,6 +32,14 @@ const CLIENTS_BY_LOCALE: Record<"es" | "en" | "eu", { name: string; url: string;
     { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "AA · Irun" },
     { name: "Tecmac", url: "https://tecmac.es", sector: "Industria · Nafarroa" },
     { name: "Boralan", url: "https://boralan.eus", sector: "Basoa · Nafarroa" },
+  ],
+  fr: [
+    { name: "Farmacia Fernandez Bera", url: "https://farmaciafernandezbera.com", sector: "Pharmacie · Bera" },
+    { name: "Motos Arretxe", url: "https://motosarretxe.com", sector: "Motos · Irun" },
+    { name: "Anaka Optica", url: "https://anakaoptica.com", sector: "Opticien · Irun" },
+    { name: "VirtuoSolve", url: "https://virtuosolve.com", sector: "IA · Irun" },
+    { name: "Tecmac", url: "https://tecmac.es", sector: "Industrie · Navarre" },
+    { name: "Boralan", url: "https://boralan.eus", sector: "Forestier · Navarre" },
   ],
 };
 
@@ -66,7 +74,7 @@ function StatCard({ value, label }: StatProps) {
 
 export default function SocialProof() {
   const t = useTranslations("socialProof");
-  const locale = (useLocale() as "es" | "en" | "eu") ?? "es";
+  const locale = (useLocale() as "es" | "en" | "eu" | "fr") ?? "es";
   const clients = CLIENTS_BY_LOCALE[locale];
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);

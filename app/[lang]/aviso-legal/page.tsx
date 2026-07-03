@@ -10,12 +10,13 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Aviso Legal",
     en: "Legal Notice",
     eu: "Lege Oharra",
+    fr: "Mentions Légales",
   };
 
   return {
@@ -30,15 +31,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AvisoLegalPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
-  const title = locale === "es" ? "Aviso Legal" : locale === "en" ? "Legal Notice" : "Lege Oharra";
+  const title = locale === "es" ? "Aviso Legal" : locale === "en" ? "Legal Notice" : locale === "eu" ? "Lege Oharra" : "Mentions Légales";
   const updatedLabel =
     locale === "es" ? "Última actualización: enero 2026" :
     locale === "en" ? "Last updated: January 2026" :
-    "Azken eguneraketa: 2026ko urtarrila";
+    locale === "eu" ? "Azken eguneraketa: 2026ko urtarrila" :
+    "Dernière mise à jour : janvier 2026";
   const backLabel =
-    locale === "es" ? "Volver al inicio" : locale === "en" ? "Back to home" : "Hasierara itzuli";
+    locale === "es" ? "Volver al inicio" : locale === "en" ? "Back to home" : locale === "eu" ? "Hasierara itzuli" : "Retour à l'accueil";
 
   return (
     <section className="legal-page" aria-labelledby="legal-title">
@@ -96,6 +98,27 @@ export default async function AvisoLegalPage({ params }: Props) {
 
                 <h2>4. Lege Aplikagarria</h2>
                 <p>Baldintza hauek Espainiako legeak arautzen ditu. Edozein eztabaida Euskal Herriko epaitegietan aurkeztuko da.</p>
+              </>
+            ) : locale === "fr" ? (
+              <>
+                <h2>1. Informations sur le Titulaire</h2>
+                <p>Conformément à la Loi 34/2002, du 11 juillet, sur les Services de la Société de l&apos;Information et le Commerce Électronique (LSSI-CE), le titulaire de ce site web est :</p>
+                <ul>
+                  <li><strong>Nom :</strong> Unax Aller Fernández</li>
+                  <li><strong>Activité :</strong> Conception et développement web (indépendant)</li>
+                  <li><strong>Adresse :</strong> Pays basque, Espagne</li>
+                  <li><strong>E-mail :</strong> <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a></li>
+                  <li><strong>Site web :</strong> https://unaxaller.com</li>
+                </ul>
+
+                <h2>2. Propriété Intellectuelle</h2>
+                <p>Tout le contenu de ce site web (textes, images, code, design, logos) est la propriété d&apos;Unax Aller Fernández ou est utilisé sous licence. Toute reproduction, distribution ou communication publique sans autorisation écrite préalable est interdite.</p>
+
+                <h2>3. Limitation de Responsabilité</h2>
+                <p>Le titulaire n&apos;est pas responsable des dommages découlant de l&apos;utilisation de ce site web, y compris les erreurs de contenu, les liens vers des tiers ou l&apos;indisponibilité du service.</p>
+
+                <h2>4. Droit Applicable</h2>
+                <p>Ces conditions sont régies par le droit espagnol. Tout litige sera soumis aux tribunaux du Pays basque, Espagne.</p>
               </>
             ) : (
               <>

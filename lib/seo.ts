@@ -1,5 +1,5 @@
 export const SITE_URL = "https://unaxaller.com";
-export const LOCALES = ["es", "en", "eu"] as const;
+export const LOCALES = ["es", "en", "eu", "fr"] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export function hreflangAlternates(path: string) {
@@ -18,6 +18,7 @@ export const OG_LOCALE: Record<Locale, string> = {
   es: "es_ES",
   en: "en_US",
   eu: "eu_ES",
+  fr: "fr_FR",
 };
 
 export function buildOpenGraph(args: {

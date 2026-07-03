@@ -8,22 +8,25 @@ const MESSAGES: Record<string, string> = {
   es: "Hola Unax, me gustaría una demo gratis de mi web.",
   en: "Hi Unax, I'd like a free demo of my website.",
   eu: "Kaixo Unax, nire webgunearen doako demoa nahiko nuke.",
+  fr: "Bonjour Unax, je voudrais une démo gratuite de mon site.",
 };
 
 const LABELS: Record<string, string> = {
   es: "Escríbeme por WhatsApp",
   en: "Message me on WhatsApp",
   eu: "WhatsApp bidez idatzi",
+  fr: "Écrivez-moi sur WhatsApp",
 };
 
 const TOOLTIPS: Record<string, string> = {
   es: "Respondo en minutos",
   en: "I reply in minutes",
   eu: "Minutuetan erantzuten dut",
+  fr: "Je réponds en quelques minutes",
 };
 
 type Props = {
-  locale: "es" | "en" | "eu";
+  locale: "es" | "en" | "eu" | "fr";
 };
 
 export default function WhatsAppFloat({ locale }: Props) {

@@ -9,12 +9,12 @@ export interface BlogPost {
   publishedAt: string;
   updatedAt?: string;
   readingTime: number;
-  titles: Record<"es" | "en" | "eu", string>;
-  descriptions: Record<"es" | "en" | "eu", string>;
-  content: Record<"es" | "en" | "eu", string>;
+  titles: Record<"es" | "en" | "eu" | "fr", string>;
+  descriptions: Record<"es" | "en" | "eu" | "fr", string>;
+  content: Record<"es" | "en" | "eu" | "fr", string>;
   tags: string[];
-  keywords: Record<"es" | "en" | "eu", string[]>;
-  faq?: Partial<Record<"es" | "en" | "eu", BlogPostFaq[]>>;
+  keywords: Record<"es" | "en" | "eu" | "fr", string[]>;
+  faq?: Partial<Record<"es" | "en" | "eu" | "fr", BlogPostFaq[]>>;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -27,11 +27,13 @@ export const blogPosts: BlogPost[] = [
       es: "Google Analytics no te hace falta (y quizá te está ralentizando)",
       en: "You don't need Google Analytics (and it might be slowing you down)",
       eu: "Ez duzu Google Analytics behar (eta agian zure weba moteltzen ari da)",
+      fr: "Vous n'avez pas besoin de Google Analytics (et ça ralentit peut-être votre site)",
     },
     descriptions: {
       es: "Por qué GA4 es un cañonazo para cazar una mosca en la mayoría de webs pequeñas, qué problemas tiene y qué alternativas gratis usar en 2026.",
       en: "Why GA4 is overkill for most small websites, what problems it brings and which free alternatives to use in 2026.",
       eu: "Zergatik GA4 gehiegizkoa den web txiki gehienetan, zer arazo dituen eta 2026an zein alternatiba doan erabili.",
+      fr: "Pourquoi GA4 est disproportionné pour la plupart des petits sites, quels problèmes il pose et quelles alternatives gratuites utiliser en 2026.",
     },
     content: {
       es: `Iba a ponerle Google Analytics a todos mis clientes por defecto. De hecho, esta misma semana tocaba empezar con ello. Y entonces me senté a revisar si realmente tenía sentido en cada caso, porque había leído cosas raras sobre GA4 y el RGPD. Te cuento a qué conclusión he llegado.
@@ -166,6 +168,50 @@ Negozio txikiarentzat, zuzenean doakora eta errazera. Zerbait osoagoa eta polita
 ## Nire aholkua jada Google Analytics jarrita baduzu
 
 Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean nabaritzen da, azken finean garrantzitsuena dena. Zure bisitei buruz jakin behar baduzu, jarri besteren bat: primeran funtzionatzen dute egiten duzunerako. Baina Google, Google hori, kanpora.`,
+      fr: `J'allais installer Google Analytics par défaut chez tous mes clients. Cette semaine même, je devais commencer. Et puis je me suis arrêté pour vérifier si ça avait vraiment un sens dans chaque cas, parce que j'avais lu des choses étranges sur GA4 et le RGPD. Voici où j'en suis arrivé.
+
+![Tableau de bord d'analytique avec des graphiques sur un écran](https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Le problème n'est pas que GA4 soit mauvais
+
+C'est que, pour la plupart des sites de petites entreprises, c'est totalement disproportionné. Et en plus, ça amène ses propres soucis :
+
+**Des doutes juridiques avec le RGPD.** Plusieurs autorités de protection des données en Europe (France, Autriche, Italie) ont averti que l'utilisation de GA sans mesures supplémentaires viole le règlement, car les données partent vers les serveurs de Google aux États-Unis. Pour rester dans les clous, il faut un bandeau de cookies bien configuré, un consentement explicite et parfois un proxy. Plus de travail pour le client.
+
+**Ça ralentit le site.** Le script est lourd et déclenche des requêtes. Sur un site bien conçu en Next.js, qui devrait être ultra-rapide, GA4 est l'un des éléments les plus lourds que vous puissiez ajouter. Et la vitesse est justement l'un des facteurs que Google regarde pour le positionnement. Autrement dit, vous ajoutez un script de Google qui vous pénalise sur Google.
+
+**Le tableau de bord est un chaos pour une personne normale.** Si votre client ouvre GA4 en cherchant "combien de personnes ont vu mon site", il se perd entre rapports, explorations et dimensions. Beaucoup s'y connectent deux fois et n'y reviennent plus jamais.
+
+## Ce qu'un petit commerce a vraiment besoin de savoir
+
+En fait, presque aucun de mes clients n'a besoin de plus que ceci :
+
+- Combien de visites le site a eu ce mois-ci
+- D'où viennent les visiteurs (Google, réseaux sociaux, direct, autre site)
+- Quelles pages sont les plus consultées
+- Combien de personnes remplissent le formulaire de contact
+
+Pas besoin de construire un vaisseau spatial pour ça. D'ailleurs, plus c'est simple, plus il est probable que le propriétaire l'ouvre de temps en temps.
+
+## Les alternatives qui ont du sens
+
+**Cloudflare Web Analytics :** gratuit, sans cookies, sans bandeau. Ça s'active depuis le tableau de bord Cloudflare si vous utilisez déjà leur CDN. Données basiques mais suffisantes.
+
+**Umami :** gratuit si vous l'auto-hébergez, ou un abonnement pas cher dans le cloud. Tableau de bord minimaliste, respectueux du RGPD, on comprend tout au premier coup d'œil.
+
+**Plausible :** payant (environ 9 €/mois pour plusieurs sites). Plus joli, rapports par e-mail, support attentif. Pour qui veut quelque chose de sérieux sans payer les tarifs de GA360.
+
+## Comment je vois ça selon le type de client
+
+Ça dépend beaucoup du commerce. Un petit restaurant à Irun a intérêt à savoir si son site lui amène des clients. En revanche, une entreprise d'ingénierie avec qui j'ai travaillé a son site plutôt comme une carte de visite, oubliée : elle n'a pas besoin d'analytique, et je le lui dis franchement.
+
+Je pose toujours la question avant de livrer. Si le client veut voir les données lui-même, je le mets en place, je laisse le tableau de bord prêt et je lui montre comment le lire en cinq minutes. Ça représente un effort supplémentaire, donc je facture un petit supplément (rien de cher, mais quelque chose), parce que le temps c'est du temps.
+
+Pour un petit commerce, direction le gratuit et le simple. Si on parle d'une entreprise plus grande qui a besoin de quelque chose de plus complet et soigné, alors oui, on regarde Plausible ou une autre option payante. Mais la règle par défaut : simple, sans coût pour le client, sans complications.
+
+## Mon conseil si vous avez déjà installé Google Analytics
+
+Retirez-le. Maintenant. Il fait perdre de la vitesse à votre site et ça se voit dans le positionnement, qui est finalement ce qui compte. Si vous avez besoin de connaître vos visites, mettez n'importe laquelle des autres solutions, elles conviennent parfaitement pour ce que vous faites. Mais Google, ce Google-là, dehors.`,
     },
     tags: ["Google Analytics", "analítica web", "privacidad", "rendimiento web"],
     keywords: {
@@ -187,6 +233,13 @@ Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean n
         "Google Analytics alternatibak",
         "analitika webgune cookie gabe",
         "Plausible analitika",
+      ],
+      fr: [
+        "alternatives à Google Analytics",
+        "Plausible vs GA4",
+        "analytique web sans cookies",
+        "Google Analytics RGPD",
+        "Cloudflare Web Analytics",
       ],
     },
     faq: {
@@ -219,11 +272,13 @@ Kendu ezazu. Orain. Abiadura kentzen ari zaio zure webari eta hori ranking-ean n
       es: "Comprar un dominio sin pillarte los dedos: guía honesta 2026",
       en: "Buying a domain without getting burned: an honest 2026 guide",
       eu: "Domeinu bat erosi behatzak harrapatu gabe: 2026ko gida zintzoa",
+      fr: "Acheter un nom de domaine sans se faire avoir : guide honnête 2026",
     },
     descriptions: {
       es: "Dónde comprar un dominio sin pagar de más, por qué WordPress.com te infla el precio y qué mirar para que el dominio sea tuyo de verdad.",
       en: "Where to buy a domain without overpaying, why WordPress.com inflates the price and what to check so the domain is really yours.",
       eu: "Non erosi domeinua gehiegi ordaindu gabe, zergatik WordPress.com-ek prezioa puzten duen eta zer begiratu domeinua benetan zurea izan dadin.",
+      fr: "Où acheter un nom de domaine sans payer trop cher, pourquoi WordPress.com gonfle le prix et ce qu'il faut vérifier pour que le domaine soit vraiment le vôtre.",
     },
     content: {
       es: `Yo estuve bastante tiempo buscando dónde comprar dominios antes de decidirme. Me encontré de todo: sitios que inflaban el precio hasta hacerlo parecer premium, páginas con "ofertas" del primer año que al segundo te cobraban el triple, y plataformas tipo WordPress.com que te cobran una cuota mensual que multiplica por diez lo que deberías pagar.
@@ -337,6 +392,43 @@ Urrezko araua: **domeinua zure izenean edo zure enpresarenean erosten da, beti.*
 ## Laburpen azkarra
 
 Erosi hornitzaile merke eta zintzo batean (Namecheap, Porkbun, Cloudflare Registrar ere ondo dago). Saihestu WordPress.com bezalako plataformen hileko kuotak domeinu bat nahi baduzu bakarrik. Eta ziurtatu titularra zu zarela. Horrekin bakarrik, domeinu baten inguruan sor daitezkeen %95 dramatatik libratzen zara.`,
+      fr: `J'ai passé pas mal de temps à chercher où acheter mes noms de domaine avant de me décider. J'ai trouvé de tout : des sites qui gonflaient le prix pour faire "premium", des pages avec des "offres" la première année qui vous facturaient le triple la deuxième, et des plateformes comme WordPress.com qui vous prennent un abonnement mensuel représentant dix fois ce que vous devriez payer.
+
+![Écran avec terminal et clavier mécanique, environnement de développement](https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## J'achète chez Namecheap et je suis tranquille
+
+Les .com y sont au prix minimum possible, environ 10 €/an. On ne vous glisse pas de produits par défaut dans le panier, le renouvellement n'explose pas la deuxième année et le tableau de bord est simple. Bien sûr, le prix final dépend du domaine (les .io, .ai et les extensions à la mode coûtent plus cher), mais pour un .com ou un .fr d'entreprise classique, Namecheap est à un prix correct et sans petits caractères absurdes.
+
+Ils ne me paient rien. Je ne suis ni ambassadeur ni commissionné. C'est simplement ce que j'utilise et ce que je recommande après avoir pas mal comparé.
+
+## WordPress.com et l'astuce de l'abonnement mensuel
+
+Il faut s'arrêter un instant là-dessus. WordPress.com (attention, ce n'est pas la même chose que le WordPress que vous installez vous-même sur un hébergement) vous vend un pack avec "domaine inclus". Ça sonne bien. Le problème, c'est que le domaine est rattaché à l'abonnement mensuel de la plateforme.
+
+Autrement dit, au lieu de payer 10 €/an pour votre .com, vous payez 15, 25 ou 40 €/mois pour le combo complet. Faites le calcul. Ça fait 180-480 €/an pour quelque chose que, avec Namecheap et un hébergement correct, vous obtiendriez largement pour 60-80 €.
+
+Le domaine en lui-même est le même. Ce qui coûte cher, c'est la plateforme, qui vous rend dépendant et complique le départ le jour où vous voulez partir.
+
+## Ce qu'il faut vérifier avant d'acheter
+
+Trois choses comptent vraiment :
+
+- **Le prix de l'année 2, pas seulement de l'année 1 :** beaucoup de fournisseurs offrent la première année puis triplent le prix. Regardez les petits caractères, pas seulement la bannière de réduction
+- **Ce qu'on vous ajoute sans demander :** confidentialité WHOIS, "sécurité premium", forfaits e-mail dont vous n'avez pas besoin. Vérifiez le panier avant de payer
+- **La politique de transfert :** pouvoir sortir le domaine vers un autre fournisseur sans bataille le jour où vous le voulez. Certains mettent des bâtons dans les roues
+
+## Le point le plus important : que le domaine soit à VOTRE nom
+
+C'est ce qui m'inquiète le plus dans toute cette histoire de domaines. J'ai eu la chance que les clients qui arrivent chez moi via d'autres développeurs soient arrivés proprement : leurs accès, leur DNS, leur hébergeur, une titularité claire. Des gens qui avaient fait la passation professionnellement.
+
+Mais j'ai entendu des histoires contraires. Des agences ou des "cousins qui s'y connaissent en informatique" qui achètent le domaine à leur propre nom, pas à celui du client. Et le jour où le client veut changer de fournisseur, le domaine n'est pas le sien. C'est un drame total et, si l'autre partie fait de la résistance, ça peut prendre des semaines à résoudre.
+
+Règle d'or : **le domaine s'achète à votre nom ou à celui de votre entreprise, toujours.** Peu importe qui vous le gère. Le titulaire, c'est vous, avec votre e-mail et vos coordonnées dans le registre. Si quelqu'un vous dit "je l'achète et je te le transfère après", demandez-lui comment exactement, et si la réponse n'est pas claire, achetez-le vous-même directement.
+
+## Résumé rapide
+
+Achetez chez un fournisseur peu cher et honnête (Namecheap, Porkbun, Cloudflare Registrar est bien aussi). Évitez l'abonnement mensuel des plateformes type WordPress.com si vous voulez juste un domaine. Et assurez-vous d'être le titulaire. Avec ça, vous vous êtes déjà épargné 95 % des drames qui peuvent survenir autour d'un domaine.`,
     },
     tags: ["dominio", "Namecheap", "hosting", "comprar dominio"],
     keywords: {
@@ -358,6 +450,13 @@ Erosi hornitzaile merke eta zintzo batean (Namecheap, Porkbun, Cloudflare Regist
         "domeinua erosi",
         "Namecheap domeinua",
         "WordPress.com domeinua",
+      ],
+      fr: [
+        "acheter un nom de domaine pas cher",
+        "meilleur registrar 2026",
+        "Namecheap avis",
+        "WordPress.com nom de domaine",
+        "titulaire du nom de domaine",
       ],
     },
     faq: {
@@ -390,11 +489,13 @@ Erosi hornitzaile merke eta zintzo batean (Namecheap, Porkbun, Cloudflare Regist
       es: "WordPress gratis: el mito que te va a costar caro",
       en: "WordPress is free: the myth that will cost you dear",
       eu: "WordPress doan: garesti aterako zaizun mitoa",
+      fr: "WordPress gratuit : le mythe qui va vous coûter cher",
     },
     descriptions: {
       es: "WordPress gratis suena bonito hasta que falta el aviso legal, la cookie policy y el texto se lee fatal. Lo que no te cuentan del DIY.",
       en: "Free WordPress sounds great until there's no legal notice, no cookie policy and the text is unreadable. The DIY truth no one tells you.",
       eu: "WordPress doan polita dirudi lege-oharra eta cookie politika falta direnera arte. DIY-ari buruz esaten ez dizutena.",
+      fr: "WordPress gratuit, ça sonne bien jusqu'à ce qu'il manque les mentions légales, la politique de cookies et que le texte soit illisible. Ce qu'on ne vous dit pas sur le DIY.",
     },
     content: {
       es: `Estoy ahora mismo desarrollándole una web a un cliente que venía de un WordPress hecho fatal. Muy, muy mal hecho. Y en el momento que le miré la web por encima, ya tenía la conversación ganada. No por vender humo, sino porque lo que había no se sostenía.
@@ -523,6 +624,48 @@ Kode garbiz egindako web batek ez ditu 40 pieza mugikor. Behar dituzunak ditu, b
 Bidezkoa izateko: astean hiru artikuluko bloga argitaratzen baduzu eta mila egile behar badituzu baimenekin, edo denda oso konplexua muntatzen baduzu aldaera infinituekin, WordPress edo WooCommerce egokitzen dira.
 
 Baina kasu gehienetan (autonomoa, ETEa, tokiko denda, lege-sarbidea eta kontaktu-formulario duin bat nahi duen profesionala) eulia kanoiekin hiltzea da. Eta kanoiak mantentze-lana dakar gainera.`,
+      fr: `Je suis justement en train de développer un site pour un client qui venait d'un WordPress très mal fait. Vraiment très mal fait. Et au moment où j'ai jeté un œil à son site, la conversation était déjà gagnée. Pas parce que je vends du vent, mais parce que ce qu'il y avait ne tenait pas debout.
+
+![Écran avec du code et un ordinateur portable sur un plan de travail](https://images.pexels.com/photos/4792287/pexels-photo-4792287.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## Ce que j'ai trouvé sur ce site
+
+Aucune mention légale. Ça, en Espagne, ce n'est pas juste du travail bâclé : c'est illégal. La LSSI (la loi espagnole sur les services de la société de l'information) l'exige et les amendes peuvent aller de 150 € à 600 000 € selon les cas. Et il n'y avait ni politique de cookies, ni politique de confidentialité. Avec le RGPD au-dessus, c'est jouer à la roulette russe avec son propre commerce.
+
+Et niveau visuel : une typographie impossible à lire, des contrastes faibles, et cette sensation de site vieux de dix ans. Le client arrivait sur son propre site et ne s'y reconnaissait pas.
+
+## Le mythe du "WordPress c'est gratuit"
+
+Bien sûr que c'est gratuit. Comme récupérer une voiture d'occasion en pièces détachées est gratuit. Ensuite il faut la monter, et là s'en va tout l'été.
+
+Avec WordPress, vous payez ailleurs :
+- **Un hébergement correct :** les offres à 2 €/mois ne tiennent pas la route, ça tombe en panne sans arrêt
+- **Des extensions premium :** formulaire sérieux, SEO, sécurité, cache... ça monte facilement à 200-400 €/an
+- **Un thème correct :** 60-80 € si vous voulez quelque chose qui ne date pas de 2015
+- **Votre temps :** des heures à batailler avec des mises à jour qui cassent le site
+- **Le jour où quelque chose tombe en panne :** payer quelqu'un en urgence, ce qui coûte cher
+
+## Ce que vous n'aurez pas avec un WordPress fait vous-même
+
+C'est ce que je répète à tous ceux qui me posent la question. Un WordPress monté par vous-même, même en suivant scrupuleusement un tutoriel YouTube, ne vous donnera jamais ce que vous donne quelqu'un qui suit votre projet.
+
+Quand je vous livre un site, vous m'écrivez et vous me dites "change-moi cette image, ce texte, cette police, cette couleur". Et c'est fait. Le jour même, si possible. Sans extensions qui se battent entre elles, sans éditeur visuel qui casse le design, sans chercher quel thème enfant modifier.
+
+Cet accompagnement, il ne vient pas dans le fichier zip de WordPress. Jamais.
+
+## Sur le long terme, c'est bien pire
+
+WordPress se met à jour toutes les quelques semaines. Le cœur du système, les extensions, le thème. Et chaque mise à jour est une mini-loterie : parfois tout va bien, parfois une page se casse, parfois une extension s'installe et ralentit tout sans que vous sachiez laquelle.
+
+Après un an ou deux d'abandon, vous ouvrez le tableau de bord et vous ne savez même plus quoi toucher. J'ai vu des clients m'appeler avec leur WordPress en panne, sans même pouvoir accéder au wp-admin parce que le mot de passe était sur un post-it que personne n'avait gardé.
+
+Un site fait sur mesure avec du code propre n'a pas 40 pièces mobiles. Il a celles dont vous avez besoin, rien de plus.
+
+## Quand est-ce que WordPress a du sens ?
+
+Pour être honnête : si vous publiez un blog avec 3 articles par semaine et que vous avez besoin de mille auteurs avec des permissions, ou si vous montez une boutique très complexe avec des variantes infinies, WordPress ou WooCommerce conviennent. Ils ont leur place.
+
+Mais pour la plupart des cas (indépendant, PME, commerce local, professionnel qui a besoin d'une landing correcte et d'un formulaire de contact), c'est tuer une mouche au canon. Et le canon traîne l'entretien derrière lui.`,
     },
     tags: ["WordPress", "diseño web", "DIY", "mantenimiento web"],
     keywords: {
@@ -543,6 +686,13 @@ Baina kasu gehienetan (autonomoa, ETEa, tokiko denda, lege-sarbidea eta kontaktu
         "WordPress doan mitoa",
         "WordPress vs neurrira egindako weba",
         "WordPress arazoak",
+      ],
+      fr: [
+        "mythe WordPress gratuit",
+        "WordPress vs site sur mesure",
+        "problèmes WordPress",
+        "site sans mentions légales amende",
+        "coût maintenance WordPress",
       ],
     },
     faq: {
@@ -575,11 +725,13 @@ Baina kasu gehienetan (autonomoa, ETEa, tokiko denda, lege-sarbidea eta kontaktu
       es: "¿Cuánto cuesta una página web en España en 2026?",
       en: "How much does a website cost in Spain in 2026?",
       eu: "Zenbat balio du webgune batek Espainian 2026an?",
+      fr: "Combien coûte un site web en Espagne en 2026 ?",
     },
     descriptions: {
       es: "Guía completa de precios de páginas web en España en 2026: desde webs básicas hasta proyectos a medida. Sin letra pequeña.",
       en: "Complete guide to website prices in Spain in 2026: from basic sites to custom projects. No small print.",
       eu: "Webguneen prezioei buruzko gida osoa Espainian 2026an: oinarrizko webguneetatik neurrizko proiektuetara.",
+      fr: "Guide complet des prix des sites web en Espagne en 2026 : des sites basiques aux projets sur mesure. Sans petits caractères.",
     },
     content: {
       es: `Pregunta a diez diseñadores cuánto cuesta una web y te darán diez respuestas distintas. No es casualidad: en 2026, en España, el rango real va desde los 0€ de un Wix hasta los 10.000€ de un desarrollo a medida. Debajo te cuento qué pagas en cada tramo y por qué el precio solo es una parte de la decisión.
@@ -663,6 +815,44 @@ I've seen clients arrive from websites that cost €2,000 from an agency and too
 Bide argi bakarra eskaintzen dut: 1.300€ + BEZ ordainketa bakarra, lehen urteko mantentze-lana barne (diseinua, hosting-a, domeinua, Google Maps, iritziak eta WhatsApp bidezko laguntza). Weba zurea da, hileko kuotarik gabe. Bigarren urtetik aurrera, 600€/urteko bakarrik sarean eta zainduta edukitzeko.
 
 Zergatik eredu hau eta ez hileko kuota? Tokiko negozio gehienentzat weba behin egiten delako eta gero atzeko planoan lan egiten duelako: ez du zentzurik dagoeneko eginda dagoenagatik hilero ordaintzeak. Behin ordaintzen duzu, zurea da, eta mantentze-lana urtean behin bakarrik berritzen duzu. Eta agentzia batek diseinuagatik bakarrik 2.500-5.000€ kobratzen dituen lekuan, hemen lehen urte osoa konponduta daukazu.`,
+      fr: `Demandez à dix créateurs de sites combien coûte un site web et vous obtiendrez dix réponses différentes. Ce n'est pas un hasard : en 2026, en Espagne, la fourchette réelle va de 0 € pour un Wix jusqu'à 10 000 € pour un développement sur mesure. Voici ce que vous payez à chaque niveau et pourquoi le prix n'est qu'une partie de la décision.
+
+## Types de sites et leurs prix
+
+**Modèles ou constructeurs (Wix, Squarespace) :** 0 - 500 €/an. Rapides à mettre en place, mais vous héritez de leurs limites en design, SEO et vitesse.
+
+**Agence avec modèle WordPress :** 1 500 - 5 000 €. Le résultat dépend énormément de l'agence et de qui touche au code à l'intérieur.
+
+**Design sur mesure avec un indépendant :** 800 - 3 000 €. C'est là que se situe le meilleur rapport qualité-prix pour la plupart des petites et moyennes entreprises.
+
+**Développement sur mesure enterprise :** à partir de 10 000 €. Projets avec intégrations sérieuses, e-commerce complexe ou flux personnalisés.
+
+## Qu'est-ce qu'inclut un site sur mesure ?
+
+Quand vous engagez un indépendant, un devis raisonnable couvre généralement :
+- Un design UI/UX propre, pas un modèle maquillé
+- Un développement responsive (mobile, tablette, ordinateur)
+- Un SEO technique de base : vitesse, balises meta, Schema.org
+- Un formulaire de contact fonctionnel connecté à votre e-mail
+- Le domaine et l'hébergement la première année, selon l'accord
+
+Ce qui n'entre pas là-dedans est souvent le piège de nombreux devis "tout compris".
+
+## Mon expérience réelle
+
+Dans mon cas, c'est un seul chemin, clair : un paiement unique de 1 300 € + TVA avec la première année de maintenance incluse (design, hébergement, domaine, Google Maps, avis et support WhatsApp). Le site est à vous, sans abonnement mensuel qui pèse. À partir de la deuxième année, seulement 600 €/an pour le garder en ligne et entretenu.
+
+Pourquoi ce modèle et pas un abonnement chaque mois ? Parce que pour la plupart des commerces locaux, le site se construit une fois puis fonctionne en arrière-plan : ça n'a pas de sens de payer tous les mois pour quelque chose qui est déjà fait. Vous payez une fois, vous en êtes propriétaire, et vous ne renouvelez la maintenance qu'une fois par an. Et là où une agence vous facture 2 500-5 000 € rien que pour le design, ici vous avez ça avec la première année entière réglée.
+
+J'ai eu des clients qui arrivaient en fuyant des sites pour lesquels ils avaient payé 2 000 € à une agence et qui mettaient huit secondes à charger. Le prix ne garantit pas la qualité. La transparence, oui.
+
+## Qu'est-ce qui ne devrait pas être inclus dans le prix ?
+
+- Le contenu : les photos et les textes, c'est vous qui les fournissez, ou vous les faites faire à part par un rédacteur ou un photographe.
+- Le référencement SEO à long terme : c'est un travail continu, pas quelque chose qui se livre avec le site.
+- La maintenance mensuelle : changements réguliers, sauvegardes, mises à jour. C'est généralement un service à part.
+
+Si un devis met tout dans le même panier pour un prix suspicieusement bas, méfiez-vous : quelque chose est en train d'être rogné.`,
     },
     tags: ["precios", "diseño web", "España", "freelance"],
     keywords: {
@@ -677,6 +867,11 @@ Zergatik eredu hau eta ez hileko kuota? Tokiko negozio gehienentzat weba behin e
         "freelance web design price",
       ],
       eu: ["webgune baten prezioa Espainian", "web prezioa 2026"],
+      fr: [
+        "combien coûte un site web en Espagne",
+        "prix site internet 2026",
+        "prix création site web indépendant",
+      ],
     },
     faq: {
       es: [
@@ -715,11 +910,13 @@ Zergatik eredu hau eta ez hileko kuota? Tokiko negozio gehienentzat weba behin e
       es: "Diseñador web en Irun y Gipuzkoa: lo que necesitas saber",
       en: "Web designer in Irun and Gipuzkoa: what you need to know",
       eu: "Web diseinatzailea Irunen eta Gipuzkoan: jakin behar duzuna",
+      fr: "Créateur de site web à Irun et au Guipuscoa : ce qu'il faut savoir",
     },
     descriptions: {
       es: "Por qué contratar un diseñador web local en Irun o Gipuzkoa. Ventajas, proceso y qué esperar de un proyecto web en el País Vasco.",
       en: "Why hire a local web designer in Irun or Gipuzkoa. Advantages, process and what to expect from a web project in the Basque Country.",
       eu: "Zergatik kontratatu web diseinatzaile lokala Irunen edo Gipuzkoan. Abantailak, prozesua eta zer espero.",
+      fr: "Pourquoi engager un créateur de site web local à Irun ou au Guipuscoa. Avantages, processus et à quoi s'attendre d'un projet web au Pays basque.",
     },
     content: {
       es: `Si tienes un negocio en Irun, Hondarribia, Donostia o cualquier punto de Gipuzkoa, trabajar con un diseñador web local tiene ventajas concretas.
@@ -765,6 +962,27 @@ To appear on Google when someone searches for "restaurant in Irun" or "plumber D
 **Merkatu lokala ezagutu:** Irungo freelance batek bertako merkatuaren dinamika ezagutzen du.
 
 **Zure hizkuntzan komunikazioa:** Gipuzkoan, negozio askok web bat behar dute gaztelaniaz eta euskaraz. Bi hizkuntzetan lan egiten dut.`,
+      fr: `Si vous avez un commerce à Irun, Hondarribia, Saint-Sébastien ou n'importe où au Guipuscoa, travailler avec un créateur de site web local présente des avantages concrets.
+
+## Pourquoi un créateur de site web local ?
+
+**Il connaît le marché :** un indépendant d'Irun sait comment fonctionne le marché local, ce que recherchent les clients de la zone et comment positionner votre commerce dans les recherches Google locales.
+
+**Communication dans votre langue :** au Guipuscoa, beaucoup de commerces ont besoin de leur site en espagnol et en basque. Je travaille dans les deux langues de façon native.
+
+**Disponibilité réelle :** je peux vous rencontrer en personne si besoin. Je ne suis pas une agence à Madrid qui gère votre projet par e-mail.
+
+## SEO local au Guipuscoa
+
+Pour apparaître sur Google quand quelqu'un cherche "restaurant à Irun" ou "plombier Saint-Sébastien", il vous faut :
+- Une fiche Google Business Profile vérifiée
+- Des mots-clés locaux sur le site
+- Un contenu pertinent pour la zone
+- De vrais avis clients
+
+## Mon expérience au Pays basque
+
+J'ai travaillé avec des commerces d'Irun, Hondarribia et Saint-Sébastien. Je comprends les particularités du marché basque : l'importance du basque, les cycles saisonniers et les recherches locales.`,
     },
     tags: ["diseño web Irun", "diseño web Gipuzkoa", "SEO local", "País Vasco"],
     keywords: {
@@ -780,6 +998,12 @@ To appear on Google when someone searches for "restaurant in Irun" or "plumber D
         "web design Basque Country",
       ],
       eu: ["web diseinatzailea Irun", "web diseinatzailea Gipuzkoa"],
+      fr: [
+        "créateur de site web Irun",
+        "créateur de site web Guipuscoa",
+        "création de site web Pays basque",
+        "site web Hondarribia",
+      ],
     },
   },
   {
@@ -790,11 +1014,13 @@ To appear on Google when someone searches for "restaurant in Irun" or "plumber D
       es: "Core Web Vitals: qué son y por qué afectan al SEO de tu web",
       en: "Core Web Vitals: what they are and why they affect your website's SEO",
       eu: "Core Web Vitals: zer diren eta zergatik eragiten dioten zure webaren SEOari",
+      fr: "Core Web Vitals : ce que c'est et pourquoi ça affecte le SEO de votre site",
     },
     descriptions: {
       es: "Explicación clara de qué son los Core Web Vitals de Google, cómo medirlos y cómo mejorarlos para subir posiciones en los resultados de búsqueda.",
       en: "Clear explanation of what Google's Core Web Vitals are, how to measure them and how to improve them to climb search result positions.",
       eu: "Googleren Core Web Vitals zer diren, nola neurtu eta nola hobetu argibide argia.",
+      fr: "Explication claire de ce que sont les Core Web Vitals de Google, comment les mesurer et comment les améliorer pour gagner des positions dans les résultats de recherche.",
     },
     content: {
       es: `Google usa Core Web Vitals como factor de posicionamiento desde 2021. En 2026 siguen siendo uno de los indicadores más importantes para rankear bien.
@@ -849,6 +1075,34 @@ Todas las webs que entrego tienen Lighthouse 95+ y Core Web Vitals en verde. No 
 **CLS:** Orrialdearen karga bitartean elementuak mugitzen al dira? Helburua: 0.1 baino gutxiago.
 
 **INP:** Webguneak erabiltzaile interakzioari erantzuteko zenbat denbora behar du? Helburua: 200ms baino gutxiago.`,
+      fr: `Google utilise les Core Web Vitals comme facteur de positionnement depuis 2021. En 2026, ils restent l'un des indicateurs les plus importants pour bien se classer.
+
+## Que sont les Core Web Vitals ?
+
+Ce sont trois métriques qui mesurent l'expérience réelle de l'utilisateur sur votre site :
+
+**LCP (Largest Contentful Paint) :** combien de temps met le contenu principal à apparaître ? Objectif : moins de 2,5 secondes.
+
+**CLS (Cumulative Layout Shift) :** est-ce que les éléments bougent pendant le chargement de la page ? Objectif : moins de 0,1.
+
+**INP (Interaction to Next Paint) :** combien de temps met le site à répondre à une interaction de l'utilisateur ? Objectif : moins de 200 ms.
+
+## Comment mesurer vos Core Web Vitals ?
+
+- **Google PageSpeed Insights :** gratuit, données réelles et de laboratoire
+- **Google Search Console :** section Core Web Vitals avec des données d'utilisateurs réels
+- **Lighthouse :** dans Chrome DevTools, analyse détaillée
+
+## Comment les améliorer ?
+
+Les problèmes les plus courants et leurs solutions :
+- **LCP lent :** optimiser les images (WebP, lazy loading), supprimer les scripts qui bloquent le rendu
+- **CLS élevé :** définir des dimensions fixes sur les images et les publicités
+- **INP élevé :** réduire le JavaScript inutile, utiliser des web workers
+
+## Mon approche
+
+Tous les sites que je livre ont un score Lighthouse de 95+ et des Core Web Vitals au vert. Ce n'est pas optionnel : c'est le standard minimum.`,
     },
     tags: ["Core Web Vitals", "SEO técnico", "rendimiento web", "Google"],
     keywords: {
@@ -860,6 +1114,12 @@ Todas las webs que entrego tienen Lighthouse 95+ y Core Web Vitals en verde. No 
       ],
       en: ["Core Web Vitals SEO", "improve website speed", "Google PageSpeed"],
       eu: ["Core Web Vitals SEO", "webgune abiadura hobetu"],
+      fr: [
+        "Core Web Vitals SEO",
+        "améliorer vitesse site web",
+        "Google PageSpeed",
+        "performance site web créateur",
+      ],
     },
   },
   {
@@ -870,11 +1130,13 @@ Todas las webs que entrego tienen Lighthouse 95+ y Core Web Vitals en verde. No 
       es: "SEO local en Irun y Gipuzkoa: guía práctica 2026",
       en: "Local SEO in Irun and Gipuzkoa: practical guide 2026",
       eu: "SEO lokala Irunen eta Gipuzkoan: 2026ko gida praktikoa",
+      fr: "SEO local à Irun et au Guipuscoa : guide pratique 2026",
     },
     descriptions: {
       es: "Cómo posicionar un negocio en Google Maps y búsquedas locales en Irun y Gipuzkoa. Google Business Profile, reseñas, Schema local y estrategia de contenido.",
       en: "How to rank a business on Google Maps and local searches in Irun and Gipuzkoa. Google Business Profile, reviews, local Schema and content strategy.",
       eu: "Nola posizionatu negozio bat Google Mapsen eta bilaketa lokaletan Irunen eta Gipuzkoan. Google Business Profile, iritziak, Schema lokala eta eduki estrategia.",
+      fr: "Comment positionner un commerce sur Google Maps et dans les recherches locales à Irun et au Guipuscoa. Google Business Profile, avis, Schema local et stratégie de contenu.",
     },
     content: {
       es: `El SEO local es la diferencia entre aparecer cuando alguien busca "restaurante en Irun" y ser invisible. Esta guía te explica qué funciona de verdad en 2026.
@@ -961,6 +1223,39 @@ With these ingredients done well, you move from position 30 to top 3 in 3-6 mont
 - **Iritzirik ez edo denak batera:** 10 iritzi egun batean bandera gorria da.
 
 Osagai hauek ondo eginda, 30. postutik top 3-era igarotzen zara 3-6 hilabetetan.`,
+      fr: `Le SEO local, c'est la différence entre apparaître quand quelqu'un cherche "restaurant à Irun" et être invisible. Ce guide vous explique ce qui marche vraiment en 2026.
+
+## Les trois piliers du SEO local
+
+**1. Un Google Business Profile optimisé :** votre fiche, c'est votre site sur Google Maps. Bonnes catégories, horaires, vraies photos, publications hebdomadaires.
+
+**2. Des avis authentiques :** Google privilégie les profils avec des avis récents. Objectif : 5 avis en 30 jours, puis 1-2 par mois.
+
+**3. Des signaux locaux sur votre site :** Schema LocalBusiness, NAP (Nom, Adresse, Téléphone) cohérent sur tout le site, du contenu qui mentionne Irun, Hondarribia, le Guipuscoa.
+
+## Erreurs typiques chez les commerces du Guipuscoa
+
+- **NAP incohérent :** adresse différente sur Google Business, sur le site et sur les Pages Jaunes. Google le détecte et pénalise.
+- **Mauvaise catégorie principale :** "Boutique" au lieu de "Boulangerie artisanale". La catégorie principale est la plus importante.
+- **Aucun contenu local :** le site ne mentionne ni Irun, ni le quartier, ni les communes voisines. Si Google ne voit pas de signaux locaux, il ne vous montre pas dans les résultats locaux.
+- **Zéro avis ou tous d'un coup :** 10 avis en une journée, c'est un drapeau rouge. Google préfère un flux régulier.
+
+## Stratégie concrète pour Irun / Guipuscoa
+
+1. **Revendiquer le Google Business Profile** avec une adresse réelle à Irun
+2. **Catégorie principale :** la plus précise possible pour décrire votre commerce
+3. **Zone de service :** Irun, Hondarribia, Behobia, Oiartzun
+4. **Publier 1 post/semaine** sur le profil (offres, actualités, photos)
+5. **Demander des avis** aux clients satisfaits : modèle de message WhatsApp le jour même de l'achat
+6. **Sur le site :** Schema LocalBusiness, page de contact avec adresse et carte, contenu mentionnant des quartiers précis
+
+## Signaux supplémentaires qui font la différence
+
+- **Liens depuis des sites locaux :** Chambre de Commerce du Guipuscoa, Diario Vasco, blogs gastronomiques d'Irun
+- **Citations NAP** dans les annuaires basques : Guía Local Gipuzkoa, Irunpedia, associations de commerçants
+- **Contenu saisonnier :** "Meilleures terrasses à Hondarribia en été", "Soldes dans les commerces d'Irun en janvier"
+
+Avec ces ingrédients bien exécutés, vous passez de la 30e place au top 3 en 3-6 mois. Il n'y a pas de magie, il y a de la constance.`,
     },
     tags: ["SEO local", "Irun", "Gipuzkoa", "Google Business Profile", "negocio local"],
     keywords: {
@@ -973,6 +1268,13 @@ Osagai hauek ondo eginda, 30. postutik top 3-era igarotzen zara 3-6 hilabetetan.
       ],
       en: ["local SEO Irun", "local SEO Gipuzkoa", "Google Business Profile Basque Country"],
       eu: ["SEO lokala Irunen", "SEO lokala Gipuzkoan", "Google Business Profile Euskadi"],
+      fr: [
+        "SEO local Irun",
+        "SEO local Guipuscoa",
+        "Google Business Profile Irun",
+        "référencement commerce Guipuscoa",
+        "avis Google commerce local",
+      ],
     },
   },
   {
@@ -983,11 +1285,13 @@ Osagai hauek ondo eginda, 30. postutik top 3-era igarotzen zara 3-6 hilabetetan.
       es: "Web multi-idioma: castellano, euskera e inglés sin romper el SEO",
       en: "Multi-language website: Spanish, Basque and English without breaking SEO",
       eu: "Hizkuntza anitzeko weba: gaztelania, euskara eta ingelesa SEOa hautsi gabe",
+      fr: "Site multilingue : espagnol, basque et anglais sans casser le SEO",
     },
     descriptions: {
       es: "Cómo montar una web trilingüe (castellano, inglés, euskera) con URLs correctas, hreflang y contenido traducido de verdad. Sin plugins frágiles.",
       en: "How to build a trilingual website (Spanish, English, Basque) with proper URLs, hreflang and genuinely translated content. No fragile plugins.",
       eu: "Nola egin hiru hizkuntzatako weba (gaztelania, ingelesa, euskara) URL egokiekin, hreflangekin eta benetan itzulitako edukiarekin.",
+      fr: "Comment créer un site trilingue (espagnol, anglais, basque) avec des URLs correctes, du hreflang et un contenu réellement traduit. Sans plugins fragiles.",
     },
     content: {
       es: `En el País Vasco, muchos negocios necesitan web en castellano, euskera e inglés. La mayoría lo hace mal: plugin de traducción automática, URLs rotas, penalización SEO. Así se hace bien.
@@ -1067,6 +1371,43 @@ A well-done trilingual website gives you 3× more Google attack surface. A badly
 **Benetan itzulitako edukia:** gizakiak idatzita edo berrikusita. Itzulpen automatikoa → 0an rankeatzen duzu.
 
 Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu Googlen.`,
+      fr: `Au Pays basque, beaucoup d'entreprises ont besoin d'un site en espagnol, en basque et en anglais. La plupart s'y prennent mal : plugin de traduction automatique, URLs cassées, pénalité SEO. Voici comment bien faire.
+
+## Les trois erreurs typiques
+
+**1. Plugin de traduction automatique (widget Google Translate) :** Google ignore le contenu traduit ainsi. Il n'indexe rien. Vous ne positionnez ni en anglais ni en basque.
+
+**2. Sous-domaines sans hreflang :** \`en.monsite.com\` sans balises \`hreflang\` → Google ne sait pas quelle version montrer à quel utilisateur.
+
+**3. Traduire seulement les menus :** le contenu reste en espagnol mais la navigation est en anglais. L'utilisateur arrive et se sent trompé. Taux de rebond élevé.
+
+## Comment bien faire
+
+**Structure des URLs :** sous-dossiers par langue \`/es/\`, \`/en/\`, \`/eu/\`. Chaque page a sa propre URL par langue.
+
+**hreflang correct :** sur chaque page, \`<link rel="alternate" hreflang="es" href="..." />\` pour chaque langue, plus \`x-default\`.
+
+**Contenu vraiment traduit :** des textes écrits ou relus par un humain. Traduction automatique → vous positionnez à 0.
+
+**Métadonnées par langue :** title, description, balises OG, chacune dans sa langue. Ne pas réutiliser l'espagnol avec un simple préfixe.
+
+## Le basque : particularités
+
+- **Déclinaisons :** "Bilbo" → "Bilbon", "Donostia" → "Donostiara". Les villes se déclinent. Sinon, ça sonne comme un traducteur automatique.
+- **Termes :** "webgunea" (site web), "diseinatzailea" (designer). Pas d'anglicismes quand il existe un terme basque.
+- **Euskera batua :** utilisez le standard, pas les dialectes, sauf si votre public est très local.
+
+## Le SEO par langue
+
+Chaque langue se positionne sur ses propres mots-clés. "Diseñador web Irun" (es), "web designer Irun" (en), "web diseinatzailea Irunen" (eu). Ce sont des recherches différentes avec une concurrence différente.
+
+## Et le français, alors ?
+
+Je suis à Irun, à quelques minutes de la frontière française. Une bonne partie de mes clients travaillent avec une clientèle qui vient d'Hendaye, de Bayonne ou d'ailleurs au Pays basque français, et beaucoup de mes propres clients me trouvent parce que je parle français couramment (j'ai fait toute ma scolarité en France jusqu'à 15 ans). Pour un commerce d'Irun, de Hondarribia ou de Bera, ignorer le français revient à fermer la porte à des clients qui traversent la frontière chaque semaine pour faire leurs courses, voir un spécialiste ou réserver un service.
+
+La bonne nouvelle : la même logique s'applique. Sous-dossier \`/fr/\`, hreflang correct, contenu traduit par quelqu'un qui maîtrise vraiment la langue (pas un plugin), métadonnées propres. Un commerce à la frontière qui ajoute le français bien fait gagne un bassin de clients que la quasi-totalité de ses concurrents locaux n'a jamais pris la peine d'aller chercher.
+
+Un site trilingue (ou quadrilingue, avec le français) bien fait vous donne 3 à 4 fois plus de surface d'attaque sur Google. Un site mal fait vous pénalise sur toutes les langues à la fois.`,
     },
     tags: ["multi-idioma", "euskera", "hreflang", "internacionalización", "SEO"],
     keywords: {
@@ -1079,6 +1420,13 @@ Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu
       ],
       en: ["multi-language website", "Basque language website", "hreflang SEO", "trilingual website"],
       eu: ["hizkuntza anitzeko weba", "webgunea euskaraz", "hreflang SEO"],
+      fr: [
+        "site web multilingue Pays basque",
+        "site en français et espagnol",
+        "hreflang SEO",
+        "site trilingue frontière Hendaye Irun",
+        "traduction site web professionnel",
+      ],
     },
   },
   {
@@ -1089,11 +1437,13 @@ Ondo egindako hiru hizkuntzatako webak 3 aldiz eraso azalera gehiago ematen dizu
       es: "Diseñador web freelance vs agencia: ¿qué elegir en 2026?",
       en: "Freelance web designer vs agency: what to choose in 2026?",
       eu: "Web diseinatzaile freelance vs agentzia: zer aukeratu 2026an?",
+      fr: "Designer web freelance ou agence : que choisir en 2026 ?",
     },
     descriptions: {
       es: "Comparativa honesta entre contratar a un diseñador web freelance o una agencia. Precio, comunicación, calidad, mantenimiento. Sin humo.",
       en: "Honest comparison between hiring a freelance web designer or an agency. Price, communication, quality, maintenance. No fluff.",
       eu: "Konparaketa zintzoa web diseinatzaile freelance bat ala agentzia bat kontratatzearen artean. Prezioa, komunikazioa, kalitatea.",
+      fr: "Comparatif honnête entre engager un designer web freelance ou une agence. Prix, communication, qualité, maintenance. Sans blabla.",
     },
     content: {
       es: `Esta es la duda que me plantean casi todos los clientes potenciales: ¿freelance o agencia? No hay respuesta universal. Depende. Esta guía te ayuda a decidir.
@@ -1190,6 +1540,41 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
 - 10.000€tik gorako aurrekontua
 - Zati askotako proiektua
 - Talde handia behar duzu epe laburrean`,
+      fr: `C'est la question que me posent presque tous mes clients potentiels : freelance ou agence ? Il n'y a pas de réponse universelle. Ça dépend. Ce guide vous aide à décider.
+
+## Ce qu'offre un freelance (comme moi)
+
+- **Un seul paiement, sans mensualités :** dans mon cas, 1 300 € + TVA avec la première année de maintenance incluse (design, hébergement, domaine, Google Maps, avis et support WhatsApp), et le site est à vous. Là où une agence demande 2 500 à 5 000 € rien que pour le design, ici vous avez toute la première année réglée. À partir de la deuxième année, seulement 600 €/an.
+- **Communication directe :** vous parlez à la personne qui fait le travail. Sans intermédiaires ni « on vous transfère à votre chargé de compte ».
+- **Flexibilité :** des projets sur mesure, pas des formules figées.
+- **Implication personnelle :** ma réputation dépend de chaque projet.
+
+## Ce qu'offre une agence
+
+- **Équipe pluridisciplinaire :** designer, développeur, rédacteur, SEO, chef de projet. Tout en un.
+- **Capacité :** elle peut mener 10 projets en parallèle. Un freelance, 2 à 3.
+- **Processus établis :** méthodologies éprouvées, contrats solides.
+- **Filet de sécurité :** si le designer tombe malade, quelqu'un d'autre prend le relais.
+
+## Quand choisir un freelance
+
+- Budget inférieur à 5 000 €
+- Petite ou moyenne entreprise
+- Vous valorisez le contact direct et la rapidité de décision
+- Projet de 1 à 3 mois
+
+## Quand choisir une agence
+
+- Budget supérieur à 10 000 €
+- Projet avec de nombreux volets (app + site + marketing + branding)
+- Besoin d'une grande équipe dans un délai court
+- Grande entreprise avec des processus d'achat formels
+
+## Ce qu'il ne faut PAS faire
+
+Choisir uniquement sur le prix. Un freelance bon marché sans portfolio est pire qu'une agence chère. Une agence qui promet « 10 000 € et un site en 7 jours » vous livrera un template.
+
+Regardez : le portfolio, les cas réels, les avis, la communication dès le premier échange. C'est là que se trouve le signal.`,
     },
     tags: ["freelance", "agencia", "comparativa", "contratación web"],
     keywords: {
@@ -1201,6 +1586,12 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
       ],
       en: ["freelance web designer vs agency", "choose web designer"],
       eu: ["web diseinatzaile freelance edo agentzia"],
+      fr: [
+        "designer web freelance ou agence",
+        "combien coûte un designer web freelance",
+        "choisir un créateur de site web",
+        "prix site web professionnel",
+      ],
     },
   },
   {
@@ -1211,11 +1602,13 @@ Look at: portfolio, real cases, reviews, initial communication. That's the signa
       es: "WordPress vs Next.js: cuál elegir para la web de tu negocio en 2026",
       en: "WordPress vs Next.js: which to choose for your business website in 2026",
       eu: "WordPress vs Next.js: zein aukeratu zure negozioaren webgunean 2026an",
+      fr: "WordPress vs Next.js : lequel choisir pour le site de votre entreprise en 2026",
     },
     descriptions: {
       es: "Comparativa honesta entre WordPress y Next.js para webs de negocio. Velocidad, SEO, coste, mantenimiento y cuándo tiene sentido cada uno.",
       en: "Honest comparison between WordPress and Next.js for business websites. Speed, SEO, cost, maintenance and when each one makes sense.",
       eu: "WordPress eta Next.js-en konparaketa zintzoa negozio-webguneentzat. Abiadura, SEO, kostua, mantentzea eta noiz du zentzua bakoitzak.",
+      fr: "Comparatif honnête entre WordPress et Next.js pour les sites d'entreprise. Vitesse, SEO, coût, maintenance et quand chacun a du sens.",
     },
     content: {
       es: `Si preguntas a cualquier agencia qué usar para tu web, el 80% te dirá WordPress sin pensarlo dos veces. Si preguntas a un desarrollador moderno, te dirá Next.js. Ninguno te va a explicar el porqué con honestidad. Yo sí.
@@ -1357,6 +1750,60 @@ Tokiko negozio-webgune gehienentzat, klinikak, profesionalak, zerbitzu-enpresak.
 ## Nire iritzi zintzoa
 
 Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskatzen didatena (abiadura, posizionamendua, hizkuntza anitza, neurrizko diseinua) hobeto ebazten duelako. Entregatzen ditudan webguneak Lighthouse 95+ dituzte hasieratik, pluginekin edo asteartean bere kabuz eguneratzen den theme batekin borrokatu gabe.`,
+      fr: `Demandez à n'importe quelle agence ce qu'il faut utiliser pour votre site et 80 % vous répondront WordPress sans réfléchir à deux fois. Demandez à un développeur moderne, il vous dira Next.js. Aucun des deux ne vous expliquera pourquoi, honnêtement. Moi, si.
+
+## Ce qu'est chacun, en termes concrets
+
+**WordPress** est un CMS né en 2003 pour gérer des blogs. Aujourd'hui il fait tourner 43 % d'Internet. Le problème, c'est que ce chiffre inclut des sites abandonnés, piratés, lents et maintenus avec des thèmes vieux de cinq ans. Ce n'est pas une médaille.
+
+**Next.js** est un framework React créé en 2016 par Vercel. Né pour les applications web modernes : rapides, sécurisées, avec du SSR (rendu côté serveur) et de la génération statique. Pas de panneau d'administration par défaut : c'est du code, pas des clics.
+
+## Performance : la vraie différence
+
+Un site Next.js bien construit charge en moins d'une seconde. Sur WordPress, ça dépend du nombre de plugins, de l'hébergement utilisé, si le cache est bien configuré, si le thème est optimisé... Avec WordPress, un Lighthouse à 95+ est un projet ; avec Next.js, c'est le point de départ.
+
+Les Core Web Vitals (LCP, CLS, INP) que Google utilise pour le classement ont une corrélation directe avec la technologie. Ce n'est pas que WordPress ne puisse pas atteindre le vert : il le peut, avec du travail. Mais Next.js y arrive par conception.
+
+## SEO : le mythe « WordPress est meilleur pour le SEO »
+
+C'est faux, et pourtant très répété. WordPress a Yoast ou RankMath, des outils SEO très complets. Mais le SEO technique de base (URLs propres, sitemap, hreflang, métadonnées correctes) se fait tout aussi bien sur Next.js. Et les métriques de vitesse qui influencent le classement sont meilleures.
+
+Ce que WordPress a pour lui côté SEO : il est plus facile pour quelqu'un sans compétences techniques de publier du contenu, de mettre à jour le blog et de gérer les textes. Si votre stratégie de contenu est gérée par quelqu'un de l'équipe sans profil technique, WordPress facilite ce flux.
+
+## Coût réel de chacun
+
+**WordPress :**
+- Hébergement correct : 10–30 €/mois (l'offre à 2 € vous crée des problèmes)
+- Thème premium : 60–80 € (unique, mais à renouveler)
+- Plugins essentiels : formulaire, SEO, sécurité, cache, facilement 150–300 €/an
+- Mises à jour qui cassent des choses : tous les 3 à 6 mois, il y en a une
+- Développeur en urgence quand quelque chose plante : 50–150 €/heure
+
+**Next.js :**
+- Hébergement sur Vercel : gratuit jusqu'à un certain trafic, puis 20 €/mois
+- Domaine : 10–15 €/an
+- Maintenance : minimale, car aucun plugin à mettre à jour
+- Coût initial plus élevé (développement sur mesure)
+
+Sur le long terme, Next.js revient moins cher si on additionne tout. À court terme, WordPress est plus économique si vous êtes sûr de pouvoir le gérer vous-même.
+
+## Quand WordPress a du sens
+
+Ça a du sens si vous avez besoin d'un CMS puissant pour gérer du contenu sans dépendre d'un développeur. Un magazine en ligne, un e-commerce avec WooCommerce, un annuaire d'entreprises : là, WordPress brille. Aussi si vous le connaissez déjà bien, avez un développeur de confiance et ne voulez pas changer d'outil.
+
+Ça n'a pas de sens pour un site vitrine ou de services où le contenu change peu. Vous payez alors le prix du CMS sans profiter de ses avantages.
+
+## Quand Next.js a du sens
+
+Pour la majorité des sites d'entreprises locales, cliniques, professionnels, sociétés de services. Des projets où la vitesse, le SEO technique, le multilingue et la sécurité comptent. Si le site reste assez statique (accueil, services, tarifs, contact), Next.js est l'option qui vieillit le mieux.
+
+Aussi pour les projets avec du multilingue sérieux. Avec next-intl ou next-i18next, le hreflang, les URLs par langue et les métadonnées par locale se configurent proprement dès le départ. Avec WordPress, il faut des plugins qui parfois se battent entre eux.
+
+## Ma position honnête
+
+J'utilise Next.js pour tous mes clients. Pas parce que c'est à la mode, mais parce que ce qu'on me demande (vitesse, positionnement, multilingue, design sur mesure) est mieux résolu ainsi. Les sites que je livre ont un Lighthouse 95+ dès le départ, sans me battre contre des plugins ni contre un thème qui se met à jour tout seul un mardi.
+
+Si quelqu'un me demande un e-commerce avec 500 produits et une équipe marketing qui publie du contenu tous les jours, on en discute. WordPress ou Shopify a peut-être plus de sens là. Mais pour le site d'un médecin, un atelier, un cabinet de conseil ou une clinique, Next.js gagne sans discussion.`,
     },
     tags: ["WordPress", "Next.js", "tecnología web", "rendimiento web", "SEO"],
     keywords: {
@@ -1377,6 +1824,13 @@ Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskat
         "WordPress vs Next.js",
         "web teknologia 2026",
         "Next.js negozioetarako",
+      ],
+      fr: [
+        "WordPress vs Next.js",
+        "WordPress ou Next.js pour entreprise",
+        "site web rapide Next.js",
+        "meilleure technologie site web 2026",
+        "alternative à WordPress",
       ],
     },
     faq: {
@@ -1422,11 +1876,13 @@ Next.js erabiltzen dut nire bezero guztientzat. Ez moda delako, baizik eta eskat
       es: "Diseño web para clínicas y consultas: lo que de verdad importa",
       en: "Web design for clinics and practices: what really matters",
       eu: "Web diseinua klinikak eta kontsultetarako: benetan garrantzitsuena",
+      fr: "Design web pour cliniques et cabinets : ce qui compte vraiment",
     },
     descriptions: {
       es: "Qué necesita la web de una clínica dental, fisioterapia o estética para generar confianza, aparecer en Google y convertir visitas en citas.",
       en: "What a dental clinic, physiotherapy or aesthetics website needs to build trust, appear on Google and turn visits into bookings.",
       eu: "Hortz-klinikaren, fisioterapiaren edo estetikaren webguneak zer behar duen konfiantza sortzeko, Googlen agertzeko eta bisitaldiak hitzorduetan bihurtzeko.",
+      fr: "Ce dont a besoin le site d'une clinique dentaire, de kinésithérapie ou d'esthétique pour inspirer confiance, apparaître sur Google et transformer les visites en rendez-vous.",
     },
     content: {
       es: `La web de una clínica no es como la de una tienda. Aquí no vendes un producto: convences a alguien de que le vas a poner las manos encima, a veces literalmente. La confianza lo es todo. Y la mayoría de webs de clínicas fallan exactamente en eso.
@@ -1585,6 +2041,62 @@ Tokiko klinika batek "dentista Irunen", "fisioterapeuta Hondarribian" edo "estet
 **Iritzi berriak.** Eskatu iritzia pazientea pozik irteten denean. WhatsApp txantiloi batekin erraza da.
 
 Emaitza: bere tokiko bilaketetan Googlen agertzen den eta bisita horiek benetako hitzordutan bihurtzen dituen klinika bat.`,
+      fr: `Le site d'une clinique n'est pas comme celui d'une boutique. Ici, vous ne vendez pas un produit : vous convainquez quelqu'un de vous laisser poser les mains sur lui, parfois littéralement. La confiance est tout. Et la plupart des sites de cliniques échouent exactement là-dessus.
+
+![Réception de clinique propre et bien éclairée](https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## L'erreur numéro un : ressembler à une clinique générique
+
+Vous ouvrez le site de n'importe quelle clinique dentaire et vous voyez : logo corporatif, photo de stock d'un dentiste masqué, liste de services en deux colonnes, formulaire de contact tout en bas. Ça pourrait être n'importe quelle clinique au monde.
+
+Votre patient potentiel arrive sur votre site après avoir cherché sur Google, comparé trois options et être tombé sur la vôtre. S'il ne voit rien qui vous différencie, il choisit celle qui a le plus d'avis ou la moins chère. Vous ne voulez pas rivaliser sur le prix avec une clinique franchisée.
+
+Ce qui différencie un site de clinique qui convertit :
+- Vraie photo de l'équipe, pas de stock
+- Histoire du centre : quand il a été fondé, qui est derrière, pourquoi ils le font
+- Vrais témoignages avec nom et service
+- Information claire sur les prix (ou au moins des fourchettes)
+- Un processus de prise de rendez-vous facile à comprendre
+
+## La confiance avant le design
+
+Le design compte, mais il est au service de la confiance. Un design impeccable avec des photos de stock et sans information réelle génère moins de conversions qu'un design discret avec une photo de l'équipe et 20 avis Google visibles.
+
+Ce qui inspire confiance sur le site d'une clinique :
+
+**Équipe visible.** Vraie photo, nom complet, spécialité et années d'expérience. Les patients veulent savoir qui va s'occuper d'eux.
+
+**Certifications et numéro d'ordre.** Numéro d'inscription à l'ordre professionnel visible. Pas parce que la loi l'exige, mais parce que le patient qui le cherche le trouve et se sent rassuré.
+
+**Avant/après (le cas échéant).** En esthétique dentaire ou chirurgie esthétique, les cas avant/après sont l'argument le plus puissant. Avec consentement, bien sûr.
+
+**Politique de confidentialité réelle.** Pas le texte générique d'un plugin. Une politique qui explique comment les données de santé sont traitées, car ce sont des données sensibles au sens du RGPD, et la loi espagnole impose des exigences spécifiques aux établissements de santé.
+
+## Le SEO pour les cliniques : ce qui fonctionne en 2026
+
+Une clinique locale se positionne sur des recherches comme « dentiste à Irun », « kinésithérapeute à Hondarribia » ou « clinique esthétique à Saint-Sébastien ». Pour gagner ces recherches :
+
+**Google Business Profile optimisé.** Catégorie correcte (pas « clinique » générique, mais « Clinique dentaire », « Centre de kinésithérapie »). Vraies photos du local. Réponse à tous les avis. Publications hebdomadaires avec offres ou actualités.
+
+**Schema LocalBusiness et MedicalOrganization.** Les données structurées indiquent à Google quel type d'établissement vous êtes, votre spécialité, votre zone de service. Beaucoup de sites de cliniques ne les ont pas : c'est un avantage direct pour qui les met en place.
+
+**Une page par service.** Une page par traitement avec du contenu réel : en quoi ça consiste, combien de temps ça dure, quels résultats attendre, questions fréquentes, prix indicatif. Pas une liste. Une page.
+
+**Avis récents.** Demandez un avis juste au moment où le patient repart satisfait. Avec un message type sur WhatsApp, c'est facile. 5 avis en un mois valent plus que 50 datant de trois ans.
+
+## Le formulaire de rendez-vous : le point de conversion
+
+Le formulaire d'une clinique doit demander le minimum : nom, téléphone, service recherché. Pas de numéro d'identité, pas d'antécédents médicaux, pas de date de naissance. Ça se demande en consultation. L'objectif du formulaire est que le patient fasse le premier pas.
+
+Encore mieux que le formulaire : un lien WhatsApp direct. Beaucoup de patients préfèrent écrire un message plutôt que remplir un formulaire. Si vous avez WhatsApp Business, utilisez-le.
+
+## Ce que j'inclus dans les sites de cliniques
+
+Quand je construis le site d'une clinique, je pense au patient qui arrive avec une question et qui a 30 secondes pour décider s'il fait confiance ou s'il cherche ailleurs. Le design, les textes et la structure sont au service de cette décision.
+
+Ce que je configure habituellement : page d'accueil avec vraie photo de l'équipe au-dessus de la ligne de flottaison, section services avec une page individuelle par traitement, prix indicatifs, section équipe avec les informations de chaque professionnel, avis Google intégrés, formulaire de rendez-vous + lien WhatsApp, Schema MedicalOrganization et LocalBusiness, politique de confidentialité adaptée aux données de santé.
+
+Le résultat : une clinique qui apparaît sur Google pour ses recherches locales et qui transforme ces visites en vrais rendez-vous.`,
     },
     tags: ["clínicas", "diseño web clínica", "SEO médico", "confianza web", "conversión"],
     keywords: {
@@ -1607,6 +2119,14 @@ Emaitza: bere tokiko bilaketetan Googlen agertzen den eta bisita horiek benetako
         "web diseinua hortz-klinikak",
         "klinikaren webgunea",
         "SEO medikua lokala",
+      ],
+      fr: [
+        "design web clinique dentaire",
+        "site web cabinet kinésithérapie",
+        "création site web clinique médicale",
+        "SEO local clinique",
+        "site web clinique esthétique",
+        "créateur de site web clinique Pays basque",
       ],
     },
     faq: {

@@ -113,7 +113,7 @@ export function renderOgImage({ line1, line2, subtitle, eyebrow }: OgOptions) {
 type CityOgOptions = {
   cityName: string;
   regionName: string;
-  locale: "es" | "en" | "eu";
+  locale: "es" | "en" | "eu" | "fr";
 };
 
 export function renderCityOgImage({ cityName, regionName, locale }: CityOgOptions) {
@@ -121,19 +121,22 @@ export function renderCityOgImage({ cityName, regionName, locale }: CityOgOption
     es: "Diseñador web en",
     en: "Web designer in",
     eu: "Web diseinatzailea",
+    fr: "Créateur de site web à",
   };
   const line2Map: Record<string, string> = {
     es: `${cityName}, ${regionName}`,
     en: `${cityName}, ${regionName}`,
     eu: `${cityName}n`,
+    fr: `${cityName}, ${regionName}`,
   };
   const subtitleMap: Record<string, string> = {
     es: `1.300€ · 1er año incluido · unaxaller.com`,
     en: `€1,300 · first year included · unaxaller.com`,
     eu: `1.300€ · 1. urtea barne · unaxaller.com`,
+    fr: `1 300 € · 1re année incluse · unaxaller.com`,
   };
   return renderOgImage({
-    eyebrow: locale === "es" ? "Ciudad" : locale === "en" ? "Location" : "Hiria",
+    eyebrow: locale === "es" ? "Ciudad" : locale === "en" ? "Location" : locale === "eu" ? "Hiria" : "Ville",
     line1: line1Map[locale],
     line2: line2Map[locale],
     subtitle: subtitleMap[locale],

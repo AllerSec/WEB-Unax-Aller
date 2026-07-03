@@ -34,7 +34,8 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
           phone: "+34 943 12 34 56",
           web: "clinicaaller.com",
         }
-      : {
+      : locale === "eu"
+      ? {
           businessName: "Clínica Aller",
           tagline: "Hortzgintza · Donostia",
           cta: "Hitzordua eskatu",
@@ -42,6 +43,16 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
           reviews: "87 iritzi",
           openNow: "Orain irekita",
           phone: "943 12 34 56",
+          web: "clinicaaller.com",
+        }
+      : {
+          businessName: "Clínica Aller",
+          tagline: "Dentisterie · Donostia",
+          cta: "Prendre rendez-vous",
+          rating: "5,0",
+          reviews: "87 avis",
+          openNow: "Ouvert maintenant",
+          phone: "+34 943 12 34 56",
           web: "clinicaaller.com",
         };
 
@@ -152,8 +163,20 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
         role="img"
         aria-label={
           variant === "site"
-            ? locale === "es" ? "Mockup de móvil con tu web" : locale === "en" ? "Mobile mockup with your website" : "Mugikorreko mockupa zure webarekin"
-            : locale === "es" ? "Mockup de Google Maps con tu negocio" : locale === "en" ? "Google Maps mockup with your business" : "Google Maps mockupa zure negozioarekin"
+            ? locale === "es"
+              ? "Mockup de móvil con tu web"
+              : locale === "en"
+              ? "Mobile mockup with your website"
+              : locale === "eu"
+              ? "Mugikorreko mockupa zure webarekin"
+              : "Maquette mobile avec votre site"
+            : locale === "es"
+            ? "Mockup de Google Maps con tu negocio"
+            : locale === "en"
+            ? "Google Maps mockup with your business"
+            : locale === "eu"
+            ? "Google Maps mockupa zure negozioarekin"
+            : "Maquette Google Maps avec votre entreprise"
         }
       >
         <div className="pm-notch" aria-hidden="true" />
@@ -176,7 +199,7 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
                   <div className="pm-site-reviews-text">{labels.reviews}</div>
                 </div>
                 <div className="pm-site-stat">
-                  <span className="pm-site-stat-label">{locale === "es" ? "Llamadas/mes" : locale === "en" ? "Calls/month" : "Deiak/hilean"}</span>
+                  <span className="pm-site-stat-label">{locale === "es" ? "Llamadas/mes" : locale === "en" ? "Calls/month" : locale === "eu" ? "Deiak/hilean" : "Appels/mois"}</span>
                   <span className="pm-site-stat-value">+38%</span>
                 </div>
                 <div className="pm-site-row">
@@ -216,10 +239,10 @@ export default function PhoneMockup({ locale, variant = "site" }: Props) {
                 <div className="pm-maps-actions">
                   <span className="pm-maps-btn pm-maps-btn--primary">
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    {locale === "es" ? "Llamar" : locale === "en" ? "Call" : "Deitu"}
+                    {locale === "es" ? "Llamar" : locale === "en" ? "Call" : locale === "eu" ? "Deitu" : "Appeler"}
                   </span>
                   <span className="pm-maps-btn pm-maps-btn--secondary">
-                    {locale === "es" ? "Web" : "Web"}
+                    {locale === "es" ? "Web" : locale === "en" ? "Web" : locale === "eu" ? "Web" : "Site"}
                   </span>
                 </div>
               </div>

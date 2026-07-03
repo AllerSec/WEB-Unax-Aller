@@ -6,7 +6,7 @@ export const size = ogSize;
 export const contentType = ogContentType;
 
 export function generateStaticParams() {
-  const locales = ['es', 'en', 'eu']
+  const locales = ['es', 'en', 'eu', 'fr']
   return locales.flatMap((lang) => blogPosts.map((p) => ({ lang, slug: p.slug })))
 }
 
@@ -14,7 +14,7 @@ type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export default async function Image({ params }: Props) {
   const { lang, slug } = await params;
-  const locale = (lang as "es" | "en" | "eu") || "es";
+  const locale = (lang as "es" | "en" | "eu" | "fr") || "es";
   const post = getBlogPostBySlug(slug);
 
   if (!post) {
@@ -33,7 +33,7 @@ export default async function Image({ params }: Props) {
   const line2 = words.slice(mid).join(" ");
 
   return renderOgImage({
-    eyebrow: locale === "es" ? "Blog · Unax Aller" : locale === "en" ? "Blog · Unax Aller" : "Bloga · Unax Aller",
+    eyebrow: locale === "es" ? "Blog · Unax Aller" : locale === "en" ? "Blog · Unax Aller" : locale === "eu" ? "Bloga · Unax Aller" : "Blog · Unax Aller",
     line1,
     line2,
     subtitle: `${post.readingTime} min · unaxaller.com`,

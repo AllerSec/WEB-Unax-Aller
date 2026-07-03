@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Diseñador Web en Tolosa, Gipuzkoa",
     en: "Web Designer in Tolosa, Gipuzkoa",
     eu: "Web Diseinatzailea Tolosan, Gipuzkoan",
+    fr: "Créateur de Site Web à Tolosa, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Tolosa: gastronomía, industria papelera, comercio y servicios. Webs a medida, SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",
     en: "Freelance web designer for Tolosa businesses: gastronomy, paper industry, retail and services. Custom websites, local SEO. One-off €1,300 + VAT, first year included.",
     eu: "Web diseinatzaile freelance Tolosako negozioetarako: gastronomia, paper industria, merkataritza eta zerbitzuak. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    fr: "Créateur de site web freelance pour les entreprises de Tolosa : gastronomie, industrie papetière, commerce et services. Sites sur mesure, SEO local. Paiement unique de 1 300 € + TVA, première année incluse.",
   };
 
   const title = titles[locale];
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TolosaPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getCityLanding(SLUG)!;
   const content = getCityLandingContent(def, locale);
 

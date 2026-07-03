@@ -8,18 +8,21 @@ const COPY = {
   es: "Abrir WhatsApp",
   en: "Open WhatsApp",
   eu: "Ireki WhatsApp",
+  fr: "Ouvrir WhatsApp",
 };
 
 const ARIA = {
   es: "Abrir conversación de WhatsApp con Unax Aller",
   en: "Open WhatsApp chat with Unax Aller",
   eu: "Ireki WhatsApp txata Unax Allerrekin",
+  fr: "Ouvrir la conversation WhatsApp avec Unax Aller",
 };
 
 const WA_MESSAGES = {
   es: "Hola Unax, me gustaría hablar sobre un proyecto web.",
   en: "Hi Unax, I'd like to talk about a web project.",
   eu: "Kaixo Unax, web proiektu bati buruz hitz egin nahi nuke.",
+  fr: "Bonjour Unax, je souhaiterais discuter d'un projet de site web.",
 };
 
 export default function WhatsAppCapture({ locale }: Props) {

@@ -15,7 +15,7 @@ export type ProjectType = {
 
 type Props = {
   types: ProjectType[];
-  locale: "es" | "en" | "eu";
+  locale: "es" | "en" | "eu" | "fr";
   headingId: string;
 };
 
@@ -72,14 +72,18 @@ export default function ProjectTypeSelector({ types, locale, headingId }: Props)
       ? "¿Qué tipo de negocio tienes?"
       : locale === "en"
       ? "What kind of business do you have?"
-      : "Zer motatako negozioa duzu?";
+      : locale === "eu"
+      ? "Zer motatako negozioa duzu?"
+      : "Quel type d'entreprise avez-vous ?";
 
   const helperLabel =
     locale === "es"
       ? "Elige tu sector y verás cómo lo enfoco"
       : locale === "en"
       ? "Pick your sector and see how I approach it"
-      : "Aukeratu zure sektorea eta ikusi nola lantzen dudan";
+      : locale === "eu"
+      ? "Aukeratu zure sektorea eta ikusi nola lantzen dudan"
+      : "Choisissez votre secteur et découvrez mon approche";
 
   return (
     <div className="svc-quiz" role="region" aria-labelledby={headingId}>

@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 
 export default async function LangLayout({ children, params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   if (!routing.locales.includes(locale)) {
     notFound();
@@ -44,7 +44,7 @@ export default async function LangLayout({ children, params }: Props) {
         }}
       />
       <a href="#main-content" className="skip-link focusable">
-        {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : "Edukira joan"}
+        {locale === "es" ? "Ir al contenido" : locale === "en" ? "Skip to content" : locale === "eu" ? "Edukira joan" : "Aller au contenu"}
       </a>
       <Navbar locale={locale} />
       <main id="main-content" className="flex-1">{children}</main>

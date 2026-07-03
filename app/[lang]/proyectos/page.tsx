@@ -20,11 +20,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     es: "Proyectos: Webs reales hechas por Unax Aller",
     en: "Work: Real websites built by Unax Aller",
     eu: "Proiektuak: Unax Allerrek egindako benetako webguneak",
+    fr: "Projets : sites web réels créés par Unax Aller",
   };
   const descriptions: Record<LocaleKey, string> = {
     es: "Proyectos de diseño y desarrollo web hechos a mano para clientes reales del País Vasco y Navarra: farmacia, motos, óptica, agencia de IA. Visítalos.",
     en: "Hand-built web design and development projects for real clients in the Basque Country and Navarre: pharmacy, motorcycles, optician, AI agency. Visit them live.",
     eu: "Eskuz egindako web diseinu eta garapen proiektuak Euskal Herriko eta Nafarroako benetako bezeroentzat: farmazia, motoak, optika, AI agentzia. Bisitatu.",
+    fr: "Projets de design et développement web faits à la main pour des clients réels du Pays basque et de Navarre : pharmacie, motos, opticien, agence IA. Visitez-les.",
   };
 
   const title = titles[locale];
@@ -47,7 +49,7 @@ export default async function ProyectosPage({ params }: Props) {
   const locale = lang as LocaleKey;
   const t = await getTranslations({ locale, namespace: "projects" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
-  const homeLabel = locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera";
+  const homeLabel = locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil";
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     es: `${project.name}: Proyecto de Diseño Web | Unax Aller`,
     en: `${project.name}: Web Design Case Study | Unax Aller`,
     eu: `${project.name}: Web Diseinu Proiektua | Unax Aller`,
+    fr: `${project.name} : étude de cas design web | Unax Aller`,
   };
 
   return {
@@ -58,7 +59,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "projects" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
 
-  const homeLabel = locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera";
+  const homeLabel = locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil";
   const otherProjects = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
 
   const jsonLd = {
@@ -241,13 +242,13 @@ export default async function ProjectDetailPage({ params }: Props) {
       {project.results && (
         <section
           className="project-detail-results"
-          aria-label={locale === "es" ? "Resultados reales" : locale === "en" ? "Real results" : "Benetako emaitzak"}
+          aria-label={locale === "es" ? "Resultados reales" : locale === "en" ? "Real results" : locale === "eu" ? "Benetako emaitzak" : "Résultats réels"}
         >
           <div className="container-xl">
             <div className="project-results-card">
               <div className="project-results-text">
                 <span className="project-detail-section-label">
-                  {locale === "es" ? "Resultados reales" : locale === "en" ? "Real results" : "Benetako emaitzak"}
+                  {locale === "es" ? "Resultados reales" : locale === "en" ? "Real results" : locale === "eu" ? "Benetako emaitzak" : "Résultats réels"}
                 </span>
                 <p className="project-results-headline">{project.results.headline[locale]}</p>
                 <p className="project-results-caption">{project.results.caption[locale]}</p>

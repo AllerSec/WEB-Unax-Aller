@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Diseñador Web en Errenteria, Gipuzkoa",
     en: "Web Designer in Errenteria, Gipuzkoa",
     eu: "Web Diseinatzailea Errenterian, Gipuzkoan",
+    fr: "Créateur de Site Web à Errenteria, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Errenteria. A 15 km de Irun. Webs a medida, SEO local y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
     en: "Freelance web designer for businesses in Errenteria. 15 km from Irun. Custom websites, local SEO and performance. One-off €1,300 + VAT, first year included.",
     eu: "Web diseinatzaile freelance Errenteriako negozioetarako. Iruntik 15 kmra. Neurrizko webguneak, SEO lokala eta errendimendua. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    fr: "Créateur de site web freelance pour les entreprises d'Errenteria. À 15 km d'Irun. Sites sur mesure, SEO local et performance. Paiement unique de 1 300 € + TVA, première année incluse.",
   };
 
   const title = titles[locale];
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ErrenteriaPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getCityLanding(SLUG)!;
   const content = getCityLandingContent(def, locale);
 

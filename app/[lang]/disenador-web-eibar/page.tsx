@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Diseñador Web en Eibar, Gipuzkoa",
     en: "Web Designer in Eibar, Gipuzkoa",
     eu: "Web Diseinatzailea Eibarren, Gipuzkoan",
+    fr: "Créateur de Site Web à Eibar, Guipuscoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para la industria, máquina-herramienta y comercio de Eibar. Webs a medida, SEO local y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
     en: "Freelance web designer for Eibar's industry, machine-tool and retail. Custom websites, local SEO and performance. One-off €1,300 + VAT, first year included.",
     eu: "Web diseinatzaile freelance Eibarreko industria, makina-erreminta eta merkataritzarako. Neurrizko webguneak. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    fr: "Créateur de site web freelance pour l'industrie, la machine-outil et le commerce d'Eibar. Sites sur mesure, SEO local et performance. Paiement unique de 1 300 € + TVA, première année incluse.",
   };
 
   const title = titles[locale];
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function EibarPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getCityLanding(SLUG)!;
   const content = getCityLandingContent(def, locale);
 

@@ -17,7 +17,7 @@ export const revalidate = 3600;
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
 export async function generateStaticParams() {
-  const locales = ["es", "en", "eu"];
+  const locales = ["es", "en", "eu", "fr"];
   return locales.flatMap((lang) =>
     getAllBlogSlugs().map((slug) => ({ lang, slug }))
   );
@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang, slug } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const post = getBlogPostBySlug(slug);
   if (!post) return {};
 
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { lang, slug } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const post = getBlogPostBySlug(slug);
 
   if (!post) notFound();
@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
+        { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", item: `https://unaxaller.com/${locale}` },
         { "@type": "ListItem", position: 2, name: "Blog", item: `https://unaxaller.com/${locale}/blog` },
         { "@type": "ListItem", position: 3, name: post.titles[locale], item: `https://unaxaller.com/${locale}/blog/${post.slug}` },
       ],
@@ -117,10 +117,10 @@ export default async function BlogPostPage({ params }: Props) {
   const related = getRelatedBlogPosts(slug, 3);
 
   const readingLabel =
-    locale === "es" ? "min de lectura" : locale === "en" ? "min read" : "min irakurketa";
+    locale === "es" ? "min de lectura" : locale === "en" ? "min read" : locale === "eu" ? "min irakurketa" : "min de lecture";
   const updatedLabel =
-    locale === "es" ? "Actualizado" : locale === "en" ? "Updated" : "Eguneratua";
-  const dateLocale = locale === "es" ? "es-ES" : locale === "en" ? "en-GB" : "eu-ES";
+    locale === "es" ? "Actualizado" : locale === "en" ? "Updated" : locale === "eu" ? "Eguneratua" : "Mis à jour";
+  const dateLocale = locale === "es" ? "es-ES" : locale === "en" ? "en-GB" : locale === "eu" ? "eu-ES" : "fr-FR";
   const formatDate = (iso: string) =>
     new Date(iso).toLocaleDateString(dateLocale, {
       year: "numeric",
@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="article-container">
             <Breadcrumbs
               items={[
-                { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+                { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", href: `/${locale}` },
                 { name: "Blog", href: `/${locale}/blog` },
                 { name: post.titles[locale] },
               ]}
@@ -150,7 +150,7 @@ export default async function BlogPostPage({ params }: Props) {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M19 12H5M12 5l-7 7 7 7" />
               </svg>
-              {locale === "es" ? "Volver al blog" : locale === "en" ? "Back to blog" : "Blogera itzuli"}
+              {locale === "es" ? "Volver al blog" : locale === "en" ? "Back to blog" : locale === "eu" ? "Blogera itzuli" : "Retour au blog"}
             </Link>
 
             <div className="post-meta">
@@ -181,7 +181,9 @@ export default async function BlogPostPage({ params }: Props) {
                     ? "Diseñador web freelance en Irun, Gipuzkoa"
                     : locale === "en"
                     ? "Freelance web designer in Irun, Gipuzkoa"
-                    : "Web diseinatzaile freelance Irunen, Gipuzkoan"}
+                    : locale === "eu"
+                    ? "Web diseinatzaile freelance Irunen, Gipuzkoan"
+                    : "Designer web freelance à Irun, Pays basque"}
                 </p>
               </div>
             </div>
@@ -269,7 +271,7 @@ export default async function BlogPostPage({ params }: Props) {
             {related.length > 0 && (
               <AnimatedSection className="related-section">
                 <h2 className="related-heading">
-                  {locale === "es" ? "Sigue leyendo" : locale === "en" ? "Keep reading" : "Irakurtzen jarraitu"}
+                  {locale === "es" ? "Sigue leyendo" : locale === "en" ? "Keep reading" : locale === "eu" ? "Irakurtzen jarraitu" : "Continuer la lecture"}
                 </h2>
                 <div className="related-grid related-grid-3">
                   {related.map((rp) => (
@@ -291,14 +293,18 @@ export default async function BlogPostPage({ params }: Props) {
                     ? "¿Quieres una web así para tu negocio?"
                     : locale === "en"
                     ? "Want a website like this for your business?"
-                    : "Zure negoziorako horrelako web bat nahi al duzu?"}
+                    : locale === "eu"
+                    ? "Zure negoziorako horrelako web bat nahi al duzu?"
+                    : "Vous voulez un site comme celui-ci pour votre entreprise ?"}
                 </p>
                 <Link href={`/${locale}/contacto`} className="dark-cta-button focusable">
                   {locale === "es"
                     ? "Agenda una consulta gratuita"
                     : locale === "en"
                     ? "Book a free consultation"
-                    : "Doako kontsulta bat eskatu"}
+                    : locale === "eu"
+                    ? "Doako kontsulta bat eskatu"
+                    : "Réservez une consultation gratuite"}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>

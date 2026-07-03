@@ -1,7 +1,7 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ["es", "en", "eu"],
+  locales: ["es", "en", "eu", "fr"],
   defaultLocale: "es",
   // Disabled: Accept-Language sniffing forced dynamic rendering on every
   // request (TTFB ~4s on cold Netlify functions). Users land on /es by

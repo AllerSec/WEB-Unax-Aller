@@ -26,7 +26,7 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const title = "Web para negocio local · 1.300€, 1er año incluido · Unax Aller";
   const description =
     "Web para negocios de Gipuzkoa, Bizkaia y Navarra: pago único de 1.300€ + IVA con el primer año incluido (web, Google Maps, reseñas, hosting, soporte WhatsApp) y 30 días de garantía. Pensado para clínicas, despachos, industria B2B y comercio profesional.";
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function buildHomeJsonLd(
-  locale: "es" | "en" | "eu",
+  locale: "es" | "en" | "eu" | "fr",
   faqItems: { q: string; a: string }[]
 ) {
   return {
@@ -63,7 +63,7 @@ function buildHomeJsonLd(
         description:
           "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra. Pago único con el primer año de mantenimiento incluido.",
         publisher: { "@id": "https://unaxaller.com/#business" },
-        inLanguage: ["es-ES", "en-GB", "eu-ES"],
+        inLanguage: ["es-ES", "en-GB", "eu-ES", "fr-FR"],
         // SearchAction removed: the blog index doesn't accept ?q= queries,
         // and Googlebot was indexing the template URL as an alternate page
         // (GSC: "Alternate page with proper canonical tag"). Reintroduce only
@@ -126,7 +126,7 @@ function buildHomeJsonLd(
           "Webs para negocios locales de Gipuzkoa, Bizkaia y Navarra: pago único de 1.300€ + IVA con el primer año incluido (diseño, hosting, dominio, Google Maps, reseñas, soporte WhatsApp).",
         founder: { "@id": "https://unaxaller.com/#person" },
         knowsLanguage: ["es", "eu", "en", "fr"],
-        inLanguage: ["es", "en", "eu"],
+        inLanguage: ["es", "en", "eu", "fr"],
         currenciesAccepted: "EUR",
         paymentAccepted: "Bank transfer, Bizum",
         address: {
@@ -231,7 +231,7 @@ function buildHomeJsonLd(
           {
             "@type": "ListItem",
             position: 1,
-            name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera",
+            name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil",
             item: `https://unaxaller.com/${locale}`,
           },
         ],
@@ -242,7 +242,7 @@ function buildHomeJsonLd(
 
 export default async function HomePage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   // Enable static rendering for this page (see layout note). Must precede any
   // next-intl API used by child Server Components.
   setRequestLocale(locale);

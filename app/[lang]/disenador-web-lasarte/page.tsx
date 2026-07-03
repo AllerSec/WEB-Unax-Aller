@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Diseñador Web en Lasarte-Oria, Gipuzkoa",
     en: "Web Designer in Lasarte-Oria, Gipuzkoa",
     eu: "Web Diseinatzailea Lasarte-Orian",
+    fr: "Créateur de Site Web à Lasarte-Oria, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Lasarte-Oria. A 28 km de Irun. Webs a medida, SEO local y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
     en: "Freelance web designer for businesses in Lasarte-Oria. 28 km from Irun. Custom websites, local SEO and performance. One-off €1,300 + VAT, first year included.",
     eu: "Web diseinatzaile freelance Lasarte-Oriako negozioetarako. Iruntik 28 kmra. Neurrizko webguneak. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    fr: "Créateur de site web freelance pour les entreprises de Lasarte-Oria. À 28 km d'Irun. Sites sur mesure, SEO local et performance. Paiement unique de 1 300 € + TVA, première année incluse.",
   };
 
   const title = titles[locale];
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LasartePage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getCityLanding(SLUG)!;
   const content = getCityLandingContent(def, locale);
 

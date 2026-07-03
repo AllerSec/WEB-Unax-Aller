@@ -102,7 +102,8 @@ export default function PackageVisual({ locale }: Props) {
           { icon: "edit", label: "Monthly edits", price: "€1,200" },
           { icon: "star", label: "Reviews", price: "€250" },
         ]
-      : [
+      : locale === "eu"
+      ? [
           { icon: "palette", label: "Diseinua", price: "1.500€" },
           { icon: "smartphone", label: "Mugikorra", price: "400€" },
           { icon: "search", label: "Tokiko SEO", price: "900€" },
@@ -112,6 +113,17 @@ export default function PackageVisual({ locale }: Props) {
           { icon: "message-circle", label: "WhatsApp", price: "480€" },
           { icon: "edit", label: "Hileko aldaketak", price: "1.200€" },
           { icon: "star", label: "Iritziak", price: "250€" },
+        ]
+      : [
+          { icon: "palette", label: "Design", price: "1 500 €" },
+          { icon: "smartphone", label: "Mobile", price: "400 €" },
+          { icon: "search", label: "SEO local", price: "900 €" },
+          { icon: "map-pin", label: "Google Maps", price: "600 €" },
+          { icon: "cloud", label: "Hébergement", price: "240 €" },
+          { icon: "wrench", label: "Maintenance", price: "600 €" },
+          { icon: "message-circle", label: "WhatsApp", price: "480 €" },
+          { icon: "edit", label: "Modifications mensuelles", price: "1 200 €" },
+          { icon: "star", label: "Avis", price: "250 €" },
         ];
 
   return (
@@ -188,7 +200,7 @@ export default function PackageVisual({ locale }: Props) {
         .pv-equals-strike { color:rgba(255, 255, 255, 0.4); text-decoration:line-through; font-size:0.9em; margin-right:var(--space-2); font-weight:400; }
       `}</style>
 
-      <div className="pv-grid" role="list" aria-label={locale === "es" ? "Servicios incluidos el primer año" : locale === "en" ? "Services included the first year" : "Lehen urtean barne dauden zerbitzuak"}>
+      <div className="pv-grid" role="list" aria-label={locale === "es" ? "Servicios incluidos el primer año" : locale === "en" ? "Services included the first year" : locale === "eu" ? "Lehen urtean barne dauden zerbitzuak" : "Services inclus la première année"}>
         {items.map((it) => (
           <div key={it.label} className="pv-tile" role="listitem">
             <span className="pv-icon" aria-hidden="true">{ICONS[it.icon]}</span>
@@ -204,11 +216,17 @@ export default function PackageVisual({ locale }: Props) {
 
       <div className="pv-equals">
         <span className="pv-equals-label">
-          {locale === "es" ? "Todo esto, por solo" : locale === "en" ? "All of it, for just" : "Hau guztia, hau bakarrik"}
+          {locale === "es"
+            ? "Todo esto, por solo"
+            : locale === "en"
+            ? "All of it, for just"
+            : locale === "eu"
+            ? "Hau guztia, hau bakarrik"
+            : "Tout ça, pour seulement"}
         </span>
         <span className="pv-equals-value">
-          <span className="pv-equals-strike">{locale === "en" ? "€6,170" : "6.170€"}</span>
-          {locale === "en" ? "€1,300" : "1.300€"}
+          <span className="pv-equals-strike">{locale === "en" ? "€6,170" : locale === "fr" ? "6 170 €" : "6.170€"}</span>
+          {locale === "en" ? "€1,300" : locale === "fr" ? "1 300 €" : "1.300€"}
         </span>
       </div>
     </>

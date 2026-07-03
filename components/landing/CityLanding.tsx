@@ -136,29 +136,65 @@ export default function CityLanding({
       ? `Lo que conozco de ${cityName}`
       : locale === "en"
       ? `What I know about ${cityName}`
-      : `${cityName}ri buruz dakidana`;
+      : locale === "eu"
+      ? `${cityName}ri buruz dakidana`
+      : `Ce que je connais de ${cityName}`;
   const localEyebrow =
-    locale === "es" ? "Conociendo el terreno" : locale === "en" ? "Knowing the ground" : "Lurraldea ezagutzen";
+    locale === "es"
+      ? "Conociendo el terreno"
+      : locale === "en"
+      ? "Knowing the ground"
+      : locale === "eu"
+      ? "Lurraldea ezagutzen"
+      : "Connaître le terrain";
   const nearbyTitle =
     locale === "es"
       ? "También trabajo en estas ciudades"
       : locale === "en"
       ? "I also work in these cities"
-      : "Hiri hauetan ere lan egiten dut";
+      : locale === "eu"
+      ? "Hiri hauetan ere lan egiten dut"
+      : "Je travaille aussi dans ces villes";
   const founderEyebrow =
-    locale === "es" ? "Quién está detrás" : locale === "en" ? "Who's behind" : "Nor dago atzean";
+    locale === "es"
+      ? "Quién está detrás"
+      : locale === "en"
+      ? "Who's behind"
+      : locale === "eu"
+      ? "Nor dago atzean"
+      : "Qui se cache derrière";
   const founderTitle =
-    locale === "es" ? "Hola, soy Unax." : locale === "en" ? "Hi, I'm Unax." : "Kaixo, Unax naiz.";
+    locale === "es"
+      ? "Hola, soy Unax."
+      : locale === "en"
+      ? "Hi, I'm Unax."
+      : locale === "eu"
+      ? "Kaixo, Unax naiz."
+      : "Bonjour, je suis Unax.";
   const founderBody =
     locale === "es"
       ? `Diseño y desarrollo cada web a mano desde Irun. Hablas conmigo de principio a fin, sin agencias ni intermediarios. Trabajo con clientes de ${cityName} y de toda ${regionName}: pongo el mismo cuidado, el mismo detalle, esté a 5 km o a 100. Si tengo que pasar horas para resolver un detalle pequeño, las paso.`
       : locale === "en"
       ? `I design and code every site by hand from Irun. You talk to me start to finish, no agencies, no middlemen. I work with clients in ${cityName} and across ${regionName}: same care, same attention to detail, whether you're 5 or 100 km away. If a small thing needs hours to fix, I take them.`
-      : `Webgune bakoitza eskuz diseinatu eta garatzen dut Irunetik. Hasieratik amaierara nirekin hitz egiten duzu, agentziarik gabe. ${cityName} eta ${regionName} osoko bezeroekin lan egiten dut: arreta bera, xehetasun bera, 5 km-ra edo 100 km-ra egon. Xehetasun txiki batek orduak behar baditu konpontzeko, hartu egiten ditut.`;
+      : locale === "eu"
+      ? `Webgune bakoitza eskuz diseinatu eta garatzen dut Irunetik. Hasieratik amaierara nirekin hitz egiten duzu, agentziarik gabe. ${cityName} eta ${regionName} osoko bezeroekin lan egiten dut: arreta bera, xehetasun bera, 5 km-ra edo 100 km-ra egon. Xehetasun txiki batek orduak behar baditu konpontzeko, hartu egiten ditut.`
+      : `Je conçois et développe chaque site à la main depuis Irun. Vous me parlez à moi, du début à la fin, sans agence ni intermédiaire. Je travaille avec des clients à ${cityName} et dans toute ${regionName} : même soin, même souci du détail, à 5 km comme à 100. S'il faut des heures pour régler un petit détail, je les prends.`;
   const founderLink =
-    locale === "es" ? "Conóceme mejor" : locale === "en" ? "Get to know me" : "Ezagutu nazazu hobeto";
+    locale === "es"
+      ? "Conóceme mejor"
+      : locale === "en"
+      ? "Get to know me"
+      : locale === "eu"
+      ? "Ezagutu nazazu hobeto"
+      : "Apprendre à me connaître";
   const benefitsEyebrow =
-    locale === "es" ? "Por qué local" : locale === "en" ? "Why local" : "Zergatik bertakoa";
+    locale === "es"
+      ? "Por qué local"
+      : locale === "en"
+      ? "Why local"
+      : locale === "eu"
+      ? "Zergatik bertakoa"
+      : "Pourquoi un créateur local";
 
   return (
     <>
@@ -211,7 +247,9 @@ export default function CityLanding({
                   ? "Foto de Unax Aller, diseñador y desarrollador web"
                   : locale === "en"
                   ? "Photo of Unax Aller, web designer and developer"
-                  : "Unax Aller, web diseinatzaile eta garatzailearen argazkia"
+                  : locale === "eu"
+                  ? "Unax Aller, web diseinatzaile eta garatzailearen argazkia"
+                  : "Photo d'Unax Aller, créateur et développeur de sites web"
               }
             />
             <div className="founder-strip-content">
@@ -239,14 +277,18 @@ export default function CityLanding({
               ? "Proyectos realizados"
               : locale === "en"
               ? "Projects delivered"
-              : "Egindako proiektuak"
+              : locale === "eu"
+              ? "Egindako proiektuak"
+              : "Projets réalisés"
           }
           description={
             locale === "es"
               ? "Webs reales para negocios reales del País Vasco y Navarra. Cada proyecto a medida, entregado en 1–2 semanas."
               : locale === "en"
               ? "Real websites for real businesses in the Basque Country and Navarre. Each one custom, delivered in 1–2 weeks."
-              : "Webgune errealak Euskal Herriko eta Nafarroako benetako negozioentzat. Bakoitza neurrira, 1–2 astetan."
+              : locale === "eu"
+              ? "Webgune errealak Euskal Herriko eta Nafarroako benetako negozioentzat. Bakoitza neurrira, 1–2 astetan."
+              : "Des sites web réels pour de vraies entreprises du Pays basque et de Navarre. Chaque projet sur mesure, livré en 1 à 2 semaines."
           }
           items={galleryItems(locale)}
         />
@@ -315,7 +357,9 @@ export default function CityLanding({
                           ? `A ${distanceFromIrunKm} km · reuniones presenciales posibles`
                           : locale === "en"
                           ? `${distanceFromIrunKm} km away · in-person meetings available`
-                          : `${distanceFromIrunKm} km-ra · aurrez aurreko bilerak posibleak`}
+                          : locale === "eu"
+                          ? `${distanceFromIrunKm} km-ra · aurrez aurreko bilerak posibleak`
+                          : `À ${distanceFromIrunKm} km · rendez-vous en personne possibles`}
                       </span>
                     </div>
                   )}

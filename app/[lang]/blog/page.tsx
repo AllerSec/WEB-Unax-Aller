@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Blog de Diseño Web, SEO y Rendimiento",
     en: "Web Design, SEO and Performance Blog",
     eu: "Web Diseinu, SEO eta Errendimendu Bloga",
+    fr: "Blog Design Web, SEO et Performance",
   };
   const descriptions: Record<string, string> = {
     es: "Artículos sobre diseño web, SEO técnico y rendimiento web. Guías prácticas para negocios que quieren mejorar su presencia online.",
     en: "Articles about web design, technical SEO and web performance. Practical guides for businesses that want to improve their online presence.",
     eu: "Web diseinuari, SEO teknikoari eta web errendimenduari buruzko artikuluak. Gida praktikoak lineako presentzia hobetu nahi duten negozioetarako.",
+    fr: "Articles sur le design web, le SEO technique et la performance web. Guides pratiques pour les entreprises qui veulent améliorer leur présence en ligne.",
   };
 
   const title = titles[locale];
@@ -43,14 +45,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Blog",
-        name: locale === "es" ? "Blog · Unax Aller" : locale === "en" ? "Blog · Unax Aller" : "Bloga · Unax Aller",
+        name: locale === "es" ? "Blog · Unax Aller" : locale === "en" ? "Blog · Unax Aller" : locale === "eu" ? "Bloga · Unax Aller" : "Blog · Unax Aller",
         url: `https://unaxaller.com/${locale}/blog`,
         author: { "@id": "https://unaxaller.com/#person" },
         publisher: { "@id": "https://unaxaller.com/#business" },
@@ -65,7 +67,7 @@ export default async function BlogPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", item: `https://unaxaller.com/${locale}` },
           { "@type": "ListItem", position: 2, name: "Blog", item: `https://unaxaller.com/${locale}/blog` },
         ],
       },
@@ -77,12 +79,14 @@ export default async function BlogPage({ params }: Props) {
       ? "Diseño web, SEO y rendimiento. Sin relleno."
       : locale === "en"
       ? "Web design, SEO and performance. No filler."
-      : "Web diseinua, SEO eta errendimendua. Betegarririk gabe.";
+      : locale === "eu"
+      ? "Web diseinua, SEO eta errendimendua. Betegarririk gabe."
+      : "Design web, SEO et performance. Sans blabla.";
 
   const readingLabel =
-    locale === "es" ? "min de lectura" : locale === "en" ? "min read" : "min irakurketa";
+    locale === "es" ? "min de lectura" : locale === "en" ? "min read" : locale === "eu" ? "min irakurketa" : "min de lecture";
 
-  const dateLocale = locale === "es" ? "es-ES" : locale === "en" ? "en-GB" : "eu-ES";
+  const dateLocale = locale === "es" ? "es-ES" : locale === "en" ? "en-GB" : locale === "eu" ? "eu-ES" : "fr-FR";
 
   return (
     <>
@@ -95,7 +99,7 @@ export default async function BlogPage({ params }: Props) {
         <div className="container-xl">
           <Breadcrumbs
             items={[
-              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", href: `/${locale}` },
               { name: "Blog" },
             ]}
           />

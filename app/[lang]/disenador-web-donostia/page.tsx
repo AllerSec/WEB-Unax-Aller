@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Diseñador Web en Donostia-San Sebastián",
     en: "Web Designer in Donostia-San Sebastián",
     eu: "Web Diseinatzailea Donostian",
+    fr: "Créateur de Site Web à Saint-Sébastien (Donostia)",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Donostia-San Sebastián. A 20 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
     en: "Freelance web designer for businesses in Donostia-San Sebastián. 20 km from Irun. Custom websites with local SEO, premium design and performance. One-off €1,300 + VAT, first year included.",
     eu: "Web diseinatzaile freelance Donostiako negozioetarako. Iruntik 20 kmra. Neurrizko webguneak SEO lokalarekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    fr: "Créateur de site web freelance pour les entreprises de Saint-Sébastien (Donostia). À 20 km d'Irun. Sites sur mesure avec SEO local, design premium et performance. Paiement unique de 1 300 € + TVA, première année incluse.",
   };
 
   const title = titles[locale];
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DonostiaPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getCityLanding(SLUG)!;
   const content = getCityLandingContent(def, locale);
 

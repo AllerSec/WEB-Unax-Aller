@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 type Row = { bad: boolean; who: string; detail: string };
 
-const ROWS_BY_LOCALE: Record<"es" | "en" | "eu", Row[]> = {
+const ROWS_BY_LOCALE: Record<"es" | "en" | "eu" | "fr", Row[]> = {
   es: [
     { bad: true, who: "Agencia local", detail: "2.500–5.000€ inicial · cambios siempre aparte · pagas y rezas" },
     { bad: true, who: "Wix / Squarespace", detail: "Lenta · plantilla genérica · te quedas sin web si dejas de pagar" },
@@ -25,6 +25,12 @@ const ROWS_BY_LOCALE: Record<"es" | "en" | "eu", Row[]> = {
     { bad: true, who: "Wix / Squarespace", detail: "Geldoa · txantiloi generikoa · webgunea galtzen duzu ordaintzeari uzten badiozu" },
     { bad: true, who: "Webgunerik ez (Google Maps soilik)", detail: "Fitxa optimizatu gabe · iritzirik ez · ikusten zaituzte baina ez dizute deitzen" },
     { bad: false, who: "Zure weba · Unax", detail: "1.300€ ordainketa bakarra · 1. urtea barne · aldaketak WhatsApp-etik" },
+  ],
+  fr: [
+    { bad: true, who: "Agence locale", detail: "2 500–5 000 € au départ · modifications toujours en plus · vous payez et vous priez" },
+    { bad: true, who: "Wix / Squarespace", detail: "Lent · modèle générique · vous perdez le site si vous arrêtez de payer" },
+    { bad: true, who: "Pas de site (juste Google Maps)", detail: "Fiche non optimisée · aucun avis · on vous voit, mais on ne vous appelle pas" },
+    { bad: false, who: "Votre site · Unax", detail: "1 300 € paiement unique · 1ère année incluse · modifications par WhatsApp" },
   ],
 };
 
@@ -56,10 +62,19 @@ const COPY = {
     titleC: "Eta gehienek ez dakite.",
     body: "Norbaitek «hortz-klinika Bilbon», «aholkularitza Donostian» edo «hornitzaile industriala Iruñean» bilatzen duenean, Google Mapsen lehenengo agertzen denak eramaten du bezeroa. Gainerakoek aho-belarrizko publizitatearen zain geratzen dira. Nik prestatzen dizut Google-ko fitxa, webgunea eta iritzi sistema zu lehena izan zaitezen.",
   },
+  fr: {
+    eyebrow: "Le vrai problème",
+    titleA: "Les appels de",
+    titleHighlight1: "votre ville",
+    titleB: "reviennent à",
+    titleHighlight2: "celui qui sort en premier",
+    titleC: "Et la plupart ne le savent même pas.",
+    body: "Celui qui sort en premier sur Google Maps quand quelqu'un cherche «clinique dentaire à Bilbao», «cabinet comptable à Saint-Sébastien» ou «fournisseur industriel à Pampelune» récupère le client. Les autres attendent le bouche-à-oreille. Je vous mets en place la fiche Google, le site et le système d'avis pour que ce soit vous, le premier.",
+  },
 } as const;
 
 export default function PainSection() {
-  const locale = (useLocale() as "es" | "en" | "eu") ?? "es";
+  const locale = (useLocale() as "es" | "en" | "eu" | "fr") ?? "es";
   const copy = COPY[locale];
   const rows = ROWS_BY_LOCALE[locale];
   const rootRef = useRef<HTMLElement>(null);

@@ -13,17 +13,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Diseñador Web en Zarautz, Gipuzkoa",
     en: "Web Designer in Zarautz, Gipuzkoa",
     eu: "Web Diseinatzailea Zarautzen, Gipuzkoan",
+    fr: "Créateur de Site Web à Zarautz, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para hostelería, surf shops y comercio premium de Zarautz. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",
     en: "Freelance web designer for hospitality, surf shops and premium retail in Zarautz. Custom websites with local SEO. One-off €1,300 + VAT, first year included.",
     eu: "Web diseinatzaile freelance Zarauzko ostalaritza, surf-denda eta merkataritza premium-arentzat. Neurrizko webguneak SEO lokalarekin. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.",
+    fr: "Créateur de site web freelance pour l'hôtellerie-restauration, les surf shops et le commerce premium de Zarautz. Sites sur mesure avec SEO local. Paiement unique de 1 300 € + TVA, première année incluse.",
   };
 
   const title = titles[locale];
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ZarautzPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getCityLanding(SLUG)!;
   const content = getCityLandingContent(def, locale);
 

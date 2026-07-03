@@ -13,12 +13,13 @@ import CheckoutModal from "@/components/pricing/CheckoutModal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const LOCALES = ["es", "en", "eu"] as const satisfies readonly Locale[];
+const LOCALES = ["es", "en", "eu", "fr"] as const satisfies readonly Locale[];
 
 const NAV_LABELS: Record<Locale, { main: string; mobile: string; open: string; close: string; lang: string }> = {
   es: { main: "Navegación principal", mobile: "Menú móvil", open: "Abrir menú", close: "Cerrar menú", lang: "Idioma: " },
   en: { main: "Main navigation",      mobile: "Mobile menu", open: "Open menu",  close: "Close menu", lang: "Language: " },
   eu: { main: "Nabigazio nagusia",    mobile: "Mugikorreko menua", open: "Ireki menua", close: "Itxi menua", lang: "Hizkuntza: " },
+  fr: { main: "Navigation principale", mobile: "Menu mobile", open: "Ouvrir le menu", close: "Fermer le menu", lang: "Langue : " },
 };
 
 const ArrowRight = ({ size = 14 }: { size?: number }) => (

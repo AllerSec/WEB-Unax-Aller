@@ -44,7 +44,8 @@ export default function SectorMarquee({ locale }: Props) {
           "Interior design",
           "Dealerships",
         ]
-      : [
+      : locale === "eu"
+      ? [
           "Hortz-klinikak",
           "Fisioterapia",
           "Estetika",
@@ -59,6 +60,22 @@ export default function SectorMarquee({ locale }: Props) {
           "Bitxidenda",
           "Dekorazioa",
           "Kontzesionarioak",
+        ]
+      : [
+          "Cliniques dentaires",
+          "Kinésithérapie",
+          "Esthétique",
+          "Avocats",
+          "Cabinets comptables",
+          "Consultants",
+          "Ingénierie",
+          "Industrie B2B",
+          "Immobilier",
+          "Assurances",
+          "Optique",
+          "Bijouterie",
+          "Décoration",
+          "Concessionnaires",
         ];
 
   // Duplicate the list so the marquee loops seamlessly
@@ -111,7 +128,7 @@ export default function SectorMarquee({ locale }: Props) {
           to   { transform:translateX(-50%); }
         }
       `}</style>
-      <section className="sm-wrap" aria-label={locale === "es" ? "Sectores con los que trabajo" : locale === "en" ? "Sectors I work with" : "Lan egiten dudan sektoreak"}>
+      <section className="sm-wrap" aria-label={locale === "es" ? "Sectores con los que trabajo" : locale === "en" ? "Sectors I work with" : locale === "eu" ? "Lan egiten dudan sektoreak" : "Secteurs avec lesquels je travaille"}>
         <div className="sm-track" aria-hidden="true">
           {doubled.map((s, i) => (
             <span key={i} className="sm-chip">{s}</span>

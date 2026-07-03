@@ -1,6 +1,6 @@
 import type { CityLandingContent } from "@/components/landing/CityLanding";
 
-export type LocaleKey = "es" | "en" | "eu";
+export type LocaleKey = "es" | "en" | "eu" | "fr";
 
 /**
  * Sector landing pages — same engine as the city landings, but the unique axis
@@ -31,8 +31,9 @@ export const sectorLandings: SectorLandingDef[] = [
       es: "clínicas y centros de salud",
       en: "clinics and health centres",
       eu: "klinikak eta osasun zentroak",
+      fr: "cliniques et centres de santé",
     },
-    businessNoun: { es: "tu clínica", en: "your clinic", eu: "zure klinika" },
+    businessNoun: { es: "tu clínica", en: "your clinic", eu: "zure klinika", fr: "votre clinique" },
     touches: {
       es: [
         "Un paciente con una muela rota a las nueve de la noche no llama: coge el móvil y busca «dentista cerca de mí» o «urgencias dental Irun». En tres segundos decide a quién llama, y lo decide mirando reseñas, fotos del centro y si puede pedir cita sin tener que esperar a mañana para que le cojan el teléfono. Si tu clínica de Anaka o Behobia no sale en ese momento, o sale con una web lenta de hace años, el paciente ya está marcando el número del de al lado.",
@@ -49,6 +50,11 @@ export const sectorLandings: SectorLandingDef[] = [
         "Horregatik kliniketako webetan honako hauetan jartzen dut arreta: taldearen eta instalazioen benetako argazkiak, ziurtagiri ikusgaiak, online hitzordu sistema argia eta azken iritziekin optimizatutako Google Maps fitxa. Paziente berri gehienak Googletik iristen dira, beraz tokiko SEOa eta fitxa ondo konfiguratua edozein liburuxka baino gehiago balio dute.",
         "Klinika batek behar duena ere betetzen dut: lege-oharra eta pribatutasun-politika zuzenak (osasun-datuak sentikorrak dira), gehiegi eskatzen ez duten formularioak, eta mugikorrean karga azkarra, osasun-bilaketa ia guztiak telefonotik egiten direlako.",
       ],
+      fr: [
+        "Un patient avec une dent cassée à neuf heures du soir n'appelle pas : il prend son téléphone et cherche « dentiste près de moi » ou « urgences dentaires Irun ». En trois secondes, il décide qui appeler, et il le décide en regardant les avis, les photos du cabinet et s'il peut prendre rendez-vous sans attendre demain pour qu'on décroche le téléphone. Si votre clinique d'Anaka ou de Behobia n'apparaît pas à ce moment-là, ou apparaît avec un site lent datant d'il y a des années, le patient est déjà en train de composer le numéro du cabinet d'à côté.",
+        "C'est pour ça que, dans les cliniques, ce qui décide vraiment le premier contact n'est pas « un joli site » : ce sont de vraies photos de l'équipe et du cabinet (pas de banque d'images), votre inscription à l'ordre bien visible, la prise de rendez-vous en ligne sans friction et, surtout, une fiche Google bien tenue, avec des avis récents et des horaires à jour. Et voici un détail que presque personne dans la région ne travaille : le patient français traverse la frontière pour aller chez le dentiste et cherche depuis Google Maps en France. Je configure votre fiche et votre SEO pour que vous apparaissiez aussi bien sur « dentista Irun » que sur « dentiste Irun », cette recherche avec des patients derrière que la concurrence a abandonnée.",
+        "Et ce qu'une clinique ne peut pas se permettre de négliger, je le verrouille : mentions légales et politique de confidentialité bien faites (les données de santé sont sensibles), des formulaires qui ne demandent que le nécessaire, et un chargement rapide sur mobile, parce que presque toutes les recherches de santé partent du téléphone. Le tout pour un paiement unique de 1 300 € + TVA, première année incluse. Je suis à Irun, donc si vous préférez, on se voit en personne plutôt qu'en visioconférence.",
+      ],
     },
     nearbySectors: ["web-para-despachos", "web-para-comercio"],
   },
@@ -58,8 +64,9 @@ export const sectorLandings: SectorLandingDef[] = [
       es: "bares, restaurantes y hostelería",
       en: "bars, restaurants and hospitality",
       eu: "tabernak, jatetxeak eta ostalaritza",
+      fr: "bars, restaurants et hôtellerie-restauration",
     },
-    businessNoun: { es: "tu restaurante", en: "your restaurant", eu: "zure jatetxea" },
+    businessNoun: { es: "tu restaurante", en: "your restaurant", eu: "zure jatetxea", fr: "votre restaurant" },
     touches: {
       es: [
         "Son las dos menos cuarto, una pareja de Hendaya acaba de aparcar en el centro de Irun y busca en el móvil «restaurant Irun» o «où manger près de moi». En tres segundos eligen entre tu bar y el de la esquina, y deciden por las fotos y las reseñas que salen en Google Maps. Si tu local no aparece ahí (o aparece con una foto borrosa de 2019 y la carta en un PDF que no se abre en el teléfono) acabas de perder esa mesa sin enterarte.",
@@ -76,6 +83,11 @@ export const sectorLandings: SectorLandingDef[] = [
         "Horregatik mugikorrean azkarrak diren ostalaritza-webak egiten ditut, karta beti eguneratua (ondo irakurtzen ez den PDFrik gabe), gosea ematen duten argazkiak, erreserba argiak eta nola iritsi esteka zuzena. Google Business Profile fitxa optimizatuta uzten dut zure inguruan non jan bilatzen duenean ager zaitezen.",
         "Eta turismoa baduzu (frantsesa, batez ere mugan eta kostaldean) weba hainbat hizkuntzatan prestatzen dut. Bezero frantsesak lehen begiratuan ulertzen duen menua, sartu edo bilatzen jarraitzearen arteko aldea da.",
       ],
+      fr: [
+        "Il est deux heures moins le quart, un couple d'Hendaye vient de se garer dans le centre d'Irun et cherche sur son téléphone « restaurant Irun » ou « où manger près de moi ». En trois secondes, ils choisissent entre votre bar et celui du coin de la rue, et ils décident en fonction des photos et des avis qui apparaissent sur Google Maps. Si votre établissement n'y figure pas (ou apparaît avec une photo floue de 2019 et la carte dans un PDF qui ne s'ouvre pas sur le téléphone), vous venez de perdre cette table sans même le savoir.",
+        "À Irun, la vieille ville et le Paseo Colón se remplissent de clients français qui traversent la frontière pour manger, et presque aucun bar de la région n'a son site prêt à les capter. C'est pourquoi je construis des sites qui chargent vite sur mobile. La carte toujours à jour, en espagnol et en français, ce qui compte beaucoup ici. Des photos des plats faites dans les règles de l'art, pas au flash ni datant de 2019. La réservation en un clic et le lien direct pour venir depuis Hondarribia, Hendaye ou l'autre côté de la Bidassoa. Et je vous prépare la fiche Google pour que vous sortiez en premier quand quelqu'un cherche où manger à Irun, pas en page trois.",
+        "Je travaille le français avec autant de soin que le reste (j'ai étudié en France jusqu'à 15 ans), donc le menu que le client d'Hendaye comprend du premier coup d'œil n'est pas un traducteur automatique bâclé : c'est la différence entre le voir entrer ou le voir continuer vers le bar suivant. Le tout pour un paiement unique de 1 300 € + TVA, première année incluse. Vous, vous remplissez les tables ; que Google vous trouve, c'est mon travail.",
+      ],
     },
     nearbySectors: ["web-para-comercio", "web-para-clinicas"],
   },
@@ -85,8 +97,9 @@ export const sectorLandings: SectorLandingDef[] = [
       es: "comercios y tiendas locales",
       en: "local shops and retail",
       eu: "merkataritza eta tokiko dendak",
+      fr: "commerces et boutiques locales",
     },
-    businessNoun: { es: "tu comercio", en: "your shop", eu: "zure denda" },
+    businessNoun: { es: "tu comercio", en: "your shop", eu: "zure denda", fr: "votre commerce" },
     touches: {
       es: [
         "Un cliente está parado delante de tu escaparate en la calle Mayor, saca el móvil y busca «¿abren los lunes?». Si no te encuentra en diez segundos, da media vuelta y se mete en la tienda de al lado. Esa es la pelea real del comercio de Irun, en la calle Mayor o en plena Avenida de Iparralde: no peleas contra una web gigante, peleas contra el que ya está a treinta metros de tu puerta y se va porque tu horario, tu dirección o lo que vendes no salen claros en Google.",
@@ -103,6 +116,11 @@ export const sectorLandings: SectorLandingDef[] = [
         "Horregatik dendetarako web argiak eta azkarrak egiten ditut: katalogo edo erakusleiho bisuala, ordutegi eta kokapen ikusgaiak, WhatsApp konpromisorik gabe galdetzeko eta iritziekin optimizatutako Google Maps fitxa. Online saltzeak zentzua badu, denda sinple bat egiten dut; bestela, webak bezeroa denda fisikora ekartzeko lan egiten du.",
         "Helburua da kanpora erostera zihoan auzokoak klik batera aurkitzea, eta mugikorrean bilatzen duen bidaiariak aurrera jarraitu beharrean zure atetik sartzea.",
       ],
+      fr: [
+        "Un client est arrêté devant votre vitrine calle Mayor, sort son téléphone et cherche « ouvert le lundi ? ». S'il ne vous trouve pas en dix secondes, il fait demi-tour et entre dans la boutique d'à côté. C'est la vraie bataille du commerce à Irun, calle Mayor ou en plein Avenida de Iparralde : vous ne luttez pas contre un géant en ligne, vous luttez contre celui qui est déjà à trente mètres de votre porte et qui s'en va parce que vos horaires, votre adresse ou ce que vous vendez n'apparaissent pas clairement sur Google.",
+        "C'est pourquoi, pour les commerces du centre piéton et de toute la ville, je construis le site autour de ça : vitrine visuelle de ce que vous proposez, horaires et localisation visibles sans avoir à chercher, bouton WhatsApp pour demander « vous avez ma taille ? » sans se sentir engagé. Et la fiche Google affinée avec des avis pour que vous appariez en haut quand quelqu'un cherche près de Luis de Uranzu ou de San Marcial. Si vendre en ligne a du sens pour vous, je monte une boutique simple ; sinon, le site travaille à faire entrer les gens par la porte, c'est là que vous gagnez de l'argent.",
+        "Et il y a un angle que presque personne n'exploite à Irun : le client français qui traverse la frontière pour faire ses achats. Je prépare le site pour que celui qui cherche dans sa langue depuis Hendaye vous trouve aussi, pas seulement le client d'ici. Le tout pour un paiement unique de 1 300 € + TVA, première année incluse et le site en pleine propriété.",
+      ],
     },
     nearbySectors: ["web-para-hosteleria", "web-para-clinicas"],
   },
@@ -112,8 +130,9 @@ export const sectorLandings: SectorLandingDef[] = [
       es: "talleres e industria B2B",
       en: "workshops and B2B industry",
       eu: "tailerrak eta B2B industria",
+      fr: "ateliers et industrie B2B",
     },
-    businessNoun: { es: "tu empresa", en: "your company", eu: "zure enpresa" },
+    businessNoun: { es: "tu empresa", en: "your company", eu: "zure enpresa", fr: "votre entreprise" },
     touches: {
       es: [
         "Los polígonos de Ventas y Araso, en Irun, están llenos de naves de mecanizado, calderería y distribución donde el trabajo es de primera y la web parece de 2009, si es que la tienen. Y el problema es real: el responsable de compras que busca proveedor en Google no pide tres referencias antes de entrar; abre tu página, ve una web vieja y cierra. Ni te llama. Has perdido un pedido que ni sabías que existía, y el de al lado se lo lleva por tener la web decente.",
@@ -130,6 +149,11 @@ export const sectorLandings: SectorLandingDef[] = [
         "Horregatik tailer eta industriarako gaitasun teknikoa transmititzen duten B2B webak egiten ditut: produktu edo zerbitzu katalogoa fitxen deskargarekin, prozesu eta gaitasunen atala, ziurtagiri ikusgaiak eta kualifikatuta iristen zaizkizun kotizazio formularioak. Estetika serioa baina modernoa, web industrial grisaren klixetik urrun.",
         "SEOa zure sektoreko nitxo oso zehatzetarako afintzen dut (mekanizatua, galdaragintza, soldadura, banaketa…), bilaketa bihurtzaileak hor daudelako. Bilaketa gutxi, baina bakoitza benetako bezero potentziala da, ez kuriositatea.",
       ],
+      fr: [
+        "Les zones industrielles de Ventas et d'Araso, à Irun, sont pleines d'ateliers d'usinage, de chaudronnerie et de distribution où le travail est de première qualité et le site web date de 2009, quand il existe. Et le problème est réel : le responsable achats qui cherche un fournisseur sur Google ne demande pas trois références avant d'entrer ; il ouvre votre page, voit un vieux site et referme. Il ne vous appelle même pas. Vous venez de perdre une commande dont vous ne saviez même pas l'existence, et le concurrent d'à côté la récupère parce que son site est correct.",
+        "À Irun, ça pèse double, parce qu'une bonne partie de la clientèle traverse la Bidassoa : des entreprises françaises qui cherchent « usinage Irun » ou « sous-traitance frontière » et qui ont besoin de comprendre ce que vous faites sans traducteur. C'est pourquoi je vous construis le site en espagnol et en français, avec le catalogue de procédés et de capacités clair, les fiches techniques téléchargeables, les certifications bien visibles et un formulaire de devis qui vous arrive avec les données dont vous avez besoin pour chiffrer, pas un simple « bonjour, info ». Et sur Google, je me bats pour les recherches qui convertissent dans votre niche (usinage, soudure, chaudronnerie, distribution), les deux ou trois par mois qui sont une vraie commande et pas un simple curieux.",
+        "Je suis à Irun, à côté des zones industrielles, donc si le projet le demande, on fait la première réunion dans votre atelier, devant les machines, plutôt qu'en visioconférence. Un paiement unique de 1 300 € + TVA, première année incluse : le site est à vous, sans abonnement mensuel.",
+      ],
     },
     nearbySectors: ["web-para-despachos", "web-para-comercio"],
   },
@@ -139,8 +163,9 @@ export const sectorLandings: SectorLandingDef[] = [
       es: "despachos y servicios profesionales",
       en: "firms and professional services",
       eu: "bulegoak eta zerbitzu profesionalak",
+      fr: "cabinets et services professionnels",
     },
-    businessNoun: { es: "tu despacho", en: "your firm", eu: "zure bulegoa" },
+    businessNoun: { es: "tu despacho", en: "your firm", eu: "zure bulegoa", fr: "votre cabinet" },
     touches: {
       es: [
         "Le acaban de notificar una inspección de Hacienda, o le ha llegado una carta de despido, y son las once de la noche. Lo primero que hace no es llamar a nadie: busca «asesoría fiscal urgente Irun» o «abogado laboralista Irun» en el móvil. En esos diez segundos decide a quién confía el problema, mirando quién aparece primero, qué reseñas tiene y si da la sensación de que controla. Si tu despacho no sale ahí, ni existes para ese cliente.",
@@ -156,6 +181,11 @@ export const sectorLandings: SectorLandingDef[] = [
         "Bulego batek (abokatua, aholkularitza, kudeaketa, arkitektoa) irizpidea eta konfiantza saltzen du. «Lan-zuzenbideko abokatua nire hirian» edo «zerga-aholkularitza gertu» bilatzen duen bezeroak esperientzia, espezialitatea eta tratu hurbila ikusi nahi ditu telefonoa hartu aurretik. Web sobrio eta ondo egin batek deitzea merezi duen profesional gisa kokatzen zaitu.",
         "Horregatik bulegoetarako zerbitzu eta espezialitateen hierarkia argia duten webak egiten ditut, ibilbide ikusgaiko talde-orria, bezeroak ulertzen duen hizkuntzan azaldutako kasuak edo jarduera-arloak, eta inora ez doazen deiak aurrezten dizkizun harremanetarako formularioa.",
         "Tokiko SEOa lantzen dut zure espezialitatearen eta eremuaren bilaketetan ager zaitezen, kontratatzeko benetako asmoa duen bezeroa hor dagoelako. Hobe eskaintzen duzuna behar duten hamar bisita, hortik pasatzen ziren mila baino.",
+      ],
+      fr: [
+        "On vient de lui notifier un contrôle fiscal, ou il a reçu une lettre de licenciement, et il est onze heures du soir. La première chose qu'il fait, ce n'est pas d'appeler quelqu'un : il cherche « expert-comptable urgence Irun » ou « avocat droit du travail Irun » sur son téléphone. En ces dix secondes, il décide à qui confier son problème, en regardant qui apparaît en premier, quels avis il a et s'il donne l'impression de maîtriser le sujet. Si votre cabinet n'apparaît pas là, vous n'existez même pas pour ce client.",
+        "Et à Irun, la partie se joue sur deux fronts. D'un côté, Saint-Sébastien à 21 km capte beaucoup de recherches et vous prend des clients que vous avez juste à côté, à Anaka, Behobia ou dans le centre. De l'autre, il y a la frontière : de nombreuses PME et particuliers français traversent la Bidassoa avec des questions fiscales, sociales ou commerciales des deux côtés, et presque aucun cabinet d'Irun n'a son site prêt à capter « cabinet fiscal Irun » ou « avocat frontalier ». Très peu travaillent cet angle, et c'est du travail récurrent et bien payé qui reste sur la table.",
+        "Pour les cabinets, je construis des sites sobres et rapides. Les services et spécialités sont bien hiérarchisés, avec une page équipe qui met en avant le parcours et l'inscription à l'ordre, et chaque domaine expliqué comme vous le raconteriez au client lors du premier rendez-vous, sans qu'il ait besoin d'être juriste pour comprendre. Le formulaire filtre avant que le téléphone ne sonne : il vous épargne les appels qui ne mènent nulle part et ne vous laisse que ceux qui peuvent aboutir à un mandat. J'affine le SEO local pour votre spécialité et votre zone. Et en espagnol et en français si le client d'en face vous intéresse, car c'est là que se trouve celui qui va vraiment vous engager. Mieux vaut dix visites qui ont besoin exactement de ce que vous faites que mille qui passaient par là. Le tout pour un paiement unique de 1 300 € + TVA, première année incluse.",
       ],
     },
     nearbySectors: ["web-para-clinicas", "web-para-industria"],
@@ -280,6 +310,61 @@ export function getSectorLandingContent(
       ctaSub: "Free audit: I show you who's taking clients from you on Google and why. No commitment.",
       ctaBtn: "Talk to Unax",
       quoteBtn: "See how my site would look (free)",
+    };
+  }
+
+  if (locale === "fr") {
+    return {
+      breadcrumbHome: "Accueil",
+      breadcrumbHere: `Sites pour ${sector}`,
+      heroTitle: `Des sites pour ${sector} qui apportent des clients`,
+      intro: `Je suis Unax Aller, designer web freelance à Irun. Je crée des sites pour ${sector} : rapides sur mobile, avec une fiche Google Maps optimisée et un système d'avis qui fait que ${noun} apparaît en premier quand quelqu'un cherche votre service. Pour un paiement unique de 1 300 € + TVA, première année incluse.`,
+      benefitsTitle: `Pourquoi ${sector} choisissent votre site`,
+      benefits: [
+        {
+          title: "Je connais votre secteur",
+          desc: `Je sais comment votre client cherche et ce qu'il attend de ${noun}. Je construis le site et la fiche Google pour parler son langage et convertir.`,
+        },
+        {
+          title: "Vous sortez en premier sur Google",
+          desc: `J'optimise votre fiche Google Business Profile pour que vous appariez sur les recherches type « votre service près de moi ». Celui qui sort en premier reçoit l'appel.`,
+        },
+        {
+          title: "Support direct par WhatsApp",
+          desc: "Vous parlez toujours avec moi, pas avec un chargé de clientèle. Modifications mensuelles par WhatsApp direct, réponse le jour même.",
+        },
+        {
+          title: "Paiement unique, garantie 30 jours",
+          desc: "Un paiement unique de 1 300 € + TVA, première année incluse. Le site est à vous, sans abonnement mensuel. Si dans les 30 premiers jours vous n'êtes pas satisfait, remboursement complet sans question.",
+        },
+      ],
+      faqTitle: `Questions fréquentes sur les sites pour ${sector}`,
+      faq: [
+        {
+          q: `Combien coûte un site pour ${noun} ?`,
+          a: "1 300 € + TVA, paiement unique, avec la première année de maintenance incluse (design sur mesure, hébergement, nom de domaine, fiche Google Business Profile optimisée, système d'avis, support WhatsApp et modifications). À partir de la deuxième année, 600 €/an. Sans factures supplémentaires.",
+        },
+        {
+          q: "Quand le site est-il prêt ?",
+          a: "En une semaine à partir de la validation du paiement. On démarre tout de suite.",
+        },
+        {
+          q: `Comment ça m'aide à avoir plus de clients ?`,
+          a: `Quand quelqu'un cherche votre service sur Google depuis son mobile, ce qu'il voit surtout, c'est Google Maps. Si votre fiche sort en premier et a des avis récents, le client vous contacte directement. C'est ce que je construis, optimisé pour votre secteur et votre zone.`,
+        },
+        {
+          q: "Puis-je avoir le site en plusieurs langues ?",
+          a: "Oui, jusqu'à 4 langues (basque, espagnol, anglais et français) sans coût supplémentaire. Dans les zones à tourisme français, c'est très utile.",
+        },
+        {
+          q: "Le site est-il à moi ?",
+          a: "Oui. Le nom de domaine est enregistré à votre nom dès le premier jour et le site est à vous après paiement, vous ne le louez pas. Votre fiche Google avec ses avis reste celle de votre entreprise. La maintenance annuelle sert uniquement à le garder en ligne et entretenu.",
+        },
+      ],
+      ctaTitle: `Vous avez ${noun} ?`,
+      ctaSub: "Audit gratuit : je vous montre qui vous prend des clients sur Google et pourquoi. Sans engagement.",
+      ctaBtn: "Parler à Unax",
+      quoteBtn: "Voir à quoi ressemblerait mon site (gratuit)",
     };
   }
 

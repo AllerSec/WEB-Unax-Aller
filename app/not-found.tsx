@@ -11,14 +11,15 @@ gsap.registerPlugin(useGSAP);
 export default function NotFound() {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const locale = (pathname?.split("/")[1] as "es" | "en" | "eu") || "es";
-  const validLocales = ["es", "en", "eu"];
+  const locale = (pathname?.split("/")[1] as "es" | "en" | "eu" | "fr") || "es";
+  const validLocales = ["es", "en", "eu", "fr"];
   const activeLocale = validLocales.includes(locale) ? locale : "es";
 
   const labels = {
     es: { title: "Página no encontrada", sub: "La página que buscas no existe o ha sido movida.", back: "Volver al inicio", contact: "Contactar" },
     en: { title: "Page not found", sub: "The page you are looking for does not exist or has been moved.", back: "Back to home", contact: "Contact" },
     eu: { title: "Orria ez da aurkitu", sub: "Bilatzen ari zaren orria ez da existitzen edo mugitu egin da.", back: "Hasierara itzuli", contact: "Kontaktua" },
+    fr: { title: "Page introuvable", sub: "La page que vous cherchez n'existe pas ou a été déplacée.", back: "Retour à l'accueil", contact: "Contact" },
   };
   const l = labels[activeLocale as keyof typeof labels];
 

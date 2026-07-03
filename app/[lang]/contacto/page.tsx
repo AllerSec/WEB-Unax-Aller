@@ -14,17 +14,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Contacto: Agenda tu Consulta Gratuita",
     en: "Contact: Book Your Free Consultation",
     eu: "Kontaktua: Doako Kontsulta Antolatu",
+    fr: "Contact : Réservez votre Consultation Gratuite",
   };
   const descriptions: Record<string, string> = {
     es: "Cuéntanos tu proyecto. Respondemos en menos de 24 horas con una propuesta inicial gratuita. Diseño y desarrollo web premium.",
     en: "Tell us about your project. We respond within 24 hours with a free initial proposal. Premium web design and development.",
     eu: "Kontatu zure proiektua. 24 ordutan baino gutxiagotan erantzuten dugu doako hasierako proposamen batekin.",
+    fr: "Parlez-nous de votre projet. Nous répondons en moins de 24 heures avec une proposition initiale gratuite. Design et développement web haut de gamme.",
   };
 
   const title = titles[locale];
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ContactoPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const t = await getTranslations({ locale, namespace: "contact" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
 
@@ -144,8 +146,8 @@ export default async function ContactoPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua", item: `https://unaxaller.com/${locale}/contacto` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? "Contacto" : locale === "en" ? "Contact" : locale === "eu" ? "Kontaktua" : "Contact", item: `https://unaxaller.com/${locale}/contacto` },
         ],
       },
     ],
@@ -161,13 +163,13 @@ export default async function ContactoPage({ params }: Props) {
       <section
         className="page-hero"
         data-page="contacto"
-        aria-label={locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua"}
+        aria-label={locale === "es" ? "Contacto" : locale === "en" ? "Contact" : locale === "eu" ? "Kontaktua" : "Contact"}
       >
         <div className="container-xl">
           <Breadcrumbs
             items={[
-              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
-              { name: locale === "es" ? "Contacto" : locale === "en" ? "Contact" : "Kontaktua" },
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", href: `/${locale}` },
+              { name: locale === "es" ? "Contacto" : locale === "en" ? "Contact" : locale === "eu" ? "Kontaktua" : "Contact" },
             ]}
           />
 
@@ -186,7 +188,9 @@ export default async function ContactoPage({ params }: Props) {
             ? "Contacto rápido por WhatsApp"
             : locale === "en"
             ? "Quick contact via WhatsApp"
-            : "Kontaktu azkarra WhatsApp bidez"
+            : locale === "eu"
+            ? "Kontaktu azkarra WhatsApp bidez"
+            : "Contact rapide par WhatsApp"
         }
       >
         <div className="container-xl">
@@ -203,21 +207,27 @@ export default async function ContactoPage({ params }: Props) {
                   ? "Forma más rápida"
                   : locale === "en"
                   ? "Fastest way"
-                  : "Modu azkarrena"}
+                  : locale === "eu"
+                  ? "Modu azkarrena"
+                  : "Le moyen le plus rapide"}
               </span>
               <h2 className="contact-wa-title">
                 {locale === "es"
                   ? "Escríbeme por WhatsApp"
                   : locale === "en"
                   ? "Message me on WhatsApp"
-                  : "Idatzi WhatsApp bidez"}
+                  : locale === "eu"
+                  ? "Idatzi WhatsApp bidez"
+                  : "Écrivez-moi sur WhatsApp"}
               </h2>
               <p className="contact-wa-subtitle">
                 {locale === "es"
                   ? "Respondo el mismo día."
                   : locale === "en"
                   ? "Same-day reply."
-                  : "Egun berean erantzuten dizut."}
+                  : locale === "eu"
+                  ? "Egun berean erantzuten dizut."
+                  : "Je réponds le jour même."}
               </p>
             </div>
 
@@ -231,7 +241,9 @@ export default async function ContactoPage({ params }: Props) {
                 ? "o si prefieres, escríbeme aquí"
                 : locale === "en"
                 ? "or if you prefer, write to me here"
-                : "edo nahiago baduzu, idatzi hemen"}
+                : locale === "eu"
+                ? "edo nahiago baduzu, idatzi hemen"
+                : "ou si vous préférez, écrivez-moi ici"}
             </span>
             <span className="contact-wa-divider-line" />
           </div>
@@ -250,7 +262,9 @@ export default async function ContactoPage({ params }: Props) {
                       ? "¿Por qué elegirnos?"
                       : locale === "en"
                       ? "Why choose us?"
-                      : "Zergatik aukeratu?"}
+                      : locale === "eu"
+                      ? "Zergatik aukeratu?"
+                      : "Pourquoi nous choisir ?"}
                   </h2>
                   <ul className="contact-trust-list">
                     {(locale === "es"
@@ -267,11 +281,18 @@ export default async function ContactoPage({ params }: Props) {
                           "30-day guarantee from launch",
                           "First-year changes over WhatsApp included",
                         ]
-                      : [
+                      : locale === "eu"
+                      ? [
                           "Egun bereko erantzuna WhatsApp bidez",
                           "1.300€ ordainketa bakarra · 1. urtea barne",
                           "30 eguneko bermea abiarazi eta gero",
                           "Lehen urteko aldaketak WhatsApp bidez barne",
+                        ]
+                      : [
+                          "Réponse le jour même par WhatsApp",
+                          "1 300 € paiement unique · 1re année incluse",
+                          "30 jours de garantie satisfait ou remboursé",
+                          "Modifications par WhatsApp incluses la 1re année",
                         ]
                     ).map((item, i) => (
                       <li key={i} className="contact-trust-item">
@@ -290,7 +311,7 @@ export default async function ContactoPage({ params }: Props) {
                 </div>
 
                 <h2 className="contact-what-title">
-                  {locale === "es" ? "¿Qué pasa cuando contactas?" : locale === "en" ? "What happens when you get in touch?" : "Zer gertatzen da kontaktuan jartzen zarenean?"}
+                  {locale === "es" ? "¿Qué pasa cuando contactas?" : locale === "en" ? "What happens when you get in touch?" : locale === "eu" ? "Zer gertatzen da kontaktuan jartzen zarenean?" : "Que se passe-t-il quand vous me contactez ?"}
                 </h2>
                 <div className="contact-steps-row">
                   {(locale === "es" ? [
@@ -301,10 +322,14 @@ export default async function ContactoPage({ params }: Props) {
                     { step: "1", text: "Your message reaches me in minutes" },
                     { step: "2", text: "I reply within 24h with an initial proposal" },
                     { step: "3", text: "If it fits, we schedule a free 30-min call" },
-                  ] : [
+                  ] : locale === "eu" ? [
                     { step: "1", text: "Zure mezua minututan iristen zait" },
                     { step: "2", text: "24 ordutan erantzuten dizut hasierako proposamen batekin" },
                     { step: "3", text: "Bat badator, 30 minutuko dei doan bat antolatzen dugu" },
+                  ] : [
+                    { step: "1", text: "Votre message m'arrive en quelques minutes" },
+                    { step: "2", text: "Je vous réponds sous 24h avec une proposition initiale" },
+                    { step: "3", text: "Si ça correspond, on planifie un appel gratuit de 30 min" },
                   ]).map((item) => (
                     <div key={item.step} className="contact-step">
                       <span className="contact-step-number">{item.step}</span>

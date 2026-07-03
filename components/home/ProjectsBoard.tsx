@@ -14,7 +14,7 @@ const PERSONALITY: Record<
     tapeCorner: "tl" | "tr" | "bl" | "br";
     tapeAngle: number;
     captionStyle: "marker" | "italic" | "stencil" | "serif";
-    badgeText: { es: string; en: string; eu: string };
+    badgeText: { es: string; en: string; eu: string; fr: string };
   }
 > = {
   boralan: {
@@ -23,7 +23,7 @@ const PERSONALITY: Record<
     tapeCorner: "tr",
     tapeAngle: -24,
     captionStyle: "stencil",
-    badgeText: { es: "ALTURA", en: "CLIMB", eu: "ALTUERA" },
+    badgeText: { es: "ALTURA", en: "CLIMB", eu: "ALTUERA", fr: "ALTITUDE" },
   },
   "motos-arretxe": {
     tilt: -3,
@@ -31,7 +31,7 @@ const PERSONALITY: Record<
     tapeCorner: "tr",
     tapeAngle: 28,
     captionStyle: "stencil",
-    badgeText: { es: "TALLER", en: "GARAGE", eu: "TAILERRA" },
+    badgeText: { es: "TALLER", en: "GARAGE", eu: "TAILERRA", fr: "GARAGE" },
   },
   "anaka-optica": {
     tilt: 2.5,
@@ -39,7 +39,7 @@ const PERSONALITY: Record<
     tapeCorner: "tl",
     tapeAngle: -22,
     captionStyle: "italic",
-    badgeText: { es: "Nº 02", en: "Nº 02", eu: "Nº 02" },
+    badgeText: { es: "Nº 02", en: "Nº 02", eu: "Nº 02", fr: "Nº 02" },
   },
   virtuosolve: {
     tilt: -2,
@@ -47,7 +47,7 @@ const PERSONALITY: Record<
     tapeCorner: "br",
     tapeAngle: 18,
     captionStyle: "marker",
-    badgeText: { es: "AI · 2026", en: "AI · 2026", eu: "AI · 2026" },
+    badgeText: { es: "AI · 2026", en: "AI · 2026", eu: "AI · 2026", fr: "IA · 2026" },
   },
   "farmacia-fernandez-bera": {
     tilt: 3,
@@ -55,7 +55,7 @@ const PERSONALITY: Record<
     tapeCorner: "bl",
     tapeAngle: -32,
     captionStyle: "serif",
-    badgeText: { es: "BERA", en: "BERA", eu: "BERA" },
+    badgeText: { es: "BERA", en: "BERA", eu: "BERA", fr: "BERA" },
   },
   tecmac: {
     tilt: -2.5,
@@ -63,25 +63,31 @@ const PERSONALITY: Record<
     tapeCorner: "tr",
     tapeAngle: -18,
     captionStyle: "stencil",
-    badgeText: { es: "ACERO", en: "STEEL", eu: "ALTZAIRUA" },
+    badgeText: { es: "ACERO", en: "STEEL", eu: "ALTZAIRUA", fr: "ACIER" },
   },
 };
 
 export default async function ProjectsBoard({ locale }: Props) {
   const t = await getTranslations({ locale, namespace: "projects" });
 
-  const visitLabel = locale === "es" ? "VISITAR" : locale === "en" ? "VISIT" : "BISITATU";
+  const visitLabel = locale === "es" ? "VISITAR" : locale === "en" ? "VISIT" : locale === "eu" ? "BISITATU" : "VISITER";
   const seeAllLabel =
-    locale === "es" ? "Ver todos los proyectos" : locale === "en" ? "See all projects" : "Ikusi proiektu guztiak";
+    locale === "es"
+      ? "Ver todos los proyectos"
+      : locale === "en"
+      ? "See all projects"
+      : locale === "eu"
+      ? "Ikusi proiektu guztiak"
+      : "Voir tous les projets";
 
   return (
     <section className="corkboard" aria-label={t("eyebrow")}>
       <div className="container-xl">
         <div className="corkboard-inner">
           <span className="corkboard-banner" aria-hidden="true">
-            <span>{locale === "es" ? "ESTUDIO" : locale === "en" ? "STUDIO" : "ESTUDIOA"}</span>
+            <span>{locale === "es" ? "ESTUDIO" : locale === "en" ? "STUDIO" : locale === "eu" ? "ESTUDIOA" : "STUDIO"}</span>
             <span className="corkboard-banner-dot" />
-            <span>{locale === "es" ? "TABLERO 2026" : locale === "en" ? "BOARD 2026" : "TAULA 2026"}</span>
+            <span>{locale === "es" ? "TABLERO 2026" : locale === "en" ? "BOARD 2026" : locale === "eu" ? "TAULA 2026" : "TABLEAU 2026"}</span>
           </span>
 
           <div className="corkboard-heading">
@@ -98,7 +104,7 @@ export default async function ProjectsBoard({ locale }: Props) {
                 tapeCorner: "tl" as const,
                 tapeAngle: 0,
                 captionStyle: "marker" as const,
-                badgeText: { es: "", en: "", eu: "" },
+                badgeText: { es: "", en: "", eu: "", fr: "" },
               };
               const tasks = project.tasks[locale].slice(0, 3);
 

@@ -14,17 +14,19 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Sobre Mí: Diseñador Web en Irun, Gipuzkoa",
     en: "About Me: Web Designer in Irun, Basque Country",
     eu: "Ni buruz: Web Diseinatzailea Irunen, Gipuzkoan",
+    fr: "À propos : Créateur de Sites Web à Irun, Pays Basque",
   };
   const descriptions: Record<string, string> = {
     es: "Soy Unax Aller, diseñador web freelance en Irun, Gipuzkoa. Ingeniería informática en la UAX, 4 idiomas y webs a medida para negocios del País Vasco.",
     en: "I'm Unax Aller, freelance web designer in Irun, Basque Country. Computer engineering at UAX, 4 languages and custom websites for Basque businesses.",
     eu: "Unax Aller naiz, web diseinatzaile freelance Irunen, Gipuzkoan. Informatika ingeniaritza UAX-en, 4 hizkuntza eta Euskal Herriko negozioetarako webguneak.",
+    fr: "Je suis Unax Aller, créateur de sites web freelance à Irun, Pays basque. Ingénierie informatique à l'UAX, 4 langues et sites sur mesure pour les commerces du Pays basque.",
   };
 
   const title = titles[locale];
@@ -46,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SobreNosotrosPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const t = await getTranslations({ locale, namespace: "about" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
   const tHero = await getTranslations({ locale, namespace: "hero" });
@@ -165,8 +167,8 @@ export default async function SobreNosotrosPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", item: `https://unaxaller.com/${locale}` },
-          { "@type": "ListItem", position: 2, name: locale === "es" ? "Sobre Nosotros" : locale === "en" ? "About" : "Ni buruz", item: `https://unaxaller.com/${locale}/sobre-nosotros` },
+          { "@type": "ListItem", position: 1, name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", item: `https://unaxaller.com/${locale}` },
+          { "@type": "ListItem", position: 2, name: locale === "es" ? "Sobre Nosotros" : locale === "en" ? "About" : locale === "eu" ? "Ni buruz" : "À propos", item: `https://unaxaller.com/${locale}/sobre-nosotros` },
         ],
       },
     ],
@@ -181,13 +183,13 @@ export default async function SobreNosotrosPage({ params }: Props) {
 
       <section
         className="page-hero"
-        aria-label={locale === "es" ? "Sobre mí" : locale === "en" ? "About me" : "Ni buruz"}
+        aria-label={locale === "es" ? "Sobre mí" : locale === "en" ? "About me" : locale === "eu" ? "Ni buruz" : "À propos"}
       >
         <div className="container-xl">
           <Breadcrumbs
             items={[
-              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : "Hasiera", href: `/${locale}` },
-              { name: locale === "es" ? "Sobre mí" : locale === "en" ? "About me" : "Ni buruz" },
+              { name: locale === "es" ? "Inicio" : locale === "en" ? "Home" : locale === "eu" ? "Hasiera" : "Accueil", href: `/${locale}` },
+              { name: locale === "es" ? "Sobre mí" : locale === "en" ? "About me" : locale === "eu" ? "Ni buruz" : "À propos" },
             ]}
           />
 
@@ -280,46 +282,54 @@ export default async function SobreNosotrosPage({ params }: Props) {
         <div className="container-xl">
           <AnimatedSection className="about-section-header">
             <h2 id="timeline-title" className="section-heading">
-              {locale === "es" ? "Experiencia que marca la diferencia" : locale === "en" ? "Experience that makes a difference" : "Aldea egiten duen esperientzia"}
+              {locale === "es" ? "Experiencia que marca la diferencia" : locale === "en" ? "Experience that makes a difference" : locale === "eu" ? "Aldea egiten duen esperientzia" : "Une expérience qui fait la différence"}
             </h2>
           </AnimatedSection>
           <div className="timeline">
             {[
               {
                 year: "2007–2020",
-                title: locale === "es" ? "Educación en Francia" : locale === "en" ? "Education in France" : "Hezkuntza Frantzian",
+                title: locale === "es" ? "Educación en Francia" : locale === "en" ? "Education in France" : locale === "eu" ? "Hezkuntza Frantzian" : "Scolarité en France",
                 desc: locale === "es"
                   ? "Estudié desde 2007 hasta 2020 en Francia. Francés bilingüe de verdad, no de academia. Eso se nota cuando hago webs para empresas que exportan."
                   : locale === "en"
                   ? "I studied in France from 2007 to 2020. Genuinely bilingual French, not from a class. That shows when I build websites for exporting companies."
-                  : "2007tik 2020ra Frantzian ikasi nuen. Frantses elebidun benetakoa. Hori nabaritzen da esportatzen duten enpresetarako webguneak egiten ditudanean.",
+                  : locale === "eu"
+                  ? "2007tik 2020ra Frantzian ikasi nuen. Frantses elebidun benetakoa. Hori nabaritzen da esportatzen duten enpresetarako webguneak egiten ditudanean."
+                  : "J'ai étudié de 2007 à 2020 en France. Un français vraiment bilingue, pas d'école de langues. Ça se voit quand je construis des sites pour des entreprises qui exportent.",
               },
               {
                 year: "2023",
-                title: locale === "es" ? "Ingeniería Informática" : locale === "en" ? "Computer Engineering" : "Informatika Ingeniaritza",
+                title: locale === "es" ? "Ingeniería Informática" : locale === "en" ? "Computer Engineering" : locale === "eu" ? "Informatika Ingeniaritza" : "Ingénierie informatique",
                 desc: locale === "es"
                   ? "Empecé la carrera de Ingeniería Informática en la UAX. Por el camino, intercambios internacionales y una temporada de trabajo en el extranjero: adaptarse a entornos nuevos rápido y sin miedo, en inglés real, no de examen."
                   : locale === "en"
                   ? "Started a Computer Engineering degree at UAX. Along the way, international exchanges and a stint working abroad: adapting to new environments fast and without fear, in real English, not exam English."
-                  : "Informatika Ingeniaritza karrera hasi nuen UAX-en. Bidean, nazioarteko trukeak eta atzerrian lan-tarte bat: ingurune berrietara azkar eta beldurrik gabe egokitzea, benetako ingelesez, ez azterketakoa.",
+                  : locale === "eu"
+                  ? "Informatika Ingeniaritza karrera hasi nuen UAX-en. Bidean, nazioarteko trukeak eta atzerrian lan-tarte bat: ingurune berrietara azkar eta beldurrik gabe egokitzea, benetako ingelesez, ez azterketakoa."
+                  : "J'ai commencé le diplôme d'Ingénierie informatique à l'UAX. En chemin, des échanges internationaux et une période de travail à l'étranger : s'adapter vite et sans peur à de nouveaux environnements, en anglais réel, pas d'examen.",
               },
               {
                 year: "2024",
-                title: locale === "es" ? "Primer interés por la web" : locale === "en" ? "First interest in the web" : "Lehen interesa webean",
+                title: locale === "es" ? "Primer interés por la web" : locale === "en" ? "First interest in the web" : locale === "eu" ? "Lehen interesa webean" : "Premier intérêt pour le web",
                 desc: locale === "es"
                   ? "Comencé a interesarme por el diseño y desarrollo web. Mucha práctica con proyectos personales, tipografía, SEO técnico y rendimiento."
                   : locale === "en"
                   ? "I started getting interested in web design and development. A lot of practice with personal projects, typography, technical SEO and performance."
-                  : "Web diseinuan eta garapenean interesatzen hasi nintzen. Praktika asko proiektu pertsonalekin, tipografia, SEO teknikoa eta errendimendua.",
+                  : locale === "eu"
+                  ? "Web diseinuan eta garapenean interesatzen hasi nintzen. Praktika asko proiektu pertsonalekin, tipografia, SEO teknikoa eta errendimendua."
+                  : "J'ai commencé à m'intéresser au design et au développement web. Beaucoup de pratique avec des projets personnels, la typographie, le SEO technique et la performance.",
               },
               {
                 year: "2026–",
-                title: locale === "es" ? "Webs profesionales" : locale === "en" ? "Professional websites" : "Web profesionalak",
+                title: locale === "es" ? "Webs profesionales" : locale === "en" ? "Professional websites" : locale === "eu" ? "Web profesionalak" : "Sites professionnels",
                 desc: locale === "es"
                   ? "Comencé a crear webs profesionalmente. Farmacia, motos, IA, óptica. 5 estrellas en Google. Trabajando para negocios del País Vasco y Navarra mientras sigo con Ingeniería Informática."
                   : locale === "en"
                   ? "Started building websites professionally. Pharmacy, motorbikes, AI, optics. 5 stars on Google. Working for businesses in the Basque Country and Navarre while continuing my Computer Engineering studies."
-                  : "Webguneak profesionalki egiten hasi nintzen. Farmazia, motozikletak, IA, optika. 5 izar Google-n. Euskal Herriko eta Nafarroako negozioentzat lan egiten Informatika Ingeniaritza ikasten jarraitzen dudan bitartean.",
+                  : locale === "eu"
+                  ? "Webguneak profesionalki egiten hasi nintzen. Farmazia, motozikletak, IA, optika. 5 izar Google-n. Euskal Herriko eta Nafarroako negozioentzat lan egiten Informatika Ingeniaritza ikasten jarraitzen dudan bitartean."
+                  : "J'ai commencé à créer des sites professionnellement. Pharmacie, motos, IA, opticien. 5 étoiles sur Google. Je travaille pour des commerces du Pays basque et de Navarre tout en poursuivant mes études d'Ingénierie informatique.",
               },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>

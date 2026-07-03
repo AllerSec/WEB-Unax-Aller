@@ -10,12 +10,13 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
     es: "Política de Cookies",
     en: "Cookie Policy",
     eu: "Cookie Politika",
+    fr: "Politique de Cookies",
   };
 
   return {
@@ -30,18 +31,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CookiesPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
 
   const title =
-    locale === "es" ? "Política de Cookies" : locale === "en" ? "Cookie Policy" : "Cookie Politika";
+    locale === "es" ? "Política de Cookies" : locale === "en" ? "Cookie Policy" : locale === "eu" ? "Cookie Politika" : "Politique de Cookies";
   const updatedLabel =
     locale === "es" ? "Última actualización: enero 2026" :
     locale === "en" ? "Last updated: January 2026" :
-    "Azken eguneraketa: 2026ko urtarrila";
+    locale === "eu" ? "Azken eguneraketa: 2026ko urtarrila" :
+    "Dernière mise à jour : janvier 2026";
   const backLabel =
-    locale === "es" ? "Volver al inicio" : locale === "en" ? "Back to home" : "Hasierara itzuli";
+    locale === "es" ? "Volver al inicio" : locale === "en" ? "Back to home" : locale === "eu" ? "Hasierara itzuli" : "Retour à l'accueil";
   const privacyLabel =
-    locale === "es" ? "Política de Privacidad" : locale === "en" ? "Privacy Policy" : "Pribatutasun Politika";
+    locale === "es" ? "Política de Privacidad" : locale === "en" ? "Privacy Policy" : locale === "eu" ? "Pribatutasun Politika" : "Politique de Confidentialité";
 
   return (
     <section className="legal-page" aria-labelledby="legal-title">
@@ -87,6 +89,21 @@ export default async function CookiesPage({ params }: Props) {
 
                 <h2>Kontaktua</h2>
                 <p>Politika honi buruzko galderak egiteko, jarri gurekin harremanetan <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a> helbidean. Ikusi baita gure <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
+              </>
+            ) : locale === "fr" ? (
+              <>
+                <h2>Qu&apos;est-ce qu&apos;un cookie ?</h2>
+                <p>Les cookies sont de petits fichiers texte que votre navigateur stocke sur votre appareil lorsque vous visitez un site web. Ils permettent au site de mémoriser vos préférences et d&apos;améliorer votre expérience.</p>
+
+                <h2>Cookies que nous utilisons</h2>
+                <p><strong>Cookies strictement nécessaires (sans consentement requis) :</strong> Ces cookies sont essentiels au bon fonctionnement du site web. Ils comprennent les cookies de gestion de session et de préférence de langue définis par Next.js et next-intl.</p>
+                <p><strong>Cookies analytiques (uniquement avec consentement) :</strong> Actuellement, ce site n&apos;utilise pas de cookies analytiques ou de suivi. Si des outils d&apos;analyse sont ajoutés à l&apos;avenir, cette politique sera mise à jour et votre consentement sera demandé.</p>
+
+                <h2>Gestion des cookies</h2>
+                <p>Vous pouvez configurer votre navigateur pour bloquer ou supprimer les cookies à tout moment. Le blocage des cookies strictement nécessaires peut affecter le fonctionnement du site. Pour plus d&apos;instructions, consultez la section d&apos;aide de votre navigateur.</p>
+
+                <h2>Contact</h2>
+                <p>Pour toute question concernant cette politique, contactez-nous à <a href="mailto:contacto@unaxaller.com">contacto@unaxaller.com</a>. Consultez également notre <Link href={`/${locale}/privacidad`}>{privacyLabel}</Link>.</p>
               </>
             ) : (
               <>

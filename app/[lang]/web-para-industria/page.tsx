@@ -16,18 +16,20 @@ type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   const def = getSectorLanding(SLUG)!;
   const name = def.sectorNames[locale];
   const titles: Record<string, string> = {
     es: `Diseño web para ${name} · Unax Aller`,
     en: `Web design for ${name} · Unax Aller`,
     eu: `${name}entzako web diseinua · Unax Aller`,
+    fr: `Site web pour ${name} · Unax Aller`,
   };
   const descriptions: Record<string, string> = {
     es: `Diseñador web freelance especializado en ${name}. Webs a medida con SEO local, Google Maps y reseñas para conseguir más clientes. Pago único de 1.300€ + IVA, primer año incluido.`,
     en: `Freelance web designer specialised in ${name}. Custom websites with local SEO, Google Maps and reviews to win more clients. One-off €1,300 + VAT, first year included.`,
     eu: `${name}etan espezializatutako web diseinatzaile freelancea. Neurrizko webguneak tokiko SEO, Google Maps eta iritziekin bezero gehiago lortzeko. 1.300€ + BEZ ordainketa bakarra, lehen urtea barne.`,
+    fr: `Créateur de sites web freelance spécialisé pour ${name}. Sites sur mesure avec SEO local, Google Maps et avis clients pour attirer plus de clientèle. Paiement unique de 1 300 € + TVA, première année incluse.`,
   };
   return {
     title: titles[locale],
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SectorPage({ params }: Props) {
   const { lang } = await params;
-  const locale = lang as "es" | "en" | "eu";
+  const locale = lang as "es" | "en" | "eu" | "fr";
   setRequestLocale(locale);
   const def = getSectorLanding(SLUG)!;
   const content = getSectorLandingContent(def, locale);
@@ -53,10 +55,10 @@ export default async function SectorPage({ params }: Props) {
     .map((x) => ({
       href: `/${locale}/${x.slug}`,
       name: x.sectorNames[locale],
-      region: locale === "en" ? "Sector" : locale === "eu" ? "Sektorea" : "Sector",
+      region: locale === "en" ? "Sector" : locale === "eu" ? "Sektorea" : locale === "fr" ? "Secteur" : "Sector",
     }));
   const nearbyTitle =
-    locale === "es" ? "También trabajo estos sectores" : locale === "en" ? "I also work these sectors" : "Sektore hauek ere lantzen ditut";
+    locale === "es" ? "También trabajo estos sectores" : locale === "en" ? "I also work these sectors" : locale === "eu" ? "Sektore hauek ere lantzen ditut" : "Je travaille aussi ces secteurs";
   return (
     <CityLanding
       locale={locale}

@@ -55,7 +55,8 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
             },
           ],
         }
-      : {
+      : locale === "eu"
+      ? {
           eyebrow: "Bermea",
           title: "Hiru promesa idatziz. Letra txikirik gabe.",
           pillars: [
@@ -73,6 +74,27 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
               big: "Zurea",
               small: "lehen egunetik",
               desc: "Domeinua zure izenean erregistratzen da eta weba zurea da ordainketaren ondoren, ez duzu alokatzen. Zure Google fitxa eta iritziak beti zurekin geratzen dira.",
+            },
+          ],
+        }
+      : {
+          eyebrow: "La garantie",
+          title: "Trois promesses par écrit. Sans petites lignes.",
+          pillars: [
+            {
+              big: "1 300 €",
+              small: "un seul paiement",
+              desc: "Un paiement unique, plus TVA, avec la première année de maintenance incluse. Pas de mensualités qui s'accumulent. À partir de l'année 2, seulement 600 €/an pour l'entretien.",
+            },
+            {
+              big: "30 jours",
+              small: "et je vous rembourse",
+              desc: "Si dans les 30 premiers jours vous n'êtes pas satisfait, je vous rembourse chaque euro et nous coupons le site. Sans questions, sans risque pour vous.",
+            },
+            {
+              big: "À vous",
+              small: "dès le premier jour",
+              desc: "Le domaine est enregistré à votre nom et le site vous appartient après paiement, vous ne le louez pas. Votre fiche Google et vos avis restent toujours avec vous.",
             },
           ],
         };

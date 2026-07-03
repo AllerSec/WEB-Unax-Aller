@@ -74,7 +74,8 @@ export default function LiveCallCounter({ locale }: Props) {
           proofCaption:
             "Motos Arretxe's Google profile interactions: from 63 in January to 272 in April 2026 (+332%). Over 1,000 interactions in total. Real capture from their Google Business dashboard.",
         }
-      : {
+      : locale === "eu"
+      ? {
           eyebrow: "Lehen hiruhilekoan bezeroek ikusten dutena",
           calls: "hileko dei berriak",
           searches: "Googlen agertzen den aldiak",
@@ -82,6 +83,15 @@ export default function LiveCallCounter({ locale }: Props) {
           proofTitle: "Benetako kasu bat, zuzenean",
           proofCaption:
             "Motos Arretxeren Google profilaren elkarrekintzak: 63 urtarrilean, 272 2026ko apirilean (+%332). 1.000 elkarrekintza baino gehiago guztira. Bere Google Business paneleko benetako irudia.",
+        }
+      : {
+          eyebrow: "Ce que voient mes clients dès le premier trimestre",
+          calls: "nouveaux appels par mois",
+          searches: "fois où votre entreprise apparaît sur Google",
+          reviews: "avis 5 étoiles",
+          proofTitle: "Un cas réel, en direct",
+          proofCaption:
+            "Interactions du profil Google de Motos Arretxe : de 63 en janvier à 272 en avril 2026 (+332 %). Plus de 1 000 interactions cumulées. Capture réelle de son tableau de bord Google Business.",
         };
 
   return (
@@ -123,7 +133,7 @@ export default function LiveCallCounter({ locale }: Props) {
             <p className="lcc-label">{labels.calls}</p>
             <span className="lcc-live" aria-hidden="true">
               <span className="lcc-live-dot" />
-              {locale === "es" ? "en vivo" : locale === "en" ? "live" : "zuzenean"}
+              {locale === "es" ? "en vivo" : locale === "en" ? "live" : locale === "eu" ? "zuzenean" : "en direct"}
             </span>
           </div>
           <div className="lcc-item">
