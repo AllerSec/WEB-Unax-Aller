@@ -35,6 +35,10 @@ const nextConfig: NextConfig = {
       // /colabora was removed — redirect to contact page
       { source: "/colabora", destination: "/es/contacto", permanent: true },
       { source: "/:lang/colabora", destination: "/:lang/contacto", permanent: true },
+      // Old /casos/proyecto-N placeholders never mapped to a real project —
+      // send them to the projects index instead of a slug that 404s.
+      { source: "/casos/proyecto-:num", destination: "/es/proyectos", permanent: true },
+      { source: "/:lang/casos/proyecto-:num", destination: "/:lang/proyectos", permanent: true },
       // Old /casos/ paths → /proyectos/
       { source: "/casos/:slug", destination: "/es/proyectos/:slug", permanent: true },
       { source: "/:lang/casos/:slug", destination: "/:lang/proyectos/:slug", permanent: true },
@@ -43,6 +47,7 @@ const nextConfig: NextConfig = {
       { source: "/portfolioa", destination: "/es/proyectos", permanent: true },
       // Old .html extensions
       { source: "/:lang/servicios.html", destination: "/:lang/servicios", permanent: true },
+      { source: "/:lang/services.html", destination: "/:lang/servicios", permanent: true },
       { source: "/:lang/zerbitzuak.html", destination: "/:lang/servicios", permanent: true },
       { source: "/:lang/index.html", destination: "/:lang", permanent: true },
       // Orphan paths
