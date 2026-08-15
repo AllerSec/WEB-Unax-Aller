@@ -23,7 +23,7 @@
   },
   socialProof: {
     title: "Negocios reales en País Vasco y Navarra que ya tienen su sistema",
-    subtitle: "Farmacia en Bera, motos en Irun, óptica en Irun, agencia de IA en Donostia. Negocios profesionales que reciben más llamadas desde que están bien posicionados en Google.",
+    subtitle: "Farmacia, bar, cafetería y panadería en Bera; motos y óptica en Irun; ingeniería industrial y agencia de IA. Negocios profesionales que reciben más llamadas desde que están bien posicionados en Google.",
     stat1: { value: "1.300€", label: "Pago único" },
     stat2: { value: "30", label: "Días de garantía" },
     stat3: { value: "1", label: "Semana hasta tu web" },

@@ -23,7 +23,7 @@
   },
   socialProof: {
     title: "Euskal Herri eta Nafarroako negozio errealak beren sistemarekin",
-    subtitle: "Berako farmazia, Irungo motorrak, Irungo optika, Donostiako IA agentzia. Googlen ondo posizionatuta dei gehiago jasotzen dituzten negozio profesionalak.",
+    subtitle: "Berako farmazia, taberna, kafetegia eta okindegia; Irungo motorrak eta optika; industria-ingeniaritza eta IA agentzia. Googlen ondo posizionatuta dei gehiago jasotzen dituzten negozio profesionalak.",
     stat1: { value: "1.300€", label: "Ordainketa bakarra" },
     stat2: { value: "30", label: "Bermearen egunak" },
     stat3: { value: "1", label: "Aste abian jartzeko" },

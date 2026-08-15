@@ -23,7 +23,7 @@
   },
   socialProof: {
     title: "Real Basque Country and Navarra businesses already running their system",
-    subtitle: "Pharmacy in Bera, motorbike dealer in Irun, optician in Irun, AI agency in Donostia. Professional businesses that get more phone calls now that they're properly positioned on Google.",
+    subtitle: "Pharmacy, bar, café and bakery in Bera; motorbike dealer and optician in Irun; industrial engineering and an AI agency. Professional businesses that get more phone calls now that they're properly positioned on Google.",
     stat1: { value: "€1,300", label: "One-off" },
     stat2: { value: "30", label: "Money-back days" },
     stat3: { value: "1", label: "Week to launch" },

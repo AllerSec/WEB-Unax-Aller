@@ -184,6 +184,51 @@ export const galleryItems = (locale: HomeLocale): GalleryItem[] => {
       accent: "#ef4444",
       meta: t("Industrial · Navarra · 2026", "Industrial · Navarre · 2026", "Industriala · Nafarroa · 2026", "Industriel · Navarre · 2026"),
     },
+    {
+      id: "errekalde-ostatua",
+      title: "Errekalde Ostatua",
+      description: t(
+        "El bar de toda la vida de Bera. Carta digital, horario en vivo y web en 4 idiomas para el cliente francés.",
+        "Bera's lifelong bar. Digital menu, live opening hours and a 4-language site for French visitors.",
+        "Berako betiko taberna. Karta digitala, zuzeneko ordutegia eta 4 hizkuntzatako weba frantses bezeroarentzat.",
+        "Le bar historique de Bera. Carte numérique, horaires en direct et site en 4 langues pour la clientèle française."
+      ),
+      href: `/${locale}/proyectos/errekalde-ostatua`,
+      externalUrl: "https://errekalderestaurante.com",
+      mobileImage: "/images/projects/mobile-errekalde-ostatua.jpg",
+      accent: "#1f4d3d",
+      meta: t("Bar · Bera, Navarra · 2026", "Bar · Bera, Navarre · 2026", "Taberna · Bera, Nafarroa · 2026", "Bar · Bera, Navarre · 2026"),
+    },
+    {
+      id: "sara-kafetegia",
+      title: "Sara Kafetegia",
+      description: t(
+        "Cafetería con terraza al Bidasoa. Diseño cálido sobre foto real del local, carta y SEO local.",
+        "Café with a terrace on the Bidasoa. Warm design over real photography, menu and local SEO.",
+        "Bidasoara terraza duen kafetegia. Diseinu epela lokalaren benetako argazkiaren gainean, karta eta tokiko SEOa.",
+        "Café avec terrasse sur la Bidassoa. Design chaleureux sur photo réelle, carte et SEO local."
+      ),
+      href: `/${locale}/proyectos/sara-kafetegia`,
+      externalUrl: "https://sarakafetegia.com",
+      mobileImage: "/images/projects/mobile-sara-kafetegia.jpg",
+      accent: "#e5a04a",
+      meta: t("Cafetería · Bera, Navarra · 2026", "Café · Bera, Navarre · 2026", "Kafetegia · Bera, Nafarroa · 2026", "Café · Bera, Navarre · 2026"),
+    },
+    {
+      id: "goxune",
+      title: "Goxune",
+      description: t(
+        "Panadería, pastelería y cafetería en una sola web. 4,5 de valoración y más de 200 reseñas a la vista.",
+        "Bakery, patisserie and café on a single site. A 4.5 rating and 200+ reviews front and centre.",
+        "Okindegia, gozotegia eta kafetegia web bakarrean. 4,5eko balorazioa eta 200 iritzi baino gehiago ikusgai.",
+        "Boulangerie, pâtisserie et café sur un seul site. Note de 4,5 et plus de 200 avis bien visibles."
+      ),
+      href: `/${locale}/proyectos/goxune`,
+      externalUrl: "https://goxunekafetegia.com",
+      mobileImage: "/images/projects/mobile-goxune.jpg",
+      accent: "#c2652c",
+      meta: t("Panadería · Bera, Navarra · 2026", "Bakery · Bera, Navarre · 2026", "Okindegia · Bera, Nafarroa · 2026", "Boulangerie · Bera, Navarre · 2026"),
+    },
   ];
 };
 
@@ -249,7 +294,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     },
     gallery: {
       title: "Negocios reales que ya tienen su web",
-      description: "Farmacia en Bera, taller de motos en Irun, óptica en Irun, agencia en Donostia. Negocios que llaman, escriben y atienden mejor desde que tienen su sistema online montado.",
+      description: "Farmacia, bar, cafetería y panadería en Bera; taller de motos y óptica en Irun; ingeniería y agencia de IA. Negocios que llaman, escriben y atienden mejor desde que tienen su sistema online montado.",
       items: galleryItems,
     },
     pricing: { eyebrow: "Precio transparente", ariaLabel: "Precios" },
@@ -339,7 +384,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     },
     gallery: {
       title: "Real businesses that already have their site",
-      description: "A pharmacy in Bera, a motorbike workshop in Irun, an optician in Irun, an agency in Donostia. Businesses that call, message and serve better since their online system went live.",
+      description: "A pharmacy, a bar, a café and a bakery in Bera; a motorbike workshop and an optician in Irun; an engineering firm and an AI agency. Businesses that call, message and serve better since their online system went live.",
       items: galleryItems,
     },
     pricing: { eyebrow: "Transparent pricing", ariaLabel: "Pricing" },
@@ -429,7 +474,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     },
     gallery: {
       title: "Beren weba duten benetako negozioak",
-      description: "Berako farmazia, Irungo motor-tailerra, Irungo optika, Donostiako agentzia. Sistema online muntatuta dutenetik hobeto deitu, idatzi eta artatzen duten negozioak.",
+      description: "Berako farmazia, taberna, kafetegia eta okindegia; Irungo motor-tailerra eta optika; ingeniaritza eta IA agentzia. Sistema online muntatuta dutenetik hobeto deitu, idatzi eta artatzen duten negozioak.",
       items: galleryItems,
     },
     pricing: { eyebrow: "Prezio gardena", ariaLabel: "Prezioak" },
@@ -519,7 +564,7 @@ export const HOME_COPY: Record<HomeLocale, HomeCopy> = {
     },
     gallery: {
       title: "De vraies entreprises qui ont déjà leur site",
-      description: "Pharmacie à Bera, atelier moto à Irun, opticien à Irun, agence à Saint-Sébastien. Des entreprises qui appellent, écrivent et servent mieux depuis qu'elles ont leur système en ligne.",
+      description: "Pharmacie, bar, café et boulangerie à Bera ; atelier moto et opticien à Irun ; ingénierie et agence d'IA. Des entreprises qui appellent, écrivent et servent mieux depuis qu'elles ont leur système en ligne.",
       items: galleryItems,
     },
     pricing: { eyebrow: "Prix transparent", ariaLabel: "Tarifs" },

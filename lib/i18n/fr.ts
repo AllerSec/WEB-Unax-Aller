@@ -23,7 +23,7 @@ const fr = {
   },
   socialProof: {
     title: "De vrais commerces du Pays basque et de Navarre qui utilisent déjà leur système",
-    subtitle: "Pharmacie à Bera, concession moto à Irun, opticien à Irun, agence IA à Saint-Sébastien. Des entreprises professionnelles qui reçoivent plus d'appels depuis qu'elles sont bien positionnées sur Google.",
+    subtitle: "Pharmacie, bar, café et boulangerie à Bera ; concession moto et opticien à Irun ; ingénierie industrielle et agence IA. Des entreprises professionnelles qui reçoivent plus d'appels depuis qu'elles sont bien positionnées sur Google.",
     stat1: { value: "1 300 €", label: "Paiement unique" },
     stat2: { value: "30", label: "Jours de garantie" },
     stat3: { value: "1", label: "Semaine avant votre site" },
