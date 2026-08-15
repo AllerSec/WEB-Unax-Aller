@@ -19,10 +19,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en el País Vasco",
-    en: "Web Designer in the Basque Country",
-    eu: "Web Diseinatzailea Euskal Herrian",
-    fr: "Créateur de Sites Web au Pays Basque",
+    es: "Diseño web en País Vasco",
+    en: "Web design in Basque Country",
+    eu: "Web diseinua Euskal Herrian",
+    fr: "Création de site web au Pays Basque",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios del País Vasco: Bizkaia, Gipuzkoa y Álava. Webs a medida con SEO local, trilingüe (es/en/eu) y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

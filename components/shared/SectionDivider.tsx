@@ -23,7 +23,7 @@ type Props = {
  */
 export default function SectionDivider({
   background = "var(--color-bg)",
-  accent = "rgba(180, 205, 184, 0.35)",
+  accent = "rgba(10, 10, 10, 0.25)",
   padding = 48,
 }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);

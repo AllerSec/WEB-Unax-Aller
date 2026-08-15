@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Pasaia, Gipuzkoa",
-    en: "Web Designer in Pasaia, Gipuzkoa",
-    eu: "Web Diseinatzailea Pasaian, Gipuzkoan",
-    fr: "Créateur de Site Web à Pasaia, Gipuzkoa",
+    es: "Diseño web en Pasaia, Gipuzkoa",
+    en: "Web design in Pasaia, Gipuzkoa",
+    eu: "Web diseinua Pasaian, Gipuzkoan",
+    fr: "Création de site web à Pasaia, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para empresas portuarias, hostelería y comercio de Pasaia. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",

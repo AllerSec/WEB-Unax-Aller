@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Bermeo, Bizkaia",
-    en: "Web Designer in Bermeo, Bizkaia",
-    eu: "Web Diseinatzailea Bermeon, Bizkaian",
-    fr: "Créateur de Site Web à Bermeo, Biscaye",
+    es: "Diseño web en Bermeo, Bizkaia",
+    en: "Web design in Bermeo, Bizkaia",
+    eu: "Web diseinua Bermeon, Bizkaian",
+    fr: "Création de site web à Bermeo, Biscaye",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para conserveras, hostelería marinera y empresas pesqueras de Bermeo. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",

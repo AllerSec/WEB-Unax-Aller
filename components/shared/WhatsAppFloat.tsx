@@ -124,9 +124,8 @@ export default function WhatsAppFloat({ locale }: Props) {
         aria-label={label}
         className="wa-float-btn"
       >
-        {/* Pulse rings */}
-        <span className="wa-float-ring wa-float-ring-1" aria-hidden="true" />
-        <span className="wa-float-ring wa-float-ring-2" aria-hidden="true" />
+        {/* Single pulse ring */}
+        <span className="wa-float-ring" aria-hidden="true" />
 
         {/* Online dot */}
         <span className="wa-float-dot" aria-hidden="true" />

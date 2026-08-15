@@ -9,25 +9,25 @@ type Row = { bad: boolean; who: string; detail: string };
 
 const ROWS_BY_LOCALE: Record<"es" | "en" | "eu" | "fr", Row[]> = {
   es: [
-    { bad: true, who: "Agencia local", detail: "2.500–5.000€ inicial · cambios siempre aparte · pagas y rezas" },
+    { bad: true, who: "Agencia local", detail: "2.500-5.000€ inicial · cambios siempre aparte · pagas y rezas" },
     { bad: true, who: "Wix / Squarespace", detail: "Lenta · plantilla genérica · te quedas sin web si dejas de pagar" },
     { bad: true, who: "Sin web (sólo Google Maps)", detail: "Ficha sin optimizar · sin reseñas · te ven, pero no te llaman" },
     { bad: false, who: "Tu web · Unax", detail: "1.300€ pago único · 1er año incluido · cambios al WhatsApp" },
   ],
   en: [
-    { bad: true, who: "Local agency", detail: "€2,500–5,000 upfront · changes always extra · pay and pray" },
+    { bad: true, who: "Local agency", detail: "€2,500-5,000 upfront · changes always extra · pay and pray" },
     { bad: true, who: "Wix / Squarespace", detail: "Slow · generic template · lose your site if you stop paying" },
     { bad: true, who: "No website (Google Maps only)", detail: "Listing not optimized · no reviews · they see you but don't call" },
     { bad: false, who: "Your site · Unax", detail: "€1,300 one-off · first year included · changes by WhatsApp" },
   ],
   eu: [
-    { bad: true, who: "Tokiko agentzia", detail: "2.500–5.000€ hasieran · aldaketak beti aparte · ordaindu eta otoitz egin" },
+    { bad: true, who: "Tokiko agentzia", detail: "2.500-5.000€ hasieran · aldaketak beti aparte · ordaindu eta otoitz egin" },
     { bad: true, who: "Wix / Squarespace", detail: "Geldoa · txantiloi generikoa · webgunea galtzen duzu ordaintzeari uzten badiozu" },
     { bad: true, who: "Webgunerik ez (Google Maps soilik)", detail: "Fitxa optimizatu gabe · iritzirik ez · ikusten zaituzte baina ez dizute deitzen" },
     { bad: false, who: "Zure weba · Unax", detail: "1.300€ ordainketa bakarra · 1. urtea barne · aldaketak WhatsApp-etik" },
   ],
   fr: [
-    { bad: true, who: "Agence locale", detail: "2 500–5 000 € au départ · modifications toujours en plus · vous payez et vous priez" },
+    { bad: true, who: "Agence locale", detail: "2 500-5 000 € au départ · modifications toujours en plus · vous payez et vous priez" },
     { bad: true, who: "Wix / Squarespace", detail: "Lent · modèle générique · vous perdez le site si vous arrêtez de payer" },
     { bad: true, who: "Pas de site (juste Google Maps)", detail: "Fiche non optimisée · aucun avis · on vous voit, mais on ne vous appelle pas" },
     { bad: false, who: "Votre site · Unax", detail: "1 300 € paiement unique · 1ère année incluse · modifications par WhatsApp" },
@@ -107,28 +107,28 @@ export default function PainSection() {
         tl.from(headline, {
           opacity: 0,
           y: 28,
-          duration: 0.7,
+          duration: 0.4,
           ease: "power3.out",
         });
       }
 
       tl.fromTo(
         highlights,
-        { backgroundSize: "0% 0.18em" },
+        { "--pain-fill": "0%" },
         {
-          backgroundSize: "100% 0.18em",
-          duration: 0.6,
-          stagger: 0.12,
+          "--pain-fill": "100%",
+          duration: 0.35,
+          stagger: 0.07,
           ease: "power2.out",
         },
-        "-=0.35"
+        "-=0.22"
       );
 
       rows.forEach((row, i) => {
         const isGood = row.classList.contains("lp-pain-row--good");
         const icon = row.querySelector<HTMLElement>(".lp-pain-icon");
         const label = `row-${i}`;
-        const offset = i === 0 ? "-=0.2" : "+=0.18";
+        const offset = i === 0 ? "-=0.15" : "+=0.08";
 
         tl.add(label, offset);
 
@@ -137,7 +137,7 @@ export default function PainSection() {
           {
             opacity: 1,
             y: 0,
-            duration: isGood ? 0.85 : 0.6,
+            duration: isGood ? 0.5 : 0.32,
             ease: isGood ? "power4.out" : "power3.out",
             onStart: () => row.classList.add("lp-pain-row--in"),
           },
@@ -151,10 +151,10 @@ export default function PainSection() {
             {
               scale: 1,
               rotate: 0,
-              duration: isGood ? 0.7 : 0.45,
+              duration: isGood ? 0.42 : 0.28,
               ease: isGood ? "back.out(2.4)" : "back.out(1.8)",
             },
-            label + "+=0.05"
+            label + "+=0.03"
           );
         }
       });

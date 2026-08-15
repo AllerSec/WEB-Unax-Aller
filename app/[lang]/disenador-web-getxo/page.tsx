@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Getxo, Bizkaia",
-    en: "Web Designer in Getxo, Bizkaia",
-    eu: "Web Diseinatzailea Getxon, Bizkaian",
-    fr: "Créateur de Site Web à Getxo, Biscaye",
+    es: "Diseño web en Getxo, Bizkaia",
+    en: "Web design in Getxo, Bizkaia",
+    eu: "Web diseinua Getxon, Bizkaian",
+    fr: "Création de site web à Getxo, Biscaye",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para clínicas, despachos profesionales y comercio premium de Getxo, Algorta y Las Arenas. Pago único de 1.300€ + IVA, con el primer año incluido.",

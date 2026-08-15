@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Logroño, La Rioja",
-    en: "Web Designer in Logroño, La Rioja",
-    eu: "Web Diseinatzailea Logroñon, Errioxan",
-    fr: "Créateur de Site Web à Logroño, La Rioja",
+    es: "Diseño web en Logroño, La Rioja",
+    en: "Web design in Logroño, La Rioja",
+    eu: "Web diseinua Logroñon, Errioxan",
+    fr: "Création de site web à Logroño, La Rioja",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para bodegas, hostelería y negocios de Logroño y La Rioja. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",

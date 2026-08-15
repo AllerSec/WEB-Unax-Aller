@@ -22,24 +22,23 @@ type Status = "idle" | "sending" | "success" | "error";
 type Country = {
   code: string;
   dial: string;
-  flag: string;
   label: { es: string; en: string; eu: string; fr: string };
 };
 
 const COUNTRIES: Country[] = [
-  { code: "ES", dial: "+34", flag: "🇪🇸", label: { es: "España", en: "Spain", eu: "Espainia", fr: "Espagne" } },
-  { code: "FR", dial: "+33", flag: "🇫🇷", label: { es: "Francia", en: "France", eu: "Frantzia", fr: "France" } },
-  { code: "PT", dial: "+351", flag: "🇵🇹", label: { es: "Portugal", en: "Portugal", eu: "Portugal", fr: "Portugal" } },
-  { code: "AD", dial: "+376", flag: "🇦🇩", label: { es: "Andorra", en: "Andorra", eu: "Andorra", fr: "Andorre" } },
-  { code: "GB", dial: "+44", flag: "🇬🇧", label: { es: "Reino Unido", en: "United Kingdom", eu: "Erresuma Batua", fr: "Royaume-Uni" } },
-  { code: "DE", dial: "+49", flag: "🇩🇪", label: { es: "Alemania", en: "Germany", eu: "Alemania", fr: "Allemagne" } },
-  { code: "IT", dial: "+39", flag: "🇮🇹", label: { es: "Italia", en: "Italy", eu: "Italia", fr: "Italie" } },
-  { code: "NL", dial: "+31", flag: "🇳🇱", label: { es: "Países Bajos", en: "Netherlands", eu: "Herbehereak", fr: "Pays-Bas" } },
-  { code: "BE", dial: "+32", flag: "🇧🇪", label: { es: "Bélgica", en: "Belgium", eu: "Belgika", fr: "Belgique" } },
-  { code: "CH", dial: "+41", flag: "🇨🇭", label: { es: "Suiza", en: "Switzerland", eu: "Suitza", fr: "Suisse" } },
-  { code: "US", dial: "+1", flag: "🇺🇸", label: { es: "Estados Unidos", en: "United States", eu: "Estatu Batuak", fr: "États-Unis" } },
-  { code: "MX", dial: "+52", flag: "🇲🇽", label: { es: "México", en: "Mexico", eu: "Mexiko", fr: "Mexique" } },
-  { code: "AR", dial: "+54", flag: "🇦🇷", label: { es: "Argentina", en: "Argentina", eu: "Argentina", fr: "Argentine" } },
+  { code: "ES", dial: "+34", label: { es: "España", en: "Spain", eu: "Espainia", fr: "Espagne" } },
+  { code: "FR", dial: "+33", label: { es: "Francia", en: "France", eu: "Frantzia", fr: "France" } },
+  { code: "PT", dial: "+351", label: { es: "Portugal", en: "Portugal", eu: "Portugal", fr: "Portugal" } },
+  { code: "AD", dial: "+376", label: { es: "Andorra", en: "Andorra", eu: "Andorra", fr: "Andorre" } },
+  { code: "GB", dial: "+44", label: { es: "Reino Unido", en: "United Kingdom", eu: "Erresuma Batua", fr: "Royaume-Uni" } },
+  { code: "DE", dial: "+49", label: { es: "Alemania", en: "Germany", eu: "Alemania", fr: "Allemagne" } },
+  { code: "IT", dial: "+39", label: { es: "Italia", en: "Italy", eu: "Italia", fr: "Italie" } },
+  { code: "NL", dial: "+31", label: { es: "Países Bajos", en: "Netherlands", eu: "Herbehereak", fr: "Pays-Bas" } },
+  { code: "BE", dial: "+32", label: { es: "Bélgica", en: "Belgium", eu: "Belgika", fr: "Belgique" } },
+  { code: "CH", dial: "+41", label: { es: "Suiza", en: "Switzerland", eu: "Suitza", fr: "Suisse" } },
+  { code: "US", dial: "+1", label: { es: "Estados Unidos", en: "United States", eu: "Estatu Batuak", fr: "États-Unis" } },
+  { code: "MX", dial: "+52", label: { es: "México", en: "Mexico", eu: "Mexiko", fr: "Mexique" } },
+  { code: "AR", dial: "+54", label: { es: "Argentina", en: "Argentina", eu: "Argentina", fr: "Argentine" } },
 ];
 
 export default function ContactForm({ locale }: Props) {
@@ -133,10 +132,15 @@ export default function ContactForm({ locale }: Props) {
   const isEmailError = touched.email && !isEmailValid;
   const isPhoneError = touched.phone && form.phone.length > 0 && !isPhoneValid;
 
-  const placeholders = {
+  const labels = {
     name: locale === "es" ? "Nombre completo" : locale === "en" ? "Full name" : locale === "eu" ? "Izen-abizenak" : "Nom complet",
     email: locale === "es" ? "Correo electrónico" : locale === "en" ? "Email address" : locale === "eu" ? "Helbide elektronikoa" : "Adresse email",
     phone: locale === "es" ? "Número de WhatsApp" : locale === "en" ? "WhatsApp number" : locale === "eu" ? "WhatsApp zenbakia" : "Numéro WhatsApp",
+  };
+  const placeholders = {
+    name: locale === "es" ? "Ej. Ane García" : locale === "en" ? "E.g. Ane García" : locale === "eu" ? "Ad. Ane García" : "Ex. Ane García",
+    email: locale === "es" ? "tucorreo@gmail.com" : locale === "en" ? "youremail@gmail.com" : locale === "eu" ? "zureemaila@gmail.com" : "votreemail@gmail.com",
+    phone: locale === "es" ? "620 123 456" : locale === "en" ? "620 123 456" : locale === "eu" ? "620 123 456" : "6 12 34 56 78",
     privacy: locale === "es" ? "Acepto la" : locale === "en" ? "I accept the" : locale === "eu" ? "Onartzen dut" : "J'accepte la",
     privacyLink: locale === "es" ? "política de privacidad" : locale === "en" ? "privacy policy" : locale === "eu" ? "pribatutasun politika" : "politique de confidentialité",
     submit: locale === "es" ? "Solicita información" : locale === "en" ? "Request information" : locale === "eu" ? "Eskatu informazioa" : "Demander des informations",
@@ -155,7 +159,7 @@ export default function ContactForm({ locale }: Props) {
       aria-label={locale === "es" ? "Formulario de contacto" : locale === "en" ? "Contact form" : locale === "eu" ? "Kontaktu inprimakia" : "Formulaire de contact"}
     >
       <div className="field">
-        <label htmlFor="name" className="sr-only">{placeholders.name}</label>
+        <label htmlFor="name" className="field-label" data-required="">{labels.name}</label>
         <input
           id="name"
           name="name"
@@ -178,7 +182,7 @@ export default function ContactForm({ locale }: Props) {
       </div>
 
       <div className="field">
-        <label htmlFor="email" className="sr-only">{placeholders.email}</label>
+        <label htmlFor="email" className="field-label" data-required="">{labels.email}</label>
         <input
           id="email"
           name="email"
@@ -202,7 +206,7 @@ export default function ContactForm({ locale }: Props) {
       </div>
 
       <div className="field">
-        <label htmlFor="phone" className="sr-only">{placeholders.phone}</label>
+        <label htmlFor="phone" className="field-label" data-required="">{labels.phone}</label>
         <div className="phone-input" data-invalid={isPhoneError || undefined}>
           <div className="phone-country" ref={countryWrapRef}>
             <button
@@ -213,7 +217,7 @@ export default function ContactForm({ locale }: Props) {
               aria-expanded={countryOpen}
               aria-label={`${placeholders.countryAria} (${country.label[locale]} ${country.dial})`}
             >
-              <span className="phone-country-flag" aria-hidden="true">{country.flag}</span>
+              <span className="phone-country-code" aria-hidden="true">{country.code}</span>
               <svg
                 className="phone-country-caret"
                 width="10" height="10" viewBox="0 0 12 12"
@@ -238,7 +242,7 @@ export default function ContactForm({ locale }: Props) {
                         setCountryOpen(false);
                       }}
                     >
-                      <span className="phone-country-flag" aria-hidden="true">{c.flag}</span>
+                      <span className="phone-country-code" aria-hidden="true">{c.code}</span>
                       <span className="phone-country-name">{c.label[locale]}</span>
                       <span className="phone-country-dial">{c.dial}</span>
                     </button>
@@ -363,7 +367,7 @@ function SuccessState({ locale, message }: { locale: Locale; message: string }) 
       }
 
       gsap.set(check, { strokeDasharray: length, strokeDashoffset: length });
-      gsap.set(icon, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" });
+      gsap.set(icon, { autoAlpha: 0, scale: 0.85, transformOrigin: "50% 50%" });
       gsap.set([title, msg], { autoAlpha: 0, y: 12 });
 
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });

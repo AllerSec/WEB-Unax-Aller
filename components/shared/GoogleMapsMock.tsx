@@ -75,15 +75,8 @@ export default function GoogleMapsMock({ locale }: Props) {
         .gmm-meta { font-size:12px; color:var(--color-ink-muted); line-height:1.4; }
         .gmm-badge { position:absolute; top:14px; right:14px; background:#171717; color:#FFFFFF; font-size:10px; font-weight:700; padding:3px 8px; border-radius:999px; letter-spacing:0.04em; text-transform:uppercase; }
         .gmm-call { display:inline-flex; align-items:center; gap:4px; margin-top:6px; color:var(--color-accent); font-size:12px; font-weight:600; }
-        .gmm-pulse { position:absolute; left:8px; top:8px; width:8px; height:8px; border-radius:50%; background:#10B981; box-shadow:0 0 0 0 rgba(16,185,129,0.6); animation:gmm-live 2s ease-out infinite; }
-        @keyframes gmm-live {
-          0% { box-shadow:0 0 0 0 rgba(16,185,129,0.5); }
-          70% { box-shadow:0 0 0 8px rgba(16,185,129,0); }
-          100% { box-shadow:0 0 0 0 rgba(16,185,129,0); }
-        }
       `}</style>
       <div className="gmm-card" role="img" aria-label="Google Maps top results mockup">
-        <span className="gmm-pulse" aria-hidden="true" />
         <div className="gmm-header">
           <div className="gmm-search">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>

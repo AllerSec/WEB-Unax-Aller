@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Errenteria, Gipuzkoa",
-    en: "Web Designer in Errenteria, Gipuzkoa",
-    eu: "Web Diseinatzailea Errenterian, Gipuzkoan",
-    fr: "Créateur de Site Web à Errenteria, Gipuzkoa",
+    es: "Diseño web en Errenteria, Gipuzkoa",
+    en: "Web design in Errenteria, Gipuzkoa",
+    eu: "Web diseinua Errenterian, Gipuzkoan",
+    fr: "Création de site web à Errenteria, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Errenteria. A 15 km de Irun. Webs a medida, SEO local y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

@@ -39,7 +39,7 @@ const PERSONALITY: Record<
     tapeCorner: "tl",
     tapeAngle: -22,
     captionStyle: "italic",
-    badgeText: { es: "Nº 02", en: "Nº 02", eu: "Nº 02", fr: "Nº 02" },
+    badgeText: { es: "ÓPTICA", en: "OPTICS", eu: "OPTIKA", fr: "OPTIQUE" },
   },
   virtuosolve: {
     tilt: -2,
@@ -47,7 +47,7 @@ const PERSONALITY: Record<
     tapeCorner: "br",
     tapeAngle: 18,
     captionStyle: "marker",
-    badgeText: { es: "AI · 2026", en: "AI · 2026", eu: "AI · 2026", fr: "IA · 2026" },
+    badgeText: { es: "IA", en: "AI", eu: "AA", fr: "IA" },
   },
   "farmacia-fernandez-bera": {
     tilt: 3,

@@ -48,6 +48,13 @@ export default function Testimonials() {
       const quotes = section.querySelectorAll<HTMLElement>(".testimonial-quote-mark");
       if (!cards.length) return;
 
+      // prefers-reduced-motion: land cards visible, skip entrance + scrub
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) {
+        gsap.set(cards, { opacity: 1, y: 0 });
+        return;
+      }
+
       // Card entrance
       gsap.fromTo(
         cards,
@@ -56,7 +63,7 @@ export default function Testimonials() {
           y: 0,
           opacity: 1,
           duration: 0.7,
-          stagger: 0.15,
+          stagger: 0.07,
           ease: "power3.out",
           scrollTrigger: {
             trigger: section,
@@ -67,9 +74,7 @@ export default function Testimonials() {
       );
 
       // Scrub: big quote marks drift down + fade in as section scrolls through viewport
-      // prefers-reduced-motion respected — skip scrub, leave at final state
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduced || !quotes.length) return;
+      if (!quotes.length) return;
 
       const scrubTween = gsap.fromTo(
         quotes,

@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Lesaka",
-    en: "Web Designer in Lesaka, Navarre",
-    eu: "Web Diseinatzailea Lesakan",
-    fr: "Créateur de Site Web à Lesaka, Navarre",
+    es: "Diseño web en Lesaka",
+    en: "Web design in Lesaka, Navarre",
+    eu: "Web diseinua Lesakan",
+    fr: "Création de site web à Lesaka, Navarre",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios y empresas de Lesaka (Bidasoa, Navarra). A 20 km de Irun. Webs a medida con SEO local y Google Maps, en castellano, euskera, inglés y francés. Pago único de 1.300€ + IVA, primer año incluido.",

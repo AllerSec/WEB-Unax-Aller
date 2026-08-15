@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     es: "Sobre Mí: Diseñador Web en Irun, Gipuzkoa",
     en: "About Me: Web Designer in Irun, Basque Country",
     eu: "Ni buruz: Web Diseinatzailea Irunen, Gipuzkoan",
-    fr: "À propos : Créateur de Sites Web à Irun, Pays Basque",
+    fr: "À propos : créateur de sites web à Irun",
   };
   const descriptions: Record<string, string> = {
     es: "Soy Unax Aller, diseñador web freelance en Irun, Gipuzkoa. Ingeniería informática en la UAX, 4 idiomas y webs a medida para negocios del País Vasco.",

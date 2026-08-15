@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import Image from "next/image";
 import { hreflangAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
-import { cityLandings } from "@/lib/data/city-landings";
 import HomeCtaWrapper from "@/components/home/HomeCtaWrapper";
 import SocialProof from "@/components/home/SocialProof";
 import PainSection from "@/components/home/PainSection";
@@ -27,7 +26,9 @@ type Props = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const locale = lang as "es" | "en" | "eu" | "fr";
-  const title = "Web para negocio local · 1.300€, 1er año incluido · Unax Aller";
+  // No brand suffix here: the root layout template appends " | Unax Aller",
+  // so hardcoding it produced "… · Unax Aller | Unax Aller" in the SERP.
+  const title = "Diseño web para negocio local · 1.300€";
   const description =
     "Web para negocios de Gipuzkoa, Bizkaia y Navarra: pago único de 1.300€ + IVA con el primer año incluido (web, Google Maps, reseñas, hosting, soporte WhatsApp) y 30 días de garantía. Pensado para clínicas, despachos, industria B2B y comercio profesional.";
   return {
@@ -254,7 +255,6 @@ export default async function HomePage({ params }: Props) {
           evitar inyección de etiquetas si el copy llegara a contenerlas. */}
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(buildHomeJsonLd(locale, copy.faq.items)).replace(/</g, "\\u003c"),
         }}
@@ -286,7 +286,6 @@ export default async function HomePage({ params }: Props) {
           <div className="container-xl">
             <div className="lp-mockups-grid">
               <div className="lp-mockups-text">
-                <span className="lp-eyebrow">{copy.mockups.eyebrow}</span>
                 <h2 className="lp-section-title">
                   {copy.mockups.titleA}
                   <span style={{ color: "var(--color-accent)" }}>{copy.mockups.titleHighlight}</span>
@@ -336,7 +335,6 @@ export default async function HomePage({ params }: Props) {
               />
             </div>
             <div className="lp-founder-content">
-              <span className="lp-eyebrow">{copy.founder.eyebrow}</span>
               <h2 id="lp-founder-title" className="lp-founder-title">
                 {copy.founder.title}
               </h2>
@@ -402,7 +400,6 @@ export default async function HomePage({ params }: Props) {
         <div className="container-xl">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">{copy.process.eyebrow}</span>
               <h2 id="lp-process-title" className="lp-section-title lp-section-title--center">
                 {copy.process.title}
               </h2>
@@ -454,7 +451,6 @@ export default async function HomePage({ params }: Props) {
         <div className="container-xl">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">{copy.services.eyebrow}</span>
               <h2 id="lp-services-title" className="lp-section-title lp-section-title--center">
                 {copy.services.title}
               </h2>
@@ -535,7 +531,6 @@ export default async function HomePage({ params }: Props) {
         <div className="container-xl lp-faq-inner">
           <AnimatedSection>
             <div className="lp-section-header">
-              <span className="lp-eyebrow">{copy.faq.eyebrow}</span>
               <h2 id="lp-faq-title" className="lp-section-title lp-section-title--center">
                 {copy.faq.title}
               </h2>

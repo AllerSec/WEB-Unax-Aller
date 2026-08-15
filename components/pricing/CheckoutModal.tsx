@@ -34,12 +34,12 @@ const COPY = {
       talk: {
         title: "Habla conmigo primero",
         desc: "Te resuelvo dudas y vemos juntos si encajamos. Respondo yo, en persona.",
-        cta: "Hablar contigo →",
+        cta: "Hablar contigo",
       },
       buy: {
         title: "Hazme ya mi web",
         desc: "Lo tienes claro. Rellena 4 datos y empezamos esta misma semana.",
-        cta: "Empezar mi web →",
+        cta: "Empezar mi web",
       },
       reassure: "Pago seguro con Stripe · 30 días de garantía",
     },
@@ -68,7 +68,7 @@ const COPY = {
     required: "Campo obligatorio",
     emailInvalid: "Introduce un email válido",
     phoneInvalid: "Introduce un teléfono válido",
-    cta: "Ir al pago seguro →",
+    cta: "Ir al pago seguro",
     ctaLoading: "Preparando el pago…",
     cancel: "Cancelar",
     footnote: "Pago seguro con Stripe · 1.300€ + IVA, primer año incluido · 30 días de garantía",
@@ -82,12 +82,12 @@ const COPY = {
       talk: {
         title: "Talk to me first",
         desc: "I'll answer your questions and we'll see if we're a fit. You'll talk to me, personally.",
-        cta: "Talk to you →",
+        cta: "Talk to you",
       },
       buy: {
         title: "Build my website now",
         desc: "You're ready. Fill in 4 details and we start this week.",
-        cta: "Start my website →",
+        cta: "Start my website",
       },
       reassure: "Secure payment with Stripe · 30-day money-back guarantee",
     },
@@ -116,7 +116,7 @@ const COPY = {
     required: "Required field",
     emailInvalid: "Enter a valid email",
     phoneInvalid: "Enter a valid phone number",
-    cta: "Go to secure checkout →",
+    cta: "Go to secure checkout",
     ctaLoading: "Preparing checkout…",
     cancel: "Cancel",
     footnote: "Secure payment with Stripe · €1,300 + VAT, first year included · 30-day money-back guarantee",
@@ -130,12 +130,12 @@ const COPY = {
       talk: {
         title: "Hitz egin nirekin lehenik",
         desc: "Zalantzak argituko dizkizut eta bat egiten dugun ikusiko dugu. Nik erantzungo dizut, pertsonalki.",
-        cta: "Zurekin hitz egin →",
+        cta: "Zurekin hitz egin",
       },
       buy: {
         title: "Egin nire weba orain",
         desc: "Argi daukazu. Bete 4 datu eta aste honetan bertan hasiko gara.",
-        cta: "Hasi nire weba →",
+        cta: "Hasi nire weba",
       },
       reassure: "Ordainketa segurua Striperekin · 30 eguneko bermea",
     },
@@ -164,12 +164,60 @@ const COPY = {
     required: "Derrigorrezko eremua",
     emailInvalid: "Idatzi baliozko email bat",
     phoneInvalid: "Idatzi baliozko telefono zenbaki bat",
-    cta: "Ordainketa seguruentzat →",
+    cta: "Ordainketa seguruentzat",
     ctaLoading: "Ordainketa prestatzen…",
     cancel: "Utzi",
     footnote: "Ordainketa segurua Striperekin · 1.300€ + BEZ, lehen urtea barne · 30 eguneko bermea",
     optionalBadge: "Aukerakoa",
     closeLabel: "Itxi",
+  },
+  fr: {
+    choose: {
+      title: "Comment préférez-vous commencer ?",
+      subtitle: "C'est vous qui décidez. Sans engagement et sans pression.",
+      talk: {
+        title: "Parlez-moi d'abord",
+        desc: "Je réponds à vos questions et nous voyons ensemble si ça colle. C'est moi qui réponds, personnellement.",
+        cta: "Vous parler",
+      },
+      buy: {
+        title: "Créez mon site maintenant",
+        desc: "Vous êtes décidé. Remplissez 4 informations et nous commençons cette semaine.",
+        cta: "Lancer mon site",
+      },
+      reassure: "Paiement sécurisé avec Stripe · Garantie 30 jours",
+    },
+    title: "Lançons votre site",
+    subtitle: "Parlez-moi un peu de votre entreprise pour que je prépare tout. Paiement unique de 1.300€ + TVA, première année incluse et garantie 30 jours.",
+    back: "Retour",
+    trust: {
+      a: "Paiement chiffré avec Stripe",
+      b: "Garantie 30 jours : pas convaincu, remboursement intégral",
+      c: "Rien n'est débité avant votre confirmation sur l'écran de paiement",
+    },
+    labels: {
+      businessName: "Nom de l'entreprise",
+      address: "Adresse ou ville",
+      sector: "Que fait votre entreprise ?",
+      email: "Email de contact",
+      phone: "Téléphone",
+    },
+    placeholders: {
+      businessName: "Ex. Pharmacie García, Atelier Arretxe…",
+      address: "Ex. Hendaye, Saint-Sébastien, Bilbao…",
+      sector: "Ex. Clinique dentaire, atelier moto, cabinet de conseil…",
+      email: "votreemail@gmail.com",
+      phone: "Ex. +33 6 12 34 56 78",
+    },
+    required: "Champ obligatoire",
+    emailInvalid: "Saisissez un email valide",
+    phoneInvalid: "Saisissez un numéro de téléphone valide",
+    cta: "Aller au paiement sécurisé",
+    ctaLoading: "Préparation du paiement…",
+    cancel: "Annuler",
+    footnote: "Paiement sécurisé avec Stripe · 1.300€ + TVA, première année incluse · Garantie 30 jours",
+    optionalBadge: "Facultatif",
+    closeLabel: "Fermer",
   },
 } as const;
 
@@ -199,6 +247,9 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
   const [serverError, setServerError] = useState("");
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
 
   const contactHref = `/${lang}/contacto`;
 
@@ -221,13 +272,44 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
     }
   }, [open, step]);
 
+  // Focus management: remember the opener, focus the close button on open,
+  // trap Tab inside the panel, close on Escape, restore focus on unmount.
   useEffect(() => {
     if (!open) return;
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+    const focusTimer = window.setTimeout(() => closeBtnRef.current?.focus(), 50);
+
+    const FOCUSABLE =
+      'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+      if (e.key === "Tab" && panelRef.current) {
+        const focusables = panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE);
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement as HTMLElement | null;
+        if (e.shiftKey) {
+          if (active === first || !panelRef.current.contains(active)) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else if (active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      window.clearTimeout(focusTimer);
+      previouslyFocusedRef.current?.focus?.();
+    };
   }, [open, onClose]);
 
   const set = (field: Field) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -281,12 +363,12 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
       });
       const data = await res.json();
       if (!res.ok || !data.url) {
-        setServerError(data.error ?? (lang === "es" ? "Error inesperado. Inténtalo de nuevo." : lang === "en" ? "Unexpected error. Please try again." : "Ustekabeko errorea. Saiatu berriro."));
+        setServerError(data.error ?? (lang === "es" ? "Error inesperado. Inténtalo de nuevo." : lang === "en" ? "Unexpected error. Please try again." : lang === "fr" ? "Erreur inattendue. Veuillez réessayer." : "Ustekabeko errorea. Saiatu berriro."));
         return;
       }
       window.location.href = data.url;
     } catch {
-      setServerError(lang === "es" ? "No se pudo conectar. Comprueba tu conexión e inténtalo de nuevo." : lang === "en" ? "Could not connect. Check your connection and try again." : "Ezin izan da konektatu. Egiaztatu zure konexioa eta saiatu berriro.");
+      setServerError(lang === "es" ? "No se pudo conectar. Comprueba tu conexión e inténtalo de nuevo." : lang === "en" ? "Could not connect. Check your connection and try again." : lang === "fr" ? "Connexion impossible. Vérifiez votre connexion et réessayez." : "Ezin izan da konektatu. Egiaztatu zure konexioa eta saiatu berriro.");
     } finally {
       setLoading(false);
     }
@@ -297,66 +379,70 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
   return (
     <>
       <style>{`
-        .chk-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(2,6,23,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:chkFadeIn .18s ease both}
+        .chk-overlay{position:fixed;inset:0;z-index:var(--z-modal,1100);display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(10,10,10,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:chkFadeIn .18s ease both}
         @keyframes chkFadeIn{from{opacity:0}to{opacity:1}}
-        .chk-panel{position:relative;width:100%;max-width:520px;max-height:92dvh;overflow-y:auto;background:#fff;border-radius:20px;box-shadow:0 32px 80px rgba(2,6,23,.22),0 8px 24px rgba(2,6,23,.10);animation:chkSlideUp .28s cubic-bezier(.16,1,.3,1) both;display:flex;flex-direction:column}
-        @keyframes chkSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .chk-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;border:none;background:rgba(2,6,23,.06);cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(2,6,23,.5);transition:background .15s,color .15s;z-index:1}
-        .chk-close:hover{background:rgba(2,6,23,.10);color:rgba(2,6,23,.8)}
-        .chk-close:focus-visible{outline:2px solid #171717;outline-offset:2px}
+        .chk-panel{position:relative;width:100%;max-width:520px;max-height:92dvh;overflow-y:auto;background:var(--color-bg,#fff);border:1px solid var(--color-line-strong,#D4D4D4);box-shadow:var(--shadow-xl);animation:chkSlideUp .28s cubic-bezier(.16,1,.3,1) both;display:flex;flex-direction:column}
+        @keyframes chkSlideUp{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+        .chk-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:var(--radius-full,9999px);border:none;background:rgba(10,10,10,.06);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--color-ink-muted,#525252);transition:background .15s,color .15s;z-index:1}
+        .chk-close:hover{background:rgba(10,10,10,.10);color:var(--color-ink,#0A0A0A)}
+        .chk-close:active{transform:scale(.94)}
+        .chk-close:focus-visible{outline:2px solid var(--color-ink,#171717);outline-offset:2px}
         .chk-header{padding:2rem 2rem 0}
-        .chk-step-dot{width:8px;height:8px;border-radius:50%;background:#171717;display:inline-block;margin-bottom:1rem}
-        .chk-title{font-family:var(--font-serif,Georgia,serif);font-size:1.5rem;font-weight:500;color:#0A0A0A;letter-spacing:-.02em;line-height:1.25;margin:0 0 .5rem}
-        .chk-subtitle{font-family:var(--font-sans,system-ui,sans-serif);font-size:.875rem;color:rgba(2,6,23,.55);line-height:1.55;margin:0}
+        .chk-title{font-family:var(--font-sans,system-ui,sans-serif);font-size:1.5rem;font-weight:700;color:var(--color-ink,#0A0A0A);letter-spacing:-.02em;line-height:1.25;margin:0 0 .5rem}
+        .chk-subtitle{font-family:var(--font-sans,system-ui,sans-serif);font-size:.875rem;color:var(--color-ink-muted,#525252);line-height:1.55;margin:0}
         .chk-form{padding:1.5rem 2rem 2rem;display:flex;flex-direction:column;gap:1.25rem}
         .chk-field{display:flex;flex-direction:column;gap:.375rem}
         .chk-label-row{display:flex;align-items:center;gap:.5rem}
-        .chk-label{font-family:var(--font-sans,system-ui,sans-serif);font-size:.8125rem;font-weight:600;color:#0A0A0A;letter-spacing:.01em}
-        .chk-optional{font-size:.7rem;font-weight:500;color:rgba(2,6,23,.4);background:rgba(2,6,23,.06);border-radius:4px;padding:.1rem .4rem;letter-spacing:.02em;text-transform:uppercase}
-        .chk-input{width:100%;min-height:48px;padding:.75rem 1rem;border:1.5px solid rgba(2,6,23,.14);border-radius:10px;font-family:var(--font-sans,system-ui,sans-serif);font-size:.9375rem;color:#0A0A0A;background:#fff;outline:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box}
-        .chk-input::placeholder{color:rgba(2,6,23,.32)}
-        .chk-input:focus{border-color:#171717;box-shadow:0 0 0 3px rgba(10,10,10,.12)}
-        .chk-input--error{border-color:#0A0A0A}
-        .chk-input--error:focus{border-color:#0A0A0A;box-shadow:0 0 0 3px rgba(220,38,38,.10)}
+        .chk-label{font-family:var(--font-sans,system-ui,sans-serif);font-size:.8125rem;font-weight:600;color:var(--color-ink,#0A0A0A);letter-spacing:.01em}
+        .chk-optional{font-size:.7rem;font-weight:500;color:var(--color-ink-muted,#525252);background:rgba(10,10,10,.06);padding:.1rem .4rem;letter-spacing:.02em;text-transform:uppercase}
+        .chk-input{width:100%;min-height:48px;padding:.75rem 1rem;border:1.5px solid var(--color-line-strong,#D4D4D4);border-radius:0;font-family:var(--font-sans,system-ui,sans-serif);font-size:.9375rem;color:var(--color-ink,#0A0A0A);background:var(--color-bg,#fff);outline:none;transition:border-color .15s,box-shadow .15s;box-sizing:border-box}
+        .chk-input::placeholder{color:var(--color-ink-subtle,#6B6B6B)}
+        .chk-input:focus{border-color:var(--color-ink,#171717);box-shadow:0 0 0 3px rgba(10,10,10,.12)}
+        .chk-input--error{border-color:var(--color-danger,#DC2626)}
+        .chk-input--error:focus{border-color:var(--color-danger,#DC2626);box-shadow:0 0 0 3px rgba(220,38,38,.12)}
         textarea.chk-input{min-height:80px;resize:vertical;line-height:1.5}
-        .chk-error{font-family:var(--font-sans,system-ui,sans-serif);font-size:.78rem;color:#0A0A0A;display:flex;align-items:center;gap:.3rem}
-        .chk-server-error{background:#fef2f2;border:1px solid rgba(220,38,38,.2);border-radius:10px;padding:.875rem 1rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.84rem;color:#0A0A0A}
+        .chk-error{font-family:var(--font-sans,system-ui,sans-serif);font-size:.78rem;color:var(--color-danger,#DC2626);display:flex;align-items:center;gap:.3rem}
+        .chk-server-error{background:var(--color-danger-bg,#FEE2E2);border:1px solid rgba(220,38,38,.3);padding:.875rem 1rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.84rem;color:#7F1D1D}
         .chk-footer{display:flex;flex-direction:column;gap:.75rem}
-        .chk-submit{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.5rem;border-radius:12px;border:none;background:linear-gradient(135deg,#262626 0%,#171717 60%,#0a0a0a 100%);color:#fff;font-family:var(--font-sans,system-ui,sans-serif);font-size:.9375rem;font-weight:800;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 14px rgba(10,10,10,.35)}
-        .chk-submit:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,10,10,.45)}
-        .chk-submit:active:not(:disabled){transform:translateY(0)}
+        .chk-submit{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.5rem;border-radius:0;border:none;background:var(--color-accent,#171717);color:var(--color-accent-contrast,#fff);font-family:var(--font-sans,system-ui,sans-serif);font-size:.9375rem;font-weight:800;cursor:pointer;transition:background .15s,transform .15s,box-shadow .15s;box-shadow:var(--shadow-md)}
+        .chk-submit:active:not(:disabled){transform:scale(.98)}
         .chk-submit:disabled{opacity:.65;cursor:not-allowed}
-        .chk-submit:focus-visible{outline:2px solid #171717;outline-offset:3px}
-        .chk-footnote{font-family:var(--font-sans,system-ui,sans-serif);font-size:.75rem;color:rgba(2,6,23,.42);text-align:center;line-height:1.5}
+        .chk-submit:focus-visible{outline:2px solid var(--color-ink,#171717);outline-offset:3px}
+        .chk-footnote{font-family:var(--font-sans,system-ui,sans-serif);font-size:.75rem;color:var(--color-ink-subtle,#6B6B6B);text-align:center;line-height:1.5}
         .chk-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:chkSpin .7s linear infinite;flex-shrink:0}
         @keyframes chkSpin{to{transform:rotate(360deg)}}
         .chk-lock-icon{flex-shrink:0;opacity:.5}
+        .chk-arrow{flex-shrink:0}
         /* ── Choose step ── */
         .chk-choices{padding:1.5rem 2rem .5rem;display:flex;flex-direction:column;gap:.875rem}
-        .chk-choice{display:flex;align-items:flex-start;gap:1rem;width:100%;text-align:left;padding:1.125rem 1.25rem;border-radius:14px;border:1.5px solid rgba(2,6,23,.12);background:#fff;cursor:pointer;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
-        .chk-choice:hover{border-color:rgba(2,6,23,.28);box-shadow:0 6px 20px rgba(2,6,23,.08);transform:translateY(-2px)}
-        .chk-choice:focus-visible{outline:2px solid #171717;outline-offset:2px}
-        .chk-choice--primary{border-color:#171717;background:linear-gradient(135deg,#1c1c1c 0%,#0a0a0a 100%);color:#fff}
-        .chk-choice--primary:hover{box-shadow:0 10px 28px rgba(10,10,10,.35);border-color:#000}
-        .chk-choice-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,.06);color:#171717}
+        .chk-choice{display:flex;align-items:flex-start;gap:1rem;width:100%;text-align:left;padding:1.125rem 1.25rem;border-radius:0;border:1.5px solid var(--color-line-strong,#D4D4D4);background:var(--color-bg,#fff);cursor:pointer;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
+        .chk-choice:active{transform:scale(.98)}
+        .chk-choice:focus-visible{outline:2px solid var(--color-ink,#171717);outline-offset:2px}
+        .chk-choice--primary{border-color:var(--color-ink,#171717);background:var(--color-ink,#0A0A0A);color:#fff}
+        .chk-choice-ico{flex-shrink:0;width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,.06);color:var(--color-ink,#171717)}
         .chk-choice--primary .chk-choice-ico{background:rgba(255,255,255,.14);color:#fff}
         .chk-choice-body{display:flex;flex-direction:column;gap:.2rem;min-width:0}
         .chk-choice-title{font-family:var(--font-sans,system-ui,sans-serif);font-size:.95rem;font-weight:700;letter-spacing:-.01em}
-        .chk-choice-desc{font-family:var(--font-sans,system-ui,sans-serif);font-size:.8rem;line-height:1.45;color:rgba(2,6,23,.55)}
+        .chk-choice-desc{font-family:var(--font-sans,system-ui,sans-serif);font-size:.8rem;line-height:1.45;color:var(--color-ink-muted,#525252)}
         .chk-choice--primary .chk-choice-desc{color:rgba(255,255,255,.72)}
-        .chk-choice-cta{margin-top:.35rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.8125rem;font-weight:700;color:#171717}
+        .chk-choice-cta{margin-top:.35rem;display:inline-flex;align-items:center;gap:.3rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.8125rem;font-weight:700;color:var(--color-ink,#171717)}
         .chk-choice--primary .chk-choice-cta{color:#fff}
-        .chk-reassure{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:1rem 2rem 1.75rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.75rem;color:rgba(2,6,23,.45);text-align:center}
+        .chk-reassure{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:1rem 2rem 1.75rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.75rem;color:var(--color-ink-subtle,#6B6B6B);text-align:center}
         /* ── Back button ── */
-        .chk-back{display:inline-flex;align-items:center;gap:.35rem;align-self:flex-start;margin-bottom:.875rem;padding:.4rem .65rem .4rem .4rem;border:none;border-radius:8px;background:transparent;cursor:pointer;color:rgba(2,6,23,.55);font-family:var(--font-sans,system-ui,sans-serif);font-size:.8rem;font-weight:600;transition:background .15s,color .15s}
-        .chk-back:hover{background:rgba(2,6,23,.06);color:#0A0A0A}
-        .chk-back:focus-visible{outline:2px solid #171717;outline-offset:2px}
+        .chk-back{display:inline-flex;align-items:center;gap:.35rem;align-self:flex-start;margin-bottom:.875rem;padding:.4rem .65rem .4rem .4rem;border:none;border-radius:0;background:transparent;cursor:pointer;color:var(--color-ink-muted,#525252);font-family:var(--font-sans,system-ui,sans-serif);font-size:.8rem;font-weight:600;transition:background .15s,color .15s}
+        .chk-back:hover{background:rgba(10,10,10,.06);color:var(--color-ink,#0A0A0A)}
+        .chk-back:focus-visible{outline:2px solid var(--color-ink,#171717);outline-offset:2px}
         /* ── Trust panel on the form ── */
-        .chk-trust{display:flex;flex-direction:column;gap:.625rem;background:#f8fafc;border:1px solid rgba(2,6,23,.07);border-radius:12px;padding:.875rem 1rem}
-        .chk-trust-item{display:flex;align-items:flex-start;gap:.55rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.78rem;line-height:1.4;color:rgba(2,6,23,.65)}
-        .chk-trust-check{flex-shrink:0;color:#15803d;margin-top:1px}
-        @media(max-width:480px){.chk-panel{border-radius:16px 16px 0 0;max-height:96dvh;margin-top:auto;align-self:flex-end;max-width:100%}.chk-overlay{align-items:flex-end;padding:0}.chk-header{padding:1.5rem 1.5rem 0}.chk-form{padding:1.25rem 1.5rem 1.5rem}.chk-choices{padding:1.25rem 1.5rem .5rem}.chk-reassure{padding:1rem 1.5rem 1.5rem}}
-        @media(prefers-reduced-motion:reduce){.chk-overlay,.chk-panel,.chk-submit,.chk-choice{animation:none;transition:none}.chk-spinner{animation:none}}
+        .chk-trust{display:flex;flex-direction:column;gap:.625rem;background:var(--color-bg-muted,#F7F7F7);border:1px solid var(--color-line,#EBEBEB);padding:.875rem 1rem}
+        .chk-trust-item{display:flex;align-items:flex-start;gap:.55rem;font-family:var(--font-sans,system-ui,sans-serif);font-size:.78rem;line-height:1.4;color:var(--color-ink-muted,#525252)}
+        .chk-trust-check{flex-shrink:0;color:var(--color-success,#047857);margin-top:1px}
+        @media(hover:hover){
+          .chk-submit:hover:not(:disabled){background:var(--color-accent-hover,#000);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+          .chk-choice:hover{border-color:var(--color-ink,#0A0A0A);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+          .chk-choice--primary:hover{background:#000;box-shadow:var(--shadow-lg)}
+        }
+        @media(max-width:480px){.chk-panel{max-height:96dvh;margin-top:auto;align-self:flex-end;max-width:100%;border-left:none;border-right:none;border-bottom:none}.chk-overlay{align-items:flex-end;padding:0}.chk-header{padding:1.5rem 1.5rem 0}.chk-form{padding:1.25rem 1.5rem 1.5rem}.chk-choices{padding:1.25rem 1.5rem .5rem}.chk-reassure{padding:1rem 1.5rem 1.5rem}}
+        @media(prefers-reduced-motion:reduce){.chk-overlay,.chk-panel,.chk-submit,.chk-choice{animation:none;transition:none}.chk-spinner{animation-duration:1.4s}}
       `}</style>
 
       <div
@@ -367,8 +453,9 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
         aria-labelledby="chk-title"
         onClick={e => { if (e.target === overlayRef.current) onClose(); }}
       >
-        <div className="chk-panel">
+        <div className="chk-panel" ref={panelRef}>
           <button
+            ref={closeBtnRef}
             className="chk-close"
             onClick={onClose}
             aria-label={c.closeLabel}
@@ -382,7 +469,6 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
           {step === "choose" ? (
             <>
               <div className="chk-header">
-                <span className="chk-step-dot" aria-hidden="true" />
                 <h2 id="chk-title" className="chk-title">{c.choose.title}</h2>
                 <p className="chk-subtitle">{c.choose.subtitle}</p>
               </div>
@@ -397,7 +483,10 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
                   <span className="chk-choice-body">
                     <span className="chk-choice-title">{c.choose.talk.title}</span>
                     <span className="chk-choice-desc">{c.choose.talk.desc}</span>
-                    <span className="chk-choice-cta">{c.choose.talk.cta}</span>
+                    <span className="chk-choice-cta">
+                      {c.choose.talk.cta}
+                      <svg className="chk-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    </span>
                   </span>
                 </a>
 
@@ -414,7 +503,10 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
                   <span className="chk-choice-body">
                     <span className="chk-choice-title">{c.choose.buy.title}</span>
                     <span className="chk-choice-desc">{c.choose.buy.desc}</span>
-                    <span className="chk-choice-cta">{c.choose.buy.cta}</span>
+                    <span className="chk-choice-cta">
+                      {c.choose.buy.cta}
+                      <svg className="chk-arrow" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    </span>
                   </span>
                 </button>
               </div>
@@ -589,7 +681,10 @@ export default function CheckoutModal({ open, onClose, locale = "es" }: Checkout
                     {c.ctaLoading}
                   </>
                 ) : (
-                  c.cta
+                  <>
+                    {c.cta}
+                    <svg className="chk-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  </>
                 )}
               </button>
               <p className="chk-footnote">

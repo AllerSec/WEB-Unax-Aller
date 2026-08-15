@@ -17,10 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as LocaleKey;
 
   const titles: Record<LocaleKey, string> = {
-    es: "Proyectos: Webs reales hechas por Unax Aller",
-    en: "Work: Real websites built by Unax Aller",
-    eu: "Proiektuak: Unax Allerrek egindako benetako webguneak",
-    fr: "Projets : sites web réels créés par Unax Aller",
+    // Brand dropped from the copy: the layout template appends " | Unax Aller",
+    // so naming it here rendered the brand twice in the SERP.
+    es: "Proyectos de diseño web para negocios reales",
+    en: "Web design projects for real businesses",
+    eu: "Web diseinu proiektuak benetako negozioentzat",
+    fr: "Projets de création de sites web",
   };
   const descriptions: Record<LocaleKey, string> = {
     es: "Proyectos de diseño y desarrollo web hechos a mano para clientes reales del País Vasco y Navarra: farmacia, motos, óptica, agencia de IA. Visítalos.",

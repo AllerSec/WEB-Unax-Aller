@@ -79,11 +79,6 @@ export function AnimatedShaderHero({
             )}
           </div>
         )}
-
-        {/* Scroll cue */}
-        <div className="sh__scroll" aria-hidden="true">
-          <div className="sh__scroll-line" />
-        </div>
       </div>
     </section>
   );

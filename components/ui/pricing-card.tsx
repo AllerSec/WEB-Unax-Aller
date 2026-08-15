@@ -112,6 +112,7 @@ export default function PricingCard({ locale, headingLevel = "h2" }: PricingCard
         .pt-cta{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);min-height:48px;padding:0 var(--space-5);border-radius:var(--radius-lg);font-family:var(--font-sans);font-size:var(--text-sm);font-weight:700;text-decoration:none;cursor:pointer;transition:background-color var(--dur-fast) var(--ease-out),color var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
         .pt-cta--primary{background:var(--color-accent);color:#fff;box-shadow:var(--shadow-sm)}
         .pt-cta--primary:hover{background:var(--color-accent-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+        .pt-cta:active{transform:translateY(0) scale(0.98)}
         .pt-cta--ghost{background:#fff;color:var(--color-ink-soft);border:1px solid var(--color-line-strong)}
         .pt-cta--ghost:hover{background:var(--color-bg);color:var(--color-accent);border-color:var(--color-accent)}
         .pt-detail{appearance:none;background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:var(--text-xs);font-weight:600;color:var(--color-ink-muted);text-decoration:underline;text-underline-offset:3px;padding:var(--space-2);transition:color var(--dur-fast) var(--ease-out)}

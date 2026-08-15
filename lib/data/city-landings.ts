@@ -818,7 +818,7 @@ export function getCityLandingContent(
         },
         {
           q: "Is the website mine?",
-          a: "Yes. The domain is registered in your name from day one and the site is yours after payment — you don't rent it. Your Google Maps profile with its reviews stays with your business too. The annual maintenance (€600/year from the second year) just keeps it online and looked after, with nothing technical for you to handle.",
+          a: "Yes. The domain is registered in your name from day one and the site is yours after payment, not rented. Your Google Maps profile with its reviews stays with your business too. The annual maintenance (€600/year from the second year) just keeps it online and looked after, with nothing technical for you to handle.",
         },
       ],
       ctaTitle: `Have a business in ${city}?`,

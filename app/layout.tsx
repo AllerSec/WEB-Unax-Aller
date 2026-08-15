@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://unaxaller.com"),
   title: {
-    default: "Unax Aller: Web para negocio local · 1.300€, 1er año incluido",
+    default: "Unax Aller · Diseño web para negocio local",
     template: "%s | Unax Aller",
   },
   description:
@@ -90,6 +90,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">{children}</body>
+      {/* Flag JS availability before paint: scroll-reveal styles only hide
+          content under html.js, so without JS every section stays visible. */}
+      <Script id="js-flag" strategy="beforeInteractive">{`document.documentElement.classList.add('js');`}</Script>
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-LY57EXKHP3" strategy="afterInteractive" />
       <Script id="ga4-init" strategy="afterInteractive">{`
         window.dataLayer = window.dataLayer || [];

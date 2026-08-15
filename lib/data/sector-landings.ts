@@ -15,6 +15,12 @@ export interface SectorLandingDef {
   slug: string;
   /** Display name of the sector, e.g. "clínicas y centros de salud". */
   sectorNames: Record<LocaleKey, string>;
+  /** SERP <title> per locale, without the " | Unax Aller" brand suffix the
+   *  root layout template appends. Written by hand rather than derived from
+   *  `sectorNames`: the generated Basque form produced ungrammatical output
+   *  ("zentroakentzako" — the plural -ak must drop before -entzako), and the
+   *  derived titles overflowed the ~60-char SERP limit. */
+  seoTitles: Record<LocaleKey, string>;
   /** Short noun for the business owner, e.g. "tu clínica". */
   businessNoun: Record<LocaleKey, string>;
   /** 2-3 paragraphs of unique, sector-specific prose (what their customers
@@ -32,6 +38,12 @@ export const sectorLandings: SectorLandingDef[] = [
       en: "clinics and health centres",
       eu: "klinikak eta osasun zentroak",
       fr: "cliniques et centres de santé",
+    },
+    seoTitles: {
+      es: "Diseño web para clínicas",
+      en: "Web design for clinics",
+      eu: "Web diseinua klinikentzat",
+      fr: "Création de site web pour cliniques",
     },
     businessNoun: { es: "tu clínica", en: "your clinic", eu: "zure klinika", fr: "votre clinique" },
     touches: {
@@ -66,6 +78,12 @@ export const sectorLandings: SectorLandingDef[] = [
       eu: "tabernak, jatetxeak eta ostalaritza",
       fr: "bars, restaurants et hôtellerie-restauration",
     },
+    seoTitles: {
+      es: "Diseño web para bares y restaurantes",
+      en: "Web design for bars and restaurants",
+      eu: "Web diseinua tabernentzat eta jatetxeentzat",
+      fr: "Création de site web pour restaurants",
+    },
     businessNoun: { es: "tu restaurante", en: "your restaurant", eu: "zure jatetxea", fr: "votre restaurant" },
     touches: {
       es: [
@@ -98,6 +116,12 @@ export const sectorLandings: SectorLandingDef[] = [
       en: "local shops and retail",
       eu: "merkataritza eta tokiko dendak",
       fr: "commerces et boutiques locales",
+    },
+    seoTitles: {
+      es: "Diseño web para comercios y tiendas",
+      en: "Web design for local shops",
+      eu: "Web diseinua merkataritzarentzat",
+      fr: "Création de site web pour commerces",
     },
     businessNoun: { es: "tu comercio", en: "your shop", eu: "zure denda", fr: "votre commerce" },
     touches: {
@@ -132,6 +156,12 @@ export const sectorLandings: SectorLandingDef[] = [
       eu: "tailerrak eta B2B industria",
       fr: "ateliers et industrie B2B",
     },
+    seoTitles: {
+      es: "Diseño web para talleres e industria",
+      en: "Web design for workshops and industry",
+      eu: "Web diseinua tailerrentzat eta industriarentzat",
+      fr: "Création de site web pour ateliers",
+    },
     businessNoun: { es: "tu empresa", en: "your company", eu: "zure enpresa", fr: "votre entreprise" },
     touches: {
       es: [
@@ -164,6 +194,12 @@ export const sectorLandings: SectorLandingDef[] = [
       en: "firms and professional services",
       eu: "bulegoak eta zerbitzu profesionalak",
       fr: "cabinets et services professionnels",
+    },
+    seoTitles: {
+      es: "Diseño web para despachos y asesorías",
+      en: "Web design for firms and practices",
+      eu: "Web diseinua bulego profesionalentzat",
+      fr: "Création de site web pour cabinets",
     },
     businessNoun: { es: "tu despacho", en: "your firm", eu: "zure bulegoa", fr: "votre cabinet" },
     touches: {
@@ -303,7 +339,7 @@ export function getSectorLandingContent(
         },
         {
           q: "Is the website mine?",
-          a: "Yes. The domain is registered in your name from day one and the site is yours after payment — you don't rent it. Your Google profile with its reviews stays with your business. The annual maintenance just keeps it online and looked after.",
+          a: "Yes. The domain is registered in your name from day one and the site is yours after payment, not rented. Your Google profile with its reviews stays with your business. The annual maintenance just keeps it online and looked after.",
         },
       ],
       ctaTitle: `Run ${noun}?`,

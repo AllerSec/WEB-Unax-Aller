@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     es: "Servicios de Diseño Web en Irun, País Vasco",
     en: "Web Design Services in Irun, Basque Country",
     eu: "Web Diseinu Zerbitzuak Irunen, Euskal Herrian",
-    fr: "Services de Création de Sites Web à Irun, Pays Basque",
+    fr: "Création de sites web à Irun, Pays Basque",
   };
   const descriptions: Record<string, string> = {
     es: "Servicios de diseño web en Irun, Gipuzkoa: UI/UX a medida, SEO técnico, animaciones GSAP, rendimiento web, multi-idioma y más para negocios del País Vasco.",

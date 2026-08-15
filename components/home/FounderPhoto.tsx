@@ -14,8 +14,8 @@ type Props = {
 
 /**
  * Founder photo: entrance reveal on scroll + continuous floating drift.
- * Float runs unconditionally — y / x / rotation yoyos with prime-ish
- * durations so they never sync, reading as weightless organic motion.
+ * Y / X yoyos use prime-ish durations so they never sync, reading as
+ * weightless organic motion. Under reduced motion everything is static.
  */
 export default function FounderPhoto({ alt }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -23,11 +23,12 @@ export default function FounderPhoto({ alt }: Props) {
   useGSAP(
     () => {
       const wrapper = wrapperRef.current;
-      if (!wrapper) {
-        console.warn("[FounderPhoto] no wrapper ref");
+      if (!wrapper) return;
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(wrapper, { opacity: 1, scale: 1, x: 0, y: 0 });
         return;
       }
-      console.log("[FounderPhoto] init");
 
       // Float starts immediately. Y + X with prime-ish durations so they
       // never realign — reads as weightless drift, no rotation.

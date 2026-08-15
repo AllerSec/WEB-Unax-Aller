@@ -26,10 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return {};
 
   const titles: Record<LocaleKey, string> = {
-    es: `${project.name}: Proyecto de Diseño Web | Unax Aller`,
-    en: `${project.name}: Web Design Case Study | Unax Aller`,
-    eu: `${project.name}: Web Diseinu Proiektua | Unax Aller`,
-    fr: `${project.name} : étude de cas design web | Unax Aller`,
+    // No brand suffix: the root layout template appends " | Unax Aller", so
+    // hardcoding it here rendered "… | Unax Aller | Unax Aller".
+    es: `${project.name}: proyecto de diseño web`,
+    en: `${project.name}: web design case study`,
+    eu: `${project.name}: web diseinu proiektua`,
+    fr: `${project.name} : étude de cas design web`,
   };
 
   return {

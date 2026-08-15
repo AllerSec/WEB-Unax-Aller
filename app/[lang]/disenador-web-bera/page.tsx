@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Bera",
-    en: "Web Designer in Bera, Navarre",
-    eu: "Web Diseinatzailea Beran",
-    fr: "Créateur de Site Web à Bera, Navarre",
+    es: "Diseño web en Bera",
+    en: "Web design in Bera, Navarre",
+    eu: "Web diseinua Beran",
+    fr: "Création de site web à Bera, Navarre",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Bera (Bidasoa, Navarra). A 16 km de Irun. Webs a medida en castellano, euskera, inglés y francés, con SEO local y Google Maps. Pago único de 1.300€ + IVA, primer año incluido.",

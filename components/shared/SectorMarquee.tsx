@@ -117,12 +117,6 @@ export default function SectorMarquee({ locale }: Props) {
           color:var(--color-ink-soft);
           white-space:nowrap;
         }
-        .sm-chip::before {
-          content:"";
-          width:6px; height:6px; border-radius:50%;
-          background:var(--color-accent);
-          flex-shrink:0;
-        }
         @keyframes sm-scroll {
           from { transform:translateX(0); }
           to   { transform:translateX(-50%); }

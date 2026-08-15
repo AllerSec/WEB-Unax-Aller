@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Eibar, Gipuzkoa",
-    en: "Web Designer in Eibar, Gipuzkoa",
-    eu: "Web Diseinatzailea Eibarren, Gipuzkoan",
-    fr: "Créateur de Site Web à Eibar, Guipuscoa",
+    es: "Diseño web en Eibar, Gipuzkoa",
+    en: "Web design in Eibar, Gipuzkoa",
+    eu: "Web diseinua Eibarren, Gipuzkoan",
+    fr: "Création de site web à Eibar, Guipuscoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para la industria, máquina-herramienta y comercio de Eibar. Webs a medida, SEO local y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

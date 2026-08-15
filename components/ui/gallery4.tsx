@@ -143,7 +143,6 @@ const Gallery4 = ({
       <div className="container-xl">
         <div className="g4-header">
           <div className="g4-header-text">
-            <span className="lp-eyebrow">{t("Proyectos reales", "Real projects", "Benetako proiektuak", "Projets réels")}</span>
             <h2 id="g4-title" className="g4-title">{title}</h2>
             <p className="g4-description">{description}</p>
           </div>
@@ -217,12 +216,12 @@ const Gallery4 = ({
         </div>
       </div>
 
-      <div className="g4-dots" role="tablist" aria-label={t("Navegación de proyectos", "Project navigation", "Proiektuen nabigazioa", "Navigation des projets")}>
+      <div className="g4-dots" role="group" aria-label={t("Navegación de proyectos", "Project navigation", "Proiektuen nabigazioa", "Navigation des projets")}>
         {items.map((item, index) => (
           <button
             key={index}
-            role="tab"
-            aria-selected={current === index}
+            type="button"
+            aria-current={current === index}
             aria-label={`${t("Ir a", "Go to", "Joan", "Aller à")} ${item.title}`}
             className={`g4-dot${current === index ? " g4-dot--active" : ""}`}
             onClick={() => scrollTo(index)}

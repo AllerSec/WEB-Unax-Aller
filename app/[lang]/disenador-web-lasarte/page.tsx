@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Lasarte-Oria, Gipuzkoa",
-    en: "Web Designer in Lasarte-Oria, Gipuzkoa",
-    eu: "Web Diseinatzailea Lasarte-Orian",
-    fr: "Créateur de Site Web à Lasarte-Oria, Gipuzkoa",
+    es: "Diseño web en Lasarte-Oria, Gipuzkoa",
+    en: "Web design in Lasarte-Oria, Gipuzkoa",
+    eu: "Web diseinua Lasarte-Orian",
+    fr: "Création de site web à Lasarte-Oria, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Lasarte-Oria. A 28 km de Irun. Webs a medida, SEO local y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

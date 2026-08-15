@@ -61,7 +61,7 @@
     eyebrow: "That simple",
     title: "From zero to more calls in 4 steps.",
     steps: [
-      { number: "01", title: "I show you a proposal", desc: "Before signing anything, I send you a proposal so you can see what your website would look like: structure, design and direction. If you're not convinced, that's fine — you owe me nothing." },
+      { number: "01", title: "I show you a proposal", desc: "Before signing anything, I send you a proposal so you can see what your website would look like: structure, design and direction. If you're not convinced, that's fine. You owe me nothing." },
       { number: "02", title: "We tailor it to your taste", desc: "Real typography, colours and mockups. I send you previews on WhatsApp and we adjust until you genuinely like it." },
       { number: "03", title: "We go live", desc: "A one-off €1,300 + VAT, with the first year of maintenance included. 30-day money-back guarantee. The site is yours, with no monthly fees." },
       { number: "04", title: "First-year changes included", desc: "Texts, photos, prices, hours, a new service… message me on WhatsApp and I'll handle it. No forms, no tickets, no extra invoices." },
@@ -234,7 +234,7 @@
       email: "contacto@unaxaller.com",
       phone: "+34 620 90 99 16",
       response: "Response in < 24h",
-      availability: "Mon – Fri · 9:00 – 18:00",
+      availability: "Mon-Fri · 9:00-18:00",
     },
     stats: {
       title: "One step closer to your website.",
@@ -286,7 +286,7 @@
       { q: "Does it include maintenance?", a: "Yes, the whole first year: hosting, domain, SSL, WhatsApp support and content changes (text, photos, prices, hours, adding a service…). From the second year, maintenance is €600/year (around €50/month, billed once a year). No extra invoices." },
       { q: "Can I request changes whenever I want?", a: "Yes. During development, revision rounds are included. The first year after launch, content changes are included: you send them via WhatsApp and I do them." },
       { q: "Do you only work with Gipuzkoa businesses?", a: "No. I work with professional businesses across the Basque Country and Navarra: Bilbao, Donostia, Vitoria, Pamplona, plus smaller towns and industrial estates. La Rioja and Cantabria too. Digital closeness matters more than geographic: we work over WhatsApp and video, with in-person visits when the project warrants it." },
-      { q: "Is the website mine?", a: "Yes. The domain is registered in your name from day one and the site is yours after payment — you don't rent it. Your Google listing and reviews belong to your business too. The annual maintenance just keeps it online and looked after." },
+      { q: "Is the website mine?", a: "Yes. The domain is registered in your name from day one and the site is yours after payment, not rented. Your Google listing and reviews belong to your business too. The annual maintenance just keeps it online and looked after." },
     ],
   },
   faqPrecios: {

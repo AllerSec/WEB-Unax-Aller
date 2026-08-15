@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "¡Bienvenido! Arrancamos con tu web · Unax Aller",
+  // Brand omitted: the root layout template appends " | Unax Aller".
+  title: "¡Bienvenido! Arrancamos con tu web",
   robots: { index: false, follow: false },
 };
 

@@ -1634,15 +1634,15 @@ Lo que WordPress tiene a su favor en SEO: es más fácil para alguien sin conoci
 ## Coste real de cada uno
 
 **WordPress:**
-- Hosting decente: 10–30€/mes (el barato de 2€ te da problemas)
-- Theme premium: 60–80€ (único, pero hay que renovar)
-- Plugins esenciales: formulario, SEO, seguridad, caché, fácil 150–300€/año
-- Actualizaciones que rompen cosas: cada 3–6 meses aparece alguna
-- Desarrollador de urgencia cuando algo falla: 50–150€/hora
+- Hosting decente: 10-30€/mes (el barato de 2€ te da problemas)
+- Theme premium: 60-80€ (único, pero hay que renovar)
+- Plugins esenciales: formulario, SEO, seguridad, caché, fácil 150-300€/año
+- Actualizaciones que rompen cosas: cada 3-6 meses aparece alguna
+- Desarrollador de urgencia cuando algo falla: 50-150€/hora
 
 **Next.js:**
 - Hosting en Vercel: gratis hasta cierto tráfico, luego 20€/mes
-- Dominio: 10–15€/año
+- Dominio: 10-15€/año
 - Mantenimiento: mínimo, porque no hay plugins que actualizar
 - Coste inicial más alto (desarrollo a medida)
 
@@ -1688,15 +1688,15 @@ Where WordPress has an advantage in SEO: it's easier for someone without technic
 ## Real cost of each
 
 **WordPress:**
-- Decent hosting: €10–30/month (the cheap €2 option causes problems)
-- Premium theme: €60–80 (one-off, but needs renewal)
-- Essential plugins: contact form, SEO, security, cache, easily €150–300/year
-- Updates that break things: every 3–6 months something breaks
-- Emergency developer when something fails: €50–150/hour
+- Decent hosting: €10-30/month (the cheap €2 option causes problems)
+- Premium theme: €60-80 (one-off, but needs renewal)
+- Essential plugins: contact form, SEO, security, cache, easily €150-300/year
+- Updates that break things: every 3-6 months something breaks
+- Emergency developer when something fails: €50-150/hour
 
 **Next.js:**
 - Hosting on Vercel: free up to a point, then €20/month
-- Domain: €10–15/year
+- Domain: €10-15/year
 - Maintenance: minimal, no plugins to update
 - Higher upfront cost (custom development)
 
@@ -1773,15 +1773,15 @@ Ce que WordPress a pour lui côté SEO : il est plus facile pour quelqu'un sans 
 ## Coût réel de chacun
 
 **WordPress :**
-- Hébergement correct : 10–30 €/mois (l'offre à 2 € vous crée des problèmes)
-- Thème premium : 60–80 € (unique, mais à renouveler)
-- Plugins essentiels : formulaire, SEO, sécurité, cache, facilement 150–300 €/an
+- Hébergement correct : 10-30 €/mois (l'offre à 2 € vous crée des problèmes)
+- Thème premium : 60-80 € (unique, mais à renouveler)
+- Plugins essentiels : formulaire, SEO, sécurité, cache, facilement 150-300 €/an
 - Mises à jour qui cassent des choses : tous les 3 à 6 mois, il y en a une
-- Développeur en urgence quand quelque chose plante : 50–150 €/heure
+- Développeur en urgence quand quelque chose plante : 50-150 €/heure
 
 **Next.js :**
 - Hébergement sur Vercel : gratuit jusqu'à un certain trafic, puis 20 €/mois
-- Domaine : 10–15 €/an
+- Domaine : 10-15 €/an
 - Maintenance : minimale, car aucun plugin à mettre à jour
 - Coût initial plus élevé (développement sur mesure)
 

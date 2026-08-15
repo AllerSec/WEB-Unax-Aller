@@ -3,7 +3,6 @@
 import { useState } from "react";
 import CheckoutModal from "@/components/pricing/CheckoutModal";
 import AnimatedShaderHero from "@/components/ui/animated-shader-hero";
-import Link from "next/link";
 
 interface HomeCtaWrapperProps {
   locale: string;

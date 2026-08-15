@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Santander, Cantabria",
-    en: "Web Designer in Santander, Cantabria",
-    eu: "Web Diseinatzailea Santanderren, Kantabrian",
-    fr: "Créateur de Site Web à Santander, Cantabrie",
+    es: "Diseño web en Santander, Cantabria",
+    en: "Web design in Santander, Cantabria",
+    eu: "Web diseinua Santanderren, Kantabrian",
+    fr: "Création de site web à Santander, Cantabrie",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para hoteles, restaurantes y negocios de Santander y Cantabria. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",

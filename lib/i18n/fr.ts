@@ -234,7 +234,7 @@ const fr = {
       email: "contacto@unaxaller.com",
       phone: "+34 620 90 99 16",
       response: "Réponse en < 24h",
-      availability: "Lun – Ven · 9h00 – 18h00",
+      availability: "Lun-Ven · 9h00-18h00",
     },
     stats: {
       title: "Un pas de plus vers votre site.",

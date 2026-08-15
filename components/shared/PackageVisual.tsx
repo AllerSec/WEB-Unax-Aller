@@ -144,16 +144,9 @@ export default function PackageVisual({ locale }: Props) {
           padding:var(--space-4);
           text-align:left;
           display:flex; flex-direction:column; gap:8px;
-          transition:transform .25s var(--ease-out), box-shadow .25s var(--ease-out), border-color .25s var(--ease-out);
           position:relative;
           overflow:hidden;
         }
-        .pv-tile:hover {
-          transform:translateY(-3px);
-          border-color:rgba(10, 10, 10, 0.16);
-          box-shadow:0 12px 32px rgba(10, 10, 10, 0.08);
-        }
-        .pv-tile:hover .pv-icon { background:color-mix(in srgb, #0A0A0A 16%, transparent); transform:scale(1.05) rotate(-3deg); }
         .pv-icon {
           display:inline-flex; align-items:center; justify-content:center;
           width:40px; height:40px;
@@ -188,12 +181,6 @@ export default function PackageVisual({ locale }: Props) {
           box-shadow:0 12px 40px rgba(10, 10, 10, 0.18);
           position:relative;
           overflow:hidden;
-        }
-        .pv-equals::before {
-          content:""; position:absolute; top:-50%; right:-20%;
-          width:300px; height:300px; border-radius:50%;
-          background:radial-gradient(circle, rgba(220, 38, 38, 0.18), transparent 60%);
-          pointer-events:none;
         }
         .pv-equals-label { font-family:var(--font-sans); font-size:14px; font-weight:500; color:rgba(255, 255, 255, 0.72); position:relative; z-index:1; }
         .pv-equals-value { font-family:var(--font-serif); font-size:clamp(1.5rem, 4vw, 2.25rem); font-weight:700; color:#FFFFFF; letter-spacing:-.02em; position:relative; z-index:1; }

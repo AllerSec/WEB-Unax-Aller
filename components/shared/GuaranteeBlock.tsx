@@ -51,7 +51,7 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
             {
               big: "Yours",
               small: "from day one",
-              desc: "The domain is registered in your name and the site is yours after payment — you don't rent it. Your Google listing and reviews always stay with you.",
+              desc: "The domain is registered in your name and the site is yours after payment, not rented. Your Google listing and reviews always stay with you.",
             },
           ],
         }
@@ -108,19 +108,16 @@ export default function GuaranteeBlock({ locale, variant = "default" }: Guarante
         .gb-section{padding-block:clamp(3rem,6vw,5rem);background:#FFFFFF;border-top:1px solid var(--color-line);border-bottom:1px solid var(--color-line)}
         .gb-section--compact{padding-block:clamp(2rem,4vw,3rem)}
         .gb-inner{max-width:1100px;margin:0 auto;padding-inline:clamp(1rem,4vw,2rem);text-align:center}
-        .gb-eyebrow{font-family:var(--font-sans);font-size:var(--text-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent);margin:0 0 var(--space-3)}
         .gb-title{font-family:var(--font-serif);font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:500;line-height:var(--lh-tight);color:var(--color-ink);margin:0 0 var(--space-10);letter-spacing:-.02em}
         .gb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
         @media(max-width:768px){.gb-grid{grid-template-columns:1fr;gap:var(--space-3)}}
-        .gb-pillar{background:var(--color-bg);border:1px solid var(--color-line);border-radius:var(--radius-xl);padding:clamp(1.5rem,3vw,2rem);text-align:left;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
-        .gb-pillar:hover{border-color:var(--color-accent);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+        .gb-pillar{background:var(--color-bg);border:1px solid var(--color-line);border-radius:var(--radius-xl);padding:clamp(1.5rem,3vw,2rem);text-align:left}
         .gb-pillar-num{display:flex;align-items:baseline;gap:.5rem;margin-bottom:var(--space-3);font-family:var(--font-serif);color:var(--color-primary);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
         .gb-pillar-big{font-size:clamp(2.5rem,5vw,3.25rem);font-weight:500;line-height:1}
         .gb-pillar-small{font-family:var(--font-sans);font-size:var(--text-sm);font-weight:600;color:var(--color-accent);letter-spacing:.02em}
         .gb-pillar-desc{font-family:var(--font-sans);font-size:var(--text-sm);line-height:var(--lh-relaxed);color:var(--color-ink-muted);margin:0}
       `}</style>
       <div className="gb-inner">
-        <p className="gb-eyebrow">{labels.eyebrow}</p>
         <h2 id="gb-title" className="gb-title">{labels.title}</h2>
         <div className="gb-grid">
           {labels.pillars.map((p, i) => (

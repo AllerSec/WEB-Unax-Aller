@@ -234,7 +234,7 @@
       email: "contacto@unaxaller.com",
       phone: "+34 620 90 99 16",
       response: "Respuesta en < 24h",
-      availability: "Lun – Vie · 9:00 – 18:00",
+      availability: "Lun-Vie · 9:00-18:00",
     },
     stats: {
       title: "Un paso más cerca de tu web.",

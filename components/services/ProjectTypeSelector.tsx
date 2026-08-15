@@ -25,16 +25,22 @@ export default function ProjectTypeSelector({ types, locale, headingId }: Props)
   const [activeId, setActiveId] = useState<string>(types[0].id);
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
+  // Restore the saved / deep-linked tab once on mount. Wrapped in rAF so the
+  // update happens outside the synchronous effect body (react-hooks rule).
   useEffect(() => {
-    try {
-      const saved = sessionStorage.getItem(STORAGE_KEY);
-      if (saved && types.some((t) => t.id === saved)) setActiveId(saved);
-    } catch {}
-
-    if (typeof window !== "undefined" && window.location.hash) {
-      const hash = window.location.hash.slice(1);
-      if (types.some((t) => t.id === hash)) setActiveId(hash);
-    }
+    const id = requestAnimationFrame(() => {
+      let next: string | undefined;
+      try {
+        const saved = sessionStorage.getItem(STORAGE_KEY);
+        if (saved && types.some((t) => t.id === saved)) next = saved;
+      } catch {}
+      if (window.location.hash) {
+        const hash = window.location.hash.slice(1);
+        if (types.some((t) => t.id === hash)) next = hash;
+      }
+      if (next) setActiveId(next);
+    });
+    return () => cancelAnimationFrame(id);
   }, [types]);
 
   const handleSelect = (id: string) => {

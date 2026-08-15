@@ -42,10 +42,6 @@ export interface CityLandingProps {
   nearbyTitleOverride?: string;
 }
 
-// Decorative icon glyph for each benefit slot — keeps the "why local" grid
-// visually rhythmic without leaning on a generic icon library.
-const BENEFIT_GLYPHS = ["◐", "◓", "◑", "◒"] as const;
-
 export default function CityLanding({
   locale,
   slug,
@@ -139,14 +135,6 @@ export default function CityLanding({
       : locale === "eu"
       ? `${cityName}ri buruz dakidana`
       : `Ce que je connais de ${cityName}`;
-  const localEyebrow =
-    locale === "es"
-      ? "Conociendo el terreno"
-      : locale === "en"
-      ? "Knowing the ground"
-      : locale === "eu"
-      ? "Lurraldea ezagutzen"
-      : "Connaître le terrain";
   const nearbyTitle =
     locale === "es"
       ? "También trabajo en estas ciudades"
@@ -155,14 +143,6 @@ export default function CityLanding({
       : locale === "eu"
       ? "Hiri hauetan ere lan egiten dut"
       : "Je travaille aussi dans ces villes";
-  const founderEyebrow =
-    locale === "es"
-      ? "Quién está detrás"
-      : locale === "en"
-      ? "Who's behind"
-      : locale === "eu"
-      ? "Nor dago atzean"
-      : "Qui se cache derrière";
   const founderTitle =
     locale === "es"
       ? "Hola, soy Unax."
@@ -187,14 +167,6 @@ export default function CityLanding({
       : locale === "eu"
       ? "Ezagutu nazazu hobeto"
       : "Apprendre à me connaître";
-  const benefitsEyebrow =
-    locale === "es"
-      ? "Por qué local"
-      : locale === "en"
-      ? "Why local"
-      : locale === "eu"
-      ? "Zergatik bertakoa"
-      : "Pourquoi un créateur local";
 
   return (
     <>
@@ -253,7 +225,6 @@ export default function CityLanding({
               }
             />
             <div className="founder-strip-content">
-              <span className="founder-strip-eyebrow">{founderEyebrow}</span>
               <h2 id="city-founder-title" className="founder-strip-title">{founderTitle}</h2>
               <p className="founder-strip-body">{founderBody}</p>
               <Link href={`/${locale}/sobre-nosotros`} className="founder-strip-link focusable">
@@ -283,11 +254,11 @@ export default function CityLanding({
           }
           description={
             locale === "es"
-              ? "Webs reales para negocios reales del País Vasco y Navarra. Cada proyecto a medida, entregado en 1–2 semanas."
+              ? "Webs reales para negocios reales del País Vasco y Navarra. Cada proyecto a medida, entregado en 1-2 semanas."
               : locale === "en"
-              ? "Real websites for real businesses in the Basque Country and Navarre. Each one custom, delivered in 1–2 weeks."
+              ? "Real websites for real businesses in the Basque Country and Navarre. Each one custom, delivered in 1-2 weeks."
               : locale === "eu"
-              ? "Webgune errealak Euskal Herriko eta Nafarroako benetako negozioentzat. Bakoitza neurrira, 1–2 astetan."
+              ? "Webgune errealak Euskal Herriko eta Nafarroako benetako negozioentzat. Bakoitza neurrira, 1-2 astetan."
               : "Des sites web réels pour de vraies entreprises du Pays basque et de Navarre. Chaque projet sur mesure, livré en 1 à 2 semaines."
           }
           items={galleryItems(locale)}
@@ -308,18 +279,11 @@ export default function CityLanding({
         <div className="container-xl">
           <AnimatedSection>
             <header className="city-benefits-header">
-              <span className="city-benefits-eyebrow">{benefitsEyebrow}</span>
               <h2 id="benefits-title" className="city-benefits-title">{content.benefitsTitle}</h2>
             </header>
             <ul className="city-benefits-grid" role="list">
               {content.benefits.map((item, i) => (
                 <li key={i} className="city-benefit-tile" style={{ animationDelay: `${i * 0.08}s` }}>
-                  <span className="city-benefit-tile-num" aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="city-benefit-tile-glyph" aria-hidden="true">
-                    {BENEFIT_GLYPHS[i % BENEFIT_GLYPHS.length]}
-                  </span>
                   <h3 className="city-benefit-tile-title">{item.title}</h3>
                   <p className="city-benefit-tile-desc">{item.desc}</p>
                 </li>
@@ -344,7 +308,6 @@ export default function CityLanding({
             <AnimatedSection>
               <div className="city-local-grid">
                 <div className="city-local-aside">
-                  <span className="city-local-eyebrow">{localEyebrow}</span>
                   <h2 id="city-local-title" className="city-local-title">{localTitle}</h2>
                   {distanceFromIrunKm !== undefined && (
                     <div className="city-local-pin">
@@ -438,7 +401,7 @@ export default function CityLanding({
               <h2 className="city-cta-heading">{content.ctaTitle}</h2>
               <p className="city-cta-sub">{content.ctaSub}</p>
               <Link href={`/${locale}/contacto`} className="dark-cta-button focusable">
-                {content.ctaBtn}
+                {content.quoteBtn}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

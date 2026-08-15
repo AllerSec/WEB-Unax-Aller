@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Donostia-San Sebastián",
-    en: "Web Designer in Donostia-San Sebastián",
-    eu: "Web Diseinatzailea Donostian",
-    fr: "Créateur de Site Web à Saint-Sébastien (Donostia)",
+    es: "Diseño web en Donostia-San Sebastián",
+    en: "Web design in Donostia-San Sebastián",
+    eu: "Web diseinua Donostian",
+    fr: "Création de site web à Saint-Sébastien",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Donostia-San Sebastián. A 20 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

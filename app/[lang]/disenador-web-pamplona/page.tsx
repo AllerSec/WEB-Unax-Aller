@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Pamplona, Navarra",
-    en: "Web Designer in Pamplona, Navarre",
-    eu: "Web Diseinatzailea Iruñean, Nafarroan",
-    fr: "Créateur de Site Web à Pampelune, Navarre",
+    es: "Diseño web en Pamplona, Navarra",
+    en: "Web design in Pamplona, Navarre",
+    eu: "Web diseinua Iruñean, Nafarroan",
+    fr: "Création de site web à Pampelune, Navarre",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Pamplona y Navarra. Webs a medida con SEO local, diseño premium y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

@@ -81,6 +81,14 @@ export default function SocialProof() {
 
   useGSAP(
     () => {
+      // Reduced motion: land everything in its final state, no tweens,
+      // and print the real numbers instead of the count-up.
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(headerRef.current, { opacity: 1, y: 0 });
+        gsap.set("[data-stat-card]", { opacity: 1, y: 0 });
+        return;
+      }
+
       gsap.fromTo(
         headerRef.current,
         { y: 30, opacity: 0 },

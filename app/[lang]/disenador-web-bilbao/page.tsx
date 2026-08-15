@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Bilbao, Bizkaia",
-    en: "Web Designer in Bilbao, Bizkaia",
-    eu: "Web Diseinatzailea Bilbon, Bizkaian",
-    fr: "Créateur de Site Web à Bilbao, Biscaye",
+    es: "Diseño web en Bilbao, Bizkaia",
+    en: "Web design in Bilbao, Bizkaia",
+    eu: "Web diseinua Bilbon, Bizkaian",
+    fr: "Création de site web à Bilbao, Biscaye",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Bilbao y Bizkaia. Webs a medida con SEO local, diseño premium y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

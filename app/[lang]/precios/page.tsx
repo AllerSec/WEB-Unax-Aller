@@ -19,10 +19,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Precios: Web para negocio local · 1.300€ pago único · Unax Aller",
-    en: "Pricing: Web for local business · €1,300 one-off · Unax Aller",
-    eu: "Prezioak: Web tokiko negoziorako · 1.300€ ordainketa bakarra · Unax Aller",
-    fr: "Tarifs : Site pour commerce local · 1 300 € paiement unique · Unax Aller",
+    // No brand suffix: the root layout template already appends " | Unax Aller".
+    es: "Precios: diseño web desde 1.300€ pago único",
+    en: "Pricing: web design from €1,300 one-off",
+    eu: "Prezioak: web diseinua 1.300€ ordainketa bakarrean",
+    fr: "Tarifs : création de site web à 1 300 €",
   };
   const descriptions: Record<string, string> = {
     es: "Tu web profesional por un pago único de 1.300€ + IVA, con el primer año de mantenimiento incluido: diseño a medida, Google Maps optimizado, reseñas, dominio, hosting y soporte por WhatsApp. A partir del año 2, 600€/año. 30 días de garantía.",
@@ -72,7 +73,7 @@ export default async function PreciosPage({ params }: Props) {
         { q: "Why a one-off payment and not a monthly fee?", a: "Because for most businesses the website is something you build once and then forget is there, working in the background. There's no point paying a fee every month for something that's already done. You pay once, you own it, and you only renew the maintenance once a year. No invoices hanging over you every month." },
         { q: "What do the first-year content changes include?", a: "Text, photos, prices, opening hours, adding a service or tweaking the Google profile. Anything a business needs to keep current, same day and over WhatsApp. It doesn't cover redesigning the whole site structure from scratch: that's a new project, quoted separately. Your day-to-day is covered with no extra invoices." },
         { q: "What if I don't like the result?", a: "You have 30 days from launch to get every euro back, no explanation required. It's a money-back guarantee: if you ask for the refund, I return what you paid and the site switches off. It's fair both ways." },
-        { q: "Is the website mine?", a: "Yes. The domain is registered in your name from day one and is always yours. The site is yours after payment — you don't rent it. The annual maintenance keeps it online and looked after, but ownership is yours from the moment I hand it over, with your Google listing and reviews included." },
+        { q: "Is the website mine?", a: "Yes. The domain is registered in your name from day one and is always yours. The site is yours after payment, not rented. The annual maintenance keeps it online and looked after, but ownership is yours from the moment I hand it over, with your Google listing and reviews included." },
         { q: "How fast is the site ready?", a: "In a week from closing the payment. We start right away." },
       ]
     : locale === "eu"
@@ -203,29 +204,29 @@ export default async function PreciosPage({ params }: Props) {
 
   const marketRows = locale === "es"
     ? [
-        { who: "Agencia local", price: "2.500 € – 5.000 € inicial", note: "Solo el diseño. Mantenimiento y cambios, siempre aparte.", highlight: false },
-        { who: "Plantilla WordPress", price: "400 € – 800 €", note: "Plantilla genérica. Nada de SEO local. Sin soporte.", highlight: false },
-        { who: "Wix / Squarespace", price: "200 € – 500 €/año", note: "Te quedas sin la web cuando dejas de pagar. Lenta en móvil.", highlight: false },
+        { who: "Agencia local", price: "2.500 €-5.000 € inicial", note: "Solo el diseño. Mantenimiento y cambios, siempre aparte.", highlight: false },
+        { who: "Plantilla WordPress", price: "400 €-800 €", note: "Plantilla genérica. Nada de SEO local. Sin soporte.", highlight: false },
+        { who: "Wix / Squarespace", price: "200 €-500 €/año", note: "Te quedas sin la web cuando dejas de pagar. Lenta en móvil.", highlight: false },
         { who: "Tu web (Unax)", price: "1.300 € · 1er año incluido", note: "Pago único. Primer año entero resuelto. Luego 600 €/año.", highlight: true },
       ]
     : locale === "en"
     ? [
-        { who: "Local agency", price: "€2,500 – €5,000 upfront", note: "Design only. Maintenance and changes, always extra.", highlight: false },
-        { who: "WordPress template", price: "€400 – €800", note: "Generic template. No local SEO. No support.", highlight: false },
-        { who: "Wix / Squarespace", price: "€200 – €500/year", note: "You lose the site when you stop paying. Slow on mobile.", highlight: false },
+        { who: "Local agency", price: "€2,500-€5,000 upfront", note: "Design only. Maintenance and changes, always extra.", highlight: false },
+        { who: "WordPress template", price: "€400-€800", note: "Generic template. No local SEO. No support.", highlight: false },
+        { who: "Wix / Squarespace", price: "€200-€500/year", note: "You lose the site when you stop paying. Slow on mobile.", highlight: false },
         { who: "Your site (Unax)", price: "€1,300 · first year included", note: "One-off payment. Whole first year solved. Then €600/year.", highlight: true },
       ]
     : locale === "eu"
     ? [
-        { who: "Tokiko agentzia", price: "2.500 € – 5.000 € hasieran", note: "Diseinua bakarrik. Mantentze-lana eta aldaketak, beti aparte.", highlight: false },
-        { who: "WordPress txantiloia", price: "400 € – 800 €", note: "Txantiloi generikoa. Tokiko SEO eta laguntzarik gabe.", highlight: false },
-        { who: "Wix / Squarespace", price: "200 € – 500 €/urte", note: "Ordaintzeari uzten diozunean, weba galtzen duzu.", highlight: false },
+        { who: "Tokiko agentzia", price: "2.500 €-5.000 € hasieran", note: "Diseinua bakarrik. Mantentze-lana eta aldaketak, beti aparte.", highlight: false },
+        { who: "WordPress txantiloia", price: "400 €-800 €", note: "Txantiloi generikoa. Tokiko SEO eta laguntzarik gabe.", highlight: false },
+        { who: "Wix / Squarespace", price: "200 €-500 €/urte", note: "Ordaintzeari uzten diozunean, weba galtzen duzu.", highlight: false },
         { who: "Zure weba (Unax)", price: "1.300 € · 1. urtea barne", note: "Ordainketa bakarra. Lehen urte osoa konponduta. Gero 600 €/urteko.", highlight: true },
       ]
     : [
-        { who: "Agence locale", price: "2 500 € – 5 000 € au départ", note: "Le design seulement. Maintenance et changements, toujours en plus.", highlight: false },
-        { who: "Template WordPress", price: "400 € – 800 €", note: "Template générique. Pas de SEO local. Pas de support.", highlight: false },
-        { who: "Wix / Squarespace", price: "200 € – 500 €/an", note: "Vous perdez le site quand vous arrêtez de payer. Lent sur mobile.", highlight: false },
+        { who: "Agence locale", price: "2 500 €-5 000 € au départ", note: "Le design seulement. Maintenance et changements, toujours en plus.", highlight: false },
+        { who: "Template WordPress", price: "400 €-800 €", note: "Template générique. Pas de SEO local. Pas de support.", highlight: false },
+        { who: "Wix / Squarespace", price: "200 €-500 €/an", note: "Vous perdez le site quand vous arrêtez de payer. Lent sur mobile.", highlight: false },
         { who: "Votre site (Unax)", price: "1 300 € · 1ère année incluse", note: "Paiement unique. Toute la première année résolue. Puis 600 €/an.", highlight: true },
       ];
 
@@ -538,7 +539,7 @@ export default async function PreciosPage({ params }: Props) {
                   ? <>You pay <strong>€1,300 once</strong>, with the whole first year included: almost €4,900 less than what an agency charges. From year 2, just €600/year.</>
                   : locale === "eu"
                   ? <>Zuk <strong>1.300€ behin</strong> ordaintzen duzu, lehen urte osoa barne: ia 4.900€-ko aldea agentzia batek kobratzen duenaren aldean. 2. urtetik, 600€/urteko bakarrik.</>
-                  : <>Vous payez <strong>1 300 € une fois</strong>, avec toute la première année incluse : presque 4 900 € de différence par rapport à ce que facture une agence. À partir de l'année 2, seulement 600 €/an.</>}
+                  : <>Vous payez <strong>1 300 € une fois</strong>, avec toute la première année incluse : presque 4 900 € de différence par rapport à ce que facture une agence. À partir de l{"'"}année 2, seulement 600 €/an.</>}
               </p>
             </div>
           </div>

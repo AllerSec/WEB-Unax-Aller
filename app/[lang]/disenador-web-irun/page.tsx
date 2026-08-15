@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Irun",
-    en: "Web Designer in Irun, Gipuzkoa",
-    eu: "Web Diseinatzailea Irunen",
-    fr: "Créateur de Site Web à Irun, Gipuzkoa",
+    es: "Diseño web en Irun",
+    en: "Web design in Irun, Gipuzkoa",
+    eu: "Web diseinua Irunen",
+    fr: "Création de site web à Irun, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance en Irun. Webs a medida para comercios, hostelería, clínicas y despachos de Irun, Hondarribia y el Bidasoa, con SEO local y Google Maps. Pago único de 1.300€ + IVA, primer año incluido.",

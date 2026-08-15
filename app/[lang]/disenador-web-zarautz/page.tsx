@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Zarautz, Gipuzkoa",
-    en: "Web Designer in Zarautz, Gipuzkoa",
-    eu: "Web Diseinatzailea Zarautzen, Gipuzkoan",
-    fr: "Créateur de Site Web à Zarautz, Gipuzkoa",
+    es: "Diseño web en Zarautz, Gipuzkoa",
+    en: "Web design in Zarautz, Gipuzkoa",
+    eu: "Web diseinua Zarautzen, Gipuzkoan",
+    fr: "Création de site web à Zarautz, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para hostelería, surf shops y comercio premium de Zarautz. Webs a medida con SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",

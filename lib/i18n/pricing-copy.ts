@@ -2,7 +2,7 @@
 //   · One website, one price: 1.300€ + IVA, paid once.
 //   · First year of maintenance (domain, hosting, support, changes) included.
 //   · From year 2: 600€/year (≈50€/month) to keep it online and looked after.
-//   · Anchor is UPWARD now: a local agency charges 2.500–5.000€ just for the
+//   · Anchor is UPWARD now: a local agency charges 2.500-5.000€ just for the
 //     design, so 1.300€ with the first year solved reads as a deal.
 //   · Hook turns the owner's real objection ("they forget they even have a
 //     website") into the promise: it works while you forget about it.
@@ -109,7 +109,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
         priceNum: "€1,300",
         upfront: "+ VAT · paid once",
         priceNote: "First year of maintenance included. From year 2: €600/year (≈€50/month).",
-        reframe: "A local agency charges €2,500–5,000 just for the design. Here you get it with the whole first year solved.",
+        reframe: "A local agency charges €2,500-5,000 just for the design. Here you get it with the whole first year solved.",
         features: [
           { label: "Hand-built site, live in a week", on: true },
           { label: "Custom design built to capture from a phone", on: true },
@@ -117,7 +117,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           { label: "Domain + hosting included the first year", on: true },
           { label: "Content changes included the first year (text, photos, prices, hours)", on: true },
           { label: "Same-day WhatsApp support", on: true },
-          { label: "The site is yours. No monthly fee — just yearly maintenance from year 2.", on: true },
+          { label: "The site is yours. No monthly fee: just yearly maintenance from year 2.", on: true },
         ],
         cta: "I want my website →",
         whatsapp: "Hi Unax, I'm interested in the website (€1,300 + VAT, first year included)",
@@ -160,7 +160,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
         priceNum: "1.300€",
         upfront: "+ BEZ · behin ordaindua",
         priceNote: "Lehen urteko mantentze-lana barne. 2. urtetik: 600€/urteko (≈50€/hilean).",
-        reframe: "Tokiko agentzia batek 2.500–5.000€ kobratzen ditu diseinuagatik bakarrik. Hemen lehen urte osoa konponduta daukazu.",
+        reframe: "Tokiko agentzia batek 2.500-5.000€ kobratzen ditu diseinuagatik bakarrik. Hemen lehen urte osoa konponduta daukazu.",
         features: [
           { label: "Eskuz egindako weba, aste batean sarean", on: true },
           { label: "Mugikorretik harrapatzeko neurrira egindako diseinua", on: true },
@@ -168,7 +168,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           { label: "Domeinua + hostinga barne lehen urtean", on: true },
           { label: "Edukiaren aldaketak barne lehen urtean (testua, argazkiak, prezioak, ordutegiak)", on: true },
           { label: "Egun bereko WhatsApp laguntza", on: true },
-          { label: "Weba zurea da. Hileko kuotarik gabe — 2. urtetik soilik urteko mantentze-lana.", on: true },
+          { label: "Weba zurea da. Hileko kuotarik gabe: 2. urtetik soilik urteko mantentze-lana.", on: true },
         ],
         cta: "Nire weba nahi dut →",
         whatsapp: "Kaixo Unax, weba interesatzen zait (1.300€ + BEZ, lehen urtea barne)",
@@ -211,7 +211,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
         priceNum: "1 300 €",
         upfront: "+ TVA · paiement unique",
         priceNote: "Première année de maintenance incluse. À partir de l'année 2 : 600 €/an (≈50 €/mois).",
-        reframe: "Une agence locale facture 2 500–5 000 € rien que pour le design. Ici, vous avez toute la première année réglée.",
+        reframe: "Une agence locale facture 2 500-5 000 € rien que pour le design. Ici, vous avez toute la première année réglée.",
         features: [
           { label: "Site codé à la main, en ligne en une semaine", on: true },
           { label: "Design sur mesure pensé pour capter depuis un mobile", on: true },
@@ -219,7 +219,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
           { label: "Nom de domaine + hébergement inclus la première année", on: true },
           { label: "Modifications de contenu incluses la première année (textes, photos, prix, horaires)", on: true },
           { label: "Support WhatsApp le jour même", on: true },
-          { label: "Le site est à vous. Sans abonnement mensuel — seulement la maintenance annuelle à partir de l'année 2.", on: true },
+          { label: "Le site est à vous. Sans abonnement mensuel : seulement la maintenance annuelle à partir de l'année 2.", on: true },
         ],
         cta: "Je veux mon site →",
         whatsapp: "Bonjour Unax, je suis intéressé(e) par le site (1 300 € + TVA, première année incluse)",
@@ -262,7 +262,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
       priceNum: "1.300€",
       upfront: "+ IVA · pago único",
       priceNote: "Primer año de mantenimiento incluido. A partir del año 2: 600€/año (≈50€/mes).",
-      reframe: "Una agencia cobra 2.500–5.000€ solo por el diseño. Aquí la tienes con el primer año entero resuelto.",
+      reframe: "Una agencia cobra 2.500-5.000€ solo por el diseño. Aquí la tienes con el primer año entero resuelto.",
       features: [
         { label: "La web programada a mano, online en una semana", on: true },
         { label: "Diseño a medida pensado para captar desde el móvil", on: true },
@@ -270,7 +270,7 @@ export function buildPlans(locale: Locale): PricingPlan[] {
         { label: "Dominio + hosting incluidos el primer año", on: true },
         { label: "Cambios de contenido incluidos el primer año (textos, fotos, precios, horarios)", on: true },
         { label: "Soporte por WhatsApp el mismo día", on: true },
-        { label: "La web es tuya. Sin cuota mensual — solo el mantenimiento anual desde el 2º año.", on: true },
+        { label: "La web es tuya. Sin cuota mensual: solo el mantenimiento anual desde el 2º año.", on: true },
       ],
       cta: "Quiero mi web →",
       whatsapp: "Hola Unax, me interesa la web (1.300€ + IVA, primer año incluido)",

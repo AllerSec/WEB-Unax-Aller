@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Tolosa, Gipuzkoa",
-    en: "Web Designer in Tolosa, Gipuzkoa",
-    eu: "Web Diseinatzailea Tolosan, Gipuzkoan",
-    fr: "Créateur de Site Web à Tolosa, Gipuzkoa",
+    es: "Diseño web en Tolosa, Gipuzkoa",
+    en: "Web design in Tolosa, Gipuzkoa",
+    eu: "Web diseinua Tolosan, Gipuzkoan",
+    fr: "Création de site web à Tolosa, Gipuzkoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Tolosa: gastronomía, industria papelera, comercio y servicios. Webs a medida, SEO local. Pago único de 1.300€ + IVA, con el primer año incluido.",

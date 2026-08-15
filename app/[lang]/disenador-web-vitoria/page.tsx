@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Vitoria-Gasteiz, Álava",
-    en: "Web Designer in Vitoria-Gasteiz, Álava",
-    eu: "Web Diseinatzailea Gasteizen, Araban",
-    fr: "Créateur de Site Web à Vitoria-Gasteiz, Alava",
+    es: "Diseño web en Vitoria-Gasteiz, Álava",
+    en: "Web design in Vitoria-Gasteiz, Álava",
+    eu: "Web diseinua Gasteizen, Araban",
+    fr: "Création de site web à Vitoria-Gasteiz, Alava",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Vitoria-Gasteiz y Álava. Webs a medida con SEO local, diseño premium y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",

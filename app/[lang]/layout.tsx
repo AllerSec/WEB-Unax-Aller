@@ -38,7 +38,6 @@ export default async function LangLayout({ children, params }: Props) {
           client-inert <Script> warning that next/script triggers in a nested
           body. */}
       <script
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: `document.documentElement.lang=${JSON.stringify(locale)}`,
         }}

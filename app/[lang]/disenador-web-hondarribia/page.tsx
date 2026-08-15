@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = lang as "es" | "en" | "eu" | "fr";
 
   const titles: Record<string, string> = {
-    es: "Diseñador Web en Hondarribia",
-    en: "Web Designer in Hondarribia",
-    eu: "Web Diseinatzailea Hondarribian",
-    fr: "Créateur de Site Web à Hondarribia, Guipuscoa",
+    es: "Diseño web en Hondarribia",
+    en: "Web design in Hondarribia",
+    eu: "Web diseinua Hondarribian",
+    fr: "Création de site web à Hondarribia, Guipuscoa",
   };
   const descriptions: Record<string, string> = {
     es: "Diseñador web freelance para negocios de Hondarribia. A 5 km de Irun. Webs a medida con SEO local, diseño premium y rendimiento. Pago único de 1.300€ + IVA, con el primer año incluido.",
